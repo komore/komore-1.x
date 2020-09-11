@@ -36,7 +36,8 @@
             "tsConfig": "modules/command/tsconfig.lib.json",
             "packageJson": "modules/command/package.json",
             "main": "modules/command/src/index.ts",
-            "assets": ["modules/command/*.md"]
+            "assets": ["modules/command/*.md"],
+            "srcRootForCompilationRoot": "modules\\command\\src"
           }
         }
       }
@@ -107,7 +108,8 @@
             "tsConfig": "modules/event/tsconfig.lib.json",
             "packageJson": "modules/event/package.json",
             "main": "modules/event/src/index.ts",
-            "assets": ["modules/event/*.md"]
+            "assets": ["modules/event/*.md"],
+            "srcRootForCompilationRoot": "modules\\event\\src"
           }
         }
       }
@@ -143,7 +145,8 @@
             "tsConfig": "modules/event/aws/dynamodb/tsconfig.lib.json",
             "packageJson": "modules/event/aws/dynamodb/package.json",
             "main": "modules/event/aws/dynamodb/src/index.ts",
-            "assets": ["modules/event/aws/dynamodb/*.md"]
+            "assets": ["modules/event/aws/dynamodb/*.md"],
+            "srcRootForCompilationRoot": "modules\\event\\aws\\dynamodb\\src"
           }
         }
       }
@@ -176,7 +179,8 @@
             "tsConfig": "modules/event/testing/tsconfig.lib.json",
             "packageJson": "modules/event/testing/package.json",
             "main": "modules/event/testing/src/index.ts",
-            "assets": ["modules/event/testing/*.md"]
+            "assets": ["modules/event/testing/*.md"],
+            "srcRootForCompilationRoot": "modules\\event\\testing\\src"
           }
         }
       }
@@ -209,7 +213,8 @@
             "tsConfig": "modules/function/tsconfig.lib.json",
             "packageJson": "modules/function/package.json",
             "main": "modules/function/src/index.ts",
-            "assets": ["modules/function/*.md"]
+            "assets": ["modules/function/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\src"
           }
         }
       }
@@ -242,7 +247,8 @@
             "tsConfig": "modules/function/azure/tsconfig.lib.json",
             "packageJson": "modules/function/azure/package.json",
             "main": "modules/function/azure/src/index.ts",
-            "assets": ["modules/function/azure/*.md"]
+            "assets": ["modules/function/azure/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\azure\\src"
           }
         }
       }
@@ -275,7 +281,8 @@
             "tsConfig": "modules/function/google/tsconfig.lib.json",
             "packageJson": "modules/function/google/package.json",
             "main": "modules/function/google/src/index.ts",
-            "assets": ["modules/function/google/*.md"]
+            "assets": ["modules/function/google/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\google\\src"
           }
         }
       }
@@ -308,7 +315,8 @@
             "tsConfig": "modules/function/lambda/tsconfig.lib.json",
             "packageJson": "modules/function/lambda/package.json",
             "main": "modules/function/lambda/src/index.ts",
-            "assets": ["modules/function/lambda/*.md"]
+            "assets": ["modules/function/lambda/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\lambda\\src"
           }
         }
       }
@@ -341,7 +349,8 @@
             "tsConfig": "modules/function/openfaas/tsconfig.lib.json",
             "packageJson": "modules/function/openfaas/package.json",
             "main": "modules/function/openfaas/src/index.ts",
-            "assets": ["modules/function/openfaas/*.md"]
+            "assets": ["modules/function/openfaas/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\openfaas\\src"
           }
         }
       }
@@ -374,7 +383,8 @@
             "tsConfig": "modules/function/testing/tsconfig.lib.json",
             "packageJson": "modules/function/testing/package.json",
             "main": "modules/function/testing/src/index.ts",
-            "assets": ["modules/function/testing/*.md"]
+            "assets": ["modules/function/testing/*.md"],
+            "srcRootForCompilationRoot": "modules\\function\\testing\\src"
           }
         }
       }
@@ -407,7 +417,8 @@
             "tsConfig": "modules/integration/tsconfig.lib.json",
             "packageJson": "modules/integration/package.json",
             "main": "modules/integration/src/index.ts",
-            "assets": ["modules/integration/*.md"]
+            "assets": ["modules/integration/*.md"],
+            "srcRootForCompilationRoot": "modules\\integration\\src"
           }
         }
       }
@@ -440,7 +451,8 @@
             "tsConfig": "modules/integration/aws/tsconfig.lib.json",
             "packageJson": "modules/integration/aws/package.json",
             "main": "modules/integration/aws/src/index.ts",
-            "assets": ["modules/integration/aws/*.md"]
+            "assets": ["modules/integration/aws/*.md"],
+            "srcRootForCompilationRoot": "modules\\integration\\aws\\src"
           }
         }
       }
@@ -455,7 +467,10 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["modules/integration/aws/s3/tsconfig.lib.json", "modules/integration/aws/s3/tsconfig.spec.json"],
+            "tsConfig": [
+              "modules/integration/aws/s3/tsconfig.lib.json",
+              "modules/integration/aws/s3/tsconfig.spec.json"
+            ],
             "exclude": ["**/node_modules/**", "!modules/integration/aws/s3/src/**/*"]
           }
         },
@@ -473,7 +488,8 @@
             "tsConfig": "modules/integration/aws/s3/tsconfig.lib.json",
             "packageJson": "modules/integration/aws/s3/package.json",
             "main": "modules/integration/aws/s3/src/index.ts",
-            "assets": ["modules/integration/aws/s3/*.md"]
+            "assets": ["modules/integration/aws/s3/*.md"],
+            "srcRootForCompilationRoot": "modules\\integration\\aws\\s3\\src"
           }
         }
       }
@@ -488,7 +504,10 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["modules/integration/testing/tsconfig.lib.json", "modules/integration/testing/tsconfig.spec.json"],
+            "tsConfig": [
+              "modules/integration/testing/tsconfig.lib.json",
+              "modules/integration/testing/tsconfig.spec.json"
+            ],
             "exclude": ["**/node_modules/**", "!modules/integration/testing/src/**/*"]
           }
         },
@@ -539,7 +558,8 @@
             "tsConfig": "modules/process/tsconfig.lib.json",
             "packageJson": "modules/process/package.json",
             "main": "modules/process/src/index.ts",
-            "assets": ["modules/process/*.md"]
+            "assets": ["modules/process/*.md"],
+            "srcRootForCompilationRoot": "modules\\process\\src"
           }
         }
       }
@@ -586,7 +606,8 @@
                 "input": "modules/vscode/locales/",
                 "output": "./locales"
               }
-            ]
+            ],
+            "srcRootForCompilationRoot": "modules\\vscode\\src"
           }
         }
       }
