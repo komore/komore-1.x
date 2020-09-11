@@ -1,0 +1,15 @@
+import { createCommand } from './create-command';
+import { schema } from './command-schema';
+
+/**
+ * Create command typing specification
+ */
+describe('Create command', () => {
+  const commandType = 't';
+  const ac = createCommand(commandType); // $ExpectType CommandCreator<'t', void>
+  const bc = createCommand(commandType, schema<{ u: number }>()); // $ExpectType CommandCreator<'t', { u: number }>
+  const a = ac(); // $ExpectType { type: 't'; }
+  const aError = ac({}); // $ExpectError
+  const b = bc({ u: 42 }); // $ExpectType { type: 't', u: number }
+  const bError = bc(); // $ExpectError
+});

@@ -1,0 +1,10 @@
+{
+  "view": {
+    "contexts": {
+      "title": "Bounded Contexts"
+    },
+    "help": {
+      "title": "Help & Feedback"
+    }
+  }
+}

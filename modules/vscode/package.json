@@ -1,0 +1,118 @@
+{
+  "name": "@komore/vscode",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "icon": "icon.png",
+  "publisher": "agora",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Agora",
+    "email": "contact@komore.dev"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "bugs": {
+    "url": "https://github.com/agora-cloud/komore/issues"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "komore.openApi",
+        "title": "%command.openApi%"
+      },
+      {
+        "command": "komore.openBoundedContext",
+        "title": "%command.openBoundedContext%"
+      },
+      {
+        "command": "komore.openCommandHandler",
+        "title": "%command.openCommandHandler%"
+      },
+      {
+        "command": "komore.openCommandHandlerFunction",
+        "title": "%command.openCommandHandlerFunction%"
+      },
+      {
+        "command": "komore.openCommandStore",
+        "title": "%command.openCommandStore%"
+      },
+      {
+        "command": "komore.openEventReducer",
+        "title": "%command.openEventReducer%"
+      },
+      {
+        "command": "komore.openEventStore",
+        "title": "%command.openEventStore%"
+      },
+      {
+        "command": "komore.openStack",
+        "title": "%command.openStack%"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "komore",
+      "properties": {
+        "komore.devServer": {
+          "type": "object",
+          "description": "Development Server settings",
+          "properties": {
+            "configuration.path": {
+              "scope": "resource",
+              "type": "string",
+              "default": "komore.json",
+              "description": "Path to the komore configuration file"
+            }
+          }
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "komore-console",
+          "title": "%activitybar.komore%",
+          "icon": "assets/icons/activitybar.svg"
+        }
+      ]
+    },
+    "views": {
+      "komore-console": [
+        {
+          "id": "komore-stack-tree",
+          "name": "%view.komore-stack-tree.title%"
+        },
+        {
+          "id": "komore-help-tree",
+          "name": "%view.komore-help.title%"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "homepage": "https://komore.dev",
+  "keywords": ["vscode", "komore", "typescript", "aws", "gcp", "azure"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agora-cloud/komore"
+  },
+  "dependencies": {
+    "vscode-nls": "*"
+  },
+  "devDependencies": {
+    "@types/vscode": "*"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations":[
+    {
+      "name": "Extension",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/dist/modules/vscode"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/dist/modules/vscode/**/*.js"
+      ],
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "type": "extensionHost",
+      "preLaunchTask": "build-vscode-watch"
+    }
+  ]
+}

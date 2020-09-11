@@ -1,0 +1,77 @@
+{
+  "npmScope": "komore",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tslint.json": "*",
+    "nx.json": "*",
+    "tsconfig.base.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "command": {
+      "tags": ["scope:command"]
+    },
+    "event": {
+      "tags": ["scope:event"]
+    },
+    "event-aws-dynamodb": {
+      "tags": ["scope:event", "type:provider", "provider:aws"]
+    },
+    "event-testing": {
+      "tags": ["scope:event", "type:testing"]
+    },
+    "function": {
+      "tags": ["scope:function"]
+    },
+    "function-azure": {
+      "tags": ["scope:function", "type:provider", "provider:azure"]
+    },
+    "function-google": {
+      "tags": ["scope:function", "type:provider", "provider:google"]
+    },
+    "function-lambda": {
+      "tags": ["scope:function", "type:provider", "provider:aws"]
+    },
+    "function-openfaas": {
+      "tags": ["scope:function", "type:provider", "provider:openfaas"]
+    },
+    "function-testing": {
+      "tags": ["scope:function", "type:testing"]
+    },
+    "integration": {
+      "tags": ["scope:integration"]
+    },
+    "integration-aws": {
+      "tags": ["scope:integration", "provider:aws"]
+    },
+    "integration-aws-s3": {
+      "tags": ["scope:integration", "provider:aws"]
+    },
+    "integration-testing": {
+      "tags": ["scope:integration", "type:testing"]
+    },
+    "process": {
+      "tags": ["scope:process"]
+    },
+    "vscode": {
+      "tags": ["scope:vscode", "type:tool"]
+    },
+    "dev-server": {
+      "tags": ["scope:dev-server", "type:tool"]
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  }
+}

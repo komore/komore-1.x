@@ -1,0 +1,5 @@
+<!-- Command = exclamation mark, Query = question mark -->
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path fill="#ff00ff" d="M0,0h20v20z"/>
+<path fill="#ff00ff" d="M20,20h24v24h-14z"/>
+</svg>
