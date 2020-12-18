@@ -5,6 +5,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: '../../coverage/event-testing',
+  coverageDirectory: '../../../coverage/event-testing',
   globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
 };

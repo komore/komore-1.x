@@ -18,57 +18,385 @@
       }
     }
   },
+  "workspaceLayout": {
+    "libsDir": "modules"
+  },
   "projects": {
+    "api": {
+      "tags": ["scope:api", "trait:base"]
+    },
+    "api-graphql": {
+      "tags": ["scope:api"]
+    },
+    "api-http": {
+      "tags": ["scope:api"]
+    },
+    "application": {
+      "tags": ["scope:application", "trait:base"]
+    },
+    "application-updater": {
+      "tags": ["scope:application"]
+    },
     "command": {
-      "tags": ["scope:command"]
+      "tags": ["scope:command", "trait:base"]
+    },
+    "command-testing": {
+      "tags": ["scope:command", "trait:testing"]
+    },
+    "core": {
+      "tags": ["scope:core"]
+    },
+    "data": {
+      "tags": ["scope:data"]
+    },
+    "devserver": {
+      "tags": ["scope:devserver", "trait:cli"]
+    },
+    "devserver-core": {
+      "tags": ["scope:devserver", "trait:base"]
+    },
+    "devserver-local": {
+      "tags": ["scope:devserver", "trait:local"]
+    },
+    "devserver-local-amazon": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-apigateway": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-appsync": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-cloudwatch": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-cloudwatchlogs": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-dynamodb": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-kinesis": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-lambda": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-s3": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-sns": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-amazon-sqs": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
+    "devserver-local-azure": {
+      "tags": ["scope:devserver", "trait:local", "provider:azure"]
+    },
+    "devserver-local-google": {
+      "tags": ["scope:devserver", "trait:local", "provider:google"]
+    },
+    "element": {
+      "tags": ["scope:element", "trait:base"]
     },
     "event": {
-      "tags": ["scope:event"]
+      "tags": ["scope:event", "trait:base"]
     },
-    "event-aws-dynamodb": {
-      "tags": ["scope:event", "type:provider", "provider:aws"]
+    "event-store": {
+      "tags": ["scope:event", "scope:event-store"]
+    },
+    "event-store-amazon": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"]
+    },
+    "event-store-amazon-aurora": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"]
+    },
+    "event-store-amazon-dynamodb": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"]
+    },
+    "event-store-azure": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"]
+    },
+    "event-store-azure-cosmos": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"]
+    },
+    "event-store-gcp": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
+    },
+    "event-store-gcp-bigtable": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
+    },
+    "event-store-indexeddb": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider"]
     },
     "event-testing": {
-      "tags": ["scope:event", "type:testing"]
+      "tags": ["scope:event", "trait:testing"]
     },
     "function": {
-      "tags": ["scope:function"]
+      "tags": ["scope:function", "trait:base"]
+    },
+    "function-alexa": {
+      "tags": ["scope:function", "trait:provider", "provider:alexa"]
     },
     "function-azure": {
-      "tags": ["scope:function", "type:provider", "provider:azure"]
+      "tags": ["scope:function", "trait:provider", "provider:azure"]
     },
     "function-google": {
-      "tags": ["scope:function", "type:provider", "provider:google"]
+      "tags": ["scope:function", "trait:provider", "provider:google"]
     },
     "function-lambda": {
-      "tags": ["scope:function", "type:provider", "provider:aws"]
+      "tags": ["scope:function", "trait:provider", "provider:amazon"]
     },
     "function-openfaas": {
-      "tags": ["scope:function", "type:provider", "provider:openfaas"]
+      "tags": ["scope:function", "trait:provider", "provider:openfaas"]
     },
     "function-testing": {
-      "tags": ["scope:function", "type:testing"]
+      "tags": ["scope:function", "trait:testing"]
+    },
+    "graph": {
+      "tags": ["scope:graph", "trait:base"]
+    },
+    "graph-operators": {
+      "tags": ["scope:graph"]
+    },
+    "graph-testing": {
+      "tags": ["scope:graph", "trait:testing"]
     },
     "integration": {
       "tags": ["scope:integration"]
     },
-    "integration-aws": {
-      "tags": ["scope:integration", "provider:aws"]
+    "integration-alexa": {
+      "tags": ["scope:integration", "trait:provider", "provider:alexa"]
     },
-    "integration-aws-s3": {
-      "tags": ["scope:integration", "provider:aws"]
+    "integration-amazon": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-aurora": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-chime": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-comprehend": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-dynamodb": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-kinesis": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-lambda": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-neptune": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-polly": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-redshift": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-rekognition": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-route53": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-s3": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-ses": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-sns": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-sqs": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-transcribe": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-translate": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-xray": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-azure": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cognitiveservices": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cognitiveservices-computervision": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cognitiveservices-contentmoderator": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cognitiveservices-face": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cognitiveservices-formrecognizer": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-cosmos": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-storage": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-storage-blob": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-textanalytics": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-discord": {
+      "tags": ["scope:integration", "trait:provider", "provider:discord"]
+    },
+    "integration-gcp": {
+      "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-gcp-bigtable": {
+      "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-stripe": {
+      "tags": ["scope:integration", "trait:provider", "provider:stripe"]
     },
     "integration-testing": {
-      "tags": ["scope:integration", "type:testing"]
+      "tags": ["scope:integration", "trait:testing"]
+    },
+    "integration-twitter": {
+      "tags": ["scope:integration", "trait:provider", "provider:twitter"]
+    },
+    "layer": {
+      "tags": ["scope:layer", "trait:base"]
+    },
+    "layer-file": {
+      "tags": ["scope:layer"]
+    },
+    "layer-image": {
+      "tags": ["scope:layer"]
+    },
+    "layer-testing": {
+      "tags": ["scope:layer", "trait:testing"]
+    },
+    "layer-text": {
+      "tags": ["scope:layer"]
+    },
+    "message": {
+      "tags": ["scope:message", "trait:base"]
+    },
+    "message-testing": {
+      "tags": ["scope:message", "trait:testing"]
+    },
+    "observability": {
+      "tags": ["scope:observability", "trait:base"]
+    },
+    "observability-driver": {
+      "tags": ["scope:observability"]
+    },
+    "observability-driver-amazon": {
+      "tags": ["scope:observability", "trait:provider", "provider:amazon"]
+    },
+    "observability-driver-azure": {
+      "tags": ["scope:observability", "trait:provider", "provider:azure"]
+    },
+    "observability-driver-gcp": {
+      "tags": ["scope:observability", "trait:provider", "provider:google"]
+    },
+    "observability-driver-local": {
+      "tags": ["scope:observability", "trait:provider", "provider:local"]
+    },
+    "observability-logging": {
+      "tags": ["scope:observability"]
+    },
+    "observability-metrics": {
+      "tags": ["scope:observability"]
+    },
+    "observability-testing": {
+      "tags": ["scope:observability", "trait:testing"]
+    },
+    "observability-tracing": {
+      "tags": ["scope:observability"]
     },
     "process": {
-      "tags": ["scope:process"]
+      "tags": ["scope:process", "trait:base"]
+    },
+    "process-testing": {
+      "tags": ["scope:process", "trait:testing"]
+    },
+    "query": {
+      "tags": ["scope:query", "trait:base"]
+    },
+    "query-testing": {
+      "tags": ["scope:query", "trait:testing"]
+    },
+    "validation": {
+      "tags": ["scope:validation", "trait:base"]
+    },
+    "validation-testing": {
+      "tags": ["scope:validation", "trait:testing"]
     },
     "vscode": {
-      "tags": ["scope:vscode", "type:tool"]
+      "tags": ["scope:vscode", "trait:extension"]
     },
-    "dev-server": {
-      "tags": ["scope:dev-server", "type:tool"]
+    "web": {
+      "tags": ["scope:web", "trait:base"]
+    },
+    "web-authentication": {
+      "tags": ["scope:web"]
+    },
+    "web-form": {
+      "tags": ["scope:web"]
+    },
+    "web-gamepad": {
+      "tags": ["scope:web"]
+    },
+    "web-geolocation": {
+      "tags": ["scope:web"]
+    },
+    "web-http": {
+      "tags": ["scope:web"]
+    },
+    "web-http-sse": {
+      "tags": ["scope:web"]
+    },
+    "web-http-websocket": {
+      "tags": ["scope:web"]
+    },
+    "web-media": {
+      "tags": ["scope:web"]
+    },
+    "web-observer": {
+      "tags": ["scope:web"]
+    },
+    "web-router": {
+      "tags": ["scope:web"]
+    },
+    "web-speech": {
+      "tags": ["scope:web"]
+    },
+    "web-storage": {
+      "tags": ["scope:web"]
+    },
+    "web-storage-indexeddb": {
+      "tags": ["scope:web"]
+    },
+    "web-testing": {
+      "tags": ["scope:web", "trait:testing"]
+    },
+    "website": {
+      "tags": ["scope:website"]
+    },
+    "website-e2e": {
+      "tags": ["scope:website"],
+      "implicitDependencies": ["website"]
     }
   },
   "affected": {

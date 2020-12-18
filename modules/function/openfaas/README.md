@@ -1,4 +1,4 @@
-# komore OpenFaaS Function Environment Module
+# komore Function - OpenFaaS
 
 Support for the [OpenFaaS] execution environment.
 
@@ -7,10 +7,9 @@ Support for the [OpenFaaS] execution environment.
 The provider is passed via the function configuration:
 
 ```typescript
-import { OpenFaaSFunctionProvider } from '@komore/function/openfaas';
+import { openFaaSProvider } from '@komore/function-openfaas';
 
-export const exampleFunction = createFunction({ providers: [OpenFaaSFunctionProvider] }).pipe(
-  tap(({ message }) => console.log('message', message)),
-  mapTo({ hello: 'world' })
-);
+export const exampleFunction = createFunction({
+  providers: [openFaaSProvider]
+});
 ```

@@ -1,1 +1,1 @@
-# komore Integration Module
+# komore Integration

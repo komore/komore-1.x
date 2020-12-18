@@ -1,4 +1,15 @@
-# Add files here to ignore them from prettier formatting
-
 /dist
 /coverage
+
+# Local development server endpoints
+/modules/dev-server/local/amazon/api-gateway/src/with-apigateway-endpoints.ts
+/modules/dev-server/local/amazon/app-sync/src/with-apisync-endpoints.ts
+/modules/dev-server/local/amazon/cloudwatch/src/with-cloudwatch-endpoints.ts
+/modules/dev-server/local/amazon/cloudwatch-logs/src/with-cloudwatchlogs-endpoints.ts
+/modules/dev-server/local/amazon/dynamodb/src/with-dynamodb-endpoints.ts
+/modules/dev-server/local/amazon/kinesis/src/with-kinesis-endpoints.ts
+/modules/dev-server/local/amazon/lambda/src/with-lambda-endpoints.ts
+/modules/dev-server/local/amazon/s3/src/with-s3-endpoints.ts
+/modules/dev-server/local/amazon/ses/src/with-ses-endpoints.ts
+/modules/dev-server/local/amazon/sns/src/with-sns-endpoints.ts
+/modules/dev-server/local/amazon/sqs/src/with-sqs-endpoints.ts

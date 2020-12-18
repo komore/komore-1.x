@@ -2,19 +2,29 @@ import { Context } from 'aws-lambda';
 
 /**
  * Lambda event handler
- * @template E Event type
- * @template R Result type
+ * @template EventType Event type
+ * @template ResultType Result type
  */
-export type LambdaEventHandler<E, R> = (event: E, context: Context) => Promise<R | void>;
+export type LambdaEventHandler<EventType, ResultType> = (event: EventType, context: Context) => Promise<ResultType>;
 
 /**
  * Lambda event handler event type
- * @template EH Event handler type
+ * @template LambdaEventHandlerType Lambda event handler type
  */
-export type LambdaEventHandlerEventType<EH> = EH extends LambdaEventHandler<infer E, any> ? E : never;
+export type LambdaEventHandlerEventType<LambdaEventHandlerType> = LambdaEventHandlerType extends LambdaEventHandler<
+  infer EventType,
+  any
+>
+  ? EventType
+  : never;
 
 /**
  * Lambda event handler result type
- * @template EH Event handler type
+ * @template LambdaEventHandlerType Lambda event handler type
  */
-export type LambdaEventHandlerResultType<EH> = EH extends LambdaEventHandler<any, infer R> ? R : never;
+export type LambdaEventHandlerResultType<LambdaEventHandlerType> = LambdaEventHandlerType extends LambdaEventHandler<
+  any,
+  infer ResultType
+>
+  ? ResultType
+  : never;

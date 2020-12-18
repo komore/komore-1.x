@@ -1,22 +1,14 @@
-import {
-  ListObjectsV2Command,
-  ListObjectsV2CommandInput,
-  ListObjectsV2CommandOutput,
-  S3Client
-} from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration/aws';
-import { Observable } from 'rxjs';
-import { getS3Client } from './get-s3-client';
+import { ListObjectsV2Command, ListObjectsV2CommandInput, S3Client } from '@aws-sdk/client-s3';
+import { sendCommand } from '@komore/integration-aws';
 
 /**
  * Lists objects in an S3 bucket
- * @param commandInput List-Objects-v2 command input
+ * @param commandInput ListObjectsV2 command input
  * @param s3Client S3 client
- * @returns Observable List-Objects-v2 command output
+ * @returns List of objects
+ * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html ListObjectsV2}
  */
-export function listObjects(
-  commandInput: ListObjectsV2CommandInput,
-  s3Client?: S3Client
-): Observable<ListObjectsV2CommandOutput> {
-  return sendCommand(new ListObjectsV2Command(commandInput), getS3Client(s3Client));
-}
+export const listObjects = (s3Client: S3Client, commandInput: ListObjectsV2CommandInput) =>
+  sendCommand(s3Client, new ListObjectsV2Command(commandInput));
+
+// TODO: remove 1k objects limit

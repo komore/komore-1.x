@@ -1,0 +1,30 @@
+import { OperatorFunction, pipe } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { Message } from '../message';
+import { Sink } from './sink';
+
+export function to<
+  InputType,
+  OutputType,
+  MessageTypeName extends string,
+  MessageMetadataType extends object,
+  MessageInputType extends InputType,
+  MessageOutputType,
+  MessageOutputTypeResult = OutputType
+>(
+  flow: Sink<InputType, OutputType>,
+  project?: (message: Message<MessageTypeName, MessageMetadataType, MessageInputType, MessageOutputType>) => InputType,
+  projectResult?: (output: OutputType) => MessageOutputTypeResult
+): OperatorFunction<
+  Message<MessageTypeName, MessageMetadataType, MessageInputType, MessageOutputType>,
+  Message<MessageTypeName, MessageMetadataType, MessageInputType, MessageOutputTypeResult>
+> {
+  return mergeMap(message =>
+    flow(message)(project ? project(message) : message.input).pipe(
+      map(output => ({
+        ...message,
+        output: (projectResult ? projectResult(output) : output) as MessageOutputTypeResult // TODO: avoid cast
+      }))
+    )
+  );
+}

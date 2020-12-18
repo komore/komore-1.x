@@ -1,9 +1,7 @@
 module.exports = {
-  name: 'komore-aws-kinesis',
+  testMatch: ['**/modules/integration/aws/kinesis/src/**/*.spec.ts'],
+  name: 'integration-aws-kinesis',
   preset: '../../../../jest.config.js',
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: '../../../../coverage/komore/aws-kinesis'
+  coverageDirectory: '../../../../coverage/integration-aws-kinesis',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
 };

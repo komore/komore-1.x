@@ -1,0 +1,85 @@
+:host {
+  --item-padding: 16px;
+  background-color: #ffffff;
+  padding: 16px 0px 64px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.375);
+  }
+
+  .cdk-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cdk-tree-node {
+    display: flex;
+    flex-direction: column;
+
+    > span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 32px;
+      padding-left: var(--item-padding);
+      text-transform: uppercase;
+
+      > a, > label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #6e6e6e;
+        font-size: 14px;
+        font-weight: 400;
+        text-decoration: none;
+        flex: 1;
+        align-self: stretch;
+
+        &.active {
+          color: var(--komore-primary);
+        }
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.125);
+        > a {
+          color: var(--komore-primary);
+        }
+      }
+    }
+
+    > div:not(.expanded) {
+      display: none;
+    }
+
+    .cdk-tree-node {
+      > span {
+        text-transform: none;
+        padding-left: calc(var(--item-padding) * 2);
+      }
+
+      .cdk-tree-node {
+        > span {
+          padding-left: calc(var(--item-padding) * 3);
+        }
+
+        .cdk-tree-node {
+          > span {
+            padding-left: calc(var(--item-padding) * 4);
+          }
+        }
+      }
+    }
+  }
+}

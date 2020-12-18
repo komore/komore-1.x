@@ -1,3 +1,3 @@
-# komore Observability Module
+# komore Observability
 
 TODO: opentelemetry.io

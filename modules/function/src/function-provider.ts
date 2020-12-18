@@ -1,24 +1,15 @@
-import { FunctionEnvironment } from './function-environment';
-import { FunctionInput } from './function-input';
-import { FunctionOutput } from './function-output';
-import { Message } from './message';
+import { Message } from '@komore/message';
+import { FunctionInputType, FunctionOutputType, FunctionType } from './function-type';
 
 /**
  * Function provider
- * @template FI Function input type
- * @template FO Function output type
- * @template M Message type
+ * @template FunctionTypes Function types
  */
 export interface FunctionProvider<
-  FI extends FunctionInput<any, any>[],
-  FO extends FunctionOutput<any>[],
-  M extends Message<any, any>[]
+  FunctionTypes extends FunctionType<any, any>[],
+  MessageType extends Message<any, any, any, any>[]
 > {
-  /**
-   * Gets the provider name
-   * @returns Provider name
-   */
-  getProviderName(): string;
+  readonly name: string;
 
   /**
    * Tests whether the provider is available
@@ -31,28 +22,24 @@ export interface FunctionProvider<
    * @param functionArguments Function arguments
    * @returns true if the provider can handle the function call
    */
-  canHandle(functionArguments: ReadonlyArray<any>): boolean;
-
-  /**
-   * Gets the function environment
-   * @returns Function environment
-   */
-  getFunctionEnvironment(): FunctionEnvironment;
+  canHandle(functionArguments: ReadonlyArray<unknown>): boolean;
 
   /**
    * Builds a message
-   * @param functionInput Function input
+   * @param functionArguments Function input
    * @returns Message
    */
-  buildMessage(functionInput: FI[number]): M;
+  buildMessage<FunctionType extends FunctionTypes[number]>(
+    functionArguments: FunctionInputType<FunctionType>
+  ): MessageType[number];
 
   /**
    * Builds a function output
    * @param result Result
    * @returns Function output
-   * @template R Result type
+   * @template ResultType Result type
    */
-  buildFunctionOutput<R>(result: R): FO[number];
+  buildFunctionOutput<ResultType>(result: ResultType): FunctionOutputType<FunctionTypes[number]>;
 
   /**
    * Builds an error function output
@@ -60,9 +47,12 @@ export interface FunctionProvider<
    * @returns Function output
    * @template E Error type
    */
-  buildErrorFunctionOutput<E extends Error>(error: E): FO[number];
+  buildErrorFunctionOutput<E extends Error>(error: E): FunctionOutputType<FunctionTypes[number]>;
 }
 
-export type FunctionProviderFunctionInputType<FP> = FP extends FunctionProvider<infer FI, any, any> ? FI : never;
-export type FunctionProviderFunctionOutputType<FP> = FP extends FunctionProvider<any, infer FO, any> ? FO : never;
-export type FunctionProviderMessageType<FP> = FP extends FunctionProvider<any, any, infer M> ? M : never;
+export type FunctionProviderFunctionTypes<FunctionProviderType> = FunctionProviderType extends FunctionProvider<
+  infer FunctionTypes,
+  any
+>
+  ? FunctionTypes
+  : never;

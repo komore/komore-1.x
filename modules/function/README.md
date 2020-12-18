@@ -1,25 +1,39 @@
-# komore Function Module
+# komore Function
+
+## Lambda API Gateway function
 
 ```typescript
-import { createFunction, createFunctionConfiguration } from '@komore/function';
-import { AzureFunctionProvider } from '@komore/azure';
-import { GoogleFunctionProvider } from '@komore/google';
-import { LambdaFunctionProvider } from '@komore/lambda';
-import { OpenFaaSFunctionProvider } from '@komore/openfaas';
+import { fromFunction, toFunctionResult } from '@komore/function';
+import { lambdaFunction } from '@komore/function-lambda';
 
-const baseFunctionConfiguration = createFunctionConfiguration({
-  providers: [
-    AzureFunctionProvider,
-    GoogleFunctionProvider,
-    LambdaFunctionProvider,
-    OpenFaaSFunctionProvider
-  ]
-});
+const triggerTypes = lambdaTrigger('api-gateway');
 
-export const exampleFunction = createFunction({
-  ...baseFunctionConfiguration,
-  name: 'exampleFunction'
-}).pipe(
-  map(message => 42)
+
+const source$ = fromFunction(triggerTypes);
+// source$ is a FunctionSubject<FunctionArgumentTypes, MessageType> / Observable<MessageType>
+// source$.next([event, context]); sends the message downstream
+// source$(event, context); sends the message downstream and returns a promise
+// source$ could already be exported
+
+const graph$ = source$.pipe(
+  mapOutputTo('hello world')
+);
+
+const exampleFunction = createFunction('exampleFunction', source$, graph$, toFunctionResult(lambdaFunction('api-gateway')));
+
+import { fromFunction } from '@komore/function';
+import { apiGatewayRequest, apiGatewayResponse } from '@komore/function-lambda';
+
+
+const source$ = fromLambdaApiGatewayFunction
+const source$ = fromFunction('exampleFunction', lambdaFunction('api-gateway'));
+
+export const exampleFunction = fromFunction(
+  'exampleFunction',
+  apiGatewayRequest()
+).pipe(
+  from(lambdaApiGatewayRequest()),
+  mapOutput(({ input }) => input.property * 42),
+  to(lambdaApiGatewayResponse())/
 );
 ```

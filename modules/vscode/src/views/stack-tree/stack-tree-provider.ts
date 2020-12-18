@@ -19,7 +19,7 @@ export class StackTreeProvider implements TreeDataProvider<StackTreeItem> {
 
   /**
    * Gets a tree item from bounded context tree item
-   * @param element 
+   * @param element Element
    * @returns Tree item
    */
   getTreeItem(element: StackTreeItem): TreeItem {

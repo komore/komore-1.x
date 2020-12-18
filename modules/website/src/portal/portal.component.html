@@ -1,0 +1,8 @@
+<komore-header></komore-header>
+<komore-navigation
+  [navigationItems]="navigationItems$ | async">
+</komore-navigation>
+<main>
+  <router-outlet></router-outlet>
+  <komore-footer></komore-footer>
+</main>

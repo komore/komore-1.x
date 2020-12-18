@@ -3,6 +3,6 @@
 /**
  * Send command specification
  */
-describe('sendCommand', () => {
+describe('Send command', () => {
   it.skip('works', () => {});
 });

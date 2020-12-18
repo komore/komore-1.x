@@ -1,0 +1,66 @@
+import { Observable, Observer, OperatorFunction, PartialObserver, race, Subscriber, Subscription, throwError } from 'rxjs';
+import { catchError, first, mergeMap, tap } from 'rxjs/operators';
+import { Message } from '../message';
+import { Source, SourceOutputMessageType } from './source';
+
+type ObservableValueType<ObservableType extends Observable<any>> = ObservableType extends Observable<
+  infer ObservableValueType
+>
+  ? ObservableValueType
+  : never;
+
+
+class RaceEmitObserver<T> implements Observer<T> {
+  constructor()
+}
+
+
+function raceEmit<ObservableTypes extends ReadonlyArray<Observable<any>>>(...observableSources: ObservableTypes) {
+  return (subscriber: Subscriber<ObservableValueType<ObservableTypes[number]>>) => {
+    let subscriptions: Array<Subscription> | undefined = [];
+    let completedCount = 0;
+
+    const subscriber: PartialObserver<ObservableValueType<ObservableTypes[number]>> = {
+      next: value => {
+        if (subscriptions) {
+          for (let i = 0; i !== )
+        }
+        subscriber.next(value);
+      },
+      complete: 
+    }
+
+    for (let i = 0; subscriptions && !subscriber.closed && i < observableSources.length; ++i) {
+      subscriptions.push(
+        observableSources[i].subscribe({
+          next: value => {
+
+          },
+          error: ,
+          complete: () => {
+            if (++completedCount === observableSources.length) {
+              console.log('oopsie, nothing emitted');
+            }
+          }
+        });
+      )
+    }
+  };
+}
+
+export function from<SourceTypes extends ReadonlyArray<Source<any>>, MessageType extends Message<any, any, any, any>[]>(
+  ...sources: SourceTypes
+): OperatorFunction<MessageType[number], SourceOutputMessageType<SourceTypes[number]>> {
+  return mergeMap(message =>
+    race(sources.map(source => source(message))).pipe(
+      tap(value => console.log('got a value', value)),
+      first(),
+      catchError(error => {
+        console.log('ooopsie error', error);
+        return throwError(
+          () => new Error(`neither of the ${sources.length} potential sources emitted a value before completing`)
+        );
+      })
+    )
+  );
+}

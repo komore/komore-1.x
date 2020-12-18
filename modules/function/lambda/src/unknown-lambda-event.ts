@@ -5,7 +5,6 @@ import {
   // APIGatewayRequestAuthorizerEvent,
   // APIGatewayTokenAuthorizerEvent,
   CloudFrontEvent,
-  CognitoUserPoolTriggerEvent,
   DynamoDBStreamEvent,
   FirehoseTransformationEvent,
   KinesisStreamEvent,
@@ -24,7 +23,6 @@ export type UnknownLambdaEvent = Partial<APIGatewayAuthorizerEvent> &
   // APIGatewayRequestAuthorizerEvent &
   // APIGatewayTokenAuthorizerEvent &
   CloudFrontEvent &
-  CognitoUserPoolTriggerEvent &
   DynamoDBStreamEvent &
   KinesisStreamEvent &
   FirehoseTransformationEvent &

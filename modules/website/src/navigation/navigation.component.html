@@ -1,0 +1,33 @@
+<cdk-tree
+  [dataSource]="navigationItems"
+  [treeControl]="treeControl">
+  <cdk-nested-tree-node *cdkTreeNodeDef="let item">
+    <span matRipple>
+      <a *ngIf="item.routerLink"
+        routerLinkActive="active"
+        [routerLink]="item.routerLink"
+        [routerLinkActiveOptions]="{ exact: true }">
+        {{ item.label }}
+      </a>
+    </span>
+  </cdk-nested-tree-node>
+  <cdk-nested-tree-node *cdkTreeNodeDef="let item; when: hasChildNodes">
+    <span matRipple cdkTreeNodeToggle>
+      <a *ngIf="item.routerLink"
+        [routerLink]="item.routerLink">
+        {{ item.label }}
+      </a>
+      <label *ngIf="!item.routerLink">
+        {{ item.label }}
+      </label>
+      <button mat-icon-button>
+        <mat-icon>
+          {{ treeControl.isExpanded(item) ? 'expand_more' : 'chevron_right' }}
+        </mat-icon>
+      </button>
+    </span>
+    <div [class.expanded]="treeControl.isExpanded(item)">
+      <ng-container cdkTreeNodeOutlet></ng-container>
+    </div>
+  </cdk-nested-tree-node>
+</cdk-tree>

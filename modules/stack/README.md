@@ -9,3 +9,4 @@ When doing `nx generate @komore/schematics:stack`, a stack gets created + the ab
 
 TODO:
 - stack graph command to show a graph of the infrastructure?
+- observability: create cloudwatch alarms or gcp alert policies

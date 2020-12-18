@@ -7,19 +7,38 @@ import { defer, Observable } from 'rxjs';
  * @param command Command
  * @param client Client
  * @param options Options
- * @returns Observable command output
+ * @template AwsClientHandlerOptions AWS client handler options
+ * @template AwsClientInput AWS client input
+ * @template AwsClientOutput AWS client output
+ * @template AwsClientResolvedConfiguration AWS client resolved configuration
+ * @template InputType Input type
+ * @template OutputType Output type
+ * @returns Command output
  */
 export function sendCommand<
-  HandlerOptions,
-  ClientInput extends object,
-  ClientOutput extends MetadataBearer,
-  InputType extends ClientInput,
-  OutputType extends ClientOutput,
-  ResolvedClientConfiguration extends SmithyResolvedConfiguration<HandlerOptions>
+  // TODO: @template
+  AwsClientHandlerOptions,
+  AwsClientInput extends object,
+  AwsClientOutput extends MetadataBearer,
+  AwsClientResolvedConfiguration extends SmithyResolvedConfiguration<AwsClientHandlerOptions>,
+  AwsClientType extends Client<
+    AwsClientHandlerOptions,
+    AwsClientInput,
+    AwsClientOutput,
+    AwsClientResolvedConfiguration
+  >,
+  InputType extends AwsClientInput,
+  OutputType extends AwsClientOutput
 >(
-  command: Command<ClientInput, InputType, ClientOutput, OutputType, SmithyResolvedConfiguration<HandlerOptions>>,
-  client: Client<HandlerOptions, ClientInput, ClientOutput, ResolvedClientConfiguration>,
-  options?: HandlerOptions
+  client: AwsClientType,
+  command: Command<
+    AwsClientInput,
+    InputType,
+    AwsClientOutput,
+    OutputType,
+    SmithyResolvedConfiguration<AwsClientHandlerOptions>
+  >,
+  options?: AwsClientHandlerOptions
 ): Observable<OutputType> {
   return defer(() => client.send(command, options));
 }

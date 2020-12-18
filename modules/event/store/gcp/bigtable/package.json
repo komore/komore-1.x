@@ -1,0 +1,4 @@
+{
+  "name": "@komore/event-store-gcp/bigtable",
+  "version": "0.0.1"
+}

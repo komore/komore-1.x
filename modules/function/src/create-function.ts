@@ -1,42 +1,63 @@
-import { Subject } from 'rxjs';
-import { Message } from './message';
-import { Function } from './function';
-import { FunctionConfiguration } from './function-configuration';
-import { FunctionProvider, FunctionProviderMessageType } from './function-provider';
-import { PipeableFunction } from './pipeable-function';
+import { Observable } from 'rxjs';
+import { createImmediateFunction } from './create-immediate-function';
+import { createProjectedFunction } from './create-projected-function';
 
 /**
  * Creates a function
- * @param functionConfiguration Function configuration
+ * @param functionName Function name
  * @returns Function
- * @template M Message type
- * @template FP Function provider types
- * @template R Result type
+ * @template FunctionName Function name
+ * @template FunctionParameterType Function parameter types
  */
-export function createFunction<M extends Message<any, any>[], FP extends FunctionProvider<any, any, M>[], R>(functionConfiguration: FunctionConfiguration<FP>): PipeableFunction<M, R> {
-  const providers = functionConfiguration.providers;
-  const availableProviders = providers.filter(provider => provider.isAvailable());
-  if (availableProviders.length === 0) {
-    throw new Error('no available function providers, potential candidates: ' + )
+export function createFunction<
+  FunctionName extends string,
+  FunctionParameterTypes extends ReadonlyArray<any> = []
+>(
+  functionName: FunctionName
+): (
+  ...functionParameters: FunctionParameterTypes
+) => Promise<FunctionParameterTypes extends [] ? void : FunctionParameterTypes>;
+
+/**
+ * Creates a function with a projection that defines its implementation
+ * @param functionName Function name
+ * @param project Projection function that returns an observable function result
+ * @returns Function
+ * @template FunctionName Function name
+ * @template FunctionParameterTypes Function parameter types
+ * @template FunctionReturnType Function return type
+ */
+export function createFunction<
+  FunctionName extends string,
+  FunctionParameterTypes extends ReadonlyArray<any> = [],
+  FunctionReturnType = void
+>(
+  functionName: FunctionName,
+  project: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
+): (
+  ...functionParameters: FunctionParameterTypes
+) => ReturnType<typeof project> extends Observable<never> ? void : Promise<FunctionReturnType>;
+
+/**
+ * Creates either an immediate or a projected function
+ * @param functionName Function name
+ * @param project Optional projection
+ * @returns Function
+ * @template FunctionName Function name
+ * @template FunctionParameterTypes Function parameter types
+ * @template FunctionReturnType Function return type
+ */
+export function createFunction<
+  FunctionName extends string,
+  FunctionParameterTypes extends ReadonlyArray<unknown>,
+  FunctionReturnType
+>(
+  functionName: FunctionName,
+  project?: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType | FunctionParameterTypes | void>
+): (...functionParameters: FunctionParameterTypes) => Promise<FunctionReturnType | FunctionParameterTypes | void> {
+  if (project === undefined) {
+    return createImmediateFunction(functionName);
+  } else {
+    return createProjectedFunction(functionName, project);
   }
-
-  const observable = new Subject<FunctionProviderMessageType<M>>();
-
-  async function func(...functionArguments: ReadonlyArray<any>): Promise<any> {
-    const provider = availableProviders.find(provider => provider.canHandle(functionArguments));
-    if (provider === undefined) {
-      throw new Error('no function provider can handle available')
-    }
-
-    try {
-      const message = provider.buildMessage(functionArguments);
-      return provider.buildResult(result);
-  };
-
-  Object.defineProperties(func, Object.getOwnPropertyDescriptors(observable));
-
-  return Object.defineProperty(func, 'name', {
-    value: functionConfiguration.name,
-    writable: false
-  });
 }

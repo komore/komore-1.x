@@ -1,0 +1,344 @@
+{
+  "navigation": {
+    "content": [
+      {
+        "label": "Introduction",
+        "routerLink": ["/documentation", "intro"],
+        "children": [
+          {
+            "label": "Getting Started",
+            "routerLink": ["/documentation", "intro"]
+          },
+          {
+            "label": "Domain-Driven Design",
+            "routerLink": ["/documentation", "intro", "ddd"]
+          },
+          {
+            "label": "CQRS",
+            "routerLink": ["/documentation", "intro", "cqrs"]
+          },
+          {
+            "label": "Event Sourcing",
+            "routerLink": ["/documentation", "intro", "event-sourcing"]
+          },
+          {
+            "label": "Functional Programming",
+            "routerLink": ["/documentation", "intro", "functional"]
+          },
+          {
+            "label": "Function as a Service",
+            "routerLink": ["/documentation", "intro", "faas"]
+          },
+          {
+            "label": "Process Management",
+            "routerLink": ["/documentation", "intro", "process"]
+          },
+          {
+            "label": "Observability",
+            "routerLink": ["/documentation", "intro", "observability"]
+          }
+        ]
+      },
+      {
+        "label": "Application",
+        "children": [
+          {
+            "label": "@komore/event",
+            "routerLink": ["/documentation", "application", "event"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "event"]
+              },
+              {
+                "label": "Installation",
+                "routerLink": ["/documentation", "application", "event", "install"]
+              },
+              {
+                "label": "Architecture",
+                "children": [
+                  {
+                    "label": "Events",
+                    "routerLink": ["/documentation", "application", "event", "event"]
+                  },
+                  {
+                    "label": "Reducers",
+                    "routerLink": ["/documentation", "application", "event", "reducer"]
+                  },
+                  {
+                    "label": "Stores",
+                    "routerLink": ["/documentation", "application", "event", "store"]
+                  },
+                  {
+                    "label": "Snapshots",
+                    "routerLink": ["/documentation", "application", "event", "snapshot"]
+                  }
+                ]
+              },
+              {
+                "label": "Event Stores",
+                "children": [
+                  {
+                    "label": "Amazon Aurora",
+                    "routerLink": ["/documentation", "application", "event", "aurora"]
+                  },
+                  {
+                    "label": "Amazon DynamoDB",
+                    "routerLink": ["/documentation", "application", "event", "dynamodb"]
+                  },
+                  {
+                    "label": "Azure Cosmos DB",
+                    "routerLink": ["/documentation", "application", "event", "cosmosdb"]
+                  },
+                  {
+                    "label": "Google Firestore",
+                    "routerLink": ["/documentation", "application", "event", "firestore"]
+                  }
+                ]
+              },
+              {
+                "label": "Configuration",
+                "routerLink": ["/documentation", "application", "event", "config"]
+              },
+              {
+                "label": "Testing",
+                "routerLink": ["/documentation", "application", "event", "testing"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/command",
+            "routerLink": ["/documentation", "application", "command"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "command"]
+              },
+              {
+                "label": "Installation",
+                "routerLink": ["/documentation", "application", "command", "install"]
+              },
+              {
+                "label": "Configuration",
+                "routerLink": ["/documentation", "application", "command", "config"]
+              },
+              {
+                "label": "Testing",
+                "routerLink": ["/documentation", "application", "command", "testing"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/query",
+            "routerLink": ["/documentation", "application", "query"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "query"]
+              },
+              {
+                "label": "Installation",
+                "routerLink": ["/documentation", "application", "query", "install"]
+              },
+              {
+                "label": "Configuration",
+                "routerLink": ["/documentation", "application", "query", "config"]
+              },
+              {
+                "label": "Testing",
+                "routerLink": ["/documentation", "application", "query", "testing"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/function",
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "function"]
+              },
+              {
+                "label": "Installation",
+                "routerLink": ["/documentation", "application", "function", "install"]
+              },
+              {
+                "label": "Configuration",
+                "routerLink": ["/documentation", "application", "function", "config"]
+              },
+              {
+                "label": "Testing",
+                "routerLink": ["/documentation", "application", "function", "testing"]
+              },
+              {
+                "label": "Provider: AWS Lambda",
+                "routerLink": ["/documentation", "application", "function", "lambda"]
+              },
+              {
+                "label": "Provider: Azure Function",
+                "routerLink": ["/documentation", "application", "function", "azure"]
+              },
+              {
+                "label": "Provider: Google Cloud Function",
+                "routerLink": ["/documentation", "application", "function", "google"]
+              },
+              {
+                "label": "Provider: OpenFaaS",
+                "routerLink": ["/documentation", "application", "function", "openfaas"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/api",
+            "routerLink": ["/documentation", "application", "api"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "api"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/telemetry",
+            "routerLink": ["/documentation", "application", "telemetry"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "application", "telemetry"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "IAM",
+        "children": [
+          {
+            "label": "@komore/authorization",
+            "routerLink": ["/documentation", "iam", "authorization"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "iam", "authorization"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/identity",
+            "routerLink": ["/documentation", "iam", "identity"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "iam", "identity"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Workflow",
+        "children": [
+          {
+            "label": "@komore/process",
+            "routerLink": ["/documentation", "workflow", "process"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "workflow", "process"]
+              }
+            ]
+          },
+          {
+            "label": "@komore/integration",
+            "routerLink": ["/documentation", "workflow", "integration"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "workflow", "integration"]
+              },
+              {
+                "label": "Amazon Web Services",
+                "routerLink": ["/documentation", "workflow", "integration", "aws"],
+                "children": [
+                  {
+                    "label": "Overview",
+                    "routerLink": ["/documentation", "workflow", "integration", "aws"]
+                  }
+                ]
+              },
+              {
+                "label": "Google Cloud Platform",
+                "routerLink": ["/documentation", "workflow", "integration", "gcp"],
+                "children": [
+                  {
+                    "label": "Overview",
+                    "routerLink": ["/documentation", "workflow", "integration", "gcp"]
+                  }
+                ]
+              },
+              {
+                "label": "Microsoft Azure",
+                "routerLink": ["/documentation", "workflow", "integration", "azure"],
+                "children": [
+                  {
+                    "label": "Overview",
+                    "routerLink": ["/documentation", "workflow", "integration", "azure"]
+                  }
+                ]
+              },
+              {
+                "label": "Stripe",
+                "routerLink": ["/documentation", "workflow", "integration", "stripe"],
+                "children": [
+                  {
+                    "label": "Overview",
+                    "routerLink": ["/documentation", "workflow", "integration", "stripe"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Developer Tooling",
+        "children": [
+          {
+            "label": "@komore/schematics",
+            "routerLink": ["/documentation", "tooling", "schematics"]
+          },
+          {
+            "label": "@komore/stack",
+            "routerLink": ["/documentation", "tooling", "stack"]
+          },
+          {
+            "label": "@komore/dev-server",
+            "routerLink": ["/documentation", "tooling", "dev-server"]
+          },
+          {
+            "label": "@komore/vscode",
+            "routerLink": ["/documentation", "tooling", "vscode"],
+            "children": [
+              {
+                "label": "Overview",
+                "routerLink": ["/documentation", "tooling", "vscode"]
+              },
+              {
+                "label": "Installation",
+                "routerLink": ["/documentation", "tooling", "vscode", "install"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Samples",
+        "routerLink": ["/documentation", "samples"],
+        "children": []
+      },
+      {
+        "label": "Contributing",
+        "routerLink": ["/documentation", "contributing"]
+      }
+    ]
+  }
+}

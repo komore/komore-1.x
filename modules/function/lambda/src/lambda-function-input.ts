@@ -1,8 +1,8 @@
 import { FunctionInput } from '@komore/function';
 import { Context } from 'aws-lambda';
-import { UnknownLambdaEvent } from './unknown-lambda-event';
 
 /**
  * Lambda function input
+ * @template P Parameter type
  */
-export type LambdaFunctionInput = FunctionInput<UnknownLambdaEvent, Context>;
+export type LambdaFunctionInput<P extends object> = FunctionInput<P, Context>;

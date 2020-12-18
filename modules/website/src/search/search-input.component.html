@@ -1,0 +1,6 @@
+<input #input type="search" aria-label="search" placeholder="Search"
+  [value]="query$ | async"
+  (input)="search()"
+  (keyup)="search()"
+  (focus)="search()"
+  (click)="search()">

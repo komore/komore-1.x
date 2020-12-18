@@ -1,0 +1,52 @@
+import { EMPTY, lastValueFrom, Observable, of, throwError } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import { createMessage } from '../create-message';
+import { Message } from '../message';
+import { from } from './from';
+
+describe('from operator function', () => {
+  type ObservableNumberMessage = Observable<Message<any, any, number, any>>;
+  const message = createMessage('test-message');
+
+  it.only('emits the first message emitted by one of the potential sources', async () => {
+    // given: sources that emit at different times
+    const message1 = createMessage('delayed1', {}, 42, undefined);
+    const message2 = createMessage('delayed2', {}, 12, undefined);
+    const delayed1 = (): ObservableNumberMessage => of(message1).pipe(delay(50));
+    const delayed2 = (): ObservableNumberMessage => of(message2).pipe(delay(25));
+    const empty1 = (): ObservableNumberMessage => EMPTY;
+    const empty2 = (): ObservableNumberMessage => EMPTY;
+    // and: a pipeline that passes the message through the from operator function
+    const $ = of(message).pipe(from(delayed1, empty1, delayed2, empty2));
+    // when: getting the emitted value
+    const emittedMessage = await lastValueFrom($);
+    // then: the correct message gets emitted
+    expect(emittedMessage).toBe(message2);
+  });
+
+  it('ignores errors thrown by potential sources', async () => {
+    // given: sources that throw errors
+    const message1 = createMessage('delayed1', {}, 42, undefined);
+    const delayed1 = (): ObservableNumberMessage => of(message1).pipe(delay(25));
+    const error1 = (): ObservableNumberMessage => throwError(() => new Error('error1'));
+    const error2 = (): ObservableNumberMessage => throwError(() => new Error('error2'));
+    // and: a pipeline that passes the message through the from operator function
+    const $ = of(message).pipe(from(delayed1, error1, error2));
+    // when: getting the emitted value
+    const emittedMessage = await lastValueFrom($);
+    // then: the correct message gets emitted, igoring errors
+    expect(emittedMessage).toBe(message1);
+  });
+
+  it('throws an error if all sources complete without emitting', async () => {
+    // given: sources that do not emit
+    const empty1 = (): ObservableNumberMessage => EMPTY;
+    const empty2 = (): ObservableNumberMessage => EMPTY;
+    // and: a pipeline that passes the message through the from operator function
+    const $ = of(message).pipe(from(empty1, empty2));
+    // expect: an error to be thrown when no source emits
+    expect(lastValueFrom($)).rejects.toThrowError(
+      'neither of the 2 potential sources emitted a value before completing'
+    );
+  });
+});

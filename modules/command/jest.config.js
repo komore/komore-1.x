@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['**/modules/command/src/**/*.spec.ts', '!**/modules/command/src/**/*.typing.spec.ts'],
+  testMatch: ['**/modules/command/src/**/*.spec.ts'],
   name: 'command',
   preset: '../../jest.config.js',
   coverageDirectory: '../../coverage/command',

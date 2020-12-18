@@ -7,6 +7,6 @@ export type FunctionEnvironment = Readonly<{
   functionName: string;
   functionVersion: string;
   memorySize: number;
-  provider: FunctionProvider<any, any, any>;
+  provider: FunctionProvider<any>;
   region: string;
 }>;

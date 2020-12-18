@@ -1,0 +1,7 @@
+{
+  "name": "@komore/integration-discord",
+  "version": "0.0.1",
+  "dependencies": {
+    "discord.js": "12.4.1"
+  }
+}

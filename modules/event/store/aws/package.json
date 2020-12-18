@@ -1,0 +1,7 @@
+{
+  "name": "@komore/event-store-aws",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@komore/integration-aws/dynamodb": "~0.0.1"
+  }
+}

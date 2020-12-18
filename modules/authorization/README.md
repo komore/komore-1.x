@@ -1,4 +1,4 @@
-# komore Authorization Module
+# komore Authorization
 
 - default is pass-through
 - @komore/authorization for the base model

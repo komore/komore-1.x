@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['**/modules/function/aws/src/**/*.spec.ts'],
+  testMatch: ['**/modules/function/lambda/src/**/*.spec.ts'],
   name: 'function-lambda',
   preset: '../../../jest.config.js',
   coverageDirectory: '../../../coverage/function-lambda',

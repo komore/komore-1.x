@@ -7,11 +7,11 @@ import { EventMetadata } from './event-metadata';
  * @param event Event
  * @param metadata Event metadata
  * @returns Reduced state
- * @template S State type
- * @template E Event type
+ * @template StateType State type
+ * @template EventTypes Event types
  */
-export type EventReducer<S, E extends Event<any, any>[]> = (
-  state: S | undefined,
-  event: E[number],
+export type EventReducer<StateType, EventTypes extends Event<any, any>[]> = (
+  state: StateType | undefined,
+  event: EventTypes[number],
   metadata: EventMetadata
-) => S;
+) => StateType;

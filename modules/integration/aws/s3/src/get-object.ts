@@ -1,17 +1,12 @@
-import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput, S3Client } from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration/aws';
-import { Observable } from 'rxjs';
-import { getS3Client } from './get-s3-client';
+import { GetObjectCommand, GetObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
+import { sendCommand } from '@komore/integration-aws';
 
 /**
- * Gets an object from an S3 bucket
- * @param commandInput Get-Object command input
+ * Retrieves an object from an S3 bucket
  * @param s3Client S3 client
- * @returns Observable Get-Object command output
+ * @param commandInput `GetObject` command input
+ * @returns Object
+ * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject}
  */
-export function getObject(
-  commandInput: GetObjectCommandInput,
-  s3Client?: S3Client
-): Observable<GetObjectCommandOutput> {
-  return sendCommand(new GetObjectCommand(commandInput), getS3Client(s3Client));
-}
+export const getObject = (s3Client: S3Client, commandInput: GetObjectCommandInput) =>
+  sendCommand(s3Client, new GetObjectCommand(commandInput));

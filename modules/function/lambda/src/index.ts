@@ -1,1 +1,1 @@
-export { lambdaFunctionProvider } from './lambda-function-provider';
+export { lambdaProvider } from './lambda-provider';

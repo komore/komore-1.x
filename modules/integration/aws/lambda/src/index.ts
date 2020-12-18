@@ -1,1 +1,1 @@
-export { AwsLambdaProvider } from './lib/aws-lambda-provider';
+export { withLambdaClient } from './operators/with-lambda-client';

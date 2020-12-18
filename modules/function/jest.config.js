@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['**/modules/function/src/**/*.spec.ts', '!**/modules/function/src/**/*.typing.spec.ts'],
+  testMatch: ['**/modules/function/src/**/*.spec.ts'],
   name: 'function',
   preset: '../../jest.config.js',
   coverageDirectory: '../../coverage/function',

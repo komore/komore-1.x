@@ -1,5 +1,5 @@
 /**
- * Variables available on AWS host environments
+ * Variables available on Lambda host environments
  */
 declare global {
   namespace NodeJS {
@@ -23,6 +23,20 @@ declare global {
 }
 
 /**
- * Function provider name
+ * Lambda constants
  */
-export const functionProviderName = 'aws:lambda';
+export const lambdaProviderName = 'aws:lambda' as const;
+export const apiGatewayHttpMessageType = 'aws:api-gateway:http' as const;
+export const apiGatewayMessageType = 'aws:api-gateway' as const;
+export const dynamoDBEventType = 'aws:dynamodb' as const;
+export const dynamoDBMessageType = 'aws:dynamodb' as const;
+export const kinesisEventType = 'aws:kinesis' as const;
+export const kinesisMessageType = 'aws:kinesis' as const;
+export const s3EventType = 'aws:s3' as const;
+export const s3MessageType = 'aws:s3' as const;
+export const sesEventType = 'aws:ses' as const;
+export const sesMessageType = 'aws:ses' as const;
+export const snsEventType = 'aws:sqs' as const;
+export const snsMessageType = 'aws:sqs' as const;
+export const sqsEventType = 'aws:sqs' as const;
+export const sqsMessageType = 'aws:sqs' as const;

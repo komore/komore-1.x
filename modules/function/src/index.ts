@@ -1,9 +1,4 @@
 export { createFunction } from './create-function';
-export { createFunctionFactory } from './create-function-factory';
-export { Function } from './function';
-export { FunctionEnvironment } from './function-environment';
-export { FunctionFactory } from './function-factory';
-export { FunctionInput } from './function-input';
-export { FunctionOutput } from './function-output';
+export { FunctionSubject } from './function-subject';
 export { FunctionProvider } from './function-provider';
-export { Message } from './message';
+export { FunctionTriggerType } from './function-trigger-type';

@@ -2,5 +2,6 @@ import { FunctionOutput } from '@komore/function';
 
 /**
  * Lambda function output
+ * @template ResultType Result type
  */
-export type LambdaFunctionOutput = FunctionOutput<any>;
+export type LambdaFunctionOutput<ResultType> = FunctionOutput<ResultType>;

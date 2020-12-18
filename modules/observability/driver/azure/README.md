@@ -1,0 +1,22 @@
+# komore Observability for Azure
+
+Observability module for [Azure]:
+
+- [Cloud Logging] for logs
+- [Cloud Monitoring] for metrics
+- [Cloud Trace] for tracing
+
+Full documentation for the module can be found [here].
+
+## Install
+
+```shell
+npm install @komore/observability-azure
+```
+
+```shell
+yarn add @komore/observability-azure
+```
+
+[azure]: https://azure.microsoft.com/
+[here]: https://komore.dev/modules/observability/azure

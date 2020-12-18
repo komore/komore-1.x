@@ -1,0 +1,18 @@
+:host {
+  > input {
+    width: 180px;
+    transition: width 0.25s ease-in-out;
+    -webkit-appearance: none;
+    border-style: none;
+    outline-style: none;
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 24px;
+    padding: 0px 12px;
+
+    &:focus {
+      max-width: 380px;
+      width: 380px;
+    }
+  }
+}
