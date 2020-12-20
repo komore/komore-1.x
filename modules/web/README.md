@@ -22,6 +22,8 @@ The following APIs are exposed by the module:
 
 | Web API                     | Module                          | Documentation               |
 | :-------------------------- | :------------------------------ | :-------------------------- |
+| [Authentication API]        | `@komore/web/authentication`    | [`TODO auth`] |
+| [Drag and Drop API]         | `@komore/web/drag-and-drop`     | [`TODO dragndrop`] |
 | [Fetch API]                 | `@komore/web/http`              | [`createHttpClient`]        |
 | [Fullscreen API]            | `@komore/web`                   | [`watchFullscreenChanges`]  |
 | [Gamepad API]               | `@komore/web/gamepad`           | [`watchGamepad`]            |
@@ -45,6 +47,8 @@ Full documentation is available at the [komore website].
 
 [komore]: https://komore.dev
 [komore website]: https://komore.dev/modules/web
+[`todo auth`]: https://komore.dev/modules/web/authentication
+[`todo dragndrop`]: https://komore.dev/modules/web/drag-and-drop
 [`todo indexeddb`]: https://komore.dev/modules/web/storage/indexeddb
 [`todo pip`]: https://komore.dev/modules/web/media#picture-in-picture
 [`todo screencapture`]: https://komore.dev/modules/web/media#screen-capture

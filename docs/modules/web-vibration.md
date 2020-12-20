@@ -15,7 +15,11 @@ const vibrationObserver = createVibrationObserver();
 $.subscribe(vibrationObserver);
 ```
 
-### Number values
+## Stream values
+
+The observed stream can emit single numbers or arrays of numbers.
+
+### Numbers
 
 When a stream emits a single number, that value is vibration duration in milliseconds.
 
@@ -26,7 +30,7 @@ of(
 ).subscribe(vibrationObserver);
 ```
 
-### Pattern values
+### Patterns
 
 When a stream emits an array of numbers, the values represent a vibration pattern:
 
@@ -43,15 +47,30 @@ of([
 ]).subscribe(vibrationObserver);
 ```
 
-## Error handling
+### Overrides
+
+Emitted values override each other:
+
+```ts
+of(
+  100, // vibrates for 100 milliseconds
+  50 // but immediately overriden by a 50 milliseconds vibration
+).subscribe(vibrationObserver);
+```
+
+An [emitted pattern](#patterns) can be used to work around this and will have better timing accuracy than a more
+involved pipeline with timers and delays.
+
+## Error
 
 When the observed stream encounters an error, vibration is stopped.
 
-```ts
+This behavior can be changed by passing `stopOnError: false` to `createVibrationObserver`.
 
-combin
+## Completion
 
-```
+When the observed stream completes, the observer does not stop vibration by default.
 
+The behavior can be modified by passing `stopOnComplete: true` to `createVibrationObserver`.
 
 [vibration api]: https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
