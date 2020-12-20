@@ -23,7 +23,8 @@ function defaultDeserializer<ValueType>(serializedValue: string): ValueType {
  * Storage subject
  * @template ValueType Value type
  */
-export class StorageSubject<ValueType> extends Subject<ValueType | undefined> {
+export class StorageSubject<ValueType> extends Observable<ValueType | undefined> {
+  private readonly subject$ = new Subject<ValueType | undefined>();
   private readonly options: StorageSubjectOptions<ValueType>;
 
   /**
@@ -52,7 +53,7 @@ export class StorageSubject<ValueType> extends Subject<ValueType | undefined> {
       this.writeValue(value);
     }
 
-    super.next(value);
+    this.subject$.next(value);
   }
 
   private readValue(): ValueType | undefined {

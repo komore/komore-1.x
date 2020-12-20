@@ -43,9 +43,6 @@
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
     },
-    "core": {
-      "tags": ["scope:core"]
-    },
     "data": {
       "tags": ["scope:data"]
     },
@@ -85,6 +82,9 @@
     "devserver-local-amazon-s3": {
       "tags": ["scope:devserver", "trait:local", "provider:amazon"]
     },
+    "devserver-local-amazon-ses": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
     "devserver-local-amazon-sns": {
       "tags": ["scope:devserver", "trait:local", "provider:amazon"]
     },
@@ -121,10 +121,10 @@
     "event-store-azure-cosmos": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"]
     },
-    "event-store-gcp": {
+    "event-store-google": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
     },
-    "event-store-gcp-bigtable": {
+    "event-store-google-bigtable": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
     },
     "event-store-indexeddb": {
@@ -247,6 +247,12 @@
     "integration-azure-cosmos": {
       "tags": ["scope:integration", "trait:provider", "provider:azure"]
     },
+    "integration-azure-dns": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
+    "integration-azure-servicebus": {
+      "tags": ["scope:integration", "trait:provider", "provider:azure"]
+    },
     "integration-azure-storage": {
       "tags": ["scope:integration", "trait:provider", "provider:azure"]
     },
@@ -259,11 +265,32 @@
     "integration-discord": {
       "tags": ["scope:integration", "trait:provider", "provider:discord"]
     },
-    "integration-gcp": {
+    "integration-github": {
+      "tags": ["scope:integration", "trait:provider", "provider:github"]
+    },
+    "integration-gitlab": {
+      "tags": ["scope:integration", "trait:provider", "provider:gitlab"]
+    },
+    "integration-google": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
-    "integration-gcp-bigtable": {
+    "integration-google-bigtable": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-google-logging": {
+      "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-google-metrics": {
+      "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-google-pubsub": {
+      "tags": ["scope:integration", "trait:provider", "provider:google"]
+    },
+    "integration-paypal": {
+      "tags": ["scope:integration", "trait:provider", "provider:paypal"]
+    },
+    "integration-square": {
+      "tags": ["scope:integration", "trait:provider", "provider:square"]
     },
     "integration-stripe": {
       "tags": ["scope:integration", "trait:provider", "provider:stripe"]
@@ -289,6 +316,12 @@
     "layer-text": {
       "tags": ["scope:layer"]
     },
+    "local": {
+      "tags": ["scope:local", "trait:base"]
+    },
+    "local-filesystem": {
+      "tags": ["scope:local"]
+    },
     "message": {
       "tags": ["scope:message", "trait:base"]
     },
@@ -307,7 +340,7 @@
     "observability-driver-azure": {
       "tags": ["scope:observability", "trait:provider", "provider:azure"]
     },
-    "observability-driver-gcp": {
+    "observability-driver-google": {
       "tags": ["scope:observability", "trait:provider", "provider:google"]
     },
     "observability-driver-local": {
@@ -325,6 +358,9 @@
     "observability-tracing": {
       "tags": ["scope:observability"]
     },
+    "operators": {
+      "tags": ["scope:operators", "trait:base"]
+    },
     "process": {
       "tags": ["scope:process", "trait:base"]
     },
@@ -336,6 +372,9 @@
     },
     "query-testing": {
       "tags": ["scope:query", "trait:testing"]
+    },
+    "typescript": {
+      "tags": ["scope:typescript"]
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]
@@ -376,6 +415,9 @@
     "web-observer": {
       "tags": ["scope:web"]
     },
+    "web-payment": {
+      "tags": ["scope:web"]
+    },
     "web-router": {
       "tags": ["scope:web"]
     },
@@ -390,6 +432,12 @@
     },
     "web-testing": {
       "tags": ["scope:web", "trait:testing"]
+    },
+    "web-vibration": {
+      "tags": ["scope:web"]
+    },
+    "web-worker": {
+      "tags": ["scope:web"]
     },
     "website": {
       "tags": ["scope:website"]

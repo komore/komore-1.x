@@ -1,5 +1,9 @@
 import { Observable, ObservableInput } from 'rxjs';
 
+/**
+ * HTTP client
+ * @param input Input URL or 
+ */
 export type HttpClient =
   | ((input: string | Request) => Observable<Response>)
   | (<ResponseType>(

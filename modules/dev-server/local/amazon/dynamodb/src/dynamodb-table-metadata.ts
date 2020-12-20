@@ -1,5 +1,4 @@
 import {
-  BackupDescription,
   GlobalSecondaryIndexInfo,
   LocalSecondaryIndexInfo,
   SSEDescription,
@@ -15,7 +14,6 @@ export type DynamoDBTableMetadata = Readonly<{
   tableId: string;
   tableArn: string;
   creationTime: Date;
-  backups: ReadonlyArray<BackupDescription>;
   secondaryIndices: Readonly<{
     local?: LocalSecondaryIndexInfo[];
     global?: GlobalSecondaryIndexInfo[];

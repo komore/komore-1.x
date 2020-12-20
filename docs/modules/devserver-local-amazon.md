@@ -2,51 +2,76 @@
 
 TODO.
 
-## Services
+## Install
+
+The module can be installed via Npm or Yarn:
+
+```shell
+npm install @komore/dev-server-local-amazon --save-dev
+```
+
+```shell
+yarn add @komore/dev-server-local-amazon --dev
+```
+
+## Usage
+
+TODO
+
+## APIs
+
+API availability:
+
+- :heavy_check_mark: Available
+- :heavy_minus_sign: Available but the feature ignored
+- :heavy_plus_sign: Available but some features are not implemented
+- :question: Available but some bugs have been reported
+- :x: Unavailable
+- :construction: Implementation in progress
 
 | Service         | Command                                      | Status             | Remarks                                  |
 | :-------------- | :------------------------------------------- | :----------------- | :--------------------------------------- |
-| CloudWatch Logs | [`AssociateKmsKey`]                          | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`CancelExportTask`]                         | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`CreateExportTask`]                         | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`AssociateKmsKey`]                          | :construction:     |                                          |
+| CloudWatch Logs | [`CancelExportTask`]                         | :construction:     |                                          |
+| CloudWatch Logs | [`CreateExportTask`]                         | :construction:     |                                          |
 | CloudWatch Logs | [`CreateLogGroup`]                           | :construction:     |                                          |
 | CloudWatch Logs | [`CreateLogStream`]                          | :construction:     |                                          |
-| CloudWatch Logs | [`DeleteDestination`]                        | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`DeleteDestination`]                        | :construction:     |                                          |
 | CloudWatch Logs | [`DeleteLogGroup`]                           | :construction:     |                                          |
 | CloudWatch Logs | [`DeleteLogStream`]                          | :construction:     |                                          |
-| CloudWatch Logs | [`DeleteMetricFilter`]                       | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DeleteQueryDefinition`]                    | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DeleteResourcePolicy`]                     | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`DeleteMetricFilter`]                       | :construction:     |                                          |
+| CloudWatch Logs | [`DeleteQueryDefinition`]                    | :construction:     |                                          |
+| CloudWatch Logs | [`DeleteResourcePolicy`]                     | :construction:     |                                          |
 | CloudWatch Logs | [`DeleteRetentionPolicy`]                    | :construction:     |                                          |
-| CloudWatch Logs | [`DeleteSubscriptionFilter`]                 | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeDestinations`]                     | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeExportTasks`]                      | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`DeleteSubscriptionFilter`]                 | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeDestinations`]                     | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeExportTasks`]                      | :construction:     |                                          |
 | CloudWatch Logs | [`DescribeLogGroups`]                        | :construction:     |                                          |
 | CloudWatch Logs | [`DescribeLogStreams`]                       | :construction:     |                                          |
-| CloudWatch Logs | [`DescribeMetricFilters`]                    | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeQueries`]                          | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeQueryDefinitions`]                 | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeResourcePolicies`]                 | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DescribeSubscriptionFilters`]              | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`DisassociateKmsKey`]                       | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`FilterLogEvents`]                          | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`GetLogEvents`]                             | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`GetLogGroupFields`]                        | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`GetLogRecord`]                             | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`GetQueryResults`]                          | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`DescribeMetricFilters`]                    | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeQueries`]                          | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeQueryDefinitions`]                 | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeResourcePolicies`]                 | :construction:     |                                          |
+| CloudWatch Logs | [`DescribeSubscriptionFilters`]              | :construction:     |                                          |
+| CloudWatch Logs | [`DisassociateKmsKey`]                       | :construction:     |                                          |
+| CloudWatch Logs | [`FilterLogEvents`]                          | :construction:     |                                          |
+| CloudWatch Logs | [`GetLogEvents`]                             | :construction:     |                                          |
+| CloudWatch Logs | [`GetLogGroupFields`]                        | :construction:     |                                          |
+| CloudWatch Logs | [`GetLogRecord`]                             | :construction:     |                                          |
+| CloudWatch Logs | [`GetQueryResults`]                          | :construction:     |                                          |
 | CloudWatch Logs | [`ListTagsLogGroup`]                         | :construction:     |                                          |
-| CloudWatch Logs | [`PutDestination`]                           | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`PutDestinationPolicy`]                     | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`PutDestination`]                           | :construction:     |                                          |
+| CloudWatch Logs | [`PutDestinationPolicy`]                     | :construction:     |                                          |
 | CloudWatch Logs | [`PutLogEvents`]                             | :construction:     |                                          |
-| CloudWatch Logs | [`PutMetricFilter`]                          | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`PutQueryDefinition`]                       | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`PutResourcePolicy`]                        | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`PutMetricFilter`]                          | :construction:     |                                          |
+| CloudWatch Logs | [`PutQueryDefinition`]                       | :construction:     |                                          |
+| CloudWatch Logs | [`PutResourcePolicy`]                        | :construction:     |                                          |
 | CloudWatch Logs | [`PutRetentionPolicy`]                       | :construction:     |                                          |
-| CloudWatch Logs | [`PutSubscriptionFilter`]                    | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`StartQuery`]                               | :heavy_minus_sign: |                                          |
-| CloudWatch Logs | [`StopQuery`]                                | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`PutSubscriptionFilter`]                    | :construction:     |                                          |
+| CloudWatch Logs | [`StartQuery`]                               | :construction:     |                                          |
+| CloudWatch Logs | [`StopQuery`]                                | :construction:     |                                          |
 | CloudWatch Logs | [`TagLogGroup`]                              | :construction:     |                                          |
-| CloudWatch Logs | [`TestMetricFilter`]                         | :heavy_minus_sign: |                                          |
+| CloudWatch Logs | [`TestMetricFilter`]                         | :construction:     |                                          |
 | CloudWatch Logs | [`UntagLogGroup`]                            | :construction:     |                                          |
 | DynamoDB        | [`BatchExecuteStatement`]                    | :construction:     |                                          |
 | DynamoDB        | [`BatchGetItem`]                             | :construction:     |                                          |
@@ -65,7 +90,7 @@ TODO.
 | DynamoDB        | [`DescribeGlobalTable`]                      | :heavy_minus_sign: | Deprecated since version 2019.11.21      |
 | DynamoDB        | [`DescribeGlobalTableSettings`]              | :heavy_minus_sign: | Deprecated since version 2019.11.21      |
 | DynamoDB        | [`DescribeKinesisStreamingDestination`]      | :heavy_minus_sign: |                                          |
-| DynamoDB        | [`DescribeLimits`]                           | :heavy_plus_sign:  |                                          |
+| DynamoDB        | [`DescribeLimits` (DynamoDB)]                | :heavy_plus_sign:  |                                          |
 | DynamoDB        | [`DescribeTable`]                            | :construction:     |                                          |
 | DynamoDB        | [`DescribeTableReplicaAutoScaling`]          | :heavy_minus_sign: |                                          |
 | DynamoDB        | [`DescribeTimeToLive`]                       | :heavy_check_mark: |                                          |
@@ -95,6 +120,33 @@ TODO.
 | DynamoDB        | [`UpdateTable`]                              | :construction:     |                                          |
 | DynamoDB        | [`UpdateTableReplicaAutoScaling`]            | :heavy_minus_sign: |                                          |
 | DynamoDB        | [`UpdateTimeToLive`]                         | :heavy_plus_sign:  |                                          |
+| Kinesis         | [`AddTagsToStream`]                          | :construction:     |                                          |
+| Kinesis         | [`CreateStream`]                             | :construction:     |                                          |
+| Kinesis         | [`DecreaseStreamRetentionPeriod`]            | :construction:     |                                          |
+| Kinesis         | [`DeleteStream`]                             | :construction:     |                                          |
+| Kinesis         | [`DeregisterStreamConsumer`]                 | :construction:     |                                          |
+| Kinesis         | [`DescribeLimits` (Kinesis)]                 | :construction:     |                                          |
+| Kinesis         | [`DescribeStream`]                           | :construction:     |                                          |
+| Kinesis         | [`DescribeStreamConsumer`]                   | :construction:     |                                          |
+| Kinesis         | [`DescribeStreamSummary`]                    | :construction:     |                                          |
+| Kinesis         | [`DisableEnhancedMonitoring`]                | :construction:     |                                          |
+| Kinesis         | [`EnableEnhancedMonitoring`]                 | :construction:     |                                          |
+| Kinesis         | [`GetRecords`]                               | :construction:     |                                          |
+| Kinesis         | [`GetShardIterator`]                         | :construction:     |                                          |
+| Kinesis         | [`IncreaseStreamRetentionPeriod`]            | :construction:     |                                          |
+| Kinesis         | [`ListShards`]                               | :construction:     |                                          |
+| Kinesis         | [`ListStreamConsumers`]                      | :construction:     |                                          |
+| Kinesis         | [`ListTagsForStream`]                        | :construction:     |                                          |
+| Kinesis         | [`MergeShards`]                              | :construction:     |                                          |
+| Kinesis         | [`PutRecord`]                                | :construction:     |                                          |
+| Kinesis         | [`PutRecords`]                               | :construction:     |                                          |
+| Kinesis         | [`RegisterStreamConsumer`]                   | :construction:     |                                          |
+| Kinesis         | [`RemoveTagsFromStream`]                     | :construction:     |                                          |
+| Kinesis         | [`SplitShard`]                               | :construction:     |                                          |
+| Kinesis         | [`StartStreamEncryption`]                    | :construction:     |                                          |
+| Kinesis         | [`StopStreamEncryption`]                     | :construction:     |                                          |
+| Kinesis         | [`SubscribeToShard`]                         | :construction:     |                                          |
+| Kinesis         | [`UpdateShardCount`]                         | :construction:     |                                          |
 | Lambda          | [`AddLayerVersionPermission`]                | :heavy_minus_sign: |                                          |
 | Lambda          | [`AddPermission`]                            | :heavy_minus_sign: | Likely necessary for Terraform           |
 | Lambda          | [`CreateAlias`]                              | :heavy_plus_sign:  | Useful for testing versions/etc.         |
@@ -287,6 +339,7 @@ TODO.
 [`addlayerversionpermission`]: https://docs.aws.amazon.com/lambda/latest/dg/API_AddLayerVersionPermission.html
 [`addpermission` (lambda)]: https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html
 [`addpermission` (sqs)]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html
+[`addtagstostream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html
 [`associatekmskey`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_AssociateKmsKey.html
 [`batchexecutestatement`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchExecuteStatement.html
 [`batchgetitem`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html
@@ -314,7 +367,9 @@ TODO.
 [`createloggroup`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html
 [`createlogstream`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html
 [`createqueue`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html
+[`createstream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html
 [`createtable`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html
+[`decreasestreamretentionperiod`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreateStreamRetentionPeriod.html
 [`deletealias`]: https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteAlias.html
 [`deletebackup`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteBackup.html
 [`deletebucketreplication`]: https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html
@@ -352,9 +407,11 @@ TODO.
 [`deletequeue`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html
 [`deleteresourcepolicy`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteResourcePolicy.html
 [`deleteretentionpolicy`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html
+[`deletestream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html
 [`deletesubscriptionfilter`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html
 [`deletesuppresseddestination`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DeleteSuppressedDestination.html
 [`deletetable`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html
+[`deregisterstreamconsumer`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeregisterStreamConsumer.html
 [`describebackup`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeBackup.html
 [`describecontinuousbackups`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeContinuousBackups.html
 [`describecontributorinsights`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeContributorInsights.html
@@ -365,19 +422,25 @@ TODO.
 [`describeglobaltable`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeGlobalTable.html
 [`describeglobaltablesettings`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeGlobalTableSettings.html
 [`describekinesisstreamingdestination`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeKinesisStreamingDestination.html
-[`describelimits`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeLimits.html
+[`describelimits` (dynamodb)]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeLimits.html
+[`describelimits` (kinesis)]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeLimits.html
 [`describeloggroups`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html
 [`describelogstreams`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html
 [`describemetricfilters`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html
 [`describequeries`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueries.html
 [`describequerydefinitions`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html
 [`describeresourcepolicies`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeResourcePolicies.html
+[`describestream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html
+[`describestreamconsumer`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStreamConsumer.html
+[`describestreamsummary`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStreamSummary.html
 [`describesubscriptionfilters`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html
 [`describetable`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html
 [`describetablereplicaautoscaling`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTableReplicaAutoScaling.html
 [`describetimetolive`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTimeToLive.html
+[`disableenhancedmonitoring`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_DisabledEnhancedMonitoring.html
 [`disablekinesisstreamingdestination`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DisableKinesisStreamingDestination.html
 [`disassociatekmskey`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DisassociateKmsKey.html
+[`enableenhancedmonitoring`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_EnableEnhancedMonitoring.html
 [`enablekinesisstreamingdestination`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_EnableKinesisStreamingDestination.html
 [`executestatement`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html
 [`executetransaction`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteTransaction.html
@@ -441,7 +504,10 @@ TODO.
 [`getqueryresults`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html
 [`getqueueattributes`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html
 [`getqueueurl`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html
+[`getrecords`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html
+[`getsharditerator`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html
 [`getsuppresseddestination`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetSuppressedDestination.html
+[`increasestreamretentionperiod`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.html
 [`invoke`]: https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html
 [`listaliases`]: https://docs.aws.amazon.com/lambda/latest/dg/API_ListAliases.html
 [`listbackups`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListBackups.html
@@ -466,13 +532,17 @@ TODO.
 [`listprovisionedconcurrencyconfigs`]: https://docs.aws.amazon.com/lambda/latest/dg/API_ListProvisionedConcurrencyConfigs.html
 [`listqueues`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html
 [`listqueuetags`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueueTags.html
+[`listshards`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListShards.html
+[`liststreamconsumers`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreamConsumers.html
 [`listsuppresseddestinations`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListSuppressedDestinations.html
 [`listtables`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html
 [`listtags`]: https://docs.aws.amazon.com/lambda/latest/dg/API_ListTags.html
 [`listtagsforresource`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListTagsForResource.html
+[`listtagsforstream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html
 [`listtagsloggroup`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html
 [`listtagsofresource`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTagsOfResource.html
 [`listversionsbyfunction`]: https://docs.aws.amazon.com/lambda/latest/dg/API_ListVersionsByFunction.html
+[`mergeshards`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html
 [`publishlayerversion`]: https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html
 [`publishversion`]: https://docs.aws.amazon.com/lambda/latest/dg/API_PublishVersion.html
 [`purgequeue`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html
@@ -502,15 +572,19 @@ TODO.
 [`putmetricfilter`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html
 [`putprovisionedconcurrencyconfig`]: https://docs.aws.amazon.com/lambda/latest/dg/API_PutProvisionedConcurrencyConfig.html
 [`putquerydefinition`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.html
+[`putrecord`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html
+[`putrecords`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html
 [`putresourcepolicy`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.html
 [`putretentionpolicy`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html
 [`putsubscriptionfilter`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html
 [`putsuppresseddestination`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutSuppressedDestination.html
 [`query`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html
 [`receivemessage`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html
+[`registerstreamconsumer`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RegisterStreamConsumer.html
 [`removelayerversionpermission`]: https://docs.aws.amazon.com/lambda/latest/dg/API_RemoveLayerVersionPermission.html
 [`removepermission` (lambda)]: https://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html
 [`removepermission` (sqs)]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html
+[`removetagsfromstream`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html
 [`restoretablefrombackup`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromBackup.html
 [`restoretabletopointintime`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableToPointInTime.html
 [`scan`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html
@@ -520,8 +594,12 @@ TODO.
 [`sendmessage`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html
 [`sendmessagebatch`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html
 [`setqueueattributes`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html
+[`splitshard`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html
 [`startquery`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html
+[`startstreamencryption`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StartStreamEncryption.html
 [`stopquery`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StopQuery.html
+[`stopstreamencryption`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StopStreamEncryption.html
+[`subscribetoshard`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShard.html
 [`tagloggroup`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html
 [`tagqueue`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_TagQueue.html
 [`tagresource` (dynamodb)]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TagResource.html
@@ -531,6 +609,7 @@ TODO.
 [`testrenderemailtemplate`]: https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_TestRenderEmailTemplate.html
 [`transactgetitems`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html
 [`transactwriteitems`]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html
+[`updateshardcount`]: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html
 [`untagloggroup`]: https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html
 [`untagqueue`]: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_UntagQueue.html
 [`untagresource` (dynamodb)]: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UntagResource.html

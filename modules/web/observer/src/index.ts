@@ -1,4 +1,4 @@
-export { observeIntersections } from './observe-intersections';
-export { observeMutations } from './observe-mutations';
-export { observePerformance } from './observe-performance';
-export { observeResizes } from './observe-resizes';
+export { watchIntersections } from './watch-intersections';
+export { watchMutations } from './watch-mutations';
+export { watchPerformance } from './watch-performance';
+export { watchResizes } from './watch-resizes';

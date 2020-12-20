@@ -1,7 +1,8 @@
 import { HeadBucketRequest } from '@aws-sdk/client-s3';
-import { pipe } from 'rxjs';
-import { Command } from '../../command';
+import { Command, throwUnimplementedCommand } from '@komore/dev-server-local-amazon/service';
 
-export const headBucket: Command<HeadBucketRequest, void> = pipe(
-
-);
+/**
+ * Determines whether a bucket exists and access is granted
+ * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html HeadBucket}
+ */
+export const headBucket: Command<HeadBucketRequest, void> = throwUnimplementedCommand('HeadBucket');

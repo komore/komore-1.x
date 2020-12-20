@@ -24,7 +24,6 @@ export function deleteDynamoDBTable(tableName: string): Observable<TableDescript
       const dynamoDBTable$ = dynamoDBTables.get(tableName);
 
       if (!dynamoDBTables.delete(tableName)) {
-        // The table has already been deleted
         throw new Error(`DynamoDB table ${tableName} not found`);
       };
 
@@ -32,22 +31,11 @@ export function deleteDynamoDBTable(tableName: string): Observable<TableDescript
 
       return description;
     })
-  )
-  const dynamoDBTable$ = dynamoDBTables.get(tableName);
-  if (dynamoDBTable$ === undefined) {
-    throw new Error(`DynamoDB table ${tableName} not found`);
-  }
-
-  const dynamoDBTable = dynamoDBTable$.value;
-
-  dynamoDBTable$.complete();
-  dynamoDBTables.delete(tableName);
-
-  return of(dynamoDBTable.description);
+  );
 }
 
 export function updateDynamoDBTableMetadata(
-  tableName: string,
+  dynamoDBTable: string,
   project: (metadata: DynamoDBTableMetadata) => DynamoDBTableMetadata
 ): Observable<DynamoDBTableMetadata> {
   const dynamoDBTable$ = dynamoDBTables.get(tableName);

@@ -18,7 +18,7 @@ yarn add @komore/dev-server-local-amazon --dev
 
 ## Supported services
 
-The documentation features an exhaustive list of the [supported services].
+The documentation features an exhaustive [list of supported services].
 
 [komore local development server]: https://npmjs.com/package/@komore/dev-server-local
-[supported services]: https://komore.dev/modules/dev-server/local/amazon
+[list of supported services]: https://komore.dev/modules/dev-server/local/amazon

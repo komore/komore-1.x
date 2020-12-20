@@ -5,4 +5,6 @@ import { Command, throwUnimplementedCommand } from '@komore/dev-server-local-ama
  * Writes the attributes of one or more items
  * @note {@link https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html BatchWriteItem}
  */
-export const batchGetItem: Command<BatchWriteItemInput, BatchWriteItemOutput> = throwUnimplementedCommand('BatchWriteItem');
+export const batchGetItem: Command<BatchWriteItemInput, BatchWriteItemOutput> = throwUnimplementedCommand(
+  'BatchWriteItem'
+);

@@ -28,13 +28,6 @@
             "passWithNoTests": true
           }
         },
-        "test-typing": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
@@ -71,13 +64,6 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/api/graphql/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "test-typing": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/api/graphql/jest.config.js",
@@ -126,13 +112,6 @@
             "passWithNoTests": true
           }
         },
-        "test-typing": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/api/http/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
@@ -169,13 +148,6 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/application/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "test-typing": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/application/jest.config.js",
@@ -224,13 +196,6 @@
             "passWithNoTests": true
           }
         },
-        "test-typing": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/application/updater/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
@@ -267,13 +232,6 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/command/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "test-typing": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/command/jest.config.js",
@@ -322,13 +280,6 @@
             "passWithNoTests": true
           }
         },
-        "test-typing": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/command/testing/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
@@ -340,55 +291,6 @@
               "modules/command/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\command\\testing\\src"
-          }
-        }
-      }
-    },
-    "core": {
-      "root": "modules/core",
-      "sourceRoot": "modules/core/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "modules/core/tsconfig.lib.json",
-              "modules/core/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!modules/core/src/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "test-typing": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/modules/core",
-            "tsConfig": "modules/core/tsconfig.lib.json",
-            "packageJson": "modules/core/package.json",
-            "main": "modules/core/src/index.ts",
-            "assets": [
-              "modules/core/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\core\\src"
           }
         }
       }
@@ -414,13 +316,6 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/data/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "test-typing": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/data/jest.config.js",
@@ -822,6 +717,48 @@
         }
       }
     },
+    "devserver-local-amazon-kinesis": {
+      "root": "modules/dev-server/local/amazon/kinesis",
+      "sourceRoot": "modules/dev-server/local/amazon/kinesis/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/amazon/kinesis/tsconfig.lib.json",
+              "modules/dev-server/local/amazon/kinesis/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/amazon/kinesis/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/amazon/kinesis/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/amazon/kinesis",
+            "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/amazon/kinesis/package.json",
+            "main": "modules/dev-server/local/amazon/kinesis/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/amazon/kinesis/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\kinesis\\src"
+          }
+        }
+      }
+    },
     "devserver-local-amazon-lambda": {
       "root": "modules/dev-server/local/amazon/lambda",
       "sourceRoot": "modules/dev-server/local/amazon/lambda/src",
@@ -902,6 +839,132 @@
               "modules/dev-server/local/amazon/s3/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\s3\\src"
+          }
+        }
+      }
+    },
+    "devserver-local-amazon-ses": {
+      "root": "modules/dev-server/local/amazon/ses",
+      "sourceRoot": "modules/dev-server/local/amazon/ses/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/amazon/ses/tsconfig.lib.json",
+              "modules/dev-server/local/amazon/ses/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/amazon/ses/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/amazon/ses/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/amazon/ses",
+            "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/amazon/ses/package.json",
+            "main": "modules/dev-server/local/amazon/ses/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/amazon/ses/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\ses\\src"
+          }
+        }
+      }
+    },
+    "devserver-local-amazon-sns": {
+      "root": "modules/dev-server/local/amazon/sns",
+      "sourceRoot": "modules/dev-server/local/amazon/sns/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/amazon/sns/tsconfig.lib.json",
+              "modules/dev-server/local/amazon/sns/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/amazon/sns/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/amazon/sns/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/amazon/sns",
+            "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/amazon/sns/package.json",
+            "main": "modules/dev-server/local/amazon/sns/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/amazon/sns/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sns\\src"
+          }
+        }
+      }
+    },
+    "devserver-local-amazon-sqs": {
+      "root": "modules/dev-server/local/amazon/sqs",
+      "sourceRoot": "modules/dev-server/local/amazon/sqs/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/amazon/sqs/tsconfig.lib.json",
+              "modules/dev-server/local/amazon/sqs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/amazon/sqs/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/amazon/sqs/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/amazon/sqs",
+            "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/amazon/sqs/package.json",
+            "main": "modules/dev-server/local/amazon/sqs/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/amazon/sqs/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sqs\\src"
           }
         }
       }
@@ -1326,9 +1389,9 @@
         }
       }
     },
-    "event-store-gcp": {
-      "root": "modules/event/store/gcp",
-      "sourceRoot": "modules/event/store/gcp/src",
+    "event-store-google": {
+      "root": "modules/event/store/google",
+      "sourceRoot": "modules/event/store/google/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -1337,40 +1400,40 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/event/store/gcp/tsconfig.lib.json",
-              "modules/event/store/gcp/tsconfig.spec.json"
+              "modules/event/store/google/tsconfig.lib.json",
+              "modules/event/store/google/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/event/store/gcp/src/**/*"
+              "!modules/event/store/google/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/event/store/gcp/jest.config.js",
+            "jestConfig": "modules/event/store/google/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/event/store/gcp",
-            "tsConfig": "modules/event/store/gcp/tsconfig.lib.json",
-            "packageJson": "modules/event/store/gcp/package.json",
-            "main": "modules/event/store/gcp/src/index.ts",
+            "outputPath": "dist/modules/event/store/google",
+            "tsConfig": "modules/event/store/google/tsconfig.lib.json",
+            "packageJson": "modules/event/store/google/package.json",
+            "main": "modules/event/store/google/src/index.ts",
             "assets": [
-              "modules/event/store/gcp/*.md"
+              "modules/event/store/google/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\event\\gcp\\src"
+            "srcRootForCompilationRoot": "modules\\event\\google\\src"
           }
         }
       }
     },
-    "event-store-gcp-bigtable": {
-      "root": "modules/event/store/gcp/bigtable",
-      "sourceRoot": "modules/event/store/gcp/bigtable/src",
+    "event-store-google-bigtable": {
+      "root": "modules/event/store/google/bigtable",
+      "sourceRoot": "modules/event/store/google/bigtable/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -1379,33 +1442,33 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/event/store/gcp/bigtable/tsconfig.lib.json",
-              "modules/event/store/gcp/bigtable/tsconfig.spec.json"
+              "modules/event/store/google/bigtable/tsconfig.lib.json",
+              "modules/event/store/google/bigtable/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/event/store/gcp/bigtable/src/**/*"
+              "!modules/event/store/google/bigtable/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/event/store/gcp/bigtable/jest.config.js",
+            "jestConfig": "modules/event/store/google/bigtable/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/event/store/gcp/bigtable",
-            "tsConfig": "modules/event/store/gcp/bigtable/tsconfig.lib.json",
-            "packageJson": "modules/event/store/gcp/bigtable/package.json",
-            "main": "modules/event/store/gcp/bigtable/src/index.ts",
+            "outputPath": "dist/modules/event/store/google/bigtable",
+            "tsConfig": "modules/event/store/google/bigtable/tsconfig.lib.json",
+            "packageJson": "modules/event/store/google/bigtable/package.json",
+            "main": "modules/event/store/google/bigtable/src/index.ts",
             "assets": [
-              "modules/event/store/gcp/bigtable/*.md"
+              "modules/event/store/google/bigtable/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\event\\gcp\\bigtable\\src"
+            "srcRootForCompilationRoot": "modules\\event\\google\\bigtable\\src"
           }
         }
       }
@@ -3090,6 +3153,90 @@
         }
       }
     },
+    "integration-azure-dns": {
+      "root": "modules/integration/azure/dns",
+      "sourceRoot": "modules/integration/azure/dns/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/azure/dns/tsconfig.lib.json",
+              "modules/integration/azure/dns/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/azure/dns/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/azure/dns/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/azure/dns",
+            "tsConfig": "modules/integration/azure/dns/tsconfig.lib.json",
+            "packageJson": "modules/integration/azure/dns/package.json",
+            "main": "modules/integration/azure/dns/src/index.ts",
+            "assets": [
+              "modules/integration/azure/dns/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\azure\\dns\\src"
+          }
+        }
+      }
+    },
+    "integration-azure-servicebus": {
+      "root": "modules/integration/azure/service-bus",
+      "sourceRoot": "modules/integration/azure/service-bus/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/azure/service-bus/tsconfig.lib.json",
+              "modules/integration/azure/service-bus/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/azure/service-bus/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/azure/service-bus/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/azure/service-bus",
+            "tsConfig": "modules/integration/azure/service-bus/tsconfig.lib.json",
+            "packageJson": "modules/integration/azure/service-bus/package.json",
+            "main": "modules/integration/azure/service-bus/src/index.ts",
+            "assets": [
+              "modules/integration/azure/service-bus/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\azure\\service-bus\\src"
+          }
+        }
+      }
+    },
     "integration-azure-storage": {
       "root": "modules/integration/azure/storage",
       "sourceRoot": "modules/integration/azure/storage/src",
@@ -3258,9 +3405,9 @@
         }
       }
     },
-    "integration-gcp": {
-      "root": "modules/integration/gcp",
-      "sourceRoot": "modules/integration/gcp/src",
+    "integration-github": {
+      "root": "modules/integration/github",
+      "sourceRoot": "modules/integration/github/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -3269,40 +3416,40 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/gcp/tsconfig.lib.json",
-              "modules/integration/gcp/tsconfig.spec.json"
+              "modules/integration/github/tsconfig.lib.json",
+              "modules/integration/github/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/gcp/src/**/*"
+              "!modules/integration/github/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/gcp/jest.config.js",
+            "jestConfig": "modules/integration/github/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/gcp",
-            "tsConfig": "modules/integration/gcp/tsconfig.lib.json",
-            "packageJson": "modules/integration/gcp/package.json",
-            "main": "modules/integration/gcp/src/index.ts",
+            "outputPath": "dist/modules/integration/github",
+            "tsConfig": "modules/integration/github/tsconfig.lib.json",
+            "packageJson": "modules/integration/github/package.json",
+            "main": "modules/integration/github/src/index.ts",
             "assets": [
-              "modules/integration/gcp/*.md"
+              "modules/integration/github/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\gcp\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\github\\src"
           }
         }
       }
     },
-    "integration-gcp-bigtable": {
-      "root": "modules/integration/gcp/bigtable",
-      "sourceRoot": "modules/integration/gcp/bigtable/src",
+    "integration-gitlab": {
+      "root": "modules/integration/gitlab",
+      "sourceRoot": "modules/integration/gitlab/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -3311,33 +3458,327 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/gcp/bigtable/tsconfig.lib.json",
-              "modules/integration/gcp/bigtable/tsconfig.spec.json"
+              "modules/integration/gitlab/tsconfig.lib.json",
+              "modules/integration/gitlab/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/gcp/bigtable/src/**/*"
+              "!modules/integration/gitlab/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/gcp/bigtable/jest.config.js",
+            "jestConfig": "modules/integration/gitlab/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/gcp/bigtable",
-            "tsConfig": "modules/integration/gcp/bigtable/tsconfig.lib.json",
-            "packageJson": "modules/integration/gcp/bigtable/package.json",
-            "main": "modules/integration/gcp/bigtable/src/index.ts",
+            "outputPath": "dist/modules/integration/gitlab",
+            "tsConfig": "modules/integration/gitlab/tsconfig.lib.json",
+            "packageJson": "modules/integration/gitlab/package.json",
+            "main": "modules/integration/gitlab/src/index.ts",
             "assets": [
-              "modules/integration/gcp/bigtable/*.md"
+              "modules/integration/gitlab/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\gcp\\bigtable\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\gitlab\\src"
+          }
+        }
+      }
+    },
+    "integration-google": {
+      "root": "modules/integration/google",
+      "sourceRoot": "modules/integration/google/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/google/tsconfig.lib.json",
+              "modules/integration/google/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/google/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/google/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/google",
+            "tsConfig": "modules/integration/google/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/package.json",
+            "main": "modules/integration/google/src/index.ts",
+            "assets": [
+              "modules/integration/google/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\google\\src"
+          }
+        }
+      }
+    },
+    "integration-google-bigtable": {
+      "root": "modules/integration/google/bigtable",
+      "sourceRoot": "modules/integration/google/bigtable/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/google/bigtable/tsconfig.lib.json",
+              "modules/integration/google/bigtable/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/google/bigtable/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/google/bigtable/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/google/bigtable",
+            "tsConfig": "modules/integration/google/bigtable/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/bigtable/package.json",
+            "main": "modules/integration/google/bigtable/src/index.ts",
+            "assets": [
+              "modules/integration/google/bigtable/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\google\\bigtable\\src"
+          }
+        }
+      }
+    },
+    "integration-google-logging": {
+      "root": "modules/integration/google/logging",
+      "sourceRoot": "modules/integration/google/logging/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/google/logging/tsconfig.lib.json",
+              "modules/integration/google/logging/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/google/logging/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/google/logging/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/google/logging",
+            "tsConfig": "modules/integration/google/logging/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/logging/package.json",
+            "main": "modules/integration/google/logging/src/index.ts",
+            "assets": [
+              "modules/integration/google/logging/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\google\\logging\\src"
+          }
+        }
+      }
+    },
+    "integration-google-metrics": {
+      "root": "modules/integration/google/metrics",
+      "sourceRoot": "modules/integration/google/metrics/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/google/metrics/tsconfig.lib.json",
+              "modules/integration/google/metrics/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/google/metrics/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/google/metrics/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/google/metrics",
+            "tsConfig": "modules/integration/google/metrics/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/metrics/package.json",
+            "main": "modules/integration/google/metrics/src/index.ts",
+            "assets": [
+              "modules/integration/google/metrics/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\google\\metrics\\src"
+          }
+        }
+      }
+    },
+    "integration-google-pubsub": {
+      "root": "modules/integration/google/pub-sub",
+      "sourceRoot": "modules/integration/google/pub-sub/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/google/pub-sub/tsconfig.lib.json",
+              "modules/integration/google/pub-sub/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/google/pub-sub/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/google/pub-sub/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/google/pub-sub",
+            "tsConfig": "modules/integration/google/pub-sub/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/pub-sub/package.json",
+            "main": "modules/integration/google/pub-sub/src/index.ts",
+            "assets": [
+              "modules/integration/google/pub-sub/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\google\\pub-sub\\src"
+          }
+        }
+      }
+    },
+    "integration-paypal": {
+      "root": "modules/integration/paypal",
+      "sourceRoot": "modules/integration/paypal/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/paypal/tsconfig.lib.json",
+              "modules/integration/paypal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/paypal/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/paypal/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/paypal",
+            "tsConfig": "modules/integration/paypal/tsconfig.lib.json",
+            "packageJson": "modules/integration/paypal/package.json",
+            "main": "modules/integration/paypal/src/index.ts",
+            "assets": [
+              "modules/integration/paypal/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\paypal\\src"
+          }
+        }
+      }
+    },
+    "integration-square": {
+      "root": "modules/integration/square",
+      "sourceRoot": "modules/integration/square/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/square/tsconfig.lib.json",
+              "modules/integration/square/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/square/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/square/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/square",
+            "tsConfig": "modules/integration/square/tsconfig.lib.json",
+            "packageJson": "modules/integration/square/package.json",
+            "main": "modules/integration/square/src/index.ts",
+            "assets": [
+              "modules/integration/square/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\square\\src"
           }
         }
       }
@@ -3677,6 +4118,90 @@
         }
       }
     },
+    "local": {
+      "root": "modules/local",
+      "sourceRoot": "modules/local/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/local/tsconfig.lib.json",
+              "modules/local/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/local/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/local/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/local",
+            "tsConfig": "modules/local/tsconfig.lib.json",
+            "packageJson": "modules/local/package.json",
+            "main": "modules/local/src/index.ts",
+            "assets": [
+              "modules/local/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\local\\src"
+          }
+        }
+      }
+    },
+    "local-filesystem": {
+      "root": "modules/local/filesystem",
+      "sourceRoot": "modules/local/filesystem/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/local/filesystem/tsconfig.lib.json",
+              "modules/local/filesystem/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/local/filesystem/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/local/filesystem/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/local/filesystem",
+            "tsConfig": "modules/local/filesystem/tsconfig.lib.json",
+            "packageJson": "modules/local/filesystem/package.json",
+            "main": "modules/local/filesystem/src/index.ts",
+            "assets": [
+              "modules/local/filesystem/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\local\\filesystem\\src"
+          }
+        }
+      }
+    },
     "message": {
       "root": "modules/message",
       "sourceRoot": "modules/message/src",
@@ -3929,9 +4454,9 @@
         }
       }
     },
-    "observability-driver-gcp": {
-      "root": "modules/observability/driver/gcp",
-      "sourceRoot": "modules/observability/driver/gcp/src",
+    "observability-driver-google": {
+      "root": "modules/observability/driver/google",
+      "sourceRoot": "modules/observability/driver/google/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -3940,33 +4465,33 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/observability/driver/gcp/tsconfig.lib.json",
-              "modules/observability/driver/gcp/tsconfig.spec.json"
+              "modules/observability/driver/google/tsconfig.lib.json",
+              "modules/observability/driver/google/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/observability/driver/gcp/src/**/*"
+              "!modules/observability/driver/google/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/observability/driver/gcp/jest.config.js",
+            "jestConfig": "modules/observability/driver/google/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/observability/driver/gcp",
-            "tsConfig": "modules/observability/driver/gcp/tsconfig.lib.json",
-            "packageJson": "modules/observability/driver/gcp/package.json",
-            "main": "modules/observability/driver/gcp/src/index.ts",
+            "outputPath": "dist/modules/observability/driver/google",
+            "tsConfig": "modules/observability/driver/google/tsconfig.lib.json",
+            "packageJson": "modules/observability/driver/google/package.json",
+            "main": "modules/observability/driver/google/src/index.ts",
             "assets": [
-              "modules/observability/driver/gcp/*.md"
+              "modules/observability/driver/google/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\observability\\driver\\gcp\\src"
+            "srcRootForCompilationRoot": "modules\\observability\\driver\\google\\src"
           }
         }
       }
@@ -4181,6 +4706,48 @@
         }
       }
     },
+    "operators": {
+      "root": "modules/operators",
+      "sourceRoot": "modules/operators/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/operators/tsconfig.lib.json",
+              "modules/operators/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/operators/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/operators",
+            "tsConfig": "modules/operators/tsconfig.lib.json",
+            "packageJson": "modules/operators/package.json",
+            "main": "modules/operators/src/index.ts",
+            "assets": [
+              "modules/operators/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\operators\\src"
+          }
+        }
+      }
+    },
     "process": {
       "root": "modules/process",
       "sourceRoot": "modules/process/src",
@@ -4345,6 +4912,48 @@
               "modules/query/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\query\\testing\\src"
+          }
+        }
+      }
+    },
+    "typescript": {
+      "root": "modules/typescript",
+      "sourceRoot": "modules/typescript/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/typescript/tsconfig.lib.json",
+              "modules/typescript/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/typescript/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/typescript/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/typescript",
+            "tsConfig": "modules/typescript/tsconfig.lib.json",
+            "packageJson": "modules/typescript/package.json",
+            "main": "modules/typescript/src/index.ts",
+            "assets": [
+              "modules/typescript/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\typescript\\src"
           }
         }
       }
@@ -4991,6 +5600,48 @@
         }
       }
     },
+    "web-payment": {
+      "root": "modules/web/payment",
+      "sourceRoot": "modules/web/payment/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/web/payment/tsconfig.lib.json",
+              "modules/web/payment/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/web/payment/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/web/payment/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/web/payment",
+            "tsConfig": "modules/web/payment/tsconfig.lib.json",
+            "packageJson": "modules/web/payment/package.json",
+            "main": "modules/web/payment/src/index.ts",
+            "assets": [
+              "modules/web/payment/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\web\\payment\\src"
+          }
+        }
+      }
+    },
     "web-router": {
       "root": "modules/web/router",
       "sourceRoot": "modules/web/router/src",
@@ -5113,6 +5764,90 @@
               "modules/web/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\testing\\src"
+          }
+        }
+      }
+    },
+    "web-vibration": {
+      "root": "modules/web/vibration",
+      "sourceRoot": "modules/web/vibration/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/web/vibration/tsconfig.lib.json",
+              "modules/web/vibration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/web/vibration/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/web/vibration/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/web/vibration",
+            "tsConfig": "modules/web/vibration/tsconfig.lib.json",
+            "packageJson": "modules/web/vibration/package.json",
+            "main": "modules/web/vibration/src/index.ts",
+            "assets": [
+              "modules/web/vibration/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\web\\vibration\\src"
+          }
+        }
+      }
+    },
+    "web-worker": {
+      "root": "modules/web/worker",
+      "sourceRoot": "modules/web/worker/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/web/worker/tsconfig.lib.json",
+              "modules/web/worker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/web/worker/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/web/worker/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/web/worker",
+            "tsConfig": "modules/web/worker/tsconfig.lib.json",
+            "packageJson": "modules/web/worker/package.json",
+            "main": "modules/web/worker/src/index.ts",
+            "assets": [
+              "modules/web/worker/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\web\\worker\\src"
           }
         }
       }
