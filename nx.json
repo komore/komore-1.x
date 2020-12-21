@@ -31,11 +31,38 @@
     "api-http": {
       "tags": ["scope:api"]
     },
+    "api-testing": {
+      "tags": ["scope:api", "trait:testing"]
+    },
     "application": {
       "tags": ["scope:application", "trait:base"]
     },
+    "application-electron": {
+      "tags": ["scope:application"]
+    },
     "application-updater": {
       "tags": ["scope:application"]
+    },
+    "authorization": {
+      "tags": ["scope:authorization", "trait:base"]
+    },
+    "authorization-abac": {
+      "tags": ["scope:authorization"]
+    },
+    "authorization-abac-alfa": {
+      "tags": ["scope:authorization"]
+    },
+    "authorization-abac-xacml": {
+      "tags": ["scope:authorization"]
+    },
+    "authorization-jwt": {
+      "tags": ["scope:authorization"]
+    },
+    "authorization-rbac": {
+      "tags": ["scope:authorization"]
+    },
+    "authorization-testing": {
+      "tags": ["scope:authorization", "trait:testing"]
     },
     "command": {
       "tags": ["scope:command", "trait:base"]
@@ -49,8 +76,11 @@
     "devserver": {
       "tags": ["scope:devserver", "trait:cli"]
     },
+    "devserver-cloudtail": {
+      "tags": ["scope:devserver"]
+    },
     "devserver-core": {
-      "tags": ["scope:devserver", "trait:base"]
+      "tags": ["scope:devserver"]
     },
     "devserver-local": {
       "tags": ["scope:devserver", "trait:local"]
@@ -82,6 +112,9 @@
     "devserver-local-amazon-s3": {
       "tags": ["scope:devserver", "trait:local", "provider:amazon"]
     },
+    "devserver-local-amazon-service": {
+      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
+    },
     "devserver-local-amazon-ses": {
       "tags": ["scope:devserver", "trait:local", "provider:amazon"]
     },
@@ -97,8 +130,20 @@
     "devserver-local-google": {
       "tags": ["scope:devserver", "trait:local", "provider:google"]
     },
+    "devserver-local-service": {
+      "tags": ["scope:devserver", "trait:local"]
+    },
     "element": {
       "tags": ["scope:element", "trait:base"]
+    },
+    "element-router": {
+      "tags": ["scope:element"]
+    },
+    "element-testing": {
+      "tags": ["scope:element", "trait:testing"]
+    },
+    "eslintplugin": {
+      "tags": ["scope:eslintplugin", "trait:base"]
     },
     "event": {
       "tags": ["scope:event", "trait:base"]
@@ -128,7 +173,7 @@
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
     },
     "event-store-indexeddb": {
-      "tags": ["scope:event", "scope:event-store", "trait:provider"]
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"]
     },
     "event-testing": {
       "tags": ["scope:event", "trait:testing"]
@@ -151,6 +196,9 @@
     "function-openfaas": {
       "tags": ["scope:function", "trait:provider", "provider:openfaas"]
     },
+    "function-pulsar": {
+      "tags": ["scope:function", "trait:provider", "provider:pulsar"]
+    },
     "function-testing": {
       "tags": ["scope:function", "trait:testing"]
     },
@@ -163,6 +211,12 @@
     "graph-testing": {
       "tags": ["scope:graph", "trait:testing"]
     },
+    "identity": {
+      "tags": ["scope:identity", "trait:base"]
+    },
+    "identity-testing": {
+      "tags": ["scope:identity", "trait:testing"]
+    },
     "integration": {
       "tags": ["scope:integration"]
     },
@@ -170,6 +224,12 @@
       "tags": ["scope:integration", "trait:provider", "provider:alexa"]
     },
     "integration-amazon": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-apigateway": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-appsync": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
     "integration-amazon-aurora": {
@@ -286,8 +346,14 @@
     "integration-google-pubsub": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
+    "integration-kafka": {
+      "tags": ["scope:integration", "trait:provider", "provider:kafka"]
+    },
     "integration-paypal": {
       "tags": ["scope:integration", "trait:provider", "provider:paypal"]
+    },
+    "integration-pulsar": {
+      "tags": ["scope:integration", "trait:provider", "provider:pulsar"]
     },
     "integration-square": {
       "tags": ["scope:integration", "trait:provider", "provider:square"]
@@ -308,6 +374,9 @@
       "tags": ["scope:layer"]
     },
     "layer-image": {
+      "tags": ["scope:layer"]
+    },
+    "layer-messagebroker": {
       "tags": ["scope:layer"]
     },
     "layer-testing": {
@@ -373,6 +442,9 @@
     "query-testing": {
       "tags": ["scope:query", "trait:testing"]
     },
+    "stack": {
+      "tags": ["scope:stack", "traits:base"]
+    },
     "typescript": {
       "tags": ["scope:typescript"]
     },
@@ -382,8 +454,8 @@
     "validation-testing": {
       "tags": ["scope:validation", "trait:testing"]
     },
-    "vscode": {
-      "tags": ["scope:vscode", "trait:extension"]
+    "vscode-extension": {
+      "tags": ["scope:vscode-extension", "trait:vscode"]
     },
     "web": {
       "tags": ["scope:web", "trait:base"]
@@ -418,7 +490,7 @@
     "web-payment": {
       "tags": ["scope:web"]
     },
-    "web-router": {
+    "web-push": {
       "tags": ["scope:web"]
     },
     "web-speech": {
