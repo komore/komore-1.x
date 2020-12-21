@@ -2,10 +2,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build-vscode-watch",
+      "label": "build-vscode-extension-watch",
       "type": "shell",
       "command": "nx",
-      "args": ["build", "vscode", "--no-cache", "--watch"],
+      "args": ["build", "vscode-extension", "--no-cache", "--watch"],
       "isBackground": true,
       "problemMatcher": {
         "owner": "typescript",

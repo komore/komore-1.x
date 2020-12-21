@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/integration/testing/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/twitter/src/**/*.spec.ts'],
   preset: '../../../jest.preset.js',
-  coverageDirectory: '../../../coverage/integration-testing',
+  coverageDirectory: '../../../coverage/integration-twitter',
   globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-testing'
+  displayName: 'integration-twitter'
 };
