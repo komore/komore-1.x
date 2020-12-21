@@ -25,8 +25,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/api/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/api/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/api"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -39,7 +43,10 @@
               "modules/api/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\api\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -67,8 +74,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/api/graphql/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/api/graphql/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/api/graphql"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -81,7 +92,10 @@
               "modules/api/graphql/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\api\\graphql\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -109,8 +123,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/api/http/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/api/http/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/api/http"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -123,7 +141,10 @@
               "modules/api/http/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\api\\http\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -151,8 +172,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/application/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/application/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/application"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -165,7 +190,10 @@
               "modules/application/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\application\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -193,8 +221,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/application/updater/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/application/updater/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/application/updater"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -207,7 +239,10 @@
               "modules/application/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\application\\updater\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -235,8 +270,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/command/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/command/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/command"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -249,7 +288,10 @@
               "modules/command/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\command\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -277,8 +319,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/command/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/command/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/command/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -291,7 +337,10 @@
               "modules/command/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\command\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -319,8 +368,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/data/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/data/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/data"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -333,7 +386,10 @@
               "modules/data/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\data\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -350,7 +406,10 @@
             "outputPath": "dist/modules/dev-server",
             "main": "modules/dev-server/src/main.ts",
             "tsConfig": "modules/dev-server/tsconfig.app.json"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -376,8 +435,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server"
+          ]
         }
       }
     },
@@ -405,8 +468,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/core/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/core/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/core"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -419,7 +486,10 @@
               "modules/dev-server/core/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\core\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -447,8 +517,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -461,7 +535,10 @@
               "modules/dev-server/local/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -489,8 +566,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -503,7 +584,10 @@
               "modules/dev-server/local/amazon/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -531,8 +615,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/api-gateway/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/api-gateway/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/api-gateway"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -545,7 +633,10 @@
               "modules/dev-server/local/amazon/api-gateway/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\api-gateway\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -573,8 +664,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/app-sync/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/app-sync/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/app-sync"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -587,7 +682,10 @@
               "modules/dev-server/local/amazon/app-sync/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\app-sync\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -615,8 +713,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/cloudwatch/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/cloudwatch/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/cloudwatch"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -629,7 +731,10 @@
               "modules/dev-server/local/amazon/cloudwatch/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\cloudwatch\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -657,8 +762,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/cloudwatch-logs/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/cloudwatch-logs/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/cloudwatch-logs"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -671,7 +780,10 @@
               "modules/dev-server/local/amazon/cloudwatch-logs/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\cloudwatch-logs\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -699,8 +811,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/dynamodb/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/dynamodb/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/dynamodb"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -713,7 +829,10 @@
               "modules/dev-server/local/amazon/dynamodb/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\dynamodb\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -741,8 +860,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/kinesis/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/kinesis"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -755,7 +878,10 @@
               "modules/dev-server/local/amazon/kinesis/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\kinesis\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -783,8 +909,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/lambda/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/lambda/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/lambda"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -797,7 +927,10 @@
               "modules/dev-server/local/amazon/lambda/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\lambda\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -825,8 +958,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/s3/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/s3/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/s3"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -839,7 +976,10 @@
               "modules/dev-server/local/amazon/s3/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\s3\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -867,8 +1007,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/ses/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/ses"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -881,7 +1025,10 @@
               "modules/dev-server/local/amazon/ses/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\ses\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -909,8 +1056,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/sns/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/sns"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -923,7 +1074,10 @@
               "modules/dev-server/local/amazon/sns/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sns\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -951,8 +1105,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/amazon/sqs/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/amazon/sqs"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -965,7 +1123,10 @@
               "modules/dev-server/local/amazon/sqs/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sqs\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -993,8 +1154,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/azure/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/azure/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/azure"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1007,7 +1172,10 @@
               "modules/dev-server/local/azure/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\azure\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1035,8 +1203,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/dev-server/local/google/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/google/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/dev-server/local/google"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1049,7 +1221,10 @@
               "modules/dev-server/local/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\google\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1077,8 +1252,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/element/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/element/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/element"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1091,7 +1270,10 @@
               "modules/element/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\element\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1119,8 +1301,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1133,7 +1319,10 @@
               "modules/event/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1161,8 +1350,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1175,7 +1368,10 @@
               "modules/event/store/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\store\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1203,8 +1399,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/azure/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/azure/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/azure"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1217,7 +1417,10 @@
               "modules/event/store/azure/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\azure\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1245,8 +1448,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/azure/cosmos/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/azure/cosmos/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/azure/cosmos"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1259,7 +1466,10 @@
               "modules/event/store/azure/cosmos/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\azure\\cosmos\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1287,8 +1497,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/amazon/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/amazon/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/amazon"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1301,7 +1515,10 @@
               "modules/event/store/amazon/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\amazon\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1329,8 +1546,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/amazon/aurora/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/amazon/aurora/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/amazon/aurora"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1343,7 +1564,10 @@
               "modules/event/store/amazon/aurora/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\amazon\\aurora\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1371,8 +1595,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/amazon/dynamodb/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/amazon/dynamodb/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/amazon/dynamodb"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1385,7 +1613,10 @@
               "modules/event/store/amazon/dynamodb/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\amazon\\dynamodb\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1413,8 +1644,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/google/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/google/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/google"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1427,7 +1662,10 @@
               "modules/event/store/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\google\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1455,8 +1693,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/google/bigtable/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/google/bigtable/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/google/bigtable"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1469,7 +1711,10 @@
               "modules/event/store/google/bigtable/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\google\\bigtable\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1497,8 +1742,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/store/indexeddb/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/indexeddb/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/store/indexeddb"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1511,7 +1760,10 @@
               "modules/event/store/indexeddb/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\amazon\\dynamodb\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1539,8 +1791,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/event/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/event/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1553,7 +1809,10 @@
               "modules/event/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\event\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1581,8 +1840,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1595,7 +1858,10 @@
               "modules/function/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1623,8 +1889,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/alexa/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/alexa/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/alexa"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1637,7 +1907,10 @@
               "modules/function/alexa/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\alexa\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1665,8 +1938,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/azure/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/azure/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/azure"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1679,7 +1956,10 @@
               "modules/function/azure/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\azure\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1707,8 +1987,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/google/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/google/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/google"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1721,7 +2005,10 @@
               "modules/function/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\google\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1749,8 +2036,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/lambda/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/lambda"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1763,7 +2054,10 @@
               "modules/function/lambda/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\lambda\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1791,8 +2085,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/openfaas/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/openfaas/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/openfaas"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1805,7 +2103,10 @@
               "modules/function/openfaas/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\openfaas\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1833,8 +2134,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/function/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/function/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1847,7 +2152,10 @@
               "modules/function/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1875,8 +2183,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/graph/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/graph/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/graph"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1889,7 +2201,10 @@
               "modules/graph/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\graph\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1917,8 +2232,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/graph/operators/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/graph/operators/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/graph/operators"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1931,7 +2250,10 @@
               "modules/graph/operators/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\graph\\operators\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -1959,8 +2281,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/graph/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/graph/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/graph/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -1973,7 +2299,10 @@
               "modules/graph/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\graph\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2001,8 +2330,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2015,7 +2348,10 @@
               "modules/integration/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2043,8 +2379,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/alexa/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/alexa/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/alexa"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2057,7 +2397,10 @@
               "modules/integration/alexa/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\alexa\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2085,8 +2428,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2099,7 +2446,10 @@
               "modules/integration/amazon/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2127,8 +2477,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/aurora/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/aurora/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/aurora"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2141,7 +2495,10 @@
               "modules/integration/amazon/aurora/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\aurora\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2169,8 +2526,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/chime/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/chime/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/chime"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2183,7 +2544,10 @@
               "modules/integration/amazon/chime/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\chime\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2211,8 +2575,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/comprehend/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/comprehend/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/comprehend"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2225,7 +2593,10 @@
               "modules/integration/amazon/comprehend/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\comprehend\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2253,8 +2624,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/dynamodb/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/dynamodb/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/dynamodb"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2267,7 +2642,10 @@
               "modules/integration/amazon/dynamodb/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\dynamodb\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2295,8 +2673,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/kinesis/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/kinesis/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/kinesis"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2309,7 +2691,10 @@
               "modules/integration/amazon/kinesis/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\kinesis\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2337,8 +2722,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/lambda/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/lambda/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/lambda"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2351,7 +2740,10 @@
               "modules/integration/amazon/lambda/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\lambda\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2379,8 +2771,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/neptune/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/neptune/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/neptune"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2393,7 +2789,10 @@
               "modules/integration/amazon/neptune/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\neptune\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2421,8 +2820,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/polly/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/polly/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/polly"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2435,7 +2838,10 @@
               "modules/integration/amazon/polly/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\polly\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2463,8 +2869,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/redshift/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/redshift/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/redshift"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2477,7 +2887,10 @@
               "modules/integration/amazon/redshift/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\redshift\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2505,8 +2918,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/rekognition/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/rekognition/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/rekognition"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2519,7 +2936,10 @@
               "modules/integration/amazon/rekognition/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\rekognition\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2547,8 +2967,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/route-53/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/route-53/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/route-53"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2561,7 +2985,10 @@
               "modules/integration/amazon/route-53/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\route-53\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2589,8 +3016,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/s3/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/s3/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/s3"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2603,7 +3034,10 @@
               "modules/integration/amazon/s3/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\s3\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2631,8 +3065,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/ses/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/ses/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/ses"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2645,7 +3083,10 @@
               "modules/integration/amazon/ses/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\ses\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2673,8 +3114,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/sns/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/sns/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/sns"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2687,7 +3132,10 @@
               "modules/integration/amazon/sns/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\sns\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2715,8 +3163,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/sqs/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/sqs/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/sqs"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2729,7 +3181,10 @@
               "modules/integration/amazon/sqs/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\sqs\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2757,8 +3212,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/transcribe/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/transcribe/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/transcribe"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2771,7 +3230,10 @@
               "modules/integration/amazon/transcribe/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\transcribe\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2799,8 +3261,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/translate/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/translate/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/translate"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2813,7 +3279,10 @@
               "modules/integration/amazon/translate/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\translate\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2841,8 +3310,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/amazon/x-ray/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/x-ray/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/amazon/x-ray"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2855,7 +3328,10 @@
               "modules/integration/amazon/x-ray/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\x-ray\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2883,8 +3359,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2897,7 +3377,10 @@
               "modules/integration/azure/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2925,8 +3408,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cognitive-services/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cognitive-services/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cognitive-services"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2939,7 +3426,10 @@
               "modules/integration/azure/cognitive-services/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -2967,8 +3457,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cognitive-services/computer-vision/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cognitive-services/computer-vision/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cognitive-services/computer-vision"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -2981,7 +3475,10 @@
               "modules/integration/azure/cognitive-services/computer-vision/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\computer-vision\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3009,8 +3506,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cognitive-services/content-moderator/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cognitive-services/content-moderator/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cognitive-services/content-moderator"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3023,7 +3524,10 @@
               "modules/integration/azure/cognitive-services/content-moderator/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\content-moderator\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3051,8 +3555,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cognitive-services/face/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cognitive-services/face/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cognitive-services/face"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3065,7 +3573,10 @@
               "modules/integration/azure/cognitive-services/face/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\face\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3093,8 +3604,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cognitive-services/form-recognizer/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cognitive-services/form-recognizer"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3107,7 +3622,10 @@
               "modules/integration/azure/cognitive-services/form-recognizer/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\form-recognizer\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3135,8 +3653,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/cosmos/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/cosmos/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/cosmos"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3149,7 +3671,10 @@
               "modules/integration/azure/cosmos/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\cosmos\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3177,8 +3702,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/dns/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/dns/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/dns"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3191,7 +3720,10 @@
               "modules/integration/azure/dns/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\dns\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3219,8 +3751,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/service-bus/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/service-bus/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/service-bus"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3233,7 +3769,10 @@
               "modules/integration/azure/service-bus/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\service-bus\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3261,8 +3800,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/storage/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/storage/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/storage"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3275,7 +3818,10 @@
               "modules/integration/azure/storage/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\storage\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3303,8 +3849,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/storage/blob/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/storage/blob/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/storage/blob"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3317,7 +3867,10 @@
               "modules/integration/azure/storage/blob/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\storage\\blob\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3345,8 +3898,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/azure/text-analytics/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/azure/text-analytics/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/azure/text-analytics"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3359,7 +3916,10 @@
               "modules/integration/azure/text-analytics/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\azure\\text-analytics\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3387,8 +3947,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/discord/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/discord/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/discord"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3401,7 +3965,10 @@
               "modules/integration/discord/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\discord\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3429,8 +3996,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/github/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/github/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/github"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3443,7 +4014,10 @@
               "modules/integration/github/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\github\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3471,8 +4045,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/gitlab/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/gitlab/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/gitlab"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3485,7 +4063,10 @@
               "modules/integration/gitlab/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\gitlab\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3513,8 +4094,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/google/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/google/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/google"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3527,7 +4112,10 @@
               "modules/integration/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\google\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3555,8 +4143,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/google/bigtable/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/google/bigtable/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/google/bigtable"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3569,7 +4161,10 @@
               "modules/integration/google/bigtable/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\google\\bigtable\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3597,8 +4192,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/google/logging/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/google/logging/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/google/logging"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3611,7 +4210,10 @@
               "modules/integration/google/logging/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\google\\logging\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3639,8 +4241,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/google/metrics/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/google/metrics/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/google/metrics"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3653,7 +4259,10 @@
               "modules/integration/google/metrics/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\google\\metrics\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3681,8 +4290,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/google/pub-sub/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/google/pub-sub/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/google/pub-sub"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3695,7 +4308,10 @@
               "modules/integration/google/pub-sub/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\google\\pub-sub\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3723,8 +4339,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/paypal/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/paypal/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/paypal"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3737,7 +4357,10 @@
               "modules/integration/paypal/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\paypal\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3765,8 +4388,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/square/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/square/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/square"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3779,7 +4406,10 @@
               "modules/integration/square/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\square\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3807,8 +4437,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/stripe/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/stripe/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/stripe"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3821,7 +4455,10 @@
               "modules/integration/stripe/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\stripe\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3849,8 +4486,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3862,7 +4503,10 @@
             "assets": [
               "modules/integration/testing/*.md"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3890,8 +4534,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/integration/twitter/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/twitter/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/integration/twitter"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3904,7 +4552,10 @@
               "modules/integration/twitter/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\twitter\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3932,8 +4583,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/layer/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/layer"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3946,7 +4601,10 @@
               "modules/layer/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -3974,8 +4632,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/layer/file/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/file/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/layer/file"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -3988,7 +4650,10 @@
               "modules/layer/file/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\file\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4016,8 +4681,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/layer/image/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/image/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/layer/image"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4030,7 +4699,10 @@
               "modules/layer/image/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\image\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4058,8 +4730,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/layer/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/layer/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4072,7 +4748,10 @@
               "modules/layer/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4100,8 +4779,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/layer/text/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/text/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/layer/text"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4114,7 +4797,10 @@
               "modules/layer/text/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\text\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4142,8 +4828,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/local/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/local/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/local"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4156,7 +4846,10 @@
               "modules/local/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\local\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4184,8 +4877,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/local/filesystem/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/local/filesystem/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/local/filesystem"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4198,7 +4895,10 @@
               "modules/local/filesystem/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\local\\filesystem\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4226,8 +4926,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/message/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/message/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/message"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4240,7 +4944,10 @@
               "modules/message/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\message\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4268,8 +4975,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/message/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/message/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/message/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4282,7 +4993,10 @@
               "modules/message/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\message\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4310,8 +5024,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4324,7 +5042,10 @@
               "modules/observability/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4352,8 +5073,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/driver/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/driver/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/driver"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4366,7 +5091,10 @@
               "modules/observability/driver/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\driver\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4394,8 +5122,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/driver/amazon/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/driver/amazon/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/driver/amazon"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4408,7 +5140,10 @@
               "modules/observability/driver/amazon/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\driver\\amazon\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4436,8 +5171,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/driver/azure/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/driver/azure/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/driver/azure"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4450,7 +5189,10 @@
               "modules/observability/driver/azure/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\driver\\azure\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4478,8 +5220,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/driver/google/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/driver/google/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/driver/google"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4492,7 +5238,10 @@
               "modules/observability/driver/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\driver\\google\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4520,8 +5269,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/driver/local/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/driver/local/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/driver/local"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4534,7 +5287,10 @@
               "modules/observability/driver/local/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\driver\\local\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4562,8 +5318,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/logging/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/logging/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/logging"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4576,7 +5336,10 @@
               "modules/observability/logging/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\logging\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4604,8 +5367,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/metrics/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/metrics/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/metrics"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4618,7 +5385,10 @@
               "modules/observability/metrics/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\metrics\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4646,8 +5416,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4660,7 +5434,10 @@
               "modules/observability/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4688,8 +5465,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/observability/tracing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/observability/tracing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/observability/tracing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4702,7 +5483,10 @@
               "modules/observability/tracing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\observability\\tracing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4730,8 +5514,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/operators/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/operators/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/operators"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4744,7 +5532,10 @@
               "modules/operators/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\operators\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4772,8 +5563,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/process/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/process/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/process"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4786,7 +5581,10 @@
               "modules/process/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\process\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4814,8 +5612,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/process/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/process/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/process/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4828,7 +5630,10 @@
               "modules/process/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\process\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4856,8 +5661,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/query/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/query/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/query"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4870,7 +5679,10 @@
               "modules/query/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\query\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4898,8 +5710,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/query/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/query/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/query/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4912,7 +5728,10 @@
               "modules/query/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\query\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4940,8 +5759,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/typescript/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/typescript/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/typescript"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4954,7 +5777,10 @@
               "modules/typescript/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\typescript\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -4982,8 +5808,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/validation/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/validation/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/validation"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -4996,7 +5826,10 @@
               "modules/validation/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\validation\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5024,8 +5857,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/validation/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/validation/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/validation/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5038,7 +5875,10 @@
               "modules/validation/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\validation\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5066,8 +5906,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/vscode/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/vscode/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/vscode"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5092,7 +5936,10 @@
               }
             ],
             "srcRootForCompilationRoot": "modules\\vscode\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5120,8 +5967,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5134,7 +5985,10 @@
               "modules/web/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5162,8 +6016,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/authentication/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/authentication/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/authentication"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5176,7 +6034,10 @@
               "modules/web/authentication/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\authentication\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5204,8 +6065,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/form/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/form/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/form"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5218,7 +6083,10 @@
               "modules/web/form/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\form\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5246,8 +6114,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/gamepad/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/gamepad/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/gamepad"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5260,7 +6132,10 @@
               "modules/web/gamepad/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\gamepad\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5288,8 +6163,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/geolocation/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/geolocation/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/geolocation"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5302,7 +6181,10 @@
               "modules/web/geolocation/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\geolocation\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5330,8 +6212,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/http/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/http/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/http"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5344,7 +6230,10 @@
               "modules/web/http/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\http\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5372,8 +6261,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/http/sse/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/http/sse/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/http/sse"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5386,7 +6279,10 @@
               "modules/web/http/sse/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\http\\sse\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5414,8 +6310,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/http/websocket/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/http/websocket/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/http/websocket"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5428,7 +6328,10 @@
               "modules/web/http/websocket/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\http\\websocket\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5456,8 +6359,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/media/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/media/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/media"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5470,7 +6377,10 @@
               "modules/web/media/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\media\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5498,8 +6408,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/storage/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/storage/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/storage"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5512,7 +6426,10 @@
               "modules/web/storage/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\storage\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5540,8 +6457,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/storage/indexeddb/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/storage/indexeddb/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/storage/indexeddb"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5554,7 +6475,10 @@
               "modules/web/storage/indexeddb/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\storage\\indexeddb\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5582,8 +6506,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/observer/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/observer/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/observer"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5596,7 +6524,10 @@
               "modules/web/observer/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\observer\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5624,8 +6555,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/payment/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/payment/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/payment"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5638,7 +6573,10 @@
               "modules/web/payment/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\payment\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5666,8 +6604,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/router/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/router/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/router"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5680,7 +6622,10 @@
               "modules/web/router/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\router\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5708,8 +6653,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/speech/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/speech/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/speech"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5722,7 +6671,10 @@
               "modules/web/speech/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\speech\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5750,8 +6702,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/testing/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5764,7 +6720,10 @@
               "modules/web/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\testing\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5792,8 +6751,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/vibration/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/vibration/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/vibration"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5806,7 +6769,10 @@
               "modules/web/vibration/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\vibration\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5834,8 +6800,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/web/worker/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/web/worker/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/web/worker"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -5848,7 +6818,10 @@
               "modules/web/worker/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\web\\worker\\src"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -5917,7 +6890,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -5953,8 +6929,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/website/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "modules/website/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/modules/website"
+          ]
         }
       }
     },

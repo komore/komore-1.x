@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/web/testing/src/**/*.spec.ts'],
-  name: 'web-testing',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/web-testing',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'web-testing'
 };

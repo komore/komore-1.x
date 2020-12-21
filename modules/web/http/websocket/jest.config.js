@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/web/http/websocket/src/**/*.spec.ts'],
-  name: 'web-http-websocket',
-  preset: '../../../../jest.config.js',
+  preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/web-http-websocket',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'web-http-websocket'
 };

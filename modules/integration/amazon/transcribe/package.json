@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/transcribe",
+  "name": "@komore/integration-amazon/transcribe",
   "version": "0.0.1"
 }

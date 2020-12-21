@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/function/src/**/*.spec.ts'],
-  name: 'function',
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/function',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'function'
 };

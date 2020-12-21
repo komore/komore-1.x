@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
  * @param options Geolocation options
  * @returns Observable stream of positions or undefined when no position is available at the time
  */
-export function watchPosition(options?: PositionOptions): Observable<GeolocationPosition | undefined> {
+export function watchPosition(options?: PositionOptions): Observable<GeolocationPosition | GeolocationPositionError> {
   if (globalThis.navigator?.geolocation?.watchPosition === undefined) {
     return throwError(() => new Error('Geolocation not supported'));
   }

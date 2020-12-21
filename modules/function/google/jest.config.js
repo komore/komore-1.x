@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/function/google/src/**/*.spec.ts'],
-  name: 'function-google',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/function-google',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'function-google'
 };

@@ -1,9 +1,7 @@
 module.exports = {
-  name: 'stack',
+  testMatch: ['**/modules/stack/src/**/*.spec.ts'],
   preset: '../../jest.config.js',
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: '../../coverage/stack'
+  coverageDirectory: '../../coverage/stack',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'stack'
 };

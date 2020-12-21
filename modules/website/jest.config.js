@@ -1,6 +1,5 @@
 module.exports = {
-  name: 'website',
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -17,5 +16,6 @@ module.exports = {
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
     'jest-preset-angular/build/HTMLCommentSerializer.js'
-  ]
+  ],
+  displayName: 'website'
 };

@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/event/store/azure/src/**/*.spec.ts'],
-  name: 'event-store-azure',
-  preset: '../../../../jest.config.js',
+  preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/event-store-azure',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'event-store-azure'
 };

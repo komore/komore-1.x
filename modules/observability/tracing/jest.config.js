@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/observability/tracing/src/**/*.spec.ts'],
-  name: 'observability-tracing',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/observability-tracing',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'observability-tracing'
 };

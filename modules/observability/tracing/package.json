@@ -1,4 +1,4 @@
 {
-  "name": "@komore/observability/metrics",
+  "name": "@komore/observability/tracing",
   "version": "0.0.1"
 }

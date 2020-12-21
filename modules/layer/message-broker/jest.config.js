@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/layer/image/src/**/*.spec.ts'],
-  name: 'layer-image',
+  testMatch: ['**/modules/layer/message-broker/src/**/*.spec.ts'],
   preset: '../../../jest.config.js',
-  coverageDirectory: '../../../coverage/layer-image',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  coverageDirectory: '../../../coverage/layer-messagebroker',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'layer-messagebroker',
 };

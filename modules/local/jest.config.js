@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/local/src/**/*.spec.ts'],
-  name: 'local',
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/local',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'local'
 };

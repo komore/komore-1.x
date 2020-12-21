@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/web/speech/src/**/*.spec.ts'],
-  name: 'web-speech',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/web-speech',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'web-speech'
 };

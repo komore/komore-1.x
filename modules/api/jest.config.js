@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/api/src/**/*.spec.ts'],
-  name: 'api',
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/api',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'api'
 };

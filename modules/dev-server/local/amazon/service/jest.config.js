@@ -1,6 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/dev-server/local/amazon/service/src/**/*.spec.ts'],
-  name: 'devserver-local-amazon-service',
   preset: '../../../../../jest.config.js',
-  coverageDirectory: '../../../../../coverage/devserver-local-amazon-service'
+  coverageDirectory: '../../../../../coverage/devserver-local-amazon-service',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'devserver-local-amazon-service'
 };

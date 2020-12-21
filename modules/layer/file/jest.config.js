@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/layer/file/src/**/*.spec.ts'],
-  name: 'layer-file',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/layer-file',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'layer-file'
 };

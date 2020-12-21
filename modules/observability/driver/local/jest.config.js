@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/observability/driver/local/src/**/*.spec.ts'],
-  name: 'observability-driver-local',
-  preset: '../../../../jest.config.js',
+  preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/observability-driver-local',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'observability-driver-local'
 };

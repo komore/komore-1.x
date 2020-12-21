@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/web/http/src/**/*.spec.ts'],
-  name: 'web-http',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/web-http',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'web-http'
 };

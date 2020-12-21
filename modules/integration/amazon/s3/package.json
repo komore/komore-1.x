@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/s3",
+  "name": "@komore/integration-amazon/s3",
   "version": "0.0.1"
 }

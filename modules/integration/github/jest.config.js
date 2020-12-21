@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/integration/github/src/**/*.spec.ts'],
-  name: 'integration-github',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/integration-github',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'integration-github'
 };

@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/aurora",
+  "name": "@komore/integration-amazon/aurora",
   "version": "0.0.1"
 }

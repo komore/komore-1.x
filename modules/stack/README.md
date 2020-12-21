@@ -1,6 +1,6 @@
 # komore Stack
 
-Describe the stack with a DSL.
+Describe the stack with a DSL / cdktf.
 
 Generate a Terraform module from it.
 

@@ -1,10 +1,7 @@
 module.exports = {
-  name: 'event-store',
-  preset: '../../../jest.config.js',
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
+  testMatch: ['**/modules/event/store/src/**/*.spec.ts'],
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/event-store',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'event-store'
 };

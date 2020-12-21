@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/function/alexa/src/**/*.spec.ts'],
-  name: 'function-alexa',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/function-alexa',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'function-alexa'
 };

@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/redshift",
+  "name": "@komore/integration-amazon/redshift",
   "version": "0.0.1"
 }

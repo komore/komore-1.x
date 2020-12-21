@@ -1,0 +1,4 @@
+{
+  "name": "@komore/event-store-amazon/dynamodb",
+  "version": "0.0.1"
+}

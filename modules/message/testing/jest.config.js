@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/message/testing/src/**/*.spec.ts'],
-  name: 'message-testing',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/message-testing',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'message-testing'
 };

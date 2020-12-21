@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/integration/aws/chime/src/**/*.spec.ts'],
-  name: 'integration-aws-chime',
-  preset: '../../../../jest.config.js',
-  coverageDirectory: '../../../../coverage/integration-aws-chime',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  testMatch: ['**/modules/integration/amazon/chime/src/**/*.spec.ts'],
+  preset: '../../../../jest.preset.js',
+  coverageDirectory: '../../../../coverage/integration-amazon-chime',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'integration-amazon-chime'
 };

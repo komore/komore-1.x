@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/web/vibration/src/**/*.spec.ts'],
-  name: 'web-vibration',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/web-vibration',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'web-vibration'
 };

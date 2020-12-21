@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/observability/driver/gcp/src/**/*.spec.ts'],
-  name: 'observability-driver-gcp',
-  preset: '../../../../jest.config.js',
-  coverageDirectory: '../../../../coverage/observability-driver-gcp',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  testMatch: ['**/modules/observability/driver/google/src/**/*.spec.ts'],
+  preset: '../../../../jest.preset.js',
+  coverageDirectory: '../../../../coverage/observability-driver-google',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'observability-driver-google'
 };

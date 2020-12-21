@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/query/src/**/*.spec.ts'],
-  name: 'query',
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/query',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'query'
 };

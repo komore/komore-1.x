@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/neptune",
+  "name": "@komore/integration-amazon/neptune",
   "version": "0.0.1"
 }

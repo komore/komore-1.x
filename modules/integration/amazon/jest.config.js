@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/integration/aws/src/**/*.spec.ts'],
-  name: 'integration-aws',
-  preset: '../../../jest.config.js',
-  coverageDirectory: '../../../coverage/integration-aws',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  testMatch: ['**/modules/integration/amazon/src/**/*.spec.ts'],
+  preset: '../../../jest.preset.js',
+  coverageDirectory: '../../../coverage/integration-amazon',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'integration-amazon'
 };

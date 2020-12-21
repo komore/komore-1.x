@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/integration/aws/neptune/src/**/*.spec.ts'],
-  name: 'integration-aws-neptune',
-  preset: '../../../../jest.config.js',
-  coverageDirectory: '../../../../coverage/integration-aws-neptune',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  testMatch: ['**/modules/integration/amazon/neptune/src/**/*.spec.ts'],
+  preset: '../../../../jest.preset.js',
+  coverageDirectory: '../../../../coverage/integration-amazon-neptune',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'integration-amazon-neptune'
 };

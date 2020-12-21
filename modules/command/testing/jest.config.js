@@ -1,6 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/command/testing/src/**/*.spec.ts'],
-  name: 'command-testing',
-  preset: '../../../jest.config.js',
-  coverageDirectory: '../../../coverage/command-testing'
+  preset: '../../../jest.preset.js',
+  coverageDirectory: '../../../coverage/command-testing',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'command-testing'
 };

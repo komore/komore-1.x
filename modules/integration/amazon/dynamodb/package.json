@@ -1,4 +1,4 @@
 {
-  "name": "@komore/integration-aws/dynamodb",
+  "name": "@komore/integration-amazon/dynamodb",
   "version": "0.0.1"
 }

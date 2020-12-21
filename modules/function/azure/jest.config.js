@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/function/azure/src/**/*.spec.ts'],
-  name: 'function-azure',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/function-azure',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'function-azure'
 };

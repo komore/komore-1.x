@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/integration/stripe/src/**/*.spec.ts'],
-  name: 'integration-stripe',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/integration-stripe',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'integration-stripe'
 };
