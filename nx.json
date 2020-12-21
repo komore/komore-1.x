@@ -142,8 +142,8 @@
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
     },
-    "eslintplugin": {
-      "tags": ["scope:eslintplugin", "trait:base"]
+    "eslint": {
+      "tags": ["scope:eslint", "trait:base"]
     },
     "event": {
       "tags": ["scope:event", "trait:base"]
@@ -334,16 +334,16 @@
     "integration-google": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
-    "integration-google-bigtable": {
+    "integration-google-cloudbigtable": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
-    "integration-google-logging": {
+    "integration-google-cloudlogging": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
-    "integration-google-metrics": {
+    "integration-google-cloudmetrics": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
-    "integration-google-pubsub": {
+    "integration-google-cloudpubsub": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
     "integration-kafka": {
@@ -444,6 +444,9 @@
     },
     "stack": {
       "tags": ["scope:stack", "traits:base"]
+    },
+    "stack-testing": {
+      "tags": ["scope:stack", "traits:testing"]
     },
     "typescript": {
       "tags": ["scope:typescript"]

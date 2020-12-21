@@ -10,6 +10,6 @@ describe('Deserialize JSON operator function', () => {
     // when: retrieving the value
     const json = await lastValueFrom(value$);
     // then: the value has been serialized to JSON
-    expect(json).toBe({ test: 'string' });
+    expect(json).toStrictEqual({ test: 'string' });
   });
 });

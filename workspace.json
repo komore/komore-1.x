@@ -29,7 +29,7 @@
             "tsConfig": "modules/api/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/api"
+            "coverage/api"
           ]
         },
         "build": {
@@ -78,7 +78,7 @@
             "tsConfig": "modules/api/graphql/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/api/graphql"
+            "coverage/api-graphql"
           ]
         },
         "build": {
@@ -127,7 +127,7 @@
             "tsConfig": "modules/api/http/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/api/http"
+            "coverage/api-http"
           ]
         },
         "build": {
@@ -141,6 +141,55 @@
               "modules/api/http/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\api\\http\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "api-testing": {
+      "root": "modules/api/testing",
+      "sourceRoot": "modules/api/testing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/api/testing/tsconfig.lib.json",
+              "modules/api/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/api/testing/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/api/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/api/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/api-testing"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/api/testing",
+            "tsConfig": "modules/api/testing/tsconfig.lib.json",
+            "packageJson": "modules/api/testing/package.json",
+            "main": "modules/api/testing/src/index.ts",
+            "assets": [
+              "modules/api/testing/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\api\\testing\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -176,7 +225,7 @@
             "tsConfig": "modules/application/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/application"
+            "coverage/application"
           ]
         },
         "build": {
@@ -190,6 +239,55 @@
               "modules/application/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\application\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "application-electron": {
+      "root": "modules/application/electron",
+      "sourceRoot": "modules/application/electron/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/application/electron/tsconfig.lib.json",
+              "modules/application/electron/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/application/electron/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/application/electron/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/application/electron/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/application-electron"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/application/electron",
+            "tsConfig": "modules/application/tsconfig.lib.json",
+            "packageJson": "modules/application/electron/package.json",
+            "main": "modules/application/electron/src/index.ts",
+            "assets": [
+              "modules/application/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\application\\electron\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -225,7 +323,7 @@
             "tsConfig": "modules/application/updater/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/application/updater"
+            "coverage/application-updater"
           ]
         },
         "build": {
@@ -239,6 +337,349 @@
               "modules/application/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\application\\updater\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization": {
+      "root": "modules/authorization",
+      "sourceRoot": "modules/authorization/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/tsconfig.lib.json",
+              "modules/authorization/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization",
+            "tsConfig": "modules/authorization/tsconfig.lib.json",
+            "packageJson": "modules/authorization/package.json",
+            "main": "modules/authorization/src/index.ts",
+            "assets": [
+              "modules/authorization/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-abac": {
+      "root": "modules/authorization/abac",
+      "sourceRoot": "modules/authorization/abac/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/abac/tsconfig.lib.json",
+              "modules/authorization/abac/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/abac/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/abac/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/abac/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-abac"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/abac",
+            "tsConfig": "modules/authorization/abac/tsconfig.lib.json",
+            "packageJson": "modules/authorization/abac/package.json",
+            "main": "modules/authorization/abac/src/index.ts",
+            "assets": [
+              "modules/authorization/abac/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\abac\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-abac-alfa": {
+      "root": "modules/authorization/abac/alfa",
+      "sourceRoot": "modules/authorization/abac/alfa/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/abac/alfa/tsconfig.lib.json",
+              "modules/authorization/abac/alfa/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/abac/alfa/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/abac/alfa/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/abac/alfa/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-abac-alfa"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/abac/alfa",
+            "tsConfig": "modules/authorization/abac/alfa/tsconfig.lib.json",
+            "packageJson": "modules/authorization/abac/alfa/package.json",
+            "main": "modules/authorization/abac/alfa/src/index.ts",
+            "assets": [
+              "modules/authorization/abac/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\abac\\alfa\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-abac-xacml": {
+      "root": "modules/authorization/abac/xacml",
+      "sourceRoot": "modules/authorization/abac/xacml/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/abac/xacml/tsconfig.lib.json",
+              "modules/authorization/abac/xacml/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/abac/xacml/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/abac/xacml/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/abac/xacml/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-abac-xacml"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/abac/xacml",
+            "tsConfig": "modules/authorization/abac/xacml/tsconfig.lib.json",
+            "packageJson": "modules/authorization/abac/xacml/package.json",
+            "main": "modules/authorization/abac/xacml/src/index.ts",
+            "assets": [
+              "modules/authorization/abac/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\abac\\xacml\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-jwt": {
+      "root": "modules/authorization/jwt",
+      "sourceRoot": "modules/authorization/jwt/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/jwt/tsconfig.lib.json",
+              "modules/authorization/jwt/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/jwt/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/jwt/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/jwt/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-jwt"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/jwt",
+            "tsConfig": "modules/authorization/jwt/tsconfig.lib.json",
+            "packageJson": "modules/authorization/jwt/package.json",
+            "main": "modules/authorization/jwt/src/index.ts",
+            "assets": [
+              "modules/authorization/jwt/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\jwt\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-rbac": {
+      "root": "modules/authorization/rbac",
+      "sourceRoot": "modules/authorization/rbac/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/rbac/tsconfig.lib.json",
+              "modules/authorization/rbac/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/rbac/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/rbac/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/rbac/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-rbac"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/rbac",
+            "tsConfig": "modules/authorization/rbac/tsconfig.lib.json",
+            "packageJson": "modules/authorization/rbac/package.json",
+            "main": "modules/authorization/rbac/src/index.ts",
+            "assets": [
+              "modules/authorization/rbac/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\rbac\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "authorization-testing": {
+      "root": "modules/authorization/testing",
+      "sourceRoot": "modules/authorization/testing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/authorization/testing/tsconfig.lib.json",
+              "modules/authorization/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/authorization/testing/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/authorization/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/authorization/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/authorization-testing"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/authorization/testing",
+            "tsConfig": "modules/authorization/testing/tsconfig.lib.json",
+            "packageJson": "modules/authorization/testing/package.json",
+            "main": "modules/authorization/testing/src/index.ts",
+            "assets": [
+              "modules/authorization/testing/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\authorization\\testing\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -274,7 +715,7 @@
             "tsConfig": "modules/command/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/command"
+            "coverage/command"
           ]
         },
         "build": {
@@ -323,7 +764,7 @@
             "tsConfig": "modules/command/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/command/testing"
+            "coverage/command-testing"
           ]
         },
         "build": {
@@ -372,7 +813,7 @@
             "tsConfig": "modules/data/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/data"
+            "coverage/data"
           ]
         },
         "build": {
@@ -439,7 +880,56 @@
             "tsConfig": "modules/dev-server/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server"
+            "coverage/devserver"
+          ]
+        }
+      }
+    },
+    "devserver-cloudtail": {
+      "root": "modules/dev-server/cloudtail",
+      "sourceRoot": "modules/dev-server/cloudtail/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/cloudtail/tsconfig.lib.json",
+              "modules/dev-server/cloudtail/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/cloudtail/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/cloudtail/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/cloudtail/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/devserver-cloudtail"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/cloudtail",
+            "tsConfig": "modules/dev-server/cloudtail/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/cloudtail/package.json",
+            "main": "modules/dev-server/cloudtail/src/index.ts",
+            "assets": [
+              "modules/dev-server/cloudtail/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\cloudtail\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
           ]
         }
       }
@@ -472,7 +962,7 @@
             "tsConfig": "modules/dev-server/core/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/core"
+            "coverage/devserver-core"
           ]
         },
         "build": {
@@ -521,7 +1011,7 @@
             "tsConfig": "modules/dev-server/local/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local"
+            "coverage/devserver-local"
           ]
         },
         "build": {
@@ -570,7 +1060,7 @@
             "tsConfig": "modules/dev-server/local/amazon/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon"
+            "coverage/devserver-local-amazon"
           ]
         },
         "build": {
@@ -619,7 +1109,7 @@
             "tsConfig": "modules/dev-server/local/amazon/api-gateway/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/api-gateway"
+            "coverage/devserver-local-amazon-apigateway"
           ]
         },
         "build": {
@@ -668,7 +1158,7 @@
             "tsConfig": "modules/dev-server/local/amazon/app-sync/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/app-sync"
+            "coverage/devserver-local-amazon-appsync"
           ]
         },
         "build": {
@@ -717,7 +1207,7 @@
             "tsConfig": "modules/dev-server/local/amazon/cloudwatch/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/cloudwatch"
+            "coverage/devserver-local-amazon-cloudwatch"
           ]
         },
         "build": {
@@ -766,7 +1256,7 @@
             "tsConfig": "modules/dev-server/local/amazon/cloudwatch-logs/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/cloudwatch-logs"
+            "coverage/devserver-local-amazon-cloudwatchlogs"
           ]
         },
         "build": {
@@ -815,7 +1305,7 @@
             "tsConfig": "modules/dev-server/local/amazon/dynamodb/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/dynamodb"
+            "coverage/devserver-local-amazon-dynamodb"
           ]
         },
         "build": {
@@ -864,7 +1354,7 @@
             "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/kinesis"
+            "coverage/devserver-local-amazon-kinesis"
           ]
         },
         "build": {
@@ -913,7 +1403,7 @@
             "tsConfig": "modules/dev-server/local/amazon/lambda/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/lambda"
+            "coverage/devserver-local-amazon-lambda"
           ]
         },
         "build": {
@@ -962,7 +1452,7 @@
             "tsConfig": "modules/dev-server/local/amazon/s3/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/s3"
+            "coverage/devserver-local-amazon-s3"
           ]
         },
         "build": {
@@ -976,6 +1466,55 @@
               "modules/dev-server/local/amazon/s3/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\s3\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "devserver-local-amazon-service": {
+      "root": "modules/dev-server/local/amazon/service",
+      "sourceRoot": "modules/dev-server/local/amazon/service/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/amazon/service/tsconfig.lib.json",
+              "modules/dev-server/local/amazon/service/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/amazon/service/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/amazon/service/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/amazon/service/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/devserver-local-amazon-service"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/amazon/service",
+            "tsConfig": "modules/dev-server/local/amazon/service/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/amazon/service/package.json",
+            "main": "modules/dev-server/local/amazon/service/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/amazon/service/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\service\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -1011,7 +1550,7 @@
             "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/ses"
+            "coverage/devserver-local-amazon-ses"
           ]
         },
         "build": {
@@ -1060,7 +1599,7 @@
             "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/sns"
+            "coverage/devserver-local-amazon-sns"
           ]
         },
         "build": {
@@ -1109,7 +1648,7 @@
             "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/amazon/sqs"
+            "coverage/devserver-local-amazon-sqs"
           ]
         },
         "build": {
@@ -1158,7 +1697,7 @@
             "tsConfig": "modules/dev-server/local/azure/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/azure"
+            "coverage/devserver-local-azure"
           ]
         },
         "build": {
@@ -1207,7 +1746,7 @@
             "tsConfig": "modules/dev-server/local/google/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/dev-server/local/google"
+            "coverage/dev-server-local-google"
           ]
         },
         "build": {
@@ -1221,6 +1760,55 @@
               "modules/dev-server/local/google/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\dev-server\\local\\google\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "devserver-local-service": {
+      "root": "modules/dev-server/local/service",
+      "sourceRoot": "modules/dev-server/local/service/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/dev-server/local/service/tsconfig.lib.json",
+              "modules/dev-server/local/service/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/dev-server/local/service/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/dev-server/local/service/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/dev-server/local/service/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/devserver-local-service"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/dev-server/local/service",
+            "tsConfig": "modules/dev-server/local/service/tsconfig.lib.json",
+            "packageJson": "modules/dev-server/local/service/package.json",
+            "main": "modules/dev-server/local/service/src/index.ts",
+            "assets": [
+              "modules/dev-server/local/service/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\dev-server\\local\\service\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -1256,7 +1844,7 @@
             "tsConfig": "modules/element/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/element"
+            "coverage/element"
           ]
         },
         "build": {
@@ -1270,6 +1858,153 @@
               "modules/element/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\element\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "element-router": {
+      "root": "modules/element/router",
+      "sourceRoot": "modules/element/router/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/element/router/tsconfig.lib.json",
+              "modules/element/router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/element/router/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/element/router/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/element/router/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/element-router"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/element/router",
+            "tsConfig": "modules/element/router/tsconfig.lib.json",
+            "packageJson": "modules/element/router/package.json",
+            "main": "modules/element/router/src/index.ts",
+            "assets": [
+              "modules/element/router/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\element\\router\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "element-testing": {
+      "root": "modules/element/testing",
+      "sourceRoot": "modules/element/testing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/element/testing/tsconfig.lib.json",
+              "modules/element/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/element/testing/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/element/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/element/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/element-testing"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/element/testing",
+            "tsConfig": "modules/element/testing/tsconfig.lib.json",
+            "packageJson": "modules/element/testing/package.json",
+            "main": "modules/element/testing/src/index.ts",
+            "assets": [
+              "modules/element/testing/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\element\\testing\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "eslint": {
+      "root": "modules/eslint",
+      "sourceRoot": "modules/eslint/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/eslint/tsconfig.lib.json",
+              "modules/eslint/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/eslint/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/eslint/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/eslint/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/eslint"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/eslint",
+            "tsConfig": "modules/eslint/tsconfig.lib.json",
+            "packageJson": "modules/eslint/package.json",
+            "main": "modules/eslint/src/index.ts",
+            "assets": [
+              "modules/eslint/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\eslint\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -1305,7 +2040,7 @@
             "tsConfig": "modules/event/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event"
+            "coverage/event"
           ]
         },
         "build": {
@@ -1354,7 +2089,7 @@
             "tsConfig": "modules/event/store/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store"
+            "coverage/event-store"
           ]
         },
         "build": {
@@ -1403,7 +2138,7 @@
             "tsConfig": "modules/event/store/azure/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/azure"
+            "coverage/event-store-azure"
           ]
         },
         "build": {
@@ -1452,7 +2187,7 @@
             "tsConfig": "modules/event/store/azure/cosmos/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/azure/cosmos"
+            "coverage/event-store-azure-cosmos"
           ]
         },
         "build": {
@@ -1501,7 +2236,7 @@
             "tsConfig": "modules/event/store/amazon/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/amazon"
+            "coverage/event-store-amazon"
           ]
         },
         "build": {
@@ -1550,7 +2285,7 @@
             "tsConfig": "modules/event/store/amazon/aurora/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/amazon/aurora"
+            "coverage/event-store-amazon-aurora"
           ]
         },
         "build": {
@@ -1599,7 +2334,7 @@
             "tsConfig": "modules/event/store/amazon/dynamodb/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/amazon/dynamodb"
+            "coverage/event-store-amazon-dynamodb"
           ]
         },
         "build": {
@@ -1648,7 +2383,7 @@
             "tsConfig": "modules/event/store/google/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/google"
+            "coverage/event-store-google"
           ]
         },
         "build": {
@@ -1697,7 +2432,7 @@
             "tsConfig": "modules/event/store/google/bigtable/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/google/bigtable"
+            "coverage/event-store-google-bigtable"
           ]
         },
         "build": {
@@ -1746,7 +2481,7 @@
             "tsConfig": "modules/event/store/indexeddb/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/store/indexeddb"
+            "coverage/event-store-indexeddb"
           ]
         },
         "build": {
@@ -1795,7 +2530,7 @@
             "tsConfig": "modules/event/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/event/testing"
+            "coverage/event-testing"
           ]
         },
         "build": {
@@ -1844,7 +2579,7 @@
             "tsConfig": "modules/function/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function"
+            "coverage/function"
           ]
         },
         "build": {
@@ -1893,7 +2628,7 @@
             "tsConfig": "modules/function/alexa/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/alexa"
+            "coverage/function-alexa"
           ]
         },
         "build": {
@@ -1942,7 +2677,7 @@
             "tsConfig": "modules/function/azure/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/azure"
+            "coverage/function-azure"
           ]
         },
         "build": {
@@ -1991,7 +2726,7 @@
             "tsConfig": "modules/function/google/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/google"
+            "coverage/function-google"
           ]
         },
         "build": {
@@ -2040,7 +2775,7 @@
             "tsConfig": "modules/function/lambda/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/lambda"
+            "coverage/function-lambda"
           ]
         },
         "build": {
@@ -2089,7 +2824,7 @@
             "tsConfig": "modules/function/openfaas/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/openfaas"
+            "coverage/function-openfaas"
           ]
         },
         "build": {
@@ -2103,6 +2838,55 @@
               "modules/function/openfaas/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\function\\openfaas\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "function-pulsar": {
+      "root": "modules/function/pulsar",
+      "sourceRoot": "modules/function/pulsar/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/function/pulsar/tsconfig.lib.json",
+              "modules/function/pulsar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/function/pulsar/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/pulsar/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/pulsar/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/function-pulsar"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/function/pulsar",
+            "tsConfig": "modules/function/pulsar/tsconfig.lib.json",
+            "packageJson": "modules/function/pulsar/package.json",
+            "main": "modules/function/pulsar/src/index.ts",
+            "assets": [
+              "modules/function/pulsar/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\function\\pulsar\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -2138,7 +2922,7 @@
             "tsConfig": "modules/function/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/function/testing"
+            "coverage/function-testing"
           ]
         },
         "build": {
@@ -2187,7 +2971,7 @@
             "tsConfig": "modules/graph/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/graph"
+            "coverage/graph"
           ]
         },
         "build": {
@@ -2236,7 +3020,7 @@
             "tsConfig": "modules/graph/operators/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/graph/operators"
+            "coverage/graph-operators"
           ]
         },
         "build": {
@@ -2285,7 +3069,7 @@
             "tsConfig": "modules/graph/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/graph/testing"
+            "coverage/graph-testing"
           ]
         },
         "build": {
@@ -2299,6 +3083,104 @@
               "modules/graph/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\graph\\testing\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "identity": {
+      "root": "modules/identity",
+      "sourceRoot": "modules/identity/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/identity/tsconfig.lib.json",
+              "modules/identity/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/identity/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/identity/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/identity/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/identity"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/identity",
+            "tsConfig": "modules/identity/tsconfig.lib.json",
+            "packageJson": "modules/identity/package.json",
+            "main": "modules/identity/src/index.ts",
+            "assets": [
+              "modules/identity/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\identity\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "identity-testing": {
+      "root": "modules/identity/testing",
+      "sourceRoot": "modules/identity/testing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/identity/testing/tsconfig.lib.json",
+              "modules/identity/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/identity/testing/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/identity/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/identity/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/identity-testing"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/identity/testing",
+            "tsConfig": "modules/identity/testing/tsconfig.lib.json",
+            "packageJson": "modules/identity/testing/package.json",
+            "main": "modules/identity/testing/src/index.ts",
+            "assets": [
+              "modules/identity/testing/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\identity\\testing\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -2334,7 +3216,7 @@
             "tsConfig": "modules/integration/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration"
+            "coverage/integration"
           ]
         },
         "build": {
@@ -2383,7 +3265,7 @@
             "tsConfig": "modules/integration/alexa/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/alexa"
+            "coverage/integration-alexa"
           ]
         },
         "build": {
@@ -2432,7 +3314,7 @@
             "tsConfig": "modules/integration/amazon/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon"
+            "coverage/integration-amazon"
           ]
         },
         "build": {
@@ -2446,6 +3328,104 @@
               "modules/integration/amazon/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\amazon\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "integration-amazon-apigateway": {
+      "root": "modules/integration/amazon/api-gateway",
+      "sourceRoot": "modules/integration/amazon/api-gateway/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/amazon/api-gateway/tsconfig.lib.json",
+              "modules/integration/amazon/api-gateway/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/amazon/api-gateway/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/amazon/api-gateway/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/api-gateway/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/integration-amazon-apigateway"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/amazon/api-gateway",
+            "tsConfig": "modules/integration/amazon/api-gateway/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/api-gateway/package.json",
+            "main": "modules/integration/amazon/api-gateway/src/index.ts",
+            "assets": [
+              "modules/integration/amazon/api-gateway/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\amazon\\api-gateway\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "integration-amazon-appsync": {
+      "root": "modules/integration/amazon/appsync",
+      "sourceRoot": "modules/integration/amazon/appsync/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/amazon/appsync/tsconfig.lib.json",
+              "modules/integration/amazon/appsync/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/amazon/appsync/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/amazon/appsync/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/amazon/appsync/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/integration-amazon-appsync"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/amazon/appsync",
+            "tsConfig": "modules/integration/amazon/appsync/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/appsync/package.json",
+            "main": "modules/integration/amazon/appsync/src/index.ts",
+            "assets": [
+              "modules/integration/amazon/appsync/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\amazon\\appsync\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -2481,7 +3461,7 @@
             "tsConfig": "modules/integration/amazon/aurora/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/aurora"
+            "coverage/integration-amazon-aurora"
           ]
         },
         "build": {
@@ -2530,7 +3510,7 @@
             "tsConfig": "modules/integration/amazon/chime/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/chime"
+            "coverage/integration-amazon-chime"
           ]
         },
         "build": {
@@ -2579,7 +3559,7 @@
             "tsConfig": "modules/integration/amazon/comprehend/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/comprehend"
+            "coverage/integration-amazon-comprehend"
           ]
         },
         "build": {
@@ -2628,7 +3608,7 @@
             "tsConfig": "modules/integration/amazon/dynamodb/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/dynamodb"
+            "coverage/integration-amazon-dynamodb"
           ]
         },
         "build": {
@@ -2677,7 +3657,7 @@
             "tsConfig": "modules/integration/amazon/kinesis/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/kinesis"
+            "coverage/integration-amazon-kinesis"
           ]
         },
         "build": {
@@ -2726,7 +3706,7 @@
             "tsConfig": "modules/integration/amazon/lambda/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/lambda"
+            "coverage/integration-amazon-lambda"
           ]
         },
         "build": {
@@ -2775,7 +3755,7 @@
             "tsConfig": "modules/integration/amazon/neptune/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/neptune"
+            "coverage/integration-amazon-neptune"
           ]
         },
         "build": {
@@ -2824,7 +3804,7 @@
             "tsConfig": "modules/integration/amazon/polly/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/polly"
+            "coverage/integration-amazon-polly"
           ]
         },
         "build": {
@@ -2873,7 +3853,7 @@
             "tsConfig": "modules/integration/amazon/redshift/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/redshift"
+            "coverage/integration-amazon-redshift"
           ]
         },
         "build": {
@@ -2922,7 +3902,7 @@
             "tsConfig": "modules/integration/amazon/rekognition/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/rekognition"
+            "coverage/integration-amazon-rekognition"
           ]
         },
         "build": {
@@ -2971,7 +3951,7 @@
             "tsConfig": "modules/integration/amazon/route-53/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/route-53"
+            "coverage/integration-amazon-route53"
           ]
         },
         "build": {
@@ -3020,7 +4000,7 @@
             "tsConfig": "modules/integration/amazon/s3/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/s3"
+            "coverage/integration-amazon-s3"
           ]
         },
         "build": {
@@ -3069,7 +4049,7 @@
             "tsConfig": "modules/integration/amazon/ses/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/ses"
+            "coverage/integration-amazon-ses"
           ]
         },
         "build": {
@@ -3118,7 +4098,7 @@
             "tsConfig": "modules/integration/amazon/sns/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/sns"
+            "coverage/integration-amazon-sns"
           ]
         },
         "build": {
@@ -3167,7 +4147,7 @@
             "tsConfig": "modules/integration/amazon/sqs/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/sqs"
+            "coverage/integration-amazon-sqs"
           ]
         },
         "build": {
@@ -3216,7 +4196,7 @@
             "tsConfig": "modules/integration/amazon/transcribe/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/transcribe"
+            "coverage/integration-amazon-transcribe"
           ]
         },
         "build": {
@@ -3265,7 +4245,7 @@
             "tsConfig": "modules/integration/amazon/translate/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/translate"
+            "coverage/integration-amazon-translate"
           ]
         },
         "build": {
@@ -3314,7 +4294,7 @@
             "tsConfig": "modules/integration/amazon/x-ray/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/amazon/x-ray"
+            "coverage/integration-amazon-xray"
           ]
         },
         "build": {
@@ -3363,7 +4343,7 @@
             "tsConfig": "modules/integration/azure/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure"
+            "coverage/integration-azure"
           ]
         },
         "build": {
@@ -3412,7 +4392,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cognitive-services"
+            "coverage/integration-azure-cognitiveservices"
           ]
         },
         "build": {
@@ -3461,7 +4441,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/computer-vision/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cognitive-services/computer-vision"
+            "coverage/integration-azure-cognitiveservices-computervision"
           ]
         },
         "build": {
@@ -3510,7 +4490,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/content-moderator/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cognitive-services/content-moderator"
+            "coverage/integration-azure-cognitiveservices-contentmoderator"
           ]
         },
         "build": {
@@ -3559,7 +4539,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/face/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cognitive-services/face"
+            "coverage/integration-azure-cognitiveservices-face"
           ]
         },
         "build": {
@@ -3608,7 +4588,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cognitive-services/form-recognizer"
+            "coverage/integration-azure-cognitiveservices-formrecognizer"
           ]
         },
         "build": {
@@ -3657,7 +4637,7 @@
             "tsConfig": "modules/integration/azure/cosmos/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/cosmos"
+            "coverage/integration-azure-cosmos"
           ]
         },
         "build": {
@@ -3706,7 +4686,7 @@
             "tsConfig": "modules/integration/azure/dns/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/dns"
+            "coverage/integration-azure-dns"
           ]
         },
         "build": {
@@ -3755,7 +4735,7 @@
             "tsConfig": "modules/integration/azure/service-bus/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/service-bus"
+            "coverage/integration-azure-servicebus"
           ]
         },
         "build": {
@@ -3804,7 +4784,7 @@
             "tsConfig": "modules/integration/azure/storage/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/storage"
+            "coverage/integration-azure-storage"
           ]
         },
         "build": {
@@ -3853,7 +4833,7 @@
             "tsConfig": "modules/integration/azure/storage/blob/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/storage/blob"
+            "coverage/integration-azure-storage-blob"
           ]
         },
         "build": {
@@ -3902,7 +4882,7 @@
             "tsConfig": "modules/integration/azure/text-analytics/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/azure/text-analytics"
+            "coverage/integration-azure-textanalytics"
           ]
         },
         "build": {
@@ -3951,7 +4931,7 @@
             "tsConfig": "modules/integration/discord/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/discord"
+            "coverage/integration-discord"
           ]
         },
         "build": {
@@ -4000,7 +4980,7 @@
             "tsConfig": "modules/integration/github/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/github"
+            "coverage/integration-github"
           ]
         },
         "build": {
@@ -4049,7 +5029,7 @@
             "tsConfig": "modules/integration/gitlab/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/gitlab"
+            "coverage/integration-gitlab"
           ]
         },
         "build": {
@@ -4098,7 +5078,7 @@
             "tsConfig": "modules/integration/google/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/google"
+            "coverage/integration-google"
           ]
         },
         "build": {
@@ -4119,9 +5099,9 @@
         }
       }
     },
-    "integration-google-bigtable": {
-      "root": "modules/integration/google/bigtable",
-      "sourceRoot": "modules/integration/google/bigtable/src",
+    "integration-google-cloudbigtable": {
+      "root": "modules/integration/google/cloud-bigtable",
+      "sourceRoot": "modules/integration/google/cloud-bigtable/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -4130,37 +5110,37 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/google/bigtable/tsconfig.lib.json",
-              "modules/integration/google/bigtable/tsconfig.spec.json"
+              "modules/integration/google/cloud-bigtable/tsconfig.lib.json",
+              "modules/integration/google/cloud-bigtable/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/google/bigtable/src/**/*"
+              "!modules/integration/google/cloud-bigtable/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/google/bigtable/jest.config.js",
+            "jestConfig": "modules/integration/google/cloud-bigtable/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/integration/google/bigtable/tsconfig.spec.json"
+            "tsConfig": "modules/integration/google/cloud-bigtable/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/google/bigtable"
+            "coverage/integration-google-cloudbigtable"
           ]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/google/bigtable",
-            "tsConfig": "modules/integration/google/bigtable/tsconfig.lib.json",
-            "packageJson": "modules/integration/google/bigtable/package.json",
-            "main": "modules/integration/google/bigtable/src/index.ts",
+            "outputPath": "dist/modules/integration/google/cloud-bigtable",
+            "tsConfig": "modules/integration/google/cloud-bigtable/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/cloud-bigtable/package.json",
+            "main": "modules/integration/google/cloud-bigtable/src/index.ts",
             "assets": [
-              "modules/integration/google/bigtable/*.md"
+              "modules/integration/google/cloud-bigtable/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\bigtable\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-bigtable\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4168,9 +5148,9 @@
         }
       }
     },
-    "integration-google-logging": {
-      "root": "modules/integration/google/logging",
-      "sourceRoot": "modules/integration/google/logging/src",
+    "integration-google-cloudlogging": {
+      "root": "modules/integration/google/cloud-logging",
+      "sourceRoot": "modules/integration/google/cloud-logging/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -4179,37 +5159,37 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/google/logging/tsconfig.lib.json",
-              "modules/integration/google/logging/tsconfig.spec.json"
+              "modules/integration/google/cloud-logging/tsconfig.lib.json",
+              "modules/integration/google/cloud-logging/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/google/logging/src/**/*"
+              "!modules/integration/google/cloud-logging/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/google/logging/jest.config.js",
+            "jestConfig": "modules/integration/google/cloud-logging/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/integration/google/logging/tsconfig.spec.json"
+            "tsConfig": "modules/integration/google/cloud-logging/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/google/logging"
+            "coverage/integration-google-cloudlogging"
           ]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/google/logging",
-            "tsConfig": "modules/integration/google/logging/tsconfig.lib.json",
-            "packageJson": "modules/integration/google/logging/package.json",
-            "main": "modules/integration/google/logging/src/index.ts",
+            "outputPath": "dist/modules/integration/google/cloud-logging",
+            "tsConfig": "modules/integration/google/cloud-logging/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/cloud-logging/package.json",
+            "main": "modules/integration/google/cloud-logging/src/index.ts",
             "assets": [
-              "modules/integration/google/logging/*.md"
+              "modules/integration/google/cloud-logging/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\logging\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-logging\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4217,9 +5197,9 @@
         }
       }
     },
-    "integration-google-metrics": {
-      "root": "modules/integration/google/metrics",
-      "sourceRoot": "modules/integration/google/metrics/src",
+    "integration-google-cloudmetrics": {
+      "root": "modules/integration/google/cloud-metrics",
+      "sourceRoot": "modules/integration/google/cloud-metrics/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -4228,37 +5208,37 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/google/metrics/tsconfig.lib.json",
-              "modules/integration/google/metrics/tsconfig.spec.json"
+              "modules/integration/google/cloud-metrics/tsconfig.lib.json",
+              "modules/integration/google/cloud-metrics/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/google/metrics/src/**/*"
+              "!modules/integration/google/cloud-metrics/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/google/metrics/jest.config.js",
+            "jestConfig": "modules/integration/google/cloud-metrics/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/integration/google/metrics/tsconfig.spec.json"
+            "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/google/metrics"
+            "coverage/integration-google-cloudmetrics"
           ]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/google/metrics",
-            "tsConfig": "modules/integration/google/metrics/tsconfig.lib.json",
-            "packageJson": "modules/integration/google/metrics/package.json",
-            "main": "modules/integration/google/metrics/src/index.ts",
+            "outputPath": "dist/modules/integration/google/cloud-metrics",
+            "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/cloud-metrics/package.json",
+            "main": "modules/integration/google/cloud-metrics/src/index.ts",
             "assets": [
-              "modules/integration/google/metrics/*.md"
+              "modules/integration/google/cloud-metrics/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\metrics\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-metrics\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4266,9 +5246,9 @@
         }
       }
     },
-    "integration-google-pubsub": {
-      "root": "modules/integration/google/pub-sub",
-      "sourceRoot": "modules/integration/google/pub-sub/src",
+    "integration-google-cloudpubsub": {
+      "root": "modules/integration/google/cloud-pub-sub",
+      "sourceRoot": "modules/integration/google/cloud-pub-sub/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -4277,37 +5257,86 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/integration/google/pub-sub/tsconfig.lib.json",
-              "modules/integration/google/pub-sub/tsconfig.spec.json"
+              "modules/integration/google/cloud-pub-sub/tsconfig.lib.json",
+              "modules/integration/google/cloud-pub-sub/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/integration/google/pub-sub/src/**/*"
+              "!modules/integration/google/cloud-pub-sub/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/integration/google/pub-sub/jest.config.js",
+            "jestConfig": "modules/integration/google/cloud-pub-sub/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/integration/google/pub-sub/tsconfig.spec.json"
+            "tsConfig": "modules/integration/google/cloud-pub-sub/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/google/pub-sub"
+            "coverage/integration-google-cloudpubsub"
           ]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/integration/google/pub-sub",
-            "tsConfig": "modules/integration/google/pub-sub/tsconfig.lib.json",
-            "packageJson": "modules/integration/google/pub-sub/package.json",
-            "main": "modules/integration/google/pub-sub/src/index.ts",
+            "outputPath": "dist/modules/integration/google/cloud-pub-sub",
+            "tsConfig": "modules/integration/google/cloud-pub-sub/tsconfig.lib.json",
+            "packageJson": "modules/integration/google/cloud-pub-sub/package.json",
+            "main": "modules/integration/google/cloud-pub-sub/src/index.ts",
             "assets": [
-              "modules/integration/google/pub-sub/*.md"
+              "modules/integration/google/cloud-pub-sub/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\pub-sub\\src"
+            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-pub-sub\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "integration-kafka": {
+      "root": "modules/integration/kafka",
+      "sourceRoot": "modules/integration/kafka/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/kafka/tsconfig.lib.json",
+              "modules/integration/kafka/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/kafka/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/kafka/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/kafka/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/integration-kafka"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/kafka",
+            "tsConfig": "modules/integration/kafka/tsconfig.lib.json",
+            "packageJson": "modules/integration/kafka/package.json",
+            "main": "modules/integration/kafka/src/index.ts",
+            "assets": [
+              "modules/integration/kafka/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\kafka\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4343,7 +5372,7 @@
             "tsConfig": "modules/integration/paypal/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/paypal"
+            "coverage/integration-paypal"
           ]
         },
         "build": {
@@ -4357,6 +5386,55 @@
               "modules/integration/paypal/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\integration\\paypal\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "integration-pulsar": {
+      "root": "modules/integration/pulsar",
+      "sourceRoot": "modules/integration/pulsar/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/integration/pulsar/tsconfig.lib.json",
+              "modules/integration/pulsar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/integration/pulsar/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/pulsar/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/pulsar/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/integration-pulsar"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/integration/pulsar",
+            "tsConfig": "modules/integration/pulsar/tsconfig.lib.json",
+            "packageJson": "modules/integration/pulsar/package.json",
+            "main": "modules/integration/pulsar/src/index.ts",
+            "assets": [
+              "modules/integration/pulsar/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\integration\\pulsar\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4392,7 +5470,7 @@
             "tsConfig": "modules/integration/square/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/square"
+            "coverage/integration-square"
           ]
         },
         "build": {
@@ -4441,7 +5519,7 @@
             "tsConfig": "modules/integration/stripe/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/stripe"
+            "coverage/integration-stripe"
           ]
         },
         "build": {
@@ -4490,7 +5568,7 @@
             "tsConfig": "modules/integration/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/testing"
+            "coverage/integration-testing"
           ]
         },
         "build": {
@@ -4538,7 +5616,7 @@
             "tsConfig": "modules/integration/twitter/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/integration/twitter"
+            "coverage/integration-twitter"
           ]
         },
         "build": {
@@ -4587,7 +5665,7 @@
             "tsConfig": "modules/layer/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/layer"
+            "coverage/layer"
           ]
         },
         "build": {
@@ -4636,7 +5714,7 @@
             "tsConfig": "modules/layer/file/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/layer/file"
+            "coverage/layer-file"
           ]
         },
         "build": {
@@ -4685,7 +5763,7 @@
             "tsConfig": "modules/layer/image/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/layer/image"
+            "coverage/layer-image"
           ]
         },
         "build": {
@@ -4699,6 +5777,55 @@
               "modules/layer/image/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\layer\\image\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "layer-messagebroker": {
+      "root": "modules/layer/message-broker",
+      "sourceRoot": "modules/layer/message-broker/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/layer/message-broker/tsconfig.lib.json",
+              "modules/layer/message-broker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/layer/message-broker/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/layer/message-broker/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/layer/message-broker/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/layer-messagebroker"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/layer/message-broker",
+            "tsConfig": "modules/layer/message-broker/tsconfig.lib.json",
+            "packageJson": "modules/layer/message-broker/package.json",
+            "main": "modules/layer/message-broker/src/index.ts",
+            "assets": [
+              "modules/layer/message-broker/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\layer\\message-broker\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -4734,7 +5861,7 @@
             "tsConfig": "modules/layer/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/layer/testing"
+            "coverage/layer-testing"
           ]
         },
         "build": {
@@ -4783,7 +5910,7 @@
             "tsConfig": "modules/layer/text/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/layer/text"
+            "coverage/layer-text"
           ]
         },
         "build": {
@@ -4832,7 +5959,7 @@
             "tsConfig": "modules/local/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/local"
+            "coverage/local"
           ]
         },
         "build": {
@@ -4881,7 +6008,7 @@
             "tsConfig": "modules/local/filesystem/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/local/filesystem"
+            "coverage/local-filesystem"
           ]
         },
         "build": {
@@ -4930,7 +6057,7 @@
             "tsConfig": "modules/message/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/message"
+            "coverage/message"
           ]
         },
         "build": {
@@ -4979,7 +6106,7 @@
             "tsConfig": "modules/message/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/message/testing"
+            "coverage/message-testing"
           ]
         },
         "build": {
@@ -5028,7 +6155,7 @@
             "tsConfig": "modules/observability/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability"
+            "coverage/observability"
           ]
         },
         "build": {
@@ -5077,7 +6204,7 @@
             "tsConfig": "modules/observability/driver/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/driver"
+            "coverage/observability-driver"
           ]
         },
         "build": {
@@ -5126,7 +6253,7 @@
             "tsConfig": "modules/observability/driver/amazon/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/driver/amazon"
+            "coverage/observability-driver-amazon"
           ]
         },
         "build": {
@@ -5175,7 +6302,7 @@
             "tsConfig": "modules/observability/driver/azure/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/driver/azure"
+            "coverage/observability-driver-azure"
           ]
         },
         "build": {
@@ -5224,7 +6351,7 @@
             "tsConfig": "modules/observability/driver/google/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/driver/google"
+            "coverage/observability-driver-google"
           ]
         },
         "build": {
@@ -5273,7 +6400,7 @@
             "tsConfig": "modules/observability/driver/local/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/driver/local"
+            "coverage/observability-driver-local"
           ]
         },
         "build": {
@@ -5322,7 +6449,7 @@
             "tsConfig": "modules/observability/logging/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/logging"
+            "coverage/observability-logging"
           ]
         },
         "build": {
@@ -5371,7 +6498,7 @@
             "tsConfig": "modules/observability/metrics/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/metrics"
+            "coverage/observability-metrics"
           ]
         },
         "build": {
@@ -5420,7 +6547,7 @@
             "tsConfig": "modules/observability/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/testing"
+            "coverage/observability-testing"
           ]
         },
         "build": {
@@ -5469,7 +6596,7 @@
             "tsConfig": "modules/observability/tracing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/observability/tracing"
+            "coverage/observability-tracing"
           ]
         },
         "build": {
@@ -5518,7 +6645,7 @@
             "tsConfig": "modules/operators/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/operators"
+            "coverage/operators"
           ]
         },
         "build": {
@@ -5567,7 +6694,7 @@
             "tsConfig": "modules/process/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/process"
+            "coverage/process"
           ]
         },
         "build": {
@@ -5616,7 +6743,7 @@
             "tsConfig": "modules/process/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/process/testing"
+            "coverage/process-testing"
           ]
         },
         "build": {
@@ -5665,7 +6792,7 @@
             "tsConfig": "modules/query/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/query"
+            "coverage/query"
           ]
         },
         "build": {
@@ -5714,7 +6841,7 @@
             "tsConfig": "modules/query/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/query/testing"
+            "coverage/query-testing"
           ]
         },
         "build": {
@@ -5728,6 +6855,104 @@
               "modules/query/testing/*.md"
             ],
             "srcRootForCompilationRoot": "modules\\query\\testing\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "stack": {
+      "root": "modules/stack",
+      "sourceRoot": "modules/stack/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/stack/tsconfig.lib.json",
+              "modules/stack/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/stack/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/stack/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/stack/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/stack"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/stack",
+            "tsConfig": "modules/stack/tsconfig.lib.json",
+            "packageJson": "modules/stack/package.json",
+            "main": "modules/stack/src/index.ts",
+            "assets": [
+              "modules/stack/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\stack\\src"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "stack-testing": {
+      "root": "modules/stack/testing",
+      "sourceRoot": "modules/stack/testing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "modules/stack/testing/tsconfig.lib.json",
+              "modules/stack/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!modules/stack/testing/src/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/stack/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/stack/testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/stack-testing"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/modules/stack/testing",
+            "tsConfig": "modules/stack/testing/tsconfig.lib.json",
+            "packageJson": "modules/stack/testing/package.json",
+            "main": "modules/stack/testing/src/index.ts",
+            "assets": [
+              "modules/stack/testing/*.md"
+            ],
+            "srcRootForCompilationRoot": "modules\\stack\\testing\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -5763,7 +6988,7 @@
             "tsConfig": "modules/typescript/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/typescript"
+            "coverage/typescript"
           ]
         },
         "build": {
@@ -5812,7 +7037,7 @@
             "tsConfig": "modules/validation/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/validation"
+            "coverage/validation"
           ]
         },
         "build": {
@@ -5861,7 +7086,7 @@
             "tsConfig": "modules/validation/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/validation/testing"
+            "coverage/validation-testing"
           ]
         },
         "build": {
@@ -5882,7 +7107,7 @@
         }
       }
     },
-    "vscode": {
+    "vscode-extension": {
       "root": "modules/vscode",
       "sourceRoot": "modules/vscode/src",
       "projectType": "library",
@@ -5893,24 +7118,24 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/vscode/tsconfig.lib.json",
-              "modules/vscode/tsconfig.spec.json"
+              "modules/vscode/extension/tsconfig.lib.json",
+              "modules/vscode/extension/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/vscode/src/**/*"
+              "!modules/vscode/extension/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/vscode/jest.config.js",
+            "jestConfig": "modules/vscode/extension/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/vscode/tsconfig.spec.json"
+            "tsConfig": "modules/vscode/extension/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/vscode"
+            "coverage/vscode-extension"
           ]
         },
         "build": {
@@ -5971,7 +7196,7 @@
             "tsConfig": "modules/web/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web"
+            "coverage/web"
           ]
         },
         "build": {
@@ -6020,7 +7245,7 @@
             "tsConfig": "modules/web/authentication/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/authentication"
+            "coverage/web-authentication"
           ]
         },
         "build": {
@@ -6069,7 +7294,7 @@
             "tsConfig": "modules/web/form/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/form"
+            "coverage/web-form"
           ]
         },
         "build": {
@@ -6118,7 +7343,7 @@
             "tsConfig": "modules/web/gamepad/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/gamepad"
+            "coverage/web-gamepad"
           ]
         },
         "build": {
@@ -6167,7 +7392,7 @@
             "tsConfig": "modules/web/geolocation/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/geolocation"
+            "coverage/web-geolocation"
           ]
         },
         "build": {
@@ -6216,7 +7441,7 @@
             "tsConfig": "modules/web/http/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/http"
+            "coverage/web-http"
           ]
         },
         "build": {
@@ -6265,7 +7490,7 @@
             "tsConfig": "modules/web/http/sse/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/http/sse"
+            "coverage/web-http-sse"
           ]
         },
         "build": {
@@ -6314,7 +7539,7 @@
             "tsConfig": "modules/web/http/websocket/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/http/websocket"
+            "coverage/web-http-websocket"
           ]
         },
         "build": {
@@ -6363,7 +7588,7 @@
             "tsConfig": "modules/web/media/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/media"
+            "coverage/web-media"
           ]
         },
         "build": {
@@ -6412,7 +7637,7 @@
             "tsConfig": "modules/web/storage/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/storage"
+            "coverage/web-storage"
           ]
         },
         "build": {
@@ -6461,7 +7686,7 @@
             "tsConfig": "modules/web/storage/indexeddb/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/storage/indexeddb"
+            "coverage/web-storage-indexeddb"
           ]
         },
         "build": {
@@ -6510,7 +7735,7 @@
             "tsConfig": "modules/web/observer/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/observer"
+            "coverage/web-observer"
           ]
         },
         "build": {
@@ -6559,7 +7784,7 @@
             "tsConfig": "modules/web/payment/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/payment"
+            "coverage/web-payment"
           ]
         },
         "build": {
@@ -6580,9 +7805,9 @@
         }
       }
     },
-    "web-router": {
-      "root": "modules/web/router",
-      "sourceRoot": "modules/web/router/src",
+    "web-push": {
+      "root": "modules/web/push",
+      "sourceRoot": "modules/web/push/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -6591,37 +7816,37 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "modules/web/router/tsconfig.lib.json",
-              "modules/web/router/tsconfig.spec.json"
+              "modules/web/push/tsconfig.lib.json",
+              "modules/web/push/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!modules/web/router/src/**/*"
+              "!modules/web/push/src/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/web/router/jest.config.js",
+            "jestConfig": "modules/web/push/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/web/router/tsconfig.spec.json"
+            "tsConfig": "modules/web/push/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/router"
+            "coverage/web-push"
           ]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/modules/web/router",
-            "tsConfig": "modules/web/router/tsconfig.lib.json",
-            "packageJson": "modules/web/router/package.json",
-            "main": "modules/web/router/src/index.ts",
+            "outputPath": "dist/modules/web/push",
+            "tsConfig": "modules/web/push/tsconfig.lib.json",
+            "packageJson": "modules/web/push/package.json",
+            "main": "modules/web/push/src/index.ts",
             "assets": [
-              "modules/web/router/*.md"
+              "modules/web/push/*.md"
             ],
-            "srcRootForCompilationRoot": "modules\\web\\router\\src"
+            "srcRootForCompilationRoot": "modules\\web\\push\\src"
           },
           "outputs": [
             "{options.outputPath}"
@@ -6657,7 +7882,7 @@
             "tsConfig": "modules/web/speech/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/speech"
+            "coverage/web-speech"
           ]
         },
         "build": {
@@ -6706,7 +7931,7 @@
             "tsConfig": "modules/web/testing/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/testing"
+            "coverage/web-testing"
           ]
         },
         "build": {
@@ -6755,7 +7980,7 @@
             "tsConfig": "modules/web/vibration/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/vibration"
+            "coverage/web-vibration"
           ]
         },
         "build": {
@@ -6804,7 +8029,7 @@
             "tsConfig": "modules/web/worker/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/web/worker"
+            "coverage/web-worker"
           ]
         },
         "build": {
@@ -6933,7 +8158,7 @@
             "tsConfig": "modules/website/tsconfig.spec.json"
           },
           "outputs": [
-            "coverage/modules/website"
+            "coverage/website"
           ]
         }
       }
