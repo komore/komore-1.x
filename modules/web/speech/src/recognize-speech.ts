@@ -54,6 +54,7 @@ function configureSpeechRecognition(speechRecognition: SpeechRecognition, config
  * @param options Options
  * @returns Observable stream of events
  */
+// TODO: watchSpeech?
 export function recognizeSpeech(options?: RecognizeSpeechOptions): Observable<SpeechRecognitionEvent | Event> {
   return new Observable(subscriber => {
     const SpeechRecognition = globalThis.SpeechRecognition ?? (globalThis as any).webkitSpeechRecognition;

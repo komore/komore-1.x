@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
  * @param space Adds indentation, white space and line break characters to the JSON text
  */
 export function serializeJson<T>(
-  replacer?: (this: any, key: string, value: any) => any,
+  replacer?: (this: unknown, key: string, value: unknown) => unknown,
   space?: string | number
 ): OperatorFunction<T, string>;
 
@@ -22,7 +22,7 @@ export function serializeJson<T>(
 ): OperatorFunction<T, string>;
 
 export function serializeJson<T>(
-  replacer?: ((this: any, key: string, value: any) => any) | ReadonlyArray<number | string>,
+  replacer?: ((this: unknown, key: string, value: unknown) => unknown) | ReadonlyArray<number | string>,
   space?: string | number
 ): OperatorFunction<T, string> {
   return map(value => JSON.stringify(value, replacer as undefined, space));

@@ -1,4 +1,4 @@
-@import "theme";
+//@import "theme";
 
 body {
   margin: 0px;
@@ -8,4 +8,10 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --komore-primary: #26b2a9;
+  --komore-accent: #fc8219;
+  --komore-dark: #231f20;
 }

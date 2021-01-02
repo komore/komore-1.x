@@ -1,4 +1,11 @@
-import { fromEvent, merge } from 'rxjs';
+import { fromEvent, merge, Observable } from 'rxjs';
 
-export const watchGamepads = () =>
-  merge(fromEvent<GamepadEvent>(window, 'gamepadconnected'), fromEvent<GamepadEvent>(window, 'gamepaddisconnected'));
+/**
+ * Watches for gamepad connections and disconnections
+ */
+export function watchGamepads(): Observable<GamepadEvent> {
+  return merge(
+    fromEvent<GamepadEvent>(window, 'gamepadconnected'),
+    fromEvent<GamepadEvent>(window, 'gamepaddisconnected')
+  );
+}

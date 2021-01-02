@@ -137,7 +137,46 @@
     "element": {
       "tags": ["scope:element", "trait:base"]
     },
+    "element-accessibility": {
+      "tags": ["scope:element"]
+    },
+    "element-animation": {
+      "tags": ["scope:element"]
+    },
+    "element-clipboard": {
+      "tags": ["scope:element"]
+    },
+    "element-compiler": {
+      "tags": ["scope:element"]
+    },
+    "element-dragdrop": {
+      "tags": ["scope:element"]
+    },
+    "element-form": {
+      "tags": ["scope:element"]
+    },
+    "element-httpclient": {
+      "tags": ["scope:element"]
+    },
+    "element-i18n": {
+      "tags": ["scope:element"]
+    },
+    "element-l10n": {
+      "tags": ["scope:element"]
+    },
+    "element-operators": {
+      "tags": ["scope:element"]
+    },
+    "element-overlay": {
+      "tags": ["scope:element"]
+    },
     "element-router": {
+      "tags": ["scope:element"]
+    },
+    "element-scrolling": {
+      "tags": ["scope:element"]
+    },
+    "element-store": {
       "tags": ["scope:element"]
     },
     "element-testing": {
@@ -398,6 +437,13 @@
     "message-testing": {
       "tags": ["scope:message", "trait:testing"]
     },
+    "nx": {
+      "tags": ["scope:nx", "traits:base"]
+    },
+    "nx-e2e": {
+      "tags": ["scope:nx"],
+      "implicitDependencies": ["nx"]
+    },
     "observability": {
       "tags": ["scope:observability", "trait:base"]
     },
@@ -467,9 +513,6 @@
     "web-authentication": {
       "tags": ["scope:web"]
     },
-    "web-form": {
-      "tags": ["scope:web"]
-    },
     "web-gamepad": {
       "tags": ["scope:web"]
     },
@@ -488,10 +531,19 @@
     "web-media": {
       "tags": ["scope:web"]
     },
+    "web-network": {
+      "tags": ["scope:web"]
+    },
+    "web-notification": {
+      "tags": ["scope:web"]
+    },
     "web-observer": {
       "tags": ["scope:web"]
     },
     "web-payment": {
+      "tags": ["scope:web"]
+    },
+    "web-permission": {
       "tags": ["scope:web"]
     },
     "web-push": {
@@ -516,6 +568,18 @@
       "tags": ["scope:web"]
     },
     "website": {
+      "tags": ["scope:website", "trait:base"]
+    },
+    "website-layout": {
+      "tags": ["scope:website"]
+    },
+    "website-layout-notfound": {
+      "tags": ["scope:website"]
+    },
+    "website-search": {
+      "tags": ["scope:website"]
+    },
+    "website-search-results": {
       "tags": ["scope:website"]
     },
     "website-e2e": {
@@ -524,6 +588,6 @@
     }
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   }
 }

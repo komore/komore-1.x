@@ -1,5 +1,5 @@
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, MonoTypeOperatorFunction, Observable } from 'rxjs';
 
-export function redirectTo(path: string): Observable<any> {
+export function redirectTo(path: string): MonoTypeOperatorFunction<Location> {
   return EMPTY;
 }

@@ -8,5 +8,5 @@ export function ignoreGeolocationPositionErrors(): OperatorFunction<
   GeolocationPosition | GeolocationPositionError,
   GeolocationPosition
 > {
-  return filter((value): value is GeolocationPosition => 'coords' in value);
+  return filter((value): value is GeolocationPosition => value instanceof GeolocationPosition);
 }

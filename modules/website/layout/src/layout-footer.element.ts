@@ -1,0 +1,54 @@
+import { defineElement } from '@komore/element';
+
+/**
+ * Layout footer element
+ */
+export const LayoutFooter = defineElement({
+  name: 'komore-footer',
+  styles: ({ css }) => css``,
+  template: ({ html }) => html`
+    <ul>
+      <li>
+        <h3>Resources</h3>
+        <ul>
+          <li>
+            <a routerLink="/about"> About </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>Help</h3>
+        <ul>
+          <li>
+            <a href="https://stackoverflow.com/questions/tagged/komore"> Stack Overflow </a>
+          </li>
+          <li>
+            <a href=""> Discord Server </a>
+          </li>
+          <li>
+            <a href="https://github.com/agora-cloud/komore/issues/new/choose"> Report Issues </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>Community</h3>
+        <ul>
+          <li>
+            <a href=""> Twitter </a>
+          </li>
+          <li>
+            <a href="https://github.com/agora-cloud/komore"> GitHub </a>
+          </li>
+          <li>
+            <a routerLink="/contributing"> Contributing </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="copyright">
+      © 2020. Code licensed under an
+      <a routerLink="/license">MIT license</a>. Documentation licensed under
+      <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    </div>
+  `
+});

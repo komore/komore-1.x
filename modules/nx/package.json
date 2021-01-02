@@ -1,0 +1,13 @@
+{
+  "name": "@komore/schematics",
+  "version": "0.0.1",
+  "description": "komore Plugin for Nx",
+  "keywords": [
+    "komore",
+    "nx",
+    "nx-plugin"
+  ],
+  "main": "src/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json"
+}

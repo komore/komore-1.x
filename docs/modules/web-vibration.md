@@ -2,7 +2,7 @@
 
 The [Vibration API] allows access to the underlying hardware's physical feedback capabilities.
 
-## Vibration observer creation
+## Create a vibration observer
 
 A vibration observer is an observer that turns a stream of values into vibrations.
 
@@ -54,23 +54,22 @@ Emitted values override each other:
 ```ts
 of(
   100, // vibrates for 100 milliseconds
-  50 // but immediately overriden by a 50 milliseconds vibration
+  50 // but immediately overrides with a 50 milliseconds vibration
 ).subscribe(vibrationObserver);
 ```
 
-An [emitted pattern](#patterns) can be used to work around this and will have better timing accuracy than a more
-involved pipeline with timers and delays.
+[Patterns](#patterns) offer a simple, accurate timing mechanism that is preferable to complex pipelines.
 
-## Error
+## Handle errors
 
 When the observed stream encounters an error, vibration is stopped.
 
-This behavior can be changed by passing `stopOnError: false` to `createVibrationObserver`.
+Passing `stopOnError: false` to `createVibrationObserver` will prevent stopping the vibration on error.
 
-## Completion
+## Handle completion
 
 When the observed stream completes, the observer does not stop vibration by default.
 
-The behavior can be modified by passing `stopOnComplete: true` to `createVibrationObserver`.
+Passing `stopOnComplete: true` to `createVibrationObserver` will make the vibration stop on completion.
 
 [vibration api]: https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API

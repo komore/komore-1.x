@@ -1,1 +1,2 @@
-export { isProgressReportSupported } from './is-progress-report-supported';
+export { createHttpClient } from './create-http-client';
+export { HttpClient } from './http-client';

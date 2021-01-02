@@ -1,12 +1,16 @@
-import { throwUnless } from '@komore/operators';
+import { assertThat } from '@komore/operators';
 import { OperatorFunction } from 'rxjs';
 
 /**
  * Throws when a geolocation position error gets emitted
+ * @param errorFactory Optional error factory
  */
-function throwOnGeolocationPositionError(): OperatorFunction<
-  GeolocationPosition | GeolocationPositionError,
-  GeolocationPosition
-> {
-  return throwUnless((value): value is GeolocationPosition => 'coords' in value);
+export function throwOnGeolocationPositionError(
+  errorFactory?: (value: GeolocationPositionError) => unknown
+): OperatorFunction<GeolocationPosition | GeolocationPositionError, GeolocationPosition> {
+  return assertThat(
+    (value): value is GeolocationPosition => value instanceof GeolocationPosition,
+    geolocationPositionError =>
+      errorFactory ? errorFactory(geolocationPositionError as GeolocationPositionError) : geolocationPositionError
+  );
 }

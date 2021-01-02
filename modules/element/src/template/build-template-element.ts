@@ -10,7 +10,7 @@ const trustedTypePolicy = window.trustedTypes?.createPolicy('komore-element-temp
  * @param templateContent Content string
  * @returns Template element
  */
-function buildTemplateElement(templateContent: string): HTMLTemplateElement {
+export function buildTemplateElement(templateContent: string): HTMLTemplateElement {
   const templateElement = document.createElement('template');
 
   if (trustedTypePolicy) {

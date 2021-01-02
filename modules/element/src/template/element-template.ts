@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { ElementDefinition } from '../definition/element-definition';
 import { buildTemplateContent } from './build-template-content';
+import { buildTemplateElement } from './build-template-element';
 
 /**
  * Element template resolver

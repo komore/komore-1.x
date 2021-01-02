@@ -21,8 +21,10 @@ import { describeQueryDefinitions } from './commands/describe-query-definitions'
 import { describeResourcePolicies } from './commands/describe-resource-policies';
 import { describeSubscriptionFilters } from './commands/describe-subscription-filters';
 import { disassociateKmsKey } from './commands/disassociate-kms-key';
-import { getLogRecord } from './commands/get-log-events';
+import { filterLogEvents } from './commands/filter-log-events';
+import { getLogEvents } from './commands/get-log-events';
 import { getLogGroupFields } from './commands/get-log-group-fields';
+import { getLogRecord } from './commands/get-log-record';
 import { getQueryResults } from './commands/get-query-results';
 import { listTagsLogGroup } from './commands/list-tags-log-group';
 import { putDestination } from './commands/put-destination';

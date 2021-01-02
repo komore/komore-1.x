@@ -22,7 +22,7 @@ export function _typeSchema<SchemaTypeName extends string, SchemaType>(
 ): _TypeSchema<SchemaTypeName, SchemaType> {
   return {
     _t: schemaTypeName,
-    _s: (undefined as any) as SchemaType
+    _s: (undefined as unknown) as SchemaType
   };
 }
 
