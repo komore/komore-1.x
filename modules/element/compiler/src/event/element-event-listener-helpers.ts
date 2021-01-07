@@ -1,0 +1,199 @@
+import type {
+  MethodSignature,
+  NodeFactory,
+  ParameterDeclaration,
+  TypeNode,
+  TypeParameterDeclaration,
+  TypeReferenceNode
+} from 'typescript';
+import { SyntaxKind } from 'typescript';
+import { EventListenerTypedInformation } from './event-listener-typed-information';
+import type { EventMapIndex } from './event-map-index';
+
+const typeParameterName = 'type';
+const listenerParameterName = 'listener';
+
+/**
+ * Creates an event map index parameter
+ * ```ts
+ * <K extends keyof EventMap>
+ * ```
+ * @param factory TypeScript node factory
+ * @param eventMapTypeReference Event map type reference
+ * @returns Event map index
+ */
+export function createEventMapIndexParameter(
+  factory: NodeFactory,
+  eventMapTypeReference: TypeReferenceNode
+): EventMapIndex {
+  const name = 'K';
+  const nameIdentifier = factory.createIdentifier(name);
+  const keyofEventMap = factory.createTypeOperatorNode(SyntaxKind.KeyOfKeyword, eventMapTypeReference);
+  const declaration = factory.createTypeParameterDeclaration(nameIdentifier, keyofEventMap);
+  const reference = factory.createTypeReferenceNode(nameIdentifier);
+  return {
+    name,
+    declaration,
+    reference
+  };
+}
+
+/**
+ * Creates a method with an add/removeEventListener signature
+ * @param factory TypeScript node factory
+ * @param name Method name
+ * @param optionsTypeName
+ * @param eventListenerTypedInfo
+ */
+export function createAddRemoveEventListenerMethodSignature(
+  factory: NodeFactory,
+  methodName: string,
+  optionsTypeName: string,
+  eventListenerTypedInfo?: EventListenerTypedInformation
+): MethodSignature {
+  const options = createOptionsParameter(factory, optionsTypeName);
+  const type = createTypeParameter(factory, eventListenerTypedInfo);
+  const listener = createListenerParameter(factory, eventListenerTypedInfo);
+  const typeParameters = createTypeParameters(eventListenerTypedInfo);
+  const methodParameters = [type, listener, options];
+  const returnType = factory.createKeywordTypeNode(SyntaxKind.VoidKeyword);
+  const name = factory.createIdentifier(methodName);
+  return factory.createMethodSignature(undefined, name, undefined, typeParameters, methodParameters, returnType);
+}
+
+/**
+ * Creates type parameters for an add/removeEventListener signature
+ * @param eventListenerTypedInfo Event listener typed information
+ * @returns Type parameters
+ */
+function createTypeParameters(
+  eventListenerTypedInfo?: EventListenerTypedInformation
+): ReadonlyArray<TypeParameterDeclaration> | undefined {
+  if (eventListenerTypedInfo === undefined) {
+    return undefined;
+  }
+
+  return [eventListenerTypedInfo.eventMapIndex.declaration];
+}
+
+/**
+ * Creates a type parameter declaration
+ *
+ * When no type information is available, a string type is used:
+ * ```ts
+ * function _(type: string)
+ * ```
+ *
+ * When type information is available, the event map key is used:
+ * ```ts
+ * function _(type: K)
+ * ```
+ * @param factory TypeScript node factory
+ * @param eventListenerTypedInfo Event listener typed information
+ * @returns Parameter declaration
+ */
+function createTypeParameter(
+  factory: NodeFactory,
+  eventListenerTypedInfo?: EventListenerTypedInformation
+): ParameterDeclaration {
+  const parameterType =
+    eventListenerTypedInfo !== undefined
+      ? eventListenerTypedInfo.eventMapIndex.reference
+      : factory.createKeywordTypeNode(SyntaxKind.StringKeyword);
+  return createParameter(factory, typeParameterName, parameterType);
+}
+
+/**
+ * Creates a listener parameter declaration
+ * ```ts
+ * (this: ElementType, event: CustomElement<EventMap[K]>) => any
+ * ```
+ * @param factory TypeScript node factory
+ * @param eventListenerTypedInfo Event listener typed information
+ * @returns Parameter declaration
+ */
+function createTypedListenerCallbackType(
+  factory: NodeFactory,
+  eventListenerTypedInfo: EventListenerTypedInformation
+): TypeNode {
+  const { elementType, eventMapType, eventMapIndex } = eventListenerTypedInfo;
+  const anyType = factory.createKeywordTypeNode(SyntaxKind.AnyKeyword);
+  const eventType = factory.createIndexedAccessTypeNode(eventMapType, eventMapIndex.reference);
+  const callbackThisParameter = createParameter(factory, 'this', elementType);
+  const callbackEventParameter = createParameter(factory, 'event', eventType);
+  return factory.createFunctionTypeNode(undefined, [callbackThisParameter, callbackEventParameter], anyType);
+}
+
+/**
+ * Creates a listener parameter declaration
+ *
+ * When no type information is available, a standard event listener type is used:
+ * ```ts
+ * function _(listener: EventListenerOrEventListenerObject);
+ * ```
+ *
+ * When type information is available, a typed callback signature is used:
+ * ```ts
+ * function _(listener: (this: ElementType, event: CustomElement<EventMap[K]>) => any)
+ * ```
+ * @param factory TypeScript node factory
+ * @param eventListenerTypedInfo Event listener typed information
+ * @returns Parameter declaration
+ */
+function createListenerParameter(
+  factory: NodeFactory,
+  eventListenerTypedInfo?: EventListenerTypedInformation
+): ParameterDeclaration {
+  const parameterType =
+    eventListenerTypedInfo !== undefined
+      ? createTypedListenerCallbackType(factory, eventListenerTypedInfo)
+      : factory.createTypeReferenceNode('EventListenerOrEventListenerObject');
+  return createParameter(factory, listenerParameterName, parameterType);
+}
+
+/**
+ * Creates an options parameter declaration
+ * ```ts
+ * function _(options?: boolean | OptionsType);
+ * ```
+ * @param factory TypeScript node factory
+ * @param optionsTypeReference Options type reference
+ * @returns Parameter declaration
+ */
+function createOptionsParameter(factory: NodeFactory, optionsTypeName: string): ParameterDeclaration {
+  const optionsTypeReference = factory.createTypeReferenceNode(optionsTypeName);
+  const booleanType = factory.createKeywordTypeNode(SyntaxKind.BooleanKeyword);
+  const parameterType = factory.createUnionTypeNode([booleanType, optionsTypeReference]);
+  return createParameter(factory, 'options', parameterType, true);
+}
+
+/**
+ * Creates a parameter declaration
+ * ```ts
+ * function _(name: parameterType);
+ * function _(name?: parameterType);
+ * ```
+ * @param factory TypeScript node factory
+ * @param name Parameter name
+ * @param parameterType Parameter type reference node
+ * @param optional true if the parameter is optional
+ * @returns Parameter declaration
+ */
+function createParameter(
+  factory: NodeFactory,
+  name: string,
+  parameterType: TypeNode,
+  optional?: true
+): ParameterDeclaration {
+  const parameterName = factory.createIdentifier(name);
+  const questionToken = optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined;
+  return factory.createParameterDeclaration(
+    undefined,
+    undefined,
+    undefined,
+    parameterName,
+    questionToken,
+    parameterType,
+    undefined
+  );
+}

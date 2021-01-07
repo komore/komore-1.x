@@ -1,6 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/event/src/**/*.spec.ts'],
-  name: 'event',
-  preset: '../../jest.config.js',
-  coverageDirectory: '../../coverage/event'
+  testMatch: ['**/modules/sample/todo-list/modules/todo/src/**/*.spec.ts'],
+  preset: '../../../../../jest.preset.js',
+  coverageDirectory: '../../../../../coverage/sample-todolist-todo',
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'sample-todolist-todo'
 };

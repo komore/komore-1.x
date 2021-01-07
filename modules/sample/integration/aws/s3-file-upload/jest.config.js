@@ -1,6 +1,7 @@
 module.exports = {
-  name: 'sample-integration-aws-s3fileupload',
-  preset: '../../../../../jest.config.js',
+  testMatch: ['**/modules/sample/integration/aws/s3-file-upload/src/**/*.spec.ts'],
+  preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/sample-integration-aws-s3fileupload',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'sample-integration-aws-s3fileupload'
 };

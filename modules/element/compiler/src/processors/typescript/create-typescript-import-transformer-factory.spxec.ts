@@ -2,9 +2,9 @@ import type { MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
 import type { EmptyStatement, ImportDeclaration, NodeFactory, SourceFile, TransformationContext } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import { createTypeScriptImportTransformer } from './create-typescript-import-transformer';
+import { createTypeScriptImportTransformerFactory } from './create-typescript-import-transformer-factory';
 
-describe('Create TypeScript import transformer', () => {
+describe('Create TypeScript import transformer factory', () => {
   let mockTransformationContext: MockProxy<TransformationContext> & TransformationContext;
   const mockEmptyStatement = mock<EmptyStatement>();
 
@@ -16,7 +16,7 @@ describe('Create TypeScript import transformer', () => {
 
   it('creates a transformer that keeps normal imports', () => {
     // given: a transformer
-    const transformer = createTypeScriptImportTransformer(mockTransformationContext);
+    const transformer = createTypeScriptImportTransformerFactory(mockTransformationContext);
     // and: an import node
     const importNode = {
       kind: SyntaxKind.ImportDeclaration
@@ -29,7 +29,7 @@ describe('Create TypeScript import transformer', () => {
 
   it('creates a transformer that ignores type imports', () => {
     // given: a transformer
-    const transformer = createTypeScriptImportTransformer(mockTransformationContext);
+    const transformer = createTypeScriptImportTransformerFactory(mockTransformationContext);
     // and: a type import node
     const typeImportNode = {
       kind: SyntaxKind.ImportDeclaration,

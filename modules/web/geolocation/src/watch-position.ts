@@ -1,4 +1,4 @@
-import { Observable, throwError } from 'rxjs';
+import { bindCallback, Observable, throwError } from 'rxjs';
 
 /**
  * Watches the current position

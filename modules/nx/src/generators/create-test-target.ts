@@ -31,7 +31,7 @@ export function createTestTarget<GeneratorOptionsType extends BaseGeneratorOptio
     executor: jestExecutorName,
     outputs: [`coverage/${projectName}`],
     options: {
-      jestConfig: `${projectRoot}/jest.config.js`,
+      jestConfig: `${projectRoot}/jest.preset.js`,
       passWithNoTests: true
     }
   };

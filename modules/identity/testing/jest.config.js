@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/identity/testing/src/**/*.spec.ts'],
-  preset: '../../jest.config.js',
+  preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/identity-testing',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'identity-testing'
 };

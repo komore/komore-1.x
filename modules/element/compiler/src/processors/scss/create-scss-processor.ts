@@ -6,8 +6,8 @@ import type { StyleProcessor } from '../style-processor';
  * @param options Options
  */
 export function createScssProcessor(_: unknown): StyleProcessor {
-  return content => {
-    console.log('scss', content);
+  return _ => {
+    //console.log('scss', content);
     return of(undefined);
   };
 }

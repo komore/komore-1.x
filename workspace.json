@@ -225,43 +225,39 @@
       "root": "modules/application/electron",
       "sourceRoot": "modules/application/electron/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/application/electron/src/**/*.ts",
-              "modules/application/electron/src/**/*.spec.ts"
+              "modules/application/electron/src/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/application/electron/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/application/electron/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
             "coverage/application-electron"
-          ]
+          ],
+          "options": {
+            "jestConfig": "modules/application/electron/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
           "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/modules/application/electron",
-            "tsConfig": "modules/application/tsconfig.lib.json",
+            "tsConfig": "modules/application/electron/tsconfig.lib.json",
             "packageJson": "modules/application/electron/package.json",
             "main": "modules/application/electron/src/index.ts",
             "assets": [
-              "modules/application/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\application\\electron\\src"
-          },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+              "modules/application/electron/*.md"
+            ]
+          }
         }
       }
     },
@@ -1790,7 +1786,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/compiler/src/**/*.ts"
+              "modules/element/compiler/src/**/*.ts"
             ]
           }
         },
@@ -1810,10 +1806,10 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/modules/compiler",
-            "tsConfig": "modules/compiler/tsconfig.lib.json",
-            "packageJson": "modules/compiler/package.json",
-            "main": "modules/compiler/src/index.ts"
+            "outputPath": "dist/modules/element/compiler",
+            "tsConfig": "modules/element/compiler/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/package.json",
+            "main": "modules/element/compiler/src/index.ts"
           }
         }
       }

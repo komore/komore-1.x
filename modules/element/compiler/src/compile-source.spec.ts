@@ -2,14 +2,23 @@ import { compileSource } from './compile-source';
 
 const fileContent = `
 <script class="MyHtmlElement">
-  declare class 
+  import { BehaviorSubject } from 'rxjs';
   import type { x } from '@komore/y';
   import from '@komore/some-other-thing';
   export let foo: string; // element property
-  export const fooReadOnly = 'helloworld'; // element property, but readonly
+  export const foo = new BehaviorSubject<string>('helloworld'); // Subject<?> === element property, but readonly
+  export const fooReadOnly = of(123); // Observable<?> === readonly property
 
-  export function doThis() {
-    alert('woot woot', foo);
+  let variable = 42;
+
+  function doThis() {
+    const value: string = 'abc';
+    alert('woot woot', foo + value);
+  }
+
+  export function xyz() {
+    // element method
+    return 1234;
   }
 </script>
 <style type="text/scss">
@@ -19,10 +28,15 @@ const fileContent = `
 </style>
 <hello-world>
   <div>
-    Div1
-  </div>
-  <div>
-    Div2
+    <test-element
+      #elementReference
+      +\${directiveFactory}
+      attributeName=\${attributeValue}
+      ?attributeName=\${attributeValueBoolean}
+      .propertyName=\${propertyValue}
+      @event1=\${doThis}
+    >
+    </test-element>
   </div>
 </hello-world>
 `;

@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/dev-server/cloudtail/src/**/*.spec.ts'],
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/devserver-cloudtail',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'devserver-cloudtail'
 };

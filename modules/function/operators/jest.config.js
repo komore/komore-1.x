@@ -1,7 +1,7 @@
 module.exports = {
   testMatch: ['**/modules/function/operators/src/**/*.spec.ts'],
-  name: 'function-operators',
-  preset: '../../../jest.config.js',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/function-operators',
-  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } }
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'function-operators'
 };

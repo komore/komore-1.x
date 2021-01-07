@@ -1,0 +1,6 @@
+<script>
+  import { translate as t } from '@komore/element/i18n';
+</script>
+<not-found>
+  ${t('not-found.title')}
+</not-found>
