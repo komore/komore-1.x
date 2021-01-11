@@ -17,21 +17,23 @@ describe('Create element attribute subjects', () => {
       {
         attributeName: 'test-attr-1',
         attributeValueType: factory.createTypeReferenceNode('string'),
-        defaultValue: factory.createIdentifier('undefined')
+        defaultValue: factory.createIdentifier('undefined'),
+        optional: false
       },
       {
         attributeName: 'test-attr-2',
         attributeValueType: factory.createTypeReferenceNode('number'),
-        defaultValue: factory.createNumericLiteral(42)
+        defaultValue: factory.createNumericLiteral(42),
+        optional: false
       }
     ];
     // when: creating the element attribute subjects
     const propertyDeclaration = createElementAttributeSubjects(factory, attributeMap, attributeDefinitions);
     // then:
     expect(propertyDeclaration).toBeSource(`
-      private readonly _k_attrs: ElementAttributeSubjectMap<TestElementAttributeMap> = {
-        "test-attr-1": new BehaviorSubject<string>(undefined),
-        "test-attr-2": new BehaviorSubject<number>(42)
+      private readonly _ka: ElementAttributeSubjectMap<TestElementAttributeMap> = {
+        "test-attr-1": _cEAS(),
+        "test-attr-2": _cEAS<number>()
       };
     `);
   });

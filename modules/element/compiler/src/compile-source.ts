@@ -19,11 +19,9 @@ import { parseSource } from './parser/parse-source';
 export function compileSource(source: string): void {
   const { scriptElements, styleElements, templateElement } = parseSource(source);
   const elementDefinition = getElementDefinition(templateElement, scriptElements);
-  const elementClassDeclaration = createElementClassDeclaration(factory, elementDefinition);
-
-  if (elementClassDeclaration) {
-    console.log('ok');
-  }
+  const templateElementId = undefined;
+  const styleSheetsId = undefined;
+  createElementClassDeclaration(factory, elementDefinition, templateElementId, styleSheetsId);
 
   generateScript(scriptElements);
   generateStyle(styleElements);

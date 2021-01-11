@@ -94,6 +94,7 @@
     "node-html-parser": "2.0.1",
     "node-watch": "0.7.1",
     "path-to-regexp": "6.2.0",
+    "postcss": "8.2.4",
     "rxjs": "7.0.0-beta.9",
     "uuid": "8.3.2",
     "webpack-hot-middleware": "2.25.0"

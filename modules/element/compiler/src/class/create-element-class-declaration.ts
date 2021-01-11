@@ -1,7 +1,7 @@
-import type { ClassDeclaration, NodeFactory } from 'typescript';
-import { ElementDefinition } from '../definition/element-definition';
+import type { ClassDeclaration, Identifier, NodeFactory } from 'typescript';
+import { createExtendsType } from '../codegen/create-extends-type';
+import type { ElementDefinition } from '../definition/element-definition';
 import { createElementClassConstructor } from './create-element-class-constructor';
-import { createElementHeritageClause } from './create-element-heritage-clause';
 
 /**
  * Creates an element class declaration
@@ -14,11 +14,15 @@ import { createElementHeritageClause } from './create-element-heritage-clause';
  * ```
  * @param factory TypeScript node factory
  * @param elementDefinition Element definition
+ * @param templateElement Template element variable identifier
+ * @param styleSheets Style sheets variable identifier
  * @returns Class declaration node
  */
 export function createElementClassDeclaration(
   factory: NodeFactory,
-  elementDefinition: ElementDefinition
+  elementDefinition: ElementDefinition,
+  templateElement: Identifier | undefined,
+  styleSheets: Identifier | undefined
 ): ClassDeclaration {
   const { baseClassName, className } = elementDefinition;
   return factory.createClassDeclaration(
@@ -26,7 +30,7 @@ export function createElementClassDeclaration(
     undefined,
     factory.createIdentifier(className),
     undefined,
-    [createElementHeritageClause(factory, baseClassName)],
-    [createElementClassConstructor(factory)]
+    [createExtendsType(factory, baseClassName)],
+    [createElementClassConstructor(factory, templateElement, styleSheets)]
   );
 }

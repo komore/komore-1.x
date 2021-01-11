@@ -1,14 +1,23 @@
-import type { InterfaceDeclaration, NodeFactory, PropertyAssignment, PropertyDeclaration } from 'typescript';
+import type { InterfaceDeclaration, NodeFactory, PropertyDeclaration } from 'typescript';
 import { SyntaxKind } from 'typescript';
+import { createElementAttributeSubjectProperty } from './create-element-attribute-subject-property';
 import type { ElementAttributeDefinition } from './element-attribute-definition';
 
 const subjectMapType = 'ElementAttributeSubjectMap';
-const subjectMapName = '_k_attrs';
+const subjectMapName = '_ka';
 
 /**
  * Creates an element attribute subject map
+ * ```ts
+ * private readonly _k_attrs: ElmentAttributeSubjectMap<AttributeMap> = {
+ *   'attr-1': _cEAS<AttributeType>(...params),
+ *   // ...
+ * }
+ * ```
  * @param factory TypeScript node factory
- * @param _x
+ * @param attributeMap Attribute map interface declaration
+ * @param attributeDefinitions Element attribute definitions
+ * @returns Property declaration
  */
 export function createElementAttributeSubjects(
   factory: NodeFactory,
@@ -19,25 +28,7 @@ export function createElementAttributeSubjects(
   const readonlyModifier = factory.createModifier(SyntaxKind.ReadonlyKeyword);
   const modifiers = [privateModifier, readonlyModifier];
   const type = factory.createTypeReferenceNode(subjectMapType, [factory.createTypeReferenceNode(attributeMap.name)]);
-  const attributeSubjects = attributeDefinitions.map(attribute => createElementAttributeSubject(factory, attribute));
-  const initializer = factory.createObjectLiteralExpression(attributeSubjects, true);
+  const subjects = attributeDefinitions.map(attribute => createElementAttributeSubjectProperty(factory, attribute));
+  const initializer = factory.createObjectLiteralExpression(subjects, true);
   return factory.createPropertyDeclaration(undefined, modifiers, subjectMapName, undefined, type, initializer);
-}
-
-/**
- * Creates an element attribute subject
- * @param factory TypeScript node factory
- * @param attributeDefinition Element attribute definition
- * @returns Shorthand property assignment
- */
-function createElementAttributeSubject(
-  factory: NodeFactory,
-  attributeDefinition: ElementAttributeDefinition
-): PropertyAssignment {
-  const { attributeName, attributeValueType, defaultValue } = attributeDefinition;
-  const behaviorSubject = factory.createIdentifier('BehaviorSubject');
-  const behaviorSubjectValue = factory.createTypeReferenceNode(attributeValueType.typeName);
-  const newExpression = factory.createNewExpression(behaviorSubject, [behaviorSubjectValue], [defaultValue]);
-  const propertyName = factory.createStringLiteral(attributeName);
-  return factory.createPropertyAssignment(propertyName, newExpression);
 }

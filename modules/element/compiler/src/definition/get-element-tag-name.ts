@@ -11,7 +11,7 @@ export function getElementTagName(templateElement: HTMLElement): string {
     return tagName;
   }
 
-  const asAttributeValue = templateElement.getAttribute('as');
+  const asAttributeValue = templateElement.getAttribute('is');
   if (asAttributeValue === undefined) {
     throw new Error(`built-in ${tagName} element cannot be extended without specifying a custom element name`);
   }

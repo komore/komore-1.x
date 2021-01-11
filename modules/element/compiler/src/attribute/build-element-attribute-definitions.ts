@@ -1,5 +1,6 @@
 import type { HTMLElement } from 'node-html-parser';
 import type { NodeFactory } from 'typescript';
+import { buildElementAttributeDefinition } from './build-element-attribute-definition';
 import type { ElementAttributeDefinition } from './element-attribute-definition';
 
 /**
@@ -14,19 +15,6 @@ export function buildElementAttributeDefinitions(
 ): ReadonlyArray<ElementAttributeDefinition> {
   const attributes = templateElement.attributes;
   return Object.entries(attributes).map(([attributeName, attributeValue]) =>
-    createElementAttributeDefinition(factory, attributeName, attributeValue)
+    buildElementAttributeDefinition(factory, attributeName, attributeValue)
   );
-}
-
-function createElementAttributeDefinition(
-  factory: NodeFactory,
-  attributeName: string,
-  attributeValue: string
-): ElementAttributeDefinition {
-  console.log(`${attributeName} = ${attributeValue}`, attributeValue === '', attributeValue === undefined, attributeValue === null);
-  return {
-    attributeName,
-    attributeValueType: factory.createTypeReferenceNode('Lala'),
-    defaultValue: factory.createIdentifier('undefined')
-  };
 }

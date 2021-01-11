@@ -1,9 +1,9 @@
-import type { BehaviorSubject } from 'rxjs';
+import type { ElementAttributeSubject } from './element-attribute-subject';
 
 /**
  * Element attribute subject map
  * @template ElementAttributeMap Element attribute map
  */
-export type ElementAttributeSubjectMap<ElementAttributeMap extends Record<string, any>> = Readonly<{
-  [K in keyof ElementAttributeMap]: BehaviorSubject<ElementAttributeMap[K]>;
-}>;
+export type ElementAttributeSubjectMap<ElementAttributeMap extends Record<string, any>> = {
+  readonly [K in keyof ElementAttributeMap]: ElementAttributeSubject<ElementAttributeMap[K]>;
+};

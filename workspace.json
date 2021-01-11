@@ -5268,6 +5268,46 @@
         }
       }
     },
+    "integration-gumroad": {
+      "root": "modules/integration/gumroad",
+      "sourceRoot": "modules/integration/gumroad/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/gumroad/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-gumroad"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/gumroad/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/modules/integration/gumroad",
+            "tsConfig": "modules/integration/gumroad/tsconfig.lib.json",
+            "packageJson": "modules/integration/gumroad/package.json",
+            "main": "modules/integration/gumroad/src/index.ts",
+            "assets": [
+              "modules/integration/gumroad/*.md"
+            ]
+          }
+        }
+      }
+    },
     "integration-kafka": {
       "root": "modules/integration/kafka",
       "sourceRoot": "modules/integration/kafka/src",
@@ -5312,34 +5352,74 @@
         }
       }
     },
-    "integration-paypal": {
-      "root": "modules/integration/paypal",
-      "sourceRoot": "modules/integration/paypal/src",
+    "integration-paddle": {
+      "root": "modules/integration/paddle",
+      "sourceRoot": "modules/integration/paddle/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/paypal/**/*.ts",
-              "modules/integration/paypal/**/*.spec.ts"
+              "modules/integration/paddle/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/integration/paypal/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/integration/paypal/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/integration-paypal"
-          ]
+            "coverage/integration-paddle"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/paddle/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/modules/integration/paddle",
+            "tsConfig": "modules/integration/paddle/tsconfig.lib.json",
+            "packageJson": "modules/integration/paddle/package.json",
+            "main": "modules/integration/paddle/src/index.ts",
+            "assets": [
+              "modules/integration/paddle/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "integration-paypal": {
+      "root": "modules/integration/paypal",
+      "sourceRoot": "modules/integration/paypal/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/paypal/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-paypal"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/paypal/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/modules/integration/paypal",
             "tsConfig": "modules/integration/paypal/tsconfig.lib.json",
@@ -5347,12 +5427,8 @@
             "main": "modules/integration/paypal/src/index.ts",
             "assets": [
               "modules/integration/paypal/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\integration\\paypal\\src"
-          },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+            ]
+          }
         }
       }
     },

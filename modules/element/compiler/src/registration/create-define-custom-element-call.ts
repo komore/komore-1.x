@@ -12,7 +12,7 @@ import type { ElementDefinition } from '../definition/element-definition';
  * For custom elements that extend a built-in element, an option gets passed:
  * ```ts
  * customElements.define(customElementName, CustomElement, {
- *   extends: BaseElement
+ *   extends: 'base'
  * });
  * ```
  * @param factory TypeScript node factory

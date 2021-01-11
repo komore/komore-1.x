@@ -386,8 +386,14 @@
     "integration-google-cloudpubsub": {
       "tags": ["scope:integration", "trait:provider", "provider:google"]
     },
+    "integration-gumroad": {
+      "tags": ["scope:integration", "trait:provider", "provider:gumroad"]
+    },
     "integration-kafka": {
       "tags": ["scope:integration", "trait:provider", "provider:kafka"]
+    },
+    "integration-paddle": {
+      "tags": ["scope:integration", "trait:provider", "provider:paddle"]
     },
     "integration-paypal": {
       "tags": ["scope:integration", "trait:provider", "provider:paypal"]

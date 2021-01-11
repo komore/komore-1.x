@@ -14,7 +14,7 @@ describe('Get element tag name', () => {
   it('returns the as attribute value when extending built-in elements', () => {
     // given: a built-in HTML element
     const tagName = 'input';
-    const templateElement = new HTMLElement(tagName, {}, 'as="custom-input-element"');
+    const templateElement = new HTMLElement(tagName, {}, 'is="custom-input-element"');
     // when: getting the element tag name
     const elementName = getElementTagName(templateElement);
     // then: the as attribute value is returned

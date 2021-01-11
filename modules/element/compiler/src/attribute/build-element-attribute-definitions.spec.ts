@@ -12,7 +12,7 @@ describe('Build element attribute definitions', () => {
     expect(attributeDefinitions.length).toBe(0);
   });
 
-  it('supports template elements with a generic attribute (uninitialized)', () => {
+  it('supports template elements with attributes', () => {
     // given: a template element without attributes
     const templateElement = new HTMLElement('test-element', {}, 'test-attribute');
     // when: building an element's attribute definitions

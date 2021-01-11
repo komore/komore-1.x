@@ -4,12 +4,13 @@ Reactive, observable [custom elements].
 
 ```html
 <script class="MyCustomElement">
-  import { attribute, event } from '@komore/element'; // implicit imports
+  import { attribute, event } from '@komore/element/compiler'; // implicit imports
 
   /**
    * Documentation for someProperty
    */
   export const someProperty = new BehaviorSubject<string>('hello') ?? new Subject<string>(); // with(out) default
+
   export const someReadonlyProperty = of(42); // always subscribed (and fed to a behavior subject so a getter can return the value)
 
   const optionSelected = event<EventDetailType>('option-selected'); // causes a createEventDispatcher()
@@ -19,8 +20,58 @@ Reactive, observable [custom elements].
 
   // attr is an observable of the attribute
   // using number or number enum adds an operator function for conversion
-  const attr = attribute<string | enum | number>('attribute-name'); // keyof 
+  const attr = attribute<string | enum | number>('attribute-name'); // keyof ElementClassAttributeMap
 
+  // binding elements
+  interface ElementBindingMap {
+    'bind-id': ElementType
+  }
+
+  // watchChild<K extends keyof ElementBindMap>(id: K): Observable<ElmentBindMap[K]>
+  const element$ = child('bind-id');
+  // for later versions?, should probably be discouraged
+  const elements = children('querySelectorAll syntax');
+
+  // lifecycle
+
+  function connected() {
+    // TODO: filter with Node.isConnected?
+  }
+
+  function disconnected() {
+
+  }
+
+  function adopted() {
+
+  }
+  const connected = () => {};
+
+  interface MyCustomElementAttributeMap {
+    'attr-1': number;
+  }
+
+  class MyCustomElement extends HTMLElement {
+    static get observedAttributes() {
+      return ['a', 'b', 'c'] as const;
+    }
+
+    constructor() {
+      super();
+    }
+
+    get propertyName(): T {
+      return this._kp.propertyName.s.value;
+    }
+
+    set propertyName(propertyName: T) {
+      this._kp.propertyName.s.next(propertyName);
+    }
+
+    private watchAttribute<K extends keyof MyCustomElementAttributeMap>(attributeName: K): Observable<MyCustomElementAttributeMap[K]> {
+      return this._kp.propertyName.$;
+    }
+  }
 </script>
 <style>
 </style>
@@ -28,7 +79,8 @@ Reactive, observable [custom elements].
   attribute-name="default-value"
   attribute-name-without-default
   attribute-name:boolean="default"
-  attribute-name:EnumName="EnumName.Default">
+  attribute-name:EnumName="DefaultEnumValue"
+  attribute-name?="canBeUndefined">
   ${x where x is T | Observable<T> | (state: Observable<State>) => Observable<T>}
   <input is="my-custom-input">
 </my-custom-element>
@@ -61,6 +113,13 @@ Reactive, observable [custom elements].
 <element-name @event-name.self="x"><!-- event.target must be event source -->
 <element-name @event-name.once="x"><!-- events will be ignored after the first one -->
 <element-name @event-name><!-- the expression is optional, e.g. to ignore click/etc, but pointer-events could make more sense -->
+
+<!-- directive -->
+<element-name ^directiveName>
+<element-name ^directiveName="expression">
+
+<!-- bind element -->
+<element-name #bind-id><!-- can be retrieved with child('bind-id')>
 ```
 
 ## Directives
@@ -79,13 +138,13 @@ Reactive, observable [custom elements].
 </element-b>
 
 <!-- condition: else if -->
-<element-a k-if="condition1">
+<element-a ^if="condition1">
   condition1 is true
 </element-a>
-<element-b k-else-if="condition2">
+<element-b ^else-if="condition2">
   condition2 is true
 </element-b>
-<element-c k-else>
+<element-c ^else>
   condition1 and condition2 are false
 </element-c>
 
