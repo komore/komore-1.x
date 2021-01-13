@@ -1,6 +1,7 @@
-import { defer, Observable, of } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { defer, of } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
-import { Languages } from './languages';
+import type { Languages } from './languages';
 
 /**
  * Browser languages

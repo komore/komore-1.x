@@ -149,6 +149,24 @@
     "element-compiler": {
       "tags": ["scope:element"]
     },
+    "element-directive": {
+      "tags": ["scope:element", "trait:directive"]
+    },
+    "element-directive-class": {
+      "tags": ["scope:element", "trait:directive"]
+    },
+    "element-directive-for": {
+      "tags": ["scope:element", "trait:directive"]
+    },
+    "element-directive-if": {
+      "tags": ["scope:element", "trait:directive"]
+    },
+    "element-directive-show": {
+      "tags": ["scope:element", "trait:directive"]
+    },
+    "element-directive-style": {
+      "tags": ["scope:element", "trait:directive"]
+    },
     "element-dragdrop": {
       "tags": ["scope:element"]
     },
@@ -177,6 +195,12 @@
       "tags": ["scope:element"]
     },
     "element-store": {
+      "tags": ["scope:element"]
+    },
+    "element-store-monitor": {
+      "tags": ["scope:element"]
+    },
+    "element-store-monitor-redux": {
       "tags": ["scope:element"]
     },
     "element-testing": {

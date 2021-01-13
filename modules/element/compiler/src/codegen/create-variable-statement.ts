@@ -4,11 +4,12 @@ import { NodeFlags } from 'typescript';
 /**
  * Creates a variable statement
  * ```ts
- * const name = initializer
+ * const name = initializer;
  * ```
- * @param factory
- * @param name
- * @param initializer
+ * @param factory TypeScript node factory
+ * @param name Variable name
+ * @param initializer Initializer expression
+ * @returns Variable statement and identifier
  */
 export function createVariableStatement(
   factory: NodeFactory,

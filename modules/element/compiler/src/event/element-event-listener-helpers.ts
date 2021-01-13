@@ -3,10 +3,10 @@ import type {
   NodeFactory,
   ParameterDeclaration,
   TypeNode,
-  TypeParameterDeclaration,
-  TypeReferenceNode
+  TypeParameterDeclaration
 } from 'typescript';
 import { SyntaxKind } from 'typescript';
+import { createParameter } from '../codegen/create-parameter';
 import { EventListenerTypedInformation } from './event-listener-typed-information';
 import type { EventMapIndex } from './event-map-index';
 
@@ -19,16 +19,13 @@ const listenerParameterName = 'listener';
  * <K extends keyof EventMap>
  * ```
  * @param factory TypeScript node factory
- * @param eventMapTypeReference Event map type reference
+ * @param eventMapType Event map type reference
  * @returns Event map index
  */
-export function createEventMapIndexParameter(
-  factory: NodeFactory,
-  eventMapTypeReference: TypeReferenceNode
-): EventMapIndex {
+export function createEventMapIndexParameter(factory: NodeFactory, eventMapType: TypeNode): EventMapIndex {
   const name = 'K';
   const nameIdentifier = factory.createIdentifier(name);
-  const keyofEventMap = factory.createTypeOperatorNode(SyntaxKind.KeyOfKeyword, eventMapTypeReference);
+  const keyofEventMap = factory.createTypeOperatorNode(SyntaxKind.KeyOfKeyword, eventMapType);
   const declaration = factory.createTypeParameterDeclaration(nameIdentifier, keyofEventMap);
   const reference = factory.createTypeReferenceNode(nameIdentifier);
   return {
@@ -165,35 +162,4 @@ function createOptionsParameter(factory: NodeFactory, optionsTypeName: string): 
   const booleanType = factory.createKeywordTypeNode(SyntaxKind.BooleanKeyword);
   const parameterType = factory.createUnionTypeNode([booleanType, optionsTypeReference]);
   return createParameter(factory, 'options', parameterType, true);
-}
-
-/**
- * Creates a parameter declaration
- * ```ts
- * function _(name: parameterType);
- * function _(name?: parameterType);
- * ```
- * @param factory TypeScript node factory
- * @param name Parameter name
- * @param parameterType Parameter type reference node
- * @param optional true if the parameter is optional
- * @returns Parameter declaration
- */
-function createParameter(
-  factory: NodeFactory,
-  name: string,
-  parameterType: TypeNode,
-  optional?: true
-): ParameterDeclaration {
-  const parameterName = factory.createIdentifier(name);
-  const questionToken = optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined;
-  return factory.createParameterDeclaration(
-    undefined,
-    undefined,
-    undefined,
-    parameterName,
-    questionToken,
-    parameterType,
-    undefined
-  );
 }

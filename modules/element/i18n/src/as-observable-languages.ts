@@ -1,4 +1,5 @@
-import { isObservable, Observable, of } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { isObservable, of } from 'rxjs';
 import { BROWSER_LANGUAGES } from './browser-languages';
 import { Languages } from './languages';
 

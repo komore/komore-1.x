@@ -1,6 +1,7 @@
 /**
  * Route
  */
-export type Route = Readonly<{
-  
-}>;
+export interface Route {
+  readonly path: string;
+  readonly redirectTo: 
+};

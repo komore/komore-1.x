@@ -7,8 +7,9 @@ describe('Create extends keyof', () => {
     const keyName = 'K';
     const type = factory.createTypeReferenceNode('T');
     // when: creating an extends keyof parameter declaration
-    const typeParameterDeclaration = createExtendsKeyof(factory, keyName, type);
+    const [typeParameterDeclaration, typeReferenceNode] = createExtendsKeyof(factory, keyName, type);
     // then: the correct type parameter declaration is created
     expect(typeParameterDeclaration).toBeInlineSource('K extends keyof T');
+    expect(typeReferenceNode).toBeInlineSource('K');
   });
 });

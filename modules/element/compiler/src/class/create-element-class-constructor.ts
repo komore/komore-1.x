@@ -35,7 +35,10 @@ export function createElementClassConstructor(
 
   if (templateElement !== undefined) {
     const [shadowRootVariableStatement, shadowRoot] = createShadowRootVariableStatement(factory);
-    const [templateContentVariableStatement, templateContent] = createTemplateContentVariableStatement(factory, templateElement);
+    const [templateContentVariableStatement, templateContent] = createTemplateContentVariableStatement(
+      factory,
+      templateElement
+    );
     const appendCallExpression = createAppendCallExpression(factory, shadowRoot, templateContent);
 
     bodyStatements.push(shadowRootVariableStatement);

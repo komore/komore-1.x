@@ -1,0 +1,5 @@
+<script class="LocalizedZoneElement">
+</script>
+<k-localized-zone language:string>
+  <!-- Allows changing the language for a section of the DOM hierarchy -->
+</k-localized-zone>

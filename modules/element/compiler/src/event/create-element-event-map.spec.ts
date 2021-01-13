@@ -22,25 +22,27 @@ describe('Create element event map', () => {
       }
     ];
     // when: creating an element event map
-    const elementEventMap = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
+    const [declaration, name] = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
     // then: the correct source is generated
-    expect(elementEventMap).toBeSource(`
-      interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
+    expect(declaration).toBeSource(`
+      export interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
         "test-event-1": CustomEvent<EventDetailType1>;
         "test-event-2": CustomEvent<void>;
       }
     `);
+    expect(name).toBe(`${elementDefinition.className}EventMap`);
   });
 
   it('creates an empty event map where there are no user-defined event types', () => {
     // given: an empty list of event definitions
     const elementEventDefinitions: ReadonlyArray<ElementEventDefinition> = [];
     // when: creating an element event map
-    const elementEventMap = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
+    const [declaration, name] = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
     // then: the correct source is generated
-    expect(elementEventMap).toBeSource(`
-      interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
+    expect(declaration).toBeSource(`
+      export interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
       }
     `);
+    expect(name).toBe(`${elementDefinition.className}EventMap`);
   });
 });

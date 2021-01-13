@@ -13,7 +13,15 @@ describe('Serialize JSON operator', () => {
 
   it('serializes an emitted value to JSON with a replacer and spaces', async () => {
     // given: an emitted value serialized to JSON with a replacer and spaces
-    const value$ = of({ test: 'string' }).pipe(serializeJson((key, value) => (key === '' ? value : value + value), 1));
+    const value$ = of({ test: 'string' }).pipe(
+      serializeJson((key, value) => {
+        if (key === '') {
+          return value;
+        }
+        const strValue = value as string;
+        return strValue + strValue;
+      }, 1)
+    );
     // when: retrieving the value
     const json = await lastValueFrom(value$);
     // then: the value has been serialized to JSON

@@ -1,6 +1,8 @@
-<script>
+<script class="LayoutNotFound">
   import { translate as t } from '@komore/element/i18n';
 </script>
 <not-found>
-  ${t('not-found.title')}
+  <h1>
+    ${t('not-found.title')}
+  </h1>
 </not-found>

@@ -1,4 +1,4 @@
-import type { Expression, NodeFactory, TypeNode } from 'typescript';
+import type { Expression, NodeFactory, ParameterDeclaration, TypeNode } from 'typescript';
 import { SyntaxKind } from 'typescript';
 
 /**
@@ -15,7 +15,7 @@ export function createParameter(
   type: TypeNode | ReadonlyArray<TypeNode>,
   optional?: boolean,
   initializer?: Expression
-) {
+): ParameterDeclaration {
   const questionToken = optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined;
   type = type instanceof Array ? factory.createUnionTypeNode(type) : type;
   return factory.createParameterDeclaration(undefined, undefined, undefined, name, questionToken, type, initializer);

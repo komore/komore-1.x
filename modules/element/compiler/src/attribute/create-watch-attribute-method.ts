@@ -6,7 +6,7 @@ import { createParameter } from '../codegen/create-parameter';
 /**
  * Creates a watchAttribute method declaration
  * ```ts
- * watchAttribute<K extends keyof ElementAttributeMap>(name: K): Observable<ElementAttributeMap[K] | undefined> {
+ * private watchAttribute<K extends keyof ElementAttributeMap>(name: K): Observable<ElementAttributeMap[K] | undefined> {
  *   return this._k_attr$[name];
  * }
  * ```
@@ -15,8 +15,7 @@ import { createParameter } from '../codegen/create-parameter';
  * @returns Method declaration
  */
 export function createWatchAttributeMethod(factory: NodeFactory, attributeMap: TypeReferenceNode): MethodDeclaration {
-  const kExtendsAttributeMap = createExtendsKeyof(factory, 'K', attributeMap);
-  const K = factory.createTypeReferenceNode(kExtendsAttributeMap.name);
+  const [kExtendsAttributeMap, K] = createExtendsKeyof(factory, 'K', attributeMap);
   const attributeName = createParameter(factory, 'name', K);
   const attributeType = factory.createIndexedAccessTypeNode(attributeMap, K);
   const undefinedType = factory.createKeywordTypeNode(SyntaxKind.UndefinedKeyword);
@@ -29,7 +28,7 @@ export function createWatchAttributeMethod(factory: NodeFactory, attributeMap: T
   const block = factory.createBlock([returnAttributeObservable], true);
   return factory.createMethodDeclaration(
     undefined,
-    undefined,
+    [factory.createModifier(SyntaxKind.PrivateKeyword)],
     undefined,
     'watchAttribute',
     undefined,

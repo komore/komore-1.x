@@ -1,14 +1,17 @@
-import MessageFormat, { MessageFormatOptions } from '@messageformat/core';
-import { Observable, OperatorFunction, pipe } from 'rxjs';
+import type { MessageFormatOptions } from '@messageformat/core';
+import MessageFormat from '@messageformat/core';
+import type { Observable, OperatorFunction } from 'rxjs';
+import { pipe } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { asObservableLanguages } from '../as-observable-languages';
-import { I18nMessage } from '../i18n-message';
-import { Languages } from '../languages';
+import type { I18nMessage } from '../i18n-message';
+import type { Languages } from '../languages';
 
 /**
  * Translates a message
  * @param options Message format options
  * @param languages Languages
+ * @returns Operator function
  */
 export function translateMessage(
   options?: MessageFormatOptions,

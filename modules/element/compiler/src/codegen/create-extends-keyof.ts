@@ -1,4 +1,4 @@
-import type { Identifier, NodeFactory, TypeNode, TypeParameterDeclaration } from 'typescript';
+import type { Identifier, NodeFactory, TypeNode, TypeParameterDeclaration, TypeReferenceNode } from 'typescript';
 import { SyntaxKind } from 'typescript';
 
 /**
@@ -9,13 +9,15 @@ import { SyntaxKind } from 'typescript';
  * @param factory TypeScript node factory
  * @param keyName Key name
  * @param type Extended type
- * @returns Type parameter declaration
+ * @returns Type parameter declaration and type reference node
  */
 export function createExtendsKeyof(
   factory: NodeFactory,
   keyName: string | Identifier,
   type: TypeNode
-): TypeParameterDeclaration {
+): [TypeParameterDeclaration, TypeReferenceNode] {
   const extendsKeyOfType = factory.createTypeOperatorNode(SyntaxKind.KeyOfKeyword, type);
-  return factory.createTypeParameterDeclaration(keyName, extendsKeyOfType);
+  const typeParameterDeclaration = factory.createTypeParameterDeclaration(keyName, extendsKeyOfType);
+  const typeReferenceNode = factory.createTypeReferenceNode(typeParameterDeclaration.name);
+  return [typeParameterDeclaration, typeReferenceNode];
 }

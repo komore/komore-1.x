@@ -1,4 +1,4 @@
-import type { TypeReferenceNode } from 'typescript';
+import type { TypeNode, TypeReferenceNode } from 'typescript';
 import type { EventMapIndex } from './event-map-index';
 
 /**
@@ -6,6 +6,6 @@ import type { EventMapIndex } from './event-map-index';
  */
 export interface EventListenerTypedInformation {
   readonly elementType: TypeReferenceNode;
-  readonly eventMapType: TypeReferenceNode;
+  readonly eventMapType: TypeNode;
   readonly eventMapIndex: EventMapIndex;
 }

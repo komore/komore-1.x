@@ -9,7 +9,7 @@ describe('Create watch attribute method', () => {
     const methodDeclaration = createWatchAttributeMethod(factory, attributeMap);
     // then: a correct method declaration is created
     expect(methodDeclaration).toBeSource(`
-      watchAttribute<K extends keyof TestAttributeMap>(name: K): Observable<TestAttributeMap[K] | undefined> {
+      private watchAttribute<K extends keyof TestAttributeMap>(name: K): Observable<TestAttributeMap[K] | undefined> {
         return this._ka[name].$;
       }
     `);
