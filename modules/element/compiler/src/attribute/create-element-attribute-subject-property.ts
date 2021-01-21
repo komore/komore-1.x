@@ -1,5 +1,5 @@
 import type { NodeFactory, PropertyAssignment } from 'typescript';
-import type { ElementAttributeDefinition } from './element-attribute-definition';
+import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
 
 const factoryFunctionName = '_cEAS';
 
@@ -16,9 +16,9 @@ export function createElementAttributeSubjectProperty(
   factory: NodeFactory,
   attributeDefinition: ElementAttributeDefinition
 ): PropertyAssignment {
-  const { attributeName, attributeValueType, defaultValue, optional } = attributeDefinition;
+  const { attributeName, attributeType, defaultValue, optional } = attributeDefinition;
   const createElementAttributeSubject = factory.createIdentifier(factoryFunctionName);
-  const typeParameters = [attributeValueType];
+  const typeParameters = [attributeType];
   const optionalParameter = optional ? factory.createTrue() : factory.createFalse();
   const parameters = [optionalParameter, defaultValue, factory.createIdentifier('undefined')];
   const callExpression = factory.createCallExpression(createElementAttributeSubject, typeParameters, parameters);

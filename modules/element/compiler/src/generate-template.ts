@@ -1,4 +1,3 @@
-import type { HTMLElement } from 'node-html-parser';
 import type { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
@@ -9,7 +8,7 @@ import { of } from 'rxjs';
 export function generateTemplate(templateElement: HTMLElement): Observable<unknown> {
   //console.log('template', templateElement);
   const type = templateElement.getAttribute('type') ?? 'text/html';
-  const elementName = templateElement.rawTagName;
+  const elementName = templateElement.tagName.toLocaleLowerCase();
   console.log('element', elementName, type);
   return of(undefined);
 }

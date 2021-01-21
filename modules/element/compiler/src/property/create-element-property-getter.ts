@@ -1,6 +1,6 @@
 import type { GetAccessorDeclaration, NodeFactory } from 'typescript';
 import { createPropertyAccess } from '../codegen/create-property-access';
-import type { ElementPropertyDefinition } from './element-property-definition';
+import type { ElementPropertyDefinition } from '../definition/element-property-definition';
 
 /**
  * Creates an element proprety getter

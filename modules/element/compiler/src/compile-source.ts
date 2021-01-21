@@ -1,10 +1,15 @@
-import { factory } from 'typescript';
+import { parseSource } from '@komore/element/parser';
+import { JSDOM } from 'jsdom';
+import type { Observable } from 'rxjs';
+import { defer, EMPTY, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import type { NodeFactory } from 'typescript';
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
 import { generateScript } from './generate-script';
 import { generateStyle } from './generate-style';
 import { generateTemplate } from './generate-template';
-import { getElementDefinition } from './definition/get-element-definition';
-import { parseSource } from './parser/parse-source';
+import { buildElementDefinition } from './definition/build-element-definition';
+import { processSource } from './processors/process-source';
 
 /**
  * Compiles an element source
@@ -14,16 +19,30 @@ import { parseSource } from './parser/parse-source';
  * - &lt;style> and &lt;link> elements are processed as styles
  * - any remaining element node is processed as a template
  *
+ * @param factory TypeScript node factory
  * @param source Source
  */
-export function compileSource(source: string): void {
-  const { scriptElements, styleElements, templateElement } = parseSource(source);
-  const elementDefinition = getElementDefinition(templateElement, scriptElements);
-  const templateElementId = undefined;
-  const styleSheetsId = undefined;
-  createElementClassDeclaration(factory, elementDefinition, templateElementId, styleSheetsId);
+export function compileSource(factory: NodeFactory, source: string): Observable<void> {
+  return defer(() => of(source)).pipe(
+    map(JSDOM.fragment),
+    switchMap(parseDocumentFragment()),
+    switchMap(processSource),
+    map(processedSource => {
+      const elementDefinition = buildElementDefinition(factory, parsedTemplateElement, processedSource);
+      const templateElementId = undefined;
+      const styleSheetsId = undefined;
+      createElementClassDeclaration(factory, elementDefinition, templateElementId, styleSheetsId);
 
-  generateScript(scriptElements);
-  generateStyle(styleElements);
-  generateTemplate(templateElement);
+      generateScript(scriptElements);
+      generateStyle(styleElements);
+      generateTemplate(templateElement);
+    }),
+  );
+}
+
+/**
+ * Parses a document fragment
+ */
+function parseDocumentFragment() {
+  return (documentFragment: DocumentFragment) => parseSource(documentFragment, () => EMPTY, () => EMPTY);
 }

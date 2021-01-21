@@ -3,10 +3,9 @@ import { createElementAttributeChangedCallback } from './create-element-attribut
 
 describe('Create element attribute changed callback', () => {
   it('creates a correct attributeChangedCallback method definition', () => {
-    // given:
-    // when:
+    when: 'creating an element attribute changed callback'
     const methodDeclaration = createElementAttributeChangedCallback(factory);
-    // then:
+    then: 'a declaration for an attributeChangedCallback method is created'
     expect(methodDeclaration).toBeSource(`
       attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void {
         const attr$ = this._k_attrs[name];

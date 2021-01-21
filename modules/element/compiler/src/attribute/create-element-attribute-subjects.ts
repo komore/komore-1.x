@@ -1,7 +1,7 @@
 import type { InterfaceDeclaration, NodeFactory, PropertyDeclaration } from 'typescript';
 import { SyntaxKind } from 'typescript';
+import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
 import { createElementAttributeSubjectProperty } from './create-element-attribute-subject-property';
-import type { ElementAttributeDefinition } from './element-attribute-definition';
 
 const subjectMapType = 'ElementAttributeSubjectMap';
 const subjectMapName = '_ka';

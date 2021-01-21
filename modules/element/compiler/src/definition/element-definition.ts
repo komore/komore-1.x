@@ -1,6 +1,6 @@
-import type { ElementAttributeDefinition } from '../attribute/element-attribute-definition';
-import type { ElementEventDefinition } from '../event/element-event-definition';
-import type { ElementPropertyDefinition } from '../property/element-property-definition';
+import type { ElementAttributeDefinition } from './element-attribute-definition';
+import type { ElementEventDefinition } from './element-event-definition';
+import type { ElementPropertyDefinition } from './element-property-definition';
 
 /**
  * Element definition

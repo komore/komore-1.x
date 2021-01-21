@@ -1,36 +1,36 @@
 import { factory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
 import { createElementAttributeMap } from './create-element-attribute-map';
-import type { ElementAttributeDefinition } from './element-attribute-definition';
 
 describe('Create element attribute map', () => {
   it('creates an element attribute map', () => {
-    // given: an element and a list of attributes
-    const elementDefinition: ElementDefinition = {
-      baseClassName: 'HTMLElement',
-      className: 'TestElement',
-      tagName: 'test-element'
-    };
+    given: 'an element class name and a list of attributes'
+    const elementClassName = 'TestElement';
     const attributeDefinitions: ReadonlyArray<ElementAttributeDefinition> = [
       {
         attributeName: 'test-attribute-1',
-        attributeValueType: factory.createTypeReferenceNode('Attribute1Type'),
-        defaultValue: factory.createIdentifier('undefined')
+        attributeValueType: 'string',
+        attributeType: factory.createTypeReferenceNode('string'),
+        defaultValue: factory.createIdentifier('undefined'),
+        optional: false
       },
       {
         attributeName: 'test-attribute-2',
-        attributeValueType: factory.createTypeReferenceNode('Attribute2Type'),
-        defaultValue: factory.createIdentifier('undefined')
+        attributeValueType: 'number',
+        attributeType: factory.createTypeReferenceNode('number'),
+        defaultValue: factory.createIdentifier('undefined'),
+        optional: true
       }
     ];
-    // when: creating an element attribute type interface
-    const interfaceDeclaration = createElementAttributeMap(factory, elementDefinition, attributeDefinitions);
-    // then: the correct inteface declaration is created
+    when: 'creating an element attribute type interface'
+    const [interfaceDeclaration, interfaceIdentifier] = createElementAttributeMap(factory, elementClassName, attributeDefinitions);
+    then: 'an interface prefixed with the element class name and holding all attributes and their mapping is created'
     expect(interfaceDeclaration).toBeSource(`
-      interface TestElementAttributeMap {
-        "test-attribute-1": Attribute1Type;
-        "test-attribute-2": Attribute2Type;
+      interface ${elementClassName}AttributeMap {
+        "test-attribute-1": string;
+        "test-attribute-2": number;
       }
     `);
+    expect(interfaceIdentifier.text).toBe(`${elementClassName}AttributeMap`);
   });
 });

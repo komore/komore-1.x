@@ -19,8 +19,8 @@ Reactive, observable [custom elements].
   this // element instance (avoid using it?)
 
   // attr is an observable of the attribute
-  // using number or number enum adds an operator function for conversion
-  const attr = attribute<string | enum | number>('attribute-name'); // keyof ElementClassAttributeMap
+  // if the attribute was declared as number or boolean, an operator function is added for conversion
+  const attr = attribute('attribute-name'); // keyof ElementClassAttributeMap
 
   // binding elements
   interface ElementBindingMap {
@@ -79,7 +79,6 @@ Reactive, observable [custom elements].
   attribute-name="default-value"
   attribute-name-without-default
   attribute-name:boolean="default"
-  attribute-name:EnumName="DefaultEnumValue"
   attribute-name?="canBeUndefined">
   ${x where x is T | Observable<T> | (state: Observable<State>) => Observable<T>}
   <input is="my-custom-input">
@@ -93,19 +92,21 @@ Reactive, observable [custom elements].
 <element-name>Static text: ${expression}</element-name>
 
 <!-- attribute -->
-<element-name :attribute="expression"></element-name>
-<element-name :[attributeNameExpression]="expression"></element-name>
+<element-name attribute="value"></element-name>
+<element-name attribute="${expression}"></element-name>
+<element-name ${attributeNameExpression}="expression"></element-name>
+<element-name ?attribute="boolean-value"></element-name>
 <element-name ?attribute="boolean-expression"></element-name>
-<element-name ?[attributeNameExpression]="boolean-expression"></element-name>
+<element-name ?${attributeNameExpression}="boolean-expression"></element-name>
 
 <!-- property -->
 <element-name .propertyName="expression"></element-name>
-<element-name .[dynamicPropertyNameExpression]="expression"></element-name>
+<element-name .${dynamicPropertyNameExpression}="expression"></element-name>
 
 <!-- event listener -->
 <element-name @event-name="functionName"></element-name>
 <element-name @event-name="onX(event)"></element-name>
-<element-name @[dynamic-event-name-expression]="onX(event)"></element-name>
+<element-name @${dynamic-event-name-expression}="onX(event)"></element-name>
 <element-name @event-name.stop="x"><!-- stopPropagation() -->
 <element-name @event-name.prevent="x"><!-- preventDefault() -->
 <element-name @event-name.capture="x"><!-- addEventListener capture -->
@@ -115,11 +116,12 @@ Reactive, observable [custom elements].
 <element-name @event-name><!-- the expression is optional, e.g. to ignore click/etc, but pointer-events could make more sense -->
 
 <!-- directive -->
-<element-name ^directiveName>
-<element-name ^directiveName="expression">
+<element-name ^directive>
+<element-name ^directive="expression">
+<element-name ^${dynamicDirective}="expression">
 
 <!-- bind element -->
-<element-name #bind-id><!-- can be retrieved with child('bind-id')>
+<element-name #bind-id><!-- can be retrieved with child('bind-id') -->
 ```
 
 ## Directives

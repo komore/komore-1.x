@@ -1,6 +1,6 @@
 import { factory } from 'typescript';
+import { ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementPropertyGetter } from './create-element-property-getter';
-import { ElementPropertyDefinition } from './element-property-definition';
 
 describe('Create element property getter', () => {
   it('works', () => {

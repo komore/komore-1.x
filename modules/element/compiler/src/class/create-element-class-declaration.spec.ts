@@ -13,5 +13,6 @@ describe('Create element class declaration', () => {
     // when:
     createElementClassDeclaration(factory, elementDefinition, [], undefined, undefined);
     // then:
+    TODO
   });
 });

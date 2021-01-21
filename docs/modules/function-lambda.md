@@ -31,7 +31,7 @@ A function sink can be given support for new result types via the `lambdaResultO
 
 ```typescript
 import { lambdaResultOfType }
-
+```
 
 
 

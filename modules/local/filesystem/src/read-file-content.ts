@@ -1,4 +1,5 @@
-import { PathLike, readFile } from 'fs';
+import type { PathLike } from 'fs';
+import { readFile } from 'fs';
 import { Observable } from 'rxjs';
 
 /**
@@ -18,10 +19,11 @@ export function readFileContent(filePath: PathLike, encoding: BufferEncoding): O
 
 export function readFileContent(
   filePath: PathLike,
-  encoding?: BufferEncoding
+  bufferEncoding?: BufferEncoding
 ): Observable<Buffer> | Observable<string> {
+  const encoding = bufferEncoding ?? null;
   return new Observable<Buffer | string>(observer => {
-    readFile(filePath, { encoding: encoding ?? null }, (error, data) => {
+    readFile(filePath, { encoding }, (error, data) => {
       if (error === null) {
         observer.error(error);
       } else {

@@ -1,5 +1,5 @@
-import { Block, Identifier, MethodDeclaration, NodeFactory, NodeFlags } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import type { Block, Identifier, MethodDeclaration, NodeFactory } from 'typescript';
+import { NodeFlags, SyntaxKind } from 'typescript';
 import { createParameter } from '../codegen/create-parameter';
 
 const nameParameterName = 'name';

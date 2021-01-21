@@ -1,0 +1,22 @@
+import type { ExpressionStatement, Identifier, NodeFactory } from 'typescript';
+import { createPropertyAccess } from './create-property-access';
+
+/**
+ * Creates an append call expression
+ * ```ts
+ * object.append(variable);
+ * ```
+ * @param factory TypeScript node factory
+ * @param objectIdentifier Object identifier
+ * @param childIdentifier Child identifier
+ * @returns Expression statement
+ */
+export function createAppendCallExpression(
+  factory: NodeFactory,
+  objectIdentifier: Identifier,
+  childIdentifier: Identifier
+): ExpressionStatement {
+  const append = createPropertyAccess(factory, objectIdentifier, 'append');
+  const appendCall = factory.createCallExpression(append, undefined, [childIdentifier]);
+  return factory.createExpressionStatement(appendCall);
+}

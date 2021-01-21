@@ -30,7 +30,7 @@ describe('Create element event map', () => {
         "test-event-2": CustomEvent<void>;
       }
     `);
-    expect(name).toBe(`${elementDefinition.className}EventMap`);
+    expect(name.text).toBe(`${elementDefinition.className}EventMap`);
   });
 
   it('creates an empty event map where there are no user-defined event types', () => {
@@ -43,6 +43,6 @@ describe('Create element event map', () => {
       export interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
       }
     `);
-    expect(name).toBe(`${elementDefinition.className}EventMap`);
+    expect(name.text).toBe(`${elementDefinition.className}EventMap`);
   });
 });

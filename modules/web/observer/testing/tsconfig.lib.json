@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../../../../dist/out-tsc",
+    "declaration": true,
+    "rootDir": "./src",
+    "types": ["dom", "jest", "resize-observer-browser"]
+  },
+  "exclude": ["./src/**/*.spec.ts"],
+  "include": ["./src/**/*.ts"],
+  "files": []
+}

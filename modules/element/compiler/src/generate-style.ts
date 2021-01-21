@@ -1,4 +1,3 @@
-import type { HTMLElement } from 'node-html-parser';
 import type { Observable } from 'rxjs';
 import { forkJoin } from 'rxjs';
 import type { StyleProcessor } from './processors/style-processor';

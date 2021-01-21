@@ -10,7 +10,7 @@ import { NodeFlags, SyntaxKind } from 'typescript';
  */
 export function createElementClassSource(
   factory: NodeFactory,
-  elementClass: ClassDeclaration,
+  _elementClass: ClassDeclaration,
   attributeNames: VariableDeclaration
 ): SourceFile {
   const globalVariableDeclarations = factory.createVariableDeclarationList([attributeNames], NodeFlags.Const);

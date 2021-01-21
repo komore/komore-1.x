@@ -4,10 +4,10 @@
     {
       "name": "VS Code Extension",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/dist/modules/vscode/extension"
+        "--extensionDevelopmentPath=${workspaceFolder}/dist/vscode/extension"
       ],
       "outFiles": [
-        "${workspaceFolder}/dist/modules/vscode/extension/**/*.js"
+        "${workspaceFolder}/dist/vscode/extension/**/*.js"
       ],
       "request": "launch",
       "runtimeExecutable": "${execPath}",

@@ -1,19 +1,11 @@
-import { BatchDetectDominantLanguageCommand, BatchDetectDominantLanguageCommandInput, BatchDetectDominantLanguageCommandOutput, ComprehendClient } from "@aws-sdk/client-comprehend"
-import { sendBatchCommand, sendCommand } from "@komore/integration-aws";
-import { of } from "rxjs";
+import type { BatchDetectDominantLanguageCommandInput, BatchDetectDominantLanguageCommandOutput, ComprehendClient } from "@aws-sdk/client-comprehend";
+import { BatchDetectDominantLanguageCommand } from '@aws-sdk/client-comprehend';
+import type { FixedAwsType } from '@komore/integration-amazon';
+import { sendBatchCommand, sendCommand } from "@komore/integration-amazon";
+import { of } from 'rxjs';
 
-/**
- * `Batch-Get-Item` command output with guaranteed consumed capacity and response properties
- */
-type BatchDetectDominantLanguageCommandOutputFixed = BatchDetectDominantLanguageCommandOutput & {
-  ErrorList: NonNullable<BatchDetectDominantLanguageCommandOutput['ErrorList']>;
-  ResultList: NonNullable<BatchDetectDominantLanguageCommandOutput['ResultList']>;
-};
-
-// FIXME: https://github.com/aws/aws-sdk-js-v3/issues/1613
-type BatchDetectDominantLanguageCommandInputFixed = BatchDetectDominantLanguageCommandInput & {
-  TextList: NonNullable<BatchDetectDominantLanguageCommandInput['TextList']>;
-}
+type BatchDetectDominantLanguageCommandOutputFixed = FixedAwsType<BatchDetectDominantLanguageCommandOutput, 'ErrorList' | 'ResultList'>;
+type BatchDetectDominantLanguageCommandInputFixed = FixedAwsType<BatchDetectDominantLanguageCommandInput, 'TextList'>;
 
 /**
  * Detects the dominant languages used in a batch of texts

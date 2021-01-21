@@ -179,6 +179,9 @@
     "element-i18n": {
       "tags": ["scope:element"]
     },
+    "element-interpreter": {
+      "tags": ["scope:element"]
+    },
     "element-l10n": {
       "tags": ["scope:element"]
     },
@@ -186,6 +189,9 @@
       "tags": ["scope:element"]
     },
     "element-overlay": {
+      "tags": ["scope:element"]
+    },
+    "element-parser": {
       "tags": ["scope:element"]
     },
     "element-router": {
@@ -468,7 +474,7 @@
       "tags": ["scope:message", "trait:testing"]
     },
     "nx": {
-      "tags": ["scope:nx", "traits:base"]
+      "tags": ["scope:nx", "trait:base"]
     },
     "nx-e2e": {
       "tags": ["scope:nx"],
@@ -520,10 +526,19 @@
       "tags": ["scope:query", "trait:testing"]
     },
     "stack": {
-      "tags": ["scope:stack", "traits:base"]
+      "tags": ["scope:stack", "trait:base"]
     },
     "stack-testing": {
-      "tags": ["scope:stack", "traits:testing"]
+      "tags": ["scope:stack", "trait:testing"]
+    },
+    "testing": {
+      "tags": ["scope:testing", "trait:testing"]
+    },
+    "testing-bdd": {
+      "tags": ["scope:testing", "trait:testing"]
+    },
+    "testing-bdd-gherkin": {
+      "tags": ["scope:testing", "trait:testing"]
     },
     "typescript": {
       "tags": ["scope:typescript"]
@@ -569,6 +584,9 @@
     },
     "web-observer": {
       "tags": ["scope:web"]
+    },
+    "web-observer-testing": {
+      "tags": ["scope:web", "trait:testing"]
     },
     "web-payment": {
       "tags": ["scope:web"]

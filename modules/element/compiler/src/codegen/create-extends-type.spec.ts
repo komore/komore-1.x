@@ -17,6 +17,6 @@ describe('Create element heritage clause', () => {
     // when: creating an element's heritage clause
     const heritageClause = createExtendsType(factory, baseType);
     // then: a clause extending the base class is created
-    expect(heritageClause).toBeInlineSource(`extends ${baseType}`);
+    expect(heritageClause).toBeInlineSource(`extends ${baseType.text}`);
   });
 });
