@@ -1,7 +1,6 @@
-//import { ChimeClient, CreateChannelCommand, CreateChannelCommandInput } from '@aws-sdk/client-chime';
-//import { sendCommand } from '@komore/integration-aws';
-
-// TODO: CreateChannelCommand not supported
+import type { ChimeClient, CreateChannelCommandInput } from '@aws-sdk/client-chime';
+import { CreateChannelCommand } from '@aws-sdk/client-chime';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Creates a channel
@@ -10,5 +9,5 @@
  * @returns `CreateChannel` command output
  * @note {@link https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateChannel.html CreateChannel}
  */
-//export const createChannel = (chimeClient: ChimeClient, commandInput: CreateChannelCommandInput) =>
-//  sendCommand(chimeClient, new CreateChannelCommand(commandInput));
+export const createChannel = (chimeClient: ChimeClient, commandInput: CreateChannelCommandInput) =>
+  sendCommand(chimeClient, new CreateChannelCommand(commandInput));

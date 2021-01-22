@@ -1,5 +1,6 @@
-import { CreateHostedZoneCommand, CreateHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
-import { sendCommand } from '@komore/integration-aws';
+import type { CreateHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
+import { CreateHostedZoneCommand } from '@aws-sdk/client-route-53';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Creates a new public or private hosted zone

@@ -1,5 +1,6 @@
-import { DeleteObjectCommand, DeleteObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration-aws';
+import type { DeleteObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand } from '@aws-sdk/client-s3';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Deletes an object from an S3 bucket

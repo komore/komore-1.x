@@ -17,7 +17,7 @@ describe('Parse source', () => {
     then: 'the source is correctly parsed'
     expect(parsedSource.scriptElements.length).toBe(0);
     expect(parsedSource.styleElements.length).toBe(0);
-    expect(parsedSource.parsedTemplateElement.tagName).toBe('test-element');
+    expect(parsedSource.parsedElementTemplate.tagName).toBe('test-element');
   });
 
   it('can parse an element with scripts and styles', async () => {
@@ -33,7 +33,7 @@ describe('Parse source', () => {
     then: 'the source is correctly parsed'
     expect(parsedSource.scriptElements.length).toBe(1);
     expect(parsedSource.styleElements.length).toBe(1);
-    expect(parsedSource.parsedTemplateElement.tagName).toBe('test-element');
+    expect(parsedSource.parsedElementTemplate.tagName).toBe('test-element');
   });
 
   it('throws an error when multiple root template elements are found', () => {

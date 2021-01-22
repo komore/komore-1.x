@@ -1,5 +1,6 @@
-import { PutObjectCommand, PutObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration-aws';
+import type { PutObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Puts an object to an S3 bucket

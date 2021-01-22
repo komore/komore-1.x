@@ -233,7 +233,7 @@
     "event-store-azure": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"]
     },
-    "event-store-azure-cosmos": {
+    "event-store-azure-cosmosdb": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"]
     },
     "event-store-google": {
@@ -242,7 +242,13 @@
     "event-store-google-bigtable": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"]
     },
-    "event-store-indexeddb": {
+    "event-store-web": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"]
+    },
+    "event-store-web-indexeddb": {
+      "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"]
+    },
+    "event-store-web-localstorage": {
       "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"]
     },
     "event-testing": {
@@ -306,6 +312,12 @@
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
     "integration-amazon-chime": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-cloudwatch": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-cloudwatchlogs": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
     "integration-amazon-comprehend": {
@@ -374,7 +386,7 @@
     "integration-azure-cognitiveservices-formrecognizer": {
       "tags": ["scope:integration", "trait:provider", "provider:azure"]
     },
-    "integration-azure-cosmos": {
+    "integration-azure-cosmosdb": {
       "tags": ["scope:integration", "trait:provider", "provider:azure"]
     },
     "integration-azure-dns": {
@@ -453,6 +465,9 @@
       "tags": ["scope:layer"]
     },
     "layer-messagebroker": {
+      "tags": ["scope:layer"]
+    },
+    "layer-payment": {
       "tags": ["scope:layer"]
     },
     "layer-testing": {

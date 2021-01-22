@@ -1,3 +1,4 @@
+export { EventRepository } from './event-repository';
 export { EventStore } from './event-store';
 export { Snapshot } from './snapshot';
 export { snapshotOnCount } from './snapshot-on-count';

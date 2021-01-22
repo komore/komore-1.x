@@ -1,5 +1,6 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { withAwsClient } from '@komore/integration-aws';
+import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { withAwsClient } from '@komore/integration-amazon';
+import { createDynamoDBClient } from '../create-dynamodb-client';
 
 /**
  * Adds a DynamoDB client to a message
@@ -7,4 +8,4 @@ import { withAwsClient } from '@komore/integration-aws';
  * @returns Operator function that turns a message into a message with a DynamoDB client
  */
 export const withDynamoDBClient = (dynamoDBClient?: DynamoDBClient) =>
-  withAwsClient('dynamodb', dynamoDBClient ?? new DynamoDBClient({}));
+  withAwsClient('dynamodb', dynamoDBClient ?? createDynamoDBClient());

@@ -1,1 +1,0 @@
-# komore Event Store - IndexedDB

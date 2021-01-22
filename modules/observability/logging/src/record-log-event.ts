@@ -1,3 +1,4 @@
+import { } from '@komore/observability/driver';
 import { LogEvent } from './log-event';
 import { LogEventPropertiesSchema, LogEventPropertiesSchemaType } from './log-event-properties-schema';
 

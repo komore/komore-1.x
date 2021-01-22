@@ -1,3 +1,4 @@
+export { createS3Client } from './create-s3-client';
 export { deleteObject } from './delete-object';
 export { deleteObjects } from './delete-objects';
 export { getObject } from './get-object';

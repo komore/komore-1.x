@@ -1,9 +1,12 @@
+import { isNotNull } from '@komore/typescript';
 import { defer, forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import type { ParsedSource } from './parsed-source';
 import { isEligibleScriptElement } from './script/is-script-element';
 import { parseScriptElements } from './script/parse-script-elements';
 import type { ScriptResourceLoader } from './script/script-resource-loader';
 import { isEligibleStyleElement } from './style/is-eligible-style-element';
+import { parseStyleCustomPropertyDefinitions } from './style/parse-style-custom-property-definitions';
 import { parseStyleElements } from './style/parse-style-elements';
 import type { StyleResourceLoader } from './style/style-resource-loader';
 import { parseTemplateElements } from './template/parse-template-elements';
@@ -38,8 +41,16 @@ export function parseSource(
     return forkJoin({
       scriptElements: parseScriptElements(scriptElements, scriptResourceLoader),
       styleElements: parseStyleElements(styleElements, styleResourceLoader),
-      parsedTemplateElement: parseTemplateElements(remainingElements, scriptElements)
-    });
+      parsedElementTemplate: parseTemplateElements(remainingElements, scriptElements)
+    }).pipe(
+      map(parsedSource => {
+        const definedStyleSheets = filterDefinedStyleSheets(parsedSource.styleElements);
+        return {
+          ...parsedSource,
+          parsedCustomPropertyDefinitions: parseStyleCustomPropertyDefinitions(definedStyleSheets)
+        };
+      })
+    );
   });
 }
 
@@ -50,4 +61,13 @@ export function parseSource(
  */
 function isHtmlElementNode(node: Node): node is HTMLElement {
   return node.nodeType === Node.ELEMENT_NODE;
+}
+
+/**
+ * Filters defined style sheets
+ * @param styleElements List of HTML style elements
+ * @returns List of CSS style sheets
+ */
+function filterDefinedStyleSheets(styleElements: ReadonlyArray<HTMLStyleElement>): ReadonlyArray<CSSStyleSheet> {
+  return styleElements.map(({ sheet }) => sheet).filter(isNotNull);
 }

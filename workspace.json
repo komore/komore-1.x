@@ -2754,47 +2754,40 @@
         }
       }
     },
-    "event-store-azure-cosmos": {
-      "root": "modules/event/store/azure/cosmos",
-      "sourceRoot": "modules/event/store/azure/cosmos/src",
+    "event-store-azure-cosmosdb": {
+      "root": "modules/event/store/azure/cosmos-db",
+      "sourceRoot": "modules/event/store/azure/cosmos-db/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/azure/cosmos/src/**/*.ts",
-              "modules/event/store/azure/cosmos/src/**/*.spec.ts"
+              "modules/event/store/azure/cosmos-db/src/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/event/store/azure/cosmos/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/event/store/azure/cosmos/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/event-store-azure-cosmos"
-          ]
+            "coverage/event-store-azure-cosmosdb"
+          ],
+          "options": {
+            "jestConfig": "modules/event/store/azure/cosmos-db/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/event/store/azure/cosmos",
-            "tsConfig": "modules/event/store/azure/cosmos/tsconfig.lib.json",
-            "packageJson": "modules/event/store/azure/cosmos/package.json",
-            "main": "modules/event/store/azure/cosmos/src/index.ts",
-            "assets": [
-              "modules/event/store/azure/cosmos/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\event\\azure\\cosmos\\src"
-          },
+          "executor": "@nrwl/node:package",
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "options": {
+            "outputPath": "dist/event/store/azure/cosmos-db",
+            "tsConfig": "modules/event/store/azure/cosmos-db/tsconfig.lib.json",
+            "packageJson": "modules/event/store/azure/cosmos-db/package.json",
+            "main": "modules/event/store/azure/cosmos-db/src/index.ts"
+          }
         }
       }
     },
@@ -3018,47 +3011,117 @@
         }
       }
     },
-    "event-store-indexeddb": {
-      "root": "modules/event/store/indexeddb",
-      "sourceRoot": "modules/event/store/indexeddb/src",
+    "event-store-web": {
+      "root": "modules/event/store/web",
+      "sourceRoot": "modules/event/store/web/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/indexeddb/src/**/*.ts",
-              "modules/event/store/indexeddb/src/**/*.spec.ts"
+              "modules/event/store/web/src/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/event/store/indexeddb/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/event/store/indexeddb/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/event-store-indexeddb"
-          ]
+            "coverage/event-store-web"
+          ],
+          "options": {
+            "jestConfig": "modules/event/store/web/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/event/store/indexeddb",
-            "tsConfig": "modules/event/store/indexeddb/tsconfig.lib.json",
-            "packageJson": "modules/event/store/indexeddb/package.json",
-            "main": "modules/event/store/indexeddb/src/index.ts",
-            "assets": [
-              "modules/event/store/indexeddb/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\event\\amazon\\dynamodb\\src"
-          },
+          "executor": "@nrwl/node:package",
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "options": {
+            "outputPath": "dist/event/store/web",
+            "tsConfig": "modules/event/store/web/tsconfig.lib.json",
+            "packageJson": "modules/event/store/web/package.json",
+            "main": "modules/event/store/web/src/index.ts",
+            "assets": [
+              "modules/event/store/web/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "event-store-web-indexeddb": {
+      "root": "modules/event/store/web/indexeddb",
+      "sourceRoot": "modules/event/store/web/indexeddb/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/event/store/web/indexeddb/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/event-store-web-indexeddb"
+          ],
+          "options": {
+            "jestConfig": "modules/event/store/web/indexeddb/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/event/store/web/indexeddb",
+            "tsConfig": "modules/event/store/web/indexeddb/tsconfig.lib.json",
+            "packageJson": "modules/event/store/web/indexeddb/package.json",
+            "main": "modules/event/store/web/indexeddb/src/index.ts"
+          }
+        }
+      }
+    },
+    "event-store-web-localstorage": {
+      "root": "modules/event/store/web/localstorage",
+      "sourceRoot": "modules/event/store/web/localstorage/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/event/store/web/localstorage/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/event-store-web-localstorage"
+          ],
+          "options": {
+            "jestConfig": "modules/event/store/web/localstorage/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/event/store/web/localstorage",
+            "tsConfig": "modules/event/store/web/localstorage/tsconfig.lib.json",
+            "packageJson": "modules/event/store/web/localstorage/package.json",
+            "main": "modules/event/store/web/localstorage/src/index.ts"
+          }
         }
       }
     },
@@ -3992,6 +4055,80 @@
           "outputs": [
             "{options.outputPath}"
           ]
+        }
+      }
+    },
+    "integration-amazon-cloudwatch": {
+      "root": "modules/integration/amazon/cloudwatch",
+      "sourceRoot": "modules/integration/amazon/cloudwatch/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/amazon/cloudwatch/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-amazon-cloudwatch"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/cloudwatch/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/integration/amazon/cloudwatch",
+            "tsConfig": "modules/integration/amazon/cloudwatch/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/cloudwatch/package.json",
+            "main": "modules/integration/amazon/cloudwatch/src/index.ts"
+          }
+        }
+      }
+    },
+    "integration-amazon-cloudwatchlogs": {
+      "root": "modules/integration/amazon/cloudwatch-logs",
+      "sourceRoot": "modules/integration/amazon/cloudwatch-logs/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/amazon/cloudwatch-logs/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-amazon-cloudwatchlogs"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/cloudwatch-logs/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/integration/amazon/cloudwatch-logs",
+            "tsConfig": "modules/integration/amazon/cloudwatch-logs/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/cloudwatch-logs/package.json",
+            "main": "modules/integration/amazon/cloudwatch-logs/src/index.ts"
+          }
         }
       }
     },
@@ -4963,47 +5100,40 @@
         }
       }
     },
-    "integration-azure-cosmos": {
-      "root": "modules/integration/azure/cosmos",
-      "sourceRoot": "modules/integration/azure/cosmos/src",
+    "integration-azure-cosmosdb": {
+      "root": "modules/integration/azure/cosmos-db",
+      "sourceRoot": "modules/integration/azure/cosmos-db/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cosmos/**/*.ts",
-              "modules/integration/azure/cosmos/**/*.spec.ts"
+              "modules/integration/azure/cosmos-db/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/integration/azure/cosmos/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/integration/azure/cosmos/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/integration-azure-cosmos"
-          ]
+            "coverage/integration-azure-cosmosdb"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/azure/cosmos-db/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/integration/azure/cosmos",
-            "tsConfig": "modules/integration/azure/cosmos/tsconfig.lib.json",
-            "packageJson": "modules/integration/azure/cosmos/package.json",
-            "main": "modules/integration/azure/cosmos/src/index.ts",
-            "assets": [
-              "modules/integration/azure/cosmos/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cosmos\\src"
-          },
+          "executor": "@nrwl/node:package",
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "options": {
+            "outputPath": "dist/integration/azure/cosmos-db",
+            "tsConfig": "modules/integration/azure/cosmos-db/tsconfig.lib.json",
+            "packageJson": "modules/integration/azure/cosmos-db/package.json",
+            "main": "modules/integration/azure/cosmos-db/src/index.ts"
+          }
         }
       }
     },
@@ -6098,30 +6228,30 @@
       "root": "modules/layer/message-broker",
       "sourceRoot": "modules/layer/message-broker/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/message-broker/**/*.ts",
-              "modules/layer/message-broker/**/*.spec.ts"
+              "modules/layer/message-broker/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/layer/message-broker/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/layer/message-broker/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
             "coverage/layer-messagebroker"
-          ]
+          ],
+          "options": {
+            "jestConfig": "modules/layer/message-broker/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/layer/message-broker",
             "tsConfig": "modules/layer/message-broker/tsconfig.lib.json",
@@ -6129,12 +6259,48 @@
             "main": "modules/layer/message-broker/src/index.ts",
             "assets": [
               "modules/layer/message-broker/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\layer\\message-broker\\src"
-          },
+            ]
+          }
+        }
+      }
+    },
+    "layer-payment": {
+      "root": "modules/layer/payment",
+      "sourceRoot": "modules/layer/payment/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/layer/payment/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/layer-payment"
+          ],
+          "options": {
+            "jestConfig": "modules/layer/payment/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "options": {
+            "outputPath": "dist/layer/payment",
+            "tsConfig": "modules/layer/payment/tsconfig.lib.json",
+            "packageJson": "modules/layer/payment/package.json",
+            "main": "modules/layer/payment/src/index.ts",
+            "assets": [
+              "modules/layer/payment/*.md"
+            ]
+          }
         }
       }
     },

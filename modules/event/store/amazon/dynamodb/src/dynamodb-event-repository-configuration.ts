@@ -1,16 +1,11 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import type { DynamoDBEventRepositoryAttributeNames } from './dynamodb-event-repository-attribute-names';
 
 /**
  * DynamoDB event repository configuration
  */
-export type DynamoDBEventRepositoryConfiguration = Readonly<{
-  dynamoDBClient?: DynamoDBClient;
-  tableName: string;
-  attributeNames: Readonly<{
-    aggregateKey: string;
-    eventData: string;
-    eventType: string;
-    sequenceNumber: string;
-    timestamp: string;
-  }>;
-}>;
+export interface DynamoDBEventRepositoryConfiguration {
+  readonly dynamoDBClient?: DynamoDBClient;
+  readonly tableName: string;
+  readonly attributeNames?: Partial<DynamoDBEventRepositoryAttributeNames>;
+}

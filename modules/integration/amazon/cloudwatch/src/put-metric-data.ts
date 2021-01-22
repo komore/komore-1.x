@@ -1,5 +1,5 @@
 import { CloudWatchClient, PutMetricDataCommand, PutMetricDataCommandInput } from '@aws-sdk/client-cloudwatch';
-import { sendCommand } from '@komore/integration-aws';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Publishes metric data points

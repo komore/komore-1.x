@@ -1,5 +1,6 @@
-import { DetectTextCommand, DetectTextCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
-import { sendCommand } from '@komore/integration-aws';
+import type { DetectTextCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
+import { DetectTextCommand } from '@aws-sdk/client-rekognition';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Detects text in an image and converts it into machine-readable text

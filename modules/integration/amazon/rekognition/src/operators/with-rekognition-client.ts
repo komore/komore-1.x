@@ -1,5 +1,6 @@
-import { RekognitionClient } from '@aws-sdk/client-rekognition';
-import { withAwsClient } from '@komore/integration-aws';
+import type { RekognitionClient } from '@aws-sdk/client-rekognition';
+import { withAwsClient } from '@komore/integration-amazon';
+import { createRekognitionClient } from '../create-rekognition-client';
 
 /**
  * Adds a Rekognition client to a message
@@ -7,4 +8,4 @@ import { withAwsClient } from '@komore/integration-aws';
  * @returns Unary function that turns a message into a message with a Rekognition client
  */
 export const withRekognitionClient = (rekognitionClient?: RekognitionClient) =>
-  withAwsClient('rekognition', rekognitionClient ?? new RekognitionClient({}));
+  withAwsClient('rekognition', rekognitionClient ?? createRekognitionClient());

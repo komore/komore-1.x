@@ -1,4 +1,4 @@
-import type { ParsedElementTemplate } from '@komore/element/parser';
+import type { ParsedSource } from '@komore/element/parser';
 import type { NodeFactory } from 'typescript';
 import { buildElementAttributeDefinitions } from './build-element-attribute-definitions';
 import type { ElementDefinition } from './element-definition';
@@ -6,19 +6,19 @@ import type { ElementDefinition } from './element-definition';
 /**
  * Builds an element's definition
  * @param factory TypeScript node factory
- * @param parsedElementTemplate Parsed element template
- * @param scriptElements Script elements
+ * @param parsedSource Parsed source
  * @returns Element definition
  */
 export function buildElementDefinition(
   factory: NodeFactory,
-  parsedElementTemplate: ParsedElementTemplate,
-  scriptElements: ReadonlyArray<HTMLScriptElement>
+  parsedSource: ParsedSource
 ): ElementDefinition {
+  const { parsedElementTemplate, parsedCustomPropertyDefinitions } = parsedSource;
   const { baseClassName, baseTagName, className, tagName, parsedAttributes } = parsedElementTemplate;
   const attributeDefinitions = buildElementAttributeDefinitions(factory, parsedAttributes);
-  const eventDefinitions = buildElementEventDefinitions(factory, scriptElements)
-  const propertyDefinitions = buildElementPropertyDefinitions(factory, scriptElements)
+  const eventDefinitions = buildElementEventDefinitions(factory, scriptElements);
+  const propertyDefinitions = buildElementPropertyDefinitions(factory, scriptElements);
+  const customPropertyDefinitions = buildElementCustomPropertyDefinitions(factory, parsedCustomPropertyDefinitions);
   return {
     baseClassName,
     baseTagName,

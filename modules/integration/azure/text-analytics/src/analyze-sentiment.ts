@@ -1,4 +1,4 @@
-import { TextAnalyticsClient } from '@azure/ai-text-analytics';
+import type { TextAnalyticsClient } from '@azure/ai-text-analytics';
 import { defer } from 'rxjs';
 
 /**

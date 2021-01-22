@@ -41,7 +41,7 @@ function createDefaultValueExpression(
 
   switch (attributeValueType) {
     case 'string':
-      return factory.createStringLiteral(defaultValueString, true);
+      return factory.createStringLiteral(defaultValueString);
     case 'number':
       return createNumberDefaultValueExpression(factory, defaultValueString);
     case 'boolean':

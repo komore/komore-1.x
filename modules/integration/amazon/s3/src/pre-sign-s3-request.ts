@@ -1,6 +1,7 @@
-import { S3RequestPresignerOptions } from '@aws-sdk/s3-request-presigner';
-import { HttpRequest, RequestPresigningArguments } from '@aws-sdk/types';
-import { defer, Observable } from 'rxjs';
+import type { S3RequestPresignerOptions } from '@aws-sdk/s3-request-presigner';
+import type { HttpRequest, RequestPresigningArguments } from '@aws-sdk/types';
+import type { Observable } from 'rxjs';
+import { defer } from 'rxjs';
 import { createS3RequestPresigner } from './create-s3-request-presigner';
 
 /**

@@ -1,26 +1,11 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import type { DynamoDBSnapshotRepositoryAttributeNames } from './dynamodb-snapshot-repository-attribute-names';
 
 /**
  * DynamoDB snapshot repository configuration
  */
-export type DynamoDBSnapshotRepositoryConfiguration = Readonly<{
-  dynamoDBClient?: DynamoDBClient;
-  tableName: string;
-  attributeNames: Readonly<{
-    aggregateKey: string;
-    sequenceNumber: string;
-    state: string;
-    timestamp: string;
-  }>;
-}>;
-
-/**
- * DynamoDB snapshot repository configuration initial value
- */
-export type DynamoDBSnapshotRepositoryConfigurationInit = Omit<
-  DynamoDBSnapshotRepositoryConfiguration,
-  'attributeNames'
-> &
-  Readonly<{
-    attributeNames?: Partial<DynamoDBSnapshotRepositoryConfiguration['attributeNames']>;
-  }>;
+export interface DynamoDBSnapshotRepositoryConfiguration {
+  readonly dynamoDBClient?: DynamoDBClient;
+  readonly tableName: string;
+  readonly attributeNames?: Partial<DynamoDBSnapshotRepositoryAttributeNames>;
+}

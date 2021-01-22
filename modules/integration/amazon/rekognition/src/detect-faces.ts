@@ -1,5 +1,6 @@
-import { DetectFacesCommand, DetectFacesCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
-import { sendCommand } from '@komore/integration-aws';
+import type { DetectFacesCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
+import { DetectFacesCommand } from '@aws-sdk/client-rekognition';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Detects faces in an image and converts it into machine-readable text

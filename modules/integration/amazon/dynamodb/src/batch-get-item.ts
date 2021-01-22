@@ -1,10 +1,6 @@
-import {
-  BatchGetItemCommand,
-  BatchGetItemCommandInput,
-  BatchGetItemCommandOutput,
-  DynamoDBClient
-} from '@aws-sdk/client-dynamodb';
-import { sendBatchCommand } from '@komore/integration-aws';
+import type { BatchGetItemCommandInput, BatchGetItemCommandOutput, DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { BatchGetItemCommand } from '@aws-sdk/client-dynamodb';
+import { sendBatchCommand } from '@komore/integration-amazon';
 
 /**
  * `BatchGetItem` command output with guaranteed consumed capacity and response properties

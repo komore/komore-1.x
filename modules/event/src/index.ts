@@ -1,9 +1,8 @@
 export { createEvent } from './create-event';
 export { createReducer } from './create-reducer';
 export { Event } from './event';
-export { EventMetadata } from './event-metadata';
+export { EventMetadata, EventWithMetadata } from './event-metadata';
 export { EventReducer } from './event-reducer';
 export { on } from './event-reducer-on';
-export { EventRepository } from './event-repository';
 export { isEventType } from './is-event-type';
 export { schema } from './event-schema';

@@ -1,5 +1,6 @@
-import { LambdaClient } from '@aws-sdk/client-lambda';
-import { withAwsClient } from '@komore/integration-aws';
+import type { LambdaClient } from '@aws-sdk/client-lambda';
+import { withAwsClient } from '@komore/integration-amazon';
+import { createLambdaClient } from '../create-lambda-client';
 
 /**
  * Adds a Lambda client to a message
@@ -7,4 +8,4 @@ import { withAwsClient } from '@komore/integration-aws';
  * @returns Operator function that turns a message into a message with a Lambda client
  */
 export const withLambdaClient = (lambdaClient?: LambdaClient) =>
-  withAwsClient('lambda', lambdaClient ?? new LambdaClient({}));
+  withAwsClient('lambda', lambdaClient ?? createLambdaClient());

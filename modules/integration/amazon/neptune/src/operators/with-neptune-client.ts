@@ -1,5 +1,6 @@
-import { NeptuneClient } from '@aws-sdk/client-neptune';
-import { withAwsClient } from '@komore/integration-aws';
+import type { NeptuneClient } from '@aws-sdk/client-neptune';
+import { withAwsClient } from '@komore/integration-amazon';
+import { createNeptuneClient } from '../create-neptune-client';
 
 /**
  * Adds a Neptune client to a message
@@ -7,4 +8,4 @@ import { withAwsClient } from '@komore/integration-aws';
  * @returns Unary function that turns a message into a message with a Neptune client
  */
 export const withNeptuneClient = (neptuneClient: NeptuneClient) =>
-  withAwsClient('neptune', neptuneClient ?? new NeptuneClient({}));
+  withAwsClient('neptune', neptuneClient ?? createNeptuneClient());

@@ -1,5 +1,6 @@
-import { ChimeClient, DeleteRoomCommand, DeleteRoomCommandInput } from '@aws-sdk/client-chime';
-import { sendCommand } from '@komore/integration-aws';
+import type { ChimeClient, DeleteRoomCommandInput } from '@aws-sdk/client-chime';
+import { DeleteRoomCommand } from '@aws-sdk/client-chime';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Deletes a room

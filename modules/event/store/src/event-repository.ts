@@ -1,0 +1,32 @@
+import type { Event } from '@komore/event';
+
+/**
+ * Event repository
+ * @template EventTypes Event types
+ */
+export interface EventRepository<EventTypes extends Event<any, any>[]> {
+  /**
+   * Loads events from the repository
+   *
+   * If `sequenceStart` is not provided, events are loaded from the first one.
+   *
+   * If `sequenceEnd` is not provided, events are loaded until the last one.
+   *
+   * @param aggregateKey Aggregate key
+   * @param sequenceStart Sequence start
+   * @param sequenceEnd Sequence end
+   * @returns List of events
+   */
+  loadEvents(
+    aggregateKey: string,
+    sequenceStart: number | undefined,
+    sequenceEnd: number | undefined
+  ): Promise<ReadonlyArray<EventTypes[number]>>;
+
+  /**
+   * Saves events to the repository
+   * @param aggregateKey Aggregate key
+   * @param events List of events
+   */
+  saveEvents(aggregateKey: string, events: ReadonlyArray<EventTypes[number]>): Promise<void>;
+}

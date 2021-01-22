@@ -1,5 +1,5 @@
 import { CloudWatchLogsClient } from '@aws-sdk/client-cloudwatch-logs';
-import { withAwsClient } from '@komore/integration-aws';
+import { withAwsClient } from '@komore/integration-amazon';
 
 /**
  * Adds a CloudWatch Logs client to a message

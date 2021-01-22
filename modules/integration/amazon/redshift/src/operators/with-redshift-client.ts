@@ -1,5 +1,6 @@
-import { RedshiftClient } from '@aws-sdk/client-redshift';
-import { withAwsClient } from '@komore/integration-aws';
+import type { RedshiftClient } from '@aws-sdk/client-redshift';
+import { withAwsClient } from '@komore/integration-amazon';
+import { createRedshiftClient } from '../create-redshift-client';
 
 /**
  * Adds a Redshift client to a message
@@ -7,4 +8,4 @@ import { withAwsClient } from '@komore/integration-aws';
  * @returns Unary function that turns a message into a message with a Redshift client
  */
 export const withRedshiftClient = (redshiftClient: RedshiftClient) =>
-  withAwsClient('redshift', redshiftClient ?? new RedshiftClient({}));
+  withAwsClient('redshift', redshiftClient ?? createRedshiftClient());

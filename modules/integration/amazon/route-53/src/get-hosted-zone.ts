@@ -1,5 +1,6 @@
-import { GetHostedZoneCommand, GetHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
-import { sendCommand } from '@komore/integration-aws';
+import type { GetHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
+import { GetHostedZoneCommand } from '@aws-sdk/client-route-53';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Gets a hosted zone

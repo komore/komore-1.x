@@ -2,10 +2,21 @@ import { parseStyleCustomPropertyReferences } from './parse-style-custom-propert
 
 /**
  * Parses style custom properties
- * @param cssStyleSheet CSS style sheet
- * @returns Parsed
+ * @param cssStyleSheets List of CSS style sheets
+ * @returns List of property definitions
  */
-export function parseStyleCustomPropertyDefinitions(cssStyleSheet: CSSStyleSheet): ReadonlyArray<PropertyDefinition> {
+export function parseStyleCustomPropertyDefinitions(
+  cssStyleSheets: ReadonlyArray<CSSStyleSheet>
+): ReadonlyArray<PropertyDefinition> {
+  return cssStyleSheets.flatMap(parseStyleSheetCustomPropertyDefinitions);
+}
+
+/**
+ * Parses a CSS style sheet's custom property definitions
+ * @param cssStyleSheet CSS style sheet
+ * @returns List of custom property definitions
+ */
+function parseStyleSheetCustomPropertyDefinitions(cssStyleSheet: CSSStyleSheet): ReadonlyArray<PropertyDefinition> {
   return Array.from(cssStyleSheet.cssRules).filter(isStyleRule).flatMap(parseStyleRules);
 }
 

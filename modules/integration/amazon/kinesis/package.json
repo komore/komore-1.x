@@ -1,4 +1,3 @@
 {
-  "name": "@komore/integration-amazon/kinesis",
-  "version": "0.0.1"
+  "name": "@komore/integration-amazon/kinesis"
 }
