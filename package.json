@@ -91,7 +91,7 @@
     "discord.js": "12.5.1",
     "graphql": "15.4.0",
     "graphql-compose": "7.23.0",
-    "gsap": "3.5.1",
+    "gsap": "3.6.0",
     "jsdom": "16.4.0",
     "jsonwebtoken": "8.5.1",
     "koa": "2.13.0",
