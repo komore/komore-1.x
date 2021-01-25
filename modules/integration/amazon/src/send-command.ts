@@ -1,44 +1,45 @@
-import { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
-import { Command, MetadataBearer } from '@aws-sdk/types';
-import { defer, Observable } from 'rxjs';
+import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import type { Command, MetadataBearer } from '@aws-sdk/types';
+import type { Observable } from 'rxjs';
+import { defer } from 'rxjs';
 
 /**
  * Sends a command using a client
+ * @param amazonClient Client
  * @param command Command
- * @param client Client
  * @param options Options
- * @template AwsClientHandlerOptions AWS client handler options
- * @template AwsClientInput AWS client input
- * @template AwsClientOutput AWS client output
- * @template AwsClientResolvedConfiguration AWS client resolved configuration
+ * @template AmazonClientHandlerOptions Amazon client handler options
+ * @template AmazonClientInput Amazon client input
+ * @template AmazonClientOutput Amazon client output
+ * @template AmazonClientResolvedConfiguration Amazon client resolved configuration
+ * @template AmazonClientType Amazon client type
  * @template InputType Input type
  * @template OutputType Output type
  * @returns Command output
  */
 export function sendCommand<
-  // TODO: @template
-  AwsClientHandlerOptions,
-  AwsClientInput extends object,
-  AwsClientOutput extends MetadataBearer,
-  AwsClientResolvedConfiguration extends SmithyResolvedConfiguration<AwsClientHandlerOptions>,
-  AwsClientType extends Client<
-    AwsClientHandlerOptions,
-    AwsClientInput,
-    AwsClientOutput,
-    AwsClientResolvedConfiguration
+  AmazonClientHandlerOptions,
+  AmazonClientInput extends object,
+  AmazonClientOutput extends MetadataBearer,
+  AmazonClientResolvedConfiguration extends SmithyResolvedConfiguration<AmazonClientHandlerOptions>,
+  AmazonClientType extends Client<
+    AmazonClientHandlerOptions,
+    AmazonClientInput,
+    AmazonClientOutput,
+    AmazonClientResolvedConfiguration
   >,
-  InputType extends AwsClientInput,
-  OutputType extends AwsClientOutput
+  InputType extends AmazonClientInput,
+  OutputType extends AmazonClientOutput
 >(
-  client: AwsClientType,
+  amazonClient: AmazonClientType,
   command: Command<
-    AwsClientInput,
+    AmazonClientInput,
     InputType,
-    AwsClientOutput,
+    AmazonClientOutput,
     OutputType,
-    SmithyResolvedConfiguration<AwsClientHandlerOptions>
+    SmithyResolvedConfiguration<AmazonClientHandlerOptions>
   >,
-  options?: AwsClientHandlerOptions
+  options?: AmazonClientHandlerOptions
 ): Observable<OutputType> {
-  return defer(() => client.send(command, options));
+  return defer(() => amazonClient.send(command, options));
 }

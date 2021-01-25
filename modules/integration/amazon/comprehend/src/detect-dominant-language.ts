@@ -1,9 +1,6 @@
-import {
-  ComprehendClient,
-  DetectDominantLanguageCommand,
-  DetectDominantLanguageCommandInput
-} from '@aws-sdk/client-comprehend';
-import { sendCommand } from '@komore/integration-aws';
+import type { ComprehendClient, DetectDominantLanguageCommandInput } from '@aws-sdk/client-comprehend';
+import { DetectDominantLanguageCommand } from '@aws-sdk/client-comprehend';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Determines the dominant languages used in a text

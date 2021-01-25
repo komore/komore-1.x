@@ -1,7 +1,8 @@
 export { assert } from './assert';
 export { executeRegExp } from './execute-reg-exp';
-export { importFirst } from './import-first';
 export { isDefined } from './is-defined';
 export { isNotNull } from './is-not-null';
-export type { _TypeSchema, _TypeSchemaType, _TypeSchemaTypeName } from './type-schema';
-export { _typeSchema } from './type-schema';
+export type { _TypeSchema } from './type-schema/type-schema';
+export type { _TypeSchemaType } from './type-schema/type-schema-type';
+export type { _TypeSchemaTypeName } from './type-schema/type-schema-type-name';
+export { _typeSchema } from './type-schema/type-schema';

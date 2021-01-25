@@ -1,0 +1,10 @@
+{
+  "name": "@komore/cli",
+  "description": "Command-line interface for komore",
+  "keywords": [
+    "CLI"
+  ],
+  "bin": {
+    "k": "./bin/k.js"
+  }
+}

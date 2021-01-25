@@ -1,15 +1,20 @@
 import { map } from 'rxjs/operators';
-import { Message } from '../message';
+import type { Message } from '../message';
+import type { MutatedMessageInputType } from '../mutated-message-input-type';
 
 /**
  * Operator function that sets a message's input
  * @param input Message input
- * @template MessageInputType Message input type
+ * @template NewMessageInputType New message input type
  * @template MessageType Message type
  */
-export function mapInputTo<MessageInputType>(input: MessageInputType) {
-  return map(<MessageType extends Message<any, any, any, any>>(message: MessageType) => ({
-    ...message,
-    input
-  }));
+export function mapInputTo<NewMessageInputType>(input: NewMessageInputType) {
+  return map(
+    <MessageType extends Message<any, any, any, any>>(
+      message: MessageType
+    ): MutatedMessageInputType<MessageType, NewMessageInputType> => ({
+      ...message,
+      input
+    })
+  );
 }

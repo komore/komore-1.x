@@ -18,7 +18,7 @@ Create an observable that maps a command to an HTTP request.
 
 ```typescript
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { createRequest } from '@komore/integration-aws';
+import { createRequest } from '@komore/integration-amazon';
 
 const s3Client = new S3Client({});
 const command = new GetObjectCommand({ /* parameters */ });
@@ -31,7 +31,7 @@ Create an observable that sends a command.
 
 ```typescript
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration-aws';
+import { sendCommand } from '@komore/integration-amazon';
 
 const s3Client = new S3Client({});
 const command = new GetObjectCommand({ /* parameters */ });

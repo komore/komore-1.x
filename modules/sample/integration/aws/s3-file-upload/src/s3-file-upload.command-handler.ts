@@ -1,7 +1,7 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { createHandler, on } from '@komore/command';
-import { createRequest } from '@komore/integration-aws';
-import { preSignS3Request } from '@komore/integration-aws/s3';
+import { createRequest } from '@komore/integration-amazon';
+import { preSignS3Request } from '@komore/integration-amazon/s3';
 import { map, mergeMap } from 'rxjs/operators';
 import { getS3FileUploadHttpRequest } from './s3-file-upload.commands';
 

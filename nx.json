@@ -65,6 +65,13 @@
     "authorization-testing": {
       "tags": ["scope:authorization", "trait:testing"]
     },
+    "cli": {
+      "tags": ["scope:cli", "trait:base"]
+    },
+    "cli-e2e": {
+      "tags": ["scope:cli"],
+      "implicitDependencies": ["cli"]
+    },
     "command": {
       "tags": ["scope:command", "trait:base"]
     },
@@ -326,6 +333,9 @@
     "integration-amazon-dynamodb": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
+    "integration-amazon-eventbridge": {
+      "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
     "integration-amazon-kinesis": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
@@ -352,6 +362,9 @@
     },
     "integration-amazon-ses": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
+    },
+    "integration-amazon-ses-layer": {
+      "tags": ["scope:integration", "trait:layer", "provider:amazon"]
     },
     "integration-amazon-sns": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
@@ -434,6 +447,12 @@
     "integration-kafka": {
       "tags": ["scope:integration", "trait:provider", "provider:kafka"]
     },
+    "integration-mailchimp": {
+      "tags": ["scope:integration", "trait:provider", "provider:mailchimp"]
+    },
+    "integration-mailchimp-layer": {
+      "tags": ["scope:integration", "trait:layer", "provider:mailchimp"]
+    },
     "integration-paddle": {
       "tags": ["scope:integration", "trait:provider", "provider:paddle"]
     },
@@ -442,6 +461,12 @@
     },
     "integration-pulsar": {
       "tags": ["scope:integration", "trait:provider", "provider:pulsar"]
+    },
+    "integration-sendgrid": {
+      "tags": ["scope:integration", "trait:provider", "provider:sendgrid"]
+    },
+    "integration-sendgrid-layer": {
+      "tags": ["scope:integration", "trait:layer", "provider:sendgrid"]
     },
     "integration-square": {
       "tags": ["scope:integration", "trait:provider", "provider:square"]
@@ -458,13 +483,19 @@
     "layer": {
       "tags": ["scope:layer", "trait:base"]
     },
+    "layer-ci": {
+      "tags": ["scope:layer"]
+    },
+    "layer-email": {
+      "tags": ["scope:layer"]
+    },
     "layer-file": {
       "tags": ["scope:layer"]
     },
     "layer-image": {
       "tags": ["scope:layer"]
     },
-    "layer-messagebroker": {
+    "layer-messaging": {
       "tags": ["scope:layer"]
     },
     "layer-payment": {

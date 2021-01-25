@@ -1,7 +1,8 @@
-import { Observable, OperatorFunction, pipe } from 'rxjs';
+import { OperatorFunction, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export function withBigtableInstance(instanceName: string): OperatorFunction<Observable<MessageWithBigtableClient>, Observable<MessageWithBigtableInstance>> {
+export const withBigtableInstance(instanceName: string) =>
+  map((message: MessageWithBigtableClient) => message.bigtableClient.instance(instanceName))
     return pipe(
       map(message => ({
         ...message,
@@ -15,3 +16,4 @@ export function withBigtableInstance(instanceName: string): OperatorFunction<Obs
       }))
     );
 }
+// TODO: bigtableClient.instance(instanceName);

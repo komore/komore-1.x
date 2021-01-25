@@ -1,7 +1,10 @@
-import { Bigtable } from '@google-cloud/bigtable';
-import { withGcpClient } from '@komore/integration-gcp';
+import type { Bigtable } from '@google-cloud/bigtable';
+import { withGoogleCloudClient } from '@komore/integration-google';
+import { createBigTableClient } from '../create-bigtable-client';
 
-export const withBigtableClient = (bigtableClient: Bigtable) => withGcpClient('bigtable', bigtableClient, {});
-
-const x = new Bigtable();
-x.instance()
+/**
+ * TODO
+ * @param bigtableClient Bigtable client
+ */
+export const withBigtableClient = (bigtableClient?: Bigtable) =>
+  withGoogleCloudClient('bigtable', bigtableClient ?? createBigTableClient());

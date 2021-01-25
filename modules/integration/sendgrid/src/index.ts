@@ -1,0 +1,10 @@
+export { createSendGridClient } from './create-sendgrid-client';
+export { createTransactionalTemplate } from './create-transactional-template';
+export type { CreateTransactionalTemplateRequest } from './create-transactional-template-request';
+export type { CreateTransactionalTemplateResponse } from './create-transactional-template-response';
+export { createTransactionalTemplateVersion } from './create-transactional-template-version';
+export type { CreateTransactionalTemplateVersionRequest } from './create-transactional-template-version-request';
+export type { CreateTransactionalTemplateVersionResponse } from './create-transactional-template-version-response';
+export { deleteTransactionalTemplate } from './delete-transactional-template';
+export { deleteTransactionalTemplateVersion } from './delete-transactional-template-version';
+export type { SendGridClient } from './sendgrid-client';

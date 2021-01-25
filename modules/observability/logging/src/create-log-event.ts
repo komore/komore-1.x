@@ -1,14 +1,18 @@
 import { LogEvent } from './log-event';
 import { LogEventCreator } from './log-event-creator';
-import { LogEventPropertiesSchema, LogEventPropertiesSchemaType } from './log-event-properties-schema';
+import { LogEventPropertiesSchema } from './log-event-properties-schema';
 import { LogEventSeverity } from './log-event-severity';
 import { LogGroup } from './log-group';
+
+export function createLogEvent<LogGroupName extends string, LogEventId extends number>(
+  logGroup: LogGroup<LogGroupName>, logEventId: LogEventId, logEventSeverity: LogEventSeverity, message: string, properties?: )
+
 
 /**
  * Creates a log event creator
  * @param logGroup Log group
- * @param logId Log identifier
- * @param severity Severity
+ * @param logEventId Log event identifier
+ * @param logEventSeverity Log event severity
  * @param message Message
  * @param properties Properties
  * @returns Log creator
@@ -17,26 +21,27 @@ import { LogGroup } from './log-group';
  * @template LogPropertiesType Log properties type
  */
 export function createLogEvent<
-LogGroupName extends string,
-LogEventId extends number,
-LogEventProperties extends object | undefined = undefined
+  LogGroupName extends string,
+  LogEventId extends number,
+  LogEventMessage extends string,
+  LogEventProperties extends object | undefined = undefined
 >(
   logGroup: LogGroup<LogGroupName>,
-  logId: LogEventId,
-  severity: LogEventSeverity,
-  message: string,
+  logEventId: LogEventId,
+  logEventSeverity: LogEventSeverity,
+  message: LogEventMessage,
   properties?: LogEventPropertiesSchema<LogEventProperties>
 ): LogEventCreator<LogEvent<LogGroupName, LogEventId, LogEventProperties>> {
   const logCreator = (properties?: any): LogEvent<LogGroupName, LogEventId, LogEventProperties> => ({
     group: logGroup,
-    logId,
-    severity,
+    logId: logEventId,
+    severity: logEventSeverity,
     message,
     properties
   });
 
   return Object.defineProperty(logCreator, 'type', {
-    value: `${logGroup}.${logId}`,
+    value: `${logGroup}.${logEventId}`,
     writable: false
   });
 }

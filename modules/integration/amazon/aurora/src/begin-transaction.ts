@@ -1,5 +1,6 @@
-import { BeginTransactionCommand, BeginTransactionCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
-import { sendCommand } from '@komore/integration-aws';
+import type { BeginTransactionCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
+import { BeginTransactionCommand } from '@aws-sdk/client-rds-data';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Begins a SQL transaction
@@ -7,5 +8,5 @@ import { sendCommand } from '@komore/integration-aws';
  * @param auroraClient Aurora client
  * @returns Observable `BeginTransaction` command output
  */
-export const beginTransaction = (commandInput: BeginTransactionCommandInput, auroraClient: RDSDataClient) =>
-  sendCommand(new BeginTransactionCommand(commandInput), auroraClient);
+export const beginTransaction = (auroraClient: RDSDataClient, commandInput: BeginTransactionCommandInput) =>
+  sendCommand(auroraClient, new BeginTransactionCommand(commandInput));

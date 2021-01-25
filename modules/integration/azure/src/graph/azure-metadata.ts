@@ -1,6 +1,6 @@
 /**
  * Azure metadata
  */
-export type AzureMetadata = Readonly<{
+export interface AzureMetadata {
 
-}>;
+}

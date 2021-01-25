@@ -1,5 +1,6 @@
-import { ExecuteStatementCommand, ExecuteStatementCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
-import { sendCommand } from '@komore/integration-aws';
+import type { ExecuteStatementCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
+import { ExecuteStatementCommand } from '@aws-sdk/client-rds-data';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Runs a SQL statement against a database
@@ -7,5 +8,5 @@ import { sendCommand } from '@komore/integration-aws';
  * @param auroraClient Aurora client
  * @returns Observable `ExecuteStatement` command output
  */
-export const executeStatement = (commandInput: ExecuteStatementCommandInput, auroraClient: RDSDataClient) =>
-  sendCommand(new ExecuteStatementCommand(commandInput), auroraClient);
+export const executeStatement = (auroraClient: RDSDataClient, commandInput: ExecuteStatementCommandInput) =>
+  sendCommand(auroraClient, new ExecuteStatementCommand(commandInput));

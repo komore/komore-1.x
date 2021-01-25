@@ -1,9 +1,6 @@
-import {
-  CloudWatchLogsClient,
-  CreateLogGroupCommand,
-  CreateLogGroupCommandInput
-} from '@aws-sdk/client-cloudwatch-logs';
-import { sendCommand } from '@komore/integration-aws';
+import type { CloudWatchLogsClient, CreateLogGroupCommandInput } from '@aws-sdk/client-cloudwatch-logs';
+import { CreateLogGroupCommand } from '@aws-sdk/client-cloudwatch-logs';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Creates a log group

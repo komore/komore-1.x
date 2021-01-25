@@ -5,7 +5,8 @@ import {
   QueryCommandInput,
   QueryCommandOutput
 } from '@aws-sdk/client-dynamodb';
-import { Event, EventRepository } from '@komore/event';
+import type { Event } from '@komore/event';
+import type { EventRepository } from '@komore/event/store';
 import { DynamoDBEventStoreConfiguration } from './dynamodb-event-store-configuration';
 
 /**

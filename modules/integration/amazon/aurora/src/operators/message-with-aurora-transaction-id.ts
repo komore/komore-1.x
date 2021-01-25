@@ -1,4 +1,3 @@
-import { MessageWithAwsClient } from '@komore/integration-aws';
-import { AwsClient } from 'modules/integration/aws/src/aws-client';
+import { MessageWithAwsClient } from '@komore/integration-amazon';
 
-export type MessageWithAuroraTransactionId = MessageWithAwsClient<any, AwsClient<'aurora', 
+// export type MessageWithAuroraTransactionId = MessageWithAwsClient<any, AwsClient<'aurora', 

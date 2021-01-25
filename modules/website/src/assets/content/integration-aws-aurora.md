@@ -6,7 +6,7 @@
 
 ```typescript
 import { RDSDataClient } from '@aws-sdk/client-rds-data';
-import { executeStatement, executeTransaction, withAuroraClient } from '@komore/integration-aws/aurora/operators';
+import { executeStatement, executeTransaction, withAuroraClient } from '@komore/integration-amazon/aurora/operators';
 
 message$.pipe(
   withAuroraClient(new RDSDataClient({
@@ -34,7 +34,7 @@ Aurora operators require messages with a configured RDS Data client.
 
 ```typescript
 import { RDSDataClient } from '@aws-sdk/client-rds-data';
-import { withAuroraClient } from '@komore/integration-aws/aurora/operators';
+import { withAuroraClient } from '@komore/integration-amazon/aurora/operators';
 
 message$.pipe(
   withAuroraClient(new RDSDataClient({

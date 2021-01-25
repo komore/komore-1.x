@@ -28,24 +28,3 @@ describe('Discord webhook message flow', () => {
     );
   });
 });
-
-
-import { createFunction } from '@komore/function';
-import { httpRequestPayload } from '@komore/function-lambda';
-import { from, mapOutput, to } from '@komore/message';
-import { withComprehendClient } from '@komore/integration-aws/comprehend';
-import { withRekognitionClient } from '@komore/integration-aws/rekognition';
-
-export const getTextImageSentiment = createFunction({
-  // boring config stuff here
-}).pipe(
-  from(httpRequestPayload),
-  withRekognitionClient(),
-  withComprehendClient(),
-  to(detectedText),
-  to(detectedSentiment),
-  mapOutput(({ output }) => ({
-    detectedSentiment: output.Sentiment,
-    score: output.SentimentScore
-  }))
-);

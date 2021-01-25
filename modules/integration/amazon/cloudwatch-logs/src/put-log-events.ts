@@ -1,5 +1,6 @@
-import { CloudWatchLogsClient, PutLogEventsCommand, PutLogEventsCommandInput } from '@aws-sdk/client-cloudwatch-logs';
-import { sendCommand } from '@komore/integration-aws';
+import type { CloudWatchLogsClient, PutLogEventsCommandInput } from '@aws-sdk/client-cloudwatch-logs';
+import { PutLogEventsCommand } from '@aws-sdk/client-cloudwatch-logs';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Uploads log events to the specified log stream

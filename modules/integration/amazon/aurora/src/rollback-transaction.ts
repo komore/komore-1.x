@@ -1,12 +1,6 @@
-import {
-  RollbackTransactionCommand,
-  RollbackTransactionCommandInput,
-  RollbackTransactionCommandOutput,
-  RDSDataClient
-} from '@aws-sdk/client-rds-data';
-import { sendCommand } from '@komore/integration-aws';
-import { Observable } from 'rxjs';
-import { getAuroraClient } from './aurora-client';
+import type { RollbackTransactionCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
+import { RollbackTransactionCommand } from '@aws-sdk/client-rds-data';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Performs a rollback of a SQL transaction, cancelling its changes
@@ -14,9 +8,5 @@ import { getAuroraClient } from './aurora-client';
  * @param auroraClient Aurora client
  * @returns Observable `RollbackTransaction` command output
  */
-export function rollbackTransaction(
-  commandInput: RollbackTransactionCommandInput,
-  auroraClient?: RDSDataClient
-): Observable<RollbackTransactionCommandOutput> {
-  return sendCommand(new RollbackTransactionCommand(commandInput), getAuroraClient(auroraClient));
-}
+export const rollbackTransaction = (auroraClient: RDSDataClient, commandInput: RollbackTransactionCommandInput) =>
+  sendCommand(auroraClient, new RollbackTransactionCommand(commandInput));

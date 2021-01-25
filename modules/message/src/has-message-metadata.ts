@@ -1,4 +1,5 @@
-import { Message, MutatedMessageMetadataType } from './message';
+import type { Message } from './message';
+import type { MutatedMessageMetadataType } from './mutated-message-metadata-type';
 
 /**
  * Tests whether a specific type of metadata is present

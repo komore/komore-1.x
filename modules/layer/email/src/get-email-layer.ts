@@ -1,0 +1,2 @@
+
+export function getEmailLayer(): Email

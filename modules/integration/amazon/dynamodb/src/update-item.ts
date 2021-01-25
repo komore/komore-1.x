@@ -1,5 +1,6 @@
-import { DynamoDBClient, UpdateItemCommand, UpdateItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { sendCommand } from '@komore/integration-aws';
+import type { DynamoDBClient, UpdateItemCommandInput } from '@aws-sdk/client-dynamodb';
+import { UpdateItemCommand } from '@aws-sdk/client-dynamodb';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Updates an existing item's attributes or adds a new item to the table if it did not already exist

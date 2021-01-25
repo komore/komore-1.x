@@ -1,4 +1,4 @@
-import { Message } from './message';
+import type { Message } from './message';
 
 export function createMessage<MessageTypeName extends string>(
   type: MessageTypeName

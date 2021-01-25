@@ -6,5 +6,6 @@ import { AzureMetadata } from './azure-metadata';
  * @param message Message
  * @returns true if the message contains Azure metadata
  */
-export const hasAzureMetadata = (message: Message<any, any, any, any>) =>
-  hasMessageMetadata<'azure', AzureMetadata>(message, 'azure');
+export function hasAzureMetadata(message: Message<any, any, any, any>) {
+  return hasMessageMetadata<'azure', AzureMetadata>(message, 'azure');
+}

@@ -1,9 +1,9 @@
 export { createRequest } from './create-request';
-export type { FixedAwsType } from './fixed-aws-type';
+export type { FixedAmazonType } from './fixed-amazon-type';
 export { sendBatchCommand } from './send-batch-command';
 export { sendCommand } from './send-command';
-export { getAwsClient } from './graph/get-aws-client';
-// export { getAwsClientIntegration } from './operators/get-aws-client-integration';
-export type { MessageWithAwsClient } from './graph/message-with-aws-client';
-export { withAwsClient } from './operators/with-aws-client';
-export { withAwsIntegrations } from './operators/with-aws-integrations';
+export { getAmazonClient } from './graph/get-amazon-client';
+export { getAmazonClientIntegration } from './graph/get-amazon-client-integration';
+export type { MessageWithAwsClient } from './graph/message-with-amazon-client';
+export { withAmazonClient } from './operators/with-amazon-client';
+export { withAmazonIntegrations } from './operators/with-amazon-integrations';

@@ -1,5 +1,6 @@
-import { ComprehendClient, DetectSyntaxCommand, DetectSyntaxCommandInput } from '@aws-sdk/client-comprehend';
-import { sendCommand } from '@komore/integration-aws';
+import type { ComprehendClient, DetectSyntaxCommandInput } from '@aws-sdk/client-comprehend';
+import { DetectSyntaxCommand } from '@aws-sdk/client-comprehend';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Inspects text for syntax and of part of speech of words

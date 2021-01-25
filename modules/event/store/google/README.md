@@ -1,12 +1,12 @@
-# komore Event Store - GCP
+# komore Event Store - Google
 
-Support for GCP services as [komore] event stores:
+Support for Google Cloud services as [komore] event stores:
 
 - [Google Cloud Bigtable]
 
 ## Install
 
-The `@komore/event-store-gcp` module can be installed via Npm or Yarn:
+The `@komore/event-store-google` module can be installed via Npm or Yarn:
 
 ```shell
 npm install @komore/event-store-gcp --save

@@ -1,0 +1,3 @@
+# komore Integration - Mailchimp
+
+TODO.

@@ -3,7 +3,7 @@ import {
   BatchExecuteStatementCommandInput,
   RDSDataClient
 } from '@aws-sdk/client-rds-data';
-import { sendCommand } from '@komore/integration-aws';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Begins a SQL transaction

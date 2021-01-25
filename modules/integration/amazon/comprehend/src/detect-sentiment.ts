@@ -1,5 +1,6 @@
-import { ComprehendClient, DetectSentimentCommand, DetectSentimentCommandInput } from '@aws-sdk/client-comprehend';
-import { sendCommand } from '@komore/integration-aws';
+import type { ComprehendClient, DetectSentimentCommandInput } from '@aws-sdk/client-comprehend';
+import { DetectSentimentCommand } from '@aws-sdk/client-comprehend';
+import { sendCommand } from '@komore/integration-amazon';
 
 /**
  * Determines the sentiment from a text

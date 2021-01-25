@@ -1,0 +1,3 @@
+# komore Integration - Sendgrid
+
+TODO.

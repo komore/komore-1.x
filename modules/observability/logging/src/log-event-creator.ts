@@ -1,5 +1,19 @@
 import { LogEvent } from './log-event';
-import { LogEventPropertiesSchemaType } from './log-event-properties-schema';
+
+/**
+ * Log event with properties creator function type
+ */
+interface LogEventWithPropertiesCreatorFunctionType<LogGroupName extends string, LogEventId extends number, LogEventPropertiesSchema extends object,
+LogEventType extends LogEvent<LogGroupName, LogEventId, LogEventPropertiesSchema>> {
+  (logProperties: LogEventPropertiesSchema): LogEventType;
+}
+
+/**
+ * Log event without properties creator function type
+ */
+interface LogEventWithoutPropertiesCreatorFunctionType<LogGroupName extends string, LogEventId extends number, LogEventType extends LogEvent<LogGroupName, LogEventId>> {
+  (): LogEventType;
+}
 
 /**
  * Log event creator function type
@@ -18,12 +32,16 @@ export type LogEventCreatorFunctionType<
  * Function capable of creating a specific log
  * @template LogEventType Log event type
  */
-export type LogEventCreator<
+export interface LogEventCreator<
   LogGroupName extends string,
   LogEventId extends number,
   LogEventPropertiesSchema extends object | undefined,
   LogEventType extends LogEvent<LogGroupName, LogEventId, LogEventPropertiesSchema>
-> = LogEventCreatorFunctionType<
+> extends LogEventCreatorFunctionType<LogGroupName, LogEventId, LogEventPropertiesSchema, LogEventType> {
+
+}
+
+= LogEventCreatorFunctionType<
   LogGroupName,
   LogEventId,
   LogEventPropertiesSchema,

@@ -2,6 +2,6 @@
  * Log group
  * @template LogGroupName Log group name
  */
-export type LogGroup<LogGroupName extends string> = Readonly<{
-  name: LogGroupName;
-}>;
+export interface LogGroup<LogGroupName extends string> {
+  readonly name: LogGroupName;
+}

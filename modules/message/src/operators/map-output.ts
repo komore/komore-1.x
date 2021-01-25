@@ -1,17 +1,18 @@
 import { map } from 'rxjs/operators';
-import { Message, MutatedMessageOutputType } from '../message';
+import type { Message } from '../message';
+import type { MutatedMessageOutputType } from '../mutated-message-output-type';
 
 /**
  * Operator function that maps to a message with a new output
  * @param project Mapping function
  * @template MessageType Message type
- * @template MessageOutputType Message output type
+ * @template NewMessageOutputType New message output type
  */
-export function mapOutput<MessageType extends Message<any, any, any, any>, MessageOutputType>(
-  project: (message: MessageType) => MessageOutputType
+export function mapOutput<MessageType extends Message<any, any, any, any>, NewMessageOutputType>(
+  project: (message: MessageType) => NewMessageOutputType
 ) {
   return map(
-    (message: MessageType): MutatedMessageOutputType<MessageType, MessageOutputType> => ({
+    (message: MessageType): MutatedMessageOutputType<MessageType, NewMessageOutputType> => ({
       ...message,
       output: project(message)
     })

@@ -23,6 +23,7 @@ import { processSource } from './processors/process-source';
  * @param source Source
  */
 export function compileSource(factory: NodeFactory, source: string): Observable<void> {
+  factory.createImport
   return defer(() => of(source)).pipe(
     map(JSDOM.fragment),
     switchMap(parseDocumentFragment()),

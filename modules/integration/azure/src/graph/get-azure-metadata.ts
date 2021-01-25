@@ -1,5 +1,5 @@
-import { Message } from '@komore/message';
-import { AzureMetadata } from './azure-metadata';
+import type { Message } from '@komore/message';
+import type { AzureMetadata } from './azure-metadata';
 
 /**
  * Gets Azure metadata from a message
@@ -13,6 +13,6 @@ export function getAzureMetadata<
   AzureMetadataType extends AzureMetadata,
   MetadataType extends Readonly<{ azure: AzureMetadataType }>,
   MessageType extends Message<any, MetadataType, any, any>
->(message: MessageType): AzureMetadata {
+>(message: MessageType): AzureMetadataType {
   return message.metadata.azure;
 }

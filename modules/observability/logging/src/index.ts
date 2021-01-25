@@ -1,7 +1,7 @@
-export { createLog } from './create-log';
+export { createLogEvent } from './create-log-event';
 export { createLogGroup } from './create-log-group';
-export { Log } from './log';
-export { LogGroup } from './log-group';
-export { props } from './log-properties-schema';
-export { recordLog } from './record-log';
+export type { LogEvent } from './log-event';
+export type { LogGroup } from './log-group';
 export { log } from './operators/log';
+export { props } from './props';
+export { recordLog } from './record-log';

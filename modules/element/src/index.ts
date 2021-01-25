@@ -2,6 +2,7 @@ export { createElementAttributeSubject } from './attribute/create-element-attrib
 export { createElementAttributeSubject as _cEAS } from './attribute/create-element-attribute-subject';
 export type { ElementAttributeSubject } from './attribute/element-attribute-subject';
 export type { ElementAttributeSubjectMap } from './attribute/element-attribute-subject-map';
+export { observeDocumentTitle } from './dom/observe-document-title';
 export type { ElementPropertySubject } from './property/element-property-subject';
 export type { ElementPropertySubjectMap } from './property/element-property-subject-map';
 export { mapElementAttributeToBoolean } from './attribute/map-element-attribute-to-boolean';
