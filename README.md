@@ -1,3 +1,5 @@
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # komore
 
 komore is a [TypeScript] framework for [Node] meant to ease the creation of services designed around the [CQRS],
