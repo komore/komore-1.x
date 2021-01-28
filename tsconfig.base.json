@@ -68,6 +68,8 @@
       "@komore/element/form": ["modules/element/form/src/index.ts"],
       "@komore/element/http-client": ["modules/element/http-client/src/index.ts"],
       "@komore/element/i18n": ["modules/element/i18n/src/index.ts"],
+      "@komore/element/icon": ["modules/element/icon/src/index.ts"],
+      "@komore/element/image": ["modules/element/image/src/index.ts"],
       "@komore/element/interpreter": ["modules/element/interpreter/src/index.ts"],
       "@komore/element/l10n": ["modules/element/l10n/src/index.ts"],
       "@komore/element/operators": ["modules/element/operators/src/index.ts"],

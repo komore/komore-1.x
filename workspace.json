@@ -2181,6 +2181,80 @@
         }
       }
     },
+    "element-icon": {
+      "root": "modules/element/icon",
+      "sourceRoot": "modules/element/icon/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/element/icon/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/element-icon"
+          ],
+          "options": {
+            "jestConfig": "modules/element/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/element/icon",
+            "tsConfig": "modules/element/icon/tsconfig.lib.json",
+            "packageJson": "modules/element/icon/package.json",
+            "main": "modules/element/icon/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-image": {
+      "root": "modules/element/image",
+      "sourceRoot": "modules/element/image/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/element/image/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/element-image"
+          ],
+          "options": {
+            "jestConfig": "modules/element/image/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/element/image",
+            "tsConfig": "modules/element/image/tsconfig.lib.json",
+            "packageJson": "modules/element/image/package.json",
+            "main": "modules/element/image/src/index.ts"
+          }
+        }
+      }
+    },
     "element-interpreter": {
       "root": "modules/element/interpreter",
       "sourceRoot": "modules/element/interpreter/src",
