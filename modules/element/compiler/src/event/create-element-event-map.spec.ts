@@ -1,17 +1,11 @@
 import { factory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import type { ElementEventDefinition } from '../definition/element-event-definition';
 import { createElementEventMap } from './create-element-event-map';
-import type { ElementEventDefinition } from './element-event-definition';
 
 describe('Create element event map', () => {
-  const elementDefinition: ElementDefinition = {
-    baseClassName: 'HTMLElement',
-    className: 'TestElement',
-    tagName: 'test-element'
-  };
-
   it('creates an event map with multiple event names mapped to custom event types', () => {
-    // given: a list of event definitions
+    given: 'an element class name and a a list of event definitions'
+    const elementClassName = 'TestElement';
     const elementEventDefinitions: ReadonlyArray<ElementEventDefinition> = [
       {
         eventName: 'test-event-1',
@@ -21,28 +15,29 @@ describe('Create element event map', () => {
         eventName: 'test-event-2'
       }
     ];
-    // when: creating an element event map
-    const [declaration, name] = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
-    // then: the correct source is generated
+    when: 'creating an element event map'
+    const [declaration, name] = createElementEventMap(factory, elementClassName, elementEventDefinitions);
+    expect: 'a correct interface inheriting HTMLElementEventMap and mapping each event type to be created'
     expect(declaration).toBeSource(`
-      export interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
+      export interface ${elementClassName}EventMap extends HTMLElementEventMap {
         "test-event-1": CustomEvent<EventDetailType1>;
         "test-event-2": CustomEvent<void>;
       }
     `);
-    expect(name.text).toBe(`${elementDefinition.className}EventMap`);
+    expect(name.text).toBe(`${elementClassName}EventMap`);
   });
 
   it('creates an empty event map where there are no user-defined event types', () => {
-    // given: an empty list of event definitions
+    given: 'an element class naem and an empty list of event definitions'
+    const elementClassName = 'TestElement';
     const elementEventDefinitions: ReadonlyArray<ElementEventDefinition> = [];
-    // when: creating an element event map
-    const [declaration, name] = createElementEventMap(factory, elementDefinition, elementEventDefinitions);
-    // then: the correct source is generated
+    when: 'creating an element event map'
+    const [declaration, name] = createElementEventMap(factory, elementClassName, elementEventDefinitions);
+    expect: 'a correct interface inheriting HTMLElementEventMap without any property signature to be created'
     expect(declaration).toBeSource(`
-      export interface ${elementDefinition.className}EventMap extends ${elementDefinition.baseClassName}EventMap {
+      export interface ${elementClassName}EventMap extends HTMLElementEventMap {
       }
     `);
-    expect(name.text).toBe(`${elementDefinition.className}EventMap`);
+    expect(name.text).toBe(`${elementClassName}EventMap`);
   });
 });

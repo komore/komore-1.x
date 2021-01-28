@@ -1,8 +1,8 @@
 /**
  * Navigation item model
  */
-export type NavigationItemModel = Readonly<{
-  children?: ReadonlyArray<NavigationItemModel>;
-  label: string;
-  routerLink?: ReadonlyArray<string>;
-}>;
+export interface NavigationItemModel {
+  readonly children?: ReadonlyArray<NavigationItemModel>;
+  readonly label: string;
+  readonly routerLink?: ReadonlyArray<string>;
+};

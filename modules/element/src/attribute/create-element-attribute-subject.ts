@@ -11,11 +11,10 @@ import type { ElementAttributeSubject } from './element-attribute-subject';
  * @returns Element attribute subject
  * @template T Observable value type
  */
-// TODO: replace object with Enum<> type
-export function createElementAttributeSubject<T extends string | number | boolean | object>(
+export function createElementAttributeSubject<T extends string | number | boolean>(
   initialValue?: T,
   transform?: (attributeValue: string) => T,
-  optional: boolean = false
+  optional = false
 ): ElementAttributeSubject<T> {
   const subject = new BehaviorSubject<string | undefined>(undefined);
   let $ = subject.asObservable();

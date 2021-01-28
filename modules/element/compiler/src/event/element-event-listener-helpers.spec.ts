@@ -6,7 +6,9 @@ import {
 import type { EventListenerTypedInformation } from './event-listener-typed-information';
 
 describe('Element event listener helpers', () => {
-  describe('Create event map index parameter', () => {});
+  describe('Create event map index parameter', () => {
+    // TODO
+  });
 
   describe('Create add/remove event listener method signature', () => {
     it('can create a default add/remove event listener method signature', () => {

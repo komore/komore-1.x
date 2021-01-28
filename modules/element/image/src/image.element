@@ -1,0 +1,4 @@
+<script class="KImageElement">
+  // TODO: manages <source>'s and default <img>, lazy loading and blurry placeholder
+</script>
+<picture is="k-image"></picture>

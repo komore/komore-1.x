@@ -3,33 +3,40 @@ import { createParameter } from './create-parameter';
 
 describe('Create parameter', () => {
   it('can create parameters', () => {
-    // given: a parameter name and type
+    given: 'a parameter name and type'
     const parameterName = 'testParameter';
-    const parameterType = factory.createTypeReferenceNode('TestType');
-    // when: creating a parameter
-    const parameterDeclaration = createParameter(factory, parameterName, parameterType);
-    // then: the correct parameter declaration is created
-    expect(parameterDeclaration).toBeInlineSource('testParameter: TestType');
+    const parameterType = 'TestType';
+    const parameterTypeNode = factory.createTypeReferenceNode(parameterType);
+    when: 'creating a parameter'
+    const [declaration, identifier] = createParameter(factory, parameterName, parameterTypeNode);
+    expect: 'a correct parameter declaration with the right name and type to be created'
+    expect(declaration).toBeInlineSource(`${parameterName}: ${parameterType}`);
+    expect(identifier.text).toBe(parameterName);
   });
 
   it('can create optional parameters', () => {
-    // given: a parameter name and type
+    given: 'a parameter name and type'
     const parameterName = 'testParameter';
-    const parameterType = factory.createTypeReferenceNode('TestType');
-    // when: creating an optional parameter
-    const parameterDeclaration = createParameter(factory, parameterName, parameterType, true);
-    // then: the correct parameter declaration is created
-    expect(parameterDeclaration).toBeInlineSource('testParameter?: TestType');
+    const parameterType = 'TestType';
+    const parameterTypeNode = factory.createTypeReferenceNode(parameterType);
+    when: 'creating an optional parameter'
+    const [declaration, identifier] = createParameter(factory, parameterName, parameterTypeNode, true);
+    expect: 'a correct parameter declaration with a question token to be created'
+    expect(declaration).toBeInlineSource(`${parameterName}?: ${parameterType}`);
+    expect(identifier.text).toBe(parameterName);
   });
 
   it ('can create parameters with default values', () => {
-    // given: a parameter name, type and initializer
+    given: 'a parameter name, type and initializer'
     const parameterName = 'testParameter';
-    const parameterType = factory.createTypeReferenceNode('TestType');
-    const initializer = factory.createNumericLiteral(42);
-    // when: creating a parameter with an initializer
-    const parameterDeclaration = createParameter(factory, parameterName, parameterType, false, initializer);
-    // then: the correct parameter declaration is created
-    expect(parameterDeclaration).toBeInlineSource('testParameter: TestType = 42');
+    const parameterType = 'TestType';
+    const parameterTypeNode = factory.createTypeReferenceNode(parameterType);
+    const initialValue = 42;
+    const initializer = factory.createNumericLiteral(initialValue);
+    when: 'creating a parameter with an initializer'
+    const [declaration, identifier] = createParameter(factory, parameterName, parameterTypeNode, false, initializer);
+    expect: 'a correct parameter declaration with an initializer expression to be created'
+    expect(declaration).toBeInlineSource(`${parameterName}: ${parameterType} = ${initialValue}`);
+    expect(identifier.text).toBe(parameterName);
   });
 })

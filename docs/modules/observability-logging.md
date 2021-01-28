@@ -31,10 +31,10 @@ A log event is created by calling the [`createLogEvent`] function.
 import { createLogEvent } from '@komore/observability/logging';
 
 const exampleLogEvent = createLogEvent(
-  exampleLogGroup,     // Log group
-  1,                   // Log event identifier
-  0,                   // Log event severity
-  'something happened' // Log event message template
+  exampleDomainLogGroup, // Log group
+  1,                     // Log event identifier
+  0,                     // Log event severity
+  'something happened'   // Log event message template
 );
 ```
 
@@ -48,7 +48,7 @@ The schema for those properties is defined using the [`props`] function.
 import { createLogEvent, props } from '@komore/observability/logging';
 
 const exampleLogEventWithProperties = createLogEvent(
-  exampleLogGroup,
+  exampleDomainLogGroup,
   1,
   0,
   'something happened',
@@ -57,8 +57,9 @@ const exampleLogEventWithProperties = createLogEvent(
 );
 ```
 
-## Recording log events
+Event-specific properties may be referenced in the message template:
 
+## Recording log events
 
 ## Defining logs
 
@@ -92,7 +93,7 @@ export const exampleLog = createLog('/invoices/generation');
 
 ## Log events
 
-Defining events 
+Defining events
 
 ### Metadata
 

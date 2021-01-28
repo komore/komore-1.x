@@ -186,6 +186,12 @@
     "element-i18n": {
       "tags": ["scope:element"]
     },
+    "element-icon": {
+      "tags": ["scope:element"]
+    },
+    "element-image": {
+      "tags": ["scope:element"]
+    },
     "element-interpreter": {
       "tags": ["scope:element"]
     },
@@ -538,6 +544,9 @@
     "observability-driver-azure": {
       "tags": ["scope:observability", "trait:provider", "provider:azure"]
     },
+    "observability-driver-browser": {
+      "tags": ["scope:observability", "trait:provider", "provider:browser"]
+    },
     "observability-driver-google": {
       "tags": ["scope:observability", "trait:provider", "provider:google"]
     },
@@ -602,6 +611,12 @@
       "tags": ["scope:web", "trait:base"]
     },
     "web-authentication": {
+      "tags": ["scope:web"]
+    },
+    "web-bluetooth": {
+      "tags": ["scope:web"]
+    },
+    "web-filesystem": {
       "tags": ["scope:web"]
     },
     "web-gamepad": {

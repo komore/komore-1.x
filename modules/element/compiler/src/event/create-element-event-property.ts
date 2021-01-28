@@ -1,6 +1,6 @@
 import type { NodeFactory, PropertySignature } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import type { ElementEventDefinition } from './element-event-definition';
+import type { ElementEventDefinition } from '../definition/element-event-definition';
 
 /**
  * Creates an element event property

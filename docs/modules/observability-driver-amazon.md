@@ -33,6 +33,8 @@ A log stream is a unique source of logs.
 
 A log group is used to group multiple streams with similar settings: retention, monitoring and access control.
 
+
+
 #### Log groups
 
 CloudWatch log group names are built from the actual log group's name, the [domain] and an optional prefix.

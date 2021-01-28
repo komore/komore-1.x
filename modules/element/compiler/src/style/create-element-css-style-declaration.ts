@@ -1,4 +1,5 @@
-import { MethodSignature, NodeFactory, SyntaxKind, TypeReferenceNode } from 'typescript';
+import type { Identifier, InterfaceDeclaration, MethodSignature, NodeFactory, TypeReferenceNode } from 'typescript';
+import { SyntaxKind } from 'typescript';
 import { createExtendsKeyof } from '../codegen/create-extends-keyof';
 import { createParameter } from '../codegen/create-parameter';
 
@@ -18,7 +19,7 @@ export function createElementCustomCSSStyleDeclaration(
   factory: NodeFactory,
   elementClassName: string,
   customPropertyMap: TypeReferenceNode
-) {
+): [InterfaceDeclaration, Identifier] {
   const setProperty = createSetPropertyMethod(factory, customPropertyMap);
   const interfaceName = `${elementClassName}CSSStyleDeclaration`;
   const nameId = factory.createIdentifier(interfaceName);
@@ -39,13 +40,13 @@ export function createElementCustomCSSStyleDeclaration(
 function createSetPropertyMethod(factory: NodeFactory, customPropertyMap: TypeReferenceNode): MethodSignature {
   const methodName = 'setProperty';
   const [kExtendsCustomPropertyMap, K] = createExtendsKeyof(factory, 'K', customPropertyMap);
-  const customPropertyName = createParameter(factory, 'customProperty', K);
+  const [customPropertyName] = createParameter(factory, 'customProperty', K);
   const customPropertyType = factory.createIndexedAccessTypeNode(customPropertyMap, K);
   // TODO: factory.createKeywordTypeNode(SyntaxKind.NullKeyword);
   const nullType = factory.createTypeReferenceNode('null');
   const voidType = factory.createKeywordTypeNode(SyntaxKind.VoidKeyword);
   const customPropertyValueType = factory.createUnionTypeNode([customPropertyType, nullType]);
-  const customPropertyValue = createParameter(factory, 'value', customPropertyValueType);
+  const [customPropertyValue] = createParameter(factory, 'value', customPropertyValueType);
   const typeParameters = [kExtendsCustomPropertyMap];
   const parameters = [customPropertyName, customPropertyValue];
   return factory.createMethodSignature(undefined, methodName, undefined, typeParameters, parameters, voidType);

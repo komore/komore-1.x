@@ -1,4 +1,4 @@
-# komore Observability for AWS
+# komore Observability for Amazon Web Services
 
 Observability module for AWS:
 

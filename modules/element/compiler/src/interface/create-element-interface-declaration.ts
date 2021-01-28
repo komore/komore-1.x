@@ -1,10 +1,9 @@
 import type { InterfaceDeclaration, NodeFactory, TypeNode } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
 import { createExtendsType } from '../codegen/create-extends-type';
+import type { ElementDefinition } from '../definition/element-definition';
 import { createElementEventListenerMethods } from '../event/create-element-event-listener-methods';
-import { createElementProperties } from '../property/create-element-properties';
-import type { ElementPropertyDefinition } from '../property/element-property-definition';
+import { createElementInterfaceProperties } from '../property/create-element-interface-properties';
 
 /**
  * Creates an element interface declaration
@@ -20,20 +19,18 @@ import type { ElementPropertyDefinition } from '../property/element-property-def
  * ```
  * @param factory TypeScript node factory
  * @param elementDefinition Element definition
- * @param propertyDefinitions Property definitions
  * @param eventMapType Event map type
  * @returns Class declaration node
  */
 export function createElementInterfaceDeclaration(
   factory: NodeFactory,
   elementDefinition: ElementDefinition,
-  propertyDefinitions: ReadonlyArray<ElementPropertyDefinition>,
   eventMapType: TypeNode
 ): InterfaceDeclaration {
-  const { baseClassName, className } = elementDefinition;
+  const { baseClassName, className, propertyDefinitions } = elementDefinition;
   const interfaceName = factory.createIdentifier(className);
   const elementType = factory.createTypeReferenceNode(className);
-  const propertySignatures = createElementProperties(factory);
+  const propertySignatures = createElementInterfaceProperties(factory, propertyDefinitions ?? []);
   const eventListenerMethodSignatures = createElementEventListenerMethods(factory, elementType, eventMapType);
 
   return factory.createInterfaceDeclaration(
@@ -42,9 +39,6 @@ export function createElementInterfaceDeclaration(
     interfaceName,
     undefined,
     [createExtendsType(factory, baseClassName)],
-    [
-      ...propertySignatures,
-      ...eventListenerMethodSignatures
-    ]
+    [...propertySignatures, ...eventListenerMethodSignatures]
   );
 }

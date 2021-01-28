@@ -1,6 +1,6 @@
 /**
  * Build configuration
  */
-export type BuildConfiguration = Readonly<{
+export interface BuildConfiguration {
 
-}>;
+}

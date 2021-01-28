@@ -11,8 +11,8 @@ describe('Create element class declaration', () => {
       tagName: 'test-element'
     };
     // when:
-    createElementClassDeclaration(factory, elementDefinition, [], undefined, undefined);
+    createElementClassDeclaration(factory, elementDefinition, undefined, undefined);
     // then:
-    TODO
+    // TODO
   });
 });

@@ -1,4 +1,5 @@
 import type { Identifier, NodeFactory, PropertySignature, TypeReferenceNode } from 'typescript';
+import { SyntaxKind } from 'typescript';
 
 /**
  * Creates an element style property
@@ -16,6 +17,7 @@ export function createElementStyleProperty(
   const nameId = factory.createIdentifier('style');
   const cssStyleDeclaration = factory.createTypeReferenceNode('CSSStyleDeclaration');
   const propertyType = factory.createIntersectionTypeNode([cssStyleDeclaration, elementCssStyleDeclaration]);
-  const propertySignature = factory.createPropertySignature(undefined, nameId, undefined, propertyType);
+  const modifiers = [factory.createModifier(SyntaxKind.ReadonlyKeyword)];
+  const propertySignature = factory.createPropertySignature(modifiers, nameId, undefined, propertyType);
   return [propertySignature, nameId];
 }

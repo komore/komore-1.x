@@ -3,9 +3,9 @@ import { createTypeMappingInterface } from './create-type-mapping-interface';
 
 describe('Create type mapping interface', () => {
   it('creates a type mapping interface with type mappings', () => {
-    // given: an interface name
+    given: 'an interface name'
     const interfaceName = 'TestInterface';
-    // and: type mappings
+    and: 'type mappings'
     const typeMappings = [
       {
         name: 'test-1',
@@ -16,14 +16,15 @@ describe('Create type mapping interface', () => {
         type: factory.createTypeReferenceNode('number')
       }
     ];
-    // when: creating a type mapping interface
-    const interfaceDeclaration = createTypeMappingInterface(factory, interfaceName, typeMappings);
-    // then: the correct type mapping interface is created
+    when: 'creating a type mapping interface'
+    const [interfaceDeclaration, identifier] = createTypeMappingInterface(factory, interfaceName, typeMappings);
+    expect: 'an interface declaration with correct type mappings to be created'
     expect(interfaceDeclaration).toBeSource(`
-      interface TestInterface {
-        'test-1': string;
-        'test-2': number;
+      interface ${interfaceName} {
+        "test-1": string;
+        "test-2": number;
       }
     `);
+    expect(identifier.text).toBe(interfaceName);
   });
 });

@@ -8,6 +8,5 @@
     "dist": true,
     "node_modules": true
   },
-  "i18n-ally.localesPaths": "modules/vscode/extension/assets/i18n",
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

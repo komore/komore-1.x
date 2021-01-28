@@ -1,4 +1,4 @@
-import { Identifier, InterfaceDeclaration, NodeFactory, TypeNode } from 'typescript';
+import type { Identifier, InterfaceDeclaration, NodeFactory, TypeNode } from 'typescript';
 
 /**
  * Creates a type mapping interface

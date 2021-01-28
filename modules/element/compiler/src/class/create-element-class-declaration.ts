@@ -1,6 +1,5 @@
 import type { ClassDeclaration, Identifier, NodeFactory } from 'typescript';
-import { createElementObservedAttributesGetter } from '../attribute/create-element-observed-attributes-getter';
-import { ElementAttributeDefinition } from '../attribute/element-attribute-definition';
+import { createElementObservedAttributesGetAccessor } from '../attribute/create-element-observed-attributes-get-accessor';
 import { createExtendsType } from '../codegen/create-extends-type';
 import type { ElementDefinition } from '../definition/element-definition';
 import { createElementClassConstructor } from './create-element-class-constructor';
@@ -26,11 +25,10 @@ import { createElementClassConstructor } from './create-element-class-constructo
 export function createElementClassDeclaration(
   factory: NodeFactory,
   elementDefinition: ElementDefinition,
-  elementAttributes: ReadonlyArray<ElementAttributeDefinition>,
   templateElement: Identifier | undefined,
   styleSheets: Identifier | undefined
 ): ClassDeclaration {
-  const { baseClassName, className } = elementDefinition;
+  const { baseClassName, className, attributeDefinitions } = elementDefinition;
   return factory.createClassDeclaration(
     undefined,
     undefined,
@@ -38,8 +36,8 @@ export function createElementClassDeclaration(
     undefined,
     [createExtendsType(factory, baseClassName)],
     [
-      createElementObservedAttributesGetter(factory, elementAttributes),
-      createElementClassConstructor(factory, templateElement, styleSheets),
+      createElementObservedAttributesGetAccessor(factory, attributeDefinitions ?? []),
+      createElementClassConstructor(factory, templateElement, styleSheets)
     ]
   );
 }

@@ -1,5 +1,6 @@
 import { isNotNull } from '@komore/typescript';
-import { defer, forkJoin, Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { defer, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import type { ParsedSource } from './parsed-source';
 import { isEligibleScriptElement } from './script/is-script-element';

@@ -2,10 +2,6 @@ import type { Block, Identifier, MethodDeclaration, NodeFactory } from 'typescri
 import { NodeFlags, SyntaxKind } from 'typescript';
 import { createParameter } from '../codegen/create-parameter';
 
-const nameParameterName = 'name';
-const oldValueParameterName = '_oldValue';
-const newValueParameterName = 'newValue';
-
 /**
  * Creates an attributeChangedCallback method declaration
  * ```ts
@@ -20,11 +16,11 @@ const newValueParameterName = 'newValue';
 export function createElementAttributeChangedCallback(factory: NodeFactory): MethodDeclaration {
   const string = factory.createKeywordTypeNode(SyntaxKind.StringKeyword);
   const stringOrNull = [string, factory.createLiteralTypeNode(factory.createNull())];
-  const name = createParameter(factory, nameParameterName, string);
-  const oldValue = createParameter(factory, oldValueParameterName, stringOrNull);
-  const newValue = createParameter(factory, newValueParameterName, stringOrNull);
-  const parameters = [name, oldValue, newValue];
-  const block = createAttributeChangedCallbackBlock(factory, name.name as Identifier, newValue.name as Identifier);
+  const [nameParameter, name] = createParameter(factory, 'name', string);
+  const [oldValueParameter] = createParameter(factory, '_oldValue', stringOrNull);
+  const [newValueParameter, newValue] = createParameter(factory, 'newValue', stringOrNull);
+  const parameters = [nameParameter, oldValueParameter, newValueParameter];
+  const block = createAttributeChangedCallbackBlock(factory, name, newValue);
   const type = factory.createKeywordTypeNode(SyntaxKind.VoidKeyword);
   return factory.createMethodDeclaration(
     undefined,

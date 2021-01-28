@@ -7033,6 +7033,43 @@
         }
       }
     },
+    "observability-driver-browser": {
+      "root": "modules/observability/driver/browser",
+      "sourceRoot": "modules/observability/driver/browser/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/observability/driver/browser/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/observability-driver-browser"
+          ],
+          "options": {
+            "jestConfig": "modules/observability/driver/browser/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/observability/driver/browser",
+            "tsConfig": "modules/observability/driver/browser/tsconfig.lib.json",
+            "packageJson": "modules/observability/driver/browser/package.json",
+            "main": "modules/observability/driver/browser/src/index.ts"
+          }
+        }
+      }
+    },
     "observability-driver-google": {
       "root": "modules/observability/driver/google",
       "sourceRoot": "modules/observability/driver/google/src",
@@ -7105,10 +7142,7 @@
             "outputPath": "dist/observability/driver/local",
             "tsConfig": "modules/observability/driver/local/tsconfig.lib.json",
             "packageJson": "modules/observability/driver/local/package.json",
-            "main": "modules/observability/driver/local/src/index.ts",
-            "assets": [
-              "modules/observability/driver/local/*.md"
-            ]
+            "main": "modules/observability/driver/local/src/index.ts"
           }
         }
       }
@@ -7888,6 +7922,80 @@
             "tsConfig": "modules/web/authentication/tsconfig.lib.json",
             "packageJson": "modules/web/authentication/package.json",
             "main": "modules/web/authentication/src/index.ts"
+          }
+        }
+      }
+    },
+    "web-bluetooth": {
+      "root": "modules/web/bluetooth",
+      "sourceRoot": "modules/web/bluetooth/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/bluetooth/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-bluetooth"
+          ],
+          "options": {
+            "jestConfig": "modules/web/bluetooth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/bluetooth",
+            "tsConfig": "modules/web/bluetooth/tsconfig.lib.json",
+            "packageJson": "modules/web/bluetooth/package.json",
+            "main": "modules/web/bluetooth/src/index.ts"
+          }
+        }
+      }
+    },
+    "web-filesystem": {
+      "root": "modules/web/filesystem",
+      "sourceRoot": "modules/web/filesystem/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/filesystem/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-filesystem"
+          ],
+          "options": {
+            "jestConfig": "modules/web/filesystem/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/filesystem",
+            "tsConfig": "modules/web/filesystem/tsconfig.lib.json",
+            "packageJson": "modules/web/filesystem/package.json",
+            "main": "modules/web/filesystem/src/index.ts"
           }
         }
       }
