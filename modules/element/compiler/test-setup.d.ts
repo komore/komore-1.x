@@ -1,5 +1,3 @@
-import type { SourceNode } from 'typescript';
-
 declare namespace jest {
   interface Matchers<R> {
     toBeSource(expected: string): CustomMatcherResult;
@@ -7,6 +5,4 @@ declare namespace jest {
   }
 }
 
-declare global {
-  function createTestSource(sourceText: string): SourceNode;
-}
+declare function createTestSource(sourceText: string): import('typescript').SourceFile;

@@ -1,5 +1,5 @@
-import { createSourceFile } from 'typescript';
-import { ElementPropertyDefinition } from '../../../definition/element-property-definition';
+import { factory } from 'typescript';
+import type { ElementPropertyDefinition } from '../../../definition/element-property-definition';
 import { createTypeScriptPropertyTransformerFactory } from './create-typescript-property-transformer-factory';
 
 describe('Create TypeScript property transformer factory', () => {
@@ -7,8 +7,8 @@ describe('Create TypeScript property transformer factory', () => {
     given: 'a property definition recorder'
     const mockPropertyDefinitionRecorder = jest.fn<void, [propertyDefinition: ElementPropertyDefinition]>();
     and: 'a TypeScript property transformer'
-    const factory = createTypeScriptPropertyTransformerFactory(mockPropertyDefinitionRecorder);
-    const transformer = factory(context);
+    const transformerFactory = createTypeScriptPropertyTransformerFactory(mockPropertyDefinitionRecorder);
+    const transformer = transformerFactory(transformationContext);
     and: 'a source with a property definition'
     const sourceFile = createTestSource(`
       import { BehaviorSubject } from 'rxjs';
@@ -19,9 +19,12 @@ describe('Create TypeScript property transformer factory', () => {
     transformer(sourceFile);
     expect: 'property definition recorder to have been called'
     const expectedPropertyDefinition: ElementPropertyDefinition = {
-      
+      propertyName: 'testProperty',
+      propertyType: factory.createTypeReferenceNode(''),
+      isOptional: true,
+      isReadOnly: false
     };
     expect(mockPropertyDefinitionRecorder).toHaveBeenCalledTimes(1);
-    expect(mockPropertyDefinitionRecorder).toHaveBeenCalledWith();
+    expect(mockPropertyDefinitionRecorder).toHaveBeenCalledWith(expectedPropertyDefinition);
   });
 });

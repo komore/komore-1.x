@@ -29,7 +29,7 @@ describe('Create a TypeScript processor', () => {
     };
     const scriptProcessorInput$ = of(scriptProcessorInput);
     and: 'a TypeScript processor'
-    const typeScriptProcessor = createTypeScriptProcessor(undefined);
+    const typeScriptProcessor = createTypeScriptProcessor({});
     when: 'processing the source'
     const processedSource$ = typeScriptProcessor(scriptProcessorInput$);
     const processedSource = await lastValueFrom(processedSource$);
