@@ -1,4 +1,4 @@
-import type { Node } from 'typescript';
+import type { Node, SourceFile } from 'typescript';
 import { createPrinter, createSourceFile, EmitHint, NewLineKind, ScriptTarget } from 'typescript';
 
 const leadingLinesRegExp = /^\s+/gm;
@@ -56,3 +56,9 @@ expect.extend({
     return generateResult('toBeInlineSource', this.utils, source, expected);
   }
 });
+
+function createTestSource(sourceText: string): SourceFile {
+  return createSourceFile('test.ts', sourceText, ScriptTarget.Latest);
+}
+
+(global as any).createTestSource = createTestSource;

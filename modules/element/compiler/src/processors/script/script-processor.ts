@@ -1,4 +1,6 @@
 import type { Observable } from 'rxjs';
+import type { ScriptProcessorInput } from './script-processor-input';
+import type { ScriptProcessorOutput } from './script-processor-output';
 
 /**
  * Script processor
@@ -6,8 +8,8 @@ import type { Observable } from 'rxjs';
 export interface ScriptProcessor {
   /**
    * Processes a script
-   * @param content Content
-   * @returns TODO
+   * @param scriptProcessorInput$ Observable script processor input
+   * @returns Observable script processor output
    */
-  (content: string): Observable<unknown>;
+  (scriptProcessorInput$: Observable<ScriptProcessorInput>): Observable<ScriptProcessorOutput>;
 }

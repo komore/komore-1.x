@@ -1,34 +1,65 @@
-import { of } from 'rxjs';
-import type { CompilerOptions, TranspileOptions } from 'typescript';
-import { ModuleResolutionKind, ScriptTarget, transpileModule } from 'typescript';
+import { OperatorFunction } from 'rxjs';
+import { map } from 'rxjs/operators';
+import type { Printer, SourceFile } from 'typescript';
+import { createPrinter, createSourceFile, NewLineKind, ScriptKind, ScriptTarget, transform } from 'typescript';
 import type { ScriptProcessor } from '../script-processor';
+import type { ScriptProcessorInput } from '../script-processor-input';
 import { createTypeScriptImportTransformerFactory } from './create-typescript-import-transformer-factory';
 import { createTypeScriptPropertyTransformerFactory } from './create-typescript-property-transformer-factory';
+import type { TypeScriptProcessorOptions } from './typescript-processor-options';
 
 /**
  * Creates a TypeScript processor
  * @param _
  */
-export function createTypeScriptProcessor(_: unknown): ScriptProcessor {
-  return content => {
-    const compilerOptions: CompilerOptions = {
-      // TODO: fetch from options/executor
-      moduleResolution: ModuleResolutionKind.NodeJs,
-      target: ScriptTarget.ES2019
+export function createTypeScriptProcessor(_: TypeScriptProcessorOptions): ScriptProcessor {
+  const printer = createPrinter({ newLine: NewLineKind.LineFeed });
+
+  return scriptProcessorInput$ =>
+    scriptProcessorInput$.pipe(
+      buildSource(ScriptTarget.ES2020, ScriptKind.TS),
+      transformSource(),
+      map(printSource(printer))
+    );
+}
+
+function buildSource(scriptTarget: ScriptTarget, scriptKind: ScriptKind): OperatorFunction<ScriptProcessorInput, TypeScriptProcessorInput> {
+  return map(input => ({
+    ...input,
+    sourceFile: createSourceFile('hello-world-file', input.sourceContent, scriptTarget, undefined, scriptKind)
+  }));
+}
+
+function transformSource(): OperatorFunction<TypeScriptProcessorInput, TypeScriptProcessorOutput> {
+  return map(input => {
+    const transformationResult = transform(input.sourceFile, [
+      createTypeScriptImportTransformerFactory(),
+      createTypeScriptPropertyTransformerFactory(input.propertyDefinitionRecorder)
+    ]);
+    const transformedSourceFiles = transformationResult.transformed;
+    const transformedSourceFile = transformedSourceFiles[0];
+
+    return {
+      ...input,
+      transformedSourceFile
     };
+  });
+}
 
-    const transpileOptions: TranspileOptions = {
-      compilerOptions,
-      fileName: 'hello-world-lie',
-      transformers: {
-        before: [createTypeScriptImportTransformerFactory(), createTypeScriptPropertyTransformerFactory()]
-      }
-    };
+function printSource(printer: Printer) {
+  return (sourceFile: SourceFile) => ({
+    sourceContent: printer.printFile(sourceFile),
+    sourceFile
+  });
+}
 
-    const transpileOutput = transpileModule(content, transpileOptions);
+/**
+ * TypeScript processor input
+ */
+interface TypeScriptProcessorInput extends ScriptProcessorInput {
+  readonly sourceFile: SourceFile;
+}
 
-    console.log('weee', transpileOutput);
-
-    return of(undefined);
-  };
+interface TypeScriptProcessorOutput extends TypeScriptProcessorInput {
+  readonly transformedSourceFile: SourceFile;
 }

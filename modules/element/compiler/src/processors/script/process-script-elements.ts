@@ -9,9 +9,5 @@ import { processScriptElement } from './process-script-element';
  */
 export function processScriptElements(scriptElements: ReadonlyArray<HTMLScriptElement>): Observable<unknown> {
   const jobs = scriptElements.map(processScriptElement);
-  // TODO: remove after rxjs 7 merge
-  if (jobs.length === 0) {
-    return of([]);
-  }
-  return forkJoin(jobs);
+  return jobs.length === 0 ? of([]) : forkJoin(jobs);
 }

@@ -1,11 +1,15 @@
 import { SourceFile, TransformerFactory, Visitor, isVariableStatement, SyntaxKind } from 'typescript';
 import { /*isVariableDeclaration,*/ visitEachChild } from 'typescript';
+import type { ElementPropertyDefinitionRecorder } from '../../../definition/element-property-definition-recorder';
 
 /**
  * Creates a TypeScript property transformer for element properties
+ * @param propertyDefinitionRecorder Element property definition recorder
  * @returns Transformer factory
  */
-export function createTypeScriptPropertyTransformerFactory(): TransformerFactory<SourceFile> {
+export function createTypeScriptPropertyTransformerFactory(
+  propertyDefinitionRecorder: ElementPropertyDefinitionRecorder
+): TransformerFactory<SourceFile> {
   return transformationContext => {
     // const { factory } = transformationContext;
     const variableStatementVisitor: Visitor = node => {
