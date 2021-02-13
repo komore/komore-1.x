@@ -23,17 +23,17 @@ The `@komore/observability` module is published on the Npm registry.
 | pnpm | `pnpm install @komore/observability --save` |
 | Yarn | `yarn add @komore/observability`            |
 
-## Drivers
+## Implementations
 
-The `@komore/observability` module includes the [local observability driver].
+The `@komore/observability` package includes the [local observability implementation].
 
-Other [observability drivers] must be installed manually.
+Additional [observability implementations] can be installed.
 
 [alarms]: ./observability-alarms.md
-[local observability driver]: ./observability-driver-local.md
+[local observability implementation]: ./observability-local.md
 [logs]: ./observability-logging.md#logs
 [log group]: ./observability-logging.md#log-groups
 [log events]: ./observability-logging.md#log-events
 [metrics]: ./observability-metrics.md
-[observability drivers]: ./observability-driver.md
+[observability implementations]: ./observability-implementations.md
 [traces]: ./observability-tracing.md#traces

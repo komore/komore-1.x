@@ -16,6 +16,9 @@ describe('Create log group', () => {
     given: 'a log group'
     const logGroup = createLogGroup('test-group');
     expect: 'an error to be thrown when attempting to overide the group name'
-    expect(() => (logGroup as any).name = 'override').toThrowError();
+    expect(() => {
+      const overridableLogGroup = logGroup as { name: string };
+      overridableLogGroup.name = 'override';
+    }).toThrowError();
   });
 });

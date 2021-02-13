@@ -1,5 +1,5 @@
-import { SourceFile, TransformerFactory, Visitor, isVariableStatement, SyntaxKind } from 'typescript';
-import { /*isVariableDeclaration,*/ visitEachChild } from 'typescript';
+import type { SourceFile, TransformerFactory, Visitor/*, isVariableStatement*/ } from 'typescript';
+import { /*isVariableDeclaration, SyntaxKind,*/ visitEachChild } from 'typescript';
 import type { ElementPropertyDefinitionRecorder } from '../../../definition/element-property-definition-recorder';
 
 /**
@@ -8,16 +8,16 @@ import type { ElementPropertyDefinitionRecorder } from '../../../definition/elem
  * @returns Transformer factory
  */
 export function createTypeScriptPropertyTransformerFactory(
-  propertyDefinitionRecorder: ElementPropertyDefinitionRecorder
+  _propertyDefinitionRecorder: ElementPropertyDefinitionRecorder
 ): TransformerFactory<SourceFile> {
   return transformationContext => {
     // const { factory } = transformationContext;
     const variableStatementVisitor: Visitor = node => {
-      if (!isVariableStatement(node) || !node.modifiers?.some(({ kind }) => kind === SyntaxKind.ExportKeyword)) {
+      /*if (!isVariableStatement(node) || !node.modifiers?.some(({ kind }) => kind === SyntaxKind.ExportKeyword)) {
         return node;
       }
 
-      console.log('behold export statement', node.getText());
+      console.log('behold export statement', node.getText());*/
 
       /*if (isVariableDeclaration(node)) {
         const ancestorNode = 

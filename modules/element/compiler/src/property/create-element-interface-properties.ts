@@ -1,6 +1,6 @@
 import type { NodeFactory, PropertySignature } from 'typescript';
 import type { ElementPropertyDefinition } from '../definition/element-property-definition';
-import { createElementPropertyDeclaration } from './create-element-property-declaration';
+import { createElementPropertySignature } from './create-element-property-signature';
 
 /**
  * Creates an element interface's property signatures
@@ -13,7 +13,7 @@ export function createElementInterfaceProperties(
   propertyDefinitions: ReadonlyArray<ElementPropertyDefinition>
 ): ReadonlyArray<PropertySignature> {
   return propertyDefinitions.map(propertyDefinition => {
-    const [propertyDeclaration] = createElementPropertyDeclaration(factory, propertyDefinition);
-    return propertyDeclaration;
+    const [propertySignature] = createElementPropertySignature(factory, propertyDefinition);
+    return propertySignature;
   });
 }

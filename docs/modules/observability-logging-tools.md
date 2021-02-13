@@ -9,4 +9,3 @@ sample@shell:~# k g log-group
 ```
 
 ## Executors
-

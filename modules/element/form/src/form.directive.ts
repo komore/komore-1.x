@@ -1,4 +1,4 @@
-import { createDirective } from '@komore/element';
+import { createDirective } from '@komore/element/directive';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import type { FormOptions } from './form-options';
@@ -6,11 +6,11 @@ import type { FormOptions } from './form-options';
 /**
  * Form directive
  * ```ts
- * <form ^form="options">
+ * <form ^kForm="options">
  * </form>
  * ```
  */
-export const form = createDirective<HTMLFormElement, FormOptions>(element$ => element$.pipe(
+export const kForm = createDirective<HTMLFormElement, FormOptions>(element$ => element$.pipe(
   switchMap(element => {
     return of(element);
   })

@@ -1,3 +1,5 @@
+import type { PropertyDefinition } from './property-definition';
+
 /**
  * Parses custom property references from a style property value
  * @param propertyValue Property value
@@ -117,14 +119,4 @@ interface VariableReferenceGroup {
 interface PropertyValueWalker {
   readonly stack: Array<number>;
   readonly groups: Array<VariableReferenceGroup>;
-}
-
-// TODO: remove once https://github.com/microsoft/TypeScript/issues/38593 is fixed
-declare global {
-  export interface PropertyDefinition {
-    name: string;
-    syntax?: string;
-    inherits: boolean;
-    initialValue?: string;
-  }
 }

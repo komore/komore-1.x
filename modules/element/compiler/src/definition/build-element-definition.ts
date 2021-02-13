@@ -13,7 +13,7 @@ export function buildElementDefinition(
   factory: NodeFactory,
   parsedSource: ParsedSource
 ): ElementDefinition {
-  const { parsedElementTemplate, parsedCustomPropertyDefinitions } = parsedSource;
+  const { parsedElementTemplate, parsedCustomPropertyDefinitions, scriptElements } = parsedSource;
   const { baseClassName, baseTagName, className, tagName, parsedAttributes } = parsedElementTemplate;
   const attributeDefinitions = buildElementAttributeDefinitions(factory, parsedAttributes);
   const eventDefinitions = buildElementEventDefinitions(factory, scriptElements);
@@ -26,6 +26,7 @@ export function buildElementDefinition(
     tagName,
     attributeDefinitions,
     eventDefinitions,
-    propertyDefinitions
+    propertyDefinitions,
+    customPropertyDefinitions
   };
 }

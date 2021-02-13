@@ -8,6 +8,6 @@ import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-
  * @returns Log event properties schema
  * @template SchemaType Schema type
  */
-export function props<SchemaType extends object>(): LogEventPropertiesSchema<SchemaType> {
+export function props<SchemaType extends Record<string, unknown>>(): LogEventPropertiesSchema<SchemaType> {
   return _typeSchema<typeof logEventPropertiesSchemaTypeName, SchemaType>(logEventPropertiesSchemaTypeName);
 }

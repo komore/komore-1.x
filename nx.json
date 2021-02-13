@@ -199,7 +199,7 @@
       "tags": ["scope:element"]
     },
     "element-operators": {
-      "tags": ["scope:element"]
+      "tags": ["scope:element", "trait:operators"]
     },
     "element-overlay": {
       "tags": ["scope:element"]
@@ -295,10 +295,16 @@
       "tags": ["scope:graph", "trait:base"]
     },
     "graph-operators": {
-      "tags": ["scope:graph"]
+      "tags": ["scope:graph", "trait:operators"]
     },
     "graph-testing": {
       "tags": ["scope:graph", "trait:testing"]
+    },
+    "host": {
+      "tags": ["scope:host", "trait:base"]
+    },
+    "host-operators": {
+      "tags": ["scope:identity", "trait:operators"]
     },
     "identity": {
       "tags": ["scope:identity", "trait:base"]
@@ -519,6 +525,9 @@
     "local-filesystem": {
       "tags": ["scope:local"]
     },
+    "local-filesystem-operators": {
+      "tags": ["scope:local", "trait:operators"]
+    },
     "message": {
       "tags": ["scope:message", "trait:base"]
     },
@@ -535,35 +544,41 @@
     "observability": {
       "tags": ["scope:observability", "trait:base"]
     },
-    "observability-driver": {
-      "tags": ["scope:observability"]
-    },
-    "observability-driver-amazon": {
+    "observability-amazon": {
       "tags": ["scope:observability", "trait:provider", "provider:amazon"]
     },
-    "observability-driver-azure": {
+    "observability-azure": {
       "tags": ["scope:observability", "trait:provider", "provider:azure"]
     },
-    "observability-driver-browser": {
+    "observability-browser": {
       "tags": ["scope:observability", "trait:provider", "provider:browser"]
     },
-    "observability-driver-google": {
+    "observability-google": {
       "tags": ["scope:observability", "trait:provider", "provider:google"]
     },
-    "observability-driver-local": {
+    "observability-local": {
       "tags": ["scope:observability", "trait:provider", "provider:local"]
     },
     "observability-logging": {
       "tags": ["scope:observability"]
     },
+    "observability-logging-operators": {
+      "tags": ["scope:observability", "trait:operators"]
+    },
     "observability-metrics": {
       "tags": ["scope:observability"]
+    },
+    "observability-metrics-operators": {
+      "tags": ["scope:observability", "trait:operators"]
     },
     "observability-testing": {
       "tags": ["scope:observability", "trait:testing"]
     },
     "observability-tracing": {
       "tags": ["scope:observability"]
+    },
+    "observability-tracing-operators": {
+      "tags": ["scope:observability", "trait:operators"]
     },
     "operators": {
       "tags": ["scope:operators", "trait:base"]
@@ -666,6 +681,9 @@
     },
     "web-storage-indexeddb": {
       "tags": ["scope:web"]
+    },
+    "web-storage-indexeddb-operators": {
+      "tags": ["scope:web", "trait:operators"]
     },
     "web-testing": {
       "tags": ["scope:web", "trait:testing"]

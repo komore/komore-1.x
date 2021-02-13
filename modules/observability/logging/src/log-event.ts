@@ -1,4 +1,3 @@
-import type { LogEventPropertiesSchema } from './log-event-properties-schema';
 import type { LogEventSeverity } from './log-event-severity';
 import type { LogGroup } from './log-group';
 
@@ -10,23 +9,25 @@ import type { LogGroup } from './log-group';
  * @template LogEventPropertiesSchema Log event properties schema
  */
 export interface LogEvent<
-  LogGroupType extends LogGroup<any>,
+  LogGroupType extends LogGroup<string>,
   LogEventId extends number,
   LogEventMessage extends string,
-  LogEventProperties extends object | undefined = undefined
+  LogEventProperties extends Record<string, unknown> | undefined = undefined
 > {
+  readonly error?: unknown;
   readonly group: LogGroupType;
   readonly id: LogEventId;
-  readonly severity: LogEventSeverity;
   readonly message: LogEventMessage;
-  readonly properties: LogEventProperties extends object ? LogEventPropertiesSchema<LogEventProperties> : never;
+  readonly properties: LogEventProperties extends Record<string, unknown> ? LogEventProperties : never;
+  readonly severity: LogEventSeverity;
+  readonly timestamp: Date;
 }
 
 /**
  * Log event identifier
  * @template LogType Log type
  */
-export type LogEventId<LogEventType extends LogEvent<any, any, any, any>> = LogEventType extends LogEvent<any, infer LogEventId, any> ? LogEventId : never;
+export type LogEventId<LogEventType extends LogEvent<LogGroup<string>, any, any, any>> = LogEventType extends LogEvent<any, infer LogEventId, any> ? LogEventId : never;
 
 /**
  * Log event properties schema
@@ -40,3 +41,8 @@ export type LogEventPropertiesSchemaType<LogEventType extends LogEvent<any, any,
 >
   ? LogEventPropertiesSchema
   : never;
+
+/**
+ * Untyped log event
+ */
+export type UntypedLogEvent = LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>;

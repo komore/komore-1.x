@@ -1,41 +1,51 @@
-import { OperatorFunction } from 'rxjs';
+import type { OperatorFunction } from 'rxjs';
+import { pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import type { Printer, SourceFile } from 'typescript';
+import type { Printer, SourceFile, TransformerFactory } from 'typescript';
 import { createPrinter, createSourceFile, NewLineKind, ScriptKind, ScriptTarget, transform } from 'typescript';
+import type { ElementEventDefinition } from '../../../definition/element-event-definition';
+import type { ElementMethodDefinition } from '../../../definition/element-method-definition';
+import type { ElementPropertyDefinition } from '../../../definition/element-property-definition';
 import type { ScriptProcessor } from '../script-processor';
 import type { ScriptProcessorInput } from '../script-processor-input';
+import type { ScriptProcessorOutput } from '../script-processor-output';
+import { createTypeScriptEventTransformerFactory } from './create-typescript-event-transformer-factory';
 import { createTypeScriptImportTransformerFactory } from './create-typescript-import-transformer-factory';
+import { createTypeScriptMethodTransformerFactory } from './create-typescript-method-transformer-factory';
 import { createTypeScriptPropertyTransformerFactory } from './create-typescript-property-transformer-factory';
 import type { TypeScriptProcessorOptions } from './typescript-processor-options';
 
 /**
  * Creates a TypeScript processor
- * @param _
+ * @param options TypeScript processor options
  */
-export function createTypeScriptProcessor(_: TypeScriptProcessorOptions): ScriptProcessor {
+export function createTypeScriptProcessor(options: TypeScriptProcessorOptions): ScriptProcessor {
   const printer = createPrinter({ newLine: NewLineKind.LineFeed });
-
-  return scriptProcessorInput$ =>
-    scriptProcessorInput$.pipe(
-      buildSource(ScriptTarget.ES2020, ScriptKind.TS),
-      transformSource(),
-      map(printSource(printer))
-    );
+  return input$ => input$.pipe(buildInput(options), transformSource(), buildOutput(printer));
 }
 
-function buildSource(scriptTarget: ScriptTarget, scriptKind: ScriptKind): OperatorFunction<ScriptProcessorInput, TypeScriptProcessorInput> {
+/**
+ * Creates an operator function that builds a TypeScript source representation
+ * @param options TypeScript processor options
+ * @returns Operator function
+ */
+function buildInput(
+  options: TypeScriptProcessorOptions
+): OperatorFunction<ScriptProcessorInput, TypeScriptProcessorInput> {
+  const scriptTarget = options.scriptTarget ?? ScriptTarget.Latest;
+  const scriptKind = ScriptKind.TS;
+
   return map(input => ({
     ...input,
-    sourceFile: createSourceFile('hello-world-file', input.sourceContent, scriptTarget, undefined, scriptKind)
+    sourceFile: createSourceFile(input.sourceFileName, input.sourceContent, scriptTarget, undefined, scriptKind),
+    transformerInputs: getTransformerInputs(options)
   }));
 }
 
 function transformSource(): OperatorFunction<TypeScriptProcessorInput, TypeScriptProcessorOutput> {
   return map(input => {
-    const transformationResult = transform(input.sourceFile, [
-      createTypeScriptImportTransformerFactory(),
-      createTypeScriptPropertyTransformerFactory(input.propertyDefinitionRecorder)
-    ]);
+    const transformerFactories = [...input.transformerInputs.transformerFactories];
+    const transformationResult = transform(input.sourceFile, transformerFactories);
     const transformedSourceFiles = transformationResult.transformed;
     const transformedSourceFile = transformedSourceFiles[0];
 
@@ -46,11 +56,57 @@ function transformSource(): OperatorFunction<TypeScriptProcessorInput, TypeScrip
   });
 }
 
-function printSource(printer: Printer) {
-  return (sourceFile: SourceFile) => ({
-    sourceContent: printer.printFile(sourceFile),
-    sourceFile
-  });
+function buildOutput(printer: Printer): OperatorFunction<TypeScriptProcessorOutput, ScriptProcessorOutput> {
+  return pipe(
+    map(output => ({
+      sourceFile: output.transformedSourceFile,
+      sourceContent: printer.printFile(output.transformedSourceFile),
+      eventDefinitions: [],
+      methodDefinitions: [],
+      propertyDefinitions: []
+    }))
+  );
+}
+
+/**
+ * Gets a list of transformer factories based on input options
+ * @param options TypeScript processor options
+ * @returns List of transformer factories
+ */
+function getTransformerInputs(options: TypeScriptProcessorOptions): TypeScriptTransformerInputs {
+  const { processEvents, processMethods, processProperties } = options;
+  const eventDefinitions: Array<ElementEventDefinition> = [];
+  const methodDefinitions: Array<ElementMethodDefinition> = [];
+  const propertyDefinitions: Array<ElementPropertyDefinition> = [];
+  const transformerFactories: Array<TransformerFactory<SourceFile>> = [createTypeScriptImportTransformerFactory()];
+
+  if (processEvents) {
+    const eventTransformerFactory = createTypeScriptEventTransformerFactory(eventDefinition =>
+      eventDefinitions.push(eventDefinition)
+    );
+    transformerFactories.push(eventTransformerFactory);
+  }
+
+  if (processMethods) {
+    const methodTransformerFactory = createTypeScriptMethodTransformerFactory(methodDefinition =>
+      methodDefinitions.push(methodDefinition)
+    );
+    transformerFactories.push(methodTransformerFactory);
+  }
+
+  if (processProperties) {
+    const propertyTransformerFactory = createTypeScriptPropertyTransformerFactory(propertyDefinition =>
+      propertyDefinitions.push(propertyDefinition)
+    );
+    transformerFactories.push(propertyTransformerFactory);
+  }
+
+  return {
+    eventDefinitions,
+    methodDefinitions,
+    propertyDefinitions,
+    transformerFactories
+  };
 }
 
 /**
@@ -58,8 +114,16 @@ function printSource(printer: Printer) {
  */
 interface TypeScriptProcessorInput extends ScriptProcessorInput {
   readonly sourceFile: SourceFile;
+  readonly transformerInputs: TypeScriptTransformerInputs;
 }
 
 interface TypeScriptProcessorOutput extends TypeScriptProcessorInput {
   readonly transformedSourceFile: SourceFile;
+}
+
+interface TypeScriptTransformerInputs {
+  readonly eventDefinitions: ReadonlyArray<ElementEventDefinition>;
+  readonly methodDefinitions: ReadonlyArray<ElementMethodDefinition>;
+  readonly propertyDefinitions: ReadonlyArray<ElementPropertyDefinition>;
+  readonly transformerFactories: ReadonlyArray<TransformerFactory<SourceFile>>;
 }

@@ -1,5 +1,5 @@
 import type { ElementAttributeValueType } from '@komore/element/parser';
-import type { Expression, TypeReferenceNode } from 'typescript';
+import type { Expression, TypeNode } from 'typescript';
 
 /**
  * Element attribute definition
@@ -7,7 +7,7 @@ import type { Expression, TypeReferenceNode } from 'typescript';
 export interface ElementAttributeDefinition {
   readonly attributeName: string;
   readonly attributeValueType: ElementAttributeValueType;
-  readonly attributeType: TypeReferenceNode;
+  readonly attributeType: TypeNode;
   readonly defaultValue: Expression;
   readonly optional: boolean;
 }

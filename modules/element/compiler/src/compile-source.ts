@@ -10,6 +10,7 @@ import { generateStyle } from './generate-style';
 import { generateTemplate } from './generate-template';
 import { buildElementDefinition } from './definition/build-element-definition';
 import { processSource } from './processors/process-source';
+import { createElementInterfaceDeclaration } from './interface/create-element-interface-declaration';
 
 /**
  * Compiles an element source
@@ -17,22 +18,23 @@ import { processSource } from './processors/process-source';
  * An element source is split into three categories:
  * - &lt;script> elements are processed as scripts
  * - &lt;style> and &lt;link> elements are processed as styles
- * - any remaining element node is processed as a template
+ * - any remaining element is processed as a template
  *
  * @param factory TypeScript node factory
  * @param source Source
  */
 export function compileSource(factory: NodeFactory, source: string): Observable<void> {
-  factory.createImport
   return defer(() => of(source)).pipe(
     map(JSDOM.fragment),
     switchMap(parseDocumentFragment()),
     switchMap(processSource),
     map(processedSource => {
+      const { parsedSource = processedSource;
       const elementDefinition = buildElementDefinition(factory, parsedTemplateElement, processedSource);
       const templateElementId = undefined;
       const styleSheetsId = undefined;
       createElementClassDeclaration(factory, elementDefinition, templateElementId, styleSheetsId);
+      createElementInterfaceDeclaration(factory, elementDefinition, );
 
       generateScript(scriptElements);
       generateStyle(styleElements);

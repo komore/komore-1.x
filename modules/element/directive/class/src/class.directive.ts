@@ -1,6 +1,6 @@
 import { createDirectiveFactory } from '@komore/element/directive';
 import { combineLatest } from 'rxjs';
-import { map, pairwise, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ClassParameters } from './class-parameters';
 
 /**

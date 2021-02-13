@@ -1,9 +1,9 @@
-import { createDirective } from '@komore/element';
+import { createDirective } from '@komore/element/directive';
 import type { DropZoneOptions } from './drop-zone-options';
 
 /**
  * Drop zone directive
  */
-export const dropZone = createDirective<HTMLElement, DropZoneOptions>(element$ => element$.pipe(
+export const kDropZone = createDirective<HTMLElement, DropZoneOptions>(element$ => element$.pipe(
 
 ));

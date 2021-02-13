@@ -1,4 +1,5 @@
-import { EMPTY, MonoTypeOperatorFunction, throwError } from 'rxjs';
+import type { MonoTypeOperatorFunction } from 'rxjs';
+import { EMPTY, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 /**

@@ -6,7 +6,7 @@ import type { logEventPropertiesSchemaTypeName } from './log-event-properties-sc
  * @template SchemaType Schema type
  * @private
  */
-export type LogEventPropertiesSchema<SchemaType extends object> = _TypeSchema<
+export type LogEventPropertiesSchema<SchemaType extends Record<string, unknown>> = _TypeSchema<
   typeof logEventPropertiesSchemaTypeName,
   SchemaType
 >;

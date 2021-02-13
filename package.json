@@ -65,6 +65,7 @@
     "@aws-sdk/util-format-url": "3.3.0",
     "@azure/ai-text-analytics": "5.0.1",
     "@azure/arm-dns": "4.0.0",
+    "@azure/arm-monitor": "6.0.0",
     "@azure/cognitiveservices-computervision": "7.1.0",
     "@azure/cognitiveservices-contentmoderator": "5.0.1",
     "@azure/cognitiveservices-face": "4.1.0",

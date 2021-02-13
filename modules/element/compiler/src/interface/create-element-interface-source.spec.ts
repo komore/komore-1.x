@@ -1,13 +1,14 @@
-import { factory } from 'typescript';
+import { factory, SyntaxKind } from 'typescript';
 import type { ElementDefinition } from '../definition/element-definition';
 import { createElementInterfaceSource } from './create-element-interface-source';
 
 describe('Create element interface source', () => {
   it('works', () => {
-    given: 'TODO'
+    given: 'TODO';
     const baseClassName = 'HTMLElement';
     const className = 'TestElement';
     const tagName = 'test-element';
+    const functionName = 'testMethod';
     const elementDefinition: ElementDefinition = {
       baseClassName,
       className,
@@ -19,6 +20,30 @@ describe('Create element interface source', () => {
           eventDetailsType: factory.createTypeReferenceNode('string')
         }
       ],
+      methodDefinitions: [
+        {
+          functionDeclaration: factory.createFunctionDeclaration(
+            undefined,
+            undefined,
+            undefined,
+            functionName,
+            undefined,
+            [
+              factory.createParameterDeclaration(
+                undefined,
+                undefined,
+                undefined,
+                'param',
+                undefined,
+                factory.createKeywordTypeNode(SyntaxKind.StringKeyword)
+              )
+            ],
+            factory.createKeywordTypeNode(SyntaxKind.NumberKeyword),
+            factory.createBlock([], true)
+          ),
+          functionName
+        }
+      ],
       propertyDefinitions: [
         {
           propertyName: 'testProperty',
@@ -28,9 +53,9 @@ describe('Create element interface source', () => {
         }
       ]
     };
-    when: 'TODO'
+    when: 'creating an element interface source';
     const sourceFile = createElementInterfaceSource(factory, elementDefinition);
-    then: 'a complete source with the event map, interface, constructor and tag name to be created'
+    then: 'a complete source with the event map, interface, constructor and tag name to be created';
     expect(sourceFile).toBeSource(`
       export interface ${className}EventMap extends HTMLElementEventMap {
         "test-event": CustomEvent<string>;
@@ -39,12 +64,12 @@ describe('Create element interface source', () => {
       export interface ${className} extends ${baseClassName} {
         testProperty?: TestPropertyType;
 
-        testMethod(param: string): number;
-
         addEventListener<K extends keyof TestElementEventMap>(type: K, listener: (this: TestElement, event: TestElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
         removeEventListener<K extends keyof TestElementEventMap>(type: K, listener: (this: TestElement, event: TestElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+
+        testMethod(param: string): number;
       }
 
       declare const ${className}: {

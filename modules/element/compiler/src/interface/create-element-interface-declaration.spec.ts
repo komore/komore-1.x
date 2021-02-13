@@ -34,6 +34,7 @@ describe('Create element interface declaration', () => {
     expect(elementInterfaceDeclaration).toBeSource(`
       export interface ${className} extends HTMLElement {
         testProperty?: TestPropertyType;
+
         addEventListener<K extends keyof ${eventMap}>(type: K, listener: (this: ${className}, event: ${eventMap}[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
         removeEventListener<K extends keyof ${eventMap}>(type: K, listener: (this: ${className}, event: ${eventMap}[K]) => any, options?: boolean | EventListenerOptions): void;

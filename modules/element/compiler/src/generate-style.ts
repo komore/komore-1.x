@@ -1,8 +1,8 @@
 import type { Observable } from 'rxjs';
 import { forkJoin } from 'rxjs';
-import type { StyleProcessor } from './processors/style-processor';
-import { createCssProcessor } from './processors/css/create-css-processor';
-import { createScssProcessor } from './processors/scss/create-scss-processor';
+import type { StyleProcessor } from './processors/style/style-processor';
+import { createCssProcessor } from './processors/style/css/create-css-processor';
+import { createScssProcessor } from './processors/style/scss/create-scss-processor';
 
 /**
  * Style processor factory
@@ -46,19 +46,18 @@ function createStyleProcessor(type: string, options: unknown): StyleProcessor {
  * @param styleElement Style element
  * @returns Processed style element
  */
-function processStyleElement(styleElement: HTMLElement): Observable<unknown> {
+function processStyleElement(styleElement: HTMLStyleElement): Observable<unknown> {
   const type = styleElement.getAttribute('type') ?? 'text/css';
-  const content = styleElement.innerText;
   // const media = styleElement.getAttribute('media') ?? 'all';
   const styleProcessor = createStyleProcessor(type, {});
-  return styleProcessor(content);
+  return styleProcessor(styleElement);
 }
 
 /**
  * Generates style information for an element
  * @param styleElements Style elements
  */
-export function generateStyle(styleElements: ReadonlyArray<HTMLElement>): Observable<unknown> {
+export function generateStyle(styleElements: ReadonlyArray<HTMLStyleElement>): Observable<unknown> {
   const jobs = styleElements.map(processStyleElement);
   return forkJoin(jobs);
 }

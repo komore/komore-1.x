@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
-import type { Directive } from './directive';
-import { ParameterizedDirectiveObservables } from './parameterized-directive-observables';
+import type { Observable } from 'rxjs';
+import type { ParameterizedDirectiveObservables } from './parameterized-directive-observables';
 
 /**
  * Parameterized directive
@@ -8,5 +7,5 @@ import { ParameterizedDirectiveObservables } from './parameterized-directive-obs
  * @template ParametersType Parameters type
  */
 export interface ParameterizedDirective<ElementType extends Element, ParametersType> {
-  (observables: ParameterizedDirectiveObservables<ElementType, ParametersType>): Observable<any>;
+  (observables: ParameterizedDirectiveObservables<ElementType, ParametersType>): Observable<unknown>;
 }

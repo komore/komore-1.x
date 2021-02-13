@@ -1,4 +1,4 @@
-import { MonoTypeOperatorFunction, OperatorFunction } from 'rxjs';
+import type { MonoTypeOperatorFunction, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**

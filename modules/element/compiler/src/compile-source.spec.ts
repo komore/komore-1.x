@@ -1,3 +1,4 @@
+import { factory } from 'typescript';
 import { compileSource } from './compile-source';
 
 const fileContent = `
@@ -43,6 +44,6 @@ const fileContent = `
 
 describe('Compile source', () => {
   it('works', () => {
-    compileSource(fileContent);
+    compileSource(factory, fileContent);
   });
 });

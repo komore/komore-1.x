@@ -1,3 +1,4 @@
+import type { PropertyDefinition } from './style/property-definition';
 import type { ParsedElementTemplate } from './template/parsed-element-template';
 
 /**

@@ -108,7 +108,7 @@ export class DynamoDBEventRepository<E extends Event> implements EventRepository
    */
   private buildItemsFromOutputs(outputs: ReadonlyArray<QueryCommandOutput>): ReadonlyArray<E> {
     const totalItems = outputs.reduce((acc, curr) => acc + curr.Items.length, 0);
-    const events = new Array<E>(totalItems);
+    const events = Array.from<E>({ length: totalItems });
     let i = 0;
 
     for (const output of outputs) {

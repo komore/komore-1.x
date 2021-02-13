@@ -1,6 +1,7 @@
 //import { ignoreErrors } from './ignore-errors';
 
 describe('Ignore errors operator', () => {
-  // TODO
-  it.skip('works', () => {});
+  it.skip('todo', () => {
+    // TODO
+  });
 });

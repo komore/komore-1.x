@@ -1,9 +1,9 @@
-import { createDirective } from '@komore/element';
+import { createDirective } from '@komore/element/directive';
 import type { DraggableOptions } from './draggable-options';
 
 /**
  * Draggable directive
  */
-export const draggable = createDirective<HTMLElement, DraggableOptions>(element$ => element$.pipe(
+export const kDraggable = createDirective<HTMLElement, DraggableOptions>(element$ => element$.pipe(
 
 ));

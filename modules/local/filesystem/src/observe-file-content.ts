@@ -10,7 +10,15 @@ import { observeFile } from './observe-file';
  * @returns Observable that emits the entire file's content whenever it changes
  */
 export function observeFileContent(filePath: PathLike): Observable<Buffer>;
+
+/**
+ * Observes a file's content with a specific buffer encodig
+ * @param filePath File path
+ * @param encoding Buffer encoding
+ * @returns Observable that emits the entire file's content whenever it changes
+ */
 export function observeFileContent(filePath: PathLike, encoding: BufferEncoding): Observable<string>;
+
 export function observeFileContent(
   filePath: PathLike,
   encoding?: BufferEncoding

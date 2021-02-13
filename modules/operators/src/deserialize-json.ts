@@ -1,4 +1,4 @@
-import { OperatorFunction } from 'rxjs';
+import type { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 type DeserializeJsonParameters = Parameters<typeof JSON.parse> extends [infer _, ...(infer Parameters)]

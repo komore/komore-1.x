@@ -1,5 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import { lastValueFrom, Observable, of } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { lastValueFrom, of } from 'rxjs';
 import { assertThat } from './assert-that';
 
 describe('Assert that operator', () => {

@@ -1,4 +1,5 @@
-import { concat, MonoTypeOperatorFunction, Observable, Subscription } from 'rxjs';
+import type { MonoTypeOperatorFunction } from 'rxjs';
+import { concat, Observable, Subscription } from 'rxjs';
 import { publish } from 'rxjs/operators';
 
 /**
