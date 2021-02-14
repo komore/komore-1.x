@@ -2,7 +2,7 @@
  * Filter result
  */
 export enum FilterResult {
-  DENY,
+  ACCEPT,
   NEUTRAL,
-  ACCEPT
+  REJECT
 }

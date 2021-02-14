@@ -1,3 +1,4 @@
+import { assert } from '@komore/typescript';
 import type { Layout } from './layout';
 import type { PatternLayoutOptions } from './pattern-layout-options';
 
@@ -8,12 +9,19 @@ import type { PatternLayoutOptions } from './pattern-layout-options';
  * @returns Layout
  */
 export function createPatternLayout(pattern: string, options?: PatternLayoutOptions): Layout {
-  pattern.match(/g/);
-  //pattern.match(/%{})
-  return logEventRecord => logEventRecord.message;
+  const patternTokens = tokenizePatternLayout(pattern, options);
+  return logEventRecord => patternTokens.map(patternToken => patternToken(logEventRecord)).join('');
 }
 
-function getTokenLayout(name: string, parameters: string | undefined, options?: PatternLayoutOptions): Layout {
+function tokenizePatternLayout(pattern: string, options?: PatternLayoutOptions): ReadonlyArray<Layout> {
+  const matches = pattern.match(/([^%]+)|(%[\w{}]+)/g);
+  assert(matches, 'the pattern layout string can be parsed');
+  return matches.map(token =>
+    token.charAt(0) === '%' ? layoutFromToken(token.substr(1), options) : constantToken(token)
+  );
+}
+
+function layoutFromToken(name: string, options?: PatternLayoutOptions): Layout {
   switch (name) {
     case 'date':
       return dateToken(options?.date);
@@ -25,13 +33,21 @@ function getTokenLayout(name: string, parameters: string | undefined, options?: 
       return messageToken();
     case 'severity':
       return severityToken();
-    case 'context':
-    case 'property':
-      if (parameters === undefined) {
-        throw new Error(`pattern layout %${name}{name} cannot be used without the name parameter`);
-      }
+    default:
+      return layoutFromParameterizedToken(name);
+  }
+}
 
-      return name === 'context' ? contextToken(parameters) : propertyToken(parameters);
+function layoutFromParameterizedToken(parameterizedToken: string): Layout {
+  const matches = parameterizedToken.match(/([^{]+){([^}]+)}/);
+  assert(matches, `invalid pattern layout token %${parameterizedToken}`);
+  const name = matches[1];
+  const parameters = matches[2];
+  switch (name) {
+    case 'property':
+      return propertyToken(parameters);
+    case 'context':
+      return contextToken(parameters);
     default:
       throw new Error(`unknown pattern layout token %${name}`);
   }
@@ -46,8 +62,9 @@ function contextToken(contextName: string): Layout {
 }
 
 function dateToken(dateOptions?: PatternLayoutOptions['date']): Layout {
-  const dateTimeFormat = new Intl.DateTimeFormat(dateOptions?.locales, dateOptions?.options);
-  return ({ timestamp }) => dateTimeFormat.format(timestamp);
+  const dateTimeFormat =
+    dateOptions !== undefined ? new Intl.DateTimeFormat(dateOptions?.locales, dateOptions?.options) : undefined;
+  return ({ timestamp }) => dateTimeFormat?.format(timestamp) ?? timestamp.toISOString();
 }
 
 function groupToken(): Layout {

@@ -1,9 +1,12 @@
+import type { LogEventSeverity } from '../log-event-severity';
+
 /**
  * Pattern layout options
  */
 export interface PatternLayoutOptions {
-  readonly date?: Readonly<{
-    locales?: ConstructorParameters<typeof Intl.DateTimeFormat>[0],
-    options?: ConstructorParameters<typeof Intl.DateTimeFormat>[1]
-  }>;
+  readonly date?: {
+    readonly locales?: ConstructorParameters<typeof Intl.DateTimeFormat>[0];
+    readonly options?: ConstructorParameters<typeof Intl.DateTimeFormat>[1];
+  };
+  readonly severityNames?: ReadonlyMap<LogEventSeverity, string>;
 }

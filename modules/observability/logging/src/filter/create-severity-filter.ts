@@ -11,6 +11,6 @@ import type { SeverityFilterOptions } from './severity-filter-options';
  */
 export function createSeverityFilter(logEventSeverity: LogEventSeverity, options?: SeverityFilterOptions): Filter {
   const onMatch = options?.onMatch ?? FilterResult.ACCEPT;
-  const onMismatch = options?.onMismatch ?? FilterResult.DENY;
+  const onMismatch = options?.onMismatch ?? FilterResult.REJECT;
   return ({ logEvent: { severity } }) => (severity === logEventSeverity ? onMatch : onMismatch);
 }

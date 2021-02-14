@@ -57,7 +57,27 @@ describe('Create pattern layout', () => {
     const patternLayout = createPatternLayout(pattern);
     when: 'transforming a log event record';
     const result = patternLayout(logEventRecord);
-    expect: 'the result to have the group token replaced with the log event group name';
-    expect(result).toBe(`test ${logGroupName} test`);
+    expect: 'the result to have the identifier token replaced with the log event identifier';
+    expect(result).toBe(`test ${logId} test`);
+  });
+
+  it('can create a layout for a pattern with an severity token', () => {
+    given: 'a pattern with a severity token';
+    const pattern = 'test %severity test';
+    const patternLayout = createPatternLayout(pattern);
+    when: 'transforming a log event record';
+    const result = patternLayout(logEventRecord);
+    expect: 'the result to have the severity token replaced with the log event severity';
+    expect(result).toBe(`test ${logSeverity} test`);
+  });
+
+  it('can create a layout for a pattern with an severity token', () => {
+    given: 'a pattern with a severity token';
+    const pattern = 'test %severity test';
+    const patternLayout = createPatternLayout(pattern);
+    when: 'transforming a log event record';
+    const result = patternLayout(logEventRecord);
+    expect: 'the result to have the severity token replaced with the log event severity';
+    expect(result).toBe(`test ${logSeverity} test`);
   });
 });
