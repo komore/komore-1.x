@@ -73,7 +73,7 @@
     "@azure/cosmos": "3.9.3",
     "@azure/identity": "1.2.0",
     "@azure/logger": "1.0.0",
-    "@azure/storage-blob": "12.3.0",
+    "@azure/storage-blob": "12.4.0",
     "@google-cloud/bigtable": "3.2.0",
     "@google-cloud/dns": "2.0.2",
     "@google-cloud/logging": "9.0.0",
