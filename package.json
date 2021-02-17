@@ -70,7 +70,7 @@
     "@azure/cognitiveservices-contentmoderator": "5.0.1",
     "@azure/cognitiveservices-face": "4.1.0",
     "@azure/cognitiveservices-formrecognizer": "2.0.1",
-    "@azure/cosmos": "3.9.3",
+    "@azure/cosmos": "3.9.5",
     "@azure/identity": "1.2.0",
     "@azure/logger": "1.0.0",
     "@azure/storage-blob": "12.3.0",
