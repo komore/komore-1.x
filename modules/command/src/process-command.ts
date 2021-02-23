@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
+import type { Observable } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
+import type { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
 
 /**
  * Processes a command

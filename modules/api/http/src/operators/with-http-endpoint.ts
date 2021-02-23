@@ -1,6 +1,7 @@
-import { MonoTypeOperatorFunction, Observable, of } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
-import { HttpContext } from '../http-context';
+import type { MonoTypeOperatorFunction, Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
+import type { HttpContext } from '../http-context';
 
 /**
  * Adds an HTTP endpoint with deeper endpoints to an HTTP context pipeline

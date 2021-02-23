@@ -1,5 +1,5 @@
 import { createDirectiveFactory } from '@komore/element/directive';
-import { combineLatest } from 'rxjs';
+import { combineLatest } from '@komore/reactive';
 import { map, tap } from 'rxjs/operators';
 import { ClassParameters } from './class-parameters';
 

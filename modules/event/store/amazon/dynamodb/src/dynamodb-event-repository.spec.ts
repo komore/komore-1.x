@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { Event } from '@komore/event';
+import type { Event } from '@komore/event';
 import { mocked } from 'ts-jest/utils';
-import { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
+import type { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
 import { DynamoDBEventRepository } from './dynamodb-event-repository';
 
 jest.mock('@aws-sdk/client-dynamodb', () => ({
@@ -18,6 +18,7 @@ describe('DynamoDB event repository', () => {
 
   const mockedDynamoDBClient = mocked(DynamoDBClient, true);
   const dynamoDBEventConfiguration: DynamoDBEventRepositoryConfiguration = {
+    dynamoDBClient: mockedDynamoDBClient,
     tableName: 'TestTable',
     attributeNames: {
       aggregateKey: 'Key',
@@ -25,15 +26,11 @@ describe('DynamoDB event repository', () => {
       eventType: 'Type',
       sequenceNumber: 'Sequence',
       timestamp: 'Timestamp'
-    },
-    credentials: () => Promise.resolve({
-      accessKeyId: 'dynamodb-event-repository-access-key-id',
-      secretAccessKey: 'dynamodb-event-repository-secret-access-key'
-    }),
-    region: () => Promise.resolve('dynamodb-event-repository-region')
+    }
   };
 
   beforeEach(() => {
+    mockedDynamoDBClient.mockClear();
     dynamoDBEventRepository = new DynamoDBEventRepository(dynamoDBEventConfiguration);
   });
 

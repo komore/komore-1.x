@@ -1,4 +1,4 @@
-import { Event } from './event';
+import type { Event } from './event';
 import { EventMetadata } from './event-metadata';
 
 /**
@@ -10,8 +10,6 @@ import { EventMetadata } from './event-metadata';
  * @template StateType State type
  * @template EventTypes Event types
  */
-export type EventReducer<StateType, EventTypes extends Event<any, any>[]> = (
-  state: StateType | undefined,
-  event: EventTypes[number],
-  metadata: EventMetadata
-) => StateType;
+export interface EventReducer<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
+  (state: StateType | undefined, event: EventTypes[number], metadata: EventMetadata): StateType;
+}

@@ -24,21 +24,12 @@ export interface LogEvent<
 }
 
 /**
- * Log event identifier
- * @template LogType Log type
- */
-export type LogEventId<LogEventType extends LogEvent<LogGroup<string>, any, any, any>> = LogEventType extends LogEvent<any, infer LogEventId, any> ? LogEventId : never;
-
-/**
  * Log event properties schema
  * @template LogEventType Log event type
  */
-export type LogEventPropertiesSchemaType<LogEventType extends LogEvent<any, any, any, any>> = LogEventType extends LogEvent<
-  any,
-  any,
-  any,
-  infer LogEventPropertiesSchema
->
+export type LogEventPropertiesSchemaType<
+  LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>
+> = LogEventType extends LogEvent<LogGroup<string>, number, string, infer LogEventPropertiesSchema>
   ? LogEventPropertiesSchema
   : never;
 

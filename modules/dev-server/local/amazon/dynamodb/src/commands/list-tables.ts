@@ -1,7 +1,7 @@
-import { ListTablesInput, ListTablesOutput } from '@aws-sdk/client-dynamodb';
-import { pipe } from 'rxjs';
-import { map, mergeMap } from 'rxjs/dist/types/operators';
-import { Command } from '../../command';
+import type { ListTablesInput, ListTablesOutput } from '@aws-sdk/client-dynamodb';
+import type { Command } from '@komore/dev-server-local-amazon';
+import { pipe } from '@komore/reactive';
+import { map, mergeMap } from '@komore/reactive/operators';
 
 const defaultLimit = 100;
 

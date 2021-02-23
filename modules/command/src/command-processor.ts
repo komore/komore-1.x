@@ -1,6 +1,6 @@
-import { Message } from '@komore/function';
-import { Observable } from 'rxjs';
-import { Command } from './command';
+import type { Message } from '@komore/message';
+import type { Observable } from '@komore/reactive';
+import type { Command } from './command';
 
 /**
  * Command processor

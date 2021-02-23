@@ -1,8 +1,9 @@
-import { TableDescription } from '@aws-sdk/client-dynamodb';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { map, take, tap } from 'rxjs/operators';
-import { DynamoDBTable } from './dynamodb-table';
-import { DynamoDBTableMetadata } from './dynamodb-table-metadata';
+import type { TableDescription } from '@aws-sdk/client-dynamodb';
+import type { Observable } from '@komore/reactive';
+import { BehaviorSubject, throwError } from '@komore/reactive';
+import { map, take } from '@komore/reactive/operators';
+import type { DynamoDBTable } from './dynamodb-table';
+import type { DynamoDBTableMetadata } from './dynamodb-table-metadata';
 
 /**
  * DynamoDB tables

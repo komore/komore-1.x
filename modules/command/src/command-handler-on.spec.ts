@@ -1,7 +1,7 @@
 import { createEvent } from '@komore/event';
+import { map, mapTo } from '@komore/reactive/operators';
 import { on } from './command-handler-on';
 import { createCommand } from './create-command';
-import { map, mapTo } from 'rxjs/operators';
 
 /**
  * Command handler on specification

@@ -38,7 +38,16 @@
     "application": {
       "tags": ["scope:application", "trait:base"]
     },
+    "application-android": {
+      "tags": ["scope:application"]
+    },
+    "application-capacitor": {
+      "tags": ["scope:application"]
+    },
     "application-electron": {
+      "tags": ["scope:application"]
+    },
+    "application-ios": {
       "tags": ["scope:application"]
     },
     "application-updater": {
@@ -221,6 +230,12 @@
     },
     "element-store-monitor-redux": {
       "tags": ["scope:element"]
+    },
+    "element-style": {
+      "tags": ["scope:element"]
+    },
+    "element-style-operators": {
+      "tags": ["scope:element", "trait:operators"]
     },
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
@@ -580,9 +595,6 @@
     "observability-tracing-operators": {
       "tags": ["scope:observability", "trait:operators"]
     },
-    "operators": {
-      "tags": ["scope:operators", "trait:base"]
-    },
     "process": {
       "tags": ["scope:process", "trait:base"]
     },
@@ -594,6 +606,15 @@
     },
     "query-testing": {
       "tags": ["scope:query", "trait:testing"]
+    },
+    "reactive": {
+      "tags": ["scope:reactive", "trait:base"]
+    },
+    "reactive-operators": {
+      "tags": ["scope:reactive", "trait:operators"]
+    },
+    "reactive-promise": {
+      "tags": ["scope:reactive"]
     },
     "stack": {
       "tags": ["scope:stack", "trait:base"]
@@ -640,6 +661,12 @@
     "web-geolocation": {
       "tags": ["scope:web"]
     },
+    "web-geolocation-operators": {
+      "tags": ["scope:web", "trait:operators"]
+    },
+    "web-gl": {
+      "tags": ["scope:web"]
+    },
     "web-http": {
       "tags": ["scope:web"]
     },
@@ -652,6 +679,9 @@
     "web-media": {
       "tags": ["scope:web"]
     },
+    "web-media-operators": {
+      "tags": ["scope:web", "trait:operators"]
+    },
     "web-network": {
       "tags": ["scope:web"]
     },
@@ -663,6 +693,9 @@
     },
     "web-observer-testing": {
       "tags": ["scope:web", "trait:testing"]
+    },
+    "web-operators": {
+      "tags": ["scope:web", "trait:operators"]
     },
     "web-payment": {
       "tags": ["scope:web"]

@@ -1,7 +1,7 @@
-import { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from '@aws-sdk/client-dynamodb';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from '@aws-sdk/client-dynamodb';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import { withDynamoDBTable } from '../operators/with-dynamodb-table';
 
 type TempDescribeTimeToLiveInput = DescribeTimeToLiveInput & { TableName: string };

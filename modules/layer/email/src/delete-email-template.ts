@@ -1,4 +1,11 @@
+import { callLayerFunction } from '@komore/layer';
+import type { Observable } from 'rxjs';
+import { activeEmailLayer } from './active-email-layer';
 
-export function deleteEmailTemplate() {
-
+/**
+ * Deletes an email template
+ * @param id Email template identifier
+ */
+export function deleteEmailTemplate(id: string): Observable<void> {
+  return callLayerFunction(activeEmailLayer, 'deleteEmailTemplate', id);
 }

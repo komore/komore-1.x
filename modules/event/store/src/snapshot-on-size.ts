@@ -1,11 +1,9 @@
-import * as assert from 'assert';
-import { Event } from './event';
-import { SnapshotStrategy } from './snapshot-strategy';
-import {
-  getAfterAtOrBeforeSequenceNumber,
-  getFirstOrLastSequenceNumber,
-  isFirstOrLastSelectionType
-} from './snapshot-strategy-helpers';
+import type { Event } from '@komore/event';
+import { assert } from '@komore/typescript';
+import type { SnapshotStrategy } from './snapshot-strategy';
+import { getAfterAtOrBeforeSequenceNumber } from './snapshot-strategy-helpers/get-after-at-or-before-sequence-number';
+import { getFirstOrLastSequenceNumber } from './snapshot-strategy-helpers/get-first-or-last-sequence-number';
+import { isFirstOrLastSelectionType } from './snapshot-strategy-helpers/is-first-or-last-selection-type';
 import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**
@@ -16,7 +14,7 @@ import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-typ
  * @template S Snapshot type
  * @template E Event types
  */
-export function snapshotOnSize<S, E extends Event<any, any>[]>(
+export function snapshotOnSize<S, E extends Event<string, any>[]>(
   bytes: number,
   selectionType: SnapshotStrategySelectionType = SnapshotStrategySelectionType.LAST
 ): SnapshotStrategy<S, E> {

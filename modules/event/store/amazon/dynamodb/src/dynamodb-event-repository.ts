@@ -1,36 +1,30 @@
-import {
-  DynamoDBClient,
-  PutItemCommand,
-  QueryCommand,
-  QueryCommandInput,
-  QueryCommandOutput
-} from '@aws-sdk/client-dynamodb';
+import type { PutItemCommand, QueryCommandInput, QueryCommandOutput } from '@aws-sdk/client-dynamodb';
+import { QueryCommand } from '@aws-sdk/client-dynamodb';
 import type { Event } from '@komore/event';
 import type { EventRepository } from '@komore/event/store';
-import { DynamoDBEventStoreConfiguration } from './dynamodb-event-store-configuration';
+import type { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
 
 /**
  * Exclusive start key type
  */
 type ExclusiveStartKeyType = QueryCommandInput['ExclusiveStartKey'];
 
+export function dynamoDBEventRepository(): EventRepository<E> {
+  
+}
+
 /**
  * DynamoDB event repository
  * @typeparam E Event type
  */
 export class DynamoDBEventRepository<E extends Event> implements EventRepository<E> {
-  private readonly client: DynamoDBClient;
+  private readonly client = this.configuration.dynamoDBClient;
 
   /**
    * Class constructor
    * @param configuration DynamoDB event repository onfiguration
    */
-  constructor(private readonly configuration: DynamoDBEventStoreConfiguration) {
-    this.client = new DynamoDBClient({
-      credentials: configuration.credentials,
-      region: configuration.region
-    });
-  }
+  constructor(private readonly configuration: DynamoDBEventRepositoryConfiguration) {}
 
   /**
    * Loads events from the store
@@ -63,7 +57,7 @@ export class DynamoDBEventRepository<E extends Event> implements EventRepository
     do {
       const output = await this.loadEventsFromExclusiveStartKey(queryCommandInput, exclusiveStartKey);
 
-      if (output.Items?.length > 0) {
+      if ((output.Items?.length ?? 0) > 0) {
         outputs.push(output);
       }
 

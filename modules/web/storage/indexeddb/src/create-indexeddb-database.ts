@@ -1,6 +1,6 @@
-import type { Observable } from 'rxjs';
-import { concat, defer, EMPTY, fromEvent, of, race } from 'rxjs';
-import { concatMap, ignoreElements, map, shareReplay } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { concat, defer, EMPTY, fromEvent, of, race } from '@komore/reactive';
+import { concatMap, ignoreElements, map, shareReplay } from '@komore/reactive/operators';
 import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
 import type { IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
 

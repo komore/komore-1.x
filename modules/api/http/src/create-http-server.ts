@@ -1,10 +1,11 @@
-import { Server } from 'http';
+import type { Observable, Observer } from '@komore/reactive';
+import { of, Subject } from '@komore/reactive';
+import { catchError, defaultIfEmpty, map, mergeMap } from '@komore/reactive/operators';
+import type { Server } from 'http';
 import * as Koa from 'koa';
-import { ListenOptions } from 'net';
-import { Observable, Observer, of, Subject } from 'rxjs';
-import { catchError, defaultIfEmpty, map, mergeMap } from 'rxjs/operators';
-import { HttpEndpointParameters } from './endpoint/http-endpoint-parameters';
-import { HttpContext } from './http-context';
+import type { ListenOptions } from 'net';
+import type { HttpEndpointParameters } from './endpoint/http-endpoint-parameters';
+import type { HttpContext } from './http-context';
 
 /**
  * Internal HTTP context

@@ -1,8 +1,8 @@
-import { Event } from '@komore/event';
-import { Observable } from 'rxjs';
-import { Command, CommandType } from './command';
-import { CommandCreator, CommandCreatorCommandType } from './command-creator';
-import { CommandMetadata } from './command-metadata';
+import type { Event } from '@komore/event';
+import type { Observable } from '@komore/reactive';
+import type { Command, CommandType } from './command';
+import type { CommandCreator, CommandCreatorCommandType } from './command-creator';
+import type { CommandMetadata } from './command-metadata';
 
 /**
  * Type returned by the `on` function

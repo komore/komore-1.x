@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { defer } from '@komore/reactive';
 
 /**
  * Gets user media

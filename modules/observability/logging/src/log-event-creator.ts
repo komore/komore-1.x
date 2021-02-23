@@ -15,7 +15,7 @@ interface LogEventWithPropertiesCreatorFunctionType<
   LogEventMessage extends string,
   LogEventPropertiesSchema extends Record<string, unknown>
 > {
-  (logProperties: LogEventPropertiesSchema, error?: unknown): LogEvent<
+  (logEventProperties: LogEventPropertiesSchema, error?: unknown): LogEvent<
     LogGroupType,
     LogEventId,
     LogEventMessage,

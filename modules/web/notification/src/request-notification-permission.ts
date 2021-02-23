@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import { defer, throwError } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { defer, throwError } from '@komore/reactive';
 
 /**
  * Requests notification permission

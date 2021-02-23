@@ -1,6 +1,6 @@
-import { DeleteBackupInput, DeleteBackupOutput } from '@aws-sdk/client-dynamodb';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { map, mergeMap } from 'rxjs/operators';
+import type { DeleteBackupInput, DeleteBackupOutput } from '@aws-sdk/client-dynamodb';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { map, mergeMap } from '@komore/reactive/operators';
 import { deleteDynamoDBBackup } from '../dynamodb-backups';
 
 type TempDeleteBackupInput = DeleteBackupInput & { BackupArn: string };

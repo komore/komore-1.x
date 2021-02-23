@@ -3,12 +3,12 @@ import type { LogEventPropertiesSchema } from './log-event-properties-schema';
 import { props } from './props';
 
 describe('Properties (logging)', () => {
-  it('works', () => {
-    given: 'a log event properties type'
+  it('can define a log event properties schema', () => {
+    given: 'a log event properties type';
     type TestSchema = { test: number };
-    when: 'creating a schema'
+    when: 'creating a schema';
     const schema = props<TestSchema>();
-    expect: 'the schema to ben a log event properties schema for the specified properties type'
+    expect: 'the schema to be a log event properties schema for the specified properties type';
     expectTypeOf(schema).toEqualTypeOf<LogEventPropertiesSchema<TestSchema>>();
   });
 });

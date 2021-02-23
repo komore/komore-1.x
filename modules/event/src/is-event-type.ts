@@ -1,5 +1,5 @@
-import { Event } from './event';
-import { EventCreator } from './event-creator';
+import type { Event } from './event';
+import type { EventCreator } from './event-creator';
 
 //type EventCreatorEventType<EC> = EC extends EventCreator<infer E> ? EventType<E> : never;
 
@@ -10,7 +10,7 @@ import { EventCreator } from './event-creator';
  * @returns true if the event is of the specified event type
  * @template EC Event creator type
  */
-export function isEventType<T extends string[], EC extends EventCreator<Event<T[number], any>>[], E extends Event<T[number],any>[]>(
+export function isEventType<T extends string[], EC extends EventCreator<Event<T[number], Record<string, unknown>>>[], E extends Event<T[number],any>[]>(
   event: E[number],
   eventType: EC[number]
 ): event is ReturnType<EC[number]> {

@@ -1,7 +1,7 @@
 import type { BatchGetItemCommandInput, BatchWriteItemCommandInput, WriteRequest } from '@aws-sdk/client-dynamodb';
 import type { Snapshot, SnapshotRepository } from '@komore/event/store';
 import { batchGetItem, batchWriteItem, createDynamoDBClient } from '@komore/integration-amazon/dynamodb';
-import { map } from 'rxjs/operators';
+import { map } from '@komore/reactive/operators';
 import type { DynamoDBSnapshotRepositoryAttributeNames } from './dynamodb-snapshot-repository-attribute-names';
 import type { DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
 
@@ -11,30 +11,44 @@ import type { DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapsho
  * @template StateType State type
  * @returns DynamoDB snapshot repository
  */
-export function dynamoDBSnapshotRepository<StateType>(configuration: DynamoDBSnapshotRepositoryConfiguration): SnapshotRepository<StateType> {
+export function dynamoDBSnapshotRepository<StateType>(
+  configuration: DynamoDBSnapshotRepositoryConfiguration
+): SnapshotRepository<StateType> {
   const dynamoDBClient = configuration.dynamoDBClient ?? createDynamoDBClient();
   const tableName = configuration.tableName;
-  const attributeNames: DynamoDBSnapshotRepositoryAttributeNames = {
-    aggregateKey: configuration.attributeNames?.aggregateKey ?? defaultAttributeNameAggregateKey,
-    sequenceNumber: configuration.attributeNames?.sequenceNumber ?? defaultAttributeNameSequenceNumber,
-    state: configuration.attributeNames?.state ?? defaultAttributeNameState,
-    timestamp: configuration.attributeNames?.timestamp ?? defaultAttributeNameTimestamp
-  };
+  const attributeNames = buildAttributeNames(configuration.attributeNames);
 
   return {
     loadSnapshots: aggregateKeys => {
       const commandInput = buildGetItemCommandInput(tableName, attributeNames, aggregateKeys);
       batchGetItem(dynamoDBClient, commandInput).pipe(
         map(output => output.Responses?.[tableName] ?? []),
-        map(items => aggregateKeys.map(aggregateKey => {
-          const _x = items[0][aggregateKey];
-        }))
+        map(items =>
+          aggregateKeys.map(aggregateKey => {
+            const _x = items[0][aggregateKey];
+          })
+        )
       );
     },
     saveSnapshots: snapshots => {
       const commandInput = buildWriteItemCommandInput(tableName, attributeNames, snapshots);
       batchWriteItem(dynamoDBClient, commandInput);
     }
+  };
+}
+
+function buildAttributeNames(
+  attributeNames?: Partial<DynamoDBSnapshotRepositoryAttributeNames>
+): DynamoDBSnapshotRepositoryAttributeNames {
+  const defaultAttributeNameAggregateKey = 'AggregateKey';
+  const defaultAttributeNameSequenceNumber = 'SequenceNumber';
+  const defaultAttributeNameState = 'State';
+  const defaultAttributeNameTimestamp = 'Timestamp';
+  return {
+    aggregateKey: attributeNames?.aggregateKey ?? defaultAttributeNameAggregateKey,
+    sequenceNumber: attributeNames?.sequenceNumber ?? defaultAttributeNameSequenceNumber,
+    state: attributeNames?.state ?? defaultAttributeNameState,
+    timestamp: attributeNames?.timestamp ?? defaultAttributeNameTimestamp
   };
 }
 
@@ -45,13 +59,17 @@ export function dynamoDBSnapshotRepository<StateType>(configuration: DynamoDBSna
  * @param aggregateKeys Aggregate keys
  * @returns `BatchGetItem` command input
  */
-function buildGetItemCommandInput(tableName: string, attributeNames: DynamoDBSnapshotRepositoryAttributeNames, aggregateKeys: ReadonlyArray<string>): BatchGetItemCommandInput {
+function buildGetItemCommandInput(
+  tableName: string,
+  attributeNames: DynamoDBSnapshotRepositoryAttributeNames,
+  aggregateKeys: ReadonlyArray<string>
+): BatchGetItemCommandInput {
   return {
     RequestItems: {
       [tableName]: {
         AttributesToGet: Object.values(attributeNames),
         ProjectionExpression: '',
-        Keys: aggregateKeys.map(aggregateKey => this.buildGetItem(aggregateKey))
+        Keys: aggregateKeys.map(aggregateKey => buildGetItem(aggregateKey))
       }
     },
     ReturnConsumedCapacity: 'NONE'
@@ -65,7 +83,11 @@ function buildGetItemCommandInput(tableName: string, attributeNames: DynamoDBSna
  * @param snapshots List of snapshots
  * @returns `BatchWriteItem` command input
  */
-function buildWriteItemCommandInput<StateType>(tableName: string, attributeNames: DynamoDBSnapshotRepositoryAttributeNames, snapshots: ReadonlyArray<Snapshot<StateType>>): BatchWriteItemCommandInput {
+function buildWriteItemCommandInput<StateType>(
+  tableName: string,
+  attributeNames: DynamoDBSnapshotRepositoryAttributeNames,
+  snapshots: ReadonlyArray<Snapshot<StateType>>
+): BatchWriteItemCommandInput {
   return {
     RequestItems: {
       [tableName]: snapshots.map(buildWriteRequest(attributeNames))
@@ -100,8 +122,3 @@ function buildWriteRequest(attributeNames: DynamoDBSnapshotRepositoryAttributeNa
     }
   });
 }
-
-const defaultAttributeNameAggregateKey = 'AggregateKey';
-const defaultAttributeNameSequenceNumber = 'SequenceNumber';
-const defaultAttributeNameState = 'State';
-const defaultAttributeNameTimestamp = 'Timestamp';

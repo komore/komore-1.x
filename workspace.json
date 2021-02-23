@@ -221,6 +221,86 @@
         }
       }
     },
+    "application-android": {
+      "root": "modules/application/android",
+      "sourceRoot": "modules/application/android/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/application/android/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/application-android"
+          ],
+          "options": {
+            "jestConfig": "modules/application/android/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/application/android",
+            "tsConfig": "modules/application/android/tsconfig.lib.json",
+            "packageJson": "modules/application/android/package.json",
+            "main": "modules/application/android/src/index.ts",
+            "assets": [
+              "modules/application/android/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "application-capacitor": {
+      "root": "modules/application/capacitor",
+      "sourceRoot": "modules/application/capacitor/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/application/capacitor/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/application-capacitor"
+          ],
+          "options": {
+            "jestConfig": "modules/application/capacitor/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/application/capacitor",
+            "tsConfig": "modules/application/capacitor/tsconfig.lib.json",
+            "packageJson": "modules/application/capacitor/package.json",
+            "main": "modules/application/capacitor/src/index.ts",
+            "assets": [
+              "modules/application/capacitor/*.md"
+            ]
+          }
+        }
+      }
+    },
     "application-electron": {
       "root": "modules/application/electron",
       "sourceRoot": "modules/application/electron/src",
@@ -256,6 +336,46 @@
             "main": "modules/application/electron/src/index.ts",
             "assets": [
               "modules/application/electron/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "application-ios": {
+      "root": "modules/application/ios",
+      "sourceRoot": "modules/application/ios/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/application/ios/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/application-ios"
+          ],
+          "options": {
+            "jestConfig": "modules/application/ios/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/application/ios",
+            "tsConfig": "modules/application/ios/tsconfig.lib.json",
+            "packageJson": "modules/application/ios/package.json",
+            "main": "modules/application/ios/src/index.ts",
+            "assets": [
+              "modules/application/ios/*.md"
             ]
           }
         }
@@ -2623,6 +2743,80 @@
             "tsConfig": "modules/element/store/monitor/redux/tsconfig.lib.json",
             "packageJson": "modules/element/store/monitor/redux/package.json",
             "main": "modules/element/store/monitor/redux/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-style": {
+      "root": "modules/element/style",
+      "sourceRoot": "modules/element/style/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/element/style/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/element-style"
+          ],
+          "options": {
+            "jestConfig": "modules/element/style/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/element/style",
+            "tsConfig": "modules/element/style/tsconfig.lib.json",
+            "packageJson": "modules/element/style/package.json",
+            "main": "modules/element/style/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-style-operators": {
+      "root": "modules/element/style/operators",
+      "sourceRoot": "modules/element/style/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/element/style/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/element-style-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/element/style/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/element/style/operators",
+            "tsConfig": "modules/element/style/operators/tsconfig.lib.json",
+            "packageJson": "modules/element/style/operators/package.json",
+            "main": "modules/element/style/operators/src/index.ts"
           }
         }
       }
@@ -7548,43 +7742,6 @@
         }
       }
     },
-    "operators": {
-      "root": "modules/operators",
-      "sourceRoot": "modules/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "modules/operators/src/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/operators"
-          ],
-          "options": {
-            "jestConfig": "modules/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
-          "options": {
-            "outputPath": "dist/operators",
-            "tsConfig": "modules/operators/tsconfig.lib.json",
-            "packageJson": "modules/operators/package.json",
-            "main": "modules/operators/src/index.ts"
-          }
-        }
-      }
-    },
     "process": {
       "root": "modules/process",
       "sourceRoot": "modules/process/src",
@@ -7735,6 +7892,120 @@
             "tsConfig": "modules/query/testing/tsconfig.lib.json",
             "packageJson": "modules/query/testing/package.json",
             "main": "modules/query/testing/src/index.ts"
+          }
+        }
+      }
+    },
+    "reactive": {
+      "root": "modules/reactive",
+      "sourceRoot": "modules/reactive/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/reactive/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/reactive"
+          ],
+          "options": {
+            "jestConfig": "modules/reactive/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/reactive",
+            "tsConfig": "modules/reactive/tsconfig.lib.json",
+            "packageJson": "modules/reactive/package.json",
+            "main": "modules/reactive/src/index.ts",
+            "assets": [
+              "modules/reactive/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "reactive-operators": {
+      "root": "modules/reactive/operators",
+      "sourceRoot": "modules/reactive/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/reactive/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/reactive/operators"
+          ],
+          "options": {
+            "jestConfig": "modules/reactive/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/reactive/operators",
+            "tsConfig": "modules/reactive/operators/tsconfig.lib.json",
+            "packageJson": "modules/reactive/operators/package.json",
+            "main": "modules/reactive/operators/src/index.ts"
+          }
+        }
+      }
+    },
+    "reactive-promise": {
+      "root": "modules/reactive/promise",
+      "sourceRoot": "modules/reactive/promise/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/reactive/promise/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/reactive/promise"
+          ],
+          "options": {
+            "jestConfig": "modules/reactive/promise/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/reactive/promise",
+            "tsConfig": "modules/reactive/promise/tsconfig.lib.json",
+            "packageJson": "modules/reactive/promise/package.json",
+            "main": "modules/reactive/promise/src/index.ts"
           }
         }
       }
@@ -8327,6 +8598,80 @@
         }
       }
     },
+    "web-geolocation-operators": {
+      "root": "modules/web/geolocation/operators",
+      "sourceRoot": "modules/web/geolocation/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/geolocation/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-geolocation-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/web/geolocation/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/geolocation/operators",
+            "tsConfig": "modules/web/geolocation/operators/tsconfig.lib.json",
+            "packageJson": "modules/web/geolocation/operators/package.json",
+            "main": "modules/web/geolocation/operators/src/index.ts"
+          }
+        }
+      }
+    },
+    "web-gl": {
+      "root": "modules/web/gl",
+      "sourceRoot": "modules/web/gl/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/gl/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-gl"
+          ],
+          "options": {
+            "jestConfig": "modules/web/gl/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/gl",
+            "tsConfig": "modules/web/gl/tsconfig.lib.json",
+            "packageJson": "modules/web/gl/package.json",
+            "main": "modules/web/gl/src/index.ts"
+          }
+        }
+      }
+    },
     "web-http": {
       "root": "modules/web/http",
       "sourceRoot": "modules/web/http/src",
@@ -8472,6 +8817,43 @@
             "tsConfig": "modules/web/media/tsconfig.lib.json",
             "packageJson": "modules/web/media/package.json",
             "main": "modules/web/media/src/index.ts"
+          }
+        }
+      }
+    },
+    "web-media-operators": {
+      "root": "modules/web/media/operators",
+      "sourceRoot": "modules/web/media/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/media/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-media-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/web/media/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/media/operators",
+            "tsConfig": "modules/web/media/operators/tsconfig.lib.json",
+            "packageJson": "modules/web/media/operators/package.json",
+            "main": "modules/web/media/operators/src/index.ts"
           }
         }
       }
@@ -8622,6 +9004,43 @@
             "tsConfig": "modules/web/observer/testing/tsconfig.lib.json",
             "packageJson": "modules/web/observer/testing/package.json",
             "main": "modules/web/observer/testing/src/index.ts"
+          }
+        }
+      }
+    },
+    "web-operators": {
+      "root": "modules/web/operators",
+      "sourceRoot": "modules/web/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/web/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/operators",
+            "tsConfig": "modules/web/operators/tsconfig.lib.json",
+            "packageJson": "modules/web/operators/package.json",
+            "main": "modules/web/operators/src/index.ts"
           }
         }
       }

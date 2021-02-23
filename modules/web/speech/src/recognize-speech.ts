@@ -1,5 +1,5 @@
-import { fromEvent, merge, Observable, throwError } from 'rxjs';
-import { mergeMap, share, takeUntil } from 'rxjs/operators';
+import { fromEvent, merge, Observable, throwError } from '@komore/reactive';
+import { mergeMap, share, takeUntil } from '@komore/reactive/operators';
 
 // TODO: remove once added to libdom.d.ts
 declare global {

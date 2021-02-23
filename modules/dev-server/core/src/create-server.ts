@@ -1,7 +1,7 @@
-import { of } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { of } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
 import { createHttpServer } from './http/create-http-server';
-import { ServerConfiguration } from './server-configuration';
+import type { ServerConfiguration } from './server-configuration';
 
 /**
  * Creates a server

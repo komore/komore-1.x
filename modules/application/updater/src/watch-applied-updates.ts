@@ -1,5 +1,6 @@
-import { NEVER, Observable } from 'rxjs';
-import { Update } from './update';
+import type { Observable } from '@komore/reactive';
+import { NEVER } from '@komore/reactive';
+import type { Update } from './update';
 
 /**
  * Watches for applied updates

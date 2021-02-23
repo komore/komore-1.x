@@ -26,10 +26,10 @@ describe('Create threshold filter', () => {
   it('creates a filter that accepts log event records with a severity at least as high as the specified one', () => {
     given: 'a threshold filter';
     const filter = createThresholdFilter(logEventRecord.logEvent.severity);
-    expect: 'a severity matching the specified severity to be accepted';
-    expect(filter(logEventRecord)).toBe(FilterResult.ACCEPT);
-    and: 'a severity above the specified severity to be accepted';
-    expect(filter(logEventRecordAbove)).toBe(FilterResult.ACCEPT);
+    expect: 'a severity matching the specified severity to be ignored';
+    expect(filter(logEventRecord)).toBe(FilterResult.NEUTRAL);
+    and: 'a severity above the specified severity to be ignored';
+    expect(filter(logEventRecordAbove)).toBe(FilterResult.NEUTRAL);
     and: 'a severity below the specified severity to be rejected';
     expect(filter(logEventRecordBelow)).toBe(FilterResult.REJECT);
   });

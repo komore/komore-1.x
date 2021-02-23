@@ -1,6 +1,13 @@
+import { callLayerFunction } from '@komore/layer';
 import type { Observable } from 'rxjs';
+import { activeEmailLayer } from './active-email-layer';
 import type { EmailTemplate } from './email-template';
 
-export function createTemplate(emailTemplate: Omit<EmailTemplate, 'id'>): Observable<EmailTemplate> {
-  return withLayer
+/**
+ * Creates an email template
+ * @param emailTemplate Email template
+ * @returns Created email template
+ */
+export function createEmailTemplate(emailTemplate: Omit<EmailTemplate, 'id'>): Observable<EmailTemplate> {
+  return callLayerFunction(activeEmailLayer, 'createEmailTemplate', emailTemplate);
 }

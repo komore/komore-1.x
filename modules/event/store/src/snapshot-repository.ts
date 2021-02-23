@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { Snapshot } from './snapshot';
+import type { Observable } from '@komore/reactive';
+import type { Snapshot } from './snapshot';
 
 /**
  * Snapshot repository

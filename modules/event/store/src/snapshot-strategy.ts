@@ -1,6 +1,5 @@
-import { Event } from './event';
-import { EventWithMetadata } from './event-metadata';
-import { Snapshot } from './snapshot';
+import type { Event, EventWithMetadata } from '@komore/event';
+import type { Snapshot } from './snapshot';
 
 /**
  * Snapshot strategy
@@ -16,8 +15,6 @@ import { Snapshot } from './snapshot';
  * @template S State type
  * @template E Event types
  */
-export type SnapshotStrategy<S, E extends Event<any, any>[]> = (
-  eventsWithMetadata: ReadonlyArray<EventWithMetadata<E>>,
-  state: S,
-  currentSnapshot: Snapshot<S> | undefined
-) => boolean | number;
+export interface SnapshotStrategy<S, E extends Event<any, any>[]> {
+  (eventsWithMetadata: ReadonlyArray<EventWithMetadata<E>>, state: S, currentSnapshot?: Snapshot<S>): boolean | number;
+}

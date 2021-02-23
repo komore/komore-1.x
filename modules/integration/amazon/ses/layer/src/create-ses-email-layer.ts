@@ -13,5 +13,5 @@ export function createSESEmailLayer(): EmailLayer {
   return {
     createEmailTemplate: createEmailTemplateSESLayer(sesClient),
     deleteEmailTemplate: id => deleteEmailTemplate(sesClient, { TemplateName: id }).pipe(mapToVoid())
-  }
+  };
 }

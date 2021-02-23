@@ -1,1 +1,1 @@
-export { watchGamepads } from './watch-gamepads';
+export { observeGamepads } from './observe-gamepads';

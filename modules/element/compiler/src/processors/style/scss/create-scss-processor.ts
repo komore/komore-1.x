@@ -1,4 +1,4 @@
-import { of } from 'rxjs';
+import { of } from '@komore/reactive';
 import type { StyleProcessor } from '../style-processor';
 
 /**

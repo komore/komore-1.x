@@ -1,4 +1,5 @@
-import { EMPTY, Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { EMPTY } from '@komore/reactive';
 
 /**
  * Applies updates

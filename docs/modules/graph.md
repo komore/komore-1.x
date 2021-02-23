@@ -11,8 +11,8 @@ The `@komore/graph` module helps defining and executing stream processing pipeli
 Familiar RxJS constructs are used to implement those concepts:
 
 ```typescript
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { of } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 
 const log = console.log;
 

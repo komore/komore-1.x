@@ -1,7 +1,7 @@
-import { ListFunctionsRequest, ListFunctionsResponse } from '@aws-sdk/client-lambda';
-import { Command, filterUnsupportedProperties } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { ListFunctionsRequest, ListFunctionsResponse } from '@aws-sdk/client-lambda';
+import type { Command, filterUnsupportedProperties } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import { lambdaFunctions } from '../lambda-functions';
 
 /**

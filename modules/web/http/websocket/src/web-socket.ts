@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable } from '@komore/reactive';
 
 type EmittableType = Parameters<WebSocket['send']>[0];
 

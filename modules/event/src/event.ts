@@ -1,21 +1,22 @@
 /**
  * Event
- * @template T Event type
- * @template S Event schema type
+ * @template EventType Event type
+ * @template EventProperties Event properties type
  */
-export type Event<T extends string, S extends object | void = void> = Readonly<{
-  type: T;
-}> &
-  (S extends object ? Readonly<Omit<S, 'type'>> : {});
+export interface Event<
+  EventType extends string,
+  EventProperties extends Record<string, unknown> | undefined = undefined
+> {
+  readonly type: EventType;
+  readonly properties: EventProperties extends Record<string, unknown> ? EventProperties : never;
+  readonly aggregateKey: string;
+  readonly sequenceNumber: number;
+}
 
 /**
- * Event type from an event type
- * @template E Event type
+ * Event properties schema
+ * @template EventType Event type
  */
-export type EventType<E> = E extends Event<infer T, any> ? T : never;
-
-/**
- * Event schema type from an event type
- * @template Event type
- */
-export type EventSchemaType<E> = E extends Event<any, infer S> ? S : never;
+export type EventPropertiesSchemaType<
+  EventType extends Event<string, Record<string, unknown> | undefined>
+> = EventType extends Event<string, infer EventPropertiesSchema> ? EventPropertiesSchema : never;

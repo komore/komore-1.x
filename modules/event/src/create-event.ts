@@ -1,24 +1,28 @@
-import { Event } from './event';
-import { EventCreator } from './event-creator';
-import { EventSchema } from './event-schema';
+import type { Event } from './event';
+import type { EventCreator } from './event-creator';
+import type { EventPropertiesSchema } from './event-properties-schema';
+import type { EventSchema } from './event-schema';
 
 /**
  * Creates an event creator for an event type
  * @param type Event type
  * @returns Event creator
- * @template T Event type
+ * @template EventTypeName Event type name
  */
-export function createEvent<T extends string>(type: T): EventCreator<Event<T, void>>;
+export function createEvent<EventTypeName extends string>(type: EventTypeName): EventCreator<EventTypeName>;
 
 /**
  * Creates an event creator for an event type with properties
  * @param type Event type
  * @param schema Event schema
  * @returns Event creator
- * @template T Event type
+ * @template EventTypeName Event type
  * @template S Event schema type
  */
-export function createEvent<T extends string, S extends object>(type: T, schema: EventSchema<S>): EventCreator<Event<T, S>>;
+export function createEvent<EventTypeName extends string, EventProperties extends Record<string, unknown>>(
+  type: EventTypeName,
+  properties: EventPropertiesSchema<EventProperties>
+): EventCreator<EventTypeName, EventProperties>;
 
 /**
  * Creates an event creator

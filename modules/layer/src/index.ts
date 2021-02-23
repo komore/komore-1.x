@@ -1,5 +1,5 @@
-export { getLayerImplementation } from './get-layer-implementation';
+export { callLayerFunction } from './call-layer-function';
+export { createLayer } from './create-layer';
 export type { LayerImplementationFactory } from './layer-implementation-factory';
-export { registerLayer } from './register-layer';
-export { withLayerImplementation } from './operators/with-layer-implementation';
-export { withLayerImplementationResolver } from './operators/with-layer-implementation-resolver';
+export { selectLayerImplementation } from './select-layer-implementation';
+export { detectAvailableLayerImplementation } from './detect-available-layer-implementation';

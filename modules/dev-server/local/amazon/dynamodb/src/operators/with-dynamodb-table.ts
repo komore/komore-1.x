@@ -1,7 +1,7 @@
-import { OperatorFunction } from "rxjs";
-import { withLatestFrom } from "rxjs/operators";
-import { DynamoDBTable } from "../dynamodb-table";
+import type { OperatorFunction } from '@komore/reactive';
+import { withLatestFrom } from '@komore/reactive/operators';
+import type { DynamoDBTable } from '../dynamodb-table';
 
-export function withDynamoDBTable<T extends { TableName: string; }>(): OperatorFunction<T, [T, DynamoDBTable]> {
+export function withDynamoDBTable<T extends { TableName: string }>(): OperatorFunction<T, [T, DynamoDBTable]> {
   return withLatestFrom();
-};
+}

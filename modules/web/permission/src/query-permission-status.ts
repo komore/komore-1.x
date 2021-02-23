@@ -1,4 +1,5 @@
-import { defer, Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { defer } from '@komore/reactive';
 
 /**
  * Queries a permission status
