@@ -1,6 +1,7 @@
-import { isObservable, Observable, of } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { isObservable, of } from '@komore/reactive';
 import { DEFAULT_LOCALES } from './default-locales';
-import { Locales } from './locales';
+import type { Locales } from './locales';
 
 /**
  * Builds an observable list of locales

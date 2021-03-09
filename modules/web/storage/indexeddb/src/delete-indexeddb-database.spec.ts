@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom } from '@komore/reactive/promise';
 import { deleteIndexedDBDatabase } from './delete-indexeddb-database';
 
 describe.only('Delete database', () => {
@@ -10,17 +10,17 @@ describe.only('Delete database', () => {
   });
 
   it('creates a cold observable', () => {
-    when: 'calling deleteDatabase'
+    when: 'calling deleteDatabase';
     deleteIndexedDBDatabase('test-name');
-    expect: 'indexedDB.deleteDatabase not to have been called if there was no subscription'
+    expect: 'indexedDB.deleteDatabase not to have been called if there was no subscription';
     expect(indexedDBDeleteDatabase).not.toHaveBeenCalled();
   });
 
   it('deletes a database on subscription', async () => {
-    when: 'deleting a database'
+    when: 'deleting a database';
     const deleteIndexedDB$ = deleteIndexedDBDatabase('test-name');
     await lastValueFrom(deleteIndexedDB$);
-    expect: 'indexedDB.deleteDatabase to have been called'
+    expect: 'indexedDB.deleteDatabase to have been called';
     expect(indexedDBDeleteDatabase).toHaveBeenCalledTimes(1);
     expect(indexedDBDeleteDatabase).toHaveBeenCalledWith('test-name');
   });

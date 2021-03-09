@@ -1,6 +1,6 @@
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { tap } from '@komore/reactive/operators';
 import type { FileHandle } from 'fs/promises';
-import type { MonoTypeOperatorFunction } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 /**
  * Writes to a file

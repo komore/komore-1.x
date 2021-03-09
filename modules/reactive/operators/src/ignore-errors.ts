@@ -1,6 +1,6 @@
-import type { MonoTypeOperatorFunction } from 'rxjs';
-import { EMPTY, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { EMPTY, throwError } from '@komore/reactive';
+import { catchError } from './catch-error';
 
 /**
  * Ignores errors in a stream

@@ -1,6 +1,6 @@
 import { createDirective } from '@komore/element/directive';
-import { fromEvent } from 'rxjs';
-import { map, switchMap, switchMapTo, tap } from 'rxjs/operators';
+import { fromEvent } from '@komore/reactive';
+import { map, switchMap, switchMapTo, tapValue } from '@komore/reactive/operators';
 
 // TODO: lib.dom.d.ts update @ https://github.com/microsoft/TypeScript/blob/master/lib/lib.dom.d.ts
 declare global {
@@ -15,15 +15,15 @@ declare global {
  */
 export const copyToClipboard = createDirective<Element, string>(({ element, parameters }) =>
   element.pipe(
-    tap(() => console.log('arite??')),
+    tapValue(() => console.log('arite??')),
     switchMap(element => fromEvent<MouseEvent>(element, 'click')),
-    tap(() => console.log('arite2??')),
+    tapValue(() => console.log('arite2??')),
     switchMapTo(parameters),
-    tap(() => console.log('arite3??')),
+    tapValue(() => console.log('arite3??')),
     map(prepareCopy),
-    tap(() => console.log('arite4??')),
-    tap(executeCopy),
-    tap(() => console.log('arite5??')),
+    tapValue(() => console.log('arite4??')),
+    tapValue(executeCopy),
+    tapValue(() => console.log('arite5??')),
     map(cleanupCopy)
   )
 );

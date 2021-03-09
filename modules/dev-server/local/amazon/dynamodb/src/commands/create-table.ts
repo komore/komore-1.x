@@ -1,7 +1,7 @@
-import { CreateTableInput, CreateTableOutput, TableDescription } from '@aws-sdk/client-dynamodb';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import type { CreateTableInput, CreateTableOutput, TableDescription } from '@aws-sdk/client-dynamodb';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
 
 /**
  * Creates a DynamoDB table

@@ -1,24 +1,23 @@
-import { Log, Logging } from '@google-cloud/logging';
-import { defer } from 'rxjs';
+import type { Log, Logging } from '@google-cloud/logging';
+import { deferPromise } from '@komore/reactive/promise';
 
 /**
  * Writes a log entry
  * @param cloudLoggingClient Cloud Logging client
- * @param logName 
- * @param entryParameters 
+ * @param logName Log name
+ * @param entryParameters Entry parameters
  */
 export function writeLogEntry(
   cloudLoggingClient: Logging,
   logName: string,
   ...entryParameters: Parameters<Log['entry']>
 ) {
-  return defer(() => {
+  return deferPromise(() => {
     const log = cloudLoggingClient.log(logName);
     const entry = log.entry(...entryParameters);
     return log.write(entry);
   });
 }
-
 
 /*
 const metadata: LogEntry = {

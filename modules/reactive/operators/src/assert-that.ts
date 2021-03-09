@@ -5,6 +5,7 @@ import { map } from './map';
  * Throws an error unless a condition is met
  * @param condition Condition that causes an error to be thrown when false
  * @param errorFactory Error factory
+ * @template T Value type
  */
 export function assertThat<T, S extends T>(
   predicate: (value: T, index: number) => value is S,
@@ -15,6 +16,7 @@ export function assertThat<T, S extends T>(
  * Throws an error unless a condition is met
  * @param predicate Condition that causes an error to be thrown when false
  * @param errorFactory Error factory
+ * @template T Value type
  */
 export function assertThat<T>(
   predicate: (value: T, index: number) => boolean,

@@ -1,5 +1,6 @@
-import type { Observable } from 'rxjs';
-import { forkJoin, of } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { forkJoin } from '@komore/reactive';
+import { defaultIfEmpty } from '@komore/reactive/operators';
 import { processScriptElement } from './process-script-element';
 import type { ScriptProcessorOutput } from './script-processor-output';
 
@@ -10,5 +11,7 @@ import type { ScriptProcessorOutput } from './script-processor-output';
  */
 export function processScriptElements(scriptElements: ReadonlyArray<HTMLScriptElement>): Observable<ReadonlyArray<ScriptProcessorOutput>> {
   const jobs = scriptElements.map(processScriptElement);
-  return jobs.length === 0 ? of([]) : forkJoin(jobs);
+  return forkJoin(jobs).pipe(
+    defaultIfEmpty([])
+  );
 }

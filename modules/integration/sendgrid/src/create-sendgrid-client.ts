@@ -1,12 +1,13 @@
+import { defer } from '@komore/reactive';
 import { assert } from '@komore/typescript';
 import { Client } from '@sendgrid/client';
-import { defer } from 'rxjs';
 import type { SendGridClient } from './sendgrid-client';
 
 /**
  * Environment variables
  */
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface ProcessEnv {
       KMR_INTEGRATION_SENDGRID_APIKEY?: string;

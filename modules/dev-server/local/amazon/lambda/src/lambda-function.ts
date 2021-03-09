@@ -1,11 +1,11 @@
-import { FunctionConfiguration } from '@aws-sdk/client-lambda';
-import { Script } from 'vm';
+import type { FunctionConfiguration } from '@aws-sdk/client-lambda';
+import type { Script } from 'vm';
 
 /**
  * Lambda function
  */
-export type LambdaFunction = Readonly<{
-  configuration: FunctionConfiguration & { FunctionName: string };
-  script?: Script;
-  tags: Map<string, string>;
-}>;
+export interface LambdaFunction {
+  readonly configuration: FunctionConfiguration & { FunctionName: string };
+  readonly script?: Script;
+  readonly tags: Map<string, string>;
+}

@@ -1,15 +1,14 @@
-import {
+import type {
   BackupDescription,
   BackupDetails,
   CreateBackupInput,
   CreateBackupOutput,
   SourceTableDetails,
-  SourceTableFeatureDetails,
-  TimeToLiveDescription
+  SourceTableFeatureDetails
 } from '@aws-sdk/client-dynamodb';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { mapTo, mergeMap } from 'rxjs/operators';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
 import { createBackupArn } from '../dynamodb-arn';
 import { createDynamoDBBackup } from '../dynamodb-backups';
 import { withDynamoDBTable } from '../operators/with-dynamodb-table';
@@ -57,8 +56,9 @@ export const createBackup: Command<TempCreateBackupInput, CreateBackupOutput> = 
       SourceTableFeatureDetails
     };
 
-    return createDynamoDBBackup(backupDescription).pipe(
+    return createDynamoDBBackup(backupDescription)
+      .pipe
       // TODO: catchError
-    );
+      ();
   })
 );

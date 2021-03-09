@@ -1,7 +1,7 @@
 import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
 import type { Command, MetadataBearer } from '@aws-sdk/types';
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive/promise';
 
 /**
  * Sends a command using a client
@@ -41,5 +41,5 @@ export function sendCommand<
   >,
   options?: AmazonClientHandlerOptions
 ): Observable<OutputType> {
-  return defer(() => amazonClient.send(command, options));
+  return deferPromise(() => amazonClient.send(command, options));
 }

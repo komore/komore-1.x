@@ -1,6 +1,6 @@
 import { createParameterizedDirective } from '@komore/element/directive';
-import { combineLatest } from 'rxjs';
-import { distinctUntilChanged, map, tap } from 'rxjs/operators';
+import { combineLatest } from '@komore/reactive';
+import { distinctUntilChanged, map, tap } from '@komore/reactive/operators';
 
 /**
  * If directive

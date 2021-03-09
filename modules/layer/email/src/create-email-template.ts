@@ -1,5 +1,5 @@
 import { callLayerFunction } from '@komore/layer';
-import type { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 import { activeEmailLayer } from './active-email-layer';
 import type { EmailTemplate } from './email-template';
 

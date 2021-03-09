@@ -1,6 +1,6 @@
+import type { Observable } from '@komore/reactive';
+import { switchMap } from '@komore/reactive/operators';
 import type { PathLike } from 'fs';
-import type { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { readFileContent } from './read-file-content';
 import { observeFile } from './observe-file';
 
@@ -23,9 +23,10 @@ export function observeFileContent(
   filePath: PathLike,
   encoding?: BufferEncoding
 ): Observable<Buffer> | Observable<string> {
-  return observeFile(filePath).pipe(
-    switchMap(changedFilePath =>
-      encoding ? readFileContent(changedFilePath, encoding) : readFileContent(changedFilePath)
-    )
-  ) as Observable<Buffer> | Observable<string>;
+  const file$ = observeFile(filePath);
+  if (encoding === undefined) {
+    return file$.pipe(switchMap(changedFilePath => readFileContent(changedFilePath)));
+  } else {
+    return file$.pipe(switchMap(changedFilePath => readFileContent(changedFilePath, encoding)));
+  }
 }

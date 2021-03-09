@@ -1,5 +1,5 @@
 import type { ParsedSource } from '@komore/element/parser';
-import type { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 import type { ProcessedSource } from './processed-source';
 
 /**

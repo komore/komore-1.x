@@ -1,5 +1,5 @@
-import { Observable, Subject } from 'rxjs';
-import { StorageSubjectOptions } from './storage-subject-options';
+import { Observable, Subject } from '@komore/reactive';
+import type { StorageSubjectOptions } from './storage-subject-options';
 
 /**
  * Default serializer

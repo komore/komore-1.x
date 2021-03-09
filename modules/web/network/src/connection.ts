@@ -1,8 +1,7 @@
-import { defer, fromEvent } from 'rxjs';
-// TODO: remove cast once FromEventTarget signature is fixed; https://github.com/ReactiveX/rxjs/issues/5944
-import { FromEventTarget } from 'rxjs/dist/types/internal/observable/fromEvent';
-import { map, shareReplay } from 'rxjs/operators';
+import { defer, fromEvent } from '@komore/reactive';
+import { map, shareReplay } from '@komore/reactive/operators';
 
+// TODO: remove these once they are available in the shipped typings
 declare global {
   type Megabit = number;
   type Millisecond = number;
@@ -36,8 +35,10 @@ declare global {
   interface WorkerNavigator extends NavigatorNetworkInformation {}
 }
 
-// TODO: remove cast once FromEventTarget signature is fixed; https://github.com/ReactiveX/rxjs/issues/5944
-export const CONNECTION = defer(() => fromEvent(navigator.connection as FromEventTarget<Event>, 'change')).pipe(
+/**
+ * Connection status
+ */
+export const CONNECTION = defer(() => fromEvent(navigator.connection, 'change')).pipe(
   map(() => navigator.connection),
   shareReplay({ bufferSize: 1, refCount: true })
 );

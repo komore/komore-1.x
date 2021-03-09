@@ -195,6 +195,9 @@
     "element-i18n": {
       "tags": ["scope:element"]
     },
+    "element-i18n-operators": {
+      "tags": ["scope:element", "trait:operators"]
+    },
     "element-icon": {
       "tags": ["scope:element"]
     },
@@ -206,6 +209,9 @@
     },
     "element-l10n": {
       "tags": ["scope:element"]
+    },
+    "element-l10n-operators": {
+      "tags": ["scope:element", "trait:operators"]
     },
     "element-operators": {
       "tags": ["scope:element", "trait:operators"]
@@ -616,6 +622,9 @@
     "reactive-promise": {
       "tags": ["scope:reactive"]
     },
+    "reactive-testing": {
+      "tags": ["scope:reactive", "trait:testing"]
+    },
     "stack": {
       "tags": ["scope:stack", "trait:base"]
     },
@@ -636,6 +645,9 @@
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]
+    },
+    "validation-operators": {
+      "tags": ["scope:validation", "trait:operators"]
     },
     "validation-testing": {
       "tags": ["scope:validation", "trait:testing"]

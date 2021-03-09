@@ -1,0 +1,13 @@
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { tap } from './tap';
+
+/**
+ * Performs side-effects when the source observable completes
+ * @param completionObserver Completion observer
+ * @template T Value type
+ */
+export function tapCompletion<T>(completionObserver: () => void): MonoTypeOperatorFunction<T> {
+  return tap({
+    complete: completionObserver
+  });
+}

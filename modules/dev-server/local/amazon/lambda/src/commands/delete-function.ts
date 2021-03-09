@@ -1,7 +1,8 @@
-import { DeleteFunctionRequest } from '@aws-sdk/client-lambda';
-import { Command, filterUnsupportedProperties } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import type { DeleteFunctionRequest } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { filterUnsupportedProperties } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { dropValues, tapValue } from '@komore/reactive/operators';
 import { lambdaFunctions } from '../lambda-functions';
 
 type TempDeleteFunctionRequest = DeleteFunctionRequest & { FunctionName: string };
@@ -12,6 +13,6 @@ type TempDeleteFunctionRequest = DeleteFunctionRequest & { FunctionName: string 
  */
 export const deleteFunction: Command<TempDeleteFunctionRequest, void> = pipe(
   filterUnsupportedProperties('Qualifier'),
-  tap(({ FunctionName }) => lambdaFunctions.delete(FunctionName)),
-  map(() => {})
+  tapValue(({ FunctionName }) => lambdaFunctions.delete(FunctionName)),
+  dropValues()
 );

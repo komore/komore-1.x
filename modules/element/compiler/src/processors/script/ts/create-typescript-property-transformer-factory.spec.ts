@@ -23,7 +23,7 @@ describe('Create TypeScript property transformer factory', () => {
     const transformer = transformerFactory(mockTransformationContext);
     and: 'a source with a property definition'
     const sourceFile = createTestSource(`
-      import { BehaviorSubject } from 'rxjs';
+      import { BehaviorSubject } from '@komore/reactive';
       export const testProperty = new BehaviorSubject<string | undefined>('test-value');
       const localProperty = 'not-exported';
     `);

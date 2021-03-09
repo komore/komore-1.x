@@ -1,5 +1,5 @@
 import type { LogEvent } from './log-event';
-import { LogEventRecord } from './log-event-record';
+import type { LogEventRecord } from './log-event-record';
 import { logEventRecordsSubject } from './log-event-records';
 import type { LogGroup } from './log-group';
 

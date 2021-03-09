@@ -1,4 +1,4 @@
-import { InvocationType, LogType } from '@aws-sdk/client-lambda';
+import type { InvocationType, LogType } from '@aws-sdk/client-lambda';
 import { HttpMethods, withHttpEndpoint as on } from '@komore/api/http';
 import { addLayerVersionPermission } from './commands/add-layer-version-permission';
 import { addPermission } from './commands/add-permission';

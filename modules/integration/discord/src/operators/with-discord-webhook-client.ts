@@ -1,7 +1,7 @@
 import { mapIntegrations, MessageWithIntegrations } from '@komore/integration';
-import { Message } from '@komore/message';
+import type { Message } from '@komore/message';
+import type { OperatorFunction } from '@komore/reactive';
 import * as Discord from 'discord.js';
-import { OperatorFunction, pipe } from 'rxjs';
 import { DiscordIntegration } from '../graph/discord-integration';
 
 /**
@@ -9,7 +9,7 @@ import { DiscordIntegration } from '../graph/discord-integration';
  * @param webhookId Webhook identifier
  * @param webhookToken Webhook token
  */
-export const withDiscordWebhookClient = <
+export function withDiscordWebhookClient<
   MessageTypeName extends string,
   MessageMetadataType extends object,
   MessageInputType,
@@ -36,12 +36,11 @@ export const withDiscordWebhookClient = <
     MessageType,
     IntegrationTypes & DiscordIntegration
   >
-> =>
-  pipe(
-    mapIntegrations(integrations => ({
-      ...integrations,
-      discord: {
-        webhookClient: new Discord.WebhookClient(webhookId, webhookToken)
-      }
-    }))
-  );
+> {
+  return mapIntegrations(integrations => ({
+    ...integrations,
+    discord: {
+      webhookClient: new Discord.WebhookClient(webhookId, webhookToken)
+    }
+  }));
+}

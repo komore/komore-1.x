@@ -1,7 +1,8 @@
-import { UntagResourceRequest } from '@aws-sdk/client-lambda';
-import { Command, ResourceNotFoundException, throwIfMissingProperties } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { UntagResourceRequest } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { ResourceNotFoundException, throwIfMissingProperties } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import { getLambdaFunction } from '../lambda-functions';
 
 type TempUntagResourceRequest = Omit<UntagResourceRequest, 'Resource'> & { ARN: string };
@@ -13,6 +14,7 @@ type TempUntagResourceRequest = Omit<UntagResourceRequest, 'Resource'> & { ARN: 
 export const untagResource: Command<TempUntagResourceRequest, void> = pipe(
   throwIfMissingProperties('TagKeys'),
   map(({ ARN, TagKeys }) => {
+    // TODO: call common devserver tag service
     const lambdaFunction = getLambdaFunction(ARN);
     if (lambdaFunction === undefined) {
       throw new ResourceNotFoundException(`Lambda function ${ARN}`);

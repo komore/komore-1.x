@@ -1,8 +1,8 @@
-import { CreateEventSourceMappingRequest, EventSourceMappingConfiguration, EventSourcePosition } from '@aws-sdk/client-lambda';
-import { pipe } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
-import { assertSupportedRequest } from '../../assert-supported-request';
-import { Command } from '../../command';
+import type { CreateEventSourceMappingRequest, EventSourceMappingConfiguration } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { filterUnsupportedProperties } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
 import { getLambdaFunction } from '../lambda-functions';
 
 type TempCreateEventSourceMappingRequest = CreateEventSourceMappingRequest & { FunctionName: string };
@@ -15,7 +15,7 @@ export const createEventSourceMapping: Command<
   TempCreateEventSourceMappingRequest,
   EventSourceMappingConfiguration
 > = pipe(
-  assertSupportedRequest(),
+  filterUnsupportedProperties(),
   mergeMap(({ Enabled, EventSourceArn, EventSourcePosition, FunctionName, ...request }) => {
     // EventSourceArn: Kinesis stream | DynamoDB stream | SQS queue | Kafka cluster
 
@@ -34,7 +34,6 @@ export const createEventSourceMapping: Command<
     const { StartingPosition, StartingPositionTimestamp } = request;
     // StartingPosition: AT_TIMESTAMP, LATEST, TRIM_HORIZON
 
-    switch ()
   })
 );
 

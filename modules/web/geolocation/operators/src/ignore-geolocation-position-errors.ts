@@ -1,5 +1,5 @@
-import { OperatorFunction } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { filter } from '@komore/reactive/operators';
 
 /**
  * Ignores geolocation position errors

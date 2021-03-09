@@ -1,4 +1,4 @@
-import { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
 import { MetadataBearer } from '@aws-sdk/types';
 import { MessageWithIntegrations } from '@komore/integration';
 import { Message } from '@komore/message';

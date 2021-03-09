@@ -1,6 +1,6 @@
-import { GetAccountSettingsRequest, GetAccountSettingsResponse } from '@aws-sdk/client-lambda';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { mapTo } from 'rxjs/dist/types/operators';
+import type { GetAccountSettingsRequest, GetAccountSettingsResponse } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { mapTo } from '@komore/reactive/operators';
 
 const MAX_INT = Number.MAX_SAFE_INTEGER;
 const accountSettings: GetAccountSettingsResponse = {

@@ -1,4 +1,4 @@
-import { createLogEvent, createLogGroup, LogEventSeverity } from '@komore/observability/logging';
+import { createLogEvent, createLogGroup, LogEventSeverities } from '@komore/observability/logging';
 
 const elementCompilerLogGroup = createLogGroup('komore/element/compiler');
 
@@ -12,6 +12,6 @@ const elementCompilerLogGroup = createLogGroup('komore/element/compiler');
 export const exportedAnynomousFunctionAsElementMethod = createLogEvent(
   elementCompilerLogGroup,
   1,
-  LogEventSeverity.WARNING,
+  LogEventSeverities.WARNING,
   'an exported anonymous function cannot be used as an element method'
 );

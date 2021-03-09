@@ -1,6 +1,6 @@
-import { Value, RawValueType } from './value';
-import { Stack } from './stack';
-import { OperatorFunction } from 'rxjs/internal/types';
+import type { OperatorFunction } from '@komore/reactive';
+import type { Stack } from './stack';
+import type { Value, RawValueType } from './value';
 
 /**
  * Variable reference

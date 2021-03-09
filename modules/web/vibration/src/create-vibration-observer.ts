@@ -1,6 +1,6 @@
-import { Observer } from 'rxjs';
+import type { Observer } from '@komore/reactive';
 import { VibrationObserver } from './vibration-observer';
-import { VibrationObserverOptions } from './vibration-observer-options';
+import type { VibrationObserverOptions } from './vibration-observer-options';
 
 /**
  * Creates a vibration observer
@@ -10,8 +10,10 @@ import { VibrationObserverOptions } from './vibration-observer-options';
 export function createVibrationObserver(
   options?: Partial<VibrationObserverOptions>
 ): Observer<number | ReadonlyArray<number>> {
-  return new VibrationObserver({
+  const observerOptions: VibrationObserverOptions = {
     stopOnComplete: options?.stopOnComplete ?? false,
     stopOnError: options?.stopOnError ?? true
-  });
+  };
+
+  return new VibrationObserver(observerOptions);
 }

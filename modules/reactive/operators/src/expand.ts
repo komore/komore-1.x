@@ -1,0 +1,16 @@
+import type { Observable, OperatorFunction, SchedulerLike } from '@komore/reactive';
+import { expand as rxjsExpand } from 'rxjs/operators';
+
+/**
+ * Recursively projects each source value to an observable that gets merged in the output observable
+ * @param project Projection function
+ * @param concurrent Maximum number of inputs being subscribed to concurrently
+ * @param scheduler Scheduler
+ */
+export function expand<InputType, OutputType>(
+  project: (value: InputType, index: number) => Observable<OutputType>,
+  concurrent?: number,
+  scheduler?: SchedulerLike
+): OperatorFunction<InputType, OutputType> {
+  return rxjsExpand<InputType, OutputType>(project, concurrent, scheduler);
+}

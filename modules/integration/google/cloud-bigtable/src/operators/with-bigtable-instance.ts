@@ -1,5 +1,5 @@
-import { OperatorFunction, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 
 export const withBigtableInstance(instanceName: string) =>
   map((message: MessageWithBigtableClient) => message.bigtableClient.instance(instanceName))

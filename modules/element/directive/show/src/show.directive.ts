@@ -1,5 +1,5 @@
 import { createDirective } from '@komore/element/directive';
-import { combineLatest } from 'rxjs';
+import { combineLatest } from '@komore/reactive';
 
 /**
  * Show directive

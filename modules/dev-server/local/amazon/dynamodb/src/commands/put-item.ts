@@ -1,6 +1,6 @@
-import { PutItemInput, PutItemOutput } from '@aws-sdk/client-dynamodb';
-import { pipe } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import type { PutItemInput, PutItemOutput } from '@aws-sdk/client-dynamodb';
+import { pipe } from '@komore/reactive';
+import { mergeMap } from '@komore/reactive/operators';
 import { assertSupportedRequest } from '../../assert-supported-request';
 import { Command } from '../../command';
 import { dynamoDBTables } from '../dynamodb-tables';

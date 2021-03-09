@@ -1,6 +1,6 @@
+import type { Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive/promise';
 import type { FileHandle } from 'fs/promises';
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
 
 /**
  * Closes a file
@@ -8,5 +8,5 @@ import { defer } from 'rxjs';
  * @returns Observable that emits once the file is closed
  */
 export function closeFile(fileHandle: FileHandle): Observable<void> {
-  return defer(() => fileHandle.close());
+  return deferPromise(() => fileHandle.close());
 }

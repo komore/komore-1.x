@@ -1,4 +1,4 @@
-import {
+import type {
   CreateFunctionRequest,
   FunctionConfiguration,
   LastUpdateStatus,
@@ -7,9 +7,9 @@ import {
   State,
   StateReasonCode
 } from '@aws-sdk/client-lambda';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map, tap } from '@komore/reactive/operators';
 import { lambdaFunctions } from '../lambda-functions';
 import { createFunctionArn } from '../lambda-arn';
 

@@ -1,9 +1,9 @@
-import type { Observable } from 'rxjs';
-import { defer, of } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { defer, of } from '@komore/reactive';
+import { cache } from '@komore/reactive/operators';
 import type { Languages } from './languages';
 
 /**
  * Browser languages
  */
-export const BROWSER_LANGUAGES: Observable<Languages> = defer(() => of(navigator.languages)).pipe(shareReplay());
+export const BROWSER_LANGUAGES: Observable<Languages> = defer(() => of(navigator.languages)).pipe(cache());

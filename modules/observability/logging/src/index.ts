@@ -17,4 +17,6 @@ export { props } from './props';
 export { recordLogEvent } from './record-log-event';
 export type { SeverityFilterOptions } from './filter/severity-filter-options';
 export type { TimestampSeverityLayoutOptions } from './layout/timestamp-severity-layout-options';
+export type { UntypedLogEvent } from './log-event';
+export type { UntypedLogEventCreator } from './log-event-creator';
 export type { UntypedLogEventRecord } from './log-event-record';

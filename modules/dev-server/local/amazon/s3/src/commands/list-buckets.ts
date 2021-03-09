@@ -1,7 +1,7 @@
-import { ListBucketsOutput } from '@aws-sdk/client-s3';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import type { ListBucketsOutput } from '@aws-sdk/client-s3';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map, mergeMap } from '@komore/reactive/operators';
 import { getBuckets } from '../s3-buckets';
 
 /**

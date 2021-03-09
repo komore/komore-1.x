@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 import { createProcessor } from '../create-processor';
 import { scriptProcessorFactories } from './script-processor-factories';
 import type { ScriptProcessorInput } from './script-processor-input';

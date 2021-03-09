@@ -1,6 +1,6 @@
-import { createDirective } from '@komore/element';
-import { of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { createDirective } from '@komore/element/directive';
+import { of } from '@komore/reactive';
+import { switchMap } from '@komore/reactive/operators';
 import type { OverlayOptions } from './overlay-options';
 
 /**

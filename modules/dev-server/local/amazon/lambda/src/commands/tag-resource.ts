@@ -1,7 +1,8 @@
-import { TagResourceRequest } from '@aws-sdk/client-lambda';
-import { Command, ResourceNotFoundException, throwIfMissingProperties } from '@komore/dev-server-local-amazon/service';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { TagResourceRequest } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { ResourceNotFoundException, throwIfMissingProperties } from '@komore/dev-server-local-amazon/service';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import { getLambdaFunction } from '../lambda-functions';
 
 type TempTagResourceRequest = Omit<TagResourceRequest, 'Resource'> & { ARN: string };
@@ -17,6 +18,8 @@ export const tagResource: Command<TempTagResourceRequest, void> = pipe(
     if (lambdaFunction === undefined) {
       throw new ResourceNotFoundException(`Lambda function ${ARN}`);
     }
+
+    // TODO: call common tag service
 
     for (const [tagKey, tagValue] of Object.entries(Tags)) {
       lambdaFunction.tags.set(tagKey, tagValue);

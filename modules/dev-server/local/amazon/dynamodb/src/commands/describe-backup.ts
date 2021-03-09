@@ -1,6 +1,6 @@
-import { DescribeBackupInput, DescribeBackupOutput } from '@aws-sdk/client-dynamodb';
-import { Command } from '@komore/dev-server-local-amazon/service';
-import { map, mergeMap } from 'rxjs/operators';
+import type { DescribeBackupInput, DescribeBackupOutput } from '@aws-sdk/client-dynamodb';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { map, mergeMap } from '@komore/reactive/operators';
 import { getDynamoDBBackup } from '../dynamodb-backups';
 
 type TempDescribeBackupInput = DescribeBackupInput & { BackupArn: string };

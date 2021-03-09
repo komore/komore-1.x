@@ -1,4 +1,4 @@
-import type { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 import type { ParameterizedDirectiveObservables } from './parameterized-directive-observables';
 
 /**

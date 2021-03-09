@@ -15,7 +15,7 @@ import { recordLogEvent } from '../record-log-event';
  * @template LogPropertiesSchema Log properties schema
  * @template LogType Log type
  */
-export function log<
+export function recordLogEvent<
   MessageType extends Message<any, any, any, any>,
   LogGroupName extends string,
   LogId extends number,
@@ -33,7 +33,7 @@ export function log<
  * @template LogEventPropertiesSchema Log properties schema
  * @template LogEventType Log type
  */
-export function log<
+export function recordLogEvent<
   MessageType extends Message<any, any, any, any>,
   LogGroupName extends string,
   LogEventId extends number,
@@ -44,7 +44,7 @@ export function log<
   projectProperties: (message: MessageType) => LogEventPropertiesSchemaType<LogEventPropertiesSchema>
 ): MonoTypeOperatorFunction<MessageType>;
 
-export function log<
+export function recordLogEvent<
   MessageType extends Message<any, any, any, any>,
   LogGroupName extends string,
   LogEventId extends number,

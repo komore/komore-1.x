@@ -1,4 +1,4 @@
-import { LambdaFunction } from './lambda-function';
+import type { LambdaFunction } from './lambda-function';
 
 /**
  * Lambda function map

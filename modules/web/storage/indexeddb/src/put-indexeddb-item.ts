@@ -1,6 +1,6 @@
-import type { Observable } from 'rxjs';
-import { of } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
+import { map, mergeMap } from '@komore/reactive/operators';
 import { fromIDBRequest } from './from-idb-request';
 import type { IDBKey } from './idb-key';
 

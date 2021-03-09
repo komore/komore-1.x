@@ -1,4 +1,4 @@
-import { of } from 'rxjs';
+import { of } from '@komore/reactive';
 import { callLayerFunction } from './call-layer-function';
 
 describe('Call layer function', () => {

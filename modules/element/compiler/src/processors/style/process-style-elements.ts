@@ -1,17 +1,17 @@
-import type { Observable } from 'rxjs';
-import { forkJoin, of } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { forkJoin } from '@komore/reactive';
+import { defaultIfEmpty } from '@komore/reactive/operators';
 import { processStyleElement } from './process-style-element';
+import type { ProcessedStyleSheet } from './processed-style-sheet';
 
 /**
  * Processes style elements
  * @param styleElements HTML style elements
- * @returns TODO
+ * @returns List of processed style sheets
  */
-export function processStyleElements(styleElements: ReadonlyArray<HTMLStyleElement>): Observable<unknown> {
+export function processStyleElements(
+  styleElements: ReadonlyArray<HTMLStyleElement>
+): Observable<ReadonlyArray<ProcessedStyleSheet>> {
   const jobs = styleElements.map(processStyleElement);
-  // TODO: remove after rxjs 7 merge
-  if (jobs.length === 0) {
-    return of([]);
-  }
-  return forkJoin(jobs);
+  return forkJoin(jobs).pipe(defaultIfEmpty([]));
 }

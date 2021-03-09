@@ -1,15 +1,15 @@
 /**
  * Vibration observer options
  */
-export type VibrationObserverOptions = Readonly<{
+export interface VibrationObserverOptions {
   /**
    * Stop vibrating when the stream completes
    * @note Defaults to false
    */
-  stopOnComplete: boolean;
+  readonly stopOnComplete: boolean;
   /**
    * Stop vibrating when the stream errors
    * @note Defaults to true
    */
-  stopOnError: boolean;
-}>;
+  readonly stopOnError: boolean;
+}

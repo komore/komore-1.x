@@ -1,4 +1,4 @@
-import { isObservable, Observable, of } from 'rxjs';
+import { isObservable, Observable, of } from '@komore/reactive';
 
 type SpeechType = string | SpeechSynthesisUtterance;
 

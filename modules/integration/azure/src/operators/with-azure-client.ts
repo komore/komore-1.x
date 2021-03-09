@@ -1,7 +1,7 @@
 import { mapMetadata } from '@komore/message';
+import { pipe } from '@komore/reactive';
 import { withAzureMetadata } from './with-azure-metadata';
 import { hasAzureMetadata } from '../graph/has-azure-metadata';
-import { pipe } from 'rxjs';
 
 /**
  * Operator function that adds an Azure client to an emitted message

@@ -1,4 +1,5 @@
-import { of } from 'rxjs';
+import { of } from '@komore/reactive';
+import type { ProcessedStyleSheet } from '../processed-style-sheet';
 import type { StyleProcessor } from '../style-processor';
 
 /**
@@ -9,8 +10,12 @@ import type { StyleProcessor } from '../style-processor';
 export function createCssProcessor(_: unknown): StyleProcessor {
   return content => {
     console.log('weee css', content);
-    const x = new CSSStyleSheet();
-    x.sou
-    return of(undefined);
+    const cssStyleSheet = new CSSStyleSheet();
+    const processedStyleSheet: ProcessedStyleSheet = {
+      properties: [],
+      referencedProperties: new Set(),
+      cssStyleSheet
+    };
+    return of(processedStyleSheet);
   };
 }

@@ -1,14 +1,15 @@
-import { lastValueFrom, of } from 'rxjs';
+import { of } from '@komore/reactive';
+import { lastValueFrom } from '@komore/reactive/promise';
 import type { ScriptProcessorInput } from '../script-processor-input';
 import { createTypeScriptProcessor } from './create-typescript-processor';
 
 describe('Create a TypeScript processor', () => {
   it.skip('todo', async () => {
-    given: 'a TypeScript processor input'
+    given: 'a TypeScript processor input';
     const scriptProcessorInput: ScriptProcessorInput = {
       sourceFileName: 'test.ts',
       sourceContent: `
-        import { combineLatest } from 'rxjs';
+        import { combineLatest } from '@komore/reactive';
 
         export const testProperty = new BehaviorSubject<string>('test');
         export const testReadonlyProperty = testProperty.asObservable();
@@ -29,23 +30,23 @@ describe('Create a TypeScript processor', () => {
       `
     };
     const scriptProcessorInput$ = of(scriptProcessorInput);
-    and: 'a TypeScript processor'
+    and: 'a TypeScript processor';
     const typeScriptProcessor = createTypeScriptProcessor({
       processEvents: true,
       processMethods: true,
       processProperties: true
     });
-    when: 'processing the source'
+    when: 'processing the source';
     const processedSource$ = typeScriptProcessor(scriptProcessorInput$);
     const processedSource = await lastValueFrom(processedSource$);
-    expect: 'the source to be correctly generated'
+    expect: 'the source to be correctly generated';
     const { methodDefinitions, propertyDefinitions, sourceFile } = processedSource;
     expect(sourceFile).toBeSource(`
       wee
     `);
-    and: 'element properties to have been detected'
+    and: 'element properties to have been detected';
     expect(propertyDefinitions.length).toBe(2);
-    and: 'element methods to have been detected'
+    and: 'element methods to have been detected';
     expect(methodDefinitions.length).toBe(1);
   });
 });

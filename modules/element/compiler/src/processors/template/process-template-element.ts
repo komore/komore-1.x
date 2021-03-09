@@ -1,4 +1,4 @@
-import type { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 import { createProcessor } from '../create-processor';
 import { templateProcessorFactories } from './template-processor-factories';
 

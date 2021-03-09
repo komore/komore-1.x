@@ -1,4 +1,4 @@
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError } from '@komore/reactive';
 
 /**
  * Observes node mutations

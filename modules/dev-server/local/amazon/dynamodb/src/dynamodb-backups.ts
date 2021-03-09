@@ -1,5 +1,6 @@
-import { BackupDescription } from '@aws-sdk/client-dynamodb';
-import { Observable, of, throwError } from 'rxjs';
+import type { BackupDescription } from '@aws-sdk/client-dynamodb';
+import type { Observable } from '@komore/reactive';
+import { of, throwError } from '@komore/reactive';
 
 const dynamoDBBackups = new Map<string, BackupDescription>();
 

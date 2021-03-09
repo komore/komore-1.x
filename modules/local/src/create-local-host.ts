@@ -1,6 +1,7 @@
 import type { Host, HostLifecycleEvent, HostState } from '@komore/host';
-import { fromEvent, Subject, Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { fromEvent, Subject, Subscription } from '@komore/reactive';
+import { tapValue } from '@komore/reactive/operators';
+import type { LocalHostOptions } from './local-host-options';
 
 /**
  * Creates a local host
@@ -8,16 +9,17 @@ import { tap } from 'rxjs/operators';
  * @returns Local host
  */
 export function createLocalHost(localHostOptions?: LocalHostOptions): Host {
+  const exitTimeout = localHostOptions?.exitTimeout ?? 0;
   const events = new Subject<HostLifecycleEvent>();
   const state = new Subject<HostState>();
   const subscription = new Subscription();
 
   const beforeExitSubscription = fromEvent<number>(process, 'beforeExit').pipe(
-    tap(() => state.next('stopping')),
+    tapValue(() => state.next('stopping')),
   ).subscribe();
 
   const exitSubscription = fromEvent<number>(process, 'exit').pipe(
-    tap(() => state.next('stopped'))
+    tapValue(() => state.next('stopped'))
   ).subscribe();
 
   subscription.add(beforeExitSubscription);

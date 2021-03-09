@@ -1,6 +1,6 @@
 import { HttpError, HttpStatuses } from '@komore/api/http';
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 
 /**
  * Asserts that a request does not feature unsupported properties
@@ -8,7 +8,10 @@ import { map } from 'rxjs/operators';
  * @template RequestType Request type
  * @template RequestFields Request fields
  */
-export const filterUnsupportedProperties = <RequestType extends object, RequestFields extends (keyof RequestType)[]>(
+export const filterUnsupportedProperties = <
+  RequestType extends Record<string, unknown>,
+  RequestFields extends (keyof RequestType)[]
+>(
   ...requestFields: RequestFields
 ): OperatorFunction<RequestType, Omit<RequestType, RequestFields[number]>> =>
   map(request => {

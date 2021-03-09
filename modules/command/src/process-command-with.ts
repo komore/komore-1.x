@@ -1,6 +1,7 @@
-import { Observable, pipe, UnaryFunction } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
-import { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
+import type { OperatorFunction } from '@komore/reactive';
+import { pipe } from '@komore/reactive';
+import { map, mergeMap } from '@komore/reactive/operators';
+import type { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
 
 /**
  * Processes a command with a command processor
@@ -11,12 +12,12 @@ import { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageT
  * @template C Context type
  */
 export function processCommandWith<
-  CP extends CommandProcessor<any, any>[],
+  CP extends CommandProcessor<unknown, unknown>[],
   M extends CommandProcessorMessageType<CP>,
   C extends Readonly<{ message: M }>
 >(
   commandProcessor: CP[number]
-): UnaryFunction<Observable<C>, Observable<C & Readonly<{ command: CommandProcessorCommandType<CP> }>>> {
+): OperatorFunction<C, C & Readonly<{ command: CommandProcessorCommandType<CP> }>> {
   return pipe(
     mergeMap(context => commandProcessor(context.message).pipe(
       map(command => ({

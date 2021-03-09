@@ -1,9 +1,9 @@
-import { Observable, Subject } from "rxjs";
+import { MonoTypeOperatorFunction, pipe } from "rxjs";
+import { catchError } from "rxjs/operators";
 
-
-export function validate<T>(value: T, ): Observable<T> {
-
-  return
+export function validate<T, Operators extends MonoTypeOperatorFunction<T>[]>(operators: [...Operators]): MonoTypeOperatorFunction<T> {
+  return pipe(
+    catchError(error => )
+  );
 }
-
-const validator = createValidator(pipe content)
+export function validateField

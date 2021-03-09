@@ -1,8 +1,8 @@
 import { parseSource } from '@komore/element/parser';
+import type { Observable } from '@komore/reactive';
+import { defer, EMPTY, of } from '@komore/reactive';
+import { map, switchMap } from '@komore/reactive/operators';
 import { JSDOM } from 'jsdom';
-import type { Observable } from 'rxjs';
-import { defer, EMPTY, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
 import type { NodeFactory } from 'typescript';
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
 import { generateScript } from './generate-script';

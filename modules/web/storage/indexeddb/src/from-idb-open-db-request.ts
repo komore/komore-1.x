@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs';
+import { Observable } from '@komore/reactive';
 
 /**
- * Builds an observable from an IndexedDB open database request
+ * Creates an observable from an IndexedDB open database request
  * @param idbOpenRequest IndexedDB open database request
  * @returns Observable IndexedDB open database request
  */

@@ -1,5 +1,5 @@
-import type { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map } from './map';
 
 type DeserializeJsonParameters = Parameters<typeof JSON.parse> extends [infer _, ...(infer Parameters)]
   ? Parameters

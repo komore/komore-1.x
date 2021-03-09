@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import { forkJoin } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { forkJoin } from '@komore/reactive';
 import type { StyleProcessor } from './processors/style/style-processor';
 import { createCssProcessor } from './processors/style/css/create-css-processor';
 import { createScssProcessor } from './processors/style/scss/create-scss-processor';

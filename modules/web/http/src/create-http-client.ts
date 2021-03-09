@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { HttpClient } from './http-client';
+import { Observable } from '@komore/reactive';
+import type { HttpClient } from './http-client';
 
 /**
  * Creates an HTTP client

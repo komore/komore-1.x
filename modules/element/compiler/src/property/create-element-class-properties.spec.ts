@@ -3,7 +3,7 @@ import type { ElementPropertyDefinition } from '../definition/element-property-d
 import { createElementClassProperties } from './create-element-class-properties';
 
 describe('Create element class properties', () => {
-  it('works', () => {
+  it('can create a list of accessor declarations for an element class', () => {
     given: 'element property definitions';
     const propertyDefinitions: ReadonlyArray<ElementPropertyDefinition> = [
       {

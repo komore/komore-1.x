@@ -3,7 +3,7 @@ import { compileSource } from './compile-source';
 
 const fileContent = `
 <script class="MyHtmlElement">
-  import { BehaviorSubject } from 'rxjs';
+  import { BehaviorSubject } from '@komore/reactive';
   import type { x } from '@komore/y';
   import from '@komore/some-other-thing';
   export let foo: string; // element property

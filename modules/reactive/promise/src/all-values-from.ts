@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { toArray } from '@komore/reactive/operators';
+import { toArray } from 'rxjs/operators';
 import { lastValueFrom } from './last-value-from';
 
 /**

@@ -1,7 +1,7 @@
 import type { LogEvent, LogGroup } from '@komore/observability/logging';
 import { recordLogEvent } from '@komore/observability/logging';
-import type { MonoTypeOperatorFunction } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { tapValueIf } from '@komore/reactive/operators';
 
 /**
  * Records a log event when a condition is met
@@ -69,12 +69,8 @@ export function recordLogEventIf<
   predicate: (value: T) => boolean,
   logEventOrProject: LogEventType | ((value: T) => LogEventType)
 ): MonoTypeOperatorFunction<T> {
-  return tap({
-    next(value: T) {
-      if (predicate(value)) {
-        const logEvent = typeof logEventOrProject === 'function' ? logEventOrProject(value) : logEventOrProject;
-        recordLogEvent(logEvent);
-      }
-    }
+  return tapValueIf(predicate, value => {
+    const logEvent = typeof logEventOrProject === 'function' ? logEventOrProject(value) : logEventOrProject;
+    recordLogEvent(logEvent);
   });
 }

@@ -1,6 +1,6 @@
+import { Observable } from '@komore/reactive';
 import type { PathLike } from 'fs';
 import { watch } from 'fs';
-import { Observable } from 'rxjs';
 
 /**
  * Observes a file

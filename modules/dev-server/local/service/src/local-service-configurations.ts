@@ -1,6 +1,7 @@
-import { BehaviorSubject, Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
-import { LocalServiceConfigurationProcessor } from './local-service-configuration-processor';
+import type { Observable } from '@komore/reactive';
+import { BehaviorSubject } from '@komore/reactive';
+import { shareReplay } from '@komore/reactive/operators';
+import type { LocalServiceConfigurationProcessor } from './local-service-configuration-processor';
 
 /**
  * Local service configuration processors
@@ -10,10 +11,10 @@ const localServiceConfigurationProcessors = new Map<string, unknown>();
 /**
  * Local service configurations
  */
-type LocalServiceConfigurationSubject<T> = Readonly<{
-  subject: BehaviorSubject<T | undefined>;
-  observable: Observable<T | undefined>;
-}>;
+interface LocalServiceConfigurationSubject<T> {
+  readonly subject: BehaviorSubject<T | undefined>;
+  readonly observable: Observable<T | undefined>;
+}
 
 const localServiceConfigurationSubjects = new Map<string, LocalServiceConfigurationSubject<unknown>>();
 

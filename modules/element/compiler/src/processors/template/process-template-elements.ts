@@ -1,5 +1,6 @@
-import type { Observable } from 'rxjs';
-import { forkJoin, of } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { forkJoin } from '@komore/reactive';
+import { defaultIfEmpty } from '@komore/reactive/operators';
 import { processTemplateElement } from './process-template-element';
 
 /**
@@ -9,9 +10,7 @@ import { processTemplateElement } from './process-template-element';
  */
 export function processTemplateElements(htmlElements: ReadonlyArray<HTMLElement>): Observable<unknown> {
   const jobs = htmlElements.map(processTemplateElement);
-  // TODO: remove after rxjs 7 merge
-  if (jobs.length === 0) {
-    return of([]);
-  }
-  return forkJoin(jobs);
+  return forkJoin(jobs).pipe(
+    defaultIfEmpty([])
+  );
 }

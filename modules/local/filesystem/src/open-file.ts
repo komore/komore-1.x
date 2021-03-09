@@ -1,8 +1,8 @@
+import type { Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive/promise';
 import type { PathLike } from 'fs';
 import type { FileHandle } from 'fs/promises';
 import { open } from 'fs/promises';
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
 
 /**
  * Opens a file
@@ -13,5 +13,5 @@ import { defer } from 'rxjs';
  * @link https://nodejs.org/api/fs.html#fs_file_system_flags
  */
 export function openFile(path: PathLike, flags: string, mode?: number): Observable<FileHandle> {
-  return defer(() => open(path, flags, mode));
+  return deferPromise(() => open(path, flags, mode));
 }

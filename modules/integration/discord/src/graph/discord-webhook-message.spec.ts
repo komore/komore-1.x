@@ -1,9 +1,9 @@
 import { mapIntegrations } from '@komore/integration';
 import { createMessage, to } from '@komore/message';
-import * as Discord from 'discord.js';
+import { of } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
+import type * as Discord from 'discord.js';
 import { mock } from 'jest-mock-extended';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { discordWebhookMessage } from './discord-webhook-message';
 
 describe('Discord webhook message flow', () => {

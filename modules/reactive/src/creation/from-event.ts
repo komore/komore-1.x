@@ -29,6 +29,11 @@ export function fromEvent<EventType extends Event = Event>(
   eventName: string
 ): Observable<EventType>;
 
-export function fromEvent(eventTarget: UntypedEventTarget, eventName: string): Observable<Event> {
-  return rxjsFromEvent(eventTarget, eventName);
+export function fromEvent<EventType>(eventEmitter: NodeJS.EventEmitter, eventName: string): Observable<EventType>;
+
+export function fromEvent(
+  eventTargetOrEmitter: UntypedEventTarget | NodeJS.EventEmitter,
+  eventName: string
+): Observable<Event> {
+  return rxjsFromEvent(eventTargetOrEmitter, eventName);
 }

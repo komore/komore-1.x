@@ -1,5 +1,6 @@
-import { fromEvent, Observable } from 'rxjs';
-import { filter, share } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { fromEvent } from '@komore/reactive';
+import { filter, share } from '@komore/reactive/operators';
 
 /**
  * Shared storage event source

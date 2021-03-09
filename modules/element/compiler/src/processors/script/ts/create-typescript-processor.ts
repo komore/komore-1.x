@@ -1,6 +1,6 @@
-import type { OperatorFunction } from 'rxjs';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { pipe } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import type { Printer, SourceFile, TransformerFactory } from 'typescript';
 import { createPrinter, createSourceFile, NewLineKind, ScriptKind, ScriptTarget, transform } from 'typescript';
 import type { ElementEventDefinition } from '../../../definition/element-event-definition';

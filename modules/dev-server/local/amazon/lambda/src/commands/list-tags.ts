@@ -1,6 +1,7 @@
-import { ListTagsRequest, ListTagsResponse } from '@aws-sdk/client-lambda';
-import { Command, ResourceNotFoundException } from '@komore/dev-server-local-amazon/service';
-import { map } from 'rxjs/operators';
+import type { ListTagsRequest, ListTagsResponse } from '@aws-sdk/client-lambda';
+import type { Command } from '@komore/dev-server-local-amazon/service';
+import { ResourceNotFoundException } from '@komore/dev-server-local-amazon/service';
+import { map } from '@komore/reactive/operators';
 import { getLambdaFunction } from '../lambda-functions';
 
 type TempListTagsRequest = Omit<ListTagsRequest, 'Resource'> & { ARN: string };
