@@ -5,23 +5,25 @@ on:
   - pull_request
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Cache pnpm modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-pnpm-modules
-      with:
-        path: ~/.pnpm-store
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
-        restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
-    - name: Setup pnpm
-      uses: pnpm@action-setup@v1.2.1
-      with:
-        version: 5.18.9
-        run_install: |
-          - args: [--frozen-lockfile, --strict-peer-dependencies]
-    - name: Lint (workspace)
-      run: pnpm lint:workspace
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+         restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+      - name: Setup pnpm
+        uses: pnpm@action-setup@v1.2.1
+        with:
+          version: 5.18.9
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+      - name: Lint (workspace)
+        run: pnpm lint:workspace
