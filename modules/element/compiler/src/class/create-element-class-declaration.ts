@@ -20,24 +20,20 @@ import { createElementClassConstructor } from './create-element-class-constructo
  * @param elementDefinition Element definition
  * @param templateElement Template element variable identifier
  * @param styleSheets Style sheets variable identifier
- * @returns Class declaration node
+ * @returns Class declaration and name identifier
  */
 export function createElementClassDeclaration(
   factory: NodeFactory,
   elementDefinition: ElementDefinition,
   templateElement: Identifier | undefined,
   styleSheets: Identifier | undefined
-): ClassDeclaration {
+): [ClassDeclaration, Identifier] {
   const { baseClassName, className, attributeDefinitions } = elementDefinition;
-  return factory.createClassDeclaration(
-    undefined,
-    undefined,
-    factory.createIdentifier(className),
-    undefined,
-    [createExtendsType(factory, baseClassName)],
-    [
-      createElementObservedAttributesGetAccessor(factory, attributeDefinitions ?? []),
-      createElementClassConstructor(factory, templateElement, styleSheets)
-    ]
-  );
+  const [getAccessor] = createElementObservedAttributesGetAccessor(factory, attributeDefinitions ?? []);
+  const classConstructor = createElementClassConstructor(factory, templateElement, styleSheets);
+  const nameId = factory.createIdentifier(className);
+  const heritageClauses = [createExtendsType(factory, baseClassName)];
+  const members = [getAccessor, classConstructor];
+  const declaration = factory.createClassDeclaration(undefined, undefined, nameId, undefined, heritageClauses, members);
+  return [declaration, nameId];
 }

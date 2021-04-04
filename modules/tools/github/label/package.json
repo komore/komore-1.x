@@ -1,0 +1,10 @@
+{
+  "name": "@komore/github-deploy-action",
+  "description": "Deploys a komore stack using Terraform",
+  "keywords": [
+    "komore",
+    "github",
+    "actions",
+    "deploy"
+  ]
+}

@@ -3,11 +3,11 @@ import { createDocumentCreateElementCall } from './create-document-create-elemen
 
 describe('Create document create element call', () => {
   it('creates a correct document.createElement() call expression', () => {
-    // given: a tag name
+    given: 'a tag name';
     const tagName = 'p';
-    // when: creating a document.createElement call
+    when: 'creating a document.createElement call';
     const callExpression = createDocumentCreateElementCall(factory, tagName);
-    // then: the correct call expression is created
+    expect: 'the correct call expression to have been created';
     expect(callExpression).toBeInlineSource('document.createElement("p")');
   });
 });

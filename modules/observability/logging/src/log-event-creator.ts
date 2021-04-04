@@ -62,6 +62,17 @@ export type LogEventCreator<
   LogEventId extends number,
   LogEventMessage extends string,
   LogEventPropertiesSchema extends Record<string, unknown> | undefined = undefined
-> = LogEventCreatorFunctionType<LogGroupType, LogEventId, LogEventMessage, LogEventPropertiesSchema> & Readonly<{
-  type: `${LogGroupName<LogGroupType>}.${LogEventId}`;
-}>;
+> = LogEventCreatorFunctionType<LogGroupType, LogEventId, LogEventMessage, LogEventPropertiesSchema> &
+  Readonly<{
+    type: `${LogGroupName<LogGroupType>}.${LogEventId}`;
+  }>;
+
+/**
+ * Untyped log event creator
+ */
+export type UntypedLogEventCreator = LogEventCreator<
+  LogGroup<string>,
+  number,
+  string,
+  Record<string, unknown> | undefined
+>;

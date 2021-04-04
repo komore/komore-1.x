@@ -1,4 +1,4 @@
-import type { GetAccessorDeclaration, NodeFactory } from 'typescript';
+import type { GetAccessorDeclaration, Identifier, NodeFactory } from 'typescript';
 import { SyntaxKind } from 'typescript';
 import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
 
@@ -20,18 +20,14 @@ import type { ElementAttributeDefinition } from '../definition/element-attribute
 export function createElementObservedAttributesGetAccessor(
   factory: NodeFactory,
   elementAttributes: ReadonlyArray<ElementAttributeDefinition>
-): GetAccessorDeclaration {
+): [GetAccessorDeclaration, Identifier] {
   const constType = factory.createTypeReferenceNode('const');
   const attributeNames = elementAttributes.map(({ attributeName }) => factory.createStringLiteral(attributeName));
   const attributeNameArray = factory.createArrayLiteralExpression(attributeNames, true);
   const attributeNameConstArray = factory.createAsExpression(attributeNameArray, constType);
   const block = factory.createBlock([factory.createReturnStatement(attributeNameConstArray)], true);
-  return factory.createGetAccessorDeclaration(
-    undefined,
-    [factory.createModifier(SyntaxKind.StaticKeyword)],
-    'observedAttributes',
-    [],
-    undefined,
-    block
-  );
+  const nameId = factory.createIdentifier('observedAttributes');
+  const modifiers = [factory.createModifier(SyntaxKind.StaticKeyword)];
+  const declaration = factory.createGetAccessorDeclaration(undefined, modifiers, nameId, [], undefined, block);
+  return [declaration, nameId];
 }

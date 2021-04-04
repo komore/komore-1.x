@@ -26,7 +26,7 @@ describe('Is element property attribute bound', () => {
       isReadOnly: false,
       boundAttributeName: 'test-attribute'
     };
-    expect: 'false to be returned';
+    expect: 'true to be returned';
     expect(isElementPropertyAttributeBound(propertyDefinition)).toBe(true);
     if (isElementPropertyAttributeBound(propertyDefinition)) {
       expectTypeOf(propertyDefinition).toEqualTypeOf<ElementPropertyAttributeBoundDefinition>();

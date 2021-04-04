@@ -36,7 +36,7 @@ describe('Create element attribute subjects', () => {
       attributeMap,
       attributeDefinitions
     );
-    expect: 'a private property declaring each attribute subject with the correct type';
+    expect: 'a private property declaring each attribute subject with the correct type to be declared';
     expect(propertyDeclaration).toBeSource(`
       private readonly _ka: ElementAttributeSubjectMap<TestElementAttributeMap> = {
         "test-attr-1": _cEAS<string>(),

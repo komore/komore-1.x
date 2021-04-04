@@ -8,8 +8,7 @@ import type { HttpClient } from './http-client';
  */
 export function createHttpClient(options?: Omit<RequestInit, 'signal'>): HttpClient {
   return <T>(
-    input: string | URL | Request,
-    responseType?: 'blob' | 'json' | 'response' | 'text'
+    input: string | URL | Request
   ): Observable<Response | string | Blob | T> =>
     new Observable<Response | string | Blob | T>(observer => {
       const request = input instanceof URL ? input.href : input;
@@ -29,19 +28,8 @@ export function createHttpClient(options?: Omit<RequestInit, 'signal'>): HttpCli
       fetch(request, requestInit)
         .then(response => {
           emitted = true;
-
-          if (responseType === undefined || responseType === 'response') {
-            observer.next(response);
-            observer.complete();
-          } else {
-            const result =
-              responseType === 'json'
-                ? response.json().then(json => observer.next(json))
-                : responseType === 'text'
-                ? response.text().then(text => observer.next(text))
-                : response.blob().then(blob => observer.next(blob));
-            result.then(() => observer.complete());
-          }
+          observer.next(response);
+          observer.complete();
         })
         .catch(errorHandler);
 

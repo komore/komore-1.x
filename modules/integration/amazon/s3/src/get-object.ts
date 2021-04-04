@@ -9,5 +9,6 @@ import { sendCommand } from '@komore/integration-amazon';
  * @returns Object
  * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject}
  */
-export const getObject = (s3Client: S3Client, commandInput: GetObjectCommandInput) =>
-  sendCommand(s3Client, new GetObjectCommand(commandInput));
+export function getObject(s3Client: S3Client, commandInput: GetObjectCommandInput) {
+  return sendCommand(s3Client, new GetObjectCommand(commandInput));
+}

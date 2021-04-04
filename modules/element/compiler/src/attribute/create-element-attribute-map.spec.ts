@@ -28,7 +28,7 @@ describe('Create element attribute map', () => {
       elementClassName,
       attributeDefinitions
     );
-    then: 'an interface prefixed with the element class name and holding all attributes and their mapping is created';
+    expect: 'an interface prefixed with the element class name and holding all attributes and their mapping is created';
     expect(interfaceDeclaration).toBeSource(`
       interface ${elementClassName}AttributeMap {
         "test-attribute-1": string;

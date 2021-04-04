@@ -9,7 +9,8 @@ import { sendCommand } from '@komore/integration-amazon';
  * @returns Command output
  * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html DeleteObjects}
  */
-export const deleteObjects = (s3Client: S3Client, commandInput: DeleteObjectsCommandInput) =>
-  sendCommand(s3Client, new DeleteObjectsCommand(commandInput));
+export function deleteObjects(s3Client: S3Client, commandInput: DeleteObjectsCommandInput) {
+  return sendCommand(s3Client, new DeleteObjectsCommand(commandInput));
+}
 
 // TODO: support > 1000 objects

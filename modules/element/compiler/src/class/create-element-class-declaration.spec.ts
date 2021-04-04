@@ -4,15 +4,28 @@ import { createElementClassDeclaration } from './create-element-class-declaratio
 
 describe('Create element class declaration', () => {
   it('works', () => {
-    // given: an element definition
+    given: 'an element definition';
+    const baseClassName = 'HTMLElement';
+    const className = 'TestElement';
+    const tagName = 'test-element';
     const elementDefinition: ElementDefinition = {
-      baseClassName: 'HTMLElement',
-      className: 'TestElement',
-      tagName: 'test-element'
+      baseClassName,
+      className,
+      tagName
     };
-    // when:
-    createElementClassDeclaration(factory, elementDefinition, undefined, undefined);
-    // then:
-    // TODO
+    when: 'creating an element class declaration';
+    const [declaration, identifier] = createElementClassDeclaration(factory, elementDefinition, undefined, undefined);
+    expect: 'a correct class declaration to have been declared';
+    expect(declaration).toBeSource(`
+      class ${className} extends ${baseClassName} {
+        static get observedAttributes() {
+          return [] as const;
+        }
+        constructor() {
+          super();
+        }
+      }
+    `);
+    expect(identifier.text).toBe(elementDefinition.className);
   });
 });

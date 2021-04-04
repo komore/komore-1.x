@@ -6,7 +6,7 @@ describe('Build element attribute definitions', () => {
   it('supports empty lists', () => {
     given: 'an empty list of parsed attributes';
     const parsedAttributes: ReadonlyArray<ParsedElementAttribute> = [];
-    when: "building an element's attribute definitions";
+    when: 'building an element attribute definitions';
     const attributeDefinitions = buildElementAttributeDefinitions(factory, parsedAttributes);
     expect: 'an empty list of attribute definitions to be returned';
     expect(attributeDefinitions.length).toBe(0);
@@ -21,9 +21,9 @@ describe('Build element attribute definitions', () => {
         optional: false
       }
     ];
-    when: "building an element's attribute definitions";
+    when: 'building an element attribute definitions';
     const attributeDefinitions = buildElementAttributeDefinitions(factory, parsedAttributes);
-    expect: 'a correctly list of built attribute definitions to be returned';
+    expect: 'a list of built attribute definitions to be returned';
     expect(attributeDefinitions.length).toBe(1);
     const attributeDefinition = attributeDefinitions[0];
     expect(attributeDefinition.attributeName).toBe('test-attribute');

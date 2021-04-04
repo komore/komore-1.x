@@ -1,6 +1,7 @@
 export { assertThat } from './assert-that';
 export { cache } from './cache';
 export { catchError } from './catch-error';
+export { catchErrorIf } from './catch-error-if';
 export { concatMap } from './concat-map';
 export { delayUntil } from './delay-until';
 export { defaultIfEmpty } from './default-if-empty';

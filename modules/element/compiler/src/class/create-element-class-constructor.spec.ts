@@ -3,12 +3,12 @@ import { createElementClassConstructor } from './create-element-class-constructo
 
 describe('Create element class constructor', () => {
   it('creates an element class constructor', () => {
-    given: 'a template element and style sheets identifiers'
+    given: 'a template element and style sheets identifiers';
     const templateElement = factory.createIdentifier('templateElement');
     const styleSheets = factory.createIdentifier('styleSheets');
-    when: 'creating an element class constructor'
+    when: 'creating an element class constructor';
     const constructorDeclaration = createElementClassConstructor(factory, templateElement, styleSheets);
-    then: 'the correct constructor declaration is created'
+    expect: 'a correct constructor declaration to have been created';
     expect(constructorDeclaration).toBeSource(`
       constructor() {
         super();
@@ -21,11 +21,11 @@ describe('Create element class constructor', () => {
   });
 
   it('does not include style sheet adoption when no style sheets are defined', () => {
-    given: 'a template element identifier'
+    given: 'a template element identifier';
     const templateElement = factory.createIdentifier('templateElement');
-    when: 'creating an element class constructor'
+    when: 'creating an element class constructor';
     const constructorDeclaration = createElementClassConstructor(factory, templateElement, undefined);
-    then: 'the correct construction declaration is created, without a style sheet adoption statement'
+    expect: 'a construction declaration without a style sheet adoption statement to have been created';
     expect(constructorDeclaration).toBeSource(`
       constructor() {
         super();

@@ -5,6 +5,10 @@
     "module": "commonjs",
     "types": ["jest", "node"]
   },
-  "include": ["**/*.spec.ts"],
+  "include": [
+    "**/*.spec.ts",
+    "../../typescript/compiler/testing/typings/helpers.d.ts",
+    "../../typescript/compiler/testing/typings/matchers.d.ts"
+  ],
   "files": []
 }

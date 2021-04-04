@@ -1,6 +1,5 @@
 import type { ValueFromArray } from 'rxjs';
-import { of as rxjsOf } from 'rxjs';
-import type { Observable } from '../observable';
+import { Observable } from '../observable';
 
 /**
  * Converts values to an observable sequence
@@ -8,5 +7,10 @@ import type { Observable } from '../observable';
  * @returns Observable sequence of values
  */
 export function of<T extends ReadonlyArray<unknown>>(...values: T): Observable<ValueFromArray<T>> {
-  return rxjsOf(...values);
+  return new Observable<ValueFromArray<T>>(observer => {
+    for (let i = 0; !observer.closed && i !== values.length; ++i) {
+      observer.next(values[i] as ValueFromArray<T>);
+    }
+    observer.complete();
+  });
 }

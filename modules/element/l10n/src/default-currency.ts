@@ -1,17 +1,16 @@
-import { Observable, Subject } from "rxjs";
-import { shareReplay } from "rxjs/operators";
+import type { Observable } from '@komore/reactive';
+import { ReplaySubject } from '@komore/reactive';
+import { cache } from '@komore/reactive/operators';
 
 /**
  * Default currency subject
  */
-const defaultCurrency$ = new Subject<string>();
+const defaultCurrency$ = new ReplaySubject<string>(1);
 
 /**
  * Default currency
  */
-export const DEFAULT_CURRENCY: Observable<string> = defaultCurrency$.asObservable().pipe(
-  shareReplay({ bufferSize: 1, refCount: false })
-);
+export const DEFAULT_CURRENCY: Observable<string> = defaultCurrency$.asObservable().pipe(cache());
 
 /**
  * Sets the default currency

@@ -16,20 +16,20 @@ describe('Create TypeScript property transformer factory', () => {
   });
 
   it.skip('works', () => {
-    given: 'a property definition recorder'
+    given: 'a property definition recorder';
     const mockPropertyDefinitionRecorder = jest.fn<void, [propertyDefinition: ElementPropertyDefinition]>();
-    and: 'a property transformer'
+    and: 'a property transformer';
     const transformerFactory = createTypeScriptPropertyTransformerFactory(mockPropertyDefinitionRecorder);
     const transformer = transformerFactory(mockTransformationContext);
-    and: 'a source with a property definition'
+    and: 'a source with a property definition';
     const sourceFile = createTestSource(`
       import { BehaviorSubject } from '@komore/reactive';
       export const testProperty = new BehaviorSubject<string | undefined>('test-value');
       const localProperty = 'not-exported';
     `);
-    when: 'transforming the source'
+    when: 'transforming the source';
     transformer(sourceFile);
-    expect: 'property definition recorder to have been called'
+    expect: 'the property definition recorder to have been called';
     const expectedPropertyDefinition: ElementPropertyDefinition = {
       propertyName: 'testProperty',
       propertyType: factory.createTypeReferenceNode(''),

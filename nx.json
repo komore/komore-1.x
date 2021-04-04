@@ -393,11 +393,20 @@
     "integration-amazon-s3": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
+    "integration-amazon-s3-layer": {
+      "tags": ["scope:integration", "trait:provider", "trait:layer", "trait:layer:file", "provider:amazon"]
+    },
+    "integration-amazon-s3-operators": {
+      "tags": ["scope:integration", "trait:provider", "trait:operators", "provider:amazon"]
+    },
     "integration-amazon-ses": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
     "integration-amazon-ses-layer": {
-      "tags": ["scope:integration", "trait:layer", "provider:amazon"]
+      "tags": ["scope:integration", "trait:provider", "trait:layer", "trait:layer:email", "provider:amazon"]
+    },
+    "integration-amazon-ses-operators": {
+      "tags": ["scope:integration", "trait:provider", "trait:operators", "provider:amazon"]
     },
     "integration-amazon-sns": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
@@ -628,6 +637,15 @@
     "stack": {
       "tags": ["scope:stack", "trait:base"]
     },
+    "stack-operators": {
+      "tags": ["scope:stack", "trait:operators"]
+    },
+    "stack-provider": {
+      "tags": ["scope:stack", "trait:provider"]
+    },
+    "stack-provider-amazon": {
+      "tags": ["scope:stack", "trait:provider", "provider:amazon"]
+    },
     "stack-testing": {
       "tags": ["scope:stack", "trait:testing"]
     },
@@ -640,8 +658,20 @@
     "testing-bdd-gherkin": {
       "tags": ["scope:testing", "trait:testing"]
     },
+    "tools-vscode-alfa": {
+      "tags": ["scope:tools", "trait:vscode"]
+    },
+    "tools-vscode-extension": {
+      "tags": ["scope:tools", "trait:vscode"]
+    },
     "typescript": {
       "tags": ["scope:typescript"]
+    },
+    "typescript-compiler": {
+      "tags": ["scope:typescript"]
+    },
+    "typescript-compiler-testing": {
+      "tags": ["scope:typescript", "trait:testing"]
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]
@@ -651,9 +681,6 @@
     },
     "validation-testing": {
       "tags": ["scope:validation", "trait:testing"]
-    },
-    "vscode-extension": {
-      "tags": ["scope:vscode-extension", "trait:vscode"]
     },
     "web": {
       "tags": ["scope:web", "trait:base"]
@@ -679,8 +706,14 @@
     "web-gl": {
       "tags": ["scope:web"]
     },
+    "web-gpu": {
+      "tags": ["scope:web"]
+    },
     "web-http": {
       "tags": ["scope:web"]
+    },
+    "web-http-operators": {
+      "tags": ["scope:web", "trait:operators"]
     },
     "web-http-sse": {
       "tags": ["scope:web"]

@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { from as rxjsFrom } from 'rxjs';
+import { Observable } from '@komore/reactive';
 
 /**
  * Creates an observable that emits the resolved value from a promise, or forwards the error if one is encountered
@@ -7,6 +6,16 @@ import { from as rxjsFrom } from 'rxjs';
  * @returns Observable that emits the resolved value or forwards the error
  * @template PromiseType Promise type
  */
-export function fromPromise<T>(promise: PromiseLike<T>): Observable<T> {
-  return (rxjsFrom(promise) as unknown) as Observable<T>;
+export function fromPromise<T>(promise: Promise<T>): Observable<T> {
+  return new Observable<T>(observer => {
+    promise
+      .then(value => {
+        if (!observer.closed) {
+          observer.next(value);
+          observer.complete();
+        }
+      })
+      .catch(error => observer.error(error))
+      .catch(error => console.error('unhandled promise rejection', error));
+  });
 }

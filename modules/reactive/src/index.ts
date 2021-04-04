@@ -4,6 +4,7 @@ export { combineLatest } from './creation/combine-latest';
 export { concat } from './creation/concat';
 export { defer } from './creation/defer';
 export { EMPTY } from './empty';
+export { EmptyError } from './empty-error';
 export { forkJoin } from './creation/fork-join';
 export { from } from './creation/from';
 export { fromArray } from './creation/from-array';

@@ -9,5 +9,6 @@ import { sendCommand } from '@komore/integration-amazon';
  * @returns Command output
  * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject}
  */
-export const putObject = (s3Client: S3Client, commandInput: PutObjectCommandInput) =>
-  sendCommand(s3Client, new PutObjectCommand(commandInput));
+export function putObject(s3Client: S3Client, commandInput: PutObjectCommandInput) {
+  return sendCommand(s3Client, new PutObjectCommand(commandInput));
+}

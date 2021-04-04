@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/testing-bdd',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'testing-bdd'
+  displayName: 'testing-bdd',
+  setupFilesAfterEnv: ['./test-setup.ts']
 };

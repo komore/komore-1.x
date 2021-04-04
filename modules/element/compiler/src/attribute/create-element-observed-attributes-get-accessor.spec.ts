@@ -4,7 +4,7 @@ import type { ElementAttributeDefinition } from '../definition/element-attribute
 
 describe('Create element observed attributes get accessor', () => {
   it('creates a static getter that returns the list of observed attributes', () => {
-    given: 'a list of attribute definitions'
+    given: 'a list of attribute definitions';
     const attributeDefinitions: ReadonlyArray<ElementAttributeDefinition> = [
       {
         attributeName: 'test-a',
@@ -21,10 +21,10 @@ describe('Create element observed attributes get accessor', () => {
         optional: false
       }
     ];
-    when: 'creating the observed attributes getter'
-    const accessorDeclaration = createElementObservedAttributesGetAccessor(factory, attributeDefinitions);
-    expect: 'a get accessor declaration returning all attributes to be created'
-    expect(accessorDeclaration).toBeSource(`
+    when: 'creating the observed attributes getter';
+    const [declaration, identifier] = createElementObservedAttributesGetAccessor(factory, attributeDefinitions);
+    expect: 'a get accessor declaration returning all attributes to be created';
+    expect(declaration).toBeSource(`
       static get observedAttributes() {
         return [
           "test-a",
@@ -32,5 +32,6 @@ describe('Create element observed attributes get accessor', () => {
         ] as const;
       }
     `);
+    expect(identifier.text).toBe('observedAttributes');
   });
 });

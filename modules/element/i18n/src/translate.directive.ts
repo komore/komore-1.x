@@ -6,6 +6,7 @@ import type { TranslateParameters } from './translate-parameters';
 /**
  * Translate directive
  */
-export const translate = createDirective<HTMLElement, TranslateParameters>((element$, _parameters) => element$.pipe(
-  switch
+/*export const kTranslate = createDirective<HTMLElement, TranslateParameters>((element$, _parameters) => element$.pipe(
+  //switch
 ));
+*/

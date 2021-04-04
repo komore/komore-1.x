@@ -11,8 +11,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/api/src/**/*.ts",
-              "modules/api/src/**/*.spec.ts"
+              "modules/api/src/**/*.ts"
             ]
           }
         },
@@ -55,8 +54,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/api/graphql/src/**/*.ts",
-              "modules/api/graphql/src/**/*.spec.ts"
+              "modules/api/graphql/src/**/*.ts"
             ]
           }
         },
@@ -99,8 +97,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/api/http/src/**/*.ts",
-              "modules/api/http/src/**/*.spec.ts"
+              "modules/api/http/src/**/*.ts"
             ]
           }
         },
@@ -143,8 +140,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/api/testing/src/**/*.ts",
-              "modules/api/testing/src/**/*.spec.ts"
+              "modules/api/testing/src/**/*.ts"
             ]
           }
         },
@@ -187,8 +183,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/application/src/**/*.ts",
-              "modules/application/src/**/*.spec.ts"
+              "modules/application/src/**/*.ts"
             ]
           }
         },
@@ -430,7 +425,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/**/*.ts"
+              "modules/authorization/src/**/*.ts"
             ]
           }
         },
@@ -483,7 +478,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/abac/**/*.ts"
+              "modules/authorization/abac/src/**/*.ts"
             ]
           }
         },
@@ -521,7 +516,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/abac/alfa/**/*.ts"
+              "modules/authorization/abac/alfa/src/**/*.ts"
             ]
           }
         },
@@ -558,7 +553,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/abac/xacml/**/*.ts"
+              "modules/authorization/abac/xacml/src/**/*.ts"
             ]
           }
         },
@@ -595,7 +590,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/jwt/**/*.ts"
+              "modules/authorization/jwt/src/**/*.ts"
             ]
           }
         },
@@ -632,7 +627,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/rbac/**/*.ts"
+              "modules/authorization/rbac/src/**/*.ts"
             ]
           }
         },
@@ -669,7 +664,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/authorization/testing/**/*.ts"
+              "modules/authorization/testing/src/**/*.ts"
             ]
           }
         },
@@ -849,8 +844,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/data/**/*.ts",
-              "modules/data/**/*.spec.ts"
+              "modules/data/src/**/*.ts"
             ]
           }
         },
@@ -910,9 +904,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/**/*.ts",
-              "modules/dev-server/**/*.spec.ts",
-              "modules/dev-server/**/*.d.ts"
+              "modules/dev-server/src/*.ts"
             ]
           }
         },
@@ -939,8 +931,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/cloudtail/src/**/*.ts",
-              "modules/dev-server/cloudtail/src/**/*.spec.ts"
+              "modules/dev-server/cloudtail/src/**/*.ts"
             ]
           }
         },
@@ -983,8 +974,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/core/src/**/*.ts",
-              "modules/dev-server/core/src/**/*.spec.ts"
+              "modules/dev-server/core/src/**/*.ts"
             ]
           }
         },
@@ -1027,8 +1017,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/src/**/*.ts",
-              "modules/dev-server/local/src/**/*.spec.ts"
+              "modules/dev-server/local/src/**/*.ts"
             ]
           }
         },
@@ -1071,8 +1060,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/src/**/*.ts",
-              "modules/dev-server/local/amazon/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/src/**/*.ts"
             ]
           }
         },
@@ -1115,8 +1103,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/api-gateway/src/**/*.ts",
-              "modules/dev-server/local/amazon/api-gateway/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/api-gateway/src/**/*.ts"
             ]
           }
         },
@@ -1159,8 +1146,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/app-sync/src/**/*.ts",
-              "modules/dev-server/local/amazon/app-sync/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/app-sync/src/**/*.ts"
             ]
           }
         },
@@ -1314,8 +1300,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/kinesis/src/**/*.ts",
-              "modules/dev-server/local/amazon/kinesis/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/kinesis/src/**/*.ts"
             ]
           }
         },
@@ -1358,8 +1343,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/lambda/src/**/*.ts",
-              "modules/dev-server/local/amazon/lambda/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/lambda/src/**/*.ts"
             ]
           }
         },
@@ -1402,8 +1386,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/s3/src/**/*.ts",
-              "modules/dev-server/local/amazon/s3/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/s3/src/**/*.ts"
             ]
           }
         },
@@ -1446,8 +1429,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/service/src/**/*.ts",
-              "modules/dev-server/local/amazon/service/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/service/src/**/*.ts"
             ]
           }
         },
@@ -1490,8 +1472,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/ses/src/**/*.ts",
-              "modules/dev-server/local/amazon/ses/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/ses/src/**/*.ts"
             ]
           }
         },
@@ -1534,8 +1515,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/sns/src/**/*.ts",
-              "modules/dev-server/local/amazon/sns/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/sns/src/**/*.ts"
             ]
           }
         },
@@ -1578,8 +1558,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/amazon/sqs/src/**/*.ts",
-              "modules/dev-server/local/amazon/sqs/src/**/*.spec.ts"
+              "modules/dev-server/local/amazon/sqs/src/**/*.ts"
             ]
           }
         },
@@ -1622,8 +1601,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/azure/src/**/*.ts",
-              "modules/dev-server/local/azure/src/**/*.spec.ts"
+              "modules/dev-server/local/azure/src/**/*.ts"
             ]
           }
         },
@@ -1666,8 +1644,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/dev-server/local/google/src/**/*.ts",
-              "modules/dev-server/local/google/src/**/*.spec.ts"
+              "modules/dev-server/local/google/src/**/*.ts"
             ]
           }
         },
@@ -3059,8 +3036,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/azure/src/**/*.ts",
-              "modules/event/store/azure/src/**/*.spec.ts"
+              "modules/event/store/azure/src/**/*.ts"
             ]
           }
         },
@@ -3140,8 +3116,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/amazon/src/**/*.ts",
-              "modules/event/store/amazon/src/**/*.spec.ts"
+              "modules/event/store/amazon/src/**/*.ts"
             ]
           }
         },
@@ -3184,8 +3159,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/amazon/aurora/src/**/*.ts",
-              "modules/event/store/amazon/aurora/src/**/*.spec.ts"
+              "modules/event/store/amazon/aurora/src/**/*.ts"
             ]
           }
         },
@@ -3265,8 +3239,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/google/src/**/*.ts",
-              "modules/event/store/google/src/**/*.spec.ts"
+              "modules/event/store/google/src/**/*.ts"
             ]
           }
         },
@@ -3309,8 +3282,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/store/google/bigtable/src/**/*.ts",
-              "modules/event/store/google/bigtable/src/**/*.spec.ts"
+              "modules/event/store/google/bigtable/src/**/*.ts"
             ]
           }
         },
@@ -3467,12 +3439,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/event/testing/src/**/*.ts",
-              "modules/event/testing/**/*.spec.ts",
-              "modules/event/testing/**/*.spec.tsx",
-              "modules/event/testing/**/*.spec.js",
-              "modules/event/testing/**/*.spec.jsx",
-              "modules/event/testing/**/*.d.ts"
+              "modules/event/testing/src/**/*.ts"
             ]
           }
         },
@@ -3515,8 +3482,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/src/**/*.ts",
-              "modules/function/src/**/*.spec.ts"
+              "modules/function/src/**/*.ts"
             ]
           }
         },
@@ -3559,9 +3525,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/alexa/src/**/*.ts",
-              "modules/function/alexa/src/**/*.spec.ts",
-              "modules/function/alexa/src/**/*.d.ts"
+              "modules/function/alexa/src/**/*.ts"
             ]
           }
         },
@@ -3604,9 +3568,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/azure/src/**/*.ts",
-              "modules/function/azure/src/**/*.spec.ts",
-              "modules/function/azure/src/**/*.d.ts"
+              "modules/function/azure/src/**/*.ts"
             ]
           }
         },
@@ -3649,9 +3611,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/google/src/**/*.ts",
-              "modules/function/google/src/**/*.spec.ts",
-              "modules/function/google/src/**/*.d.ts"
+              "modules/function/google/src/**/*.ts"
             ]
           }
         },
@@ -3694,8 +3654,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/lambda/src/**/*.ts",
-              "modules/function/lambda/src/**/*.spec.ts"
+              "modules/function/lambda/src/**/*.ts"
             ]
           }
         },
@@ -3738,9 +3697,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/openfaas/src/**/*.ts",
-              "modules/function/openfaas/src/**/*.spec.ts",
-              "modules/function/openfaas/src/**/*.d.ts"
+              "modules/function/openfaas/src/**/*.ts"
             ]
           }
         },
@@ -3783,9 +3740,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/pulsar/src/**/*.ts",
-              "modules/function/pulsar/src/**/*.spec.ts",
-              "modules/function/pulsar/src/**/*.d.ts"
+              "modules/function/pulsar/src/**/*.ts"
             ]
           }
         },
@@ -3828,8 +3783,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/function/testing/**/*.ts",
-              "modules/function/testing/src/**/*.spec.ts"
+              "modules/function/testing/src/**/*.ts"
             ]
           }
         },
@@ -3872,8 +3826,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/graph/src/**/*.ts",
-              "modules/graph/src/**/*.spec.ts"
+              "modules/graph/src/**/*.ts"
             ]
           }
         },
@@ -3916,8 +3869,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/graph/operators/src/**/*.ts",
-              "modules/graph/operators/src/**/*.spec.ts"
+              "modules/graph/operators/src/**/*.ts"
             ]
           }
         },
@@ -3960,8 +3912,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/graph/testing/src/**/*.ts",
-              "modules/graph/testing/src/**/*.spec.ts"
+              "modules/graph/testing/src/**/*.ts"
             ]
           }
         },
@@ -4121,8 +4072,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/identity/testing/src/**/*.ts",
-              "modules/identity/testing/src/**/*.spec.ts"
+              "modules/identity/testing/src/**/*.ts"
             ]
           }
         },
@@ -4165,8 +4115,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/**/*.ts",
-              "modules/integration/**/*.spec.ts"
+              "modules/integration/src/**/*.ts"
             ]
           }
         },
@@ -4209,8 +4158,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/alexa/**/*.ts",
-              "modules/integration/alexa/**/*.spec.ts"
+              "modules/integration/alexa/src/**/*.ts"
             ]
           }
         },
@@ -4252,7 +4200,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/**/*.ts"
+              "modules/integration/amazon/src/**/*.ts"
             ]
           }
         },
@@ -4310,8 +4258,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/api-gateway/**/*.ts",
-              "modules/integration/amazon/api-gateway/**/*.spec.ts"
+              "modules/integration/amazon/api-gateway/src/**/*.ts"
             ]
           }
         },
@@ -4353,8 +4300,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/appsync/**/*.ts",
-              "modules/integration/amazon/appsync/**/*.spec.ts"
+              "modules/integration/amazon/appsync/src/**/*.ts"
             ]
           }
         },
@@ -4391,7 +4337,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/aurora/**/*.ts"
+              "modules/integration/amazon/aurora/src/**/*.ts"
             ]
           }
         },
@@ -4428,7 +4374,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/chime/**/*.ts"
+              "modules/integration/amazon/chime/src/**/*.ts"
             ]
           }
         },
@@ -4465,7 +4411,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/cloudwatch/**/*.ts"
+              "modules/integration/amazon/cloudwatch/src/**/*.ts"
             ]
           }
         },
@@ -4502,7 +4448,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/cloudwatch-logs/**/*.ts"
+              "modules/integration/amazon/cloudwatch-logs/src/**/*.ts"
             ]
           }
         },
@@ -4540,8 +4486,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/comprehend/**/*.ts",
-              "modules/integration/amazon/comprehend/**/*.spec.ts"
+              "modules/integration/amazon/comprehend/src/**/*.ts"
             ]
           }
         },
@@ -4583,7 +4528,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/dynamodb/**/*.ts"
+              "modules/integration/amazon/dynamodb/src/**/*.ts"
             ]
           }
         },
@@ -4620,7 +4565,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/eventbridge/**/*.ts"
+              "modules/integration/amazon/eventbridge/src/**/*.ts"
             ]
           }
         },
@@ -4658,8 +4603,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/kinesis/**/*.ts",
-              "modules/integration/amazon/kinesis/**/*.spec.ts"
+              "modules/integration/amazon/kinesis/src/**/*.ts"
             ]
           }
         },
@@ -4702,8 +4646,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/lambda/**/*.ts",
-              "modules/integration/amazon/lambda/**/*.spec.ts"
+              "modules/integration/amazon/lambda/src/**/*.ts"
             ]
           }
         },
@@ -4746,8 +4689,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/neptune/**/*.ts",
-              "modules/integration/amazon/neptune/**/*.spec.ts"
+              "modules/integration/amazon/neptune/src/**/*.ts"
             ]
           }
         },
@@ -4790,8 +4732,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/polly/**/*.ts",
-              "modules/integration/amazon/polly/**/*.spec.ts"
+              "modules/integration/amazon/polly/src/**/*.ts"
             ]
           }
         },
@@ -4834,8 +4775,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/redshift/**/*.ts",
-              "modules/integration/amazon/redshift/**/*.spec.ts"
+              "modules/integration/amazon/redshift/src/**/*.ts"
             ]
           }
         },
@@ -4878,8 +4818,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/rekognition/**/*.ts",
-              "modules/integration/amazon/rekognition/**/*.spec.ts"
+              "modules/integration/amazon/rekognition/src/**/*.ts"
             ]
           }
         },
@@ -4922,8 +4861,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/route-53/**/*.ts",
-              "modules/integration/amazon/route-53/**/*.spec.ts"
+              "modules/integration/amazon/route-53/src/**/*.ts"
             ]
           }
         },
@@ -4960,43 +4898,110 @@
       "root": "modules/integration/amazon/s3",
       "sourceRoot": "modules/integration/amazon/s3/src",
       "projectType": "library",
-      "schematics": {},
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/s3/**/*.ts",
-              "modules/integration/amazon/s3/**/*.spec.ts"
+              "modules/integration/amazon/s3/src/**/*.ts"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/integration/amazon/s3/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/integration/amazon/s3/tsconfig.spec.json"
-          },
+          "executor": "@nrwl/jest:jest",
           "outputs": [
             "coverage/integration-amazon-s3"
-          ]
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/s3/jest.config.js",
+            "passWithNoTests": true
+          }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "executors": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/integration/amazon/s3",
             "tsConfig": "modules/integration/amazon/s3/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/s3/package.json",
-            "main": "modules/integration/amazon/s3/src/index.ts",
-            "assets": [
-              "modules/integration/amazon/s3/*.md"
-            ],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\s3\\src"
-          },
+            "main": "modules/integration/amazon/s3/src/index.ts"
+          }
+        }
+      }
+    },
+    "integration-amazon-s3-layer": {
+      "root": "modules/integration/amazon/s3/layer",
+      "sourceRoot": "modules/integration/amazon/s3/layer/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/amazon/s3/layer/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-amazon-s3-layer"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/s3/layer/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "options": {
+            "outputPath": "dist/integration/amazon/s3/layer",
+            "tsConfig": "modules/integration/amazon/s3/layer/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/s3/layer/package.json",
+            "main": "modules/integration/amazon/s3/layer/src/index.ts"
+          }
+        }
+      }
+    },
+    "integration-amazon-s3-operators": {
+      "root": "modules/integration/amazon/s3/operators",
+      "sourceRoot": "modules/integration/amazon/s3/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/amazon/s3/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-amazon-s3-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/s3/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/integration/amazon/s3/operators",
+            "tsConfig": "modules/integration/amazon/s3/operators/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/s3/operators/package.json",
+            "main": "modules/integration/amazon/s3/operators/src/index.ts"
+          }
         }
       }
     },
@@ -5009,7 +5014,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/ses/**/*.ts"
+              "modules/integration/amazon/ses/src/**/*.ts"
             ]
           }
         },
@@ -5046,7 +5051,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/ses/layer/**/*.ts"
+              "modules/integration/amazon/ses/layer/src/**/*.ts"
             ]
           }
         },
@@ -5074,6 +5079,43 @@
         }
       }
     },
+    "integration-amazon-ses-operators": {
+      "root": "modules/integration/amazon/ses/operators",
+      "sourceRoot": "modules/integration/amazon/ses/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/integration/amazon/ses/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/integration-amazon-ses-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/integration/amazon/ses/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/integration/amazon/ses/operators",
+            "tsConfig": "modules/integration/amazon/ses/operators/tsconfig.lib.json",
+            "packageJson": "modules/integration/amazon/ses/operators/package.json",
+            "main": "modules/integration/amazon/ses/operators/src/index.ts"
+          }
+        }
+      }
+    },
     "integration-amazon-sns": {
       "root": "modules/integration/amazon/sns",
       "sourceRoot": "modules/integration/amazon/sns/src",
@@ -5083,7 +5125,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/sns/**/*.ts"
+              "modules/integration/amazon/sns/src/**/*.ts"
             ]
           }
         },
@@ -5121,7 +5163,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/sqs/**/*.ts"
+              "modules/integration/amazon/sqs/src/**/*.ts"
             ]
           }
         },
@@ -5159,8 +5201,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/transcribe/**/*.ts",
-              "modules/integration/amazon/transcribe/**/*.spec.ts"
+              "modules/integration/amazon/transcribe/src/**/*.ts"
             ]
           }
         },
@@ -5203,8 +5244,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/translate/**/*.ts",
-              "modules/integration/amazon/translate/**/*.spec.ts"
+              "modules/integration/amazon/translate/src/**/*.ts"
             ]
           }
         },
@@ -5247,8 +5287,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/amazon/x-ray/**/*.ts",
-              "modules/integration/amazon/x-ray/**/*.spec.ts"
+              "modules/integration/amazon/x-ray/src/**/*.ts"
             ]
           }
         },
@@ -5291,8 +5330,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/**/*.ts",
-              "modules/integration/azure/**/*.spec.ts"
+              "modules/integration/azure/src/**/*.ts"
             ]
           }
         },
@@ -5335,8 +5373,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cognitive-services/**/*.ts",
-              "modules/integration/azure/cognitive-services/**/*.spec.ts"
+              "modules/integration/azure/cognitive-services/src/**/*.ts"
             ]
           }
         },
@@ -5379,8 +5416,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cognitive-services/computer-vision/**/*.ts",
-              "modules/integration/azure/cognitive-services/computer-vision/**/*.spec.ts"
+              "modules/integration/azure/cognitive-services/computer-vision/src/**/*.ts"
             ]
           }
         },
@@ -5423,8 +5459,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cognitive-services/content-moderator/**/*.ts",
-              "modules/integration/azure/cognitive-services/content-moderator/**/*.spec.ts"
+              "modules/integration/azure/cognitive-services/content-moderator/src/**/*.ts"
             ]
           }
         },
@@ -5467,8 +5502,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cognitive-services/face/**/*.ts",
-              "modules/integration/azure/cognitive-services/face/**/*.spec.ts"
+              "modules/integration/azure/cognitive-services/face/src/**/*.ts"
             ]
           }
         },
@@ -5511,8 +5545,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cognitive-services/form-recognizer/**/*.ts",
-              "modules/integration/azure/cognitive-services/form-recognizer/**/*.spec.ts"
+              "modules/integration/azure/cognitive-services/form-recognizer/src/**/*.ts"
             ]
           }
         },
@@ -5554,7 +5587,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/cosmos-db/**/*.ts"
+              "modules/integration/azure/cosmos-db/src/**/*.ts"
             ]
           }
         },
@@ -5592,8 +5625,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/dns/**/*.ts",
-              "modules/integration/azure/dns/**/*.spec.ts"
+              "modules/integration/azure/dns/src/**/*.ts"
             ]
           }
         },
@@ -5636,8 +5668,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/service-bus/**/*.ts",
-              "modules/integration/azure/service-bus/**/*.spec.ts"
+              "modules/integration/azure/service-bus/src/**/*.ts"
             ]
           }
         },
@@ -5680,8 +5711,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/storage/**/*.ts",
-              "modules/integration/azure/storage/**/*.spec.ts"
+              "modules/integration/azure/storage/src/**/*.ts"
             ]
           }
         },
@@ -5724,8 +5754,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/storage/blob/**/*.ts",
-              "modules/integration/azure/storage/blob/**/*.spec.ts"
+              "modules/integration/azure/storage/blob/src/**/*.ts"
             ]
           }
         },
@@ -5768,8 +5797,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/azure/text-analytics/**/*.ts",
-              "modules/integration/azure/text-analytics/**/*.spec.ts"
+              "modules/integration/azure/text-analytics/src/**/*.ts"
             ]
           }
         },
@@ -5812,8 +5840,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/discord/**/*.ts",
-              "modules/integration/discord/**/*.spec.ts"
+              "modules/integration/discord/src/**/*.ts"
             ]
           }
         },
@@ -5856,8 +5883,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/github/**/*.ts",
-              "modules/integration/github/**/*.spec.ts"
+              "modules/integration/github/src/**/*.ts"
             ]
           }
         },
@@ -5900,8 +5926,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/gitlab/**/*.ts",
-              "modules/integration/gitlab/**/*.spec.ts"
+              "modules/integration/gitlab/src/**/*.ts"
             ]
           }
         },
@@ -5944,8 +5969,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/google/**/*.ts",
-              "modules/integration/google/**/*.spec.ts"
+              "modules/integration/google/src/**/*.ts"
             ]
           }
         },
@@ -5988,8 +6012,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/google/cloud-bigtable/**/*.ts",
-              "modules/integration/google/cloud-bigtable/**/*.spec.ts"
+              "modules/integration/google/cloud-bigtable/src/**/*.ts"
             ]
           }
         },
@@ -6032,8 +6055,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/google/cloud-logging/**/*.ts",
-              "modules/integration/google/cloud-logging/**/*.spec.ts"
+              "modules/integration/google/cloud-logging/src/**/*.ts"
             ]
           }
         },
@@ -6076,8 +6098,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/google/cloud-metrics/**/*.ts",
-              "modules/integration/google/cloud-metrics/**/*.spec.ts"
+              "modules/integration/google/cloud-metrics/src/**/*.ts"
             ]
           }
         },
@@ -6120,8 +6141,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/google/cloud-pub-sub/**/*.ts",
-              "modules/integration/google/cloud-pub-sub/**/*.spec.ts"
+              "modules/integration/google/cloud-pub-sub/src/**/*.ts"
             ]
           }
         },
@@ -6163,7 +6183,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/gumroad/**/*.ts"
+              "modules/integration/gumroad/src/**/*.ts"
             ]
           }
         },
@@ -6203,7 +6223,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/kafka/**/*.ts"
+              "modules/integration/kafka/src/**/*.ts"
             ]
           }
         },
@@ -6243,7 +6263,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/mailchimp/**/*.ts"
+              "modules/integration/mailchimp/src/**/*.ts"
             ]
           }
         },
@@ -6283,7 +6303,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/mailchimp/layer/**/*.ts"
+              "modules/integration/mailchimp/layer/src/**/*.ts"
             ]
           }
         },
@@ -6320,7 +6340,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/paddle/**/*.ts"
+              "modules/integration/paddle/src/**/*.ts"
             ]
           }
         },
@@ -6360,7 +6380,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/paypal/**/*.ts"
+              "modules/integration/paypal/src/**/*.ts"
             ]
           }
         },
@@ -6401,8 +6421,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/pulsar/**/*.ts",
-              "modules/integration/pulsar/**/*.spec.ts"
+              "modules/integration/pulsar/src/**/*.ts"
             ]
           }
         },
@@ -6444,7 +6463,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/sendgrid/**/*.ts"
+              "modules/integration/sendgrid/src/**/*.ts"
             ]
           }
         },
@@ -6484,7 +6503,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/sendgrid/layer/**/*.ts"
+              "modules/integration/sendgrid/layer/src/**/*.ts"
             ]
           }
         },
@@ -6522,8 +6541,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/square/**/*.ts",
-              "modules/integration/square/**/*.spec.ts"
+              "modules/integration/square/src/**/*.ts"
             ]
           }
         },
@@ -6566,8 +6584,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/stripe/**/*.ts",
-              "modules/integration/stripe/**/*.spec.ts"
+              "modules/integration/stripe/src/**/*.ts"
             ]
           }
         },
@@ -6610,8 +6627,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/testing/**/*.ts",
-              "modules/integration/testing/**/*.spec.ts"
+              "modules/integration/testing/src/**/*.ts"
             ]
           }
         },
@@ -6653,8 +6669,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/integration/twitter/**/*.ts",
-              "modules/integration/twitter/**/*.spec.ts"
+              "modules/integration/twitter/src/**/*.ts"
             ]
           }
         },
@@ -6697,8 +6712,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/src/**/*.ts",
-              "modules/layer/src/**/*.spec.ts"
+              "modules/layer/src/**/*.ts"
             ]
           }
         },
@@ -6780,7 +6794,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/email/**/*.ts"
+              "modules/layer/email/src/**/*.ts"
             ]
           }
         },
@@ -6820,7 +6834,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/file/**/*.ts"
+              "modules/layer/file/src/**/*.ts"
             ]
           }
         },
@@ -6860,7 +6874,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/image/**/*.ts"
+              "modules/layer/image/src/**/*.ts"
             ]
           }
         },
@@ -6900,7 +6914,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/messaging/**/*.ts"
+              "modules/layer/messaging/src/**/*.ts"
             ]
           }
         },
@@ -6940,7 +6954,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/payment/**/*.ts"
+              "modules/layer/payment/src/**/*.ts"
             ]
           }
         },
@@ -6981,8 +6995,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/testing/**/*.ts",
-              "modules/layer/testing/**/*.spec.ts"
+              "modules/layer/testing/src/**/*.ts"
             ]
           }
         },
@@ -7025,8 +7038,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/layer/text/src/**/*.ts",
-              "modules/layer/text/src/**/*.spec.ts"
+              "modules/layer/text/src/**/*.ts"
             ]
           }
         },
@@ -7069,8 +7081,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/local/src/**/*.ts",
-              "modules/local/src/**/*.spec.ts"
+              "modules/local/src/**/*.ts"
             ]
           }
         },
@@ -7113,7 +7124,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/local/filesystem/**/*.ts"
+              "modules/local/filesystem/src/**/*.ts"
             ]
           }
         },
@@ -7151,7 +7162,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/local/filesystem/operators/**/*.ts"
+              "modules/local/filesystem/operators/src/**/*.ts"
             ]
           }
         },
@@ -7189,8 +7200,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/message/src/**/*.ts",
-              "modules/message/src/**/*.spec.ts"
+              "modules/message/src/**/*.ts"
             ]
           }
         },
@@ -7233,8 +7243,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/message/testing/src/**/*.ts",
-              "modules/message/testing/src/**/*.spec.ts"
+              "modules/message/testing/src/**/*.ts"
             ]
           }
         },
@@ -8161,6 +8170,117 @@
         }
       }
     },
+    "stack-operators": {
+      "root": "modules/stack/operators",
+      "sourceRoot": "modules/stack/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/stack/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/stack-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/stack/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/stack/operators",
+            "tsConfig": "modules/stack/operators/tsconfig.lib.json",
+            "packageJson": "modules/stack/operators/package.json",
+            "main": "modules/stack/operators/src/index.ts"
+          }
+        }
+      }
+    },
+    "stack-provider": {
+      "root": "modules/stack/provider",
+      "sourceRoot": "modules/stack/provider/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/stack/provider/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/stack-provider"
+          ],
+          "options": {
+            "jestConfig": "modules/stack/provider/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/stack/provider",
+            "tsConfig": "modules/stack/provider/tsconfig.lib.json",
+            "packageJson": "modules/stack/provider/package.json",
+            "main": "modules/stack/provider/src/index.ts"
+          }
+        }
+      }
+    },
+    "stack-provider-amazon": {
+      "root": "modules/stack/provider/amazon",
+      "sourceRoot": "modules/stack/provider/amazon/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/stack/provider/amazon/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/stack-provider-amazon"
+          ],
+          "options": {
+            "jestConfig": "modules/stack/provider/amazon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/stack/provider/amazon",
+            "tsConfig": "modules/stack/provider/amazon/tsconfig.lib.json",
+            "packageJson": "modules/stack/provider/amazon/package.json",
+            "main": "modules/stack/provider/amazon/src/index.ts"
+          }
+        }
+      }
+    },
     "stack-testing": {
       "root": "modules/stack/testing",
       "sourceRoot": "modules/stack/testing/src",
@@ -8207,7 +8327,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/testing/**/*.ts"
+              "modules/testing/src/**/*.ts"
             ]
           }
         },
@@ -8324,7 +8444,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/typescript/**/*.ts"
+              "modules/typescript/src/**/*.ts"
             ]
           }
         },
@@ -8351,6 +8471,80 @@
             "assets": [
               "modules/typescript/*.md"
             ]
+          }
+        }
+      }
+    },
+    "typescript-compiler": {
+      "root": "modules/typescript/compiler",
+      "sourceRoot": "modules/typescript/compiler/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/typescript/compiler/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/typescript-compiler"
+          ],
+          "options": {
+            "jestConfig": "modules/typescript/compiler/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/typescript/compiler",
+            "tsConfig": "modules/typescript/compiler/tsconfig.lib.json",
+            "packageJson": "modules/typescript/compiler/package.json",
+            "main": "modules/typescript/compiler/src/index.ts"
+          }
+        }
+      }
+    },
+    "typescript-compiler-testing": {
+      "root": "modules/typescript/compiler/testing",
+      "sourceRoot": "modules/typescript/compiler/testing/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/typescript/compiler/testing/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/typescript-compiler-testing"
+          ],
+          "options": {
+            "jestConfig": "modules/typescript/compiler/testing/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/typescript/compiler/testing",
+            "tsConfig": "modules/typescript/compiler/testing/tsconfig.lib.json",
+            "packageJson": "modules/typescript/compiler/testing/package.json",
+            "main": "modules/typescript/compiler/testing/src/index.ts"
           }
         }
       }
@@ -8469,27 +8663,27 @@
         }
       }
     },
-    "vscode-extension": {
-      "root": "modules/vscode/extension",
-      "sourceRoot": "modules/vscode/extension/src",
+    "tools-vscode-alfa": {
+      "root": "modules/tools/vscode/alfa",
+      "sourceRoot": "modules/tools/vscode/alfa/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/vscode/extension/src/**/*.ts"
+              "modules/tools/vscode/alfa/src/**/*.ts"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/vscode/extension/jest.config.js",
+            "jestConfig": "modules/tools/vscode/alfa/jest.config.js",
             "passWithNoTests": true
           },
           "outputs": [
-            "coverage/vscode-extension"
+            "coverage/tools-vscode-alfa"
           ]
         },
         "build": {
@@ -8498,22 +8692,74 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/vscode-extension",
-            "tsConfig": "modules/vscode/extension/tsconfig.lib.json",
-            "packageJson": "modules/vscode/extension/package.json",
-            "main": "modules/vscode/extension/src/index.ts",
+            "outputPath": "dist/tools-vscode-alfa",
+            "tsConfig": "modules/tools/vscode/alfa/tsconfig.lib.json",
+            "packageJson": "modules/tools/vscode/alfa/package.json",
+            "main": "modules/tools/vscode/alfa/src/index.ts",
             "assets": [
-              "modules/vscode/extension/*.md",
-              "modules/vscode/extension/package.json",
-              "modules/vscode/extension/package.nls.json",
+              "modules/tools/vscode/alfa/*.md",
+              "modules/tools/vscode/alfa/package.json",
+              "modules/tools/vscode/alfa/package.nls.json",
               {
                 "glob": "**/*",
-                "input": "modules/vscode/extension/assets/",
+                "input": "modules/tools/vscode/alfa/assets/",
                 "output": "./assets"
               },
               {
                 "glob": "**/*",
-                "input": "modules/vscode/extension/locales/",
+                "input": "modules/tools/vscode/alfa/locales/",
+                "output": "./locales"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tools-vscode-extension": {
+      "root": "modules/tools/vscode/extension",
+      "sourceRoot": "modules/tools/vscode/extension/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/tools/vscode/extension/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/tools/vscode/extension/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/tools-vscode-extension"
+          ]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/tools-vscode-extension",
+            "tsConfig": "modules/tools/vscode/extension/tsconfig.lib.json",
+            "packageJson": "modules/tools/vscode/extension/package.json",
+            "main": "modules/tools/vscode/extension/src/index.ts",
+            "assets": [
+              "modules/tools/vscode/extension/*.md",
+              "modules/tools/vscode/extension/package.json",
+              "modules/tools/vscode/extension/package.nls.json",
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/extension/assets/",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/extension/locales/",
                 "output": "./locales"
               }
             ]
@@ -8820,6 +9066,43 @@
         }
       }
     },
+    "web-gpu": {
+      "root": "modules/web/gpu",
+      "sourceRoot": "modules/web/gpu/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/gpu/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-gpu"
+          ],
+          "options": {
+            "jestConfig": "modules/web/gpu/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/gpu",
+            "tsConfig": "modules/web/gpu/tsconfig.lib.json",
+            "packageJson": "modules/web/gpu/package.json",
+            "main": "modules/web/gpu/src/index.ts"
+          }
+        }
+      }
+    },
     "web-http": {
       "root": "modules/web/http",
       "sourceRoot": "modules/web/http/src",
@@ -8857,6 +9140,43 @@
         }
       }
     },
+    "web-http-operators": {
+      "root": "modules/web/http/operators",
+      "sourceRoot": "modules/web/http/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "modules/web/http/operators/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/web-http-operators"
+          ],
+          "options": {
+            "jestConfig": "modules/web/http/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/web/http/operators",
+            "tsConfig": "modules/web/http/operators/tsconfig.lib.json",
+            "packageJson": "modules/web/http/operators/package.json",
+            "main": "modules/web/http/operators/src/index.ts"
+          }
+        }
+      }
+    },
     "web-http-sse": {
       "root": "modules/web/http/sse",
       "sourceRoot": "modules/web/http/sse/src",
@@ -8866,8 +9186,7 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/web/http/sse/src/**/*.ts",
-              "modules/web/http/sse/src/**/*.spec.ts"
+              "modules/web/http/sse/src/**/*.ts"
             ]
           }
         },
@@ -9100,8 +9419,7 @@
           ],
           "options": {
             "jestConfig": "modules/web/observer/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/web/observer/tsconfig.spec.json"
+            "passWithNoTests": true
           }
         },
         "build": {
@@ -9138,8 +9456,7 @@
           ],
           "options": {
             "jestConfig": "modules/web/observer/testing/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/web/observer/testing/tsconfig.spec.json"
+            "passWithNoTests": true
           }
         },
         "build": {
@@ -9637,8 +9954,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "modules/website/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/website/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/website"
@@ -9699,8 +10015,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/website/layout/not-found/src/**/*.ts",
-              "modules/website/layout/not-found/src/**/*.spec.ts"
+              "modules/website/layout/not-found/src/**/*.ts"
             ]
           }
         },
@@ -9743,8 +10058,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/website/search/src/**/*.ts",
-              "modules/website/search/src/**/*.spec.ts"
+              "modules/website/search/src/**/*.ts"
             ]
           }
         },
@@ -9787,8 +10101,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "modules/website/search/results/src/**/*.ts",
-              "modules/website/search/results/src/**/*.spec.ts"
+              "modules/website/search/results/src/**/*.ts"
             ]
           }
         },
@@ -9851,7 +10164,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/node"
+    "defaultCollection": "@nrwl/node",
+    "packageManager": "pnpm"
   },
   "schematics": {
     "@nrwl/workspace": {

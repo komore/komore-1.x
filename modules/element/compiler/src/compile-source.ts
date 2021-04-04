@@ -11,6 +11,7 @@ import { generateTemplate } from './generate-template';
 import { buildElementDefinition } from './definition/build-element-definition';
 import { processSource } from './processors/process-source';
 import { createElementInterfaceDeclaration } from './interface/create-element-interface-declaration';
+import { createElementEventMap } from './event/create-element-event-map';
 
 /**
  * Compiles an element source
@@ -29,17 +30,31 @@ export function compileSource(factory: NodeFactory, source: string): Observable<
     switchMap(parseDocumentFragment()),
     switchMap(processSource),
     map(processedSource => {
-      const { parsedSource = processedSource;
+      const { parsedSource } = processedSource;
       const elementDefinition = buildElementDefinition(factory, parsedTemplateElement, processedSource);
       const templateElementId = undefined;
       const styleSheetsId = undefined;
-      createElementClassDeclaration(factory, elementDefinition, templateElementId, styleSheetsId);
-      createElementInterfaceDeclaration(factory, elementDefinition, );
+      const elementEventMap = createElementEventMap(
+        factory,
+        elementDefinition.className,
+        elementDefinition.eventDefinitions ?? []
+      );
+      const elementClassDeclaration = createElementClassDeclaration(
+        factory,
+        elementDefinition,
+        templateElementId,
+        styleSheetsId
+      );
+      const elementInterfaceDeclaration = createElementInterfaceDeclaration(
+        factory,
+        elementDefinition,
+        elementEventMap
+      );
 
       generateScript(scriptElements);
       generateStyle(styleElements);
       generateTemplate(templateElement);
-    }),
+    })
   );
 }
 
@@ -47,5 +62,10 @@ export function compileSource(factory: NodeFactory, source: string): Observable<
  * Parses a document fragment
  */
 function parseDocumentFragment() {
-  return (documentFragment: DocumentFragment) => parseSource(documentFragment, () => EMPTY, () => EMPTY);
+  return (documentFragment: DocumentFragment) =>
+    parseSource(
+      documentFragment,
+      () => EMPTY,
+      () => EMPTY
+    );
 }

@@ -1,5 +1,14 @@
 # Documentation
 
+## Random
+
+Logo with 4 layers (bottom to top):
+
+- design: DDD, event storming, etc.
+- build: frp, modules, dev tools, etc.
+- run: deployment aspect
+- observe: observability and overall data
+
 ## Concepts
 
 1. [Domain-Driven Design]
@@ -11,8 +20,6 @@
 7. [Declarative]
 8. [Functional]
 9. [Reactive]
-
-
 
 [CQRS]: ./concepts/cqrs.md
 [Declarative]: ./concepts/declarative.md

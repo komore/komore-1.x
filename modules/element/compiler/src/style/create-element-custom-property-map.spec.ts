@@ -4,7 +4,7 @@ import { createElementCustomPropertyMap } from './create-element-custom-property
 
 describe('Create element custom property map', () => {
   it('creates a custom property map interface declaration', () => {
-    given: 'an element class name and custom property definitions'
+    given: 'an element class name and custom property definitions';
     const propertyName1 = '--test-property';
     const propertyName2 = '--test-property2';
     const elementClassName = 'TestElement';
@@ -18,13 +18,13 @@ describe('Create element custom property map', () => {
         inherits: true
       }
     ];
-    when: 'creating an element custom property map'
+    when: 'creating an element custom property map';
     const [interfaceDeclaration, interfaceIdentifier] = createElementCustomPropertyMap(
       factory,
       elementClassName,
       customPropertyDefinitions
     );
-    expect: 'a correct interface declaration with both custom properties to be created'
+    expect: 'a correct interface declaration with both custom properties to be created';
     expect(interfaceDeclaration).toBeSource(`
       interface ${elementClassName}CustomPropertyMap {
         "${propertyName1}": string;

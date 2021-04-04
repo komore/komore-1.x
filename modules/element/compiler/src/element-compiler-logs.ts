@@ -1,5 +1,8 @@
 import { createLogEvent, createLogGroup, LogEventSeverities } from '@komore/observability/logging';
 
+/**
+ * Element compiler log group
+ */
 const elementCompilerLogGroup = createLogGroup('komore/element/compiler');
 
 /**

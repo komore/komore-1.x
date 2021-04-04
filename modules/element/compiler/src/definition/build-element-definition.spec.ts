@@ -4,7 +4,7 @@ import { buildElementDefinition } from './build-element-definition';
 
 describe('Build element description', () => {
   it('works', () => {
-    given: 'a parsed source'
+    given: 'a parsed source';
     const parsedSource: ParsedSource = {
       parsedElementTemplate: {
         baseClassName: 'HTMLElement',
@@ -17,11 +17,11 @@ describe('Build element description', () => {
       styleElements: [],
       parsedCustomPropertyDefinitions: []
     };
-    when: 'building the element definition'
+    when: 'building the element definition';
     const elementDefinition = buildElementDefinition(factory, parsedSource);
-    expect: 'xx'
+    expect: 'a correct element definition to have been built';
     expect(elementDefinition.baseClassName).toBe(parsedSource.parsedElementTemplate.baseClassName);
-    expect(elementDefinition.baseTagName).toBe(parsedSource.parsedElementTemplate.baseTagName)
+    expect(elementDefinition.baseTagName).toBe(parsedSource.parsedElementTemplate.baseTagName);
     expect(elementDefinition.className).toBe(parsedSource.parsedElementTemplate.className);
     expect(elementDefinition.tagName).toBe(parsedSource.parsedElementTemplate.tagName);
   });

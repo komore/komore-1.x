@@ -18,7 +18,7 @@ describe('Create type mapping interface', () => {
     ];
     when: 'creating a type mapping interface';
     const [interfaceDeclaration, identifier] = createTypeMappingInterface(factory, interfaceName, typeMappings);
-    expect: 'an interface declaration with correct type mappings to be created';
+    expect: 'an interface declaration with correct type mappings to have been created';
     expect(interfaceDeclaration).toBeSource(`
       interface ${interfaceName} {
         "test-1": string;

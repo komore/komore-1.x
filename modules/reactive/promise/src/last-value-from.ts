@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { lastValueFrom as rxjsLastValueFrom } from 'rxjs';
+import { EmptyError } from '@komore/reactive';
 
 /**
  * Converts an observable to a promise by waiting for it to complete and resolving the last value it emitted
@@ -7,5 +7,25 @@ import { lastValueFrom as rxjsLastValueFrom } from 'rxjs';
  * @returns Promise that resolves to the last value emitted by the observable before completion
  */
 export function lastValueFrom<T>(source: Observable<T>): Promise<T> {
-  return rxjsLastValueFrom(source);
+  return new Promise<T>((resolve, reject) => {
+    let emittedValue: T | undefined;
+    let valueEmitted = false;
+
+    source.subscribe({
+      next(value) {
+        emittedValue = value;
+        valueEmitted = true;
+      },
+      error(error) {
+        reject(error);
+      },
+      complete() {
+        if (valueEmitted) {
+          resolve(emittedValue as T);
+        } else {
+          reject(new EmptyError());
+        }
+      }
+    });
+  });
 }

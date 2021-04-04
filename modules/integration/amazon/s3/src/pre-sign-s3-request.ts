@@ -1,7 +1,7 @@
 import type { S3RequestPresignerOptions } from '@aws-sdk/s3-request-presigner';
 import type { HttpRequest, RequestPresigningArguments } from '@aws-sdk/types';
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { defer } from '@komore/reactive';
 import { createS3RequestPresigner } from './create-s3-request-presigner';
 
 /**
