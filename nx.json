@@ -312,6 +312,9 @@
     "function-testing": {
       "tags": ["scope:function", "trait:testing"]
     },
+    "functional": {
+      "tags": ["scope:functional", "trait:base"]
+    },
     "graph": {
       "tags": ["scope:graph", "trait:base"]
     },

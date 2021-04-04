@@ -110,6 +110,7 @@
       "@komore/function-lambda": ["modules/function/lambda/src/index.ts"],
       "@komore/function-openfaas": ["modules/function/openfaas/src/index.ts"],
       "@komore/function-pulsar": ["modules/function/pulsar/src/index.ts"],
+      "@komore/functional": ["modules/functional/src/index.ts"],
       "@komore/graph": ["modules/graph/src/index.ts"],
       "@komore/graph/operators": ["modules/graph/operators/src/index.ts"],
       "@komore/graph/testing": ["modules/graph/testing/src/index.ts"],

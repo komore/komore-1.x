@@ -6,8 +6,8 @@ import type { _TypeSchema } from './type-schema';
  * @template TypeSchema Type schema
  * @private
  */
-export type _TypeSchemaType<TypeSchema extends _TypeSchema<any, any>> = TypeSchema extends _TypeSchema<
-  any,
+export type _TypeSchemaType<TypeSchema extends _TypeSchema<string, unknown>> = TypeSchema extends _TypeSchema<
+  string,
   infer SchemaType
 >
   ? SchemaType

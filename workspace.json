@@ -3147,6 +3147,38 @@
         }
       }
     },
+    "functional": {
+      "root": "modules/functional",
+      "sourceRoot": "modules/functional/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/functional/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/functional"],
+          "options": {
+            "jestConfig": "modules/functional/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/functional",
+            "tsConfig": "modules/functional/tsconfig.lib.json",
+            "packageJson": "modules/functional/package.json",
+            "main": "modules/functional/src/index.ts",
+            "assets": ["modules/functional/*.md"]
+          }
+        }
+      }
+    },
     "graph": {
       "root": "modules/graph",
       "sourceRoot": "modules/graph/src",
