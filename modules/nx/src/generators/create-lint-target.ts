@@ -1,6 +1,6 @@
-import { TargetConfiguration } from '@nrwl/devkit';
-import { BaseGeneratorOptions } from './base-generator-options';
-import { NormalizedGeneratorOptions } from './normalized-generator-options';
+import type { TargetConfiguration } from '@nrwl/devkit';
+import type { BaseGeneratorOptions } from './base-generator-options';
+import type { NormalizedGeneratorOptions } from './normalized-generator-options';
 
 /**
  * eslint executor name

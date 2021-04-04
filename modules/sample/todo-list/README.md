@@ -1,1 +1,0 @@
-# Sample: Todo-list Application

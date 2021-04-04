@@ -1,6 +1,6 @@
 import { getWorkspaceLayout, names, Tree } from '@nrwl/devkit';
-import { BaseGeneratorOptions } from './base-generator-options';
-import { NormalizedGeneratorOptions } from './normalized-generator-options';
+import type { BaseGeneratorOptions } from './base-generator-options';
+import type { NormalizedGeneratorOptions } from './normalized-generator-options';
 
 /**
  * Normalize a generator's options

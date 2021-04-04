@@ -2406,38 +2406,6 @@
         }
       }
     },
-    "eslint": {
-      "root": "modules/eslint",
-      "sourceRoot": "modules/eslint/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/eslint/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/eslint"],
-          "options": {
-            "jestConfig": "modules/eslint/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/eslint",
-            "tsConfig": "modules/eslint/tsconfig.lib.json",
-            "packageJson": "modules/eslint/package.json",
-            "main": "modules/eslint/src/index.ts",
-            "assets": ["modules/eslint/*.md"]
-          }
-        }
-      }
-    },
     "event": {
       "root": "modules/event",
       "sourceRoot": "modules/event/src",
@@ -6966,6 +6934,162 @@
         }
       }
     },
+    "tools-create": {
+      "root": "modules/tools/create",
+      "sourceRoot": "modules/tools/create/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/create/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-create"],
+          "options": {
+            "jestConfig": "modules/tools/create/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/create",
+            "tsConfig": "modules/tools/create/tsconfig.lib.json",
+            "packageJson": "modules/tools/create/package.json",
+            "main": "modules/tools/create/src/index.ts",
+            "assets": ["modules/tools/create/*.md"]
+          }
+        }
+      }
+    },
+    "tools-eslint": {
+      "root": "modules/tools/eslint",
+      "sourceRoot": "modules/tools/eslint/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/eslint/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-eslint"],
+          "options": {
+            "jestConfig": "modules/tools/eslint/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/eslint",
+            "tsConfig": "modules/tools/eslint/tsconfig.lib.json",
+            "packageJson": "modules/tools/eslint/package.json",
+            "main": "modules/tools/eslint/src/index.ts",
+            "assets": ["modules/tools/eslint/*.md"]
+          }
+        }
+      }
+    },
+    "tools-vscode-alfa": {
+      "root": "modules/tools/vscode/alfa",
+      "sourceRoot": "modules/tools/vscode/alfa/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/vscode/alfa/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/tools/vscode/alfa/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/tools-vscode-alfa"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/tools-vscode-alfa",
+            "tsConfig": "modules/tools/vscode/alfa/tsconfig.lib.json",
+            "packageJson": "modules/tools/vscode/alfa/package.json",
+            "main": "modules/tools/vscode/alfa/src/index.ts",
+            "assets": [
+              "modules/tools/vscode/alfa/*.md",
+              "modules/tools/vscode/alfa/package.json",
+              "modules/tools/vscode/alfa/package.nls.json",
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/alfa/assets/",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/alfa/locales/",
+                "output": "./locales"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tools-vscode-extension": {
+      "root": "modules/tools/vscode/extension",
+      "sourceRoot": "modules/tools/vscode/extension/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/vscode/extension/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/tools/vscode/extension/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/tools-vscode-extension"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/tools-vscode-extension",
+            "tsConfig": "modules/tools/vscode/extension/tsconfig.lib.json",
+            "packageJson": "modules/tools/vscode/extension/package.json",
+            "main": "modules/tools/vscode/extension/src/index.ts",
+            "assets": [
+              "modules/tools/vscode/extension/*.md",
+              "modules/tools/vscode/extension/package.json",
+              "modules/tools/vscode/extension/package.nls.json",
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/extension/assets/",
+                "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "modules/tools/vscode/extension/locales/",
+                "output": "./locales"
+              }
+            ]
+          }
+        }
+      }
+    },
     "typescript": {
       "root": "modules/typescript",
       "sourceRoot": "modules/typescript/src",
@@ -7150,98 +7274,6 @@
             "tsConfig": "modules/validation/testing/tsconfig.lib.json",
             "packageJson": "modules/validation/testing/package.json",
             "main": "modules/validation/testing/src/index.ts"
-          }
-        }
-      }
-    },
-    "tools-vscode-alfa": {
-      "root": "modules/tools/vscode/alfa",
-      "sourceRoot": "modules/tools/vscode/alfa/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/tools/vscode/alfa/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/tools/vscode/alfa/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/tools-vscode-alfa"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/tools-vscode-alfa",
-            "tsConfig": "modules/tools/vscode/alfa/tsconfig.lib.json",
-            "packageJson": "modules/tools/vscode/alfa/package.json",
-            "main": "modules/tools/vscode/alfa/src/index.ts",
-            "assets": [
-              "modules/tools/vscode/alfa/*.md",
-              "modules/tools/vscode/alfa/package.json",
-              "modules/tools/vscode/alfa/package.nls.json",
-              {
-                "glob": "**/*",
-                "input": "modules/tools/vscode/alfa/assets/",
-                "output": "./assets"
-              },
-              {
-                "glob": "**/*",
-                "input": "modules/tools/vscode/alfa/locales/",
-                "output": "./locales"
-              }
-            ]
-          }
-        }
-      }
-    },
-    "tools-vscode-extension": {
-      "root": "modules/tools/vscode/extension",
-      "sourceRoot": "modules/tools/vscode/extension/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/tools/vscode/extension/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/tools/vscode/extension/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/tools-vscode-extension"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/tools-vscode-extension",
-            "tsConfig": "modules/tools/vscode/extension/tsconfig.lib.json",
-            "packageJson": "modules/tools/vscode/extension/package.json",
-            "main": "modules/tools/vscode/extension/src/index.ts",
-            "assets": [
-              "modules/tools/vscode/extension/*.md",
-              "modules/tools/vscode/extension/package.json",
-              "modules/tools/vscode/extension/package.nls.json",
-              {
-                "glob": "**/*",
-                "input": "modules/tools/vscode/extension/assets/",
-                "output": "./assets"
-              },
-              {
-                "glob": "**/*",
-                "input": "modules/tools/vscode/extension/locales/",
-                "output": "./locales"
-              }
-            ]
           }
         }
       }
@@ -8392,15 +8424,15 @@
       }
     },
     "website-e2e": {
-      "root": "modules/website-e2e",
-      "sourceRoot": "modules/website-e2e/src",
+      "root": "modules/website/e2e",
+      "sourceRoot": "modules/website/e2e/src",
       "projectType": "application",
       "targets": {
         "e2e": {
           "executor": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "modules/website-e2e/cypress.json",
-            "tsConfig": "modules/website-e2e/tsconfig.e2e.json",
+            "cypressConfig": "modules/website/e2e/cypress.json",
+            "tsConfig": "modules/website/e2e/tsconfig.e2e.json",
             "devServerTarget": "website:serve"
           },
           "configurations": {
@@ -8412,7 +8444,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["modules/website-e2e/src/**/*.ts"]
+            "lintFilePatterns": ["modules/website/e2e/src/**/*.ts"]
           }
         }
       }

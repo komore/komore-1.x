@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/eslint-plugin/src/**/*.spec.ts'],
-  preset: '../../jest.preset.js',
-  coverageDirectory: '../../coverage/eslintplugin',
+  testMatch: ['**/modules/eslint/src/**/*.spec.ts'],
+  preset: '../../../jest.preset.js',
+  coverageDirectory: '../../../coverage/tools-eslint',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'eslintplugin'
+  displayName: 'tools-eslint'
 };

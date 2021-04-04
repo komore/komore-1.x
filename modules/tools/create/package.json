@@ -1,6 +1,6 @@
 {
   "name": "@komore/create",
-  "description": "Create a komore-based platform",
+  "description": "Create a komore project",
   "bin": {
     "@komore/create": "./bin/create"
   }

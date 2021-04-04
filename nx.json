@@ -246,9 +246,6 @@
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
     },
-    "eslint": {
-      "tags": ["scope:eslint", "trait:base"]
-    },
     "event": {
       "tags": ["scope:event", "trait:base"]
     },
@@ -660,6 +657,12 @@
     },
     "testing-bdd-gherkin": {
       "tags": ["scope:testing", "trait:testing"]
+    },
+    "tools-create": {
+      "tags": ["scope:tools", "trait:create"]
+    },
+    "tools-eslint": {
+      "tags": ["scope:tools", "trait:eslint"]
     },
     "tools-vscode-alfa": {
       "tags": ["scope:tools", "trait:vscode"]

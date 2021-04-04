@@ -1,5 +1,5 @@
-import { ApiType } from './api';
-import { StackNode } from '../stack';
+import type { ApiType } from './api';
+import type { StackNode } from '../stack';
 
 /**
  * API node
