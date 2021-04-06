@@ -2,7 +2,7 @@
 /dist
 /node_modules
 /tmp
-.gen/*
+**/.gen
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

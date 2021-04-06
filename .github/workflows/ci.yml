@@ -5,12 +5,15 @@ on:
   - pull_request
 
 jobs:
-  build:
-    name: Build
+  lint:
+    name: Lint
     runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # TODO: keep a depth and separately checkout main
+
       - name: Cache pnpm modules
         uses: actions/cache@v2
         env:
@@ -19,11 +22,46 @@ jobs:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v1.2.1
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Lint (workspace)
+        run: pnpm lint:workspace
+
+      - name: Lint
+        run: pnpm lint:affected
+
+  test:
+    name: Test
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # TODO: keep a depth and separately checkout main
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v1.2.1
         with:
           version: 5.18.9
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
-      - name: Lint (workspace)
-        run: pnpm lint:workspace
+
+      - name: Test
+        run: pnpm test:affected

@@ -646,6 +646,12 @@
     "stack-provider-amazon": {
       "tags": ["scope:stack", "trait:provider", "provider:amazon"]
     },
+    "stack-provider-azure": {
+      "tags": ["scope:stack", "trait:provider", "provider:azure"]
+    },
+    "stack-provider-google": {
+      "tags": ["scope:stack", "trait:provider", "provider:google"]
+    },
     "stack-testing": {
       "tags": ["scope:stack", "trait:testing"]
     },
