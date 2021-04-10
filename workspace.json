@@ -29,8 +29,7 @@
             "tsConfig": "modules/api/tsconfig.lib.json",
             "packageJson": "modules/api/package.json",
             "main": "modules/api/src/index.ts",
-            "assets": ["modules/api/*.md"],
-            "srcRootForCompilationRoot": "modules\\api\\src"
+            "assets": ["modules/api/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -64,8 +63,7 @@
             "tsConfig": "modules/api/graphql/tsconfig.lib.json",
             "packageJson": "modules/api/graphql/package.json",
             "main": "modules/api/graphql/src/index.ts",
-            "assets": ["modules/api/graphql/*.md"],
-            "srcRootForCompilationRoot": "modules\\api\\graphql\\src"
+            "assets": ["modules/api/graphql/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -99,8 +97,7 @@
             "tsConfig": "modules/api/http/tsconfig.lib.json",
             "packageJson": "modules/api/http/package.json",
             "main": "modules/api/http/src/index.ts",
-            "assets": ["modules/api/http/*.md"],
-            "srcRootForCompilationRoot": "modules\\api\\http\\src"
+            "assets": ["modules/api/http/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -134,8 +131,7 @@
             "tsConfig": "modules/api/testing/tsconfig.lib.json",
             "packageJson": "modules/api/testing/package.json",
             "main": "modules/api/testing/src/index.ts",
-            "assets": ["modules/api/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\api\\testing\\src"
+            "assets": ["modules/api/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -169,8 +165,7 @@
             "tsConfig": "modules/application/tsconfig.lib.json",
             "packageJson": "modules/application/package.json",
             "main": "modules/application/src/index.ts",
-            "assets": ["modules/application/*.md"],
-            "srcRootForCompilationRoot": "modules\\application\\src"
+            "assets": ["modules/application/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -713,8 +708,7 @@
             "tsConfig": "modules/data/tsconfig.lib.json",
             "packageJson": "modules/data/package.json",
             "main": "modules/data/src/index.ts",
-            "assets": ["modules/data/*.md"],
-            "srcRootForCompilationRoot": "modules\\data\\src"
+            "assets": ["modules/data/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -786,8 +780,7 @@
             "tsConfig": "modules/dev-server/cloudtail/tsconfig.lib.json",
             "packageJson": "modules/dev-server/cloudtail/package.json",
             "main": "modules/dev-server/cloudtail/src/index.ts",
-            "assets": ["modules/dev-server/cloudtail/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\cloudtail\\src"
+            "assets": ["modules/dev-server/cloudtail/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -821,8 +814,7 @@
             "tsConfig": "modules/dev-server/core/tsconfig.lib.json",
             "packageJson": "modules/dev-server/core/package.json",
             "main": "modules/dev-server/core/src/index.ts",
-            "assets": ["modules/dev-server/core/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\core\\src"
+            "assets": ["modules/dev-server/core/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -856,8 +848,7 @@
             "tsConfig": "modules/dev-server/local/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/package.json",
             "main": "modules/dev-server/local/src/index.ts",
-            "assets": ["modules/dev-server/local/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\src"
+            "assets": ["modules/dev-server/local/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -891,8 +882,7 @@
             "tsConfig": "modules/dev-server/local/amazon/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/package.json",
             "main": "modules/dev-server/local/amazon/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\src"
+            "assets": ["modules/dev-server/local/amazon/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -926,8 +916,7 @@
             "tsConfig": "modules/dev-server/local/amazon/api-gateway/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/api-gateway/package.json",
             "main": "modules/dev-server/local/amazon/api-gateway/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/api-gateway/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\api-gateway\\src"
+            "assets": ["modules/dev-server/local/amazon/api-gateway/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -961,8 +950,7 @@
             "tsConfig": "modules/dev-server/local/amazon/app-sync/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/app-sync/package.json",
             "main": "modules/dev-server/local/amazon/app-sync/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/app-sync/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\app-sync\\src"
+            "assets": ["modules/dev-server/local/amazon/app-sync/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1089,8 +1077,7 @@
             "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/kinesis/package.json",
             "main": "modules/dev-server/local/amazon/kinesis/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/kinesis/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\kinesis\\src"
+            "assets": ["modules/dev-server/local/amazon/kinesis/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1124,8 +1111,7 @@
             "tsConfig": "modules/dev-server/local/amazon/lambda/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/lambda/package.json",
             "main": "modules/dev-server/local/amazon/lambda/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/lambda/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\lambda\\src"
+            "assets": ["modules/dev-server/local/amazon/lambda/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1159,8 +1145,7 @@
             "tsConfig": "modules/dev-server/local/amazon/s3/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/s3/package.json",
             "main": "modules/dev-server/local/amazon/s3/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/s3/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\s3\\src"
+            "assets": ["modules/dev-server/local/amazon/s3/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1194,8 +1179,7 @@
             "tsConfig": "modules/dev-server/local/amazon/service/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/service/package.json",
             "main": "modules/dev-server/local/amazon/service/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/service/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\service\\src"
+            "assets": ["modules/dev-server/local/amazon/service/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1229,8 +1213,7 @@
             "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/ses/package.json",
             "main": "modules/dev-server/local/amazon/ses/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/ses/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\ses\\src"
+            "assets": ["modules/dev-server/local/amazon/ses/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1264,8 +1247,7 @@
             "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/sns/package.json",
             "main": "modules/dev-server/local/amazon/sns/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/sns/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sns\\src"
+            "assets": ["modules/dev-server/local/amazon/sns/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1299,8 +1281,7 @@
             "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/amazon/sqs/package.json",
             "main": "modules/dev-server/local/amazon/sqs/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/sqs/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\amazon\\sqs\\src"
+            "assets": ["modules/dev-server/local/amazon/sqs/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1334,8 +1315,7 @@
             "tsConfig": "modules/dev-server/local/azure/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/azure/package.json",
             "main": "modules/dev-server/local/azure/src/index.ts",
-            "assets": ["modules/dev-server/local/azure/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\azure\\src"
+            "assets": ["modules/dev-server/local/azure/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1369,8 +1349,7 @@
             "tsConfig": "modules/dev-server/local/google/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/google/package.json",
             "main": "modules/dev-server/local/google/src/index.ts",
-            "assets": ["modules/dev-server/local/google/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\google\\src"
+            "assets": ["modules/dev-server/local/google/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -1404,8 +1383,7 @@
             "tsConfig": "modules/dev-server/local/service/tsconfig.lib.json",
             "packageJson": "modules/dev-server/local/service/package.json",
             "main": "modules/dev-server/local/service/src/index.ts",
-            "assets": ["modules/dev-server/local/service/*.md"],
-            "srcRootForCompilationRoot": "modules\\dev-server\\local\\service\\src"
+            "assets": ["modules/dev-server/local/service/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2497,8 +2475,7 @@
             "tsConfig": "modules/event/store/azure/tsconfig.lib.json",
             "packageJson": "modules/event/store/azure/package.json",
             "main": "modules/event/store/azure/src/index.ts",
-            "assets": ["modules/event/store/azure/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\azure\\src"
+            "assets": ["modules/event/store/azure/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2563,8 +2540,7 @@
             "tsConfig": "modules/event/store/amazon/tsconfig.lib.json",
             "packageJson": "modules/event/store/amazon/package.json",
             "main": "modules/event/store/amazon/src/index.ts",
-            "assets": ["modules/event/store/amazon/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\amazon\\src"
+            "assets": ["modules/event/store/amazon/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2598,8 +2574,7 @@
             "tsConfig": "modules/event/store/amazon/aurora/tsconfig.lib.json",
             "packageJson": "modules/event/store/amazon/aurora/package.json",
             "main": "modules/event/store/amazon/aurora/src/index.ts",
-            "assets": ["modules/event/store/amazon/aurora/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\amazon\\aurora\\src"
+            "assets": ["modules/event/store/amazon/aurora/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2664,8 +2639,7 @@
             "tsConfig": "modules/event/store/google/tsconfig.lib.json",
             "packageJson": "modules/event/store/google/package.json",
             "main": "modules/event/store/google/src/index.ts",
-            "assets": ["modules/event/store/google/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\google\\src"
+            "assets": ["modules/event/store/google/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2699,8 +2673,7 @@
             "tsConfig": "modules/event/store/google/bigtable/tsconfig.lib.json",
             "packageJson": "modules/event/store/google/bigtable/package.json",
             "main": "modules/event/store/google/bigtable/src/index.ts",
-            "assets": ["modules/event/store/google/bigtable/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\google\\bigtable\\src"
+            "assets": ["modules/event/store/google/bigtable/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2828,8 +2801,7 @@
             "tsConfig": "modules/event/testing/tsconfig.lib.json",
             "packageJson": "modules/event/testing/package.json",
             "main": "modules/event/testing/src/index.ts",
-            "assets": ["modules/event/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\event\\testing\\src"
+            "assets": ["modules/event/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2863,8 +2835,7 @@
             "tsConfig": "modules/function/tsconfig.lib.json",
             "packageJson": "modules/function/package.json",
             "main": "modules/function/src/index.ts",
-            "assets": ["modules/function/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\src"
+            "assets": ["modules/function/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2898,8 +2869,7 @@
             "tsConfig": "modules/function/alexa/tsconfig.lib.json",
             "packageJson": "modules/function/alexa/package.json",
             "main": "modules/function/alexa/src/index.ts",
-            "assets": ["modules/function/alexa/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\alexa\\src"
+            "assets": ["modules/function/alexa/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2933,8 +2903,7 @@
             "tsConfig": "modules/function/azure/tsconfig.lib.json",
             "packageJson": "modules/function/azure/package.json",
             "main": "modules/function/azure/src/index.ts",
-            "assets": ["modules/function/azure/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\azure\\src"
+            "assets": ["modules/function/azure/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -2968,8 +2937,7 @@
             "tsConfig": "modules/function/google/tsconfig.lib.json",
             "packageJson": "modules/function/google/package.json",
             "main": "modules/function/google/src/index.ts",
-            "assets": ["modules/function/google/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\google\\src"
+            "assets": ["modules/function/google/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3003,8 +2971,7 @@
             "tsConfig": "modules/function/lambda/tsconfig.lib.json",
             "packageJson": "modules/function/lambda/package.json",
             "main": "modules/function/lambda/src/index.ts",
-            "assets": ["modules/function/lambda/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\lambda\\src"
+            "assets": ["modules/function/lambda/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3038,8 +3005,7 @@
             "tsConfig": "modules/function/openfaas/tsconfig.lib.json",
             "packageJson": "modules/function/openfaas/package.json",
             "main": "modules/function/openfaas/src/index.ts",
-            "assets": ["modules/function/openfaas/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\openfaas\\src"
+            "assets": ["modules/function/openfaas/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3073,8 +3039,7 @@
             "tsConfig": "modules/function/pulsar/tsconfig.lib.json",
             "packageJson": "modules/function/pulsar/package.json",
             "main": "modules/function/pulsar/src/index.ts",
-            "assets": ["modules/function/pulsar/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\pulsar\\src"
+            "assets": ["modules/function/pulsar/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3108,8 +3073,7 @@
             "tsConfig": "modules/function/testing/tsconfig.lib.json",
             "packageJson": "modules/function/testing/package.json",
             "main": "modules/function/testing/src/index.ts",
-            "assets": ["modules/function/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\function\\testing\\src"
+            "assets": ["modules/function/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3175,8 +3139,7 @@
             "tsConfig": "modules/graph/tsconfig.lib.json",
             "packageJson": "modules/graph/package.json",
             "main": "modules/graph/src/index.ts",
-            "assets": ["modules/graph/*.md"],
-            "srcRootForCompilationRoot": "modules\\graph\\src"
+            "assets": ["modules/graph/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3210,8 +3173,7 @@
             "tsConfig": "modules/graph/operators/tsconfig.lib.json",
             "packageJson": "modules/graph/operators/package.json",
             "main": "modules/graph/operators/src/index.ts",
-            "assets": ["modules/graph/operators/*.md"],
-            "srcRootForCompilationRoot": "modules\\graph\\operators\\src"
+            "assets": ["modules/graph/operators/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3245,8 +3207,7 @@
             "tsConfig": "modules/graph/testing/tsconfig.lib.json",
             "packageJson": "modules/graph/testing/package.json",
             "main": "modules/graph/testing/src/index.ts",
-            "assets": ["modules/graph/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\graph\\testing\\src"
+            "assets": ["modules/graph/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3375,8 +3336,7 @@
             "tsConfig": "modules/identity/testing/tsconfig.lib.json",
             "packageJson": "modules/identity/testing/package.json",
             "main": "modules/identity/testing/src/index.ts",
-            "assets": ["modules/identity/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\identity\\testing\\src"
+            "assets": ["modules/identity/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3410,8 +3370,7 @@
             "tsConfig": "modules/integration/tsconfig.lib.json",
             "packageJson": "modules/integration/package.json",
             "main": "modules/integration/src/index.ts",
-            "assets": ["modules/integration/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\src"
+            "assets": ["modules/integration/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3445,8 +3404,7 @@
             "tsConfig": "modules/integration/alexa/tsconfig.lib.json",
             "packageJson": "modules/integration/alexa/package.json",
             "main": "modules/integration/alexa/src/index.ts",
-            "assets": ["modules/integration/alexa/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\alexa\\src"
+            "assets": ["modules/integration/alexa/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3529,8 +3487,7 @@
             "tsConfig": "modules/integration/amazon/api-gateway/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/api-gateway/package.json",
             "main": "modules/integration/amazon/api-gateway/src/index.ts",
-            "assets": ["modules/integration/amazon/api-gateway/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\api-gateway\\src"
+            "assets": ["modules/integration/amazon/api-gateway/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3719,8 +3676,7 @@
             "tsConfig": "modules/integration/amazon/comprehend/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/comprehend/package.json",
             "main": "modules/integration/amazon/comprehend/src/index.ts",
-            "assets": ["modules/integration/amazon/comprehend/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\comprehend\\src"
+            "assets": ["modules/integration/amazon/comprehend/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3816,8 +3772,7 @@
             "tsConfig": "modules/integration/amazon/kinesis/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/kinesis/package.json",
             "main": "modules/integration/amazon/kinesis/src/index.ts",
-            "assets": ["modules/integration/amazon/kinesis/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\kinesis\\src"
+            "assets": ["modules/integration/amazon/kinesis/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3851,8 +3806,7 @@
             "tsConfig": "modules/integration/amazon/lambda/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/lambda/package.json",
             "main": "modules/integration/amazon/lambda/src/index.ts",
-            "assets": ["modules/integration/amazon/lambda/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\lambda\\src"
+            "assets": ["modules/integration/amazon/lambda/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3886,8 +3840,7 @@
             "tsConfig": "modules/integration/amazon/neptune/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/neptune/package.json",
             "main": "modules/integration/amazon/neptune/src/index.ts",
-            "assets": ["modules/integration/amazon/neptune/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\neptune\\src"
+            "assets": ["modules/integration/amazon/neptune/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3921,8 +3874,7 @@
             "tsConfig": "modules/integration/amazon/polly/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/polly/package.json",
             "main": "modules/integration/amazon/polly/src/index.ts",
-            "assets": ["modules/integration/amazon/polly/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\polly\\src"
+            "assets": ["modules/integration/amazon/polly/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3956,8 +3908,7 @@
             "tsConfig": "modules/integration/amazon/redshift/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/redshift/package.json",
             "main": "modules/integration/amazon/redshift/src/index.ts",
-            "assets": ["modules/integration/amazon/redshift/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\redshift\\src"
+            "assets": ["modules/integration/amazon/redshift/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3991,8 +3942,7 @@
             "tsConfig": "modules/integration/amazon/rekognition/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/rekognition/package.json",
             "main": "modules/integration/amazon/rekognition/src/index.ts",
-            "assets": ["modules/integration/amazon/rekognition/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\rekognition\\src"
+            "assets": ["modules/integration/amazon/rekognition/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4026,8 +3976,7 @@
             "tsConfig": "modules/integration/amazon/route-53/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/route-53/package.json",
             "main": "modules/integration/amazon/route-53/src/index.ts",
-            "assets": ["modules/integration/amazon/route-53/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\route-53\\src"
+            "assets": ["modules/integration/amazon/route-53/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4310,8 +4259,7 @@
             "tsConfig": "modules/integration/amazon/transcribe/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/transcribe/package.json",
             "main": "modules/integration/amazon/transcribe/src/index.ts",
-            "assets": ["modules/integration/amazon/transcribe/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\transcribe\\src"
+            "assets": ["modules/integration/amazon/transcribe/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4345,8 +4293,7 @@
             "tsConfig": "modules/integration/amazon/translate/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/translate/package.json",
             "main": "modules/integration/amazon/translate/src/index.ts",
-            "assets": ["modules/integration/amazon/translate/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\translate\\src"
+            "assets": ["modules/integration/amazon/translate/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4380,8 +4327,7 @@
             "tsConfig": "modules/integration/amazon/x-ray/tsconfig.lib.json",
             "packageJson": "modules/integration/amazon/x-ray/package.json",
             "main": "modules/integration/amazon/x-ray/src/index.ts",
-            "assets": ["modules/integration/amazon/x-ray/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\amazon\\x-ray\\src"
+            "assets": ["modules/integration/amazon/x-ray/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4415,8 +4361,7 @@
             "tsConfig": "modules/integration/azure/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/package.json",
             "main": "modules/integration/azure/src/index.ts",
-            "assets": ["modules/integration/azure/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\src"
+            "assets": ["modules/integration/azure/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4450,8 +4395,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/cognitive-services/package.json",
             "main": "modules/integration/azure/cognitive-services/src/index.ts",
-            "assets": ["modules/integration/azure/cognitive-services/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\src"
+            "assets": ["modules/integration/azure/cognitive-services/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4485,8 +4429,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/computer-vision/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/cognitive-services/computer-vision/package.json",
             "main": "modules/integration/azure/cognitive-services/computer-vision/src/index.ts",
-            "assets": ["modules/integration/azure/cognitive-services/computer-vision/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\computer-vision\\src"
+            "assets": ["modules/integration/azure/cognitive-services/computer-vision/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4520,8 +4463,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/content-moderator/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/cognitive-services/content-moderator/package.json",
             "main": "modules/integration/azure/cognitive-services/content-moderator/src/index.ts",
-            "assets": ["modules/integration/azure/cognitive-services/content-moderator/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\content-moderator\\src"
+            "assets": ["modules/integration/azure/cognitive-services/content-moderator/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4555,8 +4497,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/face/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/cognitive-services/face/package.json",
             "main": "modules/integration/azure/cognitive-services/face/src/index.ts",
-            "assets": ["modules/integration/azure/cognitive-services/face/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\face\\src"
+            "assets": ["modules/integration/azure/cognitive-services/face/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4590,8 +4531,7 @@
             "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/cognitive-services/form-recognizer/package.json",
             "main": "modules/integration/azure/cognitive-services/form-recognizer/src/index.ts",
-            "assets": ["modules/integration/azure/cognitive-services/form-recognizer/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\cognitive-services\\form-recognizer\\src"
+            "assets": ["modules/integration/azure/cognitive-services/form-recognizer/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4656,8 +4596,7 @@
             "tsConfig": "modules/integration/azure/dns/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/dns/package.json",
             "main": "modules/integration/azure/dns/src/index.ts",
-            "assets": ["modules/integration/azure/dns/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\dns\\src"
+            "assets": ["modules/integration/azure/dns/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4691,8 +4630,7 @@
             "tsConfig": "modules/integration/azure/service-bus/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/service-bus/package.json",
             "main": "modules/integration/azure/service-bus/src/index.ts",
-            "assets": ["modules/integration/azure/service-bus/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\service-bus\\src"
+            "assets": ["modules/integration/azure/service-bus/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4726,8 +4664,7 @@
             "tsConfig": "modules/integration/azure/storage/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/storage/package.json",
             "main": "modules/integration/azure/storage/src/index.ts",
-            "assets": ["modules/integration/azure/storage/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\storage\\src"
+            "assets": ["modules/integration/azure/storage/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4761,8 +4698,7 @@
             "tsConfig": "modules/integration/azure/storage/blob/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/storage/blob/package.json",
             "main": "modules/integration/azure/storage/blob/src/index.ts",
-            "assets": ["modules/integration/azure/storage/blob/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\storage\\blob\\src"
+            "assets": ["modules/integration/azure/storage/blob/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4796,8 +4732,7 @@
             "tsConfig": "modules/integration/azure/text-analytics/tsconfig.lib.json",
             "packageJson": "modules/integration/azure/text-analytics/package.json",
             "main": "modules/integration/azure/text-analytics/src/index.ts",
-            "assets": ["modules/integration/azure/text-analytics/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\azure\\text-analytics\\src"
+            "assets": ["modules/integration/azure/text-analytics/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4831,8 +4766,7 @@
             "tsConfig": "modules/integration/discord/tsconfig.lib.json",
             "packageJson": "modules/integration/discord/package.json",
             "main": "modules/integration/discord/src/index.ts",
-            "assets": ["modules/integration/discord/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\discord\\src"
+            "assets": ["modules/integration/discord/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4866,8 +4800,7 @@
             "tsConfig": "modules/integration/github/tsconfig.lib.json",
             "packageJson": "modules/integration/github/package.json",
             "main": "modules/integration/github/src/index.ts",
-            "assets": ["modules/integration/github/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\github\\src"
+            "assets": ["modules/integration/github/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4901,8 +4834,7 @@
             "tsConfig": "modules/integration/gitlab/tsconfig.lib.json",
             "packageJson": "modules/integration/gitlab/package.json",
             "main": "modules/integration/gitlab/src/index.ts",
-            "assets": ["modules/integration/gitlab/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\gitlab\\src"
+            "assets": ["modules/integration/gitlab/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4936,8 +4868,7 @@
             "tsConfig": "modules/integration/google/tsconfig.lib.json",
             "packageJson": "modules/integration/google/package.json",
             "main": "modules/integration/google/src/index.ts",
-            "assets": ["modules/integration/google/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\src"
+            "assets": ["modules/integration/google/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -4971,8 +4902,7 @@
             "tsConfig": "modules/integration/google/cloud-bigtable/tsconfig.lib.json",
             "packageJson": "modules/integration/google/cloud-bigtable/package.json",
             "main": "modules/integration/google/cloud-bigtable/src/index.ts",
-            "assets": ["modules/integration/google/cloud-bigtable/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-bigtable\\src"
+            "assets": ["modules/integration/google/cloud-bigtable/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5006,8 +4936,7 @@
             "tsConfig": "modules/integration/google/cloud-logging/tsconfig.lib.json",
             "packageJson": "modules/integration/google/cloud-logging/package.json",
             "main": "modules/integration/google/cloud-logging/src/index.ts",
-            "assets": ["modules/integration/google/cloud-logging/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-logging\\src"
+            "assets": ["modules/integration/google/cloud-logging/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5041,8 +4970,7 @@
             "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.lib.json",
             "packageJson": "modules/integration/google/cloud-metrics/package.json",
             "main": "modules/integration/google/cloud-metrics/src/index.ts",
-            "assets": ["modules/integration/google/cloud-metrics/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-metrics\\src"
+            "assets": ["modules/integration/google/cloud-metrics/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5076,8 +5004,7 @@
             "tsConfig": "modules/integration/google/cloud-pub-sub/tsconfig.lib.json",
             "packageJson": "modules/integration/google/cloud-pub-sub/package.json",
             "main": "modules/integration/google/cloud-pub-sub/src/index.ts",
-            "assets": ["modules/integration/google/cloud-pub-sub/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\google\\cloud-pub-sub\\src"
+            "assets": ["modules/integration/google/cloud-pub-sub/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5302,8 +5229,7 @@
             "tsConfig": "modules/integration/pulsar/tsconfig.lib.json",
             "packageJson": "modules/integration/pulsar/package.json",
             "main": "modules/integration/pulsar/src/index.ts",
-            "assets": ["modules/integration/pulsar/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\pulsar\\src"
+            "assets": ["modules/integration/pulsar/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5400,8 +5326,7 @@
             "tsConfig": "modules/integration/square/tsconfig.lib.json",
             "packageJson": "modules/integration/square/package.json",
             "main": "modules/integration/square/src/index.ts",
-            "assets": ["modules/integration/square/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\square\\src"
+            "assets": ["modules/integration/square/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5435,8 +5360,7 @@
             "tsConfig": "modules/integration/stripe/tsconfig.lib.json",
             "packageJson": "modules/integration/stripe/package.json",
             "main": "modules/integration/stripe/src/index.ts",
-            "assets": ["modules/integration/stripe/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\stripe\\src"
+            "assets": ["modules/integration/stripe/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5504,8 +5428,7 @@
             "tsConfig": "modules/integration/twitter/tsconfig.lib.json",
             "packageJson": "modules/integration/twitter/package.json",
             "main": "modules/integration/twitter/src/index.ts",
-            "assets": ["modules/integration/twitter/*.md"],
-            "srcRootForCompilationRoot": "modules\\integration\\twitter\\src"
+            "assets": ["modules/integration/twitter/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5539,8 +5462,7 @@
             "tsConfig": "modules/layer/tsconfig.lib.json",
             "packageJson": "modules/layer/package.json",
             "main": "modules/layer/src/index.ts",
-            "assets": ["modules/layer/*.md"],
-            "srcRootForCompilationRoot": "modules\\layer\\src"
+            "assets": ["modules/layer/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5766,8 +5688,7 @@
             "tsConfig": "modules/layer/testing/tsconfig.lib.json",
             "packageJson": "modules/layer/testing/package.json",
             "main": "modules/layer/testing/src/index.ts",
-            "assets": ["modules/layer/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\layer\\testing\\src"
+            "assets": ["modules/layer/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5801,8 +5722,7 @@
             "tsConfig": "modules/layer/text/tsconfig.lib.json",
             "packageJson": "modules/layer/text/package.json",
             "main": "modules/layer/text/src/index.ts",
-            "assets": ["modules/layer/text/*.md"],
-            "srcRootForCompilationRoot": "modules\\layer\\text\\src"
+            "assets": ["modules/layer/text/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5836,8 +5756,7 @@
             "tsConfig": "modules/local/tsconfig.lib.json",
             "packageJson": "modules/local/package.json",
             "main": "modules/local/src/index.ts",
-            "assets": ["modules/local/*.md"],
-            "srcRootForCompilationRoot": "modules\\local\\src"
+            "assets": ["modules/local/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5935,8 +5854,7 @@
             "tsConfig": "modules/message/tsconfig.lib.json",
             "packageJson": "modules/message/package.json",
             "main": "modules/message/src/index.ts",
-            "assets": ["modules/message/*.md"],
-            "srcRootForCompilationRoot": "modules\\message\\src"
+            "assets": ["modules/message/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5970,8 +5888,7 @@
             "tsConfig": "modules/message/testing/tsconfig.lib.json",
             "packageJson": "modules/message/testing/package.json",
             "main": "modules/message/testing/src/index.ts",
-            "assets": ["modules/message/testing/*.md"],
-            "srcRootForCompilationRoot": "modules\\message\\testing\\src"
+            "assets": ["modules/message/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -7246,6 +7163,37 @@
         }
       }
     },
+    "typescript-time": {
+      "root": "modules/typescript/time",
+      "sourceRoot": "modules/typescript/time/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/typescript/time/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/typescript-time"],
+          "options": {
+            "jestConfig": "modules/typescript/time/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/typescript/time",
+            "tsConfig": "modules/typescript/time/tsconfig.lib.json",
+            "packageJson": "modules/typescript/time/package.json",
+            "main": "modules/typescript/time/src/index.ts"
+          }
+        }
+      }
+    },
     "validation": {
       "root": "modules/validation",
       "sourceRoot": "modules/validation/src",
@@ -8054,6 +8002,37 @@
         }
       }
     },
+    "web-rtc": {
+      "root": "modules/web/rtc",
+      "sourceRoot": "modules/web/rtc/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/web/rtc/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/web-rtc"],
+          "options": {
+            "jestConfig": "modules/web/rtc/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/web/rtc",
+            "tsConfig": "modules/web/rtc/tsconfig.lib.json",
+            "packageJson": "modules/web/rtc/package.json",
+            "main": "modules/web/rtc/src/index.ts"
+          }
+        }
+      }
+    },
     "web-speech": {
       "root": "modules/web/speech",
       "sourceRoot": "modules/web/speech/src",
@@ -8373,8 +8352,7 @@
             "tsConfig": "modules/website/layout/tsconfig.lib.json",
             "packageJson": "modules/website/layout/package.json",
             "main": "modules/website/layout/src/index.ts",
-            "assets": ["modules/website/layout/*.md"],
-            "srcRootForCompilationRoot": "modules\\website\\layout\\src"
+            "assets": ["modules/website/layout/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -8408,8 +8386,7 @@
             "tsConfig": "modules/website/layout/not-found/tsconfig.lib.json",
             "packageJson": "modules/website/layout/not-found/package.json",
             "main": "modules/website/layout/not-found/src/index.ts",
-            "assets": ["modules/website/layout/not-found/*.md"],
-            "srcRootForCompilationRoot": "modules\\website\\layout\\not-found\\src"
+            "assets": ["modules/website/layout/not-found/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -8443,8 +8420,7 @@
             "tsConfig": "modules/website/search/tsconfig.lib.json",
             "packageJson": "modules/website/search/package.json",
             "main": "modules/website/search/src/index.ts",
-            "assets": ["modules/website/search/*.md"],
-            "srcRootForCompilationRoot": "modules\\website\\search\\src"
+            "assets": ["modules/website/search/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -8478,8 +8454,7 @@
             "tsConfig": "modules/website/search/results/tsconfig.lib.json",
             "packageJson": "modules/website/search/results/package.json",
             "main": "modules/website/search/results/src/index.ts",
-            "assets": ["modules/website/search/results/*.md"],
-            "srcRootForCompilationRoot": "modules\\website\\search\\results\\src"
+            "assets": ["modules/website/search/results/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }

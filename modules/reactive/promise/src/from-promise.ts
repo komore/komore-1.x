@@ -15,7 +15,6 @@ export function fromPromise<T>(promise: Promise<T>): Observable<T> {
           observer.complete();
         }
       })
-      .catch(error => observer.error(error))
-      .catch(error => console.error('unhandled promise rejection', error));
+      .catch(error => observer.error(error));
   });
 }

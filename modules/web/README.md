@@ -1,4 +1,4 @@
-# komore Web
+# @komore/web
 
 [![NPM version](https://img.shields.io/npm/v/@komore/web)](https://www.npmjs.com/package/@komore/web)
 

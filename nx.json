@@ -685,6 +685,9 @@
     "typescript-compiler-testing": {
       "tags": ["scope:typescript", "trait:testing"]
     },
+    "typescript-time": {
+      "tags": ["scope:typescript"]
+    },
     "validation": {
       "tags": ["scope:validation", "trait:base"]
     },
@@ -761,6 +764,9 @@
       "tags": ["scope:web"]
     },
     "web-push": {
+      "tags": ["scope:web"]
+    },
+    "web-rtc": {
       "tags": ["scope:web"]
     },
     "web-speech": {

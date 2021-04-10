@@ -1,12 +1,14 @@
-# Reactive
+# @komore/reactive
 
 [![NPM version](https://img.shields.io/npm/v/@komore/reactive.svg)](https://www.npmjs.com/package/@komore/reactive)
 
-[RxJS operators] shared across [komore] modules.
-
 ## Install
 
-The module can be installed via Npm or Yarn:
+The module can be installed via pnpm, Npm or Yarn:
+
+```shell
+pnpm add @komore/reactive
+```
 
 ```shell
 npm install @komore/operators --save
@@ -16,21 +18,6 @@ npm install @komore/operators --save
 yarn add @komore/operators
 ```
 
-## Operators
+## Usage
 
-The following operators are exposed by the module:
-
-- [`assertThat`]
-- [`deserializeJson`]
-- [`throwIf`]
-- [`serializeJson`]
-
-Complete information can be found in the [module documentation].
-
-[`assertthat`]: https://komore.dev/modules/operators/errors
-[`deserializejson`]: https://komore.dev/modules/operators/json
-[`throwif`]: https://komore.dev/modules/operators/errors
-[`serializejson`]: https://komore.dev/modules/operators/json
-[komore]: https://komore.dev
-[module documentation]: https://komore.dev/modules/operators
-[rxjs operators]: https://rxjs.dev/guide/operators
+Documentation is available at https://komore.dev/modules/reactive.

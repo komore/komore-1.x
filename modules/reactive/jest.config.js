@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/operators/src/**/*.spec.ts'],
+  testMatch: ['**/modules/reactive/src/**/*.spec.ts'],
   preset: '../../jest.preset.js',
-  coverageDirectory: '../../coverage/operators',
+  coverageDirectory: '../../coverage/reactive',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'operators'
+  displayName: 'reactive'
 };

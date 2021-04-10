@@ -1,6 +1,6 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
 import { concat, Observable, Subscription } from '@komore/reactive';
-import { publish } from '@komore/reactive/operators';
+import { publish } from './publish';
 
 /**
  * Delays emissions until a notifier emits or completes

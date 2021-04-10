@@ -1,7 +1,7 @@
 import type { OperatorFunction } from '@komore/reactive';
 import { map } from '@komore/reactive/operators';
 import type { GenericScope, TypedOutput, TypedValue, Types } from '@komore/stack';
-import type { TerraformOutputConfig } from 'cdktf';
+import type { TerraformOutputConfig, TerraformResource } from 'cdktf';
 import { TerraformOutput } from 'cdktf';
 import type { OutputProperties } from './output-properties';
 import type { ScopeWithAddedOutput } from './scope-with-added-output';
@@ -22,6 +22,15 @@ export function withOutput<ScopeType extends GenericScope, OutputId extends stri
   properties?: OutputProperties
 ): OperatorFunction<ScopeType, ScopeWithAddedOutput<ScopeType, OutputId, TypedOutput<TypeName>>>;
 
+export function withOutput<ScopeType extends GenericScope, OutputId extends string, ResourceType extends TerraformResource>(
+  id: OutputId,
+  project: (scope: ScopeType) => ResourceType,
+  properties?: OutputProperties
+): OperatorFunction<ScopeType, ScopeWithAddedOutput<ScopeType, OutputId, TypedOutput<'string'>>>;
+
+
+// TODO: withOutput('id', scope => scope.resources.x.y.z)
+
 /**
  * Adds an output to a scope
  * @param name Output name
@@ -31,7 +40,7 @@ export function withOutput<ScopeType extends GenericScope, OutputId extends stri
  */
 export function withOutput<ScopeType extends GenericScope, OutputId extends string, K extends keyof Types>(
   id: OutputId,
-  value: TypedValue<K>,
+  valueOrProject: TypedValue<K> | ((scope: ScopeType) => TerraformResource),
   properties?: OutputProperties
 ): OperatorFunction<ScopeType, ScopeWithAddedOutput<ScopeType, OutputId, TypedOutput<K>>> {
   const description = properties?.description;

@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map } from './map';
 
 /**
  * Throws an error if a condition is met

@@ -1,1 +1,2 @@
-declare function createTestSource(sourceText: string): import('typescript').SourceFile;
+import type { SourceFile } from 'typescript';
+declare function createTestSource(sourceText: string): SourceFile;
