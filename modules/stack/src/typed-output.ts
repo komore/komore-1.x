@@ -4,12 +4,10 @@ import type { TypedValue } from './typed-value';
 
 /**
  * Typed output
+ * @template TypeName Type name
  */
-export interface TypedOutput<K extends keyof Types> {
-  readonly description?: string;
-  readonly name: string;
-  readonly sensitive?: boolean;
+export interface TypedOutput<TypeName extends keyof Types> {
   readonly terraformOutput: TerraformOutput;
-  readonly type: K;
-  readonly value: TypedValue<K>;
+  readonly type: TypeName;
+  readonly value: TypedValue<TypeName>;
 }

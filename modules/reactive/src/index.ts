@@ -18,6 +18,8 @@ export { Observable } from './observable';
 export type { ObservableInput } from './observable-input';
 export type { ObservableInputTuple } from './observable-input';
 export type { ObservableInputType } from './observable-input';
+export type { ObservableTuple } from './observable-tuple';
+export type { ObservableType } from './observable-type';
 export type { Observer } from './observer';
 export { of } from './creation/of';
 export type { OperatorFunction } from './operator-function';

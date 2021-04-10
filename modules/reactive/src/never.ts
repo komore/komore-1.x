@@ -1,4 +1,4 @@
-import { noop } from '@komore/typescript';
+import { noop } from '@komore/functional';
 import { Observable } from './observable';
 
 /**

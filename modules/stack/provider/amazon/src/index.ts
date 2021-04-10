@@ -1,0 +1,13 @@
+export { appSyncDataSource } from './app-sync-data-source';
+export { appSyncFunction } from './app-sync-function';
+export { appSyncGraphQLAPI } from './app-sync-graphql-api';
+export { appSyncResolver } from './app-sync-resolver';
+export { cloudFrontDistribution } from './cloud-front-distribution';
+export { dynamoDBGlobalTable } from './dynamodb-global-table';
+export { dynamoDBTable } from './dynamodb-table';
+export { lambdaFunction } from './lambda-function';
+export { route53Record } from './route53-record';
+export { route53Zone } from './route53-zone';
+export { s3Bucket } from './s3-bucket';
+export { s3BucketObject } from './s3-bucket-object';
+export { withAmazonProvider } from './with-amazon-provider';

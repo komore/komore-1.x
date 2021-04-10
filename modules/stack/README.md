@@ -2,13 +2,17 @@
 
 Describe the stack with a DSL / cdktf.
 
-Generate a Terraform module from it.
+Generate Terraform modules from it.
 
-When doing `nx generate @komore/schematics:stack`, a stack gets created + the ability to nx serve/deploy based on that stack
+When doing `k generate @komore/schematics:stack`, a stack gets created + the ability to `k serve` and `k deploy` based
+on that stack.
 
 ```ts
+import { createStack } from '@komore/stack';
+import { withVariable } from '@komore/stack/operators';
+
 export const myStack = createStack(stack => stack.pipe(
-  withVariable(')
+  withVariable('')
 ));
 ```
 

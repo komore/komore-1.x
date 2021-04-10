@@ -4,12 +4,12 @@ import type { Types } from './types';
 /**
  * Typed variable
  */
-export interface TypedVariable<K extends keyof Types> {
+export interface TypedVariable<VariableTypeName extends keyof Types> {
   readonly name: string;
   readonly description?: string;
-  readonly default?: Types[K];
+  readonly default?: Types[VariableTypeName];
   // TODO: https://github.com/hashicorp/terraform-cdk/issues/569
   readonly sensitive?: boolean;
   readonly terraformVariable: TerraformVariable;
-  readonly type: K;
+  readonly type: VariableTypeName;
 }

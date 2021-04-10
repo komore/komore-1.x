@@ -7,6 +7,6 @@ import type { Observable } from './observable';
  * @returns true if the object is an observable
  * @template T Value type
  */
-export function isObservable<T>(obj: unknown): obj is Observable<T> {
-  return rxjsIsObservable<T>(obj);
+export function isObservable<T = unknown>(obj: unknown): obj is Observable<T> {
+  return rxjsIsObservable(obj);
 }

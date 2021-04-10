@@ -1,7 +1,10 @@
 export { createStack } from './create-stack';
-export type { GenericScope } from './generic-scope';
+export type { DataSourceMap } from './data-source-map';
+export type { GenericScope } from './scope';
+export type { ResourceMap } from './resource-map';
 export type { Scope } from './scope';
 export type { Stack } from './stack';
+export type { TypedLocal } from './typed-local';
 export type { TypedValue } from './typed-value';
 export type { TypedVariable } from './typed-variable';
 export type { TypedOutput } from './typed-output';

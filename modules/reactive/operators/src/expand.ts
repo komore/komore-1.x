@@ -12,5 +12,5 @@ export function expand<InputType, OutputType>(
   concurrent?: number,
   scheduler?: SchedulerLike
 ): OperatorFunction<InputType, OutputType> {
-  return rxjsExpand<InputType, OutputType>(project, concurrent, scheduler);
+  return rxjsExpand<InputType, Observable<OutputType>>(project, concurrent, scheduler);
 }

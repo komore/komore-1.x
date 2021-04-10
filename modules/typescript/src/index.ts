@@ -7,6 +7,7 @@ export { executeRegExp } from './execute-reg-exp';
 export type { IterableValueType } from './iterable-value-type';
 export { isDefined } from './is-defined';
 export { isNotNull } from './is-not-null';
+export type { ReadonlyRecord } from './readonly-record';
 export type { TruthyTypesOf } from './truthy-types-of';
 export type { _TypeSchema } from './type-schema/type-schema';
 export type { _TypeSchemaType } from './type-schema/type-schema-type';
