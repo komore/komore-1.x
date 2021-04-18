@@ -1,3 +1,3 @@
-# komore Integration - Square
+# @komore/integration-square
 
 TODO.

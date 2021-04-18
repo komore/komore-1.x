@@ -1,63 +1,42 @@
+[metadata:title]: @komore/function
+[metadata:description]: "TODO"
+[metadata:tag]: function
+[metadata:path]: modules/function/overview
+[metadata:path-alias]: modules/function
+[metadata:see-also]: ./function-as-a-service.md
+[metadata:see-also]: ./graph.md
+
 # @komore/function
 
-The `@komore/function` module allows the execution of pipelines within function environments.
+The `@komore/function` module allows the execution of pipelines within serverless function environments.
 
-The function arguments act as a [source] and the function result can be set using a [sink].
+## Key concepts
 
-## Key Concepts
+- [Functions] are event-driven units of code that implement services
+- [Function triggers] are event-emitting sources that cause a function to run
+- Functions get deployed to [serverless platforms] and only run when triggered
+- Functions are [elastic]: they automatically scale up or down
 
-- [`fromFunction`] creates a `FunctionSubject` [source] that emits function arguments
-- [`]
-- A [`FunctionSubject`] call returns a promise
-- A [`FunctionMessage`] features the promise's `resolve` and `reject` functions within its metadata
-- [`toFunction`] creates a `FunctionSink` [sink] that 
-- [`to]
-- A [`FunctionSink`] resolves or rejects a promise
+## Target platforms
 
-- `FunctionMessage`
-- Calling a `FunctionSubject` makes it emit the function arguments and return a promise
-- [resolveFunctionPromise] creates a `FunctionSink` [sink]
+Functions can be deployed to the following platforms:
 
-- [toFunctionResult] creates a [sink] that resolves the promise returned uses function message builders that attempt to turn the function arguments into a [message]
+- [Amazon Alexa]
+- [Apache Pulsar]
+- [AWS Lambda]
+- [Azure Cloud Function]
+- [Cloudflare Worker]
+- [Google Cloud Function]
+- [OpenFaaS]
 
-## Installation
-
-The `@komore/function` module can be installed via Npm or Yarn:
-
-```shell
-npm install @komore/event-store-aws --save
-```
-
-```shell
-yarn add @komore/event-store-aws
-```
-
-## Promise
-
-The promise holds an important role in the entire process, as it will determine when the function execution ends.
-
-## Unresolved promises
-
-The only way for 
-
-
-```typescript
-import { createFunctionGraph, fromFunction } from '@komore/function';
-
-const exposedFunction = createFunctionGraph(
-  'exposedFunction',
-  fromFunction<(num: number) => string>(),
-  map(n => n.toString())
-);
-```
-
-## Environment variables
-
-- `KOMORE_FUNCTION_CONCURRENCY_LIMIT`: set to `1` to enable pipe optimizations (for AWS Lambda/etc)
-
-[`fromfunction`]: ../../modules/function/src/from-function.ts
-[`functionmessage`]: ../../modules/function/src/function-message.ts
-[`functionsubject`]: ../../modules/function/src/function-subject.ts
-[message]: ../concepts/graph.md#message
-[sink]: ../concepts/graph.md#sink
-[source]: ../concepts/graph.md#source
+[amazon alexa]: ./function-alexa.md
+[apache pulsar]: ./function-pulsar.md
+[aws lambda]: ./function-lambda.md
+[azure cloud function]: ./function-azure.md
+[cloudflare worker]: ./function-cloudflare.md
+[elastic]: ./function-architecture.md#elasticity
+[google cloud function]: ./function-google.md
+[functions]: ./function-architecture.md#functions
+[function triggers]: ./function-architecture.md#function-triggers
+[openfaas]: ./function-openfaas.md
+[serverless platforms]: #target-platforms

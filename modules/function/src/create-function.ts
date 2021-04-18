@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 import { createImmediateFunction } from './create-immediate-function';
 import { createProjectedFunction } from './create-projected-function';
 
@@ -9,10 +9,7 @@ import { createProjectedFunction } from './create-projected-function';
  * @template FunctionName Function name
  * @template FunctionParameterType Function parameter types
  */
-export function createFunction<
-  FunctionName extends string,
-  FunctionParameterTypes extends ReadonlyArray<any> = []
->(
+export function createFunction<FunctionName extends string, FunctionParameterTypes extends ReadonlyArray<unknown> = []>(
   functionName: FunctionName
 ): (
   ...functionParameters: FunctionParameterTypes
@@ -29,7 +26,7 @@ export function createFunction<
  */
 export function createFunction<
   FunctionName extends string,
-  FunctionParameterTypes extends ReadonlyArray<any> = [],
+  FunctionParameterTypes extends ReadonlyArray<unknown> = [],
   FunctionReturnType = void
 >(
   functionName: FunctionName,
@@ -53,7 +50,9 @@ export function createFunction<
   FunctionReturnType
 >(
   functionName: FunctionName,
-  project?: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType | FunctionParameterTypes | void>
+  project?: (
+    observable: Observable<FunctionParameterTypes>
+  ) => Observable<FunctionReturnType | FunctionParameterTypes | void>
 ): (...functionParameters: FunctionParameterTypes) => Promise<FunctionReturnType | FunctionParameterTypes | void> {
   if (project === undefined) {
     return createImmediateFunction(functionName);

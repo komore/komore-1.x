@@ -14,7 +14,7 @@
   "scripts": {
     "build": "nx run-many --all --target=build --parallel",
     "build:affected": "nx affected:build",
-    "cdktf:generate": "ts-node ./tools/generate-cdk-files.ts ./tmp/cdktf ./modules/stack",
+    "cdktf:generate": "ts-node ./tools/cdk/generate-cdk-files.ts ./tmp/cdktf ./modules/stack",
     "dep-graph": "nx dep-graph",
     "dep-graph:affected": "nx affected:dep-graph",
     "e2e": "nx e2e",
@@ -25,7 +25,8 @@
     "serve:website": "nx serve website",
     "serve:vscode": "nx build vscode --no-cache --watch",
     "test": "nx run-many --all --target=test --parallel",
-    "test:affected": "nx affected:test"
+    "test:affected": "nx affected:test",
+    "tools:generate-website-tree": "ts-node ./tools/generate-website-tree.ts ./docs/modules"
   },
   "dependencies": {
     "@aws-sdk/client-api-gateway": "3.11.0",
@@ -93,6 +94,7 @@
     "jsdom": "16.5.2",
     "jsonwebtoken": "8.5.1",
     "koa": "2.13.1",
+    "marked": "^2.0.3",
     "node-watch": "0.7.1",
     "path-to-regexp": "6.2.0",
     "postcss": "8.2.9",

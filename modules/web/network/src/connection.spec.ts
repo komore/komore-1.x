@@ -6,7 +6,7 @@ describe('Connection', () => {
   let mockConnection: MockProxy<typeof globalThis.navigator.connection> & typeof globalThis.navigator.connection;
 
   beforeEach(() => {
-    mockConnection = mock<>();
+    mockConnection = mock();
     Object.defineProperty(navigator, 'connection', mockConnection);
   });
 

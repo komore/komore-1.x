@@ -1,10 +1,12 @@
 export { AsyncSubject } from './subject/async-subject';
 export { BehaviorSubject } from './subject/behavior-subject';
 export { combineLatest } from './creation/combine-latest';
+export type { CompletionObserver } from './observer';
 export { concat } from './creation/concat';
 export { defer } from './creation/defer';
 export { EMPTY } from './empty';
 export { EmptyError } from './empty-error';
+export type { ErrorObserver } from './observer';
 export { forkJoin } from './creation/fork-join';
 export { from } from './creation/from';
 export { fromArray } from './creation/from-array';
@@ -31,3 +33,4 @@ export { Subject } from './subject/subject';
 export { Subscriber } from './subscriber';
 export { Subscription } from './subscription';
 export { throwError } from './creation/throw-error';
+export type { ValueObserver } from './observer';

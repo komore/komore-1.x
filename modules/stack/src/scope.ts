@@ -30,12 +30,29 @@ export interface Scope<
 }
 
 /**
- * Generic scope
+ * Scope resources
+ * @template ScopeType Scope type
  */
-export type GenericScope = Scope<
+export type ScopeResources<ScopeType> = ScopeType extends Scope<
+  Record<string, TypedVariable<keyof Types>>,
+  Record<string, TypedLocal<keyof Types>>,
+  Record<string, TypedOutput<keyof Types>>,
+  infer Resources,
+  Record<string, DataSourceMap<string>>
+>
+  ? Resources
+  : never;
+
+/**
+ * Scope data sources
+ * @template ScopeType Scope type
+ */
+export type ScopeDataSources<ScopeType> = ScopeType extends Scope<
   Record<string, TypedVariable<keyof Types>>,
   Record<string, TypedLocal<keyof Types>>,
   Record<string, TypedOutput<keyof Types>>,
   Record<string, ResourceMap<string>>,
-  Record<string, DataSourceMap<string>>
->;
+  infer DataSources
+>
+  ? DataSources
+  : never;

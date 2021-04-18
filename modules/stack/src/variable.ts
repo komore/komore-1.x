@@ -6,7 +6,7 @@ import type { Value, RawValueType } from './value';
  * Variable reference
  */
 interface VariableReference extends Value {
-  readonly variableName;
+  readonly variableName: string;
 }
 
 /**

@@ -1,1 +1,1 @@
-# komore Query
+# @komore/query

@@ -1,11 +1,11 @@
 import type { Observable } from '@komore/reactive';
-import { fromEvent } from '@komore/reactive';
+import { defer, fromEvent } from '@komore/reactive';
 import { filter, share } from '@komore/reactive/operators';
 
 /**
  * Shared storage event source
  */
-const storageEvent = fromEvent<StorageEvent>(window, 'storage').pipe(share());
+const storageEvent = defer(() => fromEvent<StorageEvent>(window, 'storage')).pipe(share());
 
 /**
  * Watches for storage changes

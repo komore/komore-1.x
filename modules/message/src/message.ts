@@ -7,7 +7,7 @@
  */
 export interface Message<
   MessageTypeName extends string,
-  MessageMetadataType extends Record<symbol, any>,
+  MessageMetadataType extends Record<string, unknown>,
   MessageInputType,
   MessageOutputType
 > {

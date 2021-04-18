@@ -1,4 +1,4 @@
-# komore Message
+# @komore/message
 
 Adds support for message flows and graphs to [komore].
 

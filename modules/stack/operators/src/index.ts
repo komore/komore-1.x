@@ -1,3 +1,5 @@
+export type { ScopeWithAddedResource } from './scope-with-added-resource';
+export type { ScopeWithAddedVariable } from './scope-with-added-variable';
 export type { VariableProperties } from './variable-properties';
 export { withDataSource } from './with-data-source';
 export { withOutput } from './with-output';

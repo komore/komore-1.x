@@ -1,4 +1,4 @@
-import { FunctionEnvironment, FunctionProvider } from '@komore/function';
+import type { FunctionEnvironment, FunctionProvider } from '@komore/function';
 import { lambdaProviderName } from './lambda';
 import { LambdaFunctionInput } from './lambda-function-input';
 import { LambdaFunctionOutput } from './lambda-function-output';

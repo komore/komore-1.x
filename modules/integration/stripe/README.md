@@ -1,3 +1,3 @@
-# komore Integration - Stripe
+# @komore/integration-stripe
 
 TODO.

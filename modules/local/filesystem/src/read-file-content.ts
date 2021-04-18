@@ -1,6 +1,6 @@
+import { Observable } from '@komore/reactive';
 import type { PathLike } from 'fs';
 import { readFile } from 'fs';
-import { Observable } from 'rxjs';
 
 /**
  * Reads an entire file's content into memory

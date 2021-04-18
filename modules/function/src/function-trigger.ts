@@ -2,20 +2,24 @@
  * Function trigger
  * @template FunctionReturnType Function return type
  * @template FunctionParameterTypes Function parameter types
+ * @template ProcessedFuncitonParameterTypes Processed function parameter types
  */
 export type FunctionTrigger<
   FunctionReturnType,
-  FunctionParameterTypes extends ReadonlyArray<any>,
-  ProcessedFunctionParameterTypes extends ReadonlyArray<any> = FunctionParameterTypes
+  FunctionParameterTypes extends ReadonlyArray<unknown>,
+  ProcessedFunctionParameterTypes extends ReadonlyArray<unknown> = FunctionParameterTypes
 > = Readonly<{
   _ReturnType: FunctionReturnType;
 }> &
   ((...functionParameters: FunctionParameterTypes) => ProcessedFunctionParameterTypes);
 
+/**
+ * Function trigger parameter types
+ */
 export type FunctionTriggerParameterTypes<FunctionTriggerType> = FunctionTriggerType extends FunctionTrigger<
-  any,
+  unknown,
   infer FunctionParameterTypes,
-  any
+  ReadonlyArray<unknown>
 >
   ? FunctionParameterTypes
   : never;

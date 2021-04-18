@@ -4,11 +4,11 @@ import type { Message } from './message';
  * Message input type
  * @template MessageType Message type
  */
-export type MessageInputType<MessageType extends Message<any, any, any, any>> = MessageType extends Message<
-  any,
-  any,
+export type MessageInputType<MessageType> = MessageType extends Message<
+  string,
+  Record<symbol, unknown>,
   infer MessageInputType,
-  any
+  unknown
 >
   ? MessageInputType
   : never;

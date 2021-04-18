@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "generators": {},
+  "executors": {
+    "build": {
+      "implementation": "./src/executors/build",
+      "schema": "./src/executors/build.json",
+      "description": "build executor"
+    },
+    "deploy": {
+      "implementation": "./src/executors/deploy",
+      "schema": "./src/executors/deploy.json",
+      "description": "deploy executor"
+    },
+    "publish": {
+      "implementation": "./src/executors/publish",
+      "schema": "./src/executors/publish.json",
+      "description": "publish executor"
+    },
+    "serve": {
+      "implementation": "./src/executors/serve",
+      "schema": "./src/executors/serve.json",
+      "description": "serve executor"
+    },
+    "lint": {
+      "implementation": "./src/executors/lint",
+      "schema": "./src/executors/lint.json",
+      "description": "lint executor"
+    },
+    "test": {
+      "implementation": "./src/executors/test",
+      "schema": "./src/executors/test.json",
+      "description": "test executor"
+    }
+  }
+}

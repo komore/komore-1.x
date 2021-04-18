@@ -1,5 +1,5 @@
-import { Message } from '@komore/message';
-import { FunctionInputType, FunctionOutputType, FunctionType } from './function-type';
+import type { Message } from '@komore/message';
+import type { FunctionInputType, FunctionOutputType, FunctionType } from './function-type';
 
 /**
  * Function provider

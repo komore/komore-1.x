@@ -1,8 +1,16 @@
+export { addDataSource } from './add-data-source';
+export { addLocal } from './add-local';
+export { addOutput } from './add-output';
+export { addResource } from './add-resource';
+export { addVariable } from './add-variable';
 export { createStack } from './create-stack';
 export type { DataSourceMap } from './data-source-map';
-export type { GenericScope } from './scope';
+export type { GenericScope } from './generic-scope';
 export type { ResourceMap } from './resource-map';
 export type { Scope } from './scope';
+export type { ScopeWithAddedDataSource } from './scope-with-added-data-source';
+export type { ScopeWithAddedLocal } from './scope-with-added-local';
+export type { ScopeWithAddedResource } from './scope-with-added-resource';
 export type { Stack } from './stack';
 export type { TypedLocal } from './typed-local';
 export type { TypedValue } from './typed-value';

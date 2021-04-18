@@ -1,4 +1,4 @@
-# komore Local Development Server
+# @komore/dev-server-local
 
 > :warning: This server is meant for development only and should never be used in production
 
@@ -10,7 +10,11 @@ Local development server meant to implement cloud services via extensions:
 
 ## Install
 
-The module can be installed via Npm or Yarn:
+The module can be installed via pnpm, Npm or Yarn:
+
+```shell
+pnpm add @komore/dev-server-local -D
+```
 
 ```shell
 npm install @komore/dev-server-local --save-dev
@@ -31,7 +35,6 @@ TODO: add output
 ```
 
 The full list of available options is available in the [CLI reference].
-
 
 [`@komore/dev-server-local-amazon`]: https://npmjs.com/package/@komore/dev-server-local-amazon
 [`@komore/dev-server-local-azure`]: https://npmjs.com/package/@komore/dev-server-local-azure

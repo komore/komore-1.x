@@ -8,7 +8,10 @@ import type { MessageTypeName } from './message-type-name';
  * @template MessageType Message type
  * @template NewMessageOutputType New message output type
  */
-export type MutatedMessageOutputType<MessageType extends Message<any, any, any, any>, NewMessageOutputType> = Message<
+export type MutatedMessageOutputType<
+  MessageType extends Message<string, Record<symbol, unknown>, unknown, unknown>,
+  NewMessageOutputType
+> = Message<
   MessageTypeName<MessageType>,
   MessageMetadataType<MessageType>,
   MessageInputType<MessageType>,

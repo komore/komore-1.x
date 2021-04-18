@@ -1,5 +1,5 @@
 import { defer, fromEvent } from '@komore/reactive';
-import { map, shareReplay } from '@komore/reactive/operators';
+import { map, shareReplay, startWith } from '@komore/reactive/operators';
 
 // TODO: remove these once they are available in the shipped typings
 declare global {
@@ -31,8 +31,8 @@ declare global {
     readonly connection: NetworkInformation;
   }
 
-  interface Navigator extends NavigatorNetworkInformation {}
-  interface WorkerNavigator extends NavigatorNetworkInformation {}
+  interface Navigator extends NavigatorNetworkInformation {} // eslint-disable-line @typescript-eslint/no-empty-interface
+  interface WorkerNavigator extends NavigatorNetworkInformation {} // eslint-disable-line @typescript-eslint/no-empty-interface
 }
 
 /**
@@ -40,5 +40,6 @@ declare global {
  */
 export const CONNECTION = defer(() => fromEvent(navigator.connection, 'change')).pipe(
   map(() => navigator.connection),
+  startWith(navigator.connection),
   shareReplay({ bufferSize: 1, refCount: true })
 );

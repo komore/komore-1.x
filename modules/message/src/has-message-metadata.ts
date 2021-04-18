@@ -10,7 +10,7 @@ import type { MutatedMessageMetadataType } from './mutated-message-metadata-type
  * @template MetadataTypeName Metadata type name
  */
 export function hasMessageMetadata<MetadataKeyName extends string, MetadataTypeName>(
-  message: Message<any, any, any, any>,
+  message: Message<string, Record<symbol, unknown>, unknown, unknown>,
   metadataKeyName: MetadataKeyName
 ): message is MutatedMessageMetadataType<typeof message, Readonly<{ MetadataKeyName: MetadataTypeName }>> {
   return metadataKeyName in message;

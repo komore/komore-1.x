@@ -10,7 +10,7 @@ import type { Construct } from 'constructs';
  * @param constructor Resource class constructor
  * @param resourceTypeName Resource type name
  * @param resourceId Resource identifier
- * @param config Configuration
+ * @param config Configuration or function that returns the configuration
  * @returns Operator function that adds a resource to a scope
  * @template ScopeType Scope type
  * @template ResourceTypeName Resource type name
@@ -28,10 +28,11 @@ export function addResource<
   constructor: new (construct: Construct, id: string, config: ConfigType) => ResourceType,
   resourceTypeName: ResourceTypeName,
   resourceId: ResourceId,
-  config: ConfigType
+  config: ConfigType | ((scope: ScopeType) => ConfigType)
 ) {
   return mergeMap((scope: ScopeType) => {
-    const resource = new constructor(scope.construct, resourceId, config);
+    const conf = (typeof config === 'function') ? config(scope) : config;
+    const resource = new constructor(scope.construct, resourceId, conf);
     return of(scope).pipe(withResource(resourceTypeName, resourceId, resource));
   });
 }

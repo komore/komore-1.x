@@ -1,1 +1,1 @@
-# komore Development Server
+# @komore/dev-server

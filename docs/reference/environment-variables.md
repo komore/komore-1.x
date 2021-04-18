@@ -1,4 +1,4 @@
-# Environment Variables
+# Environment Variables Reference
 
 Reference list of environment variable defined by [komore modules].
 

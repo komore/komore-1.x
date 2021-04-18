@@ -1,3 +1,3 @@
-# Cloudflare Worker
+# Cloudflare Worker Function
 
 TODO.

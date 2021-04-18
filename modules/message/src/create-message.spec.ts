@@ -2,7 +2,7 @@ import { createMessage } from './create-message';
 
 describe('Create message', () => {
   it('creates a message', () => {
-    given: 'a message type and metadata'
+    given: 'a message type and metadata';
     const messageType = 'test-type';
     const messageMetadata = {
       timing: {
@@ -16,9 +16,9 @@ describe('Create message', () => {
         }
       }
     };
-    when: 'creating a message'
+    when: 'creating a message';
     const message = createMessage(messageType, messageMetadata);
-    then: 'the message contains the type and metadata'
+    then: 'the message contains the type and metadata';
     expect(message.type).toBe(messageType);
     expect(message.metadata).toBe(messageMetadata);
   });

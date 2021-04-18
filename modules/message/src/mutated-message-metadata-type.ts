@@ -9,8 +9,8 @@ import type { MessageTypeName } from './message-type-name';
  * @template NewMessageMetadataType New message metadata type
  */
 export type MutatedMessageMetadataType<
-  MessageType extends Message<any, any, any, any>,
-  NewMessageMetadataType extends Record<symbol, any>
+  MessageType extends Message<string, Record<symbol, unknown>, unknown, unknown>,
+  NewMessageMetadataType extends Record<symbol, unknown>
 > = Message<
   MessageTypeName<MessageType>,
   NewMessageMetadataType,

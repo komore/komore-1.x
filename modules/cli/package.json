@@ -5,6 +5,15 @@
     "CLI"
   ],
   "bin": {
-    "k": "./bin/k.js"
+    "k": "./bin/k",
+    "kmr": "./bin/k",
+    "komore": "./bin/k"
+  },
+  "files": [
+    "/bin"
+  ],
+  "oclif": {
+    "bin": "k",
+    "commands": "./src/commands"
   }
 }

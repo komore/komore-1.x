@@ -1,4 +1,4 @@
-import { Function } from '@komore/function';
+import type { Function } from '@komore/function';
 import { FunctionInputParametersType } from 'modules/function/src/function-input';
 import { FunctionInputType } from 'modules/function/src/function-type';
 

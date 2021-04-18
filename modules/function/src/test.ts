@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
-import { mapTo } from 'rxjs/operators';
-import { FunctionTriggerType } from './function-trigger-type';
+import type { Observable } from '@komore/reactive';
+import { mapTo } from '@komore/reactive/operators';
+import type { FunctionTriggerType } from './function-trigger-type';
 
 type FunctionType<FunctionParameterTypes extends ReadonlyArray<any>, FunctionReturnType> = FunctionParameterTypes extends []
   ? (...functionParameters: FunctionParameterTypes) => Promise<FunctionReturnType> : () => Promise<FunctionReturnType>;

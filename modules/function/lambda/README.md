@@ -1,4 +1,4 @@
-# komore Function - AWS Lambda
+# @komore/function for AWS Lambda
 
 Support for the [AWS Lambda] execution environment.
 

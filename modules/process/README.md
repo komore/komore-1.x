@@ -1,3 +1,3 @@
-# komore Process Module
+# @komore/process
 
 TODO: process manager (state machine) / saga (stateless)

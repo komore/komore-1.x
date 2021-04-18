@@ -566,7 +566,7 @@
     "cli": {
       "root": "modules/cli",
       "sourceRoot": "modules/cli/src",
-      "projectType": "library",
+      "projectType": "application",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -587,10 +587,79 @@
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/cli",
-            "tsConfig": "modules/cli/tsconfig.lib.json",
+            "tsConfig": "modules/cli/tsconfig.app.json",
             "packageJson": "modules/cli/package.json",
             "main": "modules/cli/src/index.ts",
-            "assets": ["modules/cli/*.md"]
+            "assets": [
+              "modules/cli/*.md",
+              {
+                "glob": "*",
+                "input": "modules/cli/bin",
+                "output": "/bin"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "cli-build": {
+      "root": "modules/cli/build",
+      "sourceRoot": "modules/cli/build/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/build/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-build"],
+          "options": {
+            "jestConfig": "modules/cli/build/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/build",
+            "tsConfig": "modules/cli/build/tsconfig.lib.json",
+            "packageJson": "modules/cli/build/package.json",
+            "main": "modules/cli/build/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-deploy": {
+      "root": "modules/cli/deploy",
+      "sourceRoot": "modules/cli/deploy/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/deploy/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-deploy"],
+          "options": {
+            "jestConfig": "modules/cli/deploy/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/deploy",
+            "tsConfig": "modules/cli/deploy/tsconfig.lib.json",
+            "packageJson": "modules/cli/deploy/package.json",
+            "main": "modules/cli/deploy/src/index.ts"
           }
         }
       }
@@ -607,6 +676,192 @@
             "npmPackageName": "@komore/nx",
             "pluginoutputPath": "dist/nx",
             "jestConfig": "modules/nx/e2e/jest.config.js"
+          }
+        }
+      }
+    },
+    "cli-generate": {
+      "root": "modules/cli/generate",
+      "sourceRoot": "modules/cli/generate/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/generate/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-generate"],
+          "options": {
+            "jestConfig": "modules/cli/generate/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/generate",
+            "tsConfig": "modules/cli/generate/tsconfig.lib.json",
+            "packageJson": "modules/cli/generate/package.json",
+            "main": "modules/cli/generate/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-lint": {
+      "root": "modules/cli/lint",
+      "sourceRoot": "modules/cli/lint/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/lint/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-lint"],
+          "options": {
+            "jestConfig": "modules/cli/lint/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/lint",
+            "tsConfig": "modules/cli/lint/tsconfig.lib.json",
+            "packageJson": "modules/cli/lint/package.json",
+            "main": "modules/cli/lint/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-publish": {
+      "root": "modules/cli/publish",
+      "sourceRoot": "modules/cli/publish/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/publish/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-publish"],
+          "options": {
+            "jestConfig": "modules/cli/publish/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/publish",
+            "tsConfig": "modules/cli/publish/tsconfig.lib.json",
+            "packageJson": "modules/cli/publish/package.json",
+            "main": "modules/cli/publish/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-run": {
+      "root": "modules/cli/run",
+      "sourceRoot": "modules/cli/run/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/run/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-run"],
+          "options": {
+            "jestConfig": "modules/cli/run/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/run",
+            "tsConfig": "modules/cli/run/tsconfig.lib.json",
+            "packageJson": "modules/cli/run/package.json",
+            "main": "modules/cli/run/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-serve": {
+      "root": "modules/cli/serve",
+      "sourceRoot": "modules/cli/serve/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/serve/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-serve"],
+          "options": {
+            "jestConfig": "modules/cli/serve/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/serve",
+            "tsConfig": "modules/cli/serve/tsconfig.lib.json",
+            "packageJson": "modules/cli/serve/package.json",
+            "main": "modules/cli/serve/src/index.ts"
+          }
+        }
+      }
+    },
+    "cli-test": {
+      "root": "modules/cli/test",
+      "sourceRoot": "modules/cli/test/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/cli/test/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/cli-test"],
+          "options": {
+            "jestConfig": "modules/cli/test/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/cli/test",
+            "tsConfig": "modules/cli/test/tsconfig.lib.json",
+            "packageJson": "modules/cli/test/package.json",
+            "main": "modules/cli/test/src/index.ts"
           }
         }
       }
@@ -645,6 +900,37 @@
           "executor": "@komore/nx:publish",
           "options": {
             "buildTarget": ["integration-command:build", "integration-command-testing:build"]
+          }
+        }
+      }
+    },
+    "command-operators": {
+      "root": "modules/command/operators",
+      "sourceRoot": "modules/command/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/command/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/command-operators"],
+          "options": {
+            "jestConfig": "modules/command/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/command/operators",
+            "tsConfig": "modules/command/operators/tsconfig.lib.json",
+            "packageJson": "modules/command/operators/package.json",
+            "main": "modules/command/operators/src/index.ts"
           }
         }
       }
@@ -5356,11 +5642,44 @@
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/integration/stripe",
+            "outputPath": "dist/integration-stripe",
             "tsConfig": "modules/integration/stripe/tsconfig.lib.json",
             "packageJson": "modules/integration/stripe/package.json",
             "main": "modules/integration/stripe/src/index.ts",
             "assets": ["modules/integration/stripe/*.md"]
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "integration-stripe-operators": {
+      "root": "modules/integration/stripe/operators",
+      "sourceRoot": "modules/integration/stripe/operators/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/integration/stripe/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/stripe/operators/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/stripe/operators/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/integration-stripe"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/integration-stripe/operators",
+            "tsConfig": "modules/integration/stripe/operators/tsconfig.lib.json",
+            "packageJson": "modules/integration/stripe/operators/package.json",
+            "main": "modules/integration/stripe/operators/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5424,11 +5743,44 @@
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/integration/twitter",
+            "outputPath": "dist/integration-twitter",
             "tsConfig": "modules/integration/twitter/tsconfig.lib.json",
             "packageJson": "modules/integration/twitter/package.json",
             "main": "modules/integration/twitter/src/index.ts",
             "assets": ["modules/integration/twitter/*.md"]
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "integration-twitter-operators": {
+      "root": "modules/integration/twitter/operators",
+      "sourceRoot": "modules/integration/twitter/operators/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/integration/twitter/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/integration/twitter/operators/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/integration/twitter/operators/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/integration-twitter-operators"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/integration-twitter/operators",
+            "tsConfig": "modules/integration/twitter/operators/tsconfig.lib.json",
+            "packageJson": "modules/integration/twitter/operators/package.json",
+            "main": "modules/integration/twitter/operators/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -5762,6 +6114,38 @@
         }
       }
     },
+    "local-cli": {
+      "root": "modules/local/cli",
+      "sourceRoot": "modules/local/cli/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/local/cli/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/local-cli"],
+          "options": {
+            "jestConfig": "modules/local/cli/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/local/cli",
+            "tsConfig": "modules/local/cli/tsconfig.lib.json",
+            "packageJson": "modules/local/cli/package.json",
+            "main": "modules/local/cli/src/index.ts"
+          }
+        }
+      }
+    },
     "local-filesystem": {
       "root": "modules/local/filesystem",
       "sourceRoot": "modules/local/filesystem/src",
@@ -5860,6 +6244,40 @@
         }
       }
     },
+    "message-operators": {
+      "root": "modules/message/operators",
+      "sourceRoot": "modules/message/operators/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/message/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/message/operators/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/message/operators/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/message-operators"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/message/operators",
+            "tsConfig": "modules/message/operators/tsconfig.lib.json",
+            "packageJson": "modules/message/operators/package.json",
+            "main": "modules/message/operators/src/index.ts",
+            "assets": ["modules/message/operators/*.md"]
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
     "message-testing": {
       "root": "modules/message/testing",
       "sourceRoot": "modules/message/testing/src",
@@ -5891,54 +6309,6 @@
             "assets": ["modules/message/testing/*.md"]
           },
           "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "nx": {
-      "root": "modules/nx",
-      "sourceRoot": "modules/nx/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/nx/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/nx"],
-          "options": {
-            "jestConfig": "modules/nx/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/nx",
-            "tsConfig": "modules/nx/tsconfig.lib.json",
-            "packageJson": "modules/nx/package.json",
-            "main": "modules/nx/src/index.ts",
-            "assets": ["modules/nx/*.md"]
-          }
-        }
-      }
-    },
-    "nx-e2e": {
-      "projectType": "application",
-      "root": "modules/nx/e2e",
-      "sourceRoot": "modules/nx/e2e",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/nx-plugin:e2e",
-          "options": {
-            "target": "nx:build",
-            "npmPackageName": "@komore/nx",
-            "pluginoutputPath": "dist/nx",
-            "jestConfig": "modules/nx/e2e/jest.config.js"
-          }
         }
       }
     },
@@ -6717,10 +7087,41 @@
           "executor": "@nrwl/node:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/stack/provider/amazon",
+            "outputPath": "dist/stack-provider-amazon",
             "tsConfig": "modules/stack/provider/amazon/tsconfig.lib.json",
             "packageJson": "modules/stack/provider/amazon/package.json",
             "main": "modules/stack/provider/amazon/src/index.ts"
+          }
+        }
+      }
+    },
+    "stack-provider-amazon-operators": {
+      "root": "modules/stack/provider/amazon/operators",
+      "sourceRoot": "modules/stack/provider/amazon/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/stack/provider/amazon/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/stack-provider-amazon-operators"],
+          "options": {
+            "jestConfig": "modules/stack/provider/amazon/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/stack-provider-amazon/operators",
+            "tsConfig": "modules/stack/provider/amazon/operators/tsconfig.lib.json",
+            "packageJson": "modules/stack/provider/amazon/operators/package.json",
+            "main": "modules/stack/provider/amazon/operators/src/index.ts"
           }
         }
       }
@@ -6748,10 +7149,41 @@
           "executor": "@nrwl/node:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/stack/provider/azure",
+            "outputPath": "dist/stack-provider-azure",
             "tsConfig": "modules/stack/provider/azure/tsconfig.lib.json",
             "packageJson": "modules/stack/provider/azure/package.json",
             "main": "modules/stack/provider/azure/src/index.ts"
+          }
+        }
+      }
+    },
+    "stack-provider-azure-operators": {
+      "root": "modules/stack/provider/operators/azure",
+      "sourceRoot": "modules/stack/provider/azure/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/stack/provider/azure/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/stack-provider-azure-operators"],
+          "options": {
+            "jestConfig": "modules/stack/provider/azure/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/stack-provider-azure/operators",
+            "tsConfig": "modules/stack/provider/azure/operators/tsconfig.lib.json",
+            "packageJson": "modules/stack/provider/azure/operators/package.json",
+            "main": "modules/stack/provider/azure//operatorssrc/index.ts"
           }
         }
       }
@@ -6779,10 +7211,41 @@
           "executor": "@nrwl/node:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/stack/provider/google",
+            "outputPath": "dist/stack-provider-google",
             "tsConfig": "modules/stack/provider/google/tsconfig.lib.json",
             "packageJson": "modules/stack/provider/google/package.json",
             "main": "modules/stack/provider/google/src/index.ts"
+          }
+        }
+      }
+    },
+    "stack-provider-google-operators": {
+      "root": "modules/stack/provider/google/operators",
+      "sourceRoot": "modules/stack/provider/google/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/stack/provider/google/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/stack-provider-google-operators"],
+          "options": {
+            "jestConfig": "modules/stack/provider/google/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/stack-provider-google/operators",
+            "tsConfig": "modules/stack/provider/google/operators/tsconfig.lib.json",
+            "packageJson": "modules/stack/provider/google/operators/package.json",
+            "main": "modules/stack/provider/google/operators/src/index.ts"
           }
         }
       }
@@ -6973,6 +7436,395 @@
             "packageJson": "modules/tools/eslint/package.json",
             "main": "modules/tools/eslint/src/index.ts",
             "assets": ["modules/tools/eslint/*.md"]
+          }
+        }
+      }
+    },
+    "tools-nx": {
+      "root": "modules/tools/nx",
+      "sourceRoot": "modules/tools/nx/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx"],
+          "options": {
+            "jestConfig": "modules/tools/nx/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx",
+            "tsConfig": "modules/tools/nx/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/package.json",
+            "main": "modules/tools/nx/src/index.ts",
+            "assets": ["modules/tools/nx/*.md"]
+          }
+        }
+      }
+    },
+    "tools-nx-application": {
+      "root": "modules/tools/nx/application",
+      "sourceRoot": "modules/tools/nx/application/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/application/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-application"],
+          "options": {
+            "jestConfig": "modules/tools/nx/application/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/application",
+            "tsConfig": "modules/tools/nx/application/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/application/package.json",
+            "main": "modules/tools/nx/application/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-ci": {
+      "root": "modules/tools/nx/ci",
+      "sourceRoot": "modules/tools/nx/ci/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/ci/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-ci"],
+          "options": {
+            "jestConfig": "modules/tools/nx/ci/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/ci",
+            "tsConfig": "modules/tools/nx/ci/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/ci/package.json",
+            "main": "modules/tools/nx/ci/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-documentation": {
+      "root": "modules/tools/nx/documentation",
+      "sourceRoot": "modules/tools/nx/documentation/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/documentation/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-documentation"],
+          "options": {
+            "jestConfig": "modules/tools/nx/documentation/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/documentation",
+            "tsConfig": "modules/tools/nx/documentation/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/documentation/package.json",
+            "main": "modules/tools/nx/documentation/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-domain": {
+      "root": "modules/tools/nx/domain",
+      "sourceRoot": "modules/tools/nx/domain/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/domain/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-domain"],
+          "options": {
+            "jestConfig": "modules/tools/nx/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/domain",
+            "tsConfig": "modules/tools/nx/domain/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/domain/package.json",
+            "main": "modules/tools/nx/domain/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-e2e": {
+      "projectType": "application",
+      "root": "modules/tools/nx/e2e",
+      "sourceRoot": "modules/tools/nx/e2e",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nx:build",
+            "npmPackageName": "@komore/tools/nx",
+            "pluginoutputPath": "dist/nx",
+            "jestConfig": "modules/nx/e2e/jest.config.js"
+          }
+        }
+      }
+    },
+    "tools-nx-element": {
+      "root": "modules/tools/nx/element",
+      "sourceRoot": "modules/tools/nx/element/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/element/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-element"],
+          "options": {
+            "jestConfig": "modules/tools/nx/element/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/element",
+            "tsConfig": "modules/tools/nx/element/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/element/package.json",
+            "main": "modules/tools/nx/element/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-event": {
+      "root": "modules/tools/nx/event",
+      "sourceRoot": "modules/tools/nx/event/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/event/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-event"],
+          "options": {
+            "jestConfig": "modules/tools/nx/event/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/event",
+            "tsConfig": "modules/tools/nx/event/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/event/package.json",
+            "main": "modules/tools/nx/event/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-function": {
+      "root": "modules/tools/nx/function",
+      "sourceRoot": "modules/tools/nx/function/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/function/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-function"],
+          "options": {
+            "jestConfig": "modules/tools/nx/function/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/function",
+            "tsConfig": "modules/tools/nx/function/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/function/package.json",
+            "main": "modules/tools/nx/function/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-message": {
+      "root": "modules/tools/nx/message",
+      "sourceRoot": "modules/tools/nx/message/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/message/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-message"],
+          "options": {
+            "jestConfig": "modules/tools/nx/message/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/message",
+            "tsConfig": "modules/tools/nx/message/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/message/package.json",
+            "main": "modules/tools/nx/message/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-observability": {
+      "root": "modules/tools/nx/observability",
+      "sourceRoot": "modules/tools/nx/observability/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/observability/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-observability"],
+          "options": {
+            "jestConfig": "modules/tools/nx/observability/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/observability",
+            "tsConfig": "modules/tools/nx/observability/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/observability/package.json",
+            "main": "modules/tools/nx/observability/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-process": {
+      "root": "modules/tools/nx/process",
+      "sourceRoot": "modules/tools/nx/process/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/process/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-process"],
+          "options": {
+            "jestConfig": "modules/tools/nx/process/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/process",
+            "tsConfig": "modules/tools/nx/process/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/process/package.json",
+            "main": "modules/tools/nx/process/src/index.ts"
+          }
+        }
+      }
+    },
+    "tools-nx-stack": {
+      "root": "modules/tools/nx/stack",
+      "sourceRoot": "modules/tools/nx/stack/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/tools/nx/stack/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools-nx-stack"],
+          "options": {
+            "jestConfig": "modules/tools/nx/stack/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/nx/stack",
+            "tsConfig": "modules/tools/nx/stack/tsconfig.lib.json",
+            "packageJson": "modules/tools/nx/stack/package.json",
+            "main": "modules/tools/nx/stack/src/index.ts"
           }
         }
       }

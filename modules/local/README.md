@@ -1,1 +1,1 @@
-# komore Local
+# @komore/local

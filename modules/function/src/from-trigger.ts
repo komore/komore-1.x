@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { FunctionTrigger } from './function-trigger';
+import type { Observable } from '@komore/reactive';
+import type { FunctionTrigger } from './function-trigger';
 
 export function fromTrigger<
   FunctionTriggerTypes extends FunctionTrigger<any, any, any>[]>(

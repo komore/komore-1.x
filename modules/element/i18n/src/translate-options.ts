@@ -1,4 +1,4 @@
-import { Languages } from "./languages";
+import type { Languages } from './languages';
 
 /**
  * Translate options

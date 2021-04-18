@@ -1,4 +1,4 @@
-import { FunctionProvider } from './function-provider';
+import type { FunctionProvider } from './function-provider';
 
 /**
  * Selects a function provider that can handle a call, from a list of available function providers

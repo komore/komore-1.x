@@ -77,12 +77,39 @@
     "cli": {
       "tags": ["scope:cli", "trait:base"]
     },
+    "cli-build": {
+      "tags": ["scope:cli"]
+    },
+    "cli-deploy": {
+      "tags": ["scope:cli"]
+    },
     "cli-e2e": {
       "tags": ["scope:cli"],
       "implicitDependencies": ["cli"]
     },
+    "cli-generate": {
+      "tags": ["scope:cli"]
+    },
+    "cli-lint": {
+      "tags": ["scope:cli"]
+    },
+    "cli-publish": {
+      "tags": ["scope:cli"]
+    },
+    "cli-run": {
+      "tags": ["scope:cli"]
+    },
+    "cli-serve": {
+      "tags": ["scope:cli"]
+    },
+    "cli-test": {
+      "tags": ["scope:cli"]
+    },
     "command": {
       "tags": ["scope:command", "trait:base"]
+    },
+    "command-operators": {
+      "tags": ["scope:command", "trait:operators"]
     },
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
@@ -516,11 +543,17 @@
     "integration-stripe": {
       "tags": ["scope:integration", "trait:provider", "provider:stripe"]
     },
+    "integration-stripe-operators": {
+      "tags": ["scope:integration", "trait:provider", "provider:stripe", "trait:operators"]
+    },
     "integration-testing": {
       "tags": ["scope:integration", "trait:testing"]
     },
     "integration-twitter": {
       "tags": ["scope:integration", "trait:provider", "provider:twitter"]
+    },
+    "integration-twitter-operators": {
+      "tags": ["scope:integration", "trait:provider", "provider:twitter", "trait:operators"]
     },
     "layer": {
       "tags": ["scope:layer", "trait:base"]
@@ -552,6 +585,9 @@
     "local": {
       "tags": ["scope:local", "trait:base"]
     },
+    "local-cli": {
+      "tags": ["scope:local"]
+    },
     "local-filesystem": {
       "tags": ["scope:local"]
     },
@@ -561,15 +597,11 @@
     "message": {
       "tags": ["scope:message", "trait:base"]
     },
+    "message-operators": {
+      "tags": ["scope:message", "trait:operators"]
+    },
     "message-testing": {
       "tags": ["scope:message", "trait:testing"]
-    },
-    "nx": {
-      "tags": ["scope:nx", "trait:base"]
-    },
-    "nx-e2e": {
-      "tags": ["scope:nx"],
-      "implicitDependencies": ["nx"]
     },
     "observability": {
       "tags": ["scope:observability", "trait:base"]
@@ -646,11 +678,20 @@
     "stack-provider-amazon": {
       "tags": ["scope:stack", "trait:provider", "provider:amazon"]
     },
+    "stack-provider-amazon-operators": {
+      "tags": ["scope:stack", "trait:provider", "provider:amazon", "trait:operators"]
+    },
     "stack-provider-azure": {
       "tags": ["scope:stack", "trait:provider", "provider:azure"]
     },
+    "stack-provider-azure-operators": {
+      "tags": ["scope:stack", "trait:provider", "provider:azure", "trait:operators"]
+    },
     "stack-provider-google": {
       "tags": ["scope:stack", "trait:provider", "provider:google"]
+    },
+    "stack-provider-google-operators": {
+      "tags": ["scope:stack", "trait:provider", "provider:google", "trait:operators"]
     },
     "stack-testing": {
       "tags": ["scope:stack", "trait:testing"]
@@ -669,6 +710,46 @@
     },
     "tools-eslint": {
       "tags": ["scope:tools", "trait:eslint"]
+    },
+    "tools-nx": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-application": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-ci": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-documentation": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-domain": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-e2e": {
+      "tags": ["scope:nx"],
+      "implicitDependencies": ["tools-nx"]
+    },
+    "tools-nx-element": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-event": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-function": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-message": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-observability": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-process": {
+      "tags": ["scope:tools", "trait:nx"]
+    },
+    "tools-nx-stack": {
+      "tags": ["scope:tools", "trait:nx"]
     },
     "tools-vscode-alfa": {
       "tags": ["scope:tools", "trait:vscode"]

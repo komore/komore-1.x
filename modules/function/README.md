@@ -1,4 +1,14 @@
-# komore Function
+# @komore/function
+
+```ts
+import { createFunction } from '@komore/function';
+import { lambdaTrigger } from '@komore/function-lambda';
+
+const createFunction = createFunctionFactory(lambdaTrigger);
+export const myFunction = createFunction('myFunction', lambdaTrigger('api-gateway', ($: InputType) => $.pipe(
+
+)));
+```
 
 ## Lambda API Gateway function
 

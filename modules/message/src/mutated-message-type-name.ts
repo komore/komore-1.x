@@ -9,7 +9,7 @@ import type { MessageOutputType } from './message-output-type';
  * @template NewMessageTypeName New message type name
  */
 export type MutatedMessageTypeName<
-  MessageType extends Message<any, any, any, any>,
+  MessageType extends Message<string, Record<symbol, unknown>, unknown, unknown>,
   NewMessageTypeName extends string
 > = Message<
   NewMessageTypeName,

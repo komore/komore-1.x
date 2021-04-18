@@ -1,4 +1,4 @@
-import {
+import type {
   APIGatewayProxyEvent,
   APIGatewayProxyEventV2,
   APIGatewayRequestAuthorizerEvent,
@@ -11,9 +11,9 @@ import {
   SNSEvent,
   SQSEvent
 } from 'aws-lambda';
-import { LambdaEvent } from './lambda-event';
-import { LambdaHandlerTypes } from './lambda-event-handlers';
-import { UnknownLambdaEvent } from './unknown-lambda-event';
+import type { LambdaEvent } from './lambda-event';
+import type { LambdaHandlerTypes } from './lambda-event-handlers';
+import type { UnknownLambdaEvent } from './unknown-lambda-event';
 
 /**
  * Lambda trigger type

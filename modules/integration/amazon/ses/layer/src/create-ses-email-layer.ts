@@ -1,6 +1,6 @@
 import { createSESClient, deleteEmailTemplate } from '@komore/integration-amazon/ses';
 import type { EmailLayer } from '@komore/layer-email';
-import { mapToVoid } from '@komore/operators';
+import { retractValue } from '@komore/reactive/operators';
 import { createEmailTemplateSESLayer } from './create-email-template-ses-layer';
 
 /**
@@ -12,6 +12,6 @@ export function createSESEmailLayer(): EmailLayer {
 
   return {
     createEmailTemplate: createEmailTemplateSESLayer(sesClient),
-    deleteEmailTemplate: id => deleteEmailTemplate(sesClient, { TemplateName: id }).pipe(mapToVoid())
+    deleteEmailTemplate: id => deleteEmailTemplate(sesClient, { TemplateName: id }).pipe(retractValue())
   };
 }

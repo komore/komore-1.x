@@ -4,13 +4,17 @@ The AWS Lambda function module enables function execution within an [AWS Lambda]
 
 ## Installation
 
-The module can be installed via Npm or Yarn:
+The module can be installed via pnpm, Npm or Yarn:
 
-```shell
-npm install @komore/function-lambda --save
+```sh
+pnpm add @komore/function-lambda
 ```
 
-```shell
+```sh
+npm add @komore/function-lambda --save
+```
+
+```sh
 yarn add @komore/function-lambda
 ```
 

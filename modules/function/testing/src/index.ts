@@ -1,1 +1,1 @@
-export {};
+export { callFunction } from './call-function';

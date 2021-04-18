@@ -1,1 +1,1 @@
-# komore Integration
+# @komore/integration

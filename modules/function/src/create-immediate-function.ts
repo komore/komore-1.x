@@ -1,5 +1,5 @@
 /**
- * Creates a function that immediately returns
+ * Creates an function that immediately returns its parameters
  *
  * - The function behaves like an *identity function* if it takes parameters
  * - The function behaves like a *noop function* if it does not take parameters
@@ -8,7 +8,10 @@
  * @template FunctionName Function name
  * @template FunctionParameterTypes Function parameter types
  */
-export function createImmediateFunction<FunctionName extends string, FunctionParameterTypes extends ReadonlyArray<any>>(
+export function createImmediateFunction<
+  FunctionName extends string,
+  FunctionParameterTypes extends ReadonlyArray<unknown>
+>(
   functionName: FunctionName
 ): (...functionParameters: FunctionParameterTypes) => Promise<FunctionParameterTypes | void> {
   const wrapper = {

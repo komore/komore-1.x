@@ -1,4 +1,4 @@
-# komore Stack
+# @komore/stack
 
 Describe the stack with a DSL / cdktf.
 

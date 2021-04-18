@@ -1,67 +1,8 @@
-import { Observable, Observer, of, Subject } from 'rxjs';
-import { catchError, defaultIfEmpty, map, mergeMap } from 'rxjs/operators';
-
-/**
- * Function call
- * @template FunctionParameterTypes Function parameter t ypes
- * @template FunctionReturnType Function return type
- */
-type FunctionCall<FunctionParameterTypes extends ReadonlyArray<any>, FunctionReturnType> = Readonly<{
-  emitted?: boolean;
-  functionParameters: FunctionParameterTypes;
-  reject: (error: any) => void;
-  resolve: (value: FunctionReturnType | void) => void;
-}>;
-
-/**
- * Function value
- * @template FunctionParameterTypes Function parameter types
- * @template FunctionReturnType Function return type
- */
-type FunctionValue<FunctionParameterTypes extends ReadonlyArray<any>, FunctionReturnType> = FunctionCall<
-  FunctionParameterTypes,
-  FunctionReturnType
-> &
-  Readonly<{
-    index: number;
-    result?: FunctionReturnType;
-    error?: any;
-  }>;
-
-/**
- * Function observer
- * @template FunctionName Function name
- * @template FunctionParameterTypes Function parameter types
- * @template FunctionReturnType Function return type
- */
-class FunctionObserver<
-  FunctionName extends string,
-  FunctionParameterTypes extends ReadonlyArray<any>,
-  FunctionReturnType
-> implements Observer<FunctionValue<FunctionParameterTypes, FunctionReturnType>> {
-  constructor(private readonly functionName: FunctionName) {}
-
-  next({ resolve, reject, result, error, index }: FunctionValue<FunctionParameterTypes, FunctionReturnType>): void {
-    if (index > 0) {
-      console.warn(`Function ${this.functionName}'s pipe emission #${index + 1} ignored`, result, error);
-      return;
-    }
-
-    if (error) {
-      reject(error);
-    } else {
-      resolve(result);
-    }
-  }
-
-  error(error: any): void {
-    console.error(`Function ${this.functionName} threw an error: no further invocations will be handled`, error);
-  }
-
-  complete(): void {
-    console.error(`Function ${this.functionName} completed: no further invocations will be handled`);
-  }
-}
+import type { Observable } from '@komore/reactive';
+import { of, Subject } from '@komore/reactive';
+import { catchError, defaultIfEmpty, map, mergeMap } from '@komore/reactive/operators';
+import type { FunctionCallInformation } from './function-call-information';
+import { FunctionObserver } from './function-observer';
 
 /**
  * Creates a function
@@ -76,13 +17,13 @@ class FunctionObserver<
  */
 export function createProjectedFunction<
   FunctionName extends string,
-  FunctionParameterTypes extends ReadonlyArray<any>,
+  FunctionParameterTypes extends ReadonlyArray<unknown>,
   FunctionReturnType
 >(
   functionName: FunctionName,
   project: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
 ): (...functionParameters: FunctionParameterTypes) => Promise<FunctionReturnType | void> {
-  const subject = new Subject<FunctionCall<FunctionParameterTypes, FunctionReturnType>>();
+  const subject = new Subject<FunctionCallInformation<FunctionParameterTypes, FunctionReturnType>>();
   const subscription = subject
     .asObservable()
     .pipe(

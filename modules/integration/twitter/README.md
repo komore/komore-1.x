@@ -1,3 +1,3 @@
-# komore Integration - Twitter
+# @komore/integration-twitter
 
 TODO.

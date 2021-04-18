@@ -1,4 +1,4 @@
-# komore Identity Module
+# @komore/identity
 
 TODO: identity provider
 

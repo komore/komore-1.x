@@ -1,4 +1,5 @@
-import { S3RequestPresigner, S3RequestPresignerOptions } from '@aws-sdk/s3-request-presigner';
+import type { S3RequestPresignerOptions } from '@aws-sdk/s3-request-presigner';
+import { S3RequestPresigner } from '@aws-sdk/s3-request-presigner';
 
 /**
  * Creates an S3 request pre-signer

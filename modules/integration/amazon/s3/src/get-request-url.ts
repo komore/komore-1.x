@@ -1,4 +1,4 @@
-import { HttpRequest } from '@aws-sdk/types';
+import type { HttpRequest } from '@aws-sdk/types';
 import { formatUrl } from '@aws-sdk/util-format-url';
 
 /**

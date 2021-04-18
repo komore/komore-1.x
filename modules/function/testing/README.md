@@ -1,1 +1,0 @@
-# komore Function Module (testing)

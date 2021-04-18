@@ -4,19 +4,19 @@ Reference list of operators available in [komore modules].
 
 | Name                                | Module                    | Description                                        |
 | :---------------------------------- | :------------------------ | :------------------------------------------------- |
-| [`assertThat`]                      | [Operators]               | Asserts that a condition is met                    |
+| [`assertThat`]                      | [Reactive]                | Asserts that a condition is met                    |
 | [`decrementCounter`]                | [Observability - Metrics] | Decrements a counter metric                        |
-| [`delayUntil`]                      | [Operators]               |                                                    |
-| [`deserializeJson`]                 | [Operators]               |                                                    |
+| [`delayUntil`]                      | [Reactive]                |                                                    |
+| [`deserializeJson`]                 | [Reactive]                |                                                    |
 | [`filterMessageOrigin`]             | [Web]                     | Filters a message origin                           |
 | [`incrementCounter`]                | [Observability - Metrics] | Increments a counter metric                        |
-| [`ignoreErrors`]                    | `@komore/operators`       | Ignores errors                                     |
-| [`ignoreGeolocationPositionErrors`] | `@komore/web/geolocation` | Ignores geolocation position errors                |
-| [`localizeCurrency`]                | `@komore/element/l10n`    |                                                    |
-| [`localizeDate`]                    | `@komore/element/l10n`    |                                                    |
-| [`localizeDecimal`]                 | `@komore/element/l10n`    |                                                    |
-| [`localizePercentage`]              | `@komore/element/l10n`    |                                                    |
-| [`mapToVoid`]                       | [Operators]               |                                                    |
+| [`ignoreErrors`]                    | [Reactive]                | Ignores errors                                     |
+| [`ignoreGeolocationPositionErrors`] | [Web - Geolocation]       | Ignores geolocation position errors                |
+| [`localizeCurrency`]                | [Element - Localization]  |                                                    |
+| [`localizeDate`]                    | [Element - Localization]  |                                                    |
+| [`localizeDecimal`]                 | [Element - Localization]  |                                                    |
+| [`localizePercentage`]              | [Element - Localization]  |                                                    |
+| [`mapToVoid`]                       | [Reactive]                |                                                    |
 | [`recordLogEvent`]                  | [Observability - Logging] | Records a log event                                |
 | [`recordLogEventIf`]                | [Observability - Logging] | Records a log event when a condition is met        |
 | [`recordLogEventIfError`]           | [Observability - Logging] | Records a log event when an error condition is met |
@@ -28,11 +28,11 @@ Reference list of operators available in [komore modules].
 | [`recordMetricOnCompletion`]        | [Observability - Metrics] | Records a metric when the observable completes     |
 | [`recordMetricOnError`]             | [Observability - Metrics] | Records a metric when the observable errors        |
 | [`sanitizeHtml`]                    | [Web]                     | Sanitizes HTML                                     |
-| [`serializeJson`]                   | [Operators]               | Serializes JSON                                    |
-| [`throwIf`]                         | [Operators]               | Throws if a condition is met                       |
-| [`throwOnGeolocationPositionError`] | `@komore/web/geolocation` | Throws on geolocation position errors              |
+| [`serializeJson`]                   | [Reactive]                | Serializes JSON                                    |
+| [`throwIf`]                         | [Reactive]                | Throws if a condition is met                       |
+| [`throwOnGeolocationPositionError`] | [Web - Geolocation]       | Throws on geolocation position errors              |
 
-[`assertthat`]: ../../modules/operators/src/assert-that.ts
+[`assertthat`]: ../../modules/reactive/operators/src/assert-that.ts
 [`decrementcounter`]: ../../modules/observability/metrics/operators/src/decrement-counter.ts
 [`incrementcounter`]: ../../modules/observability/metrics/operators/src/increment-counter.ts
 [`recordlogevent`]: ../../modules/observability/logging/operators/src/record-log-event.ts
@@ -49,5 +49,6 @@ Reference list of operators available in [komore modules].
 [observability - logging]: ../modules/observability-logging-operators.md
 [observability - metrics]: ../modules/observability-metrics-operators.md
 [observability - tracing]: ../modules/observability-tracing-operators.md
-[operators]: ../modules/operators.md
+[reactive]: ../modules/reactive-operators.md
 [web]: ../modules/web-operators.md
+[web - geolocation]: ../modules/web-geolocation-operators.md
