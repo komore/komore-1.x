@@ -1,7 +1,7 @@
 import type { Observable, Observer } from '@komore/reactive';
+import type { CreateWorkerOptions } from './create-worker-options';
 import { fromWorker } from './from-worker';
 import { toWorker } from './to-worker';
-import type { WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Creates a dedicated worker
@@ -13,7 +13,7 @@ import type { WorkerObserverOptions } from './worker-observer-options';
  */
 export function createWorker<OutgoingType = unknown, IncomingType = unknown>(
   scriptURL: URL,
-  options?: WorkerOptions & WorkerObserverOptions<OutgoingType>
+  options?: CreateWorkerOptions
 ): [observer: Observer<OutgoingType>, observable: Observable<MessageEvent<IncomingType>>] {
   const worker = new Worker(scriptURL, options);
   const observer = toWorker(worker, options);

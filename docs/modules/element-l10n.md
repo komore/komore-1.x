@@ -9,7 +9,7 @@ non-textual - aspects.
 
 ## Locale
 
-The locale impacts how the aforementioned aspects get transformed to a string.
+The locale impacts how the aforementioned localization targets get transformed to a string.
 
 Locales are made up of [languages, script, region and variant subtags].
 

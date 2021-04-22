@@ -11,6 +11,13 @@
 - @komore/element
   - [Overview](./element.md)
   - [Install](./element-install.md)
+  - [Operators](./element-operators.md)
+  - Store
+    - [Overview](./element-store.md)
+    - [Usage](./element-store-usage.md)
+    - [Operators](./element-store-operators.md)
+    - [Testing](./element-store-testing.md)
+    - [Best Practices](./element-store-bestpractices.md)
 - @komore/web
   - [Overview](./web.md)
   - [Install](./web-install.md)
@@ -21,6 +28,8 @@
     - [Operators](./web-authentication-operators.md)
     - [Testing](./web-authentication-testing.md)
     - [Best Practices](./web-authentication-bestpractices.md)
+  - Geolocation
+    - [Overview](./web-geolocation.md)
   - HTTP
     - [Overview](./web-http.md)
     - [Usage](./web-http-usage.md)

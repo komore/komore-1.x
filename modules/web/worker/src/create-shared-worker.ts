@@ -1,7 +1,7 @@
 import type { Observable, Observer } from '@komore/reactive';
+import type { CreateWorkerOptions } from './create-worker-options';
 import { fromWorker } from './from-worker';
 import { toWorker } from './to-worker';
-import type { WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Creates a shared worker
@@ -13,7 +13,7 @@ import type { WorkerObserverOptions } from './worker-observer-options';
  */
 export function createSharedWorker<OutgoingType = unknown, IncomingType = unknown>(
   scriptUrl: URL,
-  options?: WorkerOptions & WorkerObserverOptions<OutgoingType>
+  options?: CreateWorkerOptions
 ): [observer: Observer<OutgoingType>, observable: Observable<MessageEvent<IncomingType>>] {
   const worker = new SharedWorker(scriptUrl.toString(), options);
   const observer = toWorker(worker, options);
