@@ -1,3 +1,3 @@
-# komore Observability
+# @komore/observability
 
 TODO: opentelemetry.io

@@ -1,5 +1,6 @@
 import type { Observable } from '@komore/reactive';
-import { defer } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive/promise';
+import type { PermissionDescriptorTypes } from './permission-descriptor-types';
 
 /**
  * Queries a permission status
@@ -7,7 +8,7 @@ import { defer } from '@komore/reactive';
  * @returns Permission status
  */
 export function queryPermissionStatus(
-  permissionDescriptor: Parameters<typeof navigator.permissions.query>[0]
+  permissionDescriptor: PermissionDescriptorTypes
 ): Observable<PermissionStatus> {
-  return defer(() => navigator.permissions.query(permissionDescriptor));
+  return deferPromise(() => navigator.permissions.query(permissionDescriptor));
 }

@@ -1,6 +1,6 @@
 import { addResource } from '@komore/stack/provider';
 import type { AppsyncDatasourceConfig } from './.gen/appsync-datasource';
-import { AppsyncDatasource } from './.gen/appsync-datasource';
+import { AppsyncDatasource } from '../.gen/appsync-datasource';
 
 /**
  * Adds an AppSync data source

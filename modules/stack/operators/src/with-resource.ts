@@ -10,8 +10,8 @@ export function withResource<
   ResourceType extends TerraformResource
 >(
   resourceTypeName: ResourceTypeName,
-  resource: ResourceType,
   resourceId: ResourceId,
+  resource: ResourceType
 ): OperatorFunction<ScopeType, ScopeWithAddedResource<ScopeType, ResourceTypeName, ResourceType, ResourceId>> {
   return map((scope: ScopeType): ScopeWithAddedResource<ScopeType, ResourceTypeName, ResourceId, ResourceType> => {
     return {

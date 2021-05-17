@@ -2,6 +2,7 @@
 
 ```typescript
 import { createFunction } from '@komore/function';
+
 export const exampleCommandHandler = createFunction(functionConfiguration, $ => $.pipe(
   // Observable<{ message: ... }> where message depends on FunctionConfiguration.factory's message type
   withCommandProcessor(exampleCommandProcessor), // Observable<{ message } & { command }>

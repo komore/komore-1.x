@@ -1,29 +1,25 @@
 /**
  * Observability metadata
  */
-export type ObservabilityMetadata = Readonly<{
+export interface ObservabilityMetadata {
   /**
    * Correlation identifier
    */
-  correlationId: string;
-
+  readonly correlationId: string;
   /**
    * Time when the message processing ended
    */
-  endTime?: Date;
-
+  readonly endTime?: Date;
   /**
    * Span identifier
    */
-  spanId: string;
-
+  readonly spanId: string;
   /**
    * Time when the message processing started
    */
-  startTime: Date;
-
+  readonly startTime: Date;
   /**
    * Trace identifier
    */
-  traceId: string;
-}>;
+  readonly traceId: string;
+}

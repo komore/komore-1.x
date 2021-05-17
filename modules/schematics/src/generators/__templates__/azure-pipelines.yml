@@ -1,0 +1,9 @@
+jobs:
+  - job: build
+    steps:
+      - checkout: self
+        fetchDepth: 0
+        persistCredentials: true
+      - script: komore fetch-affected-base
+        displayName: "Fetch the base branch used for comparison with affected commands"
+        condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))

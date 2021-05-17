@@ -1,31 +1,68 @@
 import type { Observer } from '@komore/reactive';
 import { expectTypeOf } from 'expect-type';
 import { createVibrationObserver } from './create-vibration-observer';
-import { VibrationObserver } from './vibration-observer';
 import type { VibrationObserverOptions } from './vibration-observer-options';
 
 describe('Create vibration observer', () => {
-  // TODO: avoid accessing private properties and simply verify the behavior matches the passed options
+  type VibrateFunctionType = typeof navigator.vibrate;
+  let mockVibrate: jest.Mock<ReturnType<VibrateFunctionType>, Parameters<VibrateFunctionType>>;
 
-  it('creates a vibration observer with default options', () => {
-    when: 'creating a vibration observer without options';
-    const vibrationObserver = createVibrationObserver();
-    expect: 'a vibration observer to be created with default options';
-    const defaultOptions: VibrationObserverOptions = { stopOnComplete: false, stopOnError: true };
-    expect(vibrationObserver).toBeInstanceOf(VibrationObserver);
-    expect(((vibrationObserver as unknown) as { options: VibrationObserverOptions }).options).toEqual(defaultOptions);
-    and: 'the type is a generic observer';
-    expectTypeOf(vibrationObserver).toEqualTypeOf<Observer<number | ReadonlyArray<number>>>();
+  beforeEach(() => {
+    mockVibrate = jest.fn();
+    globalThis.navigator.vibrate = mockVibrate;
   });
 
-  it('creates a vibration observer with the passed options', () => {
-    when: 'creating a vibration observer with options';
-    const vibrationObserverOptions: VibrationObserverOptions = { stopOnComplete: true, stopOnError: false };
-    const vibrationObserver = createVibrationObserver(vibrationObserverOptions);
-    expect: 'a vibration observer to be created with the passed options';
-    expect(vibrationObserver).toBeInstanceOf(VibrationObserver);
-    expect(((vibrationObserver as unknown) as { options: VibrationObserverOptions }).options).toEqual(
-      vibrationObserverOptions
-    );
+  it('calls vibrate with pattern on next', () => {
+    given: 'a vibration observer';
+    const vibrationObserver = new VibrationObserver({ stopOnComplete: false, stopOnError: true });
+    and: 'a vibration pattern';
+    const pattern = [1, 2, 3];
+    when: 'calling next()';
+    vibrationObserver.next(pattern);
+    expect: 'navigator.vibrate() to have been called once with the pattern';
+    expect(mockVibrate).toHaveBeenCalledTimes(1);
+    expect(mockVibrate).toHaveBeenCalledWith(pattern);
+  });
+
+  describe('on error', () => {
+    it('calls navigator.vibrate with 0 if stopOnError is true', () => {
+      given: 'a vibration observer with the stopOnError option set to true';
+      const vibrationObserver = new VibrationObserver({ stopOnComplete: false, stopOnError: true });
+      when: 'calling error()';
+      vibrationObserver.error();
+      expect: 'navigator.vibrate() to have been called once with 0';
+      expect(mockVibrate).toHaveBeenCalledTimes(1);
+      expect(mockVibrate).toHaveBeenCalledWith(0);
+    });
+
+    it('does not call navigator.vibrate with 0 if stopOnError is false', () => {
+      given: 'a vibration observer with the stopOnError option set to false';
+      const vibrationObserver = new VibrationObserver({ stopOnComplete: false, stopOnError: false });
+      when: 'calling error()';
+      vibrationObserver.error();
+      expect: 'navigator.vibrate() not to have been called';
+      expect(mockVibrate).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('on complete', () => {
+    it('calls navigator.vibrate with 0 if stopOnComplete is true', () => {
+      given: 'a vibration observer with the stopOnComplete option set to true';
+      const vibrationObserver = new VibrationObserver({ stopOnComplete: true, stopOnError: true });
+      when: 'calling complete()';
+      vibrationObserver.complete();
+      expect: 'navigator.vibrate() to have been called once with 0';
+      expect(mockVibrate).toHaveBeenCalledTimes(1);
+      expect(mockVibrate).toHaveBeenCalledWith(0);
+    });
+
+    it('does not call navigator.vibrate with 0 if stopOnComplete is false', () => {
+      given: 'a vibration observer with the stopOnComplete option set to false';
+      const vibrationObserver = new VibrationObserver({ stopOnComplete: false, stopOnError: true });
+      when: 'calling complete()';
+      vibrationObserver.complete();
+      expect: 'navigator.vibrate() not to have been called';
+      expect(mockVibrate).not.toHaveBeenCalled();
+    });
   });
 });

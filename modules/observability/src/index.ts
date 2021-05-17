@@ -1,2 +1,1 @@
-export { ObservabilityMetadata } from './observability-metadata';
-export { withObservability } from './operators/with-observability';
+export type { ObservabilityMetadata } from './observability-metadata';

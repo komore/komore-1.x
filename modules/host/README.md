@@ -1,3 +1,0 @@
-# komore Host
-
-TODO

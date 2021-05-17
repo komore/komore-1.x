@@ -1,3 +1,4 @@
+import { expectTypeOf } from 'expect-type';
 import { enumValues } from './enum-values';
 
 describe('Enum values', () => {
@@ -25,5 +26,28 @@ describe('Enum values', () => {
     const values = enumValues(EnumWithValues);
     expect: 'the list to contain all the enum values';
     expect(values).toStrictEqual([123, '456', 789]);
+  });
+
+  it('properly types enums with string values', () => {
+    given: 'an enum with string values';
+    enum EnumWithStringValues {
+      A = 'A',
+      B = 'B'
+    }
+    when: 'getting the list of enum values';
+    const values = enumValues(EnumWithStringValues);
+    expect: 'the list to be an array of strings';
+    expectTypeOf(values).toEqualTypeOf<ReadonlyArray<string>>();
+  });
+
+  it('properly types enums with number values', () => {
+    given: 'an enum with number values';
+    enum EnumWithStringValues {
+      A = 123
+    }
+    when: 'getting the list of enum values';
+    const values = enumValues(EnumWithStringValues);
+    expect: 'the list to be an array of numbers';
+    expectTypeOf(values).toEqualTypeOf<ReadonlyArray<number>>();
   });
 });

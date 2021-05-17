@@ -3,13 +3,9 @@
  */
 export interface VibrationObserverOptions {
   /**
-   * Stop vibrating when the stream completes
-   * @note Defaults to false
+   * The conditions for vibration to stop
+   *
+   * By default, vibration stops when the observer receives an error (`error`)
    */
-  readonly stopOnComplete: boolean;
-  /**
-   * Stop vibrating when the stream errors
-   * @note Defaults to true
-   */
-  readonly stopOnError: boolean;
+   readonly stopOn?: 'complete' | 'error' | 'complete-and-error';
 }

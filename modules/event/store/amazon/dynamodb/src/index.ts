@@ -1,6 +1,6 @@
-export { dynamoDBEventRepository } from './dynamodb-event-repository';
-export type { DynamoDBEventRepositoryAttributeNames } from './dynamodb-event-repository-attribute-names';
-export type { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
-export { dynamoDBSnapshotRepository } from './dynamodb-snapshot-repository';
-export type { DynamoDBSnapshotRepositoryAttributeNames } from './dynamodb-snapshot-repository-attribute-names';
-export type { DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
+export { dynamoDBEventRepository } from './event/dynamodb-event-repository';
+export type { DynamoDBEventAttributeNames } from './event/dynamodb-event-attribute-names';
+export type { DynamoDBEventRepositoryConfiguration } from './event/dynamodb-event-repository-configuration';
+export { dynamoDBSnapshotRepository } from './snapshot/dynamodb-snapshot-repository';
+export type { DynamoDBSnapshotAttributeNames } from './snapshot/dynamodb-snapshot-attribute-names';
+export type { DynamoDBSnapshotRepositoryConfiguration } from './snapshot/dynamodb-snapshot-repository-configuration';

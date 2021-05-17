@@ -14,9 +14,9 @@ export interface SnapshotRepository<StateType> {
   loadSnapshots(aggregateKeys: ReadonlyArray<string>): Observable<ReadonlyArray<Snapshot<StateType> | undefined>>;
 
   /**
-   * Saves snapshot to the repository
+   * Stores snapshot in the repository
    * @param snapshot List of snapshots
-   * @returns Observable that resolves once the snapshots are saved
+   * @returns Observable that emits once the snapshots are stored
    */
-  saveSnapshots(snapshots: ReadonlyArray<Snapshot<StateType>>): Observable<void>;
+  storeSnapshots(snapshots: ReadonlyArray<Snapshot<StateType>>): Observable<void>;
 }

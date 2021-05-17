@@ -1,3 +1,3 @@
-# komore Stack - Google
+# @komore/stack-provider-google
 
 TODO.

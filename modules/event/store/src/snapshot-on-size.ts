@@ -1,9 +1,9 @@
 import type { Event } from '@komore/event';
 import { assert } from '@komore/typescript';
 import type { SnapshotStrategy } from './snapshot-strategy';
-import { getAfterAtOrBeforeSequenceNumber } from './snapshot-strategy-helpers/get-after-at-or-before-sequence-number';
-import { getFirstOrLastSequenceNumber } from './snapshot-strategy-helpers/get-first-or-last-sequence-number';
-import { isFirstOrLastSelectionType } from './snapshot-strategy-helpers/is-first-or-last-selection-type';
+import { getAfterAtOrBeforeSequenceNumber } from './helpers/get-after-at-or-before-sequence-number';
+import { getFirstOrLastSequenceNumber } from './helpers/get-first-or-last-sequence-number';
+import { isFirstOrLastSelectionType } from './helpers/is-first-or-last-selection-type';
 import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**

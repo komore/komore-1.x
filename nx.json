@@ -114,6 +114,12 @@
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
     },
+    "compiler": {
+      "tags": ["scope:compiler"]
+    },
+    "compiler-testing": {
+      "tags": ["scope:compiler", "trait:testing"]
+    },
     "data": {
       "tags": ["scope:data"]
     },
@@ -264,10 +270,10 @@
     "element-store-monitor-redux": {
       "tags": ["scope:element"]
     },
-    "element-style": {
+    "element-styling": {
       "tags": ["scope:element"]
     },
-    "element-style-operators": {
+    "element-styling-operators": {
       "tags": ["scope:element", "trait:operators"]
     },
     "element-testing": {
@@ -347,12 +353,6 @@
     },
     "graph-testing": {
       "tags": ["scope:graph", "trait:testing"]
-    },
-    "host": {
-      "tags": ["scope:host", "trait:base"]
-    },
-    "host-operators": {
-      "tags": ["scope:identity", "trait:operators"]
     },
     "identity": {
       "tags": ["scope:identity", "trait:base"]
@@ -582,18 +582,6 @@
     "layer-text": {
       "tags": ["scope:layer"]
     },
-    "local": {
-      "tags": ["scope:local", "trait:base"]
-    },
-    "local-cli": {
-      "tags": ["scope:local"]
-    },
-    "local-filesystem": {
-      "tags": ["scope:local"]
-    },
-    "local-filesystem-operators": {
-      "tags": ["scope:local", "trait:operators"]
-    },
     "message": {
       "tags": ["scope:message", "trait:base"]
     },
@@ -606,21 +594,6 @@
     "observability": {
       "tags": ["scope:observability", "trait:base"]
     },
-    "observability-amazon": {
-      "tags": ["scope:observability", "trait:provider", "provider:amazon"]
-    },
-    "observability-azure": {
-      "tags": ["scope:observability", "trait:provider", "provider:azure"]
-    },
-    "observability-browser": {
-      "tags": ["scope:observability", "trait:provider", "provider:browser"]
-    },
-    "observability-google": {
-      "tags": ["scope:observability", "trait:provider", "provider:google"]
-    },
-    "observability-local": {
-      "tags": ["scope:observability", "trait:provider", "provider:local"]
-    },
     "observability-logging": {
       "tags": ["scope:observability"]
     },
@@ -632,6 +605,24 @@
     },
     "observability-metrics-operators": {
       "tags": ["scope:observability", "trait:operators"]
+    },
+    "observability-provider": {
+      "tags": ["scope:observability"]
+    },
+    "observability-provider-amazon": {
+      "tags": ["scope:observability", "trait:provider", "provider:amazon"]
+    },
+    "observability-provider-azure": {
+      "tags": ["scope:observability", "trait:provider", "provider:azure"]
+    },
+    "observability-provider-browser": {
+      "tags": ["scope:observability", "trait:provider", "provider:browser"]
+    },
+    "observability-provider-google": {
+      "tags": ["scope:observability", "trait:provider", "provider:google"]
+    },
+    "observability-provider-local": {
+      "tags": ["scope:observability", "trait:provider", "provider:local"]
     },
     "observability-testing": {
       "tags": ["scope:observability", "trait:testing"]
@@ -665,6 +656,73 @@
     },
     "reactive-testing": {
       "tags": ["scope:reactive", "trait:testing"]
+    },
+    "runtime": {
+      "tags": ["scope:runtime", "trait:base"]
+    },
+    "runtime-browser": {
+      "tags": ["scope:runtime", "environment:browser"]
+    },
+    "runtime-cli": {
+      "tags": ["scope:runtime"]
+    },
+    "runtime-filesystem": {
+      "tags": ["scope:runtime"]
+    },
+    "runtime-filesystem-operators": {
+      "tags": ["scope:runtime", "trait:operators"]
+    },
+    "runtime-node": {
+      "tags": ["scope:runtime", "environment:node"]
+    },
+    "runtime-operators": {
+      "tags": ["scope:runtime", "trait:operators"]
+    },
+    "runtime-testing": {
+      "tags": ["scope:runtime", "trait:testing"]
+    },
+    "runtime-time": {
+      "tags": ["scope:runtime"]
+    },
+    "schematics": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-application": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-ci": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-documentation": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-domain": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-e2e": {
+      "tags": ["scope:schematics"],
+      "implicitDependencies": ["schematics"]
+    },
+    "schematics-element": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-event": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-function": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-message": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-observability": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-process": {
+      "tags": ["scope:schematics", "trait:schematics"]
+    },
+    "schematics-stack": {
+      "tags": ["scope:schematics", "trait:schematics"]
     },
     "stack": {
       "tags": ["scope:stack", "trait:base"]
@@ -711,62 +769,13 @@
     "tools-eslint": {
       "tags": ["scope:tools", "trait:eslint"]
     },
-    "tools-nx": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-application": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-ci": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-documentation": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-domain": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-e2e": {
-      "tags": ["scope:nx"],
-      "implicitDependencies": ["tools-nx"]
-    },
-    "tools-nx-element": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-event": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-function": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-message": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-observability": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-process": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
-    "tools-nx-stack": {
-      "tags": ["scope:tools", "trait:nx"]
-    },
     "tools-vscode-alfa": {
-      "tags": ["scope:tools", "trait:vscode"]
+      "tags": ["scope:schematics", "trait:vscode"]
     },
     "tools-vscode-extension": {
-      "tags": ["scope:tools", "trait:vscode"]
+      "tags": ["scope:schematics", "trait:vscode"]
     },
     "typescript": {
-      "tags": ["scope:typescript"]
-    },
-    "typescript-compiler": {
-      "tags": ["scope:typescript"]
-    },
-    "typescript-compiler-testing": {
-      "tags": ["scope:typescript", "trait:testing"]
-    },
-    "typescript-time": {
       "tags": ["scope:typescript"]
     },
     "validation": {
@@ -844,6 +853,9 @@
     "web-permission": {
       "tags": ["scope:web"]
     },
+    "web-permission-operators": {
+      "tags": ["scope:web", "trait:operators"]
+    },
     "web-push": {
       "tags": ["scope:web"]
     },
@@ -870,6 +882,15 @@
     },
     "web-worker": {
       "tags": ["scope:web"]
+    },
+    "web-worker-operators": {
+      "tags": ["scope:web", "trait:operators"]
+    },
+    "web-worker-service": {
+      "tags": ["scope:web"]
+    },
+    "web-worker-service-operators": {
+      "tags": ["scope:web", "trait:operators"]
     },
     "website": {
       "tags": ["scope:website", "trait:base"]

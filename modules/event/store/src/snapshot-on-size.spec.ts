@@ -1,5 +1,5 @@
-import { createEvent } from './create-event';
-import { EventWithMetadata } from './event-metadata';
+import type { EventWithMetadata } from '@komore/event';
+import { createEvent } from '@komore/event';
 import { snapshotOnSize } from './snapshot-on-size';
 import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
@@ -22,9 +22,9 @@ describe('Snapshot on size strategy', () => {
 
   const testEvents = [createTestEvent(1), createTestEvent(2), createTestEvent(3), createTestEvent(4)] as const;
 
-  type SnapshotStrategyTestState = Readonly<{
-    value: number;
-  }>;
+  interface SnapshotStrategyTestState {
+    readonly value: number;
+  }
 
   const testNewState: SnapshotStrategyTestState = {
     value: 0
@@ -44,16 +44,16 @@ describe('Snapshot on size strategy', () => {
     [5, SnapshotStrategySelectionType.FIRST, false],
     [5, SnapshotStrategySelectionType.LAST, false]
   ])('properly selects the sequence number (bytes = %s, selection = %s)', (bytes, selectionType, expectedResult) => {
-    // given: a snapshot on size strategy
+    given: 'a snapshot on size strategy';
     const snapshotStrategy = snapshotOnSize(bytes, selectionType);
-    // when: running the strategy
+    when: 'running the strategy';
     const result = snapshotStrategy(testEvents, testNewState, undefined);
-    // then: the correct result is returned
+    expect: 'the correct result to be returned';
     expect(result).toBe(expectedResult);
   });
 
   it.each([0, -1])('throws an error when the size is not greater than 0', bytes => {
-    // expect: a snapshot on size strategy with a size that is not greater than 0 to throw an error
+    expect: 'a snapshot on size strategy with a size that is not greater than 0 to throw an error';
     expect(() => snapshotOnSize(bytes)).toThrowError(
       'a snapshot on size strategy must have a threshold strictly greater than 0 bytes'
     );

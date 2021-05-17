@@ -1,4 +1,4 @@
-# komore Event Module
+# @komore/event
 
 ## Available Event Stores
 
@@ -11,15 +11,7 @@ komore comes pre-packaged with well-established storage systems that can be used
 
 [Additional event stores can be created]... TODO
 
-
-
 [Additional event stores can be created](https://komore.dev/../../docs)
-
-
-
-
-
-
 
 Bounded context: a STORE (DynamoDB table)
 Aggregate: a list of ACTIONS relevant to a specific ?subject? within a bounded context (a key in the DynamoDB table)

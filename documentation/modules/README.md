@@ -1,0 +1,162 @@
+# Modules
+
+- @komore/element
+  - [Overview](./element.md)
+  - [Install](./element-install.md)
+  - [Operators](./element-operators.md)
+  - Store
+    - [Overview](./element-store.md)
+    - [Usage](./element-store-usage.md)
+    - [Operators](./element-store-operators.md)
+    - [Testing](./element-store-testing.md)
+    - [Best Practices](./element-store-bestpractices.md)
+- @komore/function
+  - [Overview](./function/README.md)
+  - [Architecture](./function/architecture.md)
+  - [Install](./function/install.md)
+  - [Usage](./function/usage.md)
+  - [Operators](./function/operators.md)
+  - [Host](./function/host/README.md)
+    - [AWS Lambda](./function/host/lambda.md)
+    - [Azure Cloud Function](./function/host/azure.md)
+    - [Google Cloud Function](./function/host/google.md)
+    - [OpenFaaS](./function/host/openfaas.md)
+    - [Cloudflare](./function/host/cloudflare.md)
+    - [Apache Pulsar](./function/host/pulsar.md)
+    - [Amazon Alexa](./function/host/alexa.md)
+  - [Testing](./function/testing.md)
+  - [Schematics](./function/schematics.md)
+  - [Best Practices](./function/best-practices.md)
+  - [Examples](./function/examples.md)
+- @komore/observability
+  - [Overview](./observability/README.md)
+  - [Architecture](./observability/architecture.md)
+  - [Install](./observability/install.md)
+  - [Operators](./observability-operators.md)
+  - Logging
+    - [Usage](./observability/README.md)
+    - [Appenders](./observability-logging-appenders.md)
+    - [Encoders](./observability-logging-encoders.md)
+    - [Filters](./observability-logging-filters.md)
+    - [Layouts](./observability-logging-layouts.md)
+  - Metrics
+    - [Usage](./observability-metrics.md)
+  - Tracing
+    - [Usage](./observability-tracing.md)
+  - Alarms
+    - [Usage](./observability-alarms.md)
+  - [Provider](./observability/provider/README.md)
+    - [Local](./observability/provider/local.md)
+    - [Browser](./observability/provider/browser.md)
+    - [Amazon](./observability/provider/amazon.md)
+    - [Azure](./observability/provider/azure.md)
+    - [Google](./observability/provider/google.md)
+  - [Testing](./observability/testing.md)
+  - [Schematics](./observability/schematics.md)
+  - [Best Practices](./observability/-best-practices.md)
+  - [Examples](./observability/examples.md)
+- @komore/web
+  - [Overview](./web.md)
+  - [Install](./web-install.md)
+  - [Operators](./web-operators.md)
+  - Authentication
+    - [Overview](./web-authentication.md)
+    - [Usage](./web-authentication-usage.md)
+    - [Operators](./web-authentication-operators.md)
+    - [Testing](./web-authentication-testing.md)
+    - [Best Practices](./web-authentication-bestpractices.md)
+  - Geolocation
+    - [Overview](./web-geolocation.md)
+    - [Usage](./web-geolocation-usage.md)
+    - [Operators](./web-geolocation-operators.md)
+    - [Testing](./web-geolocation-testing.md)
+    - [Best Practices](./web-geolocation-bestpractices.md)
+    - [Examples](./web-geolocation-examples.md)
+  - HTTP
+    - [Overview](./web-http.md)
+    - [Usage](./web-http-usage.md)
+    - [Operators](./web-http-operators.md)
+    - Server-Sent Events
+      - [Usage](./web-http-sse.md)
+      - [Operators](./web-http-sse-operators.md)
+    - WebSockets
+      - [Usage](./web-http-websocket.md)
+      - [Operators](./web-http-websocket-operators.md)
+    - [Testing](./web-http-testing.md)
+    - [Best Practices](./web-http-bestpractices.md)
+    - [Examples](./web-http-examples.md)
+  - Media
+    - [Overview](./web-media.md)
+  - Network
+    - [Overview](./web-network.md)
+    - [Usage](./web-network-usage.md)
+    - [Operators](./web-network-operators.md)
+    - [Testing](./web-network-testing.md)
+    - [Best Practices](./web-network-bestpractices.md)
+    - [Examples](./web-network-examples.md)
+  - Notification
+    - [Overview](./web-notification.md)
+  - Observer
+    - [Overview](./web-observer.md)
+    - [Usage](./web-observer-usage.md)
+    - [Operators](./web-observer-operators.md)
+    - [Testing](./web-observer-testing.md)
+    - [Best Practices](./web-observer-bestpractices.md)
+    - [Examples](./web-observer-examples.md)
+  - Payment
+    - [Overview](./web-payment.md)
+    - [Usage](./web-payment-usage.md)
+    - [Operators](./web-payment-operators.md)
+    - [Testing](./web-payment-testing.md)
+    - [Best Practices](./web-payment-bestpractices.md)
+    - [Examples](./web-payment-examples.md)
+  - Permission
+    - [Overview](./web-permission.md)
+  - Push
+  - Speech
+  - Storage
+    - [Overview](./web-storage.md)
+    - [Usage](./web-storage-usage.md)
+    - Local Storage
+      - [Overview](./web-storage-local.md)
+    - IndexedDB
+      - [Overview](./web-storage-indexeddb.md)
+      - [Usage](./web-storage-indexeddb-usage.md)
+      - [Operators](./web-storage-indexeddb-operators.md)
+      - [Testing](./web-storage-indexeddb-testing.md)
+  - Vibration
+    - [Overview](./web-vibration.md)
+    - [Usage](./web-vibration-usage.md)
+  - Web Workers
+    - [Overview](./web/worker/README.md)
+    - [Architecture](./web/worker/architecture.md)
+    - [Usage](./web/worker/usage.md)
+    - [Operators](./web-worker-operators.md)
+    - Workers
+      - [Dedicated](./web-worker-dedicated.md)
+      - [Shared](./web-worker-shared.md)
+      - [Service](./web-worker-service.md)
+    - [Testing](./web-worker-testing.md)
+    - [Best Practices](./web-worker-bestpractices.md)
+    - [Examples](./web-worker-examples.md)
+  - WebGL
+    - [Overview](./web-gl.md)
+    - [Usage](./web-gl-usage.md)
+    - [Operators](./web-gl-operators.md)
+    - [Testing](./web-gl-testing.md)
+    - [Best Practices](./web-gl-bestpractices.md)
+    - [Examples](./web-gl-examples.md)
+  - WebGPU
+    - [Overview](./web-gpu.md)
+    - [Usage](./web-gpu-usage.md)
+    - [Operators](./web-gpu-operators.md)
+    - [Testing](./web-gpu-testing.md)
+    - [Best Practices](./web-gpu-bestpractices.md)
+    - [Examples](./web-gpu-examples.md)
+  - WebRTC
+    - [Overview](./web-rtc.md)
+    - [Usage](./web-rtc-usage.md)
+    - [Operators](./web-rtc-operators.md)
+    - [Testing](./web-rtc-testing.md)
+    - [Best Practices](./web-rtc-bestpractices.md)
+    - [Examples](./web-rtc-examples.md)

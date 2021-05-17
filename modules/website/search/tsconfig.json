@@ -1,17 +1,8 @@
 {
-  "extends": "../../../tsconfig.base.json",
-  "compilerOptions": {
-    "types": ["dom", "jest"]
-  },
+  "extends": "../../../tsconfig.browser.json",
   "include": [],
   "files": [],
   "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    },
     {
       "path": "./tsconfig.lib.json"
     },

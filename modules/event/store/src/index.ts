@@ -1,10 +1,10 @@
-export { EventRepository } from './event-repository';
-export { EventStore } from './event-store';
-export { Snapshot } from './snapshot';
+export type { EventRepository } from './event-repository';
+export type { EventStore } from './event-store';
+export type { Snapshot } from './snapshot';
 export { snapshotOnCount } from './snapshot-on-count';
 export { snapshotOnDelay } from './snapshot-on-delay';
 export { snapshotOnEvent } from './snapshot-on-event';
 export { snapshotOnSize } from './snapshot-on-size';
-export { SnapshotRepository } from './snapshot-repository';
-export { SnapshotStrategy } from './snapshot-strategy';
-export { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+export type { SnapshotRepository } from './snapshot-repository';
+export type { SnapshotStrategy } from './snapshot-strategy';
+export type { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';

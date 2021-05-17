@@ -10,7 +10,7 @@ export interface WorkerObserverOptions<OutgoingType = unknown> {
    */
   readonly selectTransferables?: (value: OutgoingType) => ReadonlyArray<Transferable>;
   /**
-   * Determinates the conditions for a dedicated worker to be terminated or a shared worker port to be closed
+   * The conditions for a dedicated worker to be terminated or a shared worker port to be closed
    * - `error` a dedicated worker to be terminated
    * - a shared worker's port to be closed
    *

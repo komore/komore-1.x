@@ -6,49 +6,53 @@
 
 ## Install
 
-The module can be installed via Npm or Yarn:
+The module can be installed via Npm, pnpm or Yarn:
 
-```shell
+```sh
 npm install @komore/web --save
 ```
 
-```shell
-yarn add @komore/web --dev
+```sh
+pnpm add @komore/web
 ```
 
-## Web APIs
+```sh
+yarn add @komore/web
+```
+
+## Available APIs
 
 The following APIs are exposed by the module:
 
-| Web API                     | Module                          | Documentation               |
-| :-------------------------- | :------------------------------ | :-------------------------- |
-| [Authentication API]        | `@komore/web/authentication`    | [`TODO auth`] |
-| [Drag and Drop API]         | `@komore/web/drag-and-drop`     | [`TODO dragndrop`] |
-| [Fetch API]                 | `@komore/web/http`              | [`createHttpClient`]        |
-| [Fullscreen API]            | `@komore/web`                   | [`watchFullscreenChanges`]  |
-| [Gamepad API]               | `@komore/web/gamepad`           | [`watchGamepad`]            |
-| [Geolocation API]           | `@komore/web/geolocation`       | [`watchPosition`]           |
-| [Image Capture API]         | `@komore/web/media`             | [`captureImage`]            |
-| [IndexedDB API]             | `@komore/web/storage/indexeddb` | [`TODO indexeddb`]          |
-| [Intersection Observer API] | `@komore/web/observer`          | [`watchIntersections`]      |
-| [Mutation Observer API]     | `@komore/web/observer`          | [`watchMutations`]          |
-| [Page Visibility API]       | `@komore/web`                   | [`watchPageVisibility`]     |
-| [Picture-in-Picture API]    | `@komore/web/media`             | [`TODO pip`]                |
-| [Push API]                  | `@komore/web/push`              | [`TODO push`]               |
-| [Resize Observer API]       | `@komore/web/observer`          | [`watchResizes`]            |
-| [HTML Sanitizer API]        | `@komore/web/operators`         | [`sanitizeHtml`]            |
-| [Screen Capture API]        | `@komore/web/media`             | [`TODO screencapture`]      |
-| [Screen Wake Lock API]      | `@komore/web`                   | [`createScreenWakeLock`]    |
-| [Server-Sent Events API]    | `@komore/web/http/sse`          | [`createEventSource`]       |
-| [Vibration API]             | `@komore/web/vibration`         | [`createVibrationObserver`] |
-| [WebSocket API]             | `@komore/web/http/websocket`    | [`createWebSocket`]         |
+| Web API                     | Module                            | Documentation           |
+| :-------------------------- | :-------------------------------- | :---------------------- |
+| [Authentication API]        | [`@komore/web/authentication`]    |                         |
+| [Bluetooth API]             | [`@komore/web/bluetooth`]         |                         |
+| [Fetch API]                 | [`@komore/web/http`]              |                         |
+| [Fullscreen API]            | [`@komore/web`]                   |                         |
+| [Gamepad API]               | [`@komore/web/gamepad`]           |                         |
+| [Geolocation API]           | [`@komore/web/geolocation`]       |                         |
+| [Image Capture API]         | [`@komore/web/media`]             |                         |
+| [IndexedDB API]             | [`@komore/web/storage/indexeddb`] |                         |
+| [Intersection Observer API] | [`@komore/web/observer`]          | [Intersection observer] |
+| [Mutation Observer API]     | [`@komore/web/observer`]          | [Mutation observer]     |
+| [Permissions API]           | [`@komore/web/permission`]        |                         |
+| [Page Visibility API]       | [`@komore/web`]                   |                         |
+| [Picture-in-Picture API]    | [`@komore/web/media`]             |                         |
+| [Push API]                  | [`@komore/web/push`]              |                         |
+| [Resize Observer API]       | [`@komore/web/observer`]          | [Resize observer]       |
+| [HTML Sanitizer API]        | [`@komore/web/operators`]         |                         |
+| [Screen Capture API]        | [`@komore/web/media`]             |                         |
+| [Screen Wake Lock API]      | [`@komore/web`]                   |                         |
+| [Server-Sent Events API]    | [`@komore/web/http/sse`]          |                         |
+| [Vibration API]             | [`@komore/web/vibration`]         |                         |
+| [WebSockets API]            | [`@komore/web/http/websocket`]    |                         |
 
 Full documentation is available at the [komore website].
 
 [komore]: https://komore.dev
 [komore website]: https://komore.dev/modules/web
-[`todo auth`]: https://komore.dev/modules/web/authentication
-[`todo dragndrop`]: https://komore.dev/modules/web/drag-and-drop
+[`@komore/web/authentication`]: https://komore.dev/modules/web/authentication
 [`todo indexeddb`]: https://komore.dev/modules/web/storage/indexeddb
 [`todo pip`]: https://komore.dev/modules/web/media#picture-in-picture
 [`todo screencapture`]: https://komore.dev/modules/web/media#screen-capture
@@ -67,6 +71,8 @@ Full documentation is available at the [komore website].
 [`watchpagevisibility`]: https://komore.dev/modules/web#page-visibility
 [`watchposition`]: https://komore.dev/modules/web/geolocation
 [`watchresizes`]: https://komore.dev/modules/web/observer#resize
+[authentication api]: ./TODO
+[bluetooth api]: ./TODO
 [fetch api]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 [fullscreen api]: https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
 [gamepad api]: https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API

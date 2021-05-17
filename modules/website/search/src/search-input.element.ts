@@ -7,7 +7,7 @@ import { getSearchResults } from './get-search-results';
 /**
  * Search input element
  */
-export const SearchInput = defineElement({
+export const SearchInputElement = defineElement({
   name: 'search-input',
   styles: ({ css }) => css``,
   template: ({ html }) => html`

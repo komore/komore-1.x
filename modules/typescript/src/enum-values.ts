@@ -6,8 +6,8 @@ import { enumKeys } from './enum-keys';
  * @returns List of enum values
  * @template EnumType Enum type
  */
-export function enumValues<EnumType extends Record<string | number, unknown>>(
+export function enumValues<EnumType extends Record<string, string | number>>(
   enumObject: EnumType
-): ReadonlyArray<EnumType[number]> {
+): ReadonlyArray<EnumType[keyof EnumType]> {
   return enumKeys(enumObject).map(key => enumObject[key]);
 }

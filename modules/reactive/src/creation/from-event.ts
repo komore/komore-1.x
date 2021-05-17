@@ -1,39 +1,96 @@
 import { fromEvent as rxjsFromEvent } from 'rxjs';
 import type { Observable } from '../observable';
 
-interface TypedEventTarget<EventMapType extends Record<string, Event>> {
-  addEventListener<K extends keyof EventMapType>(
-    type: K,
-    listener: (event: EventMapType[K]) => void,
+/**
+ * Creates an observable that emits events of a specific type from a DOM event target
+ * @param eventTarget Event target
+ * @param eventTypeName Event type name
+ * @template EventType Event type
+ * @template EventTypeName Event type name
+ * @returns Observable that emits events of the specific type
+ */
+export function fromEvent<EventType, EventTypeName extends string = string>(
+  eventTarget: EventTargetLikeWithEventMap<EventTypeName, EventType>,
+  eventTypeName: EventTypeName
+): Observable<EventType>;
+
+/**
+ * Creates an observable that emits events of a specific type from a DOM event target
+ * @param eventTarget Event target
+ * @param eventTypeName Event type name
+ * @template EventType Event type
+ * @returns Observable that emits events of the specific type
+ */
+/*export function fromEvent<EventType>(
+  eventTarget: EventTargetLike<EventType>,
+  eventTypeName: string
+): Observable<EventType>;*/
+
+/**
+ * Creates an observable that emits events of a specific type from a Node event emitter
+ * @param eventEmitter Event emitter
+ */
+/*export function fromEvent<EventTypeName extends string>(
+  eventEmitter: EventEmitterLikeWithEventMap<>,
+  eventTypeName: EventTypeName
+): Observable<EventEmitterLikeWithEventMapType<typeof eventEmitter, EventTypeName>>;
+*/
+/**
+ * Creates an observable that emits events of a specific type from a Node event emitter
+ * @param eventEmitter Event emitter
+ * @param eventTypeName Event type name
+ * @returns Observable that emits events of the specific type
+ */
+export function fromEvent(
+  eventEmitter: EventEmitterLike,
+  eventTypeName: string
+): Observable<unknown>;
+
+export function fromEvent<T>(
+  eventTargetOrEmitter: EventTargetLike<T> | EventEmitterLike,
+  eventTypeName: string
+): Observable<T> {
+  return rxjsFromEvent(eventTargetOrEmitter, eventTypeName);
+}
+
+/**
+ * Signature that matches a DOM event target
+ */
+interface EventTargetLike<T> {
+  addEventListener(type: string, listener: (event: T) => void, options?: boolean | AddEventListenerOptions): void;
+  removeEventListener(type: string, listener: (event: T) => void, options?: boolean | EventListenerOptions): void;
+}
+
+/**
+ * Signature that matches a DOM event target with a typed event map
+ * @template EventMapType Event map type
+ * @template Event
+ */
+interface EventTargetLikeWithEventMap<EventTypeName extends string, EventType = unknown> {
+  addEventListener(
+    type: EventTypeName,
+    listener: (event: EventType) => void,
     options?: boolean | AddEventListenerOptions
   ): void;
-  removeEventListener<K extends keyof EventMapType>(
-    type: K,
-    listener: (event: EventMapType[K]) => unknown,
+  removeEventListener(
+    type: EventTypeName,
+    listener: (event: EventType) => unknown,
     options?: boolean | EventListenerOptions
   ): void;
 }
 
-interface UntypedEventTarget {
-  addEventListener(type: string, listener: (event: Event) => void, options?: boolean | AddEventListenerOptions): void;
-  removeEventListener(type: string, listener: (event: Event) => void, options?: boolean | EventListenerOptions): void;
+/**
+ * Signature that matches a Node event emitter
+ */
+interface EventEmitterLike {
+  addListener(event: string | symbol, listener: (...args: unknown[]) => void): this;
+  removeListener(event: string | symbol, listener: (...args: unknown[]) => void): this;
 }
 
-export function fromEvent<EventMapType extends Record<string, Event>, EventName extends keyof EventMapType>(
-  eventTarget: TypedEventTarget<EventMapType>,
-  eventName: EventName
-): Observable<EventMapType[EventName]>;
-
-export function fromEvent<EventType extends Event = Event>(
-  eventTarget: UntypedEventTarget,
-  eventName: string
-): Observable<EventType>;
-
-// export function fromEvent<EventType>(eventEmitter: NodeJS.EventEmitter, eventName: string): Observable<EventType>;
-
-export function fromEvent(
-  eventTargetOrEmitter: UntypedEventTarget,// | NodeJS.EventEmitter,
-  eventName: string
-): Observable<Event> {
-  return rxjsFromEvent(eventTargetOrEmitter, eventName);
+/**
+ * Signature that matches a Node event emitter with a typed event map
+ */
+interface EventEmitterLikeWithEventMap<EventTypeName extends string> {
+  addListener(event: EventTypeName, listener: (...args: unknown[]) => void): this;
+  removeListener(event: EventTypeName, listener: (...args: unknown[]) => void): this;
 }

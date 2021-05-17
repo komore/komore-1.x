@@ -1,4 +1,4 @@
-# komore Event Store - AWS
+# @komore/event-store-amazon
 
 Support for AWS services as [komore] event stores:
 
@@ -7,7 +7,7 @@ Support for AWS services as [komore] event stores:
 
 ## Install
 
-The `@komore/event-store-aws` module can be installed via Npm or Yarn:
+The `@komore/event-store-amazon` module can be installed via Npm or Yarn:
 
 ```shell
 npm install @komore/event-store-aws --save
@@ -22,8 +22,6 @@ yarn add @komore/event-store-aws
 ```typescript
 // TODO
 ```
-
-
 
 [Amazon Aurora]: https://aws.amazon.com/rds/aurora/
 [Amazon DynamodB]: https://aws.amazon.com/dynamodb/

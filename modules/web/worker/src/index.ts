@@ -1,5 +1,9 @@
 export { createSharedWorker } from './create-shared-worker';
+export type { CreateSharedWorkerOptions } from './create-shared-worker-options';
 export { createWorker } from './create-worker';
+export type { CreateWorkerOptions } from './create-worker-options';
+export { defineWorker } from './define-worker';
+export type { DefineWorkerOptions } from './define-worker-options';
 export { fromSharedWorkerConnection } from './from-shared-worker-connection';
 export { fromSharedWorkerMessage } from './from-shared-worker-message';
 export { fromWorker } from './from-worker';
