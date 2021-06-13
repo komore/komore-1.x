@@ -1,3 +1,0 @@
-# Cloudflare Worker Function
-
-TODO.

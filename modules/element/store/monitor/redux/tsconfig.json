@@ -1,7 +1,7 @@
 {
-  "extends": "../../../../../tsconfig.base.json",
+  "extends": "../../../../../tsconfig.browser.json",
   "compilerOptions": {
-    "types": ["dom", "jest"]
+    "types": ["jest"]
   },
   "include": [],
   "files": [],

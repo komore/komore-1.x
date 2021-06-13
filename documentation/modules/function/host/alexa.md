@@ -1,3 +1,0 @@
-# Alexa Function
-
-TODO.

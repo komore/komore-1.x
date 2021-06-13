@@ -12,3 +12,4 @@ export function mergeMap<InputType, OutputType extends ObservableInput<unknown>>
 ): OperatorFunction<InputType, ObservableInputType<OutputType>> {
   return rxjsMergeMap(project, concurrent);
 }
+// TODO: only accept observable, making fromArray/etc explicit

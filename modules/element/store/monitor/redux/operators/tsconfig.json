@@ -1,0 +1,16 @@
+{
+  "extends": "../../../../../../tsconfig.browser.json",
+  "compilerOptions": {
+    "types": ["jest"]
+  },
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

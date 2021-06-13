@@ -132,57 +132,6 @@
     "devserver-core": {
       "tags": ["scope:devserver"]
     },
-    "devserver-local": {
-      "tags": ["scope:devserver", "trait:local"]
-    },
-    "devserver-local-amazon": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-apigateway": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-appsync": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-cloudwatch": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-cloudwatchlogs": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-dynamodb": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-kinesis": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-lambda": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-s3": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-service": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-ses": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-sns": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-amazon-sqs": {
-      "tags": ["scope:devserver", "trait:local", "provider:amazon"]
-    },
-    "devserver-local-azure": {
-      "tags": ["scope:devserver", "trait:local", "provider:azure"]
-    },
-    "devserver-local-google": {
-      "tags": ["scope:devserver", "trait:local", "provider:google"]
-    },
-    "devserver-local-service": {
-      "tags": ["scope:devserver", "trait:local"]
-    },
     "element": {
       "tags": ["scope:element", "trait:base"]
     },
@@ -270,6 +219,9 @@
     "element-store-monitor-redux": {
       "tags": ["scope:element"]
     },
+    "element-store-monitor-redux-operators": {
+      "tags": ["scope:element", "trait:operators"]
+    },
     "element-styling": {
       "tags": ["scope:element"]
     },
@@ -321,9 +273,6 @@
     "function": {
       "tags": ["scope:function", "trait:base"]
     },
-    "function-alexa": {
-      "tags": ["scope:function", "trait:provider", "provider:alexa"]
-    },
     "function-azure": {
       "tags": ["scope:function", "trait:provider", "provider:azure"]
     },
@@ -333,11 +282,14 @@
     "function-lambda": {
       "tags": ["scope:function", "trait:provider", "provider:amazon"]
     },
+    "function-lambda-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon"]
+    },
+    "function-lambda-testing": {
+      "tags": ["scope:function", "trait:provider", "trait:testing", "provider:amazon"]
+    },
     "function-openfaas": {
       "tags": ["scope:function", "trait:provider", "provider:openfaas"]
-    },
-    "function-pulsar": {
-      "tags": ["scope:function", "trait:provider", "provider:pulsar"]
     },
     "function-testing": {
       "tags": ["scope:function", "trait:testing"]
@@ -362,9 +314,6 @@
     },
     "integration": {
       "tags": ["scope:integration"]
-    },
-    "integration-alexa": {
-      "tags": ["scope:integration", "trait:provider", "provider:alexa"]
     },
     "integration-amazon": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]

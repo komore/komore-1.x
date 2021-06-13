@@ -1,6 +1,6 @@
-import { LambdaEvent } from '../lambda-event';
-import { UnknownLambdaEvent } from '../unknown-lambda-event';
-import { LambdaEventTypeTest } from './lambda-event-type-test';
+import type { LambdaEvent } from '../lambda-event';
+import type { UnknownLambdaEvent } from '../unknown-lambda-event';
+import type { LambdaEventTypeTest } from './lambda-event-type-test';
 
 /**
  * Creates a Lambda event type test based on an event's records' event source

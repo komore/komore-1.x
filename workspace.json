@@ -1168,575 +1168,6 @@
         }
       }
     },
-    "devserver-local": {
-      "root": "modules/dev-server/local",
-      "sourceRoot": "modules/dev-server/local/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local",
-            "tsConfig": "modules/dev-server/local/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/package.json",
-            "main": "modules/dev-server/local/src/index.ts",
-            "assets": ["modules/dev-server/local/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon": {
-      "root": "modules/dev-server/local/amazon",
-      "sourceRoot": "modules/dev-server/local/amazon/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon",
-            "tsConfig": "modules/dev-server/local/amazon/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/package.json",
-            "main": "modules/dev-server/local/amazon/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-apigateway": {
-      "root": "modules/dev-server/local/amazon/api-gateway",
-      "sourceRoot": "modules/dev-server/local/amazon/api-gateway/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/api-gateway/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/api-gateway/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/api-gateway/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-apigateway"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/api-gateway",
-            "tsConfig": "modules/dev-server/local/amazon/api-gateway/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/api-gateway/package.json",
-            "main": "modules/dev-server/local/amazon/api-gateway/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/api-gateway/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-appsync": {
-      "root": "modules/dev-server/local/amazon/app-sync",
-      "sourceRoot": "modules/dev-server/local/amazon/app-sync/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/app-sync/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/app-sync/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/app-sync/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-appsync"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/app-sync",
-            "tsConfig": "modules/dev-server/local/amazon/app-sync/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/app-sync/package.json",
-            "main": "modules/dev-server/local/amazon/app-sync/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/app-sync/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-cloudwatch": {
-      "root": "modules/dev-server/local/amazon/cloudwatch",
-      "sourceRoot": "modules/dev-server/local/amazon/cloudwatch/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/cloudwatch/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/devserver-local-amazon-cloudwatch"],
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/cloudwatch/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/cloudwatch",
-            "tsConfig": "modules/dev-server/local/amazon/cloudwatch/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/cloudwatch/package.json",
-            "main": "modules/dev-server/local/amazon/cloudwatch/src/index.ts"
-          }
-        }
-      }
-    },
-    "devserver-local-amazon-cloudwatchlogs": {
-      "root": "modules/dev-server/local/amazon/cloudwatch-logs",
-      "sourceRoot": "modules/dev-server/local/amazon/cloudwatch-logs/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/cloudwatch-logs/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/devserver-local-amazon-cloudwatchlogs"],
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/cloudwatch-logs/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/cloudwatch-logs",
-            "tsConfig": "modules/dev-server/local/amazon/cloudwatch-logs/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/cloudwatch-logs/package.json",
-            "main": "modules/dev-server/local/amazon/cloudwatch-logs/src/index.ts"
-          }
-        }
-      }
-    },
-    "devserver-local-amazon-dynamodb": {
-      "root": "modules/dev-server/local/amazon/dynamodb",
-      "sourceRoot": "modules/dev-server/local/amazon/dynamodb/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/dynamodb/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/devserver-local-amazon-dynamodb"],
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/dynamodb/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/dynamodb",
-            "tsConfig": "modules/dev-server/local/amazon/dynamodb/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/dynamodb/package.json",
-            "main": "modules/dev-server/local/amazon/dynamodb/src/index.ts"
-          }
-        }
-      }
-    },
-    "devserver-local-amazon-kinesis": {
-      "root": "modules/dev-server/local/amazon/kinesis",
-      "sourceRoot": "modules/dev-server/local/amazon/kinesis/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/kinesis/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/kinesis/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-kinesis"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/kinesis",
-            "tsConfig": "modules/dev-server/local/amazon/kinesis/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/kinesis/package.json",
-            "main": "modules/dev-server/local/amazon/kinesis/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/kinesis/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-lambda": {
-      "root": "modules/dev-server/local/amazon/lambda",
-      "sourceRoot": "modules/dev-server/local/amazon/lambda/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/lambda/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/lambda/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/lambda/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-lambda"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/lambda",
-            "tsConfig": "modules/dev-server/local/amazon/lambda/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/lambda/package.json",
-            "main": "modules/dev-server/local/amazon/lambda/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/lambda/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-s3": {
-      "root": "modules/dev-server/local/amazon/s3",
-      "sourceRoot": "modules/dev-server/local/amazon/s3/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/s3/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/s3/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/s3/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-s3"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/s3",
-            "tsConfig": "modules/dev-server/local/amazon/s3/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/s3/package.json",
-            "main": "modules/dev-server/local/amazon/s3/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/s3/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-service": {
-      "root": "modules/dev-server/local/amazon/service",
-      "sourceRoot": "modules/dev-server/local/amazon/service/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/service/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/service/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/service/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-service"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/service",
-            "tsConfig": "modules/dev-server/local/amazon/service/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/service/package.json",
-            "main": "modules/dev-server/local/amazon/service/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/service/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-ses": {
-      "root": "modules/dev-server/local/amazon/ses",
-      "sourceRoot": "modules/dev-server/local/amazon/ses/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/ses/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/ses/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-ses"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/ses",
-            "tsConfig": "modules/dev-server/local/amazon/ses/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/ses/package.json",
-            "main": "modules/dev-server/local/amazon/ses/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/ses/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-sns": {
-      "root": "modules/dev-server/local/amazon/sns",
-      "sourceRoot": "modules/dev-server/local/amazon/sns/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/sns/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/sns/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-sns"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/sns",
-            "tsConfig": "modules/dev-server/local/amazon/sns/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/sns/package.json",
-            "main": "modules/dev-server/local/amazon/sns/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/sns/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-amazon-sqs": {
-      "root": "modules/dev-server/local/amazon/sqs",
-      "sourceRoot": "modules/dev-server/local/amazon/sqs/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/amazon/sqs/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/amazon/sqs/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-amazon-sqs"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/amazon/sqs",
-            "tsConfig": "modules/dev-server/local/amazon/sqs/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/amazon/sqs/package.json",
-            "main": "modules/dev-server/local/amazon/sqs/src/index.ts",
-            "assets": ["modules/dev-server/local/amazon/sqs/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-azure": {
-      "root": "modules/dev-server/local/azure",
-      "sourceRoot": "modules/dev-server/local/azure/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/azure/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/azure/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/azure/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-azure"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/azure",
-            "tsConfig": "modules/dev-server/local/azure/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/azure/package.json",
-            "main": "modules/dev-server/local/azure/src/index.ts",
-            "assets": ["modules/dev-server/local/azure/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-google": {
-      "root": "modules/dev-server/local/google",
-      "sourceRoot": "modules/dev-server/local/google/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/google/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/google/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/google/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/dev-server-local-google"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/google",
-            "tsConfig": "modules/dev-server/local/google/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/google/package.json",
-            "main": "modules/dev-server/local/google/src/index.ts",
-            "assets": ["modules/dev-server/local/google/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-local-service": {
-      "root": "modules/dev-server/local/service",
-      "sourceRoot": "modules/dev-server/local/service/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/local/service/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/local/service/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/local/service/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-local-service"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/local/service",
-            "tsConfig": "modules/dev-server/local/service/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/local/service/package.json",
-            "main": "modules/dev-server/local/service/src/index.ts",
-            "assets": ["modules/dev-server/local/service/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
     "element": {
       "root": "modules/element",
       "sourceRoot": "modules/element/src",
@@ -2639,6 +2070,37 @@
         }
       }
     },
+    "element-store-monitor-redux-operators": {
+      "root": "modules/element/store/monitor/redux/operators",
+      "sourceRoot": "modules/element/store/monitor/redux/operators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/store/monitor/redux/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-store-monitor-redux-operators"],
+          "options": {
+            "jestConfig": "modules/element/store/monitor/redux/operators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element/store/monitor/redux/operators",
+            "tsConfig": "modules/element/store/monitor/redux/operators/tsconfig.lib.json",
+            "packageJson": "modules/element/store/monitor/redux/operators/package.json",
+            "main": "modules/element/store/monitor/redux/operators/src/index.ts"
+          }
+        }
+      }
+    },
     "element-styling": {
       "root": "modules/element/styling",
       "sourceRoot": "modules/element/styling/src",
@@ -3189,40 +2651,6 @@
         }
       }
     },
-    "function-alexa": {
-      "root": "modules/function/alexa",
-      "sourceRoot": "modules/function/alexa/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/function/alexa/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/function/alexa/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/function/alexa/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/function-alexa"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/function/alexa",
-            "tsConfig": "modules/function/alexa/tsconfig.lib.json",
-            "packageJson": "modules/function/alexa/package.json",
-            "main": "modules/function/alexa/src/index.ts",
-            "assets": ["modules/function/alexa/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
     "function-azure": {
       "root": "modules/function/azure",
       "sourceRoot": "modules/function/azure/src",
@@ -3325,6 +2753,72 @@
         }
       }
     },
+    "function-lambda-operators": {
+      "root": "modules/function/lambda/operators",
+      "sourceRoot": "modules/function/lambda/operators/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/operators/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/operators/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/operators/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-operators"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/operators",
+            "tsConfig": "modules/function/lambda/operators/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/operators/package.json",
+            "main": "modules/function/lambda/operators/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "function-lambda-testing": {
+      "root": "modules/function/lambda/testing",
+      "sourceRoot": "modules/function/lambda/testing/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/testing/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/testing/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/testing/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-testing"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/testing",
+            "tsConfig": "modules/function/lambda/testing/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/testing/package.json",
+            "main": "modules/function/lambda/testing/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
     "function-openfaas": {
       "root": "modules/function/openfaas",
       "sourceRoot": "modules/function/openfaas/src",
@@ -3354,40 +2848,6 @@
             "packageJson": "modules/function/openfaas/package.json",
             "main": "modules/function/openfaas/src/index.ts",
             "assets": ["modules/function/openfaas/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "function-pulsar": {
-      "root": "modules/function/pulsar",
-      "sourceRoot": "modules/function/pulsar/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/function/pulsar/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/function/pulsar/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/function/pulsar/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/function-pulsar"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/function/pulsar",
-            "tsConfig": "modules/function/pulsar/tsconfig.lib.json",
-            "packageJson": "modules/function/pulsar/package.json",
-            "main": "modules/function/pulsar/src/index.ts",
-            "assets": ["modules/function/pulsar/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3656,40 +3116,6 @@
             "packageJson": "modules/integration/package.json",
             "main": "modules/integration/src/index.ts",
             "assets": ["modules/integration/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "integration-alexa": {
-      "root": "modules/integration/alexa",
-      "sourceRoot": "modules/integration/alexa/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/integration/alexa/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/integration/alexa/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/integration/alexa/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/integration-alexa"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/integration/alexa",
-            "tsConfig": "modules/integration/alexa/tsconfig.lib.json",
-            "packageJson": "modules/integration/alexa/package.json",
-            "main": "modules/integration/alexa/src/index.ts",
-            "assets": ["modules/integration/alexa/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }

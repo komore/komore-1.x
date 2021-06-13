@@ -1,3 +1,3 @@
 export { createFunction } from './create-function';
-export type { FunctionProvider } from './function-provider';
-export { FunctionTriggerType } from './function-trigger-type';
+export type { FunctionEnvironment } from './function-environment';
+export type { FunctionTrigger } from './function-trigger';

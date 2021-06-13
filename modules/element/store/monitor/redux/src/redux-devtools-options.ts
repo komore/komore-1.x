@@ -4,7 +4,7 @@ import type { ReduxDevtoolsSerializationOptions } from './redux-devtools-seriali
  * Redux devtools options
  */
 export interface ReduxDevtoolsOptions {
-  readonly features?: object | boolean;
+  readonly features?: Record<string, unknown> | boolean;
   readonly maxAge?: number;
   readonly name?: string;
   readonly serialize?: boolean | ReduxDevtoolsSerializationOptions;

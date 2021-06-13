@@ -21,26 +21,20 @@ The `@komore/function` module allows the execution of pipelines within serverles
 - Functions get deployed to [serverless platforms] and are only active when triggered
 - Functions are [elastic]: they automatically scale up or down
 
-## Host environments
+## Environments
 
-Functions can be deployed to the following host environments:
+Functions can be deployed to the following environments:
 
-- [Amazon Alexa]
-- [Apache Pulsar]
 - [AWS Lambda]
 - [Azure Cloud Function]
-- [Cloudflare Worker]
 - [Google Cloud Function]
 - [OpenFaaS]
 
-[amazon alexa]: ./function-alexa.md
-[apache pulsar]: ./host-pulsar.md
-[aws lambda]: ./host-lambda.md
-[azure cloud function]: ./environment-azure.md
-[cloudflare worker]: ./environment-cloudflare.md
+[aws lambda]: ./lambda/README.md
+[azure cloud function]: ./azure/README.md
 [elastic]: ./architecture.md#elasticity
-[google cloud function]: ./function-google.md
+[google cloud function]: ./google/README.md
 [functions]: ./architecture.md#functions
 [function triggers]: ./architecture.md#function-triggers
-[openfaas]: ./function-openfaas.md
-[serverless platforms]: #target-platforms
+[openfaas]: ./openfaas/README.md
+[serverless platforms]: #environments

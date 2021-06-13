@@ -1,4 +1,4 @@
-import { FunctionProvider } from './function-provider';
+import type { FunctionProvider } from './function-provider';
 
 /**
  * Filters the available function providers

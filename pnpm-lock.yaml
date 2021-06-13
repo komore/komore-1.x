@@ -108,6 +108,7 @@ specifiers:
   rxjs: 7.0.0
   ts-jest: 26.5.4
   ts-node: 9.1.1
+  tslib: ^2.2.0
   typescript: 4.2.3
   uuid: 8.3.2
   vsce: 1.87.1
@@ -188,6 +189,7 @@ dependencies:
   path-to-regexp: 6.2.0
   postcss: 8.2.9
   rxjs: 7.0.0
+  tslib: 2.2.0
   uuid: 8.3.2
   webpack-hot-middleware: 2.25.0
 
@@ -16018,6 +16020,10 @@ packages:
 
   /tslib/2.1.0:
     resolution: {integrity: sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==}
+
+  /tslib/2.2.0:
+    resolution: {integrity: sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==}
+    dev: false
 
   /tsscmp/1.0.6:
     resolution: {integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==}

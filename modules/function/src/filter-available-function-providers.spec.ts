@@ -1,5 +1,5 @@
 import { filterAvailableFunctionProviders } from './filter-available-function-providers';
-import { FunctionProvider } from './function-provider';
+import type { FunctionProvider } from './function-provider';
 import { mock } from 'jest-mock-extended';
 
 describe('Filter available function providers', () => {

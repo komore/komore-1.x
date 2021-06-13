@@ -40,3 +40,9 @@ const f1a = createFunction('test-no-trigger', $ => $.pipe(mapTo(42)));
 const f1b = createFunction('test-no-trigger-typed', ($: Observable<[value: string]>) => $.pipe(mapTo(42)));
 const f2 = createFunction('test-1-trigger', trigger1, $.pipe(mapTo(42)));
 const f3 = createFunction('test-2-trigger', trigger1, trigger2, $.pipe(mapTo(42)));
+
+export const myFunction = createFunction(
+  'myFunction',
+  fromTrigger(apiGatewayRequest<RQ, RS>()),
+  $ => $.pipe(
+));

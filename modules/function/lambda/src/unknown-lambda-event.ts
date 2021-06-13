@@ -1,33 +1,35 @@
 import type {
   APIGatewayAuthorizerEvent,
-  APIGatewayProxyEvent,
   APIGatewayProxyEventV2,
   // APIGatewayRequestAuthorizerEvent,
   // APIGatewayTokenAuthorizerEvent,
   CloudFrontEvent,
-  DynamoDBStreamEvent,
   FirehoseTransformationEvent,
-  KinesisStreamEvent,
-  S3Event,
-  // TODO: SESEvent,
-  SNSEvent,
-  SQSEvent
+  KinesisStreamEvent
 } from 'aws-lambda';
+import type { ApiGatewayEvent } from './api-gateway/api-gateway-event';
+import type { CognitoEvent } from './cognito/cognito-event';
+import type { CognitoEventMap } from './cognito/cognito-event-map';
+import type { DynamoDBEvent } from './dynamodb/dynamodb-event';
+import type { S3Event } from './s3/s3-event';
+import type { SesEvent } from './ses/ses-event';
+import type { SnsEvent } from './sns/sns-event';
+import type { SqsEvent } from './sqs/sqs-event';
 
 /**
  * Unknown Lambda event
  */
 export type UnknownLambdaEvent = Partial<APIGatewayAuthorizerEvent> &
-  APIGatewayProxyEvent &
+  ApiGatewayEvent &
   APIGatewayProxyEventV2 &
   // APIGatewayRequestAuthorizerEvent &
   // APIGatewayTokenAuthorizerEvent &
   CloudFrontEvent &
-  DynamoDBStreamEvent &
+  CognitoEvent<keyof CognitoEventMap> &
+  DynamoDBEvent &
   KinesisStreamEvent &
   FirehoseTransformationEvent &
   S3Event &
-  // TODO: SESEvent & add
-  // https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda/trigger/ses.d.ts
-  SNSEvent &
-  SQSEvent;
+  SesEvent &
+  SnsEvent &
+  SqsEvent;

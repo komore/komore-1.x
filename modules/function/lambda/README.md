@@ -19,12 +19,12 @@ yarn add @komore/function-lambda
 ## Usage
 
 ```typescript
-import { awsLambdaProvider } from '@komore/function-lambda';
+import { apiGatewayTrigger } from '@komore/function-lambda';
 
-export const exampleFunction = createFunction({
-  providers: [awsLambdaProvider()]
-});
+export const exampleFunction = createFunction('exampleFunction', apiGatewayTrigger<RQ, RS>(), $ => $.pipe(
+
+));
 ```
 
 [aws lambda]: https://aws.amazon.com/lambda/
-[official documentation]: https://komore.dev/function/lambda
+[official documentation]: https://komore.dev/modules/function/lambda

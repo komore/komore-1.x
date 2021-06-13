@@ -16,16 +16,16 @@ describe('Record log event', () => {
   });
 
   it('can record a direct log event', () => {
-    given: 'a log event'
+    given: 'a log event';
     const logEventCreator = createLogEvent(testLogGroup, 1, 42, 'test without properties');
     const logEvent = logEventCreator();
-    and: 'a specific current time'
+    and: 'a specific current time';
     advanceTo(42);
-    when: 'recording the log event'
+    when: 'recording the log event';
     recordLogEvent(logEvent);
-    then: 'the log event has been dispatched to the log event stream'
+    expect: 'the log event to have been dispatched to the log event stream';
     const expectedLogEventRecord: LogEventRecord<typeof logEvent> = {
-      logContext: {}, // TODO: test context
+      logContext: {},
       logEvent,
       message: logEvent.message,
       timestamp: new Date(42)

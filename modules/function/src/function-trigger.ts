@@ -1,25 +1,17 @@
 /**
  * Function trigger
- * @template FunctionReturnType Function return type
  * @template FunctionParameterTypes Function parameter types
- * @template ProcessedFuncitonParameterTypes Processed function parameter types
+ * @template FunctionReturnType Function return type
+ * @template InputType Input type
+ * @template ResultType Result type
  */
-export type FunctionTrigger<
-  FunctionReturnType,
+export interface FunctionTrigger<
   FunctionParameterTypes extends ReadonlyArray<unknown>,
-  ProcessedFunctionParameterTypes extends ReadonlyArray<unknown> = FunctionParameterTypes
-> = Readonly<{
-  _ReturnType: FunctionReturnType;
-}> &
-  ((...functionParameters: FunctionParameterTypes) => ProcessedFunctionParameterTypes);
-
-/**
- * Function trigger parameter types
- */
-export type FunctionTriggerParameterTypes<FunctionTriggerType> = FunctionTriggerType extends FunctionTrigger<
-  unknown,
-  infer FunctionParameterTypes,
-  ReadonlyArray<unknown>
->
-  ? FunctionParameterTypes
-  : never;
+  FunctionReturnType,
+  InputType = FunctionParameterTypes,
+  ResultType = unknown
+> {
+  buildInputs(...parameters: FunctionParameterTypes): [supported: true, input: InputType];
+  buildInputs(...parameters: FunctionParameterTypes): [supported: false];
+  buildReturn(result: ResultType): FunctionReturnType;
+}

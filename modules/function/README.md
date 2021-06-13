@@ -2,12 +2,11 @@
 
 ```ts
 import { createFunction } from '@komore/function';
-import { lambdaTrigger } from '@komore/function-lambda';
+import { apiGatewayTrigger } from '@komore/function-lambda';
 
-const createFunction = createFunctionFactory(lambdaTrigger);
-export const myFunction = createFunction('myFunction', lambdaTrigger('api-gateway', ($: InputType) => $.pipe(
+export const myFunction = createFunction('myFunction', apiGatewayTrigger<RQ, RS>(), $ => $.pipe(
 
-)));
+));
 ```
 
 ## Lambda API Gateway function

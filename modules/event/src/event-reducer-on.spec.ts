@@ -18,15 +18,15 @@ describe('Event reducer on', () => {
   };
 
   it('can handle events with no schema', () => {
-    // given: an event and its event reducer
+    given: 'an event and its event reducer';
     const event = eventCreator();
     const fn = jest.fn((state: {}) => state);
-    // when: creating an event reducer on
+    when: 'creating an event reducer on';
     const o = on(eventCreator, fn);
-    // then: a proper object is created
+    expect: 'a proper object to have been created';
     expect(o.eventReducer).toBeInstanceOf(Function);
     expect(o.type).toBe(eventType);
-    // and: calling the object triggers the reducer function
+    and: 'calling the object to trigger the reducer function';
     const initialState = {};
     const result = o.eventReducer(initialState, event, eventMetadata);
     expect(fn).toHaveBeenCalledTimes(1);
