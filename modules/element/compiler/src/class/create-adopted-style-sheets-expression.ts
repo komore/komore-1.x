@@ -1,5 +1,5 @@
+import { createPropertyAccess } from '@komore/typescript/compiler';
 import type { ExpressionStatement, Identifier, NodeFactory } from 'typescript';
-import { createPropertyAccess } from '../codegen/create-property-access';
 
 /**
  * Creates an adoptedStyleSheets assignment expression

@@ -1,3 +1,3 @@
-import { skipWhile } from 'rxjs/operators';
+import { skipWhile } from 'rxjs';
 
 export { skipWhile };

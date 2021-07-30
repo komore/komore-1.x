@@ -1,3 +1,4 @@
+import { createParameter } from '@komore/typescript/compiler';
 import type {
   Identifier,
   MethodSignature,
@@ -7,7 +8,6 @@ import type {
   TypeParameterDeclaration
 } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import { createParameter } from '../codegen/create-parameter';
 import type { EventListenerTypedInformation } from './event-listener-typed-information';
 import type { EventMapIndex } from './event-map-index';
 

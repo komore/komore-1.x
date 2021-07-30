@@ -1,8 +1,5 @@
 {
-  "extends": "../../../tsconfig.browser.json",
-  "compilerOptions": {
-    "types": ["jest"]
-  },
+  "extends": "../../../tsconfig.dom.json",
   "include": [],
   "files": [],
   "references": [

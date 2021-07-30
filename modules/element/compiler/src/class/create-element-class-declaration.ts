@@ -1,6 +1,6 @@
+import { createExtendsType } from '@komore/typescript/compiler';
 import type { ClassDeclaration, Identifier, NodeFactory } from 'typescript';
 import { createElementObservedAttributesGetAccessor } from '../attribute/create-element-observed-attributes-get-accessor';
-import { createExtendsType } from '../codegen/create-extends-type';
 import type { ElementDefinition } from '../definition/element-definition';
 import { createElementClassConstructor } from './create-element-class-constructor';
 

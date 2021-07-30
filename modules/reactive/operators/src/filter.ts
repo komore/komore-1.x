@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
-import { filter as rxjsFilter } from 'rxjs/operators';
+import { filter as rxjsFilter } from 'rxjs';
 
 /**
  * Filters values emitted by the source observable while applying a type assertion

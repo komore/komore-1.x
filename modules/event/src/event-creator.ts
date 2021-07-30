@@ -41,5 +41,5 @@ export type EventCreator<
   EventTypeName extends string,
   EventPropertiesSchema extends Record<string, unknown> | undefined = undefined
 > = EventCreatorFunctionType<EventTypeName, EventPropertiesSchema> & Readonly<{
-  type: `${EventTypeName}`;
+  type: EventTypeName;
 }>;

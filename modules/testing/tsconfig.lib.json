@@ -7,7 +7,7 @@
     "rootDir": "./src",
     "types": ["jest", "node"]
   },
-  "exclude": ["**/*.spec.ts"],
-  "include": ["**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"],
+  "include": ["src/**/*.ts"],
   "files": []
 }

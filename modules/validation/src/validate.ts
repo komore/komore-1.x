@@ -1,5 +1,6 @@
-import { MonoTypeOperatorFunction, pipe } from "rxjs";
-import { catchError } from "rxjs/operators";
+import type { MonoTypeOperatorFunction } from "@komore/reactive";
+import { pipe } from "@komore/reactive";
+import { catchError } from "@komore/reactive/operators";
 
 export function validate<T, Operators extends MonoTypeOperatorFunction<T>[]>(operators: [...Operators]): MonoTypeOperatorFunction<T> {
   return pipe(

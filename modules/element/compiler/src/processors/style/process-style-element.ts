@@ -12,5 +12,5 @@ export function processStyleElement(styleElement: HTMLStyleElement): Observable<
   const type = styleElement.getAttribute('type') ?? 'text/css';
   // const media = styleElement.getAttribute('media') ?? 'all';
   const styleProcessor = createProcessor(styleProcessorFactories, type, {});
-  return styleProcessor(styleElement);
+  return styleProcessor(styleElement.textContent ?? '');
 }

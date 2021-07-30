@@ -1,3 +1,3 @@
-import { skipUntil } from 'rxjs/operators';
+import { skipUntil } from 'rxjs';
 
 export { skipUntil };

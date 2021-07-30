@@ -1,4 +1,5 @@
-import { createHttpClient, HttpClient } from '@komore/web/http';
+import type { HttpClient } from '@komore/web/http';
+import { createHttpClient } from '@komore/web/http';
 
 /**
  * Loads a CSS style sheet

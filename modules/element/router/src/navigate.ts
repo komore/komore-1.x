@@ -1,4 +1,4 @@
-import { NavigateToOptions } from './navigate-to';
+import type { NavigateToOptions } from './navigate-to';
 
 /**
  * Navigate options

@@ -1,6 +1,6 @@
 import type { Message } from '@komore/message'; // TODO: why does it have to be a message though?
-import type { MonoTypeOperatorFunction } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { tap } from '@komore/reactive/operators';
 import type { LogEvent } from '../log-event';
 import type { LogEventCreator } from '../log-event-creator';
 import type { LogEventPropertiesSchemaType } from '../log-event-properties-schema';

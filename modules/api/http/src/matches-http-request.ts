@@ -1,4 +1,4 @@
-import { HttpRequest } from './http-request';
+import type { HttpRequest } from './http-request';
 
 /**
  * Tests whether an HTTP request matches a method and path

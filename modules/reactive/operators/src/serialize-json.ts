@@ -1,5 +1,5 @@
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map } from './map';
 
 /**
  * Operator function that turns an emitted value into a JSON string

@@ -1,4 +1,5 @@
-import { fromEvent, merge, Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
+import { fromEvent, merge } from '@komore/reactive';
 import { map, shareReplay } from '@komore/reactive/operators';
 
 /**

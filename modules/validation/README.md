@@ -1,4 +1,4 @@
-# komore Validation
+# @komore/validation
 
 ## Constraint Validation
 

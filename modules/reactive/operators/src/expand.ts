@@ -1,5 +1,5 @@
 import type { Observable, OperatorFunction, SchedulerLike } from '@komore/reactive';
-import { expand as rxjsExpand } from 'rxjs/operators';
+import { expand as rxjsExpand } from 'rxjs';
 
 /**
  * Recursively projects each source value to an observable that gets merged in the output observable

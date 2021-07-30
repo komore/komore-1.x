@@ -1,5 +1,5 @@
 import type { Observable, OperatorFunction } from '@komore/reactive';
-import { switchMap as rxjsSwitchMap } from 'rxjs/operators';
+import { switchMap as rxjsSwitchMap } from 'rxjs';
 
 /**
  * Projects each source value to an observable which is merged into the output observable

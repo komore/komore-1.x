@@ -1,0 +1,32 @@
+import { Temporal } from 'proposal-temporal';
+import { isSameYearAs } from './is-same-year-as';
+
+describe('Is same year as', () => {
+  const pd2020 = Temporal.PlainDate.from('2020-01-01');
+  const pd2021 = Temporal.PlainDate.from('2021-01-01');
+  const pdt2020 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
+  const pdt2021 = Temporal.PlainDateTime.from('2021-01-01T12:34:56.789');
+  const zdt2020 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
+  const zdt2021 = Temporal.PlainDateTime.from('2021-01-01T12:34:56.789[Europe/Paris]');
+  const pym2020 = Temporal.PlainYearMonth.from('2020-01');
+  const pym2021 = Temporal.PlainYearMonth.from('2021-01');
+
+  it.each([
+    ['plain date', 'plain date', pd2020, pd2020, true],
+    ['plain date', 'plain date', pd2020, pd2021, false],
+    ['plain date time', 'plain date time', pdt2020, pdt2020, true],
+    ['plain date time', 'plain date time', pdt2020, pdt2021, false],
+    ['zoned date time', 'zoned date time', zdt2020, zdt2020, true],
+    ['zoned date time', 'zoned date time', zdt2020, zdt2021, false],
+    ['plain year month', 'plain year month', pym2020, pym2020, true],
+    ['plain year month', 'plain year month', pym2020, pym2021, false]
+  ])('can test whether a %s occurs the same year as %s', (_1, _2, lhs, rhs, expectedResult) => {
+    given: 'temporals';
+    when: 'creating a function that tests whether they occur the same year';
+    const func = isSameYearAs(rhs);
+    and: 'calling it';
+    const result = func(lhs);
+    expect: 'true to be returned when the temporals occur the same year';
+    expect(result).toBe(expectedResult);
+  });
+});

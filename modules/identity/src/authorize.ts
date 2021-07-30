@@ -1,14 +1,25 @@
 import { createFunction } from '@komore/function';
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 
 /**
  * Authorize query parameters
  */
-type AuthorizeParameters = Readonly<{
-  client_id: string;
-  response_type: 'code' | 'token';
-  state?: string;
-}>;
+export interface AuthorizeParameters {
+  readonly client_id: string;
+  /**
+   * Code challenge
+   */
+  readonly code_challenge?: string;
+  /**
+   * Code challenge method
+   */
+  readonly code_challenge_method?: string; // TODO: S256
+  readonly display?: ;
 
-Array.from(Object.values()
+  /**
+   * Response type
+   */
+  readonly response_type: 'code' | 'id_token' | 'token';
+  readonly state?: string;
+}

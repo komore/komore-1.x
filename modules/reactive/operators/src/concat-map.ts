@@ -1,5 +1,5 @@
 import type { ObservableInput, ObservableInputType, OperatorFunction } from '@komore/reactive';
-import { concatMap as rxjsConcatMap } from 'rxjs/operators';
+import { concatMap as rxjsConcatMap } from 'rxjs';
 
 /**
  * Projects each source value to an observable which is merged into the output observable

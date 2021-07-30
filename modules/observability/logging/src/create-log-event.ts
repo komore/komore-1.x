@@ -93,5 +93,5 @@ export function createLogEvent<
   return Object.defineProperty(logCreator, 'type', {
     value: `${group.name}.${id}`,
     writable: false
-  });
+  }) as LogEventCreator<LogGroupType, LogEventId, LogEventMessage, LogEventProperties>;
 }

@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { ProcessedStyleSheet } from './processed-style-sheet';
+import type { ProcessedStyleSheet } from './processed-style-sheet';
 
 /**
  * Style processor
@@ -7,8 +7,8 @@ import { ProcessedStyleSheet } from './processed-style-sheet';
 export interface StyleProcessor {
   /**
    * Processes style content
-   * @param styleElement HTML style element
-   * @returns Result
+   * @param content Content
+   * @returns Processed style sheet
    */
-  (styleElement: HTMLStyleElement): Observable<ProcessedStyleSheet>;
+  (content: string): Observable<ProcessedStyleSheet>;
 }

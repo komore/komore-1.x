@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 
 export function callSynchronousLayerFunction<
   ParameterTypes extends ReadonlyArray<unknown>,

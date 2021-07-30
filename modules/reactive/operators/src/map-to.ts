@@ -1,5 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { mapTo as rxjsMapTo } from 'rxjs/operators';
+import { map } from './map';
 
 /**
  * Emits the given value whenever the source observable emits a value
@@ -7,5 +7,5 @@ import { mapTo as rxjsMapTo } from 'rxjs/operators';
  * @template T Value type
  */
 export function mapTo<T>(value: T): OperatorFunction<unknown, T> {
-  return rxjsMapTo(value);
+  return map(() => value);
 }

@@ -1,2 +1,3 @@
 export { createTranscribeClient } from './create-transcribe-client';
-export { withTranscribeClient } from './operators/with-transcribe-client';
+export { deleteTranscriptionJob } from './delete-transcription-job';
+export { startTranscriptionJob } from './start-transcription-job';

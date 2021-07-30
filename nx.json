@@ -114,11 +114,8 @@
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
     },
-    "compiler": {
-      "tags": ["scope:compiler"]
-    },
-    "compiler-testing": {
-      "tags": ["scope:compiler", "trait:testing"]
+    "create": {
+      "tags": ["scope:create"]
     },
     "data": {
       "tags": ["scope:data"]
@@ -231,6 +228,9 @@
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
     },
+    "eslintplugin": {
+      "tags": ["scope:eslintplugin"]
+    },
     "event": {
       "tags": ["scope:event", "trait:base"]
     },
@@ -282,8 +282,38 @@
     "function-lambda": {
       "tags": ["scope:function", "trait:provider", "provider:amazon"]
     },
+    "function-lambda-apigateway": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"]
+    },
+    "function-lambda-apigateway-http": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"]
+    },
+    "function-lambda-apigateway-http-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:apigateway"]
+    },
+    "function-lambda-apigateway-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:apigateway"]
+    },
+    "function-lambda-appsync": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:appsync"]
+    },
+    "function-lambda-appsync-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:appsync"]
+    },
+    "function-lambda-cognito": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:cognito"]
+    },
+    "function-lambda-cognito-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:cognito"]
+    },
     "function-lambda-operators": {
       "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon"]
+    },
+    "function-lambda-s3": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:s3"]
+    },
+    "function-lambda-s3-operators": {
+      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:s3"]
     },
     "function-lambda-testing": {
       "tags": ["scope:function", "trait:provider", "trait:testing", "provider:amazon"]
@@ -297,6 +327,18 @@
     "functional": {
       "tags": ["scope:functional", "trait:base"]
     },
+    "functional-arithmetic": {
+      "tags": ["scope:functional"]
+    },
+    "functional-array": {
+      "tags": ["scope:functional"]
+    },
+    "functional-string": {
+      "tags": ["scope:functional"]
+    },
+    "functional-testing": {
+      "tags": ["scope:functional", "trait:testing"]
+    },
     "graph": {
       "tags": ["scope:graph", "trait:base"]
     },
@@ -308,6 +350,27 @@
     },
     "identity": {
       "tags": ["scope:identity", "trait:base"]
+    },
+    "identity-operators": {
+      "tags": ["scope:identity", "trait:operators"]
+    },
+    "identity-provider": {
+      "tags": ["scope:identity"]
+    },
+    "identity-provider-facebook": {
+      "tags": ["scope:identity", "trait:provider", "provider:facebook"]
+    },
+    "identity-provider-google": {
+      "tags": ["scope:identity", "trait:provider"]
+    },
+    "identity-provider-oauth2": {
+      "tags": ["scope:identity", "trait:provider"]
+    },
+    "identity-provider-oidc": {
+      "tags": ["scope:identity", "trait:provider"]
+    },
+    "identity-provider-twitter": {
+      "tags": ["scope:identity", "trait:provider"]
     },
     "identity-testing": {
       "tags": ["scope:identity", "trait:testing"]
@@ -630,9 +693,6 @@
     "runtime-testing": {
       "tags": ["scope:runtime", "trait:testing"]
     },
-    "runtime-time": {
-      "tags": ["scope:runtime"]
-    },
     "schematics": {
       "tags": ["scope:schematics", "trait:schematics"]
     },
@@ -703,6 +763,39 @@
     "stack-testing": {
       "tags": ["scope:stack", "trait:testing"]
     },
+    "temporal": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-compatibility": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-date": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-datetime": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-duration": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-format": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-interval": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-operators": {
+      "tags": ["scope:temporal", "trait:operators"]
+    },
+    "temporal-testing": {
+      "tags": ["scope:temporal", "trait:testing"]
+    },
+    "temporal-time": {
+      "tags": ["scope:temporal"]
+    },
+    "temporal-timezone": {
+      "tags": ["scope:temporal"]
+    },
     "testing": {
       "tags": ["scope:testing", "trait:testing"]
     },
@@ -712,12 +805,6 @@
     "testing-bdd-gherkin": {
       "tags": ["scope:testing", "trait:testing"]
     },
-    "tools-create": {
-      "tags": ["scope:tools", "trait:create"]
-    },
-    "tools-eslint": {
-      "tags": ["scope:tools", "trait:eslint"]
-    },
     "tools-vscode-alfa": {
       "tags": ["scope:schematics", "trait:vscode"]
     },
@@ -726,6 +813,12 @@
     },
     "typescript": {
       "tags": ["scope:typescript"]
+    },
+    "typescript-compiler": {
+      "tags": ["scope:typescript"]
+    },
+    "typescript-compiler-testing": {
+      "tags": ["scope:typescript", "trait:testing"]
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]

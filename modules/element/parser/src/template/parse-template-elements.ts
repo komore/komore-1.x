@@ -1,5 +1,8 @@
-import type { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { pluck } from '@komore/functional';
+import { join } from '@komore/functional/array';
+import { toLowerCase } from '@komore/functional/string';
+import type { Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 import { parseElementAttributes } from '../attribute/parse-element-attributes';
 import { getElementBaseClassInfo } from './get-element-base-class-info';
 import { getElementClassName } from './get-element-class-name';
@@ -48,7 +51,6 @@ function getTemplateElement(templateElements: ReadonlyArray<HTMLElement>): HTMLE
     throw new Error('an element template must have a root element');
   }
 
-  const tagNames = templateElements.map(({ tagName }) => tagName.toLocaleLowerCase());
-  const tagNamesList = tagNames.join(', ');
+  const tagNamesList = templateElements.map(pluck('tagName')).map(toLowerCase).map(join(', '));
   throw new Error(`an element template cannot have more than one root element (found: ${tagNamesList})`);
 }

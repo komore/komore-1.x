@@ -3,11 +3,9 @@
 /**
  * Authenticate parameters
  */
-type AuthenticateParameters = Readonly<{
-  client_id: string;
-  grant_type: 'TODO';
-    
-  response_type: 'code' | 'token';
-  state?: string;
-}>;
-
+interface AuthenticateParameters {
+  readonly client_id: string;
+  readonly grant_type: 'TODO';
+  readonly response_type: 'code' | 'token';
+  readonly state?: string;
+}

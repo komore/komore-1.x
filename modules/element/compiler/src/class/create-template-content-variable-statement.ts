@@ -1,5 +1,5 @@
+import { createPropertyAccess } from '@komore/typescript/compiler';
 import type { Identifier, NodeFactory, VariableStatement } from 'typescript';
-import { createPropertyAccess } from '../codegen/create-property-access';
 import { createVariableStatement } from '../codegen/create-variable-statement';
 
 /**

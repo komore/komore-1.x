@@ -1,10 +1,11 @@
-import { OperatorFunction, pipe } from 'rxjs';
-import { withLatestFrom } from 'rxjs/operators';
-import { ValueWithAttributes } from './value-with-attributes';
-import { ValueWithElement } from './value-with-element';
+import type { OperatorFunction } from '@komore/reactive';
+import { pipe } from '@komore/reactive';
+import { withLatestFrom } from '@komore/reactive/operators';
+import type { ValueWithAttributes } from './value-with-attributes';
+import type { ValueWithElement } from './value-with-element';
 
-export function withAttribute<T extends ValueWithElement<any>, AttributeNames extends string[]>(...attributeNames: AttributeNames): OperatorFunction<T, T & ValueWithAttributes<AttributeNames>> {
-  return pipe(
-    withLatestFrom()
-  );
+export function withAttribute<T extends ValueWithElement<any>, AttributeNames extends string[]>(
+  ...attributeNames: AttributeNames
+): OperatorFunction<T, T & ValueWithAttributes<AttributeNames>> {
+  return pipe(withLatestFrom());
 }

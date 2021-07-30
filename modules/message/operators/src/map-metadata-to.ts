@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map } from '@komore/reactive/operators';
 import type { Message } from '../message';
 import type { MutatedMessageMetadataType } from '../mutated-message-metadata-type';
 

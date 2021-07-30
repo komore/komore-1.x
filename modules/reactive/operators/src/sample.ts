@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction, Observable } from '@komore/reactive';
-import { sample as rxjsSample } from 'rxjs/operators';
+import { sample as rxjsSample } from 'rxjs';
 
 /**
  * Emits the most recently emitted value from the source observable whenever the `notifier` emits

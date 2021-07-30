@@ -1,3 +1,4 @@
+import type { UnaryFunction } from '@komore/functional';
 import type { Observable } from './observable';
 
 /**
@@ -5,12 +6,10 @@ import type { Observable } from './observable';
  * @template InputType Input type
  * @template OutputType Output type
  */
-export interface OperatorFunction<InputType, OutputType> {
-  (source: Observable<InputType>): Observable<OutputType>;
-}
+export type OperatorFunction<InputType, OutputType> = UnaryFunction<Observable<InputType>, Observable<OutputType>>;
 
 /**
  * Operator function that emits the same time it receives from the source
- * @template T Value type
+ * @template ValueType Value type
  */
-export type MonoTypeOperatorFunction<T> = OperatorFunction<T, T>;
+export type MonoTypeOperatorFunction<ValueType> = OperatorFunction<ValueType, ValueType>;

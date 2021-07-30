@@ -5,13 +5,12 @@ import { map, switchMap } from '@komore/reactive/operators';
 import { JSDOM } from 'jsdom';
 import type { NodeFactory } from 'typescript';
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
-import { generateScript } from './generate-script';
 import { generateStyle } from './generate-style';
-import { generateTemplate } from './generate-template';
 import { buildElementDefinition } from './definition/build-element-definition';
 import { processSource } from './processors/process-source';
 import { createElementInterfaceDeclaration } from './interface/create-element-interface-declaration';
 import { createElementEventMap } from './event/create-element-event-map';
+import { buildElementDefinitionWith } from './definition/build-element-definition-with';
 
 /**
  * Compiles an element source
@@ -29,31 +28,25 @@ export function compileSource(factory: NodeFactory, source: string): Observable<
     map(JSDOM.fragment),
     switchMap(parseDocumentFragment()),
     switchMap(processSource),
-    map(processedSource => {
-      const { parsedSource } = processedSource;
-      const elementDefinition = buildElementDefinition(factory, parsedTemplateElement, processedSource);
+    map(({ elementDefinition }) => {
       const templateElementId = undefined;
       const styleSheetsId = undefined;
-      const elementEventMap = createElementEventMap(
+      const [elementEventMap] = createElementEventMap(
         factory,
         elementDefinition.className,
         elementDefinition.eventDefinitions ?? []
       );
-      const elementClassDeclaration = createElementClassDeclaration(
+      const _elementClassDeclaration = createElementClassDeclaration(
         factory,
         elementDefinition,
         templateElementId,
         styleSheetsId
       );
-      const elementInterfaceDeclaration = createElementInterfaceDeclaration(
+      const _elementInterfaceDeclaration = createElementInterfaceDeclaration(
         factory,
         elementDefinition,
         elementEventMap
       );
-
-      generateScript(scriptElements);
-      generateStyle(styleElements);
-      generateTemplate(templateElement);
     })
   );
 }

@@ -1,2 +1,2 @@
 // TODO
-export { publish } from 'rxjs/operators';
+export { publish } from 'rxjs';

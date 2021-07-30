@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { takeLast as rxjsTakeLast } from 'rxjs/operators';
+import { takeLast as rxjsTakeLast } from 'rxjs';
 
 /**
  * Waits for the source observable to complete, then emits the last `count` values emitted by the source

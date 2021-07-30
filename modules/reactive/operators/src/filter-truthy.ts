@@ -1,6 +1,6 @@
 import type { OperatorFunction } from '@komore/reactive';
 import type { TruthyTypesOf } from '@komore/typescript';
-import { filter as rxjsFilter } from 'rxjs/operators';
+import { filter as rxjsFilter } from 'rxjs';
 
 /**
  * Filters truthy values emitted by the source observable

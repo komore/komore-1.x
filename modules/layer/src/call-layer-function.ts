@@ -1,5 +1,5 @@
 import type { Observable } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap } from '@komore/reactive/operators';
 
 export function callLayerFunction<
   ParameterTypes extends ReadonlyArray<unknown>,

@@ -1,6 +1,6 @@
-import type { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, filter, map, startWith } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { BehaviorSubject } from '@komore/reactive';
+import { distinctUntilChanged, filter, map, startWith } from '@komore/reactive/operators';
 import type { ElementAttributeSubject } from './element-attribute-subject';
 
 /**

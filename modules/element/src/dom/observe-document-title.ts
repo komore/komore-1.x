@@ -1,6 +1,9 @@
+import type { Observable } from '@komore/reactive';
+import { fromEvent } from '@komore/reactive';
+import { distinctUntilChanged, filter, map, shareReplay, switchMap } from '@komore/reactive/operators';
 import { observeMutations } from '@komore/web/observer';
-import { fromEvent, Observable } from 'rxjs';
-import { distinctUntilChanged, filter, map, shareReplay, switchMap } from 'rxjs/operators';
+
+// TODO: move to @komore/web/observer?
 
 /**
  * Observes the document title

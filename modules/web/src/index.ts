@@ -1,2 +1,10 @@
+export { hasMessageEventOriginIn } from './has-message-event-origin-in';
 export { observeFullscreenChanges } from './observe-fullscreen-changes';
 export { observePageVisibility } from './observe-page-visibility';
+export { readBlobAsDataUrl } from './read-blob-as-data-url';
+export { readBlobAsText } from './read-blob-as-text';
+export { stripDataUrlDeclaration } from './strip-data-url-declaration';
+export { toDataUrlData } from './to-data-url-data';
+export { toDataUrlMediaType } from './to-data-url-media-type';
+export { toMessageEventData } from './to-message-event-data';
+export { toNormalizedFileName } from './to-normalized-file-name';

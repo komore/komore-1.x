@@ -1,6 +1,6 @@
 import type { OperatorFunction } from '@komore/reactive';
-import type { ValueFromArray } from 'rxjs';
-import { startWith as rxjsStartWith } from 'rxjs/operators';
+import { concat, fromArray } from '@komore/reactive';
+import type { ArrayValueType } from '@komore/typescript';
 
 /**
  * Synchronously emits all values upon subscription, then subscribes to the source observable and mirrors all of its
@@ -9,6 +9,6 @@ import { startWith as rxjsStartWith } from 'rxjs/operators';
  * @template T Value type
  * @template A Starting value types
  */
-export function startWith<T, A extends unknown[] = T[]>(...values: A): OperatorFunction<T, T | ValueFromArray<A>> {
-  return rxjsStartWith(...values);
+export function startWith<T, A extends unknown[] = T[]>(...values: A): OperatorFunction<T, T | ArrayValueType<A>> {
+  return source => concat([fromArray(values), source]);
 }

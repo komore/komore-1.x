@@ -1,7 +1,6 @@
+import { createParameter, createPropertyAccess } from '@komore/typescript/compiler';
 import type { AccessorDeclaration, Identifier, NodeFactory, Statement, StringLiteral } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import { createParameter } from '../codegen/create-parameter';
-import { createPropertyAccess } from '../codegen/create-property-access';
 import type { ElementPropertyAttributeBoundDefinition } from '../definition/element-property-attribute-bound-definition';
 import type { ElementPropertyDefinition } from '../definition/element-property-definition';
 import { isElementPropertyAttributeBound } from '../definition/is-element-property-attribute-bound';

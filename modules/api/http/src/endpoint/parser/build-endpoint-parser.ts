@@ -1,7 +1,7 @@
-import { HttpContext } from '../../http-context';
-import { EndpointParser } from './endpoint-parser';
-import { EndpointParameters } from '../endpoint-parameters';
-import { ParseEndpointParameters } from '../parse-endpoint-parameters';
+import type { HttpContext } from '../../http-context';
+import type { EndpointParameters } from '../endpoint-parameters';
+import type { ParseEndpointParameters } from '../parse-endpoint-parameters';
+import type { EndpointParser } from './endpoint-parser';
 
 /**
  * Builds an endpoint parser

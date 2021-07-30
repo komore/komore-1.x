@@ -1,4 +1,4 @@
-import { enumEntries } from '@komore/typescript';
+import { enumEntries } from '@komore/functional';
 import { LogEventSeverities } from '../log-event-severities';
 import type { LogEventSeverity } from '../log-event-severity';
 

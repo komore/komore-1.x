@@ -1,0 +1,28 @@
+import { mockCurrentPlainDate } from '@komore/temporal/testing';
+import { Temporal } from 'proposal-temporal';
+import { getTomorrow } from './get-tomorrow';
+
+describe('Get tomorrow', () => {
+  const currentPlainDate = Temporal.PlainDate.from('2020-01-01');
+  let restoreCurrentPlainDate: ReturnType<typeof mockCurrentPlainDate>;
+
+  beforeAll(() => {
+    restoreCurrentPlainDate = mockCurrentPlainDate(currentPlainDate);
+  });
+
+  afterAll(() => {
+    restoreCurrentPlainDate();
+  });
+
+  it('returns tomorrow as a plain date', () => {
+    when: 'getting tomorrow';
+    const result = getTomorrow();
+    expect: 'a plain date to have been returned';
+    expect(result).toBeInstanceOf(Temporal.PlainDate);
+    and: 'the plain date to occur tomorrow';
+    const { year, month, day } = result;
+    expect(year).toBe(2020);
+    expect(month).toBe(1);
+    expect(day).toBe(2);
+  });
+});

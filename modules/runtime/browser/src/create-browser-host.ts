@@ -1,4 +1,3 @@
-import type { Observable } from '@komore/reactive';
 import { fromEvent, Subject } from '@komore/reactive';
 import { map } from '@komore/reactive/operators';
 import type { Host, HostLifecycleEvent, HostState } from '@komore/runtime';
@@ -22,7 +21,7 @@ export function createBrowserHost(_options?: BrowserHostOptions): Host {
   );
 
   fromEvent(window, 'beforeunload', () => {
-
+    // TODO
   });
   fromEvent(window, 'unload')
   const lifecycle = new Subject<HostLifecycleEvent>();
@@ -34,7 +33,3 @@ export function createBrowserHost(_options?: BrowserHostOptions): Host {
     state
   };
 }
-
-"beforeunload": BeforeUnloadEvent;
-
-window.addEventListener()

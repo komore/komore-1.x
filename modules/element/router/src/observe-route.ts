@@ -1,2 +1,5 @@
+import type { Observable } from '@komore/reactive';
 
-export function obser
+export function observeRoute(): Observable<unknown> {
+
+}

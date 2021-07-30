@@ -1,7 +1,7 @@
 import type { LogEvent, LogGroup } from '@komore/observability/logging';
 import { recordLogEvent } from '@komore/observability/logging';
-import type { MonoTypeOperatorFunction } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { tap } from '@komore/reactive/operators';
 
 /**
  * Records a log event when an error condition is met

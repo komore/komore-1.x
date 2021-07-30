@@ -1,7 +1,6 @@
+import { createExtendsKeyof, createParameter } from '@komore/typescript/compiler';
 import type { Identifier, InterfaceDeclaration, MethodSignature, NodeFactory, TypeReferenceNode } from 'typescript';
 import { SyntaxKind } from 'typescript';
-import { createExtendsKeyof } from '../codegen/create-extends-keyof';
-import { createParameter } from '../codegen/create-parameter';
 
 /**
  * Creates an element's custom CSSStyleDeclaration interface

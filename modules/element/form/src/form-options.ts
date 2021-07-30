@@ -1,6 +1,6 @@
 /**
  * Form options
  */
-export interface FormOptions {
-  readonly todo?: unknown;
+export interface FormOptions<T extends Record<string, unknown>> {
+
 }

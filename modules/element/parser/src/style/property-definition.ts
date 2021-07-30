@@ -1,6 +1,6 @@
 /**
  * Property definition
- * @deprecated Standard type, cf. https://github.com/microsoft/TypeScript/issues/38593
+ * @deprecated Standard type should be used, cf. https://github.com/microsoft/TypeScript/issues/38593
  */
 export interface PropertyDefinition {
   name: string;

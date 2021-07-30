@@ -1,16 +1,10 @@
 import type { Observable } from '@komore/reactive';
 import { forkJoin } from '@komore/reactive';
-import type { StyleProcessor } from './processors/style/style-processor';
+import { defaultIfEmpty } from '@komore/reactive/operators';
 import { createCssProcessor } from './processors/style/css/create-css-processor';
 import { createScssProcessor } from './processors/style/scss/create-scss-processor';
-
-/**
- * Style processor factory
- */
-interface StyleProcessorFactory {
-  readonly regExp: RegExp;
-  readonly factory: (options: unknown) => StyleProcessor;
-}
+import type { StyleProcessor } from './processors/style/style-processor';
+import type { StyleProcessorFactory } from './processors/style/style-processor-factory';
 
 /**
  * Style processor factories
@@ -59,5 +53,7 @@ function processStyleElement(styleElement: HTMLStyleElement): Observable<unknown
  */
 export function generateStyle(styleElements: ReadonlyArray<HTMLStyleElement>): Observable<unknown> {
   const jobs = styleElements.map(processStyleElement);
-  return forkJoin(jobs);
+  return forkJoin(jobs).pipe(
+    defaultIfEmpty([])
+  );
 }

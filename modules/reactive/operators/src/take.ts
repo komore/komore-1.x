@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { take as rxjsTake } from 'rxjs/operators';
+import { take as rxjsTake } from 'rxjs';
 
 /**
  * Emits the first `count` values emitted by the source observable

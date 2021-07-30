@@ -1,5 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { ignoreElements } from 'rxjs/operators';
+import { ignoreElements } from 'rxjs';
 
 /**
  * Ignores any emitted value from the source observable, but forwards errors and completion

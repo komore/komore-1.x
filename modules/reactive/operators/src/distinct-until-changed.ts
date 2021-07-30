@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { distinctUntilChanged as rxjsDistinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged as rxjsDistinctUntilChanged } from 'rxjs';
 
 /**
  * Emits values from the source observable that are distinct when compared to the previous emitted value

@@ -1,5 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { map as rxjsMap } from 'rxjs/operators';
+import { map as rxjsMap } from 'rxjs';
 
 /**
  * Applies a mapping function to each value emitted by the source observable, and emits those mapped values

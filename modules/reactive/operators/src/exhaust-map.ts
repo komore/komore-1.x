@@ -1,5 +1,5 @@
 import type { ObservableInput, ObservableInputType, OperatorFunction } from '@komore/reactive';
-import { exhaustMap as rxjsExhaustMap } from 'rxjs/operators';
+import { exhaustMap as rxjsExhaustMap } from 'rxjs';
 
 /**
  * Projects each source value to an observable which is merged into the output observable

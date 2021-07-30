@@ -1,5 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { defaultIfEmpty as rxjsDefaultIfEmpty } from 'rxjs/operators';
+import { defaultIfEmpty as rxjsDefaultIfEmpty } from 'rxjs';
 
 /**
  * Emits a value if the source observable completes without emitting any value

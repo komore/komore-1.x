@@ -1,5 +1,5 @@
 import { createDirective } from '@komore/element';
-import { Observable } from 'rxjs';
+import type { Observable } from '@komore/reactive';
 
 export function createRouter(routes: ($: Observable<unknown>) => Observable<unknown>): DirectiveDefinition {
   createDirective()

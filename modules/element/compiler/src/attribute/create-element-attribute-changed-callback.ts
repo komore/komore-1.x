@@ -1,6 +1,6 @@
+import { createParameter } from '@komore/typescript/compiler';
 import type { Block, Identifier, MethodDeclaration, NodeFactory } from 'typescript';
 import { NodeFlags, SyntaxKind } from 'typescript';
-import { createParameter } from '../codegen/create-parameter';
 
 /**
  * Creates an attributeChangedCallback method declaration

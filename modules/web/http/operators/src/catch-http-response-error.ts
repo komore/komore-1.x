@@ -98,7 +98,3 @@ export function catchHttpError<T>(
     }
   );
 }
-
-function catchHttpErrorWithStatusIn(statusCodes: ReadonlyArray<number>) {
-  return 
-}

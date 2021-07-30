@@ -1,6 +1,6 @@
 import type { Observable, OperatorFunction } from '@komore/reactive';
-import { throwError as rxjsThrowError } from 'rxjs';
-import { catchError as rxjsCatchError } from 'rxjs/operators';
+import { throwError } from '@komore/reactive';
+import { catchError } from './catch-error';
 
 /**
  * Catches errors on the observable when a condition is met, returning a new observable or throwing a new error
@@ -31,11 +31,11 @@ export function catchErrorIf<InputType, OutputType>(
   predicate: (error: unknown) => boolean,
   selector: (error: unknown, caught: Observable<InputType>) => Observable<OutputType>
 ): OperatorFunction<InputType, InputType | OutputType> {
-  return rxjsCatchError((error, caught) => {
+  return catchError((error, caught) => {
     if (predicate(error)) {
       return selector(error, caught);
     }
 
-    return rxjsThrowError(() => error);
+    return throwError(() => error);
   });
 }

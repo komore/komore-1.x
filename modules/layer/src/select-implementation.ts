@@ -1,5 +1,5 @@
-import type { Observable, Subject, Subscription } from 'rxjs';
-import { concatMap } from 'rxjs/operators';
+import type { Observable, Subject, Subscription } from '@komore/reactive';
+import { concatMap } from '@komore/reactive/operators';
 import type { LayerImplementationFactory } from './layer-implementation-factory';
 
 /**

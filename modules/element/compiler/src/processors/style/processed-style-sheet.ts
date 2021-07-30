@@ -12,7 +12,7 @@ declare global {
  * Processed style sheet
  */
 export interface ProcessedStyleSheet {
-  readonly properties: ReadonlyArray<PropertyDefinition>;
+  readonly propertyDefinitions: ReadonlyArray<PropertyDefinition>;
   readonly referencedProperties: ReadonlySet<string>;
   readonly cssStyleSheet: CSSStyleSheet;
 }

@@ -8,5 +8,6 @@ import type { ProcessedSource } from './processed-source';
  * @returns Processed source
  */
 export function processSource(parsedSource: ParsedSource): Observable<ProcessedSource> {
-
+  
+  parsedSource.scriptElements
 }

@@ -1,0 +1,9 @@
+export { match } from './match';
+export { padEnd } from './pad-end';
+export { padStart } from './pad-start';
+export { search } from './search';
+export { substring } from './substring';
+export { split } from './split';
+export { toLowerCase } from './to-lower-case';
+export { toUpperCase } from './to-upper-case';
+export { trim } from './trim';

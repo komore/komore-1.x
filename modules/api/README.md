@@ -1,1 +1,1 @@
-# komore API
+# @komore/api

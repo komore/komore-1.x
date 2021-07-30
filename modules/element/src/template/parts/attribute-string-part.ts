@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import type { Observable } from '@komore/reactive';
+import { distinctUntilChanged, map } from '@komore/reactive/operators';
 import { attributeStringValue } from './attribute-string-value';
 import { AbstractTemplatePart } from './abstract-template-part';
 

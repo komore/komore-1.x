@@ -1,7 +1,7 @@
-import { isNotNull } from '@komore/typescript';
-import type { Observable } from 'rxjs';
-import { defer, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isNotNull } from '@komore/functional';
+import type { Observable } from '@komore/reactive';
+import { defer, forkJoin } from '@komore/reactive';
+import { map } from '@komore/reactive/operators';
 import type { ParsedSource } from './parsed-source';
 import { isEligibleScriptElement } from './script/is-script-element';
 import { parseScriptElements } from './script/parse-script-elements';
