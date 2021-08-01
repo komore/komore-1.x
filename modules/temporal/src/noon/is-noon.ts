@@ -1,13 +1,11 @@
-import { Temporal } from 'proposal-temporal';
-import type { InstantWithTime } from '../instant-with-time';
+import { Temporal } from '@js-temporal/polyfill';
 
 /**
- * Tests whether an instant occurs at noon
- * @param instant Instant
- * @returns true if the instant occurs at noon
+ * Tests whether a plain time is noon
+ * @param temporal Temporal with time
+ * @returns true if the plain time is noon
  */
-export function isNoon(instant: InstantWithTime): boolean {
-  const pt = instant._.toPlainTime();
+export function isNoon(time: Temporal.PlainTime): boolean {
   const noon = Temporal.PlainTime.from('12:00');
-  return pt.until(noon).sign === 0;
+  return time.until(noon).sign === 0;
 }

@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { toEndOfMonth } from './to-end-of-month';
 
 describe('To end of month', () => {

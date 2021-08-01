@@ -1,5 +1,5 @@
-import type { Temporal } from 'proposal-temporal';
-import { asPlainDate } from '../internal/as-plain-date';
+import type { Temporal } from '@js-temporal/polyfill';
+import { asPlainDate } from '../as-plain-date';
 import type { TemporalWithDate } from '../temporal-with-date';
 
 /**

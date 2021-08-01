@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { isSameYearAs } from './is-same-year-as';
 
 describe('Is same year as', () => {

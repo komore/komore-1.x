@@ -1,22 +1,17 @@
-import { parseLocalTime } from '../parse-local-time';
-import { isAtNoon } from './is-at-noon';
+import { Temporal } from '@js-temporal/polyfill';
+import { isNoon } from './is-noon';
 
-describe('Is at noon', () => {
-  it('returns true when a local time is at noon', () => {
-    given: 'a local time at noon';
-    const localTime = parseLocalTime('12:00');
-    when: 'testing whether the local time is at noon';
-    const result = isAtNoon(localTime);
-    expect: 'true to have been returned';
-    expect(result).toBe(true);
-  });
-
-  it('returns false when a local time is not at noon', () => {
-    given: 'a local time not at noon';
-    const localTime = parseLocalTime('12:12');
-    when: 'testing whether the local time is at noon';
-    const result = isAtNoon(localTime);
-    expect: 'false to have been returned';
-    expect(result).toBe(false);
+describe('Is noon', () => {
+  it.each([
+    ['12:34:56.789123456', false],
+    ['12:00:00.000000001', false],
+    ['12:00:00.000000000', true]
+  ])('can test whether a plain time is noon', (plainTimeString, expectedResult) => {
+    given: 'a plain time';
+    const plainTime = Temporal.PlainTime.from(plainTimeString);
+    when: 'testing whether the plain time is noon';
+    const result = isNoon(plainTime);
+    expect: 'true to be returned when the plain time is noon';
+    expect(result).toBe(expectedResult);
   });
 });

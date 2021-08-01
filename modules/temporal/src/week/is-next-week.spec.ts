@@ -1,5 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
-import { Temporal } from 'proposal-temporal';
 import { isNextWeek } from './is-next-week';
 
 describe('Is next week', () => {
@@ -31,7 +31,6 @@ describe('Is next week', () => {
     ['zoned date time', Temporal.ZonedDateTime.from('2020-01-11T12:34:56.789[Europe/Paris]'), true]
   ])('can test whether a %s occurs during the next week', (_, temporal, expectedResult) => {
     given: 'a temporal';
-    console.log(Temporal.PlainDate.from('2021-01-01').weekOfYear);
     when: 'testing whether the temporal occurs during the next week';
     const result = isNextWeek(temporal);
     expect: 'true to be returned if the temporal occurs during the next week';

@@ -1,11 +1,13 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
+import { getNowFor } from '../get-now-for';
 import type { TemporalWithDate } from '../temporal-with-date';
 
 /**
- * Returns a temporal that occurs one year after the passed temporal
+ * Returns a temporal that occurs next year at the same date and time as the passed temporal
  * @param temporal Temporal
- * @returns Temporal that occurs one year after `temporal`
+ * @returns Temporal that occurs at the same time next year
  */
 export function toNextYear<T extends TemporalWithDate | Temporal.PlainYearMonth>(temporal: T): T {
-  return temporal.add({ years: 1 }) as T;
+  const now = getNowFor(temporal);
+  return temporal.with({ year: now.year + 1 }) as T;
 }

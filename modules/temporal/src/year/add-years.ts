@@ -1,13 +1,11 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
 import type { TemporalWithDate } from '../temporal-with-date';
 
 /**
- * Adds years to a temporal
- * @param temporal Temporal
+ * Creates a function that adds years to a temporal
  * @param years Number of years to add
- * @returns Temporal with the added years
- * @template T Temporal type
+ * @returns Function that adds years to a temporal
  */
-export function addYears<T extends TemporalWithDate | Temporal.PlainYearMonth>(temporal: T, years: number): T {
-  return temporal.add({ years }) as T;
+export function addYears(years: number): <T extends TemporalWithDate | Temporal.PlainYearMonth>(temporal: T) => T {
+  return <T extends TemporalWithDate | Temporal.PlainYearMonth>(temporal: T) => temporal.add({ years }) as T;
 }

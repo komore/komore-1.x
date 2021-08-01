@@ -21,7 +21,6 @@ export { isDynamoDBEvent } from './dynamodb/is-dynamodb-event';
 export { isKinesisEvent } from './kinesis/is-kinesis-event';
 export { isKinesisFirehoseEvent } from './kinesis-firehose/is-kinesis-firehose-event';
 export { isS3Event } from './s3/is-s3-event';
-export { isSesEvent } from './ses/is-ses-event';
 export { isSnsEvent } from './sns/is-sns-event';
 export { isSqsEvent } from './sqs/is-sqs-event';
 export { kinesisEventTrigger } from './kinesis/kinesis-event-trigger';

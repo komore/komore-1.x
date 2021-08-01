@@ -1,3 +1,4 @@
+import { createLambdaEventSourceTypeTest } from '@komore/function-lambda';
 import type { DynamoDBEvent } from './dynamodb-event';
 
 /**

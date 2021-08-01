@@ -1,4 +1,4 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
 
 /**
  * Converts a zoned date time to another time zone

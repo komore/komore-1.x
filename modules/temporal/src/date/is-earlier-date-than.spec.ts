@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { isEarlierDateThan } from './is-earlier-date-than';
 
 describe('Is earlier date than', () => {

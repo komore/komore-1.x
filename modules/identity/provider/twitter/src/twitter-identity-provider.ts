@@ -7,5 +7,5 @@ import type { TwitterIdentityProviderOptions } from './twitter-identity-provider
  * @returns Twitter identity provider
  */
 export function twitterIdentityProvider(_options: TwitterIdentityProviderOptions): IdentityProvider {
-  return undefined as unknown as IdentityProvider;
+  return (undefined as unknown) as IdentityProvider;
 }

@@ -1,0 +1,9 @@
+//export { add } from './add';
+//export { divideBy } from './divide-by';
+//export { multiplyBy } from './multiply-by';
+//export { subtract } from './subtract';
+//export { toCeil } from './to-ceil';
+//export { toFloor } from './to-floor';
+//export { toSign } from './to-sign';
+export { toSquared } from './to-squared';
+//export { toSquareRoot } from './to-square-root';

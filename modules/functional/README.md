@@ -1,1 +1,1 @@
-# komore Functional
+# @komore/functional

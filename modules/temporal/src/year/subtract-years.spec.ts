@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { subtractYears } from './subtract-years';
 
 describe('Subtract years', () => {

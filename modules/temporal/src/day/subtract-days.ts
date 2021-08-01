@@ -1,14 +1,12 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
 import type { TemporalWithDate } from '../temporal-with-date';
 import { withTemporalWithDate } from '../with-temporal-with-date';
 
 /**
- * Subtracts days from a temporal
- * @param temporal Temporal
+ * Creates a function that subtracts days from a temporal
  * @param days Number of days to subtract
- * @returns Temporal with the subtracted days
- * @template T Temporal type
+ * @returns Function that subtracts days from a temporal
  */
-export function subtractDays<T extends TemporalWithDate | Temporal.PlainMonthDay>(temporal: T, days: number): T {
-  return withTemporalWithDate(temporal, t => t.subtract({ days }));
+export function subtractDays(days: number): <T extends TemporalWithDate | Temporal.PlainMonthDay>(temporal: T) => T {
+  return temporal => withTemporalWithDate(temporal, t => t.subtract({ days }));
 }

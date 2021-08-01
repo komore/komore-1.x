@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 
 /**
  * Returns the time zone identifier used by the given zoned date time
@@ -12,7 +12,7 @@ export function toTimeZoneId(zonedDateTime: Temporal.ZonedDateTime): string;
  * @param timeZone Time zone
  * @returns Time zone identifier
  */
-export function toTimeZoneId(timeZone: Temporal.ZonedDateTime): string;
+export function toTimeZoneId(timeZone: Temporal.TimeZone): string;
 
 export function toTimeZoneId(zonedDateTimeOrTimeZone: Temporal.ZonedDateTime | Temporal.TimeZone): string {
   if (zonedDateTimeOrTimeZone instanceof Temporal.ZonedDateTime) {

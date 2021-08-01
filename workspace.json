@@ -331,6 +331,38 @@
         }
       }
     },
+    "array": {
+      "root": "modules/array",
+      "sourceRoot": "modules/array/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/array/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/array"],
+          "options": {
+            "jestConfig": "modules/array/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/array",
+            "tsConfig": "modules/array/tsconfig.lib.json",
+            "packageJson": "modules/array/package.json",
+            "main": "modules/array/src/index.ts",
+            "assets": ["modules/array/*.md"]
+          }
+        }
+      }
+    },
     "authorization": {
       "root": "modules/authorization",
       "sourceRoot": "modules/authorization/src",
@@ -3251,99 +3283,6 @@
         }
       }
     },
-    "functional-arithmetic": {
-      "root": "modules/functional/arithmetic",
-      "sourceRoot": "modules/functional/arithmetic/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/functional/arithmetic/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/functional-arithmetic"],
-          "options": {
-            "jestConfig": "modules/functional/arithmetic/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/functional/arithmetic",
-            "tsConfig": "modules/functional/arithmetic/tsconfig.lib.json",
-            "packageJson": "modules/functional/arithmetic/package.json",
-            "main": "modules/functional/arithmetic/src/index.ts"
-          }
-        }
-      }
-    },
-    "functional-array": {
-      "root": "modules/functional/array",
-      "sourceRoot": "modules/functional/array/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/functional/array/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/functional-array"],
-          "options": {
-            "jestConfig": "modules/functional/array/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/functional/array",
-            "tsConfig": "modules/functional/array/tsconfig.lib.json",
-            "packageJson": "modules/functional/array/package.json",
-            "main": "modules/functional/array/src/index.ts"
-          }
-        }
-      }
-    },
-    "functional-string": {
-      "root": "modules/functional/string",
-      "sourceRoot": "modules/functional/string/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/functional/string/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/functional-string"],
-          "options": {
-            "jestConfig": "modules/functional/string/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/functional/string",
-            "tsConfig": "modules/functional/string/tsconfig.lib.json",
-            "packageJson": "modules/functional/string/package.json",
-            "main": "modules/functional/string/src/index.ts"
-          }
-        }
-      }
-    },
     "functional-testing": {
       "root": "modules/functional/testing",
       "sourceRoot": "modules/functional/testing/src",
@@ -6195,6 +6134,131 @@
         }
       }
     },
+    "math": {
+      "root": "modules/math",
+      "sourceRoot": "modules/math/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/math/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/math"],
+          "options": {
+            "jestConfig": "modules/math/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/math",
+            "tsConfig": "modules/math/tsconfig.lib.json",
+            "packageJson": "modules/math/package.json",
+            "main": "modules/math/src/index.ts",
+            "assets": ["modules/math/*.md"]
+          }
+        }
+      }
+    },
+    "math-geometry": {
+      "root": "modules/math/geometry",
+      "sourceRoot": "modules/math/geometry/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/math/geometry/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/math-geometry"],
+          "options": {
+            "jestConfig": "modules/math/geometry/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/math/geometry",
+            "tsConfig": "modules/math/geometry/tsconfig.lib.json",
+            "packageJson": "modules/math/geometry/package.json",
+            "main": "modules/math/geometry/src/index.ts"
+          }
+        }
+      }
+    },
+    "math-matrix": {
+      "root": "modules/math/matrix",
+      "sourceRoot": "modules/math/matrix/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/math/matrix/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/math-matrix"],
+          "options": {
+            "jestConfig": "modules/math/matrix/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/math/matrix",
+            "tsConfig": "modules/math/matrix/tsconfig.lib.json",
+            "packageJson": "modules/math/matrix/package.json",
+            "main": "modules/math/matrix/src/index.ts"
+          }
+        }
+      }
+    },
+    "math-trigonometry": {
+      "root": "modules/math/trigonometry",
+      "sourceRoot": "modules/math/trigonometry/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/math/trigonometry/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/math-trigonometry"],
+          "options": {
+            "jestConfig": "modules/math/trigonometry/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/math/trigonometry",
+            "tsConfig": "modules/math/trigonometry/tsconfig.lib.json",
+            "packageJson": "modules/math/trigonometry/package.json",
+            "main": "modules/math/trigonometry/src/index.ts"
+          }
+        }
+      }
+    },
     "message": {
       "root": "modules/message",
       "sourceRoot": "modules/message/src",
@@ -7941,6 +8005,37 @@
         }
       }
     },
+    "string": {
+      "root": "modules/string",
+      "sourceRoot": "modules/string/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/string/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/string"],
+          "options": {
+            "jestConfig": "modules/string/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/string",
+            "tsConfig": "modules/string/tsconfig.lib.json",
+            "packageJson": "modules/string/package.json",
+            "main": "modules/string/src/index.ts"
+          }
+        }
+      }
+    },
     "temporal": {
       "root": "modules/temporal",
       "sourceRoot": "modules/temporal/src",
@@ -7999,68 +8094,6 @@
             "tsConfig": "modules/temporal/compatibility/tsconfig.lib.json",
             "packageJson": "modules/temporal/compatibility/package.json",
             "main": "modules/temporal/compatibility/src/index.ts"
-          }
-        }
-      }
-    },
-    "temporal-date": {
-      "root": "modules/temporal/date",
-      "sourceRoot": "modules/temporal/date/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/temporal/date/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/temporal-date"],
-          "options": {
-            "jestConfig": "modules/temporal/date/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/temporal/date",
-            "tsConfig": "modules/temporal/date/tsconfig.lib.json",
-            "packageJson": "modules/temporal/date/package.json",
-            "main": "modules/temporal/date/src/index.ts"
-          }
-        }
-      }
-    },
-    "temporal-datetime": {
-      "root": "modules/temporal/date-time",
-      "sourceRoot": "modules/temporal/date-time/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/temporal/date-time/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/temporal-datetime"],
-          "options": {
-            "jestConfig": "modules/temporal/date-time/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/temporal/date-time",
-            "tsConfig": "modules/temporal/date-time/tsconfig.lib.json",
-            "packageJson": "modules/temporal/date-time/package.json",
-            "main": "modules/temporal/date-time/src/index.ts"
           }
         }
       }
@@ -8216,37 +8249,6 @@
             "tsConfig": "modules/temporal/testing/tsconfig.lib.json",
             "packageJson": "modules/temporal/testing/package.json",
             "main": "modules/temporal/testing/src/index.ts"
-          }
-        }
-      }
-    },
-    "temporal-time": {
-      "root": "modules/temporal/time",
-      "sourceRoot": "modules/temporal/time/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/temporal/time/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/temporal-time"],
-          "options": {
-            "jestConfig": "modules/temporal/time/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/temporal/time",
-            "tsConfig": "modules/temporal/time/tsconfig.lib.json",
-            "packageJson": "modules/temporal/time/package.json",
-            "main": "modules/temporal/time/src/index.ts"
           }
         }
       }

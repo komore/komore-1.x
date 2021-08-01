@@ -7,6 +7,6 @@ import type { TemporalWithDate } from "../temporal-with-date";
  */
 export function isWeekEnd(temporal: TemporalWithDate): boolean {
   const weekDay = temporal.dayOfWeek;
-  // TODO: other days may be considered the week-end depending on language/culture/etc.?
+  // TODO: other days may be considered the week-end depending on calendar/language/culture/etc.
   return weekDay === 6 || weekDay === 7;
 }

@@ -53,6 +53,9 @@
     "application-updater": {
       "tags": ["scope:application"]
     },
+    "array": {
+      "tags": ["scope:array"]
+    },
     "authorization": {
       "tags": ["scope:authorization", "trait:base"]
     },
@@ -327,15 +330,6 @@
     "functional": {
       "tags": ["scope:functional", "trait:base"]
     },
-    "functional-arithmetic": {
-      "tags": ["scope:functional"]
-    },
-    "functional-array": {
-      "tags": ["scope:functional"]
-    },
-    "functional-string": {
-      "tags": ["scope:functional"]
-    },
     "functional-testing": {
       "tags": ["scope:functional", "trait:testing"]
     },
@@ -594,6 +588,21 @@
     "layer-text": {
       "tags": ["scope:layer"]
     },
+    "math": {
+      "tags": ["scope:math"]
+    },
+    "math-arithmetic": {
+      "tags": ["scope:math"]
+    },
+    "math-geometry": {
+      "tags": ["scope:math"]
+    },
+    "math-matrix": {
+      "tags": ["scope:math"]
+    },
+    "math-trigonometry": {
+      "tags": ["scope:math"]
+    },
     "message": {
       "tags": ["scope:message", "trait:base"]
     },
@@ -763,16 +772,13 @@
     "stack-testing": {
       "tags": ["scope:stack", "trait:testing"]
     },
+    "string": {
+      "tags": ["scope:string"]
+    },
     "temporal": {
       "tags": ["scope:temporal"]
     },
     "temporal-compatibility": {
-      "tags": ["scope:temporal"]
-    },
-    "temporal-date": {
-      "tags": ["scope:temporal"]
-    },
-    "temporal-datetime": {
       "tags": ["scope:temporal"]
     },
     "temporal-duration": {
@@ -789,9 +795,6 @@
     },
     "temporal-testing": {
       "tags": ["scope:temporal", "trait:testing"]
-    },
-    "temporal-time": {
-      "tags": ["scope:temporal"]
     },
     "temporal-timezone": {
       "tags": ["scope:temporal"]

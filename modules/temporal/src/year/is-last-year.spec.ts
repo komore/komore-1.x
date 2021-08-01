@@ -1,5 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
-import { Temporal } from 'proposal-temporal';
 import { isLastYear } from './is-last-year';
 
 describe('Is last year', () => {
@@ -34,7 +34,7 @@ describe('Is last year', () => {
     ['zoned date time', Temporal.PlainDateTime.from('2019-12-31T12:34:56.789[Europe/Paris]'), true],
     ['plain year month', Temporal.PlainYearMonth.from('2021-01'), false],
     ['plain year month', Temporal.PlainYearMonth.from('2020-06'), false],
-    ['plain year month', Temporal.PlainYearMonth.from('2019-12'), true],
+    ['plain year month', Temporal.PlainYearMonth.from('2019-12'), true]
   ])('can test whether a %s occurs last year', (_, temporal, expectedResult) => {
     given: 'a temporal';
     when: 'testing whether the temporal occurs last year';

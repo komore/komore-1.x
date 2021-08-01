@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { toDayOfWeek } from './to-day-of-week';
 import { WeekDay } from './week-day';
 

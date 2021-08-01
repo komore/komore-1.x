@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { isSameDate } from './is-same-date';
 
 describe('Is same date', () => {

@@ -1,5 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate } from '@komore/temporal/testing';
-import { Temporal } from 'proposal-temporal';
 import { getYesterday } from './get-yesterday';
 
 describe('Get yesterday', () => {

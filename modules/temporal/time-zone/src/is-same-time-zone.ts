@@ -1,4 +1,4 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
 
 /**
  * Tests whether two time zones are identical

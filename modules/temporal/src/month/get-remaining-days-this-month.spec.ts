@@ -1,5 +1,5 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate } from '@komore/temporal/testing';
-import { Temporal } from 'proposal-temporal';
 import { getRemainingDaysThisMonth } from './get-remaining-days-this-month';
 
 describe('Get remaining days this month', () => {

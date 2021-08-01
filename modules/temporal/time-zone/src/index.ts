@@ -6,6 +6,6 @@ export { isSameTimeZone } from './is-same-time-zone';
 export { isSameTimeZoneAs } from './is-same-time-zone-as';
 export { toTimeZone } from './to-time-zone';
 export { toTimeZoneId } from './to-time-zone-id';
-export { toTimeZoneOffsetAt } from './to-time-zone-offset-at';
-export { toTimeZoneOffsetWith } from './to-time-zone-offset-with';
+//export { toTimeZoneOffsetAt } from './to-time-zone-offset-at';
+//export { toTimeZoneOffsetWith } from './to-time-zone-offset-with';
 export { withTimeZone } from './with-time-zone';

@@ -1,4 +1,4 @@
-import { asPlainDate } from '../internal/as-plain-date';
+import { asPlainDate } from '../as-plain-date';
 import type { TemporalWithDate } from '../temporal-with-date';
 import type { TemporalWithPartialDate } from '../temporal-with-partial-date';
 import type { Month } from './month';

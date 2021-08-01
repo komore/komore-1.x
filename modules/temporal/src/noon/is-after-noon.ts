@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { asPlainTime } from '../as-plain-time';
 import type { TemporalWithTime } from '../temporal-with-time';
 

@@ -1,6 +1,4 @@
-
-
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { isWeekDay } from './is-week-day';
 import { WeekDay } from './week-day';
 

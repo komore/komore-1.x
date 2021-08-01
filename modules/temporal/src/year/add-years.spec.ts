@@ -1,12 +1,14 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { addYears } from './add-years';
 
 describe('Add years', () => {
   it('can add years to a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-01-01');
-    when: 'adding years';
-    const result = addYears(plainDate, 4);
+    when: 'creating a function that adds years';
+    const func = addYears(4);
+    and: 'calling the function';
+    const result = func(plainDate);
     expect: 'the correct number of years to have been added';
     expect(result).toBeInstanceOf(Temporal.PlainDate);
     const { year, month, day } = result;
@@ -18,8 +20,10 @@ describe('Add years', () => {
   it('can add years to a plain date time', () => {
     given: 'a plain date time';
     const plainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
-    when: 'adding years';
-    const result = addYears(plainDateTime, 4);
+    when: 'creating a function that adds years';
+    const func = addYears(4);
+    and: 'calling the function';
+    const result = func(plainDateTime);
     expect: 'the correct number of years to have been added';
     expect(result).toBeInstanceOf(Temporal.PlainDateTime);
     const { year, month, day, hour, minute, second, millisecond } = result;
@@ -35,8 +39,10 @@ describe('Add years', () => {
   it('can add years to a zoned date time', () => {
     given: 'a zoned date time';
     const zonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
-    when: 'adding years';
-    const result = addYears(zonedDateTime, 4);
+    when: 'creating a function that adds years';
+    const func = addYears(4);
+    and: 'calling the function';
+    const result = func(zonedDateTime);
     expect: 'the correct number of years to have been added';
     expect(result).toBeInstanceOf(Temporal.ZonedDateTime);
     const { year, month, day, hour, minute, second, millisecond, timeZone } = result;
@@ -56,8 +62,10 @@ describe('Add years', () => {
   ])('can add years to a year month', (yearMonthString, addedYears, expectedYear, expectedMonth) => {
     given: 'a year month';
     const yearMonth = Temporal.PlainYearMonth.from(yearMonthString);
-    when: 'adding years';
-    const result = addYears(yearMonth, addedYears);
+    when: 'creating a function that adds years';
+    const func = addYears(addedYears);
+    and: 'calling the function';
+    const result = func(yearMonth);
     expect: 'the correct number of years to have been added';
     expect(result).toBeInstanceOf(Temporal.PlainYearMonth);
     const { year, month } = result.toPlainDate({ day: 1 });

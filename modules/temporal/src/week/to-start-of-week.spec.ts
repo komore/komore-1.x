@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { toStartOfWeek } from './to-start-of-week';
 
 describe('To start of week', () => {

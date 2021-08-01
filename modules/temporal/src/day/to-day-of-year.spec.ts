@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { toDayOfYear } from './to-day-of-year';
 
 describe('To day of year', () => {

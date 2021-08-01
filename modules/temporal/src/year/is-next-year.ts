@@ -1,5 +1,5 @@
+import type { Temporal } from '@js-temporal/polyfill';
 import { getNowFor } from '@komore/temporal';
-import type { Temporal } from 'proposal-temporal';
 import type { TemporalWithDate } from '../temporal-with-date';
 
 /**

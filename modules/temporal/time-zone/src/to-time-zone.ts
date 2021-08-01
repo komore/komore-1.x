@@ -1,4 +1,4 @@
-import type { Temporal } from 'proposal-temporal';
+import type { Temporal } from '@js-temporal/polyfill';
 
 /**
  * Returns the time zone used by the given zoned date time

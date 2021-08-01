@@ -1,4 +1,4 @@
-import { Temporal } from 'proposal-temporal';
+import { Temporal } from '@js-temporal/polyfill';
 import { isLaterDate } from './is-later-date';
 
 describe('Is later date', () => {
