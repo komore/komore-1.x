@@ -1,11 +1,11 @@
-import type { InstantWithTime } from '../instant-with-time';
+import type { TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Tests whether two instants occur at the same hour
- * @param lhs Left-hand instant
- * @param rhs Right-hand instant
- * @returns true if both instants occur at the same hour
+ * Tests whether two temporals with time occur at the same hour
+ * @param lhs Left-hand temporal with time
+ * @param rhs Right-hand temporal with time
+ * @returns true if both temporals occur at the same hour
  */
-export function isSameHour(lhs: InstantWithTime, rhs: InstantWithTime): boolean {
-  return lhs._.hour === rhs._.hour;
+export function isSameHour(lhs: TemporalWithTime, rhs: TemporalWithTime): boolean {
+  return lhs.hour === rhs.hour;
 }

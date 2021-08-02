@@ -1,14 +1,14 @@
-import type { Instant } from '../instant';
 import type { Interval } from './interval';
+import type { IntervalTemporal } from './interval-temporal';
 
 /**
  * Creates an interval
- * @param start Start instant
- * @param end End instant
+ * @param start Start temporal
+ * @param end End temporal
  * @returns Interval
- * @template T Instant type
+ * @template T Temporal type
  */
-export function createInterval<T extends Instant>(start: T, end: T): Interval<T> {
+export function createInterval<T extends IntervalTemporal>(start: T, end: T): Interval<T> {
   return {
     start,
     end

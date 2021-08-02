@@ -1,13 +1,10 @@
-import { cloneTemporal } from '@komore/temporal';
 import type { TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Adds hours to a temporal with time
- * @param temporal Temporal
+ * Creates a function that adds hours to a temporal
  * @param hours Number of hours to add
- * @returns Temproal with the added hours
- * @template T Temporal with time type
+ * @returns Function that adds hours to a temporal
  */
-export function addHours<T extends TemporalWithTime>(temporal: T, hours: number): T {
-  return cloneTemporal(temporal, zdt => zdt.add({ hours }));
+export function addHours(hours: number): <T extends TemporalWithTime>(temporal: T) => T {
+  return <T extends TemporalWithTime>(temporal: T) => temporal.add({ hours }) as T;
 }
