@@ -1,16 +1,21 @@
 import { Observable } from '@komore/reactive';
 import type { HttpClient } from './http-client';
+import type { HttpClientOptions } from './http-client-options';
 
 /**
  * Creates an HTTP client
  * @param options Options
  * @returns HTTP client
+ * @template DefaultContextType Default contextual information type
  */
-export function createHttpClient(options?: Omit<RequestInit, 'signal'>): HttpClient {
-  return <T>(
-    input: string | URL | Request
-  ): Observable<Response | string | Blob | T> =>
-    new Observable<Response | string | Blob | T>(observer => {
+export function createHttpClient<DefaultContextType = never>(
+  options?: HttpClientOptions
+): HttpClient<DefaultContextType> {
+  return <ContextType = DefaultContextType>(
+    input: string | URL | Request,
+    _context: ContextType
+  ): Observable<Response> =>
+    new Observable<Response>(observer => {
       const request = input instanceof URL ? input.href : input;
       const abortController = new AbortController();
       const { signal } = abortController;

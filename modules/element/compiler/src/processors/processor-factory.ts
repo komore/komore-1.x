@@ -3,7 +3,7 @@
  * @template Options Options type
  * @template Processor Processor type
  */
-export interface ProcessorFactory<Options, Processor> {
+export interface ProcessorFactory<Options extends Record<string, unknown>, Processor> {
   readonly regExp: RegExp;
 
   /**

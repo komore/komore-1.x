@@ -1,1 +1,3 @@
-# Application - Capacitor
+# @komore/application-capacitor
+
+TODO: capacitor support

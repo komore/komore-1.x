@@ -1,10 +1,6 @@
 export type { ArrayValueType } from './array-value-type';
 export { assert } from './assert';
-export { executeRegExp } from './execute-reg-exp';
 export type { IterableValueType } from './iterable-value-type';
 export type { ReadonlyRecord } from './readonly-record';
 export type { TruthyTypesOf } from './truthy-types-of';
-export type { _TypeSchema } from './type-schema/type-schema';
-export type { _TypeSchemaType } from './type-schema/type-schema-type';
-export type { _TypeSchemaTypeName } from './type-schema/type-schema-type-name';
-export { _typeSchema } from './type-schema/type-schema';
+export type { TypeNames } from './type-names';

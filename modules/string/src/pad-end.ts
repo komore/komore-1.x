@@ -4,7 +4,7 @@
  * @param fillString Fill string
  * @returns Function that pads a string from the end (right)
  */
- export function padEnd(maxLength: number, fillString: string = ' '): (str: string) => string {
+ export function padEnd(maxLength: number, fillString = ' '): (str: string) => string {
     return str => str.padEnd(maxLength, fillString);
   }
   

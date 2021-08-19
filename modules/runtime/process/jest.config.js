@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/runtime/filesystem/src/**/*.spec.ts'],
+  testMatch: ['**/modules/runtime/process/src/**/*.spec.ts'],
   preset: '../../../jest.preset.js',
-  coverageDirectory: '../../../coverage/runtime-filesystem',
+  coverageDirectory: '../../../coverage/runtime-process',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'runtime-filesystem'
+  displayName: 'runtime-process'
 };

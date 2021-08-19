@@ -1,8 +1,5 @@
 {
   "extends": "../../../tsconfig.dom.json",
-  "compilerOptions": {
-    "types": ["jest"]
-  },
   "include": [],
   "files": [],
   "references": [

@@ -1,1 +1,3 @@
-# Application - Android
+# @komore/application-android
+
+TODO: FLAG_SECURE

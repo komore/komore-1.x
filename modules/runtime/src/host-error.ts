@@ -1,8 +1,7 @@
 /**
  * Host error
  */
-export interface HostError {
-  readonly message: string;
+export interface HostError extends Error {
   readonly source: string;
   readonly lineNumber: number;
   readonly columnNumber: number;

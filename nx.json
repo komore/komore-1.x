@@ -108,6 +108,9 @@
     "cli-test": {
       "tags": ["scope:cli"]
     },
+    "color": {
+      "tags": ["scope:color", "trait:base"]
+    },
     "command": {
       "tags": ["scope:command", "trait:base"]
     },
@@ -210,6 +213,15 @@
     "element-scrolling": {
       "tags": ["scope:element"]
     },
+    "element-ssg": {
+      "tags": ["scope:element"]
+    },
+    "element-ssg-markdown": {
+      "tags": ["scope:element"]
+    },
+    "element-ssr": {
+      "tags": ["scope:element"]
+    },
     "element-store": {
       "tags": ["scope:element"]
     },
@@ -231,8 +243,11 @@
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
     },
-    "eslintplugin": {
-      "tags": ["scope:eslintplugin"]
+    "eslint": {
+      "tags": ["scope:eslint"]
+    },
+    "eslint-testing": {
+      "tags": ["scope:eslint", "trait:testing"]
     },
     "event": {
       "tags": ["scope:event", "trait:base"]
@@ -669,6 +684,9 @@
     "reactive": {
       "tags": ["scope:reactive", "trait:base"]
     },
+    "reactive-eslint": {
+      "tags": ["scope:reactive", "trait:eslint"]
+    },
     "reactive-operators": {
       "tags": ["scope:reactive", "trait:operators"]
     },
@@ -677,6 +695,9 @@
     },
     "reactive-testing": {
       "tags": ["scope:reactive", "trait:testing"]
+    },
+    "regexp": {
+      "tags": ["scope:regexp", "trait:base"]
     },
     "runtime": {
       "tags": ["scope:runtime", "trait:base"]
@@ -822,6 +843,9 @@
     },
     "typescript-compiler-testing": {
       "tags": ["scope:typescript", "trait:testing"]
+    },
+    "typescript-schema": {
+      "tags": ["scope:typescript"]
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]

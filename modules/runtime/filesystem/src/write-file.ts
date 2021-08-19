@@ -1,7 +1,7 @@
-import { FileHandle } from "fs/promises";
+import type { FileHandle } from "fs/promises";
 
 export function writeFile<BufferType extends Uint8Array>(fileHandle: FileHandle, bufferType: Uint8Array, ) {
-  fileHandle.write()
+  fileHandle.writeFile()
 }
 
 

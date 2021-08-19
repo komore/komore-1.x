@@ -1,9 +1,15 @@
-export { match } from './match';
+export { endsWith } from './ends-with';
+export { fromCharCode } from './from-char-code';
+export { matched } from './matched';
 export { padEnd } from './pad-end';
 export { padStart } from './pad-start';
 export { search } from './search';
-export { substring } from './substring';
+export { startsWith } from './starts-with';
 export { split } from './split';
 export { toLowerCase } from './to-lower-case';
+export { toMatches } from './to-matches';
+export { toNormalized } from './to-normalized';
+export { toNormalizedWith } from './to-normalized-with';
+export { toSubstring } from './to-substring';
 export { toUpperCase } from './to-upper-case';
 export { trim } from './trim';

@@ -1,6 +1,6 @@
 import type { Observable } from '@komore/reactive';
 import { deferPromise } from '@komore/reactive/promise';
-import type { BaseEncodingOptions, Dirent, PathLike } from 'fs';
+import type { Dirent, ObjectEncodingOptions, PathLike } from 'fs';
 import { readdir } from 'fs/promises';
 
 /**
@@ -11,7 +11,7 @@ import { readdir } from 'fs/promises';
  */
 export function readDirectory(
   directoryPath: PathLike,
-  options?: BaseEncodingOptions & { readonly withFileTypes?: false }
+  options?: ObjectEncodingOptions & { readonly withFileTypes?: false }
 ): Observable<ReadonlyArray<string>>;
 
 /**
@@ -22,12 +22,12 @@ export function readDirectory(
  */
 export function readDirectory(
   directoryPath: PathLike,
-  options: BaseEncodingOptions & { readonly withFileTypes: true }
+  options: ObjectEncodingOptions & { readonly withFileTypes: true }
 ): Observable<ReadonlyArray<Dirent>>;
 
 export function readDirectory(
   directoryPath: PathLike,
-  options?: BaseEncodingOptions & { readonly withFileTypes?: boolean }
+  options?: ObjectEncodingOptions & { readonly withFileTypes?: boolean }
 ): Observable<ReadonlyArray<string>> | Observable<ReadonlyArray<Dirent>> {
   const encoding = options?.encoding ?? undefined;
   const withFileTypes = options?.withFileTypes ?? false;

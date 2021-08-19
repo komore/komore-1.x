@@ -7,6 +7,7 @@ describe('Create projected function', () => {
     it('logs an error when the projection emits more than one value', () => {
 
     });
+
     it('logs ')
   });
 });

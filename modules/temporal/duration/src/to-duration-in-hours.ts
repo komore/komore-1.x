@@ -1,10 +1,16 @@
-import type { Duration } from './duration';
+import type { Temporal } from '@js-temporal/polyfill';
+import type { TemporalWithDateTime } from '@komore/temporal';
+import { buildRelativeTo } from './build-relative-to';
 
 /**
- * Gets a duration in hours
+ * Returns a duration in hours
  * @param duration Duration
+ * @param relativeTo Reference temporal
  * @returns Duration in hours
  */
-export function getDurationInHours(duration: Duration): number {
-  return duration._ / (1000 * 60 * 60);
+export function toDurationInHours(duration: Temporal.Duration, relativeTo?: TemporalWithDateTime): number {
+  return duration.total({
+    unit: 'hour',
+    relativeTo: buildRelativeTo(duration, relativeTo)
+  });
 }

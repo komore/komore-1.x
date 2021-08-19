@@ -1,4 +1,4 @@
-import { Temporal } from '@js-temporal/polyfill';
+import type { Temporal } from '@js-temporal/polyfill';
 import type { TemporalWithDateTime } from '@komore/temporal';
 import { buildRelativeTo } from './build-relative-to';
 

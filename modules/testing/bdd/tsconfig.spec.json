@@ -2,13 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["jest", "node"]
+    "module": "commonjs"
   },
   "include": [
-    "**/*.spec.ts",
+    "src/**/*.spec.ts",
     "../../typescript/compiler/testing/typings/helpers.d.ts",
     "../../typescript/compiler/testing/typings/matchers.d.ts"
-  ],
-  "files": []
+  ]
 }

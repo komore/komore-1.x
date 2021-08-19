@@ -1,10 +1,10 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { mapTo } from './map-to';
+import { map } from './map';
 
 /**
  * Redacts emitted values, keeping the emission itself but preventing the observer from accessing the value itself
  * @template InputType Input type
  */
 export function redactValue<InputType>(): OperatorFunction<InputType, void> {
-  return mapTo(void 0);
+  return map(() => void 0);
 }

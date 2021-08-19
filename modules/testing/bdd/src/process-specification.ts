@@ -5,7 +5,7 @@ import type { SourceFile } from 'typescript';
 import { createSourceFile, ScriptKind, ScriptTarget } from 'typescript';
 import { buildSpecificationFromSourceFile } from './build-specification-from-source-file';
 import type { Specification } from './specification';
-import { SpecificationInput } from './specification-input';
+import type { SpecificationInput } from './specification-input';
 import type { SpecificationProcessingOptions } from './specification-processing-options';
 
 export function processSpecification(options?: SpecificationProcessingOptions): OperatorFunction<SpecificationInput, Specification> {

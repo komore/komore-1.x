@@ -1,6 +1,7 @@
-import { Observable } from '@komore/reactive';
+import type { Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive/promise';
 import type { PathLike } from 'fs';
-import { readFile } from 'fs';
+import { readFile } from 'fs/promises';
 
 /**
  * Reads an entire file's content into memory
@@ -22,15 +23,5 @@ export function readFileContent(
   bufferEncoding?: BufferEncoding
 ): Observable<Buffer> | Observable<string> {
   const encoding = bufferEncoding ?? null;
-  return new Observable<Buffer | string>(observer => {
-    readFile(filePath, { encoding }, (error, data) => {
-      if (error === null) {
-        observer.error(error);
-      } else {
-        observer.next(data);
-      }
-
-      observer.complete();
-    });
-  }) as Observable<Buffer> | Observable<string>;
+  return deferPromise(() => readFile(filePath, { encoding })) as Observable<Buffer> | Observable<string>;
 }

@@ -1,6 +1,9 @@
-import { throwHttpResponseErrorIfFailed } from '@komore/web/http/operators';
+import { not } from '@komore/functional';
+import { throwIf } from '@komore/reactive/operators';
 import { createHttpClient } from './create-http-client';
 import type { HttpClient } from './http-client';
+import { isResponseOk } from './is-response-ok';
+import { toHttpErrorResponse } from './to-http-error-response';
 
 /**
  * Creates a default HTTP client
@@ -14,6 +17,6 @@ import type { HttpClient } from './http-client';
 export function createDefaultHttpClient(...options: Parameters<typeof createHttpClient>): HttpClient {
   const httpClient = createHttpClient(...options);
   const defaultHttpClient = (...parameters: Parameters<HttpClient>) =>
-    httpClient(...parameters).pipe(throwHttpResponseErrorIfFailed());
+    httpClient(...parameters).pipe(throwIf(not(isResponseOk), toHttpErrorResponse));
   return defaultHttpClient as HttpClient;
 }

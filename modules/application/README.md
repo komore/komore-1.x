@@ -1,1 +1,3 @@
-# komore Application
+# @komore/application
+
+TODO: PWA application

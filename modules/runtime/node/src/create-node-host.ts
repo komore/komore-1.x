@@ -1,16 +1,18 @@
-import type { Host, HostLifecycleEvent, HostState } from '@komore/runtime';
 import { fromEvent, Subject, Subscription } from '@komore/reactive';
 import { tapValue } from '@komore/reactive/operators';
+import type { HostLifecycleEvent, HostState } from '@komore/runtime';
+import { buildNodeHostOptions } from './build-node-host-options';
+import type { NodeHost } from './node-host';
 import type { NodeHostOptions } from './node-host-options';
 
 /**
  * Creates a Node host
- * @param options Node host options
+ * @param hostOptions Node host options
  * @returns Node host
  */
-export function createNodeHost(options?: NodeHostOptions): Host {
+export function createNodeHost(hostOptions?: Partial<NodeHostOptions>): NodeHost {
   const errors = new Subject<Error>();
-  const exitTimeout = options?.exitTimeout ?? 0;
+  const options = buildNodeHostOptions(hostOptions);
   const lifecycle = new Subject<HostLifecycleEvent>();
   const state = new Subject<HostState>();
   const subscription = new Subscription();
@@ -31,6 +33,7 @@ export function createNodeHost(options?: NodeHostOptions): Host {
   return {
     errors,
     lifecycle,
+    options,
     state
   };
 }

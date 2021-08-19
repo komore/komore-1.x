@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/functional/string/src/**/*.spec.ts'],
-  preset: '../../../jest.preset.js',
-  coverageDirectory: '../../../coverage/functional-string',
+  testMatch: ['**/modules/string/src/**/*.spec.ts'],
+  preset: '../../jest.preset.js',
+  coverageDirectory: '../../coverage/string',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'functional-string'
+  displayName: 'string'
 };

@@ -1,15 +1,18 @@
 import { fromEvent, Subject } from '@komore/reactive';
 import { map } from '@komore/reactive/operators';
-import type { Host, HostLifecycleEvent, HostState } from '@komore/runtime';
+import type { HostLifecycleEvent, HostState } from '@komore/runtime';
+import type { BrowserHost } from './browser-host';
 import type { BrowserHostOptions } from './browser-host-options';
+import { buildBrowserHostOptions } from './build-browser-host-options';
 
 /**
  * Creates a browser host
- * @param options Browser host options
+ * @param hostOptions Browser host options
  * @returns Browser host
  */
-export function createBrowserHost(_options?: BrowserHostOptions): Host {
+export function createBrowserHost(hostOptions?: BrowserHostOptions): BrowserHost {
   // TODO: remove once ErrorEvent can be inferred
+  const options = buildBrowserHostOptions(hostOptions);
   const errors = fromEvent<ErrorEvent>(window, 'error').pipe(
     map(({ colno, error, filename, lineno, message }) => ({
       columnNumber: colno,
@@ -30,6 +33,7 @@ export function createBrowserHost(_options?: BrowserHostOptions): Host {
   return {
     errors,
     lifecycle,
+    options,
     state
   };
 }

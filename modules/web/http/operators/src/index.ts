@@ -1,11 +1,6 @@
-export { catchHttpErrorIfStatusIn } from './catch-http-resposne-error-if-status-in';
+export { catchHttpErrorIfStatusIn } from './catch-http-response-error-if-status-in';
 export { catchHttpNetworkFailure } from './catch-http-network-failure';
 export { catchHttpResponseError } from './catch-http-response-error';
-export { mapResponseToArrayBuffer } from './map-response-to-array-buffer';
-export { mapResponseToBlob } from './map-response-to-blob';
-export { mapResponseToJson } from './map-response-to-json';
-export { mapResponseToText } from './map-response-to-text';
-export type { ResponseProgress } from './response-progress';
 export { throwHttpResponseErrorIfFailed } from './throw-http-response-error-if-failed';
 export { throwHttpResponseErrorIfStatusBetween } from './throw-http-response-error-if-status-between';
 export { throwHttpResponseErrorIfStatusIn } from './throw-http-response-error-if-status-in';

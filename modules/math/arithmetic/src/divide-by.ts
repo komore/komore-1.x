@@ -9,6 +9,3 @@ export function divideBy(divisor: bigint): (dividend: bigint) => bigint;
 export function divideBy(divisor: number | bigint): (dividend: (typeof divisor) extends bigint ? bigint : number) =>  typeof divisor extends number ? number : bigint {
   return dividend => dividend / divisor as T;
 }
-
-let x = divideBy(1n);
-x = x;

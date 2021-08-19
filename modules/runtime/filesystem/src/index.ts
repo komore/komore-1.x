@@ -4,3 +4,4 @@ export { observeFile } from './observe-file';
 export { observeFileContent } from './observe-file-content';
 export { readDirectory } from './read-directory';
 export { readFileContent } from './read-file-content';
+export { writeFile } from './write-file';

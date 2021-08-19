@@ -11,5 +11,7 @@ export { toDurationInMonthsRelativeTo } from './to-duration-in-months-relative-t
 export { toDurationInSeconds } from './to-duration-in-seconds';
 export { toDurationInWeeks } from './to-duration-in-weeks';
 export { toDurationInYears } from './to-duration-in-years';
+export { toDurationSince } from './to-duration-since';
+export { toDurationUntil } from './to-duration-until';
 export { toISO8601Duration } from './to-iso-8601-duration';
 export { toISO8601WeekDuration } from './to-iso-8601-week-duration';
