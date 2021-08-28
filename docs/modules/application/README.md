@@ -1,7 +1,8 @@
 # @komore/application
 
-The `@komore/application` module TODO.
+The `@komore/application` ... TODO.
 
-## Key Concepts
+## Key concepts
 
-TODO.
+- TODO
+- TODO

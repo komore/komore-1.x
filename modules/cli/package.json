@@ -6,7 +6,6 @@
   ],
   "bin": {
     "k": "./bin/k",
-    "kmr": "./bin/k",
     "komore": "./bin/k"
   },
   "files": [

@@ -1,11 +1,13 @@
 export { endsWith } from './ends-with';
-export { fromCharCode } from './from-char-code';
+export { fromCharacterCode } from './from-character-code';
 export { matched } from './matched';
 export { padEnd } from './pad-end';
 export { padStart } from './pad-start';
 export { search } from './search';
 export { startsWith } from './starts-with';
 export { split } from './split';
+export { toCharacterAt } from './to-character-at';
+export { toCharacterCodeAt } from './to-character-code-at';
 export { toLowerCase } from './to-lower-case';
 export { toMatches } from './to-matches';
 export { toNormalized } from './to-normalized';

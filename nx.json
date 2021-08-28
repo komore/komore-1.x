@@ -120,11 +120,35 @@
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
     },
+    "component": {
+      "tags": ["scope:component", "trait:base"]
+    },
+    "component-button": {
+      "tags": ["scope:component"]
+    },
+    "component-checkbox": {
+      "tags": ["scope:component"]
+    },
+    "component-icon": {
+      "tags": ["scope:component"]
+    },
+    "component-input": {
+      "tags": ["scope:component"]
+    },
+    "component-select": {
+      "tags": ["scope:component"]
+    },
     "create": {
-      "tags": ["scope:create"]
+      "tags": ["scope:create", "trait:cli"]
+    },
+    "crypto": {
+      "tags": ["scope:crypto", "trait:base"]
+    },
+    "crypto-uuid": {
+      "tags": ["scope:crypto"]
     },
     "data": {
-      "tags": ["scope:data"]
+      "tags": ["scope:data", "trait:base"]
     },
     "devserver": {
       "tags": ["scope:devserver", "trait:cli"]

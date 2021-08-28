@@ -21,6 +21,22 @@ The `@komore/function` module allows the execution of pipelines within serverles
 - Functions get deployed to [serverless platforms] and are only active when triggered
 - Functions are [elastic]: they automatically scale up or down
 
+## Installation
+
+The [@komore/function] module can be installed via Npm, pnpm, or Yarn:
+
+```sh
+npm install @komore/function --save
+```
+
+```sh
+pnpm add @komore/function
+```
+
+```sh
+yarn add @komore/function
+```
+
 ## Environments
 
 Functions can be deployed to the following environments:
@@ -30,6 +46,7 @@ Functions can be deployed to the following environments:
 - [Google Cloud Function]
 - [OpenFaaS]
 
+[@komore/function]: https://npmjs.com/package/@komore/function
 [aws lambda]: ./lambda/README.md
 [azure cloud function]: ./azure/README.md
 [elastic]: ./architecture.md#elasticity

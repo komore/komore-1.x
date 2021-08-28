@@ -1,0 +1,13 @@
+{
+  "name": "@komore/array/benchmark",
+  "bin": {
+    "array-benchmark": "./bin/array-benchmark"
+  },
+  "files": [
+    "/bin"
+  ],
+  "oclif": {
+    "bin": "array-benchmark",
+    "commands": "./src/scenarios"
+  }
+}

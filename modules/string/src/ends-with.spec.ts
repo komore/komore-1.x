@@ -11,7 +11,7 @@ describe('Ends with', () => {
     (string, searchString, length, expectedResult) => {
       given: 'a string, search string and length';
       when: 'creating a function that tests whether a string ends with the search string';
-      const func = endsWith(searchString, length as unknown as number);
+      const func = endsWith(searchString, length);
       and: 'calling the function';
       const result = func(string);
       expect: 'true to have been returned if the string ends with the search string';

@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.cli.json",
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

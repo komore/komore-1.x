@@ -1030,6 +1030,193 @@
         }
       }
     },
+    "component": {
+      "root": "modules/component",
+      "sourceRoot": "modules/component/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component"],
+          "options": {
+            "jestConfig": "modules/component/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component",
+            "tsConfig": "modules/component/tsconfig.lib.json",
+            "packageJson": "modules/component/package.json",
+            "main": "modules/component/src/index.ts",
+            "assets": ["modules/component/*.md"]
+          }
+        }
+      }
+    },
+    "component-button": {
+      "root": "modules/component/button",
+      "sourceRoot": "modules/component/button/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/button/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component-button"],
+          "options": {
+            "jestConfig": "modules/component/button/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component/button",
+            "tsConfig": "modules/component/button/tsconfig.lib.json",
+            "packageJson": "modules/component/button/package.json",
+            "main": "modules/component/button/src/index.ts"
+          }
+        }
+      }
+    },
+    "component-checkbox": {
+      "root": "modules/component/checkbox",
+      "sourceRoot": "modules/component/checkbox/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/checkbox/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component-checkbox"],
+          "options": {
+            "jestConfig": "modules/component/checkbox/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component/checkbox",
+            "tsConfig": "modules/component/checkbox/tsconfig.lib.json",
+            "packageJson": "modules/component/checkbox/package.json",
+            "main": "modules/component/checkbox/src/index.ts"
+          }
+        }
+      }
+    },
+    "component-icon": {
+      "root": "modules/component/icon",
+      "sourceRoot": "modules/component/icon/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/icon/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component-icon"],
+          "options": {
+            "jestConfig": "modules/component/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component/icon",
+            "tsConfig": "modules/component/icon/tsconfig.lib.json",
+            "packageJson": "modules/component/icon/package.json",
+            "main": "modules/component/icon/src/index.ts"
+          }
+        }
+      }
+    },
+    "component-input": {
+      "root": "modules/component/input",
+      "sourceRoot": "modules/component/input/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/input/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component-input"],
+          "options": {
+            "jestConfig": "modules/component/input/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component/input",
+            "tsConfig": "modules/component/input/tsconfig.lib.json",
+            "packageJson": "modules/component/input/package.json",
+            "main": "modules/component/input/src/index.ts"
+          }
+        }
+      }
+    },
+    "component-select": {
+      "root": "modules/component/select",
+      "sourceRoot": "modules/component/select/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/component/select/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/component-select"],
+          "options": {
+            "jestConfig": "modules/component/select/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/component/select",
+            "tsConfig": "modules/component/select/tsconfig.lib.json",
+            "packageJson": "modules/component/select/package.json",
+            "main": "modules/component/select/src/index.ts"
+          }
+        }
+      }
+    },
     "create": {
       "root": "modules/create",
       "sourceRoot": "modules/create/src",
@@ -1058,6 +1245,69 @@
             "packageJson": "modules/create/package.json",
             "main": "modules/create/src/index.ts",
             "assets": ["modules/create/*.md"]
+          }
+        }
+      }
+    },
+    "crypto": {
+      "root": "modules/crypto",
+      "sourceRoot": "modules/crypto/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/crypto/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/crypto"],
+          "options": {
+            "jestConfig": "modules/crypto/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/crypto",
+            "tsConfig": "modules/crypto/tsconfig.lib.json",
+            "packageJson": "modules/crypto/package.json",
+            "main": "modules/crypto/src/index.ts",
+            "assets": ["modules/crypto/*.md"]
+          }
+        }
+      }
+    },
+    "crypto-uuid": {
+      "root": "modules/crypto/uuid",
+      "sourceRoot": "modules/crypto/uuid/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/crypto/uuid/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/crypto-uuid"],
+          "options": {
+            "jestConfig": "modules/crypto/uuid/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/crypto/uuid",
+            "tsConfig": "modules/crypto/uuid/tsconfig.lib.json",
+            "packageJson": "modules/crypto/uuid/package.json",
+            "main": "modules/crypto/uuid/src/index.ts"
           }
         }
       }
@@ -1695,37 +1945,6 @@
             "tsConfig": "modules/element/i18n/operators/tsconfig.lib.json",
             "packageJson": "modules/element/i18n/operators/package.json",
             "main": "modules/element/i18n/operators/src/index.ts"
-          }
-        }
-      }
-    },
-    "element-icon": {
-      "root": "modules/element/icon",
-      "sourceRoot": "modules/element/icon/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/element/icon/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/element-icon"],
-          "options": {
-            "jestConfig": "modules/element/icon/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/element/icon",
-            "tsConfig": "modules/element/icon/tsconfig.lib.json",
-            "packageJson": "modules/element/icon/package.json",
-            "main": "modules/element/icon/src/index.ts"
           }
         }
       }
