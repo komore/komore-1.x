@@ -1,18 +1,12 @@
-import * as Discord from 'discord.js';
+import type { MessagePayload, WebhookClient, WebhookMessageOptions } from 'discord.js';
 import { defer, Observable } from 'rxjs';
 
-/**
- * Discord webhook message
- */
-export type DiscordWebhookMessage = Readonly<{
-  content: Discord.StringResolvable;
-  options: Discord.WebhookMessageOptions;
-}>;
+type APIMessage = 
 
 /**
  * Discord webhook result
  */
-export type DiscordWebhookResult = Discord.Message | ReadonlyArray<Discord.Message>;
+export type DiscordWebhookResult = Discord.Message | ReadonlyArray<Discord.APIMessage>;
 
 /**
  * Sends a Discord webhook message
@@ -21,8 +15,8 @@ export type DiscordWebhookResult = Discord.Message | ReadonlyArray<Discord.Messa
  * @returns Result messages
  */
 export function sendDiscordWebhookMessage(
-  webhookClient: Discord.WebhookClient,
-  webhookMessage: DiscordWebhookMessage
+  webhookClient: WebhookClient,
+  options: string | MessagePayload | WebhookMessageOptions
 ): Observable<DiscordWebhookResult> {
-  return defer(() => webhookClient.send(webhookMessage.content, webhookMessage.options));
+  return defer(() => webhookClient.send(options));
 }
