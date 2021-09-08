@@ -1,5 +1,4 @@
-import { pipe } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map, pipe } from '@komore/reactive/operators';
 import type { Flow } from './flow';
 
 export function createFlow<InputType, OutputType>(): Flow<InputType, OutputType> {

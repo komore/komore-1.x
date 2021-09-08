@@ -1,6 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { pipe } from '@komore/reactive';
-import { withLatestFrom } from '@komore/reactive/operators';
+import { pipe, withLatestFrom } from '@komore/reactive/operators';
 import type { ValueWithAttributes } from './value-with-attributes';
 import type { ValueWithElement } from './value-with-element';
 

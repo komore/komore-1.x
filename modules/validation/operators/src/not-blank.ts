@@ -1,8 +1,8 @@
-import { pipe } from '@komore/reactive';
+import { pipe } from '@komore/reactive/operators';
 import { string } from './string';
 import { constraint } from './constraint';
 
-const notBlankRegExp = /[^\s]+/;
+const notBlankRegExp = /[^\s]+/; // TODO: isNotBlank from @komore/string
 
 /**
  * Constraint validation operator that tests whether the value is a non-blank string

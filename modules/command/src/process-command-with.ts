@@ -1,6 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { pipe } from '@komore/reactive';
-import { map, mergeMap } from '@komore/reactive/operators';
+import { map, mergeMap, pipe } from '@komore/reactive/operators';
 import type { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
 
 /**

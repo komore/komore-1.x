@@ -1,5 +1,4 @@
-import { pipe } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map, pipe } from '@komore/reactive/operators';
 
 export const withBigtableInstance(instanceName: string) =>
   map((message: MessageWithBigtableClient) => message.bigtableClient.instance(instanceName))

@@ -1,6 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { pipe } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map, pipe } from '@komore/reactive/operators';
 import type { SourceFile } from 'typescript';
 import { createSourceFile, ScriptKind, ScriptTarget } from 'typescript';
 import { buildSpecificationFromSourceFile } from './build-specification-from-source-file';

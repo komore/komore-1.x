@@ -2,8 +2,8 @@ import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client
 import { MetadataBearer } from '@aws-sdk/types';
 import { MessageWithIntegrations } from '@komore/integration';
 import { Message } from '@komore/message';
-import { OperatorFunction, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map, pipe } from '@komore/reactive/operators';
 import { MessageWithAwsClient } from '../graph/message-with-aws-client';
 import { MessageWithAwsIntegrations } from '../graph/message-with-aws-integrations';
 import { mutateAwsClient } from '../graph/mutate-aws-client';

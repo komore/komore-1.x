@@ -1,4 +1,4 @@
-import { pipe } from '@komore/reactive';
+import { pipe } from '@komore/reactive/operators';
 import { numeric } from './numeric';
 import { constraint } from './constraint';
 
@@ -8,5 +8,5 @@ import { constraint } from './constraint';
  */
 export const negative = pipe(
   numeric(),
-  constraint(value => value < 0, 'numeric.negative')
+  constraint(value => value < 0 /* TODO: isNegative from '@komore/functional' */, 'numeric.negative')
 );

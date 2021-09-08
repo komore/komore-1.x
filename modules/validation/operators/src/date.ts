@@ -1,6 +1,5 @@
 import type { OperatorFunction } from '@komore/reactive';
-import { pipe } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map, pipe } from '@komore/reactive/operators';
 import { constraint } from './constraint';
 
 /**

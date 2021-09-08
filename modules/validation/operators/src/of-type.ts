@@ -1,5 +1,5 @@
-import { OperatorFunction, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map, pipe } from '@komore/reactive/operators';
 import { validateConstraint } from './validate-constraint';
 
 

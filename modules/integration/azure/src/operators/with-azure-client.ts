@@ -1,5 +1,5 @@
 import { mapMetadata } from '@komore/message';
-import { pipe } from '@komore/reactive';
+import { pipe } from '@komore/reactive/operators';
 import { withAzureMetadata } from './with-azure-metadata';
 import { hasAzureMetadata } from '../graph/has-azure-metadata';
 

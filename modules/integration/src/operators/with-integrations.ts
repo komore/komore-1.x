@@ -1,6 +1,6 @@
 import { Message } from '@komore/message';
-import { OperatorFunction, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import type { OperatorFunction } from '@komore/reactive';
+import { map, pipe } from '@komore/reactive/operators';
 import { isMessageWithIntegrations } from '../graph/is-message-with-integrations';
 import { MessageWithIntegrations } from '../graph/message-with-integrations';
 

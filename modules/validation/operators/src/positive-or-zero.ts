@@ -1,4 +1,4 @@
-import { pipe } from '@komore/reactive';
+import { pipe } from '@komore/reactive/operators';
 import { numeric } from './numeric';
 import { constraint } from './constraint';
 
@@ -8,5 +8,5 @@ import { constraint } from './constraint';
  */
 export const positiveOrZero = pipe(
   numeric,
-  constraint(value => 0 <= value, 'numeric.positive.zero')
+  constraint(value => 0 <= value /* TODO: isPositiveOrZero from @komore/functional or math, 'numeric.positive.zero')
 );

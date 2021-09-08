@@ -28,6 +28,7 @@ export { mapToError } from './map-to-error';
 export { mergeMap } from './merge-map';
 export { mergeMapTo } from './merge-map-to';
 export { neverComplete } from './never-complete';
+export { pipe } from './pipe';
 export { publish } from './publish';
 export { redactValue } from './redact-value';
 export { reduce } from './reduce';

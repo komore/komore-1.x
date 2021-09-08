@@ -25,7 +25,6 @@ export type { ObservableType } from './observable-type';
 export type { Observer } from './observer';
 export { of } from './creation/of';
 export type { OperatorFunction } from './operator-function';
-export { pipe } from './pipe';
 export { race } from './creation/race';
 export { ReplaySubject } from './subject/replay-subject';
 export type { SchedulerLike } from './scheduler';
