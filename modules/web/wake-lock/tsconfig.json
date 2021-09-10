@@ -1,0 +1,16 @@
+{
+  "extends": "../../../tsconfig.dom.json",
+  "compilerOptions": {
+    "types": ["dom-screen-wake-lock", "jest"]
+  },
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

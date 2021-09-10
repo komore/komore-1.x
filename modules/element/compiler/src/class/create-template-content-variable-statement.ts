@@ -1,6 +1,5 @@
-import { createPropertyAccess } from '@komore/typescript/compiler';
+import { createPropertyAccess, createVariableStatement } from '@komore/typescript/compiler';
 import type { Identifier, NodeFactory, VariableStatement } from 'typescript';
-import { createVariableStatement } from '../codegen/create-variable-statement';
 
 /**
  * Creates a template content variable statement

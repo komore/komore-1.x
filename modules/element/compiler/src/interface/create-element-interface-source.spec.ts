@@ -3,7 +3,7 @@ import type { ElementDefinition } from '../definition/element-definition';
 import { createElementInterfaceSource } from './create-element-interface-source';
 
 describe('Create element interface source', () => {
-  it('works', () => {
+  it('TODO', () => {
     given: 'TODO';
     const baseClassName = 'HTMLElement';
     const className = 'TestElement';

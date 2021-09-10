@@ -22,7 +22,7 @@ export function createElementObservedAttributesGetAccessor(
   elementAttributes: ReadonlyArray<ElementAttributeDefinition>
 ): [GetAccessorDeclaration, Identifier] {
   const constType = factory.createTypeReferenceNode('const');
-  const attributeNames = elementAttributes.map(({ attributeName }) => factory.createStringLiteral(attributeName));
+  const attributeNames = elementAttributes.map(({ attributeName }) => factory.createStringLiteral(attributeName, true));
   const attributeNameArray = factory.createArrayLiteralExpression(attributeNames, true);
   const attributeNameConstArray = factory.createAsExpression(attributeNameArray, constType);
   const block = factory.createBlock([factory.createReturnStatement(attributeNameConstArray)], true);

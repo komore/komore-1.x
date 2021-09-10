@@ -69,6 +69,7 @@ specifiers:
   '@sendgrid/client': 7.4.6
   '@types/aws-lambda': 8.10.83
   '@types/dom-mediacapture-record': 1.0.10
+  '@types/dom-screen-wake-lock': ^1.0.0
   '@types/jest': 26.0.20
   '@types/jsdom': 16.2.13
   '@types/marked': 3.0.0
@@ -76,6 +77,7 @@ specifiers:
   '@types/trusted-types': 2.0.2
   '@types/uuid': 8.3.0
   '@types/vscode': 1.59.0
+  '@types/webxr': ^0.2.3
   '@typescript-eslint/eslint-plugin': 4.20.0
   '@typescript-eslint/experimental-utils': 4.29.3
   '@typescript-eslint/parser': 4.20.0
@@ -204,6 +206,7 @@ devDependencies:
   '@nrwl/workspace': 11.6.1_prettier@2.2.1
   '@types/aws-lambda': 8.10.83
   '@types/dom-mediacapture-record': 1.0.10
+  '@types/dom-screen-wake-lock': 1.0.0
   '@types/jest': 26.0.20
   '@types/jsdom': 16.2.13
   '@types/marked': 3.0.0
@@ -211,6 +214,7 @@ devDependencies:
   '@types/trusted-types': 2.0.2
   '@types/uuid': 8.3.0
   '@types/vscode': 1.59.0
+  '@types/webxr': 0.2.3
   '@typescript-eslint/eslint-plugin': 4.20.0_d27c0fd122a1f0f66bd66f6217302e74
   '@typescript-eslint/parser': 4.20.0_eslint@7.23.0+typescript@4.4.2
   cdktf-cli: 0.4.1
@@ -5326,6 +5330,10 @@ packages:
     resolution: {integrity: sha512-8O84hHuVhMMLHLybf3y9SQpNcnQSuzVzcJaUNq9+4Ovb7fodS0aQXep4hyMtxd6fe/dyszbHFjFqtyawf4y46A==}
     dev: true
 
+  /@types/dom-screen-wake-lock/1.0.0:
+    resolution: {integrity: sha512-3o5jkfJsuhFcKj2EZ3PiEoiQQbB3J/nffsXJBKtyubkBHsX2siS6b4uij3ukr5xgDHsF4BaT9fHo8DneAw/YxA==}
+    dev: true
+
   /@types/duplexify/3.6.0:
     resolution: {integrity: sha512-5zOA53RUlzN74bvrSGwjudssD9F3a797sDZQkiYpUOxW+WHaXTCPz4/d5Dgi6FKnOqZ2CpaTo0DhgIfsXAOE/A==}
     dependencies:
@@ -5498,6 +5506,10 @@ packages:
       '@types/node': 14.14.33
       '@types/source-list-map': 0.1.2
       source-map: 0.6.1
+    dev: true
+
+  /@types/webxr/0.2.3:
+    resolution: {integrity: sha512-MCxbyG4KIcx8+g1RwX9uRYsEfRncWLKtGhzSFh+j8fNOgnuzuBAabGJZz45iU4JvPeqaKaLRqQt6o92NMprmwQ==}
     dev: true
 
   /@types/ws/7.4.7:

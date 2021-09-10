@@ -3,7 +3,7 @@ import type { ElementDefinition } from '../definition/element-definition';
 import { createElementTagNameDeclaration } from './create-element-tag-name-declaration';
 
 describe('Create element tag name declaration', () => {
-  it('works', () => {
+  it('creates an element tag declaration', () => {
     given: 'an element definition'
     const elementDefinition: ElementDefinition = {
       baseClassName: 'HTMLElement',

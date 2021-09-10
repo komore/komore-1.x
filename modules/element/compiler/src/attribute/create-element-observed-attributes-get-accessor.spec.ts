@@ -27,8 +27,8 @@ describe('Create element observed attributes get accessor', () => {
     expect(declaration).toBeSource(`
       static get observedAttributes() {
         return [
-          "test-a",
-          "test-b"
+          'test-a',
+          'test-b'
         ] as const;
       }
     `);

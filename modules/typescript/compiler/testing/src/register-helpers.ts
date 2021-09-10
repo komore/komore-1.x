@@ -6,5 +6,5 @@ function createTestSource(sourceText: string): SourceFile {
 }
 
 export function registerHelpers(): void {
-  (global as { createTestSource?: typeof createTestSource }).createTestSource = createTestSource;
+  (globalThis as { createTestSource?: typeof createTestSource }).createTestSource = createTestSource;
 }

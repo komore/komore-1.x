@@ -1,5 +1,10 @@
+export { createArrowFunction } from './create-arrow-function';
 export { createExtendsKeyof } from './create-extends-keyof';
 export { createExtendsType } from './create-extends-type';
+export { createImportDeclaration } from './create-import-declaration';
+export { createObjectBindingPattern } from './create-object-binding-pattern';
+export { createObjectLiteral } from './create-object-literal';
 export { createParameter } from './create-parameter';
 export { createPropertyAccess } from './create-property-access';
 export { createSuperCall } from './create-super-call';
+export { createVariableStatement } from './create-variable-statement';

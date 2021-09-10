@@ -222,8 +222,11 @@
     "element-l10n-operators": {
       "tags": ["scope:element", "trait:operators"]
     },
-    "element-operators": {
-      "tags": ["scope:element", "trait:operators"]
+    "element-observer": {
+      "tags": ["scope:element"]
+    },
+    "element-observer-testing": {
+      "tags": ["scope:element", "trait:testing"]
     },
     "element-overlay": {
       "tags": ["scope:element"]
@@ -883,6 +886,9 @@
     "web": {
       "tags": ["scope:web", "trait:base"]
     },
+    "web-audio": {
+      "tags": ["scope:web"]
+    },
     "web-authentication": {
       "tags": ["scope:web"]
     },
@@ -931,12 +937,6 @@
     "web-notification": {
       "tags": ["scope:web"]
     },
-    "web-observer": {
-      "tags": ["scope:web"]
-    },
-    "web-observer-testing": {
-      "tags": ["scope:web", "trait:testing"]
-    },
     "web-operators": {
       "tags": ["scope:web", "trait:operators"]
     },
@@ -953,6 +953,9 @@
       "tags": ["scope:web"]
     },
     "web-rtc": {
+      "tags": ["scope:web"]
+    },
+    "web-share": {
       "tags": ["scope:web"]
     },
     "web-speech": {
@@ -973,6 +976,9 @@
     "web-vibration": {
       "tags": ["scope:web"]
     },
+    "web-wakelock": {
+      "tags": ["scope:web"]
+    },
     "web-worker": {
       "tags": ["scope:web"]
     },
@@ -984,6 +990,9 @@
     },
     "web-worker-service-operators": {
       "tags": ["scope:web", "trait:operators"]
+    },
+    "web-xr": {
+      "tags": ["scope:web"]
     },
     "website": {
       "tags": ["scope:website", "trait:base"]

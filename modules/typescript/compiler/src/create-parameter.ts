@@ -1,4 +1,4 @@
-import type { Expression, Identifier, NodeFactory, ParameterDeclaration, TypeNode } from 'typescript';
+import type { BindingName, Expression, Identifier, NodeFactory, ParameterDeclaration, TypeNode } from 'typescript';
 import { SyntaxKind } from 'typescript';
 
 /**
@@ -15,12 +15,12 @@ import { SyntaxKind } from 'typescript';
  */
 export function createParameter(
   factory: NodeFactory,
-  name: string,
-  type: TypeNode | ReadonlyArray<TypeNode>,
+  name: string | Identifier | BindingName,
+  type?: TypeNode | ReadonlyArray<TypeNode>,
   optional?: boolean,
   initializer?: Expression
 ): [ParameterDeclaration, Identifier] {
-  const nameId = factory.createIdentifier(name);
+  const nameId = typeof name === 'string' ? factory.createIdentifier(name) : name;
   const questionToken = optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined;
   const parameterType = type instanceof Array ? factory.createUnionTypeNode(type) : type;
   const declaration = factory.createParameterDeclaration(

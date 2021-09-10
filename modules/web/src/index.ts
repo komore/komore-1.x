@@ -1,9 +1,12 @@
-export { hasMessageEventOriginIn } from './has-message-event-origin-in';
+export { isMessageEventOriginIn } from './is-message-event-origin-in';
+export { isPageHidden } from './is-page-hidden';
+export { isPageVisible } from './is-page-visible';
 export { observeFullscreenChanges } from './observe-fullscreen-changes';
 export { observePageVisibility } from './observe-page-visibility';
 export { readBlobAsDataUrl } from './read-blob-as-data-url';
 export { readBlobAsText } from './read-blob-as-text';
-export { stripDataUrlDeclaration } from './strip-data-url-declaration';
+export { toBlobAsDataUrl } from './to-blob-as-data-url';
+export { toBlobAsText } from './to-blob-as-text';
 export { toDataUrlData } from './to-data-url-data';
 export { toDataUrlMediaType } from './to-data-url-media-type';
 export { toMessageEventData } from './to-message-event-data';
