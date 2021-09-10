@@ -10,5 +10,5 @@ export interface StyleProcessor {
    * @param content Content
    * @returns Processed style sheet
    */
-  (content: string): Observable<ProcessedStyleSheet>;
+  (content: Observable<string>): Observable<ProcessedStyleSheet>;
 }

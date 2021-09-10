@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/typescript-compiler',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'typescript-compiler'
+  displayName: 'typescript-compiler',
+  setupFilesAfterEnv: ['./test-setup.ts']
 };

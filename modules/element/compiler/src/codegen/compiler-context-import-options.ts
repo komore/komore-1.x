@@ -1,7 +1,7 @@
 /**
- * Compiler context import
+ * Compiler context import options
  */
-export interface CompilerContextImport {
+export interface CompilerContextImportOptions {
   readonly path: string;
   readonly name: string;
   readonly alias?: string;

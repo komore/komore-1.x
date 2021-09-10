@@ -1,8 +1,8 @@
+import type { ParsedSource } from '@komore/element/parser';
 import { parseSource } from '@komore/element/parser';
 import type { Observable } from '@komore/reactive';
 import { defer, EMPTY, of } from '@komore/reactive';
 import { map, switchMap } from '@komore/reactive/operators';
-import { JSDOM } from 'jsdom';
 import type { NodeFactory } from 'typescript';
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
 import { generateStyle } from './generate-style';
@@ -11,6 +11,7 @@ import { processSource } from './processors/process-source';
 import { createElementInterfaceDeclaration } from './interface/create-element-interface-declaration';
 import { createElementEventMap } from './event/create-element-event-map';
 import { buildElementDefinitionWith } from './definition/build-element-definition-with';
+import { toDocumentFragment } from './to-document-fragment';
 
 /**
  * Compiles an element source
@@ -25,9 +26,9 @@ import { buildElementDefinitionWith } from './definition/build-element-definitio
  */
 export function compileSource(factory: NodeFactory, source: string): Observable<void> {
   return defer(() => of(source)).pipe(
-    map(JSDOM.fragment),
-    switchMap(parseDocumentFragment()),
-    switchMap(processSource),
+    map(toDocumentFragment),
+    switchMap(toParsedSource()),
+    switchMap(toProcessedSource()),
     map(({ elementDefinition }) => {
       const templateElementId = undefined;
       const styleSheetsId = undefined;
@@ -53,9 +54,11 @@ export function compileSource(factory: NodeFactory, source: string): Observable<
 
 /**
  * Parses a document fragment
+ * @param documentFragment Document fragment
+ * @returns Parsed source
  */
-function parseDocumentFragment() {
-  return (documentFragment: DocumentFragment) =>
+function toParsedSource(): (documentFragment: DocumentFragment) => Observable<ParsedSource> {
+  return documentFragment =>
     parseSource(
       documentFragment,
       () => EMPTY,

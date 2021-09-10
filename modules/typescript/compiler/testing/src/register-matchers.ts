@@ -46,6 +46,9 @@ function generateResult(matcherName: string, utils: jest.MatcherUtils['utils'], 
   };
 }
 
+/**
+ * Registers additional matchers for Jest
+ */
 export function registerMatchers(): void {
   expect.extend({
     toBeSource(received: Node, expected: string) {

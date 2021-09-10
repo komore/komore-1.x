@@ -1608,6 +1608,161 @@
         }
       }
     },
+    "element-compiler-css": {
+      "root": "modules/element/compiler/css",
+      "sourceRoot": "modules/element/compiler/css/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/compiler/css/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-compiler-css"],
+          "options": {
+            "jestConfig": "modules/element/compiler/css/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element/compiler/css",
+            "tsConfig": "modules/element/compiler/css/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/css/package.json",
+            "main": "modules/element/compiler/css/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-compiler-html": {
+      "root": "modules/element/compiler/html",
+      "sourceRoot": "modules/element/compiler/html/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/compiler/html/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-compiler-html"],
+          "options": {
+            "jestConfig": "modules/element/compiler/html/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element/compiler/html",
+            "tsConfig": "modules/element/compiler/html/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/html/package.json",
+            "main": "modules/element/compiler/html/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-compiler-markdown": {
+      "root": "modules/element/compiler/markdown",
+      "sourceRoot": "modules/element/compiler/markdown/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/compiler/markdown/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-compiler-markdown"],
+          "options": {
+            "jestConfig": "modules/element/compiler/markdown/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element-compiler-markdown",
+            "tsConfig": "modules/element/compiler/markdown/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/markdown/package.json",
+            "main": "modules/element/compiler/markdown/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-compiler-processor": {
+      "root": "modules/element/compiler/processor",
+      "sourceRoot": "modules/element/compiler/processor/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/compiler/processor/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-compiler-processor"],
+          "options": {
+            "jestConfig": "modules/element/compiler/processor/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element-compiler-processor",
+            "tsConfig": "modules/element/compiler/processor/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/processor/package.json",
+            "main": "modules/element/compiler/processor/src/index.ts"
+          }
+        }
+      }
+    },
+    "element-compiler-scss": {
+      "root": "modules/element/compiler/scss",
+      "sourceRoot": "modules/element/compiler/scss/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/element/compiler/scss/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/element-compiler-scss"],
+          "options": {
+            "jestConfig": "modules/element/compiler/scss/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/element-compiler-scss",
+            "tsConfig": "modules/element/compiler/scss/tsconfig.lib.json",
+            "packageJson": "modules/element/compiler/scss/package.json",
+            "main": "modules/element/compiler/scss/src/index.ts"
+          }
+        }
+      }
+    },
     "element-directive": {
       "root": "modules/element/directive",
       "sourceRoot": "modules/element/directive/src",
