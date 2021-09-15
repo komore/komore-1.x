@@ -29,11 +29,8 @@ export type { CognitoEventUserMigrationStatus } from './event/cognito-event-user
 export type { CognitoEventVerifyAuthChallengeResponseRequest } from './event/cognito-event-verify-auth-challenge-response-request';
 export type { CognitoEventVerifyAuthChallengeResponseResponse } from './event/cognito-event-verify-auth-challenge-response-response';
 export { isCognitoEvent } from './event/is-cognito-event';
-
-
-export { addClaims } from './add-claims';
-export { autoConfirm } from './auto-confirm';
-export { autoVerify } from './auto-verify';
-export { correctAnswer } from './correct-answer';
-export { mapTokenGenerationResponse } from './map-token-generation-response';
-export { removeClaims } from './remove-claims';
+export { withAutoConfirm } from './with-auto-confirm';
+export { withAutoVerify } from './with-auto-verify';
+export { withClaims } from './with-claims';
+export { withoutClaims } from './without-claims';
+// export { correctAnswer } from './correct-answer';

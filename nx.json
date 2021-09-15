@@ -23,6 +23,12 @@
     "libsDir": "modules"
   },
   "projects": {
+    "ai": {
+      "tags": ["scope:ai", "trait:base"]
+    },
+    "ai-text": {
+      "tags": ["scope:ai"]
+    },
     "api": {
       "tags": ["scope:api", "trait:base"]
     },
@@ -119,24 +125,6 @@
     },
     "command-testing": {
       "tags": ["scope:command", "trait:testing"]
-    },
-    "component": {
-      "tags": ["scope:component", "trait:base"]
-    },
-    "component-button": {
-      "tags": ["scope:component"]
-    },
-    "component-checkbox": {
-      "tags": ["scope:component"]
-    },
-    "component-icon": {
-      "tags": ["scope:component"]
-    },
-    "component-input": {
-      "tags": ["scope:component"]
-    },
-    "component-select": {
-      "tags": ["scope:component"]
     },
     "create": {
       "tags": ["scope:create", "trait:cli"]
@@ -330,6 +318,9 @@
     "event-testing": {
       "tags": ["scope:event", "trait:testing"]
     },
+    "file": {
+      "tags": ["scope:file", "trait:base"]
+    },
     "function": {
       "tags": ["scope:function", "trait:base"]
     },
@@ -366,9 +357,6 @@
     "function-lambda-kinesis-firehose": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:kinesis"]
     },
-    "function-lambda-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon"]
-    },
     "function-lambda-s3": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:s3"]
     },
@@ -393,9 +381,6 @@
     "functional": {
       "tags": ["scope:functional", "trait:base"]
     },
-    "functional-testing": {
-      "tags": ["scope:functional", "trait:testing"]
-    },
     "graph": {
       "tags": ["scope:graph", "trait:base"]
     },
@@ -407,9 +392,6 @@
     },
     "identity": {
       "tags": ["scope:identity", "trait:base"]
-    },
-    "identity-operators": {
-      "tags": ["scope:identity", "trait:operators"]
     },
     "identity-provider": {
       "tags": ["scope:identity"]
@@ -431,6 +413,9 @@
     },
     "identity-testing": {
       "tags": ["scope:identity", "trait:testing"]
+    },
+    "image": {
+      "tags": ["scope:image"]
     },
     "integration": {
       "tags": ["scope:integration"]
@@ -582,9 +567,6 @@
     "integration-gumroad": {
       "tags": ["scope:integration", "trait:provider", "provider:gumroad"]
     },
-    "integration-kafka": {
-      "tags": ["scope:integration", "trait:provider", "provider:kafka"]
-    },
     "integration-mailchimp": {
       "tags": ["scope:integration", "trait:provider", "provider:mailchimp"]
     },
@@ -596,9 +578,6 @@
     },
     "integration-paypal": {
       "tags": ["scope:integration", "trait:provider", "provider:paypal"]
-    },
-    "integration-pulsar": {
-      "tags": ["scope:integration", "trait:provider", "provider:pulsar"]
     },
     "integration-sendgrid": {
       "tags": ["scope:integration", "trait:provider", "provider:sendgrid"]
@@ -624,35 +603,11 @@
     "integration-twitter-operators": {
       "tags": ["scope:integration", "trait:provider", "provider:twitter", "trait:operators"]
     },
-    "layer": {
-      "tags": ["scope:layer", "trait:base"]
-    },
-    "layer-ci": {
-      "tags": ["scope:layer"]
-    },
-    "layer-email": {
-      "tags": ["scope:layer"]
-    },
-    "layer-file": {
-      "tags": ["scope:layer"]
-    },
-    "layer-image": {
-      "tags": ["scope:layer"]
-    },
-    "layer-messaging": {
-      "tags": ["scope:layer"]
-    },
-    "layer-payment": {
-      "tags": ["scope:layer"]
-    },
-    "layer-testing": {
-      "tags": ["scope:layer", "trait:testing"]
-    },
-    "layer-text": {
-      "tags": ["scope:layer"]
+    "mail": {
+      "tags": ["scope:mail", "trait:base"]
     },
     "math": {
-      "tags": ["scope:math"]
+      "tags": ["scope:math", "trait:base"]
     },
     "math-arithmetic": {
       "tags": ["scope:math"]
@@ -717,6 +672,9 @@
     "observability-tracing-operators": {
       "tags": ["scope:observability", "trait:operators"]
     },
+    "payment": {
+      "tags": ["scope:payment", "trait:base"]
+    },
     "process": {
       "tags": ["scope:process", "trait:base"]
     },
@@ -778,9 +736,6 @@
       "tags": ["scope:schematics", "trait:schematics"]
     },
     "schematics-ci": {
-      "tags": ["scope:schematics", "trait:schematics"]
-    },
-    "schematics-documentation": {
       "tags": ["scope:schematics", "trait:schematics"]
     },
     "schematics-domain": {

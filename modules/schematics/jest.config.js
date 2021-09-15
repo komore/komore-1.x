@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/modules/tools/nx/src/**/*.spec.ts'],
-  preset: '../../../jest.preset.js',
-  coverageDirectory: '../../../coverage/tools-nx',
+  testMatch: ['**/modules/schematics/src/**/*.spec.ts'],
+  preset: '../../jest.preset.js',
+  coverageDirectory: '../../coverage/schematics',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'tools-nx'
+  displayName: 'schematics'
 };
