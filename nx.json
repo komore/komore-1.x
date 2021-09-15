@@ -348,23 +348,23 @@
     "function-lambda-apigateway-http": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"]
     },
-    "function-lambda-apigateway-http-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:apigateway"]
-    },
-    "function-lambda-apigateway-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:apigateway"]
-    },
     "function-lambda-appsync": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:appsync"]
     },
-    "function-lambda-appsync-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:appsync"]
+    "function-lambda-cloudfront": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:cloudfront"]
     },
     "function-lambda-cognito": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:cognito"]
     },
-    "function-lambda-cognito-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:cognito"]
+    "function-lambda-dynamodb": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:dynamodb"]
+    },
+    "function-lambda-kinesis": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:kinesis"]
+    },
+    "function-lambda-kinesis-firehose": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:kinesis"]
     },
     "function-lambda-operators": {
       "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon"]
@@ -372,8 +372,14 @@
     "function-lambda-s3": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:s3"]
     },
-    "function-lambda-s3-operators": {
-      "tags": ["scope:function", "trait:provider", "trait:operators", "provider:amazon", "service:s3"]
+    "function-lambda-ses": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:ses"]
+    },
+    "function-lambda-sns": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:sns"]
+    },
+    "function-lambda-sqs": {
+      "tags": ["scope:function", "trait:provider", "provider:amazon", "service:sqs"]
     },
     "function-lambda-testing": {
       "tags": ["scope:function", "trait:provider", "trait:testing", "provider:amazon"]

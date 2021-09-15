@@ -3447,72 +3447,6 @@
         }
       }
     },
-    "function-lambda-apigateway-http-operators": {
-      "root": "modules/function/lambda/api-gateway/http/operators",
-      "sourceRoot": "modules/function/lambda/api-gateway/http/operators/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/function/lambda/api-gateway/http/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/function/lambda/api-gateway/http/operators/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/api-gateway/http/operators/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/function-lambda-apigateway-http-operators"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/function/lambda/api-gateway/http/operators",
-            "tsConfig": "modules/function/lambda/api-gateway/http/operators/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/api-gateway/http/operators/package.json",
-            "main": "modules/function/lambda/api-gateway/http/operators/src/index.ts"
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "function-lambda-apigateway-operators": {
-      "root": "modules/function/lambda/api-gateway/operators",
-      "sourceRoot": "modules/function/lambda/api-gateway/operators/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/function/lambda/api-gateway/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/function/lambda/api-gateway/operators/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/api-gateway/operators/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/function-lambda-apigateway-operators"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/function/lambda/api-gateway/operators",
-            "tsConfig": "modules/function/lambda/api-gateway/operators/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/api-gateway/operators/package.json",
-            "main": "modules/function/lambda/api-gateway/operators/src/index.ts"
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
     "function-lambda-appsync": {
       "root": "modules/function/lambda/app-sync",
       "sourceRoot": "modules/function/lambda/app-sync/src",
@@ -3546,34 +3480,34 @@
         }
       }
     },
-    "function-lambda-appsync-operators": {
-      "root": "modules/function/lambda/app-sync/operators",
-      "sourceRoot": "modules/function/lambda/app-sync/operators/src",
+    "function-lambda-cloudfront": {
+      "root": "modules/function/lambda/cloud-front",
+      "sourceRoot": "modules/function/lambda/cloud-front/src",
       "projectType": "library",
       "generators": {},
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["modules/function/lambda/app-sync/operators/src/**/*.ts"]
+            "lintFilePatterns": ["modules/function/lambda/cloud-front/src/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/function/lambda/app-sync/operators/jest.config.js",
+            "jestConfig": "modules/function/lambda/cloud-front/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/app-sync/operators/tsconfig.spec.json"
+            "tsConfig": "modules/function/lambda/cloud-front/tsconfig.spec.json"
           },
-          "outputs": ["coverage/function-lambda-appsync-operators"]
+          "outputs": ["coverage/function-lambda-cloudfront"]
         },
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/function/lambda/app-sync/operators",
-            "tsConfig": "modules/function/lambda/app-sync/operators/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/app-sync/operators/package.json",
-            "main": "modules/function/lambda/app-sync/operators/src/index.ts"
+            "outputPath": "dist/function/lambda/cloud-front",
+            "tsConfig": "modules/function/lambda/cloud-front/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/cloud-front/package.json",
+            "main": "modules/function/lambda/cloud-front/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3612,34 +3546,100 @@
         }
       }
     },
-    "function-lambda-cognito-operators": {
-      "root": "modules/function/lambda/cognito/operators",
-      "sourceRoot": "modules/function/lambda/cognito/operators/src",
+    "function-lambda-dynamodb": {
+      "root": "modules/function/lambda/dynamodb",
+      "sourceRoot": "modules/function/lambda/dynamodb/src",
       "projectType": "library",
       "generators": {},
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["modules/function/lambda/cognito/operators/src/**/*.ts"]
+            "lintFilePatterns": ["modules/function/lambda/dynamodb/src/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/function/lambda/cognito/operators/jest.config.js",
+            "jestConfig": "modules/function/lambda/dynamodb/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/cognito/operators/tsconfig.spec.json"
+            "tsConfig": "modules/function/lambda/dynamodb/tsconfig.spec.json"
           },
-          "outputs": ["coverage/function-lambda-cognito-operators"]
+          "outputs": ["coverage/function-lambda-dynamodb"]
         },
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/function/lambda/cognito/operators",
-            "tsConfig": "modules/function/lambda/cognito/operators/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/cognito/operators/package.json",
-            "main": "modules/function/lambda/cognito/operators/src/index.ts"
+            "outputPath": "dist/function/lambda/dynamodb",
+            "tsConfig": "modules/function/lambda/dynamodb/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/dynamodb/package.json",
+            "main": "modules/function/lambda/dynamodb/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "function-lambda-kinesis": {
+      "root": "modules/function/lambda/kinesis",
+      "sourceRoot": "modules/function/lambda/kinesis/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/kinesis/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/kinesis/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/kinesis/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-kinesis"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/kinesis",
+            "tsConfig": "modules/function/lambda/kinesis/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/kinesis/package.json",
+            "main": "modules/function/lambda/kinesis/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "function-lambda-kinesis-firehose": {
+      "root": "modules/function/lambda/kinesis/firehose",
+      "sourceRoot": "modules/function/lambda/kinesis/firehose/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/kinesis/firehose/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/kinesis/firehose/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/kinesis/firehose/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-kinesis-firehose"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/kinesis/firehose",
+            "tsConfig": "modules/function/lambda/kinesis/firehose/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/kinesis/firehose/package.json",
+            "main": "modules/function/lambda/kinesis/firehose/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }
@@ -3711,34 +3711,100 @@
         }
       }
     },
-    "function-lambda-s3-operators": {
-      "root": "modules/function/lambda/s3/operators",
-      "sourceRoot": "modules/function/lambda/s3/operators/src",
+    "function-lambda-ses": {
+      "root": "modules/function/lambda/ses",
+      "sourceRoot": "modules/function/lambda/ses/src",
       "projectType": "library",
       "generators": {},
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["modules/function/lambda/s3/operators/src/**/*.ts"]
+            "lintFilePatterns": ["modules/function/lambda/ses/src/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/function/lambda/s3/operators/jest.config.js",
+            "jestConfig": "modules/function/lambda/ses/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/s3/operators/tsconfig.spec.json"
+            "tsConfig": "modules/function/lambda/ses/tsconfig.spec.json"
           },
-          "outputs": ["coverage/function-lambda-s3-operators"]
+          "outputs": ["coverage/function-lambda-ses"]
         },
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/function/lambda/s3/operators",
-            "tsConfig": "modules/function/lambda/s3/operators/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/s3/operators/package.json",
-            "main": "modules/function/lambda/s3/operators/src/index.ts"
+            "outputPath": "dist/function/lambda/ses",
+            "tsConfig": "modules/function/lambda/ses/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/ses/package.json",
+            "main": "modules/function/lambda/ses/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "function-lambda-sns": {
+      "root": "modules/function/lambda/sns",
+      "sourceRoot": "modules/function/lambda/sns/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/sns/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/sns/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/sns/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-sns"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/sns",
+            "tsConfig": "modules/function/lambda/sns/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/sns/package.json",
+            "main": "modules/function/lambda/sns/src/index.ts"
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "function-lambda-sqs": {
+      "root": "modules/function/lambda/sqs",
+      "sourceRoot": "modules/function/lambda/sqs/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/function/lambda/sqs/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/function/lambda/sqs/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/function/lambda/sqs/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/function-lambda-sqs"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/function/lambda/sqs",
+            "tsConfig": "modules/function/lambda/sqs/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/sqs/package.json",
+            "main": "modules/function/lambda/sqs/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }

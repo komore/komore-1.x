@@ -27,7 +27,7 @@
 import { buildCommand } from '@komore/cli/build';
 import { createCommand } from '@komore/runtime/cli';
 
-export default createCommand('deploy', deployCommand, {
+export default createCommand('build', buildCommand, {
   args: {
   },
   flags: {
