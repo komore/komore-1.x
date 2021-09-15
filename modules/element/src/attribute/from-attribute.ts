@@ -7,5 +7,5 @@ import type { Observable } from '@komore/reactive';
  * @template AttributeMap Attribute map
  */
 export interface FromAttribute<AttributeMap extends Record<string, unknown>> {
-  <AttributeName extends keyof AttributeMap>(attributeName: AttributeName): Observable<string | undefined>;
+  <AttributeName extends keyof AttributeMap>(attributeName: AttributeName): Observable<string | null>;
 }

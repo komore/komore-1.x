@@ -1,7 +1,11 @@
 import type { ProcessorFactory } from '../processor-factory';
 import type { StyleProcessor } from './style-processor';
+import type { StyleProcessorOptions } from './style-processor-options';
 
 /**
  * Style processor factory
  */
-export interface StyleProcessorFactory extends ProcessorFactory<unknown, StyleProcessor> {}
+export type StyleProcessorFactory<ProcessorOptions extends StyleProcessorOptions> = ProcessorFactory<
+  ProcessorOptions,
+  StyleProcessor
+>;

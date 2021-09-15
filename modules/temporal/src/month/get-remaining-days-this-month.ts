@@ -5,7 +5,7 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Number of remaining days for the current month
  */
 export function getRemainingDaysThisMonth(): number {
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   const endOfMonth = now
     .add({ months: 1 })
     .with({ day: 1 })

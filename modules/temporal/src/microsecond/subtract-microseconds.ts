@@ -1,13 +1,10 @@
-import { cloneInstant } from '../../clone-instant';
-import type { InstantWithTime } from '../instant-with-time';
+import type { TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Subtracts microseconds from an instant with time
- * @param instant Instant
- * @param microseconds Number of microseconds to subtract
- * @returns Instant with the subtracted microseconds
- * @template T Instant type
+ * Creates a function that subtracts microseconds from a temporal
+ * @param hours Number of microseconds to subtract
+ * @returns Function that subtracts microseconds from a temporal
  */
-export function subtractMicroseconds<T extends InstantWithTime>(instant: T, microseconds: number): T {
-  return cloneInstant(instant, zdt => zdt.subtract({ microseconds }));
+export function subtractMicroseconds(microseconds: number): <T extends TemporalWithTime>(temporal: T) => T {
+  return <T extends TemporalWithTime>(temporal: T) => temporal.subtract({ microseconds }) as T;
 }

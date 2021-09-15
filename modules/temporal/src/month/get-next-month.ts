@@ -6,6 +6,6 @@ import type { Month } from './month';
  * @returns Next month
  */
 export function getNextMonth(): Month {
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   return now.month;
 }

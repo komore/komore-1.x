@@ -13,7 +13,7 @@ import type { ElementPropertySubjectMap } from './element-property-subject-map';
  * @template PropertyTypes Property types
  */
 export function upgradeElementProperties<
-  PropertyTypes extends Record<string, any>,
+  PropertyTypes extends Record<string, unknown>,
   ElementType extends PropertyTypes
 >(
   element: ElementType,
@@ -21,10 +21,10 @@ export function upgradeElementProperties<
   propertySubjects: ElementPropertySubjectMap<PropertyTypes>
 ): void {
   for (const propertyName of propertyNames) {
-    if (element.hasOwnProperty(propertyName)) {
+    if (Object.prototype.hasOwnProperty.call(element, propertyName)) {
       const propertyValue = element[propertyName];
       delete element[propertyName];
-      element[propertyName] = propertyValue;
+      propertySubjects[propertyName].s.next(propertyValue);
     }
   }
 }

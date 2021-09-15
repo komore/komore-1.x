@@ -1,2 +1,2 @@
-export { createHtmlTemplateProcessor } from './create-html-template-processor';
-export type { HtmlTemplateProcessorOptions } from './html-template-processor-options';
+export { createHtmlTemplateProcessor } from './create-html-processor';
+export type { HtmlTemplateProcessorOptions } from './html-processor-options';

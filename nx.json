@@ -853,9 +853,6 @@
     "temporal-interval": {
       "tags": ["scope:temporal"]
     },
-    "temporal-operators": {
-      "tags": ["scope:temporal", "trait:operators"]
-    },
     "temporal-testing": {
       "tags": ["scope:temporal", "trait:testing"]
     },

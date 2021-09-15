@@ -1,5 +1,6 @@
 import { of } from '@komore/reactive';
-import type { ProcessedStyleSheet, StyleProcessor } from '@komore/element/compiler';
+import { tapValue } from '@komore/reactive/operators';
+import type { ProcessedStyleSheet, StyleProcessor } from '@komore/element/compiler/processor';
 
 /**
  * Creates a CSS style processor
@@ -7,8 +8,9 @@ import type { ProcessedStyleSheet, StyleProcessor } from '@komore/element/compil
  * @returns CSS style processor
  */
 export function createCssProcessor(_: unknown): StyleProcessor {
-  return content => {
-    console.log('weee css', content);
+  return content => content.pipe(
+    tapValue(content => console.log('wee css', content)),
+
     const cssStyleSheet = new CSSStyleSheet();
     cssStyleSheet.
     const processedStyleSheet: ProcessedStyleSheet = {
@@ -17,5 +19,5 @@ export function createCssProcessor(_: unknown): StyleProcessor {
       cssStyleSheet
     };
     return of(processedStyleSheet);
-  };
+  );
 }

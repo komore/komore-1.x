@@ -10,5 +10,5 @@ export interface ElementCompiler {
    * @param source Source
    * @returns Element compiler result
    */
-  (source: string): Observable<ElementCompilerResult>;
+  (source: Observable<string>): Observable<ElementCompilerResult>;
 }

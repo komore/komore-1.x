@@ -1,5 +1,5 @@
+import { createTypeMappingInterface } from '@komore/typescript/compiler';
 import type { Identifier, InterfaceDeclaration, NodeFactory } from 'typescript';
-import { createTypeMappingInterface } from '../codegen/create-type-mapping-interface';
 import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
 
 /**

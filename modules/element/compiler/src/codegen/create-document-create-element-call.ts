@@ -12,6 +12,6 @@ import type { CallExpression, NodeFactory } from 'typescript';
  */
 export function createDocumentCreateElementCall(factory: NodeFactory, tagName: string): CallExpression {
   const createElement = createPropertyAccess(factory, 'document', 'createElement');
-  const templateStringLiteral = factory.createStringLiteral(tagName);
+  const templateStringLiteral = factory.createStringLiteral(tagName, true);
   return factory.createCallExpression(createElement, undefined, [templateStringLiteral]);
 }

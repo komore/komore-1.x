@@ -11,3 +11,6 @@
 # Element Compiler
 
 ## Key concepts
+
+- An element is defined using a template
+- 

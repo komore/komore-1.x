@@ -1,0 +1,3 @@
+TODO:
+
+- SPAKE2+EE vs SRP

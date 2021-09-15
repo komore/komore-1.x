@@ -321,7 +321,6 @@
       "@komore/temporal/duration": ["modules/temporal/duration/src/index.ts"],
       "@komore/temporal/format": ["modules/temporal/format/src/index.ts"],
       "@komore/temporal/interval": ["modules/temporal/interval/src/index.ts"],
-      "@komore/temporal/operators": ["modules/temporal/operators/src/index.ts"],
       "@komore/temporal/testing": ["modules/temporal/testing/src/index.ts"],
       "@komore/testing": ["modules/testing/src/index.ts"],
       "@komore/testing/bdd": ["modules/testing/bdd/src/index.ts"],

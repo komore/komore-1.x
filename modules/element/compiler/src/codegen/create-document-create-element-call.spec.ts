@@ -8,6 +8,6 @@ describe('Create document create element call', () => {
     when: 'creating a document.createElement call';
     const callExpression = createDocumentCreateElementCall(factory, tagName);
     expect: 'the correct call expression to have been created';
-    expect(callExpression).toBeInlineSource('document.createElement("p")');
+    expect(callExpression).toBeInlineSource('document.createElement(\'p\')');
   });
 });

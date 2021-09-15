@@ -7,7 +7,7 @@ import type { ProcessorOptions } from './processor-options';
  * @template Processor Processor type
  */
 export interface ProcessorFactory<Options extends ProcessorOptions, Processor> {
-  readonly regExp?: RegExp;
+  readonly pathRegExp?: RegExp;
 
   /**
    * Tests whether the factory is able to process a URL

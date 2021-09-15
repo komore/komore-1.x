@@ -10,5 +10,4 @@ export { noop } from './noop';
 export { not } from './not';
 export { objectKeys } from './object-keys';
 export { or } from './or';
-export { pluck } from './pluck';
 export type { UnaryFunction } from './unary-function';

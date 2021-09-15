@@ -7,4 +7,6 @@ export { createObjectLiteral } from './create-object-literal';
 export { createParameter } from './create-parameter';
 export { createPropertyAccess } from './create-property-access';
 export { createSuperCall } from './create-super-call';
+export { createTypeMappingInterface } from './create-type-mapping-interface';
 export { createVariableStatement } from './create-variable-statement';
+export type { TypeMapping } from './type-mapping';
