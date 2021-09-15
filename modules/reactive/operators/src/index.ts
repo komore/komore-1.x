@@ -53,5 +53,6 @@ export { tapErrorIf } from './tap-error-if';
 export { tapValue } from './tap-value';
 export { tapValueIf } from './tap-value-if';
 export { throwIf } from './throw-if';
+export { throwUnless } from './throw-unless';
 export { toArray } from './to-array';
 export { withLatestFrom } from './with-latest-from';

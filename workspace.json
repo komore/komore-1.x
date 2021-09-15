@@ -3328,34 +3328,34 @@
         }
       }
     },
-    "function-lambda-apigateway-http": {
-      "root": "modules/function/lambda/api-gateway/http",
-      "sourceRoot": "modules/function/lambda/api-gateway/http/src",
+    "function-lambda-apigateway-httpapi": {
+      "root": "modules/function/lambda/api-gateway/http-api",
+      "sourceRoot": "modules/function/lambda/api-gateway/http-api/src",
       "projectType": "library",
       "generators": {},
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["modules/function/lambda/api-gateway/http/src/**/*.ts"]
+            "lintFilePatterns": ["modules/function/lambda/api-gateway/http-api/src/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "modules/function/lambda/api-gateway/http/jest.config.js",
+            "jestConfig": "modules/function/lambda/api-gateway/http-api/jest.config.js",
             "passWithNoTests": true,
-            "tsConfig": "modules/function/lambda/api-gateway/http/tsconfig.spec.json"
+            "tsConfig": "modules/function/lambda/api-gateway/http-api/tsconfig.spec.json"
           },
-          "outputs": ["coverage/function-lambda-apigateway-http"]
+          "outputs": ["coverage/function-lambda-apigateway-httpapi"]
         },
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/function/lambda/api-gateway/http",
-            "tsConfig": "modules/function/lambda/api-gateway/http/tsconfig.lib.json",
-            "packageJson": "modules/function/lambda/api-gateway/http/package.json",
-            "main": "modules/function/lambda/api-gateway/http/src/index.ts"
+            "outputPath": "dist/function/lambda/api-gateway/http-api",
+            "tsConfig": "modules/function/lambda/api-gateway/http-api/tsconfig.lib.json",
+            "packageJson": "modules/function/lambda/api-gateway/http-api/package.json",
+            "main": "modules/function/lambda/api-gateway/http-api/src/index.ts"
           },
           "outputs": ["{options.outputPath}"]
         }

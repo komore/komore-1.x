@@ -336,7 +336,7 @@
     "function-lambda-apigateway": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"]
     },
-    "function-lambda-apigateway-http": {
+    "function-lambda-apigateway-httpapi": {
       "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"]
     },
     "function-lambda-appsync": {

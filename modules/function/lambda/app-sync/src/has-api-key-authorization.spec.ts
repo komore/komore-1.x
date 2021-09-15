@@ -1,14 +1,14 @@
 import { expectTypeOf } from 'expect-type';
-import type { AppSyncEvent } from './app-sync-event';
-import type { AppSyncEventWithApiKeyIdentity } from './app-sync-event-with-api-key-identity';
-import { hasApiKeyIdentity } from './has-api-key-identity';
+import type { AppSyncEvent } from './event/app-sync-event';
+import type { AppSyncEventWithApiKeyAuthorization } from './event/app-sync-event-with-api-key-authorization';
+import { hasApiKeyAuthorization } from './has-api-key-authorization';
 
-describe('Has API key identity', () => {
+describe('Has API key authorization', () => {
   it('returns true when the identity is null', () => {
     given: 'an AppSync event with a null identity';
     const appSyncEvent = { identity: null } as AppSyncEvent<unknown>;
     when: 'testing whether the event has an API key identity';
-    const result = hasApiKeyIdentity(appSyncEvent);
+    const result = hasApiKeyAuthorization(appSyncEvent);
     expect: 'true to be returned';
     expect(result).toBe(true);
   });
@@ -17,7 +17,7 @@ describe('Has API key identity', () => {
     given: 'an AppSync event with a non-null identity';
     const appSyncEvent = { identity: {} } as AppSyncEvent<unknown>;
     when: 'testing whether the event has an API key identity';
-    const result = hasApiKeyIdentity(appSyncEvent);
+    const result = hasApiKeyAuthorization(appSyncEvent);
     expect: 'false to be returned';
     expect(result).toBe(false);
   });
@@ -26,8 +26,8 @@ describe('Has API key identity', () => {
     given: 'an AppSync event with a null identity';
     const appSyncEvent = { identity: null } as AppSyncEvent<string>;
     expect: 'the AppSync event identity type to be asserted';
-    if (hasApiKeyIdentity(appSyncEvent)) {
-      expectTypeOf(appSyncEvent).toEqualTypeOf<AppSyncEventWithApiKeyIdentity<string>>();
+    if (hasApiKeyAuthorization(appSyncEvent)) {
+      expectTypeOf(appSyncEvent).toEqualTypeOf<AppSyncEventWithApiKeyAuthorization<string>>();
     }
   });
 });

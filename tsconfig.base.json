@@ -119,7 +119,7 @@
       "@komore/function-google": ["modules/function/google/src/index.ts"],
       "@komore/function-lambda": ["modules/function/lambda/src/index.ts"],
       "@komore/function-lambda/api-gateway": ["modules/function/lambda/api-gateway/src/index.ts"],
-      "@komore/function-lambda/api-gateway/http": ["modules/function/lambda/api-gateway/http/src/index.ts"],
+      "@komore/function-lambda/api-gateway/http": ["modules/function/lambda/api-gateway/http-api/src/index.ts"],
       "@komore/function-lambda/app-sync": ["modules/function/lambda/app-sync/src/index.ts"],
       "@komore/function-lambda/cloud-front": ["modules/function/lambda/cloud-front/src/index.ts"],
       "@komore/function-lambda/cognito": ["modules/function/lambda/cognito/src/index.ts"],

@@ -1,1 +1,0 @@
-# AppSync Events Operators
