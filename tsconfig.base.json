@@ -241,7 +241,6 @@
       "@komore/message/testing": ["modules/message/testing/src/index.ts"],
       "@komore/observability": ["modules/observability/src/index.ts"],
       "@komore/observability/logging": ["modules/observability/logging/src/index.ts"],
-      "@komore/observability/logging/operators": ["modules/observability/logging/operators/src/index.ts"],
       "@komore/observability/metrics": ["modules/observability/metrics/src/index.ts"],
       "@komore/observability/metrics/operators": ["modules/observability/metrics/operators/src/index.ts"],
       "@komore/observability/provider": ["modules/observability/provider/local/src/index.ts"],

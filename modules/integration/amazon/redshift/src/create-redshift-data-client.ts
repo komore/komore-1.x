@@ -9,5 +9,3 @@ import { RedshiftDataClient } from '@aws-sdk/client-redshift-data';
 export function createRedshiftDataClient(configuration?: RedshiftDataClientConfig): RedshiftDataClient {
   return new RedshiftDataClient(configuration ?? {});
 }
-
-createRedshiftDataClient().send()

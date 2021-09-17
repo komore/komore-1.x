@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Subject } from '@komore/reactive';
 import type { UntypedLogEvent } from './log-event';
 import type { LogEventRecord } from './log-event-record';
 

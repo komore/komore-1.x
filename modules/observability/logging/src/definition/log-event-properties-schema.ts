@@ -1,4 +1,4 @@
-import type { _TypeSchema } from '@komore/typescript';
+import type { TypeSchema } from '@komore/typescript/schema';
 import type { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';
 
 /**
@@ -6,7 +6,7 @@ import type { logEventPropertiesSchemaTypeName } from './log-event-properties-sc
  * @template SchemaType Schema type
  * @private
  */
-export type LogEventPropertiesSchema<SchemaType extends Record<string, unknown>> = _TypeSchema<
+export type LogEventPropertiesSchema<SchemaType extends Record<string, unknown>> = TypeSchema<
   typeof logEventPropertiesSchemaTypeName,
   SchemaType
 >;

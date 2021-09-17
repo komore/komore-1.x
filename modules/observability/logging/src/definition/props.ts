@@ -1,5 +1,4 @@
-import type { _TypeSchema, _TypeSchemaType } from '@komore/typescript';
-import { _typeSchema } from '@komore/typescript';
+import { typeSchema } from '@komore/typescript/schema';
 import type { LogEventPropertiesSchema } from './log-event-properties-schema';
 import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';
 
@@ -9,5 +8,5 @@ import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-
  * @template SchemaType Schema type
  */
 export function props<SchemaType extends Record<string, unknown>>(): LogEventPropertiesSchema<SchemaType> {
-  return _typeSchema<typeof logEventPropertiesSchemaTypeName, SchemaType>(logEventPropertiesSchemaTypeName);
+  return typeSchema<typeof logEventPropertiesSchemaTypeName, SchemaType>(logEventPropertiesSchemaTypeName);
 }

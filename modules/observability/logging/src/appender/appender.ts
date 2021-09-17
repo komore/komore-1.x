@@ -1,5 +1,5 @@
 import type { ValueObserver } from '@komore/reactive';
-import type { UntypedLogEventRecord } from '../log-event-record';
+import type { UntypedLogEventRecord } from '../definition/log-event-record';
 
 /**
  * Appender

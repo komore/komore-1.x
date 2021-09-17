@@ -1,7 +1,7 @@
-import { createLogEvent } from '../create-log-event';
-import { createLogGroup } from '../create-log-group';
-import type { UntypedLogEventRecord } from '../log-event-record';
-import type { LogEventSeverity } from '../log-event-severity';
+import { createLogEvent } from '../definition/create-log-event';
+import { createLogGroup } from '../definition/create-log-group';
+import type { UntypedLogEventRecord } from '../definition/log-event-record';
+import type { LogEventSeverity } from '../definition/log-event-severity';
 import { createSeverityFilter } from './create-severity-filter';
 import { FilterResult } from './filter-result';
 

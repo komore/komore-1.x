@@ -1,4 +1,4 @@
-import { assert } from '@komore/typescript';
+import { assert } from '@komore/runtime';
 import type { Layout } from './layout';
 import type { PatternLayoutOptions } from './pattern-layout-options';
 

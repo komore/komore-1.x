@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from '@komore/reactive';
 import type { Encoder } from './encoder';
 
 const encoderMap = new BehaviorSubject<ReadonlyMap<string, Encoder>>(new Map<string, Encoder>());

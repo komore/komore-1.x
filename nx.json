@@ -636,9 +636,6 @@
     "observability-logging": {
       "tags": ["scope:observability"]
     },
-    "observability-logging-operators": {
-      "tags": ["scope:observability", "trait:operators"]
-    },
     "observability-metrics": {
       "tags": ["scope:observability"]
     },

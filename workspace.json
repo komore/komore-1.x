@@ -6635,37 +6635,6 @@
         }
       }
     },
-    "observability-logging-operators": {
-      "root": "modules/observability/logging/operators",
-      "sourceRoot": "modules/observability/logging/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/observability/logging/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/observability-logging-operators"],
-          "options": {
-            "jestConfig": "modules/observability/logging/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/observability/logging/operators",
-            "tsConfig": "modules/observability/logging/operators/tsconfig.lib.json",
-            "packageJson": "modules/observability/logging/operators/package.json",
-            "main": "modules/observability/logging/operators/src/index.ts"
-          }
-        }
-      }
-    },
     "observability-metrics": {
       "root": "modules/observability/metrics",
       "sourceRoot": "modules/observability/metrics/src",
