@@ -1,9 +1,10 @@
 /**
  * From event source options
  */
-export type FromEventSourceOptions = Readonly<{
+export interface FromEventSourceOptions {
   /**
-   * Transfer ownership of the event source, meaning the event source will be closed when the observable is unsubscribed
+   * Transfer ownership of the event source, meaning the event source will be closed when the observable no longer
+   * observed
    */
-  transferOwnership: boolean;
-}>;
+  readonly transferOwnership: boolean;
+}

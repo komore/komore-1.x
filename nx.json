@@ -907,9 +907,6 @@
     "web-notification": {
       "tags": ["scope:web"]
     },
-    "web-operators": {
-      "tags": ["scope:web", "trait:operators"]
-    },
     "web-payment": {
       "tags": ["scope:web"]
     },

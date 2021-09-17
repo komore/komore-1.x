@@ -2577,37 +2577,6 @@
         }
       }
     },
-    "element-styling-operators": {
-      "root": "modules/element/styling/operators",
-      "sourceRoot": "modules/element/styling/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/element/styling/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/element-styling-operators"],
-          "options": {
-            "jestConfig": "modules/element/styling/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/element/styling/operators",
-            "tsConfig": "modules/element/styling/operators/tsconfig.lib.json",
-            "packageJson": "modules/element/styling/operators/package.json",
-            "main": "modules/element/styling/operators/src/index.ts"
-          }
-        }
-      }
-    },
     "element-testing": {
       "root": "modules/element/testing",
       "sourceRoot": "modules/element/testing/src",
@@ -9458,37 +9427,6 @@
             "tsConfig": "modules/web/notification/tsconfig.lib.json",
             "packageJson": "modules/web/notification/package.json",
             "main": "modules/web/notification/src/index.ts"
-          }
-        }
-      }
-    },
-    "web-operators": {
-      "root": "modules/web/operators",
-      "sourceRoot": "modules/web/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/web/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/web-operators"],
-          "options": {
-            "jestConfig": "modules/web/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/web/operators",
-            "tsConfig": "modules/web/operators/tsconfig.lib.json",
-            "packageJson": "modules/web/operators/package.json",
-            "main": "modules/web/operators/src/index.ts"
           }
         }
       }

@@ -6,7 +6,7 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Function that clears the mock when called
  */
 export function mockCurrentPlainDate(plainDate: Temporal.PlainDate): () => void {
-  const previousPlainDateISO = Temporal.now.plainDateISO;
-  Temporal.now.plainDateISO = () => plainDate;
-  return () => (Temporal.now.plainDateISO = previousPlainDateISO);
+  const previousPlainDateISO = Temporal.Now.plainDateISO;
+  Temporal.Now.plainDateISO = () => plainDate;
+  return () => (Temporal.Now.plainDateISO = previousPlainDateISO);
 }

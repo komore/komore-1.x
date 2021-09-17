@@ -10,6 +10,6 @@ import type { TemporalWithDateTime } from '@komore/temporal';
 export function toDurationInYears(duration: Temporal.Duration, relativeTo?: TemporalWithDateTime): number {
   return duration.total({
     unit: 'year',
-    relativeTo: relativeTo ?? Temporal.now.plainDateTimeISO()
+    relativeTo: relativeTo ?? Temporal.Now.plainDateTimeISO()
   });
 }

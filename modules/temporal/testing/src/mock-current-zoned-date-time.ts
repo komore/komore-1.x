@@ -6,7 +6,7 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Function that clears the mock when called
  */
 export function mockCurrentZonedDateTime(zonedDateTime: Temporal.ZonedDateTime): () => void {
-  const previousZonedDateTimeISO = Temporal.now.zonedDateTimeISO;
-  Temporal.now.zonedDateTimeISO = () => zonedDateTime;
-  return () => (Temporal.now.zonedDateTimeISO = previousZonedDateTimeISO);
+  const previousZonedDateTimeISO = Temporal.Now.zonedDateTimeISO;
+  Temporal.Now.zonedDateTimeISO = () => zonedDateTime;
+  return () => (Temporal.Now.zonedDateTimeISO = previousZonedDateTimeISO);
 }
