@@ -10,6 +10,6 @@ import type { TemporalWithDateTime } from '@komore/temporal';
 export function toDurationInWeeks(duration: Temporal.Duration, relativeTo?: TemporalWithDateTime): number {
   return duration.total({
     unit: 'week',
-    relativeTo: relativeTo ?? Temporal.now.plainDateTimeISO()
+    relativeTo: relativeTo ?? Temporal.Now.plainDateTimeISO()
   });
 }

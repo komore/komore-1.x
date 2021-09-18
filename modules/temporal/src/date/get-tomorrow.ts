@@ -5,6 +5,6 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Tomorrow as a plain date
  */
 export function getTomorrow(): Temporal.PlainDate {
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   return now.add({ days: 1 });
 }

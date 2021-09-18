@@ -5,5 +5,5 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Now as a plain date time
  */
 export function now(): Temporal.PlainDateTime {
-  return Temporal.now.plainDateTimeISO();
+  return Temporal.Now.plainDateTimeISO();
 }

@@ -8,7 +8,7 @@ import type { TemporalWithDate } from '../temporal-with-date';
  * @returns true if the temporal occurs during the last week
  */
 export function isLastWeek(temporal: TemporalWithDate): boolean {
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   const plainDate = asPlainDate(temporal);
   const startOfWeek = now.subtract({ days: now.dayOfWeek - 1 });
   const startOfLastWeek = startOfWeek.subtract({ weeks: 1 });

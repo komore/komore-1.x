@@ -1,7 +1,7 @@
 import { createLogEvent } from '../create-log-event';
 import { createLogGroup } from '../create-log-group';
 import type { UntypedLogEventRecord } from '../log-event-record';
-import { props } from '../props';
+import { props } from '../definition/props';
 import { createPatternLayout } from './create-pattern-layout';
 
 describe('Create pattern layout', () => {

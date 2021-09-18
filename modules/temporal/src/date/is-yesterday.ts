@@ -9,7 +9,7 @@ import type { TemporalWithDate } from '../temporal-with-date';
  */
 export function isYesterday(temporal: TemporalWithDate): boolean {
   const plainDate = asPlainDate(temporal);
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   const yesterday = now.subtract({ days: 1 });
   return plainDate.until(yesterday).sign === 0;
 }

@@ -10,15 +10,15 @@ export function getNowFor<
     | Temporal.ZonedDateTime
 >(temporal: T): T {
   const now = (temporal instanceof Temporal.PlainDate)
-    ? Temporal.now.plainDateISO()
+    ? Temporal.Now.plainDateISO()
     : temporal instanceof Temporal.PlainDateTime
-    ? Temporal.now.plainDateTimeISO()
+    ? Temporal.Now.plainDateTimeISO()
     : temporal instanceof Temporal.PlainTime
-    ? Temporal.now.plainTimeISO()
+    ? Temporal.Now.plainTimeISO()
     : temporal instanceof Temporal.PlainYearMonth
-    ? Temporal.now.plainDateISO().toPlainYearMonth()
+    ? Temporal.Now.plainDateISO().toPlainYearMonth()
     : temporal instanceof Temporal.PlainMonthDay
-    ? Temporal.now.plainDateISO().toPlainMonthDay()
-    : Temporal.now.zonedDateTimeISO(temporal.timeZone)
+    ? Temporal.Now.plainDateISO().toPlainMonthDay()
+    : Temporal.Now.zonedDateTimeISO(temporal.timeZone)
   return now as T;
 }

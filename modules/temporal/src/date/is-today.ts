@@ -9,6 +9,6 @@ import type { TemporalWithDate } from '../temporal-with-date';
  */
 export function isToday(temporal: TemporalWithDate): boolean {
   const plainDate = asPlainDate(temporal);
-  const now = Temporal.now.plainDateISO();
+  const now = Temporal.Now.plainDateISO();
   return plainDate.until(now).sign === 0;
 }

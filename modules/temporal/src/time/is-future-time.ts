@@ -8,7 +8,7 @@ import type { TemporalWithTime } from '../temporal-with-time';
  * @returns true if the temporal occurs in the future
  */
 export function isFutureTime(temporal: TemporalWithTime): boolean {
-  const now = Temporal.now.plainTimeISO();
+  const now = Temporal.Now.plainTimeISO();
   const plainTime = asPlainTime(temporal);
   return now.until(plainTime).sign > 0;
 }

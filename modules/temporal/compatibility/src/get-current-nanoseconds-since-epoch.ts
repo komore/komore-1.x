@@ -5,5 +5,5 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Number of nanoseconds
  */
 export function getCurrentNanosecondsSinceEpoch(): bigint {
-  return Temporal.now.instant().epochNanoseconds;
+  return Temporal.Now.instant().epochNanoseconds;
 }

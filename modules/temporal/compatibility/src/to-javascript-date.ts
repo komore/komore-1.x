@@ -8,7 +8,7 @@ import { Temporal } from '@js-temporal/polyfill';
 export function toJavaScriptDate(temporal: Temporal.PlainDateTime | Temporal.ZonedDateTime): Date {
   const zonedDateTime = temporal instanceof Temporal.ZonedDateTime
     ? temporal
-    : temporal.toZonedDateTime(Temporal.now.timeZone());
+    : temporal.toZonedDateTime(Temporal.Now.timeZone());
   const instant = zonedDateTime.toInstant();
   return new Date(instant.epochMilliseconds);
 }

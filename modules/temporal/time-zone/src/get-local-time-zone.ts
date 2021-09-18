@@ -5,5 +5,5 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Local time zone
  */
 export function getLocalTimeZone(): Temporal.TimeZone {
-  return Temporal.now.timeZone();
+  return Temporal.Now.timeZone();
 }

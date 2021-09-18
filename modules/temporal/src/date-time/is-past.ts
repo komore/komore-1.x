@@ -7,6 +7,6 @@ import type { TemporalWithDateTime } from '../temporal-with-date-time';
  * @returns true if the temporal occurs in the past
  */
 export function isPast(temporal: TemporalWithDateTime): boolean {
-  const now = Temporal.now.plainDateTimeISO();
+  const now = Temporal.Now.plainDateTimeISO();
   return now.until(temporal).sign < 0;
 }

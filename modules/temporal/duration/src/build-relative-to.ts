@@ -16,6 +16,6 @@ export function buildRelativeTo(
   }
 
   if (duration.weeks !== 0 || duration.months !== 0 || duration.years !== 0) {
-    return Temporal.now.plainDateTimeISO();
+    return Temporal.Now.plainDateTimeISO();
   }
 }

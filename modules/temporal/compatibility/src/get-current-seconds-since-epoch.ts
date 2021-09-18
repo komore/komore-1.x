@@ -5,5 +5,5 @@ import { Temporal } from '@js-temporal/polyfill';
  * @returns Number of seconds
  */
 export function getCurrentSecondsSinceEpoch(): number {
-  return Temporal.now.instant().epochSeconds;
+  return Temporal.Now.instant().epochSeconds;
 }
