@@ -261,14 +261,8 @@
     "element-store-monitor-redux": {
       "tags": ["scope:element"]
     },
-    "element-store-monitor-redux-operators": {
-      "tags": ["scope:element", "trait:operators"]
-    },
     "element-styling": {
       "tags": ["scope:element"]
-    },
-    "element-styling-operators": {
-      "tags": ["scope:element", "trait:operators"]
     },
     "element-testing": {
       "tags": ["scope:element", "trait:testing"]
@@ -477,17 +471,11 @@
     "integration-amazon-s3-layer": {
       "tags": ["scope:integration", "trait:provider", "trait:layer", "trait:layer:file", "provider:amazon"]
     },
-    "integration-amazon-s3-operators": {
-      "tags": ["scope:integration", "trait:provider", "trait:operators", "provider:amazon"]
-    },
     "integration-amazon-ses": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
     },
     "integration-amazon-ses-layer": {
       "tags": ["scope:integration", "trait:provider", "trait:layer", "trait:layer:email", "provider:amazon"]
-    },
-    "integration-amazon-ses-operators": {
-      "tags": ["scope:integration", "trait:provider", "trait:operators", "provider:amazon"]
     },
     "integration-amazon-sns": {
       "tags": ["scope:integration", "trait:provider", "provider:amazon"]
@@ -591,17 +579,11 @@
     "integration-stripe": {
       "tags": ["scope:integration", "trait:provider", "provider:stripe"]
     },
-    "integration-stripe-operators": {
-      "tags": ["scope:integration", "trait:provider", "provider:stripe", "trait:operators"]
-    },
     "integration-testing": {
       "tags": ["scope:integration", "trait:testing"]
     },
     "integration-twitter": {
       "tags": ["scope:integration", "trait:provider", "provider:twitter"]
-    },
-    "integration-twitter-operators": {
-      "tags": ["scope:integration", "trait:provider", "provider:twitter", "trait:operators"]
     },
     "mail": {
       "tags": ["scope:mail", "trait:base"]
@@ -639,9 +621,6 @@
     "observability-metrics": {
       "tags": ["scope:observability"]
     },
-    "observability-metrics-operators": {
-      "tags": ["scope:observability", "trait:operators"]
-    },
     "observability-provider": {
       "tags": ["scope:observability"]
     },
@@ -665,9 +644,6 @@
     },
     "observability-tracing": {
       "tags": ["scope:observability"]
-    },
-    "observability-tracing-operators": {
-      "tags": ["scope:observability", "trait:operators"]
     },
     "payment": {
       "tags": ["scope:payment", "trait:base"]
@@ -874,9 +850,6 @@
     "web-geolocation": {
       "tags": ["scope:web"]
     },
-    "web-geolocation-operators": {
-      "tags": ["scope:web", "trait:operators"]
-    },
     "web-gl": {
       "tags": ["scope:web"]
     },
@@ -895,11 +868,14 @@
     "web-http-websocket": {
       "tags": ["scope:web"]
     },
-    "web-media": {
+    "web-i18n": {
       "tags": ["scope:web"]
     },
-    "web-media-operators": {
-      "tags": ["scope:web", "trait:operators"]
+    "web-l10n": {
+      "tags": ["scope:web"]
+    },
+    "web-media": {
+      "tags": ["scope:web"]
     },
     "web-network": {
       "tags": ["scope:web"]
@@ -912,9 +888,6 @@
     },
     "web-permission": {
       "tags": ["scope:web"]
-    },
-    "web-permission-operators": {
-      "tags": ["scope:web", "trait:operators"]
     },
     "web-push": {
       "tags": ["scope:web"]
@@ -934,9 +907,6 @@
     "web-storage-indexeddb": {
       "tags": ["scope:web"]
     },
-    "web-storage-indexeddb-operators": {
-      "tags": ["scope:web", "trait:operators"]
-    },
     "web-testing": {
       "tags": ["scope:web", "trait:testing"]
     },
@@ -949,14 +919,8 @@
     "web-worker": {
       "tags": ["scope:web"]
     },
-    "web-worker-operators": {
-      "tags": ["scope:web", "trait:operators"]
-    },
     "web-worker-service": {
       "tags": ["scope:web"]
-    },
-    "web-worker-service-operators": {
-      "tags": ["scope:web", "trait:operators"]
     },
     "web-xr": {
       "tags": ["scope:web"]

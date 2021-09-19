@@ -306,6 +306,8 @@
       "@komore/web/http/sse": ["modules/web/http/sse/src/index.ts"],
       "@komore/web/http/testing": ["modules/web/http/testing/src/index.ts"],
       "@komore/web/http/websocket": ["modules/web/http/websocket/src/index.ts"],
+      "@komore/web/i18n": ["modules/web/i18n/src/index.ts"],
+      "@komore/web/l10n": ["modules/web/l10n/src/index.ts"],
       "@komore/web/media": ["modules/web/media/src/index.ts"],
       "@komore/web/media/operators": ["modules/web/media/operators/src/index.ts"],
       "@komore/web/network": ["modules/web/network/src/index.ts"],
@@ -331,7 +333,10 @@
       "@komore/website/layout": ["modules/website/layout/src/index.ts"],
       "@komore/website/layout/not-found": ["modules/website/layout/not-found/src/index.ts"],
       "@komore/website/search": ["modules/website/search/src/index.ts"],
-      "@komore/website/search/results": ["modules/website/search/results/src/index.ts"]
+      "@komore/website/search/input": ["modules/website/search/input/src/index.ts"],
+      "@komore/website/search/results": ["modules/website/search/results/src/index.ts"],
+      "@komore/website/search/state": ["modules/website/search/state/src/index.ts"],
+      "@komore/website/search/worker": ["modules/website/search/worker/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

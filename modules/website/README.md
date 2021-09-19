@@ -7,7 +7,6 @@ TODO:
 - ESB
   - EIP examples with animation (cf. Camel)
 
-
 TODO:
 
 4 colors ===

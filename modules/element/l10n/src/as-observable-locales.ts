@@ -1,7 +1,7 @@
 import type { Observable } from '@komore/reactive';
 import { isObservable, of } from '@komore/reactive';
+import type { Locales } from '@komore/web/l10n';
 import { DEFAULT_LOCALES } from './default-locales';
-import type { Locales } from './locales';
 
 /**
  * Builds an observable list of locales

@@ -5,10 +5,20 @@
 ## Usage
 
 ```ts
-import { withReduxDevtoolsMonitor } from '@komore/element-redux-store-monitor/operators';
+import { tapToReduxDevtools } from '@komore/element-redux-store-monitor/operators';
 
 createElementStore
 TODO.
 
-[komore element stores]: https://komore.dev/documentation/element/store
+$.pipe(
+  tapToReduxDevtools({
+    features: {},
+    maxAge: ,
+    name: 
+    serialize: {}
+  })
+)
+```
+
+[komore element stores]: https://komore.dev/modules/element/store
 [redux devtools]: https://chrome.google.com/webstore/detail/redux-devtools

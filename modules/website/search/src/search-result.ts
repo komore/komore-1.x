@@ -1,6 +1,9 @@
 /**
  * Search result
  */
-export type SearchResult = Readonly<{
-
-}>;
+export interface SearchResult {
+  readonly path: string;
+  readonly score: number;
+  readonly snippet: string;
+  readonly title: string;
+}

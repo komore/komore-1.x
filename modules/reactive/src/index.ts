@@ -16,6 +16,7 @@ export { isObservable } from './is-observable';
 export { merge } from './creation/merge';
 export type { MonoTypeOperatorFunction } from './operator-function';
 export { NEVER } from './never';
+export { NOOP_OBSERVER } from './noop-observer';
 export { Observable } from './observable';
 export type { ObservableInput } from './observable-input';
 export type { ObservableInputTuple } from './observable-input';
