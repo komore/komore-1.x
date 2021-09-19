@@ -7,6 +7,8 @@ export type { ElementPropertySubject } from './property/element-property-subject
 export type { ElementPropertySubjectMap } from './property/element-property-subject-map';
 export type { EventDispatcher } from './event/event-dispatcher';
 export type { FromAttribute } from './attribute/from-attribute';
+export type { FromChild } from './query/from-child';
+export type { FromChildren } from './query/from-children';
 export type { FromSlot } from './slot/from-slot';
 export { isNotCancelled } from './event/is-not-cancelled';
 export { isPageHidden } from './visibility/is-page-hidden';

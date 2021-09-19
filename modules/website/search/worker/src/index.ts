@@ -1,2 +1,2 @@
 export type { SearchWorkerInput } from './search-worker-input';
-export type { SearchWorkerResult } from './search-worker-result';
+export type { SearchWorkerOutput } from './search-worker-output';
