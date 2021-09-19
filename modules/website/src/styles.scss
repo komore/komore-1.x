@@ -1,4 +1,5 @@
 //@ import "theme";
+@import "font";
 
 body {
   margin: 0px;
@@ -10,8 +11,441 @@ body {
   box-sizing: border-box;
 }
 
+
 :root {
-  --komore-primary: #26b2a9;
-  --komore-accent: #fc8219;
-  --komore-dark: #231f20;
+  --color-0: #fff59d;
+  --color-1: #dce775;
+  --color-2: #9ccc65;
+  --color-3: #4caf50;
+  --color-4: #2e7d32;
+  --color-primary: var(--color-3);
+  --header-color-background: #ffffff;/*#263238;*/
+  --header-color-border: #eaecef;
+  --header-color-text: #000000;
+  --header-height: 56px;
+  --footer-color-background: var(--header-color-background);
+  --footer-color-text: var(--header-color-text);
+  --navigation-color-border: var(--header-color-border);
+  --navigation-color-text: var(--header-color-text);
+  --scrollbar-color: #eaecef;
+  --scrollbar-color-hover: #e0e2e5;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto';
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: var(--header-height) calc(100vh - var(--header-height));
+  grid-template-areas:
+    'header header'
+    'nav    main';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: var(--header-height);
+  box-sizing: border-box;
+  background-color: var(--header-color-background);
+  border-bottom: solid 1px var(--header-color-border);
+  padding: 0px 16px;
+  gap: 16px;
+}
+
+header > .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+header > .logo > komore-icon {
+  --komore-icon-width: 32px;
+  --komore-icon-height: 32px;
+}
+
+header > .logo > span {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--header-color-text);
+}
+
+header > .sections {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin-left: 64px;
+}
+
+header > .sections > a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--navigation-color-text, 000000);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 0px 16px;
+  box-sizing: border-box;
+}
+
+header > .sections > a.active {
+  color: var(--color-4);
+}
+
+header > .sections > a::after {
+  display: block;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-4);
+  transition: transform 0.25s linear;
+  transform: scale(0, 1);
+}
+
+header > .sections > a:hover::after,
+header > .sections > a.active::after {
+  transform: scale(1, 1);
+}
+
+header > a > discord-icon {
+  --discord-icon-color: var(--header-color-text);
+  --discord-icon-color-background: var(--header-color-background);
+}
+
+header > a > github-icon {
+  --github-icon-color: var(--header-color-text);
+  --github-icon-color-background: var(--header-color-background);
+}
+
+header > a > twitter-icon {
+  --twitter-icon-color: var(--header-color-text);
+  --twitter-icon-color-background: var(--header-color-background);
+}
+
+footer {
+  background-color: var(--footer-color-background);
+  color: var(--footer-color-text);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 32px;
+}
+
+footer > small {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > div {
+}
+
+footer > div > h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 8px;
+}
+
+footer > div > ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+footer > div > ul > li {
+  margin: 0px;
+  padding: 0px;
+}
+
+footer > div > ul > li > a {
+  text-decoration: none;
+  color: var(--footer-color-text);
+}
+
+footer > div > ul > li > a:hover {
+  color: var(--color-primary);
+}
+
+nav {
+  grid-area: nav;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-right: solid 1px var(--navigation-color-border);
+  padding: 16px;
+}
+
+nav::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background: transparent;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background: var(--navigation-color-border);
+}
+
+nav > h2 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: normal;
+  font-size: 14pt;
+  margin-bottom: 16px;
+}
+
+nav a {
+  color: #151515;
+  text-decoration: none;
+}
+
+nav a.is-active,
+nav a:hover,
+nav span:hover {
+  color: var(--color-primary);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+nav li {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+nav li a,
+nav li span {
+  font-size: 11pt;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 24px;
+}
+
+nav li.with-children::after/*,
+nav li:has(> ul)::after*/ {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0px;
+  height: 24px;
+  width: 24px;
+  background-image: url(tree-arrow.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transform: rotate(0deg);
+  filter: grayscale(100%);
+  transition-duration: 0.125s;
+  transition-timing-function: linear;
+  transition-property: transform filter opacity;
+  opacity: 1;
+}
+
+nav li.with-children[expanded]::after/*,
+nav li[expanded]:has(> ul)::after*/ {
+  transform: rotate(90deg);
+  filter: grayscale(0%);
+}
+
+nav li.with-children:not([expanded]):not(:hover)::after {
+  opacity: 0;
+}
+
+nav li.with-children > a,
+nav li.with-children > span/*,
+nav li:has(> ul) > a*/ {
+  font-weight: 500;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+nav li:not([expanded]) > ul {
+  display: none;
+}
+
+nav ul > li > ul {
+  margin: 8px 0px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  grid-area: main;
+  overflow-y: auto;
+  position: relative;
+}
+
+section.splash {
+  background-image: url(trianglify-lowres.png);
+  background-position: center center;
+  background-size: cover;
+  height: 40vh;
+}
+
+section.splash > div.features {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    'functional reactive   serverless'
+    'ddd        enterprise more      '
+  ;
+}
+
+section.splash > div.features > div.feature {
+  background-color: rgba(255, 255, 255, 0.375);
+  border: solid 1px var(--color-1);
+  box-shadow: 0px 0px 4px var(--color-2);
+}
+
+section.splash > div.features > div.feature.ddd {
+  grid-area: ddd;
+}
+
+section.splash > div.features > div.feature.enterprise {
+  grid-area: enterprise;
+}
+
+section.splash > div.features > div.feature.functional {
+  grid-area: functional;
+}
+
+section.splash > div.features > div.feature.more {
+  grid-area: more;
+}
+
+section.splash > div.features > div.feature.reactive {
+  grid-area: reactive;
+}
+
+section.splash > div.features > div.feature.serverless {
+  grid-area: serverless;
+}
+
+code {
+  font-family: 'Roboto Mono';
+  font-size: 0.9rem;
+}
+
+article {
+  margin: 16px 3rem 2rem;
+}
+
+article h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 1.6rem 0px;
+}
+
+article h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 1.2rem 0px;
+}
+
+article h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0.8rem 0px;
+}
+
+article a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+article .code {
+  box-shadow: 0px 0px 8px inset rgba(0, 0, 0, 0.125);
+  padding: 16px;
+  margin: 16px 0px;
+}
+
+article .code > pre {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto Mono';
+  font-size: 0.9rem;
+}
+
+main.article > nav {
+  position: fixed;
+  background-color: #efefef;
+  border: solid 1px #afafaf;
+  padding: 24px;
+  right: 32px;
+  margin-top: 32px;
+}
+
+main.article > nav a {
+  color: #3f3f3f;
+}
+
+main.article > nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+main.article > nav > ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+main.article > nav > ul > li {
+  margin: 0px;
+  padding: 0px;
+}
+
+main.article > nav > ul > li > ul {
+  margin: 0px 0px 0px 24px;
+  padding: 0px;
 }

@@ -1,0 +1,39 @@
+const templateElement = document.createElement('template');
+
+templateElement.innerHTML = `
+<style>
+  :host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  :host > svg {
+    width: var(--komore-icon-width, 32px);
+    height: var(--komore-icon-height, 32px);
+  }
+</style>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .c0 { fill: #fff59d; }
+    .c1 { fill: #dce775; }
+    .c2 { fill: #9ccc65; }
+    .c3 { fill: #4caf50; }
+  </style>
+  <path class="c0" d="M512,0l116,116l-116,116,l-116,-116z"/>
+  <path class="c1" d="M512,264l132,-132l116,116,l-248,248l-248,-248l116,-116z"/>
+  <path class="c2" d="M512,528l264,-264l116,116,l-380,380l-380,-380l116,-116z"/>
+  <path class="c3" d="M512,792l396,-396l116,116,l-512,512l-512,-512l116,-116z"/>
+</svg>
+`;
+
+export class KomoreIconElement extends HTMLElement {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const templateContent = templateElement.content.cloneNode(true);
+    shadowRoot.append(templateContent);
+  }
+}
+
+customElements.define('komore-icon', KomoreIconElement);

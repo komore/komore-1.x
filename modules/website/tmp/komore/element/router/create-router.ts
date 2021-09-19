@@ -1,0 +1,26 @@
+import { merge, Observable } from 'rxjs';
+import { createRouterNavigationEventSource } from './event/create-router-navigation-event-source';
+import { observeHostNavigationEvents } from './observe-host-navigation-events';
+import type { Router } from './router';
+import type { RouterNavigationEvent } from './router-navigation-event';
+import type { RouterOptions } from './router-options';
+
+/**
+ * Creates a router
+ * @param options Router options
+ * @returns Router
+ */
+export function createRouter(
+  project: (events: Observable<RouterNavigationEvent>) => Observable<RouterNavigationEvent>,
+  options: RouterOptions
+): Observable<Router> {
+  return new Observable(observer => {
+    const [routerSubject, routerNavigationEvents] = createRouterNavigationEventSource();
+    const hostNavigationEvents = observeHostNavigationEvents();
+    const router: Router = path => routerSubject.next(path);
+    const events = merge(routerNavigationEvents, hostNavigationEvents);
+    const projectedEvents = project(events);
+    observer.add(projectedEvents.subscribe());
+    observer.next(router);
+  });
+}
