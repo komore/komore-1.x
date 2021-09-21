@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/function-azure',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'function-azure'
+  displayName: 'function-azure',
+  testEnvironment: 'node'
 };

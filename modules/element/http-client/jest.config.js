@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/element-httpclient',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'element-httpclient'
+  displayName: 'element-httpclient',
+  testEnvironment: 'node'
 };

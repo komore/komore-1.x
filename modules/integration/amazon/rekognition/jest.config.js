@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-amazon-rekognition',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-rekognition'
+  displayName: 'integration-amazon-rekognition',
+  testEnvironment: 'node'
 };

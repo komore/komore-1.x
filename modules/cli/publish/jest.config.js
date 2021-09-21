@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/cli-publish',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'cli-publish'
+  displayName: 'cli-publish',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-azure-storage',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-azure-storage'
+  displayName: 'integration-azure-storage',
+  testEnvironment: 'node'
 };

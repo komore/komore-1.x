@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/element-i18n-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'element-i18n-operators'
+  displayName: 'element-i18n-operators',
+  testEnvironment: 'node'
 };

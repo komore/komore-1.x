@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/reactive-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'reactive-operators'
+  displayName: 'reactive-operators',
+  testEnvironment: 'node'
 };

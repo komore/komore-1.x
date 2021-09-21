@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/testing',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'testing'
+  displayName: 'testing',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../coverage/command-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'command-operators'
+  displayName: 'command-operators',
+  testEnvironment: 'node'
 };

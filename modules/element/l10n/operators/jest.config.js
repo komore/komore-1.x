@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/element-l10n-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'element-l10n-operators'
+  displayName: 'element-l10n-operators',
+  testEnvironment: 'node'
 };

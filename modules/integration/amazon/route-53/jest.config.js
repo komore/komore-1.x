@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-amazon-route53',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-route53'
+  displayName: 'integration-amazon-route53',
+  testEnvironment: 'node'
 };

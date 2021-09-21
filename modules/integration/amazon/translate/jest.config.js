@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-amazon-translate',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-translate'
+  displayName: 'integration-amazon-translate',
+  testEnvironment: 'node'
 };

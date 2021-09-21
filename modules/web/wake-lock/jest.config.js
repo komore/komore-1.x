@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/web-screenwakelock',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'web-screenwakelock'
+  displayName: 'web-screenwakelock',
+  testEnvironment: 'node'
 };

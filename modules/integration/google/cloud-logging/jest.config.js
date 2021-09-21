@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-google-cloud-logging',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudlogging'
+  displayName: 'integration-google-cloudlogging',
+  testEnvironment: 'node'
 };

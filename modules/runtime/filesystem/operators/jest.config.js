@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/runtime-filesystem-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'runtime-filesystem-operators'
+  displayName: 'runtime-filesystem-operators',
+  testEnvironment: 'node'
 };

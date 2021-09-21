@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/identity-provider-twitter',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'identity-provider-twitter'
+  displayName: 'identity-provider-twitter',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/crypto-uuid',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'crypto-uuid'
+  displayName: 'crypto-uuid',
+  testEnvironment: 'node'
 };

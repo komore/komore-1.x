@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-amazon-apigateway',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-apigateway'
+  displayName: 'integration-amazon-apigateway',
+  testEnvironment: 'node'
 };

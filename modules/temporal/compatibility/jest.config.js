@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/temporal-compatibility',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'temporal-compatibility'
+  displayName: 'temporal-compatibility',
+  testEnvironment: 'node'
 };

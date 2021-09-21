@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/event-store-google-bigtable',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-google-bigtable'
+  displayName: 'event-store-google-bigtable',
+  testEnvironment: 'node'
 };

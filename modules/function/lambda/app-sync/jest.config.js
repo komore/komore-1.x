@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/function-lambda-appsync',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'function-lambda-appsync'
+  displayName: 'function-lambda-appsync',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/stack-provider-azure',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'stack-provider-azure'
+  displayName: 'stack-provider-azure',
+  testEnvironment: 'node'
 };

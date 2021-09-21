@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/website-layout-notfound',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'website-layout-notfound'
+  displayName: 'website-layout-notfound',
+  testEnvironment: 'node'
 };

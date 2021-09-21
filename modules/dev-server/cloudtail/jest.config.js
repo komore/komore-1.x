@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/devserver-cloudtail',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'devserver-cloudtail'
+  displayName: 'devserver-cloudtail',
+  testEnvironment: 'node'
 };

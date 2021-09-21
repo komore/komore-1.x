@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/integration-azure-cognitiveservices-formrecognizer',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-azure-cognitiveservices-formrecognizer'
+  displayName: 'integration-azure-cognitiveservices-formrecognizer',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/event-store-amazon',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-amazon'
+  displayName: 'event-store-amazon',
+  testEnvironment: 'node'
 };

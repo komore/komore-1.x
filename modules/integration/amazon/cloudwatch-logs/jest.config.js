@@ -4,4 +4,5 @@ module.exports = {
   coverageDirectory: '../../../../coverage/integration-amazon-cloudwatchlogs',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'integration-amazon-cloudwatchlogs',
+  testEnvironment: 'node'
 };

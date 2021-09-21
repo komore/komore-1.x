@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/identity-provider-facebook',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'identity-provider-facebook'
+  displayName: 'identity-provider-facebook',
+  testEnvironment: 'node'
 };

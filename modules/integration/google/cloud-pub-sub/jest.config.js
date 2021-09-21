@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-google-cloud-pub-sub',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudpubsub'
+  displayName: 'integration-google-cloudpubsub',
+  testEnvironment: 'node'
 };

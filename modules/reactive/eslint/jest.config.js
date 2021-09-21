@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/reactive-eslint',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'reactive-eslint'
+  displayName: 'reactive-eslint',
+  testEnvironment: 'node'
 };

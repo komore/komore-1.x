@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-google-cloudmetrics',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudmetrics'
+  displayName: 'integration-google-cloudmetrics',
+  testEnvironment: 'node'
 };

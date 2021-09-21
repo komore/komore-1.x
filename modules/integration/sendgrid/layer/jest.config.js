@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-sendgrid-layer',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-sendgrid-layer'
+  displayName: 'integration-sendgrid-layer',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/function-lambda-cloudfront',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'function-lambda-cloudfront'
+  displayName: 'function-lambda-cloudfront',
+  testEnvironment: 'node'
 };

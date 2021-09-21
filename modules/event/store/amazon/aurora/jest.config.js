@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/event-amazon-aurora',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-amazon-aurora'
+  displayName: 'event-store-amazon-aurora',
+  testEnvironment: 'node'
 };

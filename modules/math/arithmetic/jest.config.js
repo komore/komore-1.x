@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/math-arithmetic',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'math-arithmetic'
+  displayName: 'math-arithmetic',
+  testEnvironment: 'node'
 };

@@ -928,6 +928,10 @@
     "website": {
       "tags": ["scope:website", "trait:base"]
     },
+    "website-e2e": {
+      "tags": ["scope:website"],
+      "implicitDependencies": ["website"]
+    },
     "website-layout": {
       "tags": ["scope:website"]
     },
@@ -939,13 +943,17 @@
     },
     "website-search-results": {
       "tags": ["scope:website"]
-    },
-    "website-e2e": {
-      "tags": ["scope:website"],
-      "implicitDependencies": ["website"]
     }
   },
   "affected": {
     "defaultBase": "main"
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }

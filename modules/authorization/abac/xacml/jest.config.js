@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/authorization-abac-xacml',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'authorization-abac-xacml'
+  displayName: 'authorization-abac-xacml',
+  testEnvironment: 'node'
 };

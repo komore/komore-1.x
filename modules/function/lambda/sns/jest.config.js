@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/function-lambda-sns',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'function-lambda-sns'
+  displayName: 'function-lambda-sns',
+  testEnvironment: 'node'
 };

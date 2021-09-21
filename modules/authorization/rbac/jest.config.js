@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/authorization-rbac',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'authorization-rbac'
+  displayName: 'authorization-rbac',
+  testEnvironment: 'node'
 };

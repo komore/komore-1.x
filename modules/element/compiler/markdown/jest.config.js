@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/element-compiler-markdown',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'element-compiler-markdown'
+  displayName: 'element-compiler-markdown',
+  testEnvironment: 'node'
 };

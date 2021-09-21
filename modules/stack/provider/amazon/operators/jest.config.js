@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/stack-provider-amazon-operators',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'stack-provider-amazon-operators'
+  displayName: 'stack-provider-amazon-operators',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/authorization-abac-alfa',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'authorization-abac-alfa'
+  displayName: 'authorization-abac-alfa',
+  testEnvironment: 'node'
 };

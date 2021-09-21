@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/integration-azure-cognitiveservices-computervision',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-azure-cognitiveservices-computervision'
+  displayName: 'integration-azure-cognitiveservices-computervision',
+  testEnvironment: 'node'
 };

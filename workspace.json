@@ -2703,71 +2703,6 @@
         }
       }
     },
-    "event-store-azure": {
-      "root": "modules/event/store/azure",
-      "sourceRoot": "modules/event/store/azure/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/event/store/azure/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/event/store/azure/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/event/store/azure/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/event-store-azure"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/event/store/azure",
-            "tsConfig": "modules/event/store/azure/tsconfig.lib.json",
-            "packageJson": "modules/event/store/azure/package.json",
-            "main": "modules/event/store/azure/src/index.ts",
-            "assets": ["modules/event/store/azure/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "event-store-azure-cosmosdb": {
-      "root": "modules/event/store/azure/cosmos-db",
-      "sourceRoot": "modules/event/store/azure/cosmos-db/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/event/store/azure/cosmos-db/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/event-store-azure-cosmosdb"],
-          "options": {
-            "jestConfig": "modules/event/store/azure/cosmos-db/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/event/store/azure/cosmos-db",
-            "tsConfig": "modules/event/store/azure/cosmos-db/tsconfig.lib.json",
-            "packageJson": "modules/event/store/azure/cosmos-db/package.json",
-            "main": "modules/event/store/azure/cosmos-db/src/index.ts"
-          }
-        }
-      }
-    },
     "event-store-amazon": {
       "root": "modules/event/store/amazon",
       "sourceRoot": "modules/event/store/amazon/src",
@@ -2863,6 +2798,71 @@
             "tsConfig": "modules/event/store/amazon/dynamodb/tsconfig.lib.json",
             "packageJson": "modules/event/store/amazon/dynamodb/package.json",
             "main": "modules/event/store/amazon/dynamodb/src/index.ts"
+          }
+        }
+      }
+    },
+    "event-store-azure": {
+      "root": "modules/event/store/azure",
+      "sourceRoot": "modules/event/store/azure/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/event/store/azure/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "modules/event/store/azure/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "modules/event/store/azure/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/event-store-azure"]
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/event/store/azure",
+            "tsConfig": "modules/event/store/azure/tsconfig.lib.json",
+            "packageJson": "modules/event/store/azure/package.json",
+            "main": "modules/event/store/azure/src/index.ts",
+            "assets": ["modules/event/store/azure/*.md"]
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "event-store-azure-cosmosdb": {
+      "root": "modules/event/store/azure/cosmos-db",
+      "sourceRoot": "modules/event/store/azure/cosmos-db/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/event/store/azure/cosmos-db/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/event-store-azure-cosmosdb"],
+          "options": {
+            "jestConfig": "modules/event/store/azure/cosmos-db/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/event/store/azure/cosmos-db",
+            "tsConfig": "modules/event/store/azure/cosmos-db/tsconfig.lib.json",
+            "packageJson": "modules/event/store/azure/cosmos-db/package.json",
+            "main": "modules/event/store/azure/cosmos-db/src/index.ts"
           }
         }
       }
@@ -9718,6 +9718,32 @@
         }
       }
     },
+    "website-e2e": {
+      "root": "modules/website/e2e",
+      "sourceRoot": "modules/website/e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "modules/website/e2e/cypress.json",
+            "tsConfig": "modules/website/e2e/tsconfig.e2e.json",
+            "devServerTarget": "website:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "website:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["modules/website/e2e/src/**/*.ts"]
+          }
+        }
+      }
+    },
     "website-layout": {
       "root": "modules/website/layout",
       "sourceRoot": "modules/website/layout/src",
@@ -9851,32 +9877,6 @@
             "assets": ["modules/website/search/results/*.md"]
           },
           "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "website-e2e": {
-      "root": "modules/website/e2e",
-      "sourceRoot": "modules/website/e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "modules/website/e2e/cypress.json",
-            "tsConfig": "modules/website/e2e/tsconfig.e2e.json",
-            "devServerTarget": "website:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "website:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/website/e2e/src/**/*.ts"]
-          }
         }
       }
     }

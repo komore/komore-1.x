@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/integration-amazon-ses-layer',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-ses-layer'
+  displayName: 'integration-amazon-ses-layer',
+  testEnvironment: 'node'
 };

@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/observability-provider-browser',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'observability-provider-browser'
+  displayName: 'observability-provider-browser',
+  testEnvironment: 'node'
 };

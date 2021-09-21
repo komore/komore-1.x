@@ -4,5 +4,6 @@ module.exports = {
   coverageDirectory: '../../../coverage/testing-bdd',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'testing-bdd',
-  setupFilesAfterEnv: ['./test-setup.ts']
+  setupFilesAfterEnv: ['./test-setup.ts'],
+  testEnvironment: 'node'
 };

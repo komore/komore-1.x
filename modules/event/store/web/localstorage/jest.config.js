@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../../jest.preset.js',
   coverageDirectory: '../../../../../coverage/event-store-web-indexeddb',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-web-indexeddb'
+  displayName: 'event-store-web-indexeddb',
+  testEnvironment: 'node'
 };

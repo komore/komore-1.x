@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/identity-provider-google',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'identity-provider-google'
+  displayName: 'identity-provider-google',
+  testEnvironment: 'node'
 };

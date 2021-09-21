@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/temporal-timezone',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'temporal-timezone'
+  displayName: 'temporal-timezone',
+  testEnvironment: 'node'
 };

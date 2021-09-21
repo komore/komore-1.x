@@ -4,5 +4,6 @@ module.exports = {
   coverageDirectory: '../../../coverage/element-compiler',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'element-compiler',
-  setupFilesAfterEnv: ['./test-setup.ts']
+  setupFilesAfterEnv: ['./test-setup.ts'],
+  testEnvironment: 'node'
 };

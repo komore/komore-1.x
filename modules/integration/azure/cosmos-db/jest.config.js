@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/integration-azure-cosmosdb',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-azure-cosmosdb'
+  displayName: 'integration-azure-cosmosdb',
+  testEnvironment: 'node'
 };

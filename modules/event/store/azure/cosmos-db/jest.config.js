@@ -3,5 +3,6 @@ module.exports = {
   preset: '../../../../jest.preset.js',
   coverageDirectory: '../../../../coverage/event-store-azure-cosmosdb',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-azure-cosmosdb'
+  displayName: 'event-store-azure-cosmosdb',
+  testEnvironment: 'node'
 };
