@@ -1,1 +1,1 @@
-export * from './kw-navigation.element';
+export { NavigationElement } from './navigation.element';

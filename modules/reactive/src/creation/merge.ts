@@ -12,5 +12,8 @@ export function merge<T extends ReadonlyArray<unknown>>(
   sources: [...ObservableInputTuple<T>],
   concurrent?: number
 ): Observable<T[number]> {
-  return rxjsMerge(...sources, concurrent);
+  return concurrent !== undefined
+    ? rxjsMerge(...sources, concurrent)
+    : rxjsMerge(...sources)
+  ;
 }

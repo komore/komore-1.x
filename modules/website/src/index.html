@@ -6,32 +6,701 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.svg">
-    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="komore-website.css" type="text/css" />
+    <script type="module" src="komore-website.js"></script>
   </head>
   <body>
-    <svg viewBox="0 0 24 24">
-      <style>
-        .c0 {
-          fill: #fff59d;
-        }
-        .c1 {
-          fill: #dce775;
-        }
-        .c2 {
-          fill: #9ccc65;
-        }
-        .c3 {
-          fill: #4caf50;
-        }
-        .sh {
-          fill: rgba(0, 0, 0, 0.125);
-        }
-      </style>
-      <path class="c0" d="M512,0l116,116l-116,116,l-116,-116z" />
-      <path class="c1" d="M512,264l132,-132l116,116,l-248,248l-248,-248l116,-116z" />
-      <path class="c2" d="M512,528l264,-264l116,116,l-380,380l-380,-380l116,-116z" />
-      <path class="c3" d="M512,792l396,-396l116,116,l-512,512l-512,-512l116,-116z" />
-    </svg>
-    ofjqpefj
+    <header><kw-header></kw-header></header>
+    <nav>
+      <h2>
+        <a href="/modules">Modules</a>
+      </h2>
+      <ul>
+        <li class="with-children">
+          <span>API</span>
+          <ul>
+            <li><a href="/modules/api">Overview</a></li>
+            <li class="with-children">
+              <span>GraphQL</span>
+              <ul>
+                <li><a href="/modules/api/graphql">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/api/rest">REST</a>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Application</span>
+          <ul>
+            <li><a href="/modules/application">Overview</a></li>
+            <li><a href="/modules/application/manifest" class="is-active">Manifest</a></li>
+            <li><a href="/modules/application/service-worker">Service Worker</a></li>
+            <li class="with-children">
+              <span>Electron</span>
+              <ul>
+                <li><a href="/modules/application/electron">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Android</span>
+              <ul>
+                <li><a href="/modules/application/android">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>iOS</span>
+              <ul>
+                <li><a href="/modules/application/ios">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Updater</span>
+              <ul>
+                <li><a href="/modules/application/updater">Overview</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Array</span>
+          <ul>
+            <li>
+              <a href="/modules/array">Overview</a>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Authorization</span>
+          <ul>
+            <li><a href="/modules/authorization">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>CLI</span>
+          <ul>
+            <li><a href="/modules/cli">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Color</span>
+          <ul>
+            <li><a href="/modules/color">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Component</span>
+          <ul>
+            <li><a href="/modules/component">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Command</span>
+          <ul>
+            <li><a href="/modules/command">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Crypto</span>
+          <ul>
+            <li><a href="/modules/crypto">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Data</span>
+          <ul>
+            <li><a href="/modules/data">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Element</span>
+          <ul>
+            <li><a href="/modules/element">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>ESLint</span>
+          <ul>
+            <li><a href="/modules/eslint">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Event</span>
+          <ul>
+            <li><a href="/modules/event">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>File</span>
+          <ul>
+            <li><a href="/modules/file">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Function</span>
+          <ul>
+            <li><a href="/modules/function">Overview</a></li>
+            <li class="with-children">
+              <a href="/modules/function/azure">Azure Functions</a>
+            </li>
+            <li class="with-children">
+              <a href="/modules/function/google">Google Cloud Functions</a>
+            </li>
+            <li class="with-children">
+              <a href="/modules/function/lambda">AWS Lambda</a>
+              <ul>
+                <li><a href="/modules/function/lambda/overview">Overview</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Functional</span>
+          <ul>
+            <li><a href="/modules/functional">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Graph</span>
+          <ul>
+            <li><a href="/modules/graph">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Identity</span>
+          <ul>
+            <li><a href="/modules/identity">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Image</span>
+          <ul>
+            <li><a href="/modules/image">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Integration</span>
+          <ul>
+            <li><a href="/modules/integration">Overview</a></li>
+            <li><a href="/modules/integration/usage">Usage</a></li>
+            <li><a href="/modules/integration/api">API</a></li>
+            <li><a href="/modules/integration/testing">Testing</a></li>
+            <li class="with-children">
+              <span>Amazon</span>
+              <ul>
+                <li><a href="/modules/integration/amazon">Overview</a></li>
+                <li><a href="/modules/integration/amazon/usage">Usage</a></li>
+                <li><a href="/modules/integration/amazon/api">API</a></li>
+                <li><a href="/modules/integration/amazon/testing">Testing</a></li>
+                <li><a href="/modules/integration/amazon/examples">Examples</a></li>
+                <li class="with-children">
+                  <span>API Gateway</span>
+                  <ul>
+                    <li><a href="/modules/integration/amazon/api-gateway/overview">Overview</a></li>
+                  </ul>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/appsync">AppSync</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/aurora">Aurora</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/chime">Chime</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/cloudwatch">CloudWatch</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/cloudwatch-logs">CloudWatch Logs</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/comprehend">Comprehend</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/dynamodb">DynamoDB</a>
+                  <ul>
+                    <li><a href="/modules/integration/amazon/dynamodb/overview">Overview</a></li>
+                    <li><a href="/modules/integration/amazon/dynamodb/usage">Usage</a></li>
+                    <li><a href="/modules/integration/amazon/dynamodb/api">API</a></li>
+                    <li><a href="/modules/integration/amazon/dynamodb/examples">Examples</a></li>
+                  </ul>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/eventbridge">EventBridge</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/kinesis">Kinesis</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/lambda">Lambda</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/neptune">Neptune</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/polly">Polly</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/redshift">Redshift</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/rekognition">Rekognition</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/route-53">Route 53</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/s3">S3</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/ses">SES</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/sns">SNS</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/sqs">SQS</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/transcribe">Transcribe</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/translate">Translate</a>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/integration/amazon/x-ray">X-Ray</a>
+                </li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/azure">Azure</a>
+              <ul>
+                <li><a href="/modules/integration/azure/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/discord">Discord</a>
+              <ul>
+                <li><a href="/modules/integration/discord/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/github">Github</a>
+              <ul>
+                <li><a href="/modules/integration/github/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/gitlab">Gitlab</a>
+              <ul>
+                <li><a href="/modules/integration/gitlab/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/google">Google</a>
+              <ul>
+                <li><a href="/modules/integration/google/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/gumroad">Gumroad</a>
+              <ul>
+                <li><a href="/modules/integration/gumroad/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/mailchimp">Mailchimp</a>
+              <ul>
+                <li><a href="/modules/integration/mailchimp/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/paddle">Paddle</a>
+              <ul>
+                <li><a href="/modules/integration/paddle/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/paypal">Paypal</a>
+              <ul>
+                <li><a href="/modules/integration/paypal/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/sendgrid">Sendgrid</a>
+              <ul>
+                <li><a href="/modules/integration/sendgrid/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/square">Square</a>
+              <ul>
+                <li><a href="/modules/integration/square/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/stripe">Stripe</a>
+              <ul>
+                <li><a href="/modules/integration/stripe/overview">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <a href="/modules/integration/twitter">Twitter</a>
+              <ul>
+                <li><a href="/modules/integration/twitter/overview">Overview</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/mail">Mail</a>
+          <ul>
+            <li>
+              <a href="/modules/mail/overview">Overview</a>
+            </li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/math">Math</a>
+          <ul>
+            <li><a href="/modules/math">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/message">Message</a>
+          <ul>
+            <li><a href="/modules/message">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/observability">Observability</a>
+          <ul>
+            <li><a href="/modules/observability/overview">Overview</a></li>
+            <li class="with-children">
+              <a href="/modules/observability/logging">Logging</a>
+              <ul>
+                <li><a href="/modules/observability/logging/overview">Overview</a></li>
+                <li><a href="/modules/observability/logging/appenders">Appenders</a></li>
+                <li><a href="/modules/observability/logging/encoders">Encoders</a></li>
+                <li><a href="/modules/observability/logging/filters">Filters</a></li>
+                <li><a href="/modules/observability/logging/layouts">Layouts</a></li>
+              </ul>
+            </li>
+            <li><a href="/modules/observability/schematics">Schematics</a></li>
+            <li><a href="/modules/observability/stack">Stack</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/process">Process</a>
+          <ul>
+            <li><a href="/modules/process">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/query">Query</a>
+          <ul>
+            <li><a href="/modules/query">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/reactive">Reactive</a>
+          <ul>
+            <li><a href="/modules/reactive">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/regexp">RegExp</a>
+          <ul>
+            <li><a href="/modules/regexp">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <a href="/modules/runtime">Runtime</a>
+          <ul>
+            <li><a href="/modules/runtime">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Schematics</span>
+          <ul>
+            <li><a href="/modules/schematics">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Stack</span>
+          <ul>
+            <li><a href="/modules/stack">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>String</span>
+          <ul>
+            <li><a href="/modules/string">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Temporal</span>
+          <ul>
+            <li><a href="/modules/temporal">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>TypeScript</span>
+          <ul>
+            <li><a href="/modules/typescript">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Validation</span>
+          <ul>
+            <li><a href="/modules/validation">Overview</a></li>
+          </ul>
+        </li>
+        <li class="with-children">
+          <span>Web</span>
+          <ul>
+            <li><a href="/modules/web">Overview</a></li>
+            <li><a href="/modules/web/testing">Testing</a></li>
+            <li class="with-children">
+              <span>HTTP</span>
+              <ul>
+                <li><a href="/modules/web/http">Overview</a></li>
+                <li><a href="/modules/web/http/usage">Usage</a></li>
+                <li class="with-children">
+                  <span>Server-Sent Events</span>
+                  <ul>
+                    <li><a href="/modules/web/http/sse">Overview</a></li>
+                    <li><a href="/modules/web/http/sse/usage">Usage</a></li>
+                    <li><a href="/modules/web/http/sse/examples">Examples</a></li>
+                  </ul>
+                </li>
+                <li class="with-children">
+                  <a href="/modules/web/http/websocket">WebSockets</a>
+                </li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Payment</span>
+              <ul>
+                <li><a href="/modules/web/payment">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Permission</span>
+              <ul>
+                <li><a href="/modules/web/permission">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Push</span>
+              <ul>
+                <li><a href="/modules/web/push">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>RTC</span>
+              <ul>
+                <li><a href="/modules/web/rtc">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Speech</span>
+              <ul>
+                <li><a href="/modules/web/speech">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Storage</span>
+              <ul>
+                <li><a href="/modules/web/storage">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Vibration</span>
+              <ul>
+                <li><a href="/modules/web/vibration">Overview</a></li>
+              </ul>
+            </li>
+            <li class="with-children">
+              <span>Worker</span>
+              <ul>
+                <li><a href="/modules/web/worker">Overview</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <main class="article">
+      <section class="splash">
+        <h2>
+          Title
+        </h2>
+        <div class="features">
+          <div class="feature functional">
+            <h3>Functional</h3>
+          </div>
+          <div class="feature reactive">
+            <h3>Reactive</h3>
+          </div>
+          <div class="feature ddd">
+            <h3>Domain-driven</h3>
+          </div>
+          <div class="feature serverless">
+            <h3>Serverless</h3>
+          </div>
+          <div class="feature enterprise">
+            <h3>Enterprise-Ready</h3>
+          </div>
+          <div class="feature more">
+            <h3>And more...</h3>
+            More
+          </div>
+        </div>
+      </section>
+      <nav>
+        <ul>
+          <li>
+            <a href="#response-transformation">Response transformation</a>
+            <ul>
+              <li>
+                <a href="#response-as-json">Response as JSON</a>
+              </li>
+              <li>
+                <a href="#response-as-text">Response as text</a>
+              </li>
+              <li>
+                <a href="#response-as-blob">Response as blob</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#response-progress">Response progress</a>
+          </li>
+        </ul>
+      </nav>
+      <article>
+        <h1>
+          HTTP Client Operators
+        </h1>
+        <p>
+          The <a href="/documentation/modules/web/http">HTTP client module</a> offers basic support for observable,
+          cancellable HTTP requests.
+        </p>
+        <p>
+          Operators allow composing a higher-level abstraction.
+        </p>
+        <h2>Response transformation</h2>
+        <p>
+          The HTTP client emits a response as soon as it is available, even if the response payload has not been
+          completely downloaded yet.
+        </p>
+        <p>
+          A number of operators simplify the process of obtaining a full response payload.
+        </p>
+        <h3>Response as JSON</h3>
+        <p>
+          A common scenario for HTTP clients is to use JSON-based APIs.
+        </p>
+        <p>
+          <a href="#"><code>responseAsJson&lt;T>()</code></a> creates an operator function that turns a response payload
+          into a JSON object:
+        </p>
+        <div class="code typescript">
+          <pre>import { responseAsJson } from '@komore/web/http/operators';
+
+response$.pipe(
+  responseAsJson<T>()
+);</pre>
+        </div>
+        <p>The generic <code>T</code> parameter allows selecting the type of emitted values.</p>
+        <p>By default, emitted values have a <code>Record&lt;string, unknown></code> type.</p>
+        <h3>Response as text</h3>
+        <p>
+          <a href="#"><code>responseAsText()</code></a> creates an operator function that turns a response into a
+          textual representation of its payload:
+        </p>
+        <div class="code typescript">
+          <pre>import { responseAsText } from '@komore/web/http/operators';
+
+response$.pipe(
+  responseAsText()
+); // Observable&lt;string></pre>
+        </div>
+        <p>
+          <a href="#"><code>withResponseAsText()</code></a> creates an operator function that turns a reponse into a
+          tuple with the response and a textual representation of the response's payload:
+        </p>
+        <div class="code typescript">
+          <pre>import { withResponseAsText } from '@komore/web/http/operators';
+
+response$.pipe(
+  withResponseAsText()
+); // Observable&lt;[Response, string]></pre>
+        </div>
+        <h3>Response as blob</h3>
+        <p>
+          <a href="#"><code>responseAsBlob()</code></a> creates an operator function that turns a response into a
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">blob</a> representation of its payload:
+        </p>
+        <div class="code typescript">
+          <pre>import { responseAsBlob } from '@komore/web/http/operators';
+
+response$.pipe(
+  responseAsBlob()
+); // Observable&lt;Blob></pre>
+        </div>
+        <p>
+          <a href="#"><code>withResponseAsBlob()</code></a> creates an operator function that turns a response into a
+          tuple with the response and a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">blob</a>
+          representation of the response's payload:
+        </p>
+        <div class="code typescript">
+          <pre>import { withResponseAsBlob } from '@komore/web/http/operators';
+
+response$.pipe(
+  withResponseAsBlob()
+); // Observable&lt;Response, Blob]></pre>
+        </div>
+        <h2>Response progress</h2>
+        <p>TODO.</p>
+      </article>
+      <footer>
+        <small> &copy; 2021 komore </small>
+        <div class="documentation">
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="/guides">Guides</a></li>
+            <li><a href="/modules">Modules</a></li>
+            <li><a href="/reference">Reference</a></li>
+          </ul>
+        </div>
+        <div class="help">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="https://github.com/komore/komore/issues/new" rel="noreferrer noopener" target="_blank">Report an Issue</a></li>
+            <li><a href="TODO" rel="noreferrer noopener" target="_blank">Discord</a></li>
+          </ul>
+        </div>
+        <div class="community">
+          <h3>Community</h3>
+          <ul>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="https://github.com/komore/komore/blob/main/CONTRIBUTING.md" rel="noreferrer noopener" target="_blank">Contributing</a></li>
+            <li><a href="https://github.com/komore/komore/blob/main/CODE_OF_CONDUCT.md" rel="noreferrer noopener" target="_blank">Code of Conduct</a></li>
+          </ul>
+        </div>
+        <div class="more">
+          <h3>More</h3>
+          <ul>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>

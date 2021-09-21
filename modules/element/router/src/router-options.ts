@@ -1,8 +1,8 @@
-import type { Route } from './route';
+import type { RouteInjectionOptions } from './injector/route-injection-options';
 
 /**
  * Router options
  */
 export interface RouterOptions {
-  readonly routes: ReadonlyArray<Route>;
+  readonly injectionOptions: RouteInjectionOptions;
 }

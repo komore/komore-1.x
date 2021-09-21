@@ -1,11 +1,9 @@
-import type { FromAttribute, FromChild } from '@komore/element';
-import { fromEvent, merge, Observable, Subject } from '@komore/reactive';
+import type { FromChild } from '@komore/element';
+import { EMPTY, fromEvent, merge, Observable, of, Subject } from '@komore/reactive';
 import { distinctUntilChanged, map, switchMap, takeUntil, tap, tapValue } from '@komore/reactive/operators';
 import { toMessageEventData } from '@komore/web';
 import { createWorker } from '@komore/web/worker';
-import { SearchQuery } from '@komore/website/search';
 import type { SearchWorkerInput, SearchWorkerOutput } from '@komore/website/search/worker';
-import { EMPTY } from 'rxjs';
 
 const templateElement = document.createElement('template');
 
@@ -61,12 +59,7 @@ templateElement.innerHTML = `
 /**
  * @komore/element/compiler TODO
  */
-interface SearchInputElementAttributeMap {
-  'x': string;
-}
-
 interface SearchInputElementInput {
-  readonly fromAttribute: FromAttribute<SearchInputElementAttributeMap>;
   readonly fromChild: FromChild;
 }
 /**
@@ -83,7 +76,7 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
       map(() => inputElement.value)
     )),
     distinctUntilChanged()
-  );
+  )
 
   function toSearchWorkerInput(query: string): SearchWorkerInput {
     return {
@@ -93,15 +86,18 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
     };
   }
 
-  queryChanged.pipe(
-    map(query => ({
-      query
-    })),
+  const dispatchSearch = queryChanged.pipe(
+    map(toSearchWorkerInput),
     tapValue(searchQuery => console.log('[Search] query changed', searchQuery)),
     tap(observer)
   );
 
-  return merge([queryChanged]);
+  const searchResults = observable.pipe(
+    map(toMessageEventData),
+    tapValue(results => console.log('[Search] results changed', results))
+  );
+
+  return merge([dispatchSearch, searchResults]);
 }
 
 /**
@@ -115,24 +111,12 @@ export class SearchInputElement extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: 'open' });
     const templateContent = templateElement.content.cloneNode(true);
     shadowRoot.append(templateContent);
-    const inputElement = shadowRoot.querySelector<HTMLInputElement>(':host > input')!;
-    const query = fromEvent(inputElement, 'input').pipe(map(() => inputElement.value));
-    const searchResults = observable.pipe(map(toMessageEventData));
 
-    query
-      .pipe(
-        distinctUntilChanged(),
-        map(query => ({
-          query
-        })),
-        tap(searchQuery => console.log('[Search] query changed', searchQuery)),
-        takeUntil(this.destroyed)
-      )
-      .subscribe(observer);
-
-    searchResults.pipe(takeUntil(this.destroyed)).subscribe(results => {
-      console.log('results', results);
-    });
+    searchInputElement({
+      fromChild: <ElementType extends Element>(selectors: string) => of(shadowRoot.querySelector<ElementType>(selectors)!),
+    }).pipe(
+      takeUntil(this.destroyed)
+    ).subscribe();
   }
 
   connectedCallback(): void {

@@ -1,4 +1,5 @@
 import type { Observer } from '@komore/reactive';
+import { terminateWorker } from './terminate-worker';
 import type { WorkerObserverOptions } from './worker-observer-options';
 
 /**
@@ -12,6 +13,9 @@ export function toWorker<OutgoingType = unknown>(
   worker: Worker | SharedWorker,
   options?: WorkerObserverOptions<OutgoingType>
 ): Observer<OutgoingType> {
+  type TerminateOnOption = WorkerObserverOptions['terminateOn'];
+  const terminateOnCompletionOptions: ReadonlyArray<TerminateOnOption> = ['complete', 'complete-and-error'];
+  const terminateOnErrorOptions: ReadonlyArray<TerminateOnOption> = ['complete-and-error', 'error'];
   const terminateOnCompletion = terminateOnCompletionOptions.includes(options?.terminateOn);
   const terminateOnError = terminateOnErrorOptions.includes(options?.terminateOn);
   const target = worker instanceof SharedWorker ? worker.port : worker;
@@ -42,20 +46,4 @@ export function toWorker<OutgoingType = unknown>(
     error,
     complete
   };
-}
-
-type TerminateOnOption = WorkerObserverOptions['terminateOn'];
-const terminateOnCompletionOptions: ReadonlyArray<TerminateOnOption> = ['complete', 'complete-and-error'];
-const terminateOnErrorOptions: ReadonlyArray<TerminateOnOption> = ['complete-and-error', 'error'];
-
-/**
- * Terminates a dedicated or share worker
- * @param worker Dedicated or shared worker
- */
-function terminateWorker(worker: Worker | SharedWorker): void {
-  if (worker instanceof SharedWorker) {
-    worker.port.close();
-  } else {
-    worker.terminate();
-  }
 }

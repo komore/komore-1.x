@@ -16,6 +16,7 @@ export { isPageVisible } from './visibility/is-page-visible';
 export { isTrustedHTML } from './security/is-trusted-html';
 export { isTrustedScript } from './security/is-trusted-script';
 export { isTrustedScriptURL } from './security/is-trusted-script-url';
+export { LOCATION } from './location';
 export { observeDocumentTitle } from './dom/observe-document-title';
 export { observeFullscreenChanges } from './observe-fullscreen-changes';
 export { observePageVisibility } from './visibility/observe-page-visibility';

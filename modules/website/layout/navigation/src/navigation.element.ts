@@ -36,7 +36,7 @@ templateElement.innerHTML = `
 <a href="/blog">Blog</a>
 `;
 
-export class KWNavigationElement extends HTMLElement {
+export class NavigationElement extends HTMLElement {
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: 'open' });
@@ -45,4 +45,4 @@ export class KWNavigationElement extends HTMLElement {
   }
 }
 
-customElements.define('kw-navigation', KWNavigationElement);
+customElements.define('kw-navigation', NavigationElement);
