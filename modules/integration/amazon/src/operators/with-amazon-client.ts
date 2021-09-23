@@ -4,8 +4,8 @@ import type { MessageWithIntegrations } from '@komore/integration';
 import type { Message } from '@komore/message';
 import type { OperatorFunction } from '@komore/reactive';
 import { map } from '@komore/reactive/operators';
-import type { MessageWithAmazonClient } from '../graph/message-with-amazon-client';
-import type { MessageWithAmazonIntegrations } from '../graph/message-with-amazon-integrations';
+import type { MessageWithAmazonClient } from '../message/message-with-amazon-client';
+import type { MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
 import { mutateAmazonClient } from '../graph/mutate-amazon-client';
 
 /**

@@ -1,5 +1,5 @@
-import { Message } from '@komore/message';
-import { MessageWithIntegrations, MutatedIntegrationTypes } from './message-with-integrations';
+import type { Message } from '@komore/message';
+import type { MessageWithIntegrations, MutatedIntegrationTypes } from './message-with-integrations';
 
 /**
  * Mutates integrations

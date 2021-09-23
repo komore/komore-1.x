@@ -1,6 +1,7 @@
 import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
 import type { Command, MetadataBearer } from '@aws-sdk/types';
-import { EMPTY, Observable } from '@komore/reactive';
+import type { Observable } from '@komore/reactive';
+import { EMPTY } from '@komore/reactive';
 import { expand, reduce } from '@komore/reactive/operators';
 import { sendCommand } from './send-command';
 
@@ -17,7 +18,7 @@ import { sendCommand } from './send-command';
  */
 export function sendBatchCommand<
   AwsClientHandlerOptions,
-  AwsClientInput extends object,
+  AwsClientInput extends Record<string, unknown>,
   AwsClientOutput extends MetadataBearer,
   AwsClientResolvedConfiguration extends SmithyResolvedConfiguration<AwsClientHandlerOptions>,
   InputType extends AwsClientInput,

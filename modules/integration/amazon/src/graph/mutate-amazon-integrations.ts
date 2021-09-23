@@ -4,7 +4,7 @@ import type { Message } from '@komore/message';
 import type {
   MessageWithAmazonIntegrations,
   MutatedAmazonIntegrationTypes
-} from './message-with-amazon-integrations';
+} from '../message/message-with-amazon-integrations';
 
 /**
  * Mutates Amazon integrations

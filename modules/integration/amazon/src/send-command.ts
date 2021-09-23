@@ -12,26 +12,24 @@ import { deferPromise } from '@komore/reactive/promise';
  * @template AmazonClientInput Amazon client input
  * @template AmazonClientOutput Amazon client output
  * @template AmazonClientResolvedConfiguration Amazon client resolved configuration
- * @template AmazonClientType Amazon client type
  * @template InputType Input type
  * @template OutputType Output type
  * @returns Command output
  */
 export function sendCommand<
   AmazonClientHandlerOptions,
-  AmazonClientInput extends object,
+  AmazonClientInput extends object, // eslint-disable-line @typescript-eslint/ban-types
   AmazonClientOutput extends MetadataBearer,
   AmazonClientResolvedConfiguration extends SmithyResolvedConfiguration<AmazonClientHandlerOptions>,
-  AmazonClientType extends Client<
+  InputType extends AmazonClientInput,
+  OutputType extends AmazonClientOutput
+>(
+  amazonClient: Client<
     AmazonClientHandlerOptions,
     AmazonClientInput,
     AmazonClientOutput,
     AmazonClientResolvedConfiguration
   >,
-  InputType extends AmazonClientInput,
-  OutputType extends AmazonClientOutput
->(
-  amazonClient: AmazonClientType,
   command: Command<
     AmazonClientInput,
     InputType,
@@ -41,5 +39,13 @@ export function sendCommand<
   >,
   options?: AmazonClientHandlerOptions
 ): Observable<OutputType> {
-  return deferPromise(() => amazonClient.send(command, options));
+  const x = deferPromise(() => amazonClient.send(command, options));
+  return x;
 }
+
+import { S3Client } from '@Aws-sdk/client-s3';
+import type { ListObjectsV2Command } from '@Aws-sdk/client-s3';
+const s3Client = new S3Client({});
+const cmd: ListObjectsV2Command = undefined as unknown as ListObjectsV2Command;
+sendCommand(s3Client, cmd);
+s3Client.send(cmd);

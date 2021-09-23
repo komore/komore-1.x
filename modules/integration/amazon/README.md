@@ -1,4 +1,4 @@
-# komore Integration - AWS
+# komore Integration - Amazon
 
 TODO: "getAll" type of operator to expand/reduce/map paginated results with a cursor/token
 

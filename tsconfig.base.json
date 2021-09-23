@@ -158,6 +158,7 @@
       "@komore/integration-amazon/comprehend": ["modules/integration/amazon/comprehend/src/index.ts"],
       "@komore/integration-amazon/dynamodb": ["modules/integration/amazon/dynamodb/src/index.ts"],
       "@komore/integration-amazon/eventbridge": ["modules/integration/amazon/eventbridge/src/index.ts"],
+      "@komore/integration-amazon/graph": ["modules/integration/amazon/graph/src/index.ts"],
       "@komore/integration-amazon/kinesis": ["modules/integration/amazon/kinesis/src/index.ts"],
       "@komore/integration-amazon/lambda": ["modules/integration/amazon/lambda/src/index.ts"],
       "@komore/integration-amazon/neptune": ["modules/integration/amazon/neptune/src/index.ts"],
@@ -170,23 +171,16 @@
       "@komore/integration-amazon/ses": ["modules/integration/amazon/ses/src/index.ts"],
       "@komore/integration-amazon/sns": ["modules/integration/amazon/sns/src/index.ts"],
       "@komore/integration-amazon/sqs": ["modules/integration/amazon/sqs/src/index.ts"],
+      "@komore/integration-amazon/sqs/graph": ["modules/integration/amazon/sqs/graph/src/index.ts"],
       "@komore/integration-amazon/transcribe": ["modules/integration/amazon/transcribe/src/index.ts"],
       "@komore/integration-amazon/translate": ["modules/integration/amazon/translate/src/index.ts"],
       "@komore/integration-amazon/x-ray": ["modules/integration/amazon/x-ray/src/index.ts"],
       "@komore/integration-azure": ["modules/integration/azure/src/index.ts"],
       "@komore/integration-azure/cognitive-services": ["modules/integration/azure/cognitive-services/src/index.ts"],
-      "@komore/integration-azure/cognitive-services/computer-vision": [
-        "modules/integration/azure/cognitive-services/computer-vision/src/index.ts"
-      ],
-      "@komore/integration-azure/cognitive-services/content-moderator": [
-        "modules/integration/azure/cognitive-services/content-moderator/src/index.ts"
-      ],
-      "@komore/integration-azure/cognitive-services/face": [
-        "modules/integration/azure/cognitive-services/face/src/index.ts"
-      ],
-      "@komore/integration-azure/cognitive-services/form-recognizer": [
-        "modules/integration/azure/cognitive-services/form-recognizer/src/index.ts"
-      ],
+      "@komore/integration-azure/cognitive-services/computer-vision": ["modules/integration/azure/cognitive-services/computer-vision/src/index.ts"],
+      "@komore/integration-azure/cognitive-services/content-moderator": ["modules/integration/azure/cognitive-services/content-moderator/src/index.ts"],
+      "@komore/integration-azure/cognitive-services/face": ["modules/integration/azure/cognitive-services/face/src/index.ts"],
+      "@komore/integration-azure/cognitive-services/form-recognizer": ["modules/integration/azure/cognitive-services/form-recognizer/src/index.ts"],
       "@komore/integration-azure/cosmos": ["modules/integration/azure/cosmos/src/index.ts"],
       "@komore/integration-azure/dns": ["modules/integration/azure/dns/src/index.ts"],
       "@komore/integration-azure/storage": ["modules/integration/azure/storage/src/index.ts"],

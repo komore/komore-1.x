@@ -1,9 +1,9 @@
-import { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
-import { MetadataBearer } from '@aws-sdk/types';
-import { MessageWithIntegrations } from '@komore/integration';
-import { Message } from '@komore/message';
-import { AwsIntegrations } from './aws-integrations';
-import { MessageWithAwsIntegrations } from './message-with-aws-integrations';
+import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import type { MetadataBearer } from '@aws-sdk/types';
+import type { MessageWithIntegrations } from '@komore/integration';
+import type { Message } from '@komore/message';
+import type { AmazonIntegrations } from './amazon-integrations';
+import type { MessageWithAmazonIntegrations } from './message-with-amazon-integrations';
 
 /**
  * Message with an AWS client
@@ -19,11 +19,11 @@ import { MessageWithAwsIntegrations } from './message-with-aws-integrations';
  */
 export type MessageWithAwsClient<
   MessageTypeName extends string,
-  MessageMetadataType extends object,
+  MessageMetadataType extends Record<string, unknown>,
   MessageInputType,
   MessageOutputType,
   MessageType extends Message<MessageTypeName, MessageMetadataType, MessageInputType, MessageOutputType>,
-  IntegrationTypes extends object,
+  IntegrationTypes extends Record<string, unknown>,
   MessageWithIntegrationsType extends MessageWithIntegrations<
     MessageTypeName,
     MessageMetadataType,
@@ -33,7 +33,7 @@ export type MessageWithAwsClient<
     IntegrationTypes
   >,
   AwsIntegrationTypes extends object,
-  MessageWithAwsIntegrationsType extends MessageWithAwsIntegrations<
+  MessageWithAmazonIntegrationsType extends MessageWithAmazonIntegrations<
     MessageTypeName,
     MessageMetadataType,
     MessageInputType,
@@ -48,9 +48,9 @@ export type MessageWithAwsClient<
   AwsClientInputType extends object,
   AwsClientOutputType extends MetadataBearer,
   AwsClientResolvedConfiguration extends SmithyResolvedConfiguration<AwsClientHandlerOptions>
-> = MessageWithAwsIntegrationsType &
+> = MessageWithAmazonIntegrationsType &
   Readonly<{
-    integrations: AwsIntegrations<
+    integrations: AmazonIntegrations<
       Record<
         AwsClientTypeName,
         Client<AwsClientHandlerOptions, AwsClientInputType, AwsClientOutputType, AwsClientResolvedConfiguration>
