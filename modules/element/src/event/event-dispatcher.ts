@@ -7,3 +7,4 @@
 export type EventDispatcher<EventDetailType> = EventDetailType extends void
   ? () => boolean
   : (eventDetails: EventDetailType) => boolean;
+// TODO: observable result for asynchronous response?

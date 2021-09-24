@@ -1,19 +1,28 @@
 # @komore/event
 
-The `@komore/event` module helps working with event-based architectures.
+The `@komore/event` module helps working with event-based and event sourcing architectures.
 
 ## Key concepts
 
-- [Events] 
+- [Events] describe something that has happened
+- Application state changes are captured as events
+- Application state changes are written sequentially to an immutable [event store]
 
 ## Installation
 
-The `@komore/event` module is published to the Npm registry.
+The [@komore/event] module can be installed via Npm, pnpm, or Yarn:
 
-| Tool | Command                                     |
-| :--- | :------------------------------------------ |
-| npm  | `npm install @komore/event --save`  |
-| pnpm | `pnpm install @komore/event --save` |
-| Yarn | `yarn add @komore/event`            |
+```sh
+npm install @komore/event --save
+```
 
+```sh
+pnpm add @komore/event
+```
+
+```sh
+yarn add @komore/event
+```
+
+[@komore/event]: https://npmjs.com/package/@komore/event
 [events]: ./todo.md
