@@ -118,6 +118,7 @@ specifiers:
   rollup-plugin-serve: 1.1.0
   rxjs: 7.3.0
   sass: 1.39.2
+  stripe: ^8.176.0
   ts-jest: 27.0.3
   ts-node: 9.1.1
   tslib: 2.3.0
@@ -199,6 +200,7 @@ dependencies:
   postcss: 8.3.6
   rxjs: 7.3.0
   sass: 1.39.2
+  stripe: 8.176.0
   tslib: 2.3.0
   typescript: 4.4.3
   uuid: 8.3.2
@@ -15373,6 +15375,14 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /stripe/8.176.0:
+    resolution: {integrity: sha512-0KCDo8TWFgeNWU7cPaqdjO2u2OSth0cmWYZmA7xsuxRCk7/lgWbJ/UbeSphx74cCIjFCmGuzDoNuNxqon9lEbg==}
+    engines: {node: ^8.1 || >=10.*}
+    dependencies:
+      '@types/node': 16.4.6
+      qs: 6.10.1
+    dev: false
 
   /stubs/3.0.0:
     resolution: {integrity: sha1-6NK6H6nJBXAwPAMLaQD31fiavls=}
