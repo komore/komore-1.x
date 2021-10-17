@@ -1,5 +1,4 @@
-import { throwError as rxjsThrowError } from 'rxjs';
-import type { Observable } from '../observable';
+import { Observable } from '../observable/observable';
 
 /**
  * Creates an observable that notifies its observers of an error upon subscription
@@ -7,5 +6,5 @@ import type { Observable } from '../observable';
  * @returns Observable that notifies the error and never emits any value
  */
 export function throwError(errorFactory: () => unknown): Observable<never> {
-  return rxjsThrowError(errorFactory);
+  return new Observable<never>(subscriber => subscriber.error(errorFactory()));
 }

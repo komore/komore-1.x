@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
-import { map, pipe } from '@komore/reactive/operators';
+import { map, pipe } from '@komore/reactive';
 import { constraint } from './constraint';
 
 /**

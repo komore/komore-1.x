@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive/promise';
+import { deferPromise } from '@komore/reactive';
 import type { FileHandle } from 'fs/promises';
 
 /**

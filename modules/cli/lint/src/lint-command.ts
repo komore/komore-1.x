@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
+import { tapValue } from '@komore/reactive';
 import type { LintArguments } from './lint-arguments';
 import type { LintFlags } from './lint-flags';
 

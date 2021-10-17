@@ -30,7 +30,7 @@ The behavior may however be made more explicit using the `dropValue()` operator.
 
 ```ts
 import { sqsTrigger } from '@komore/function-lambda';
-import { dropValue, tapValue } from '@komore/reactive/operators';
+import { dropValue, tapValue } from '@komore/reactive';
 
 export const processQueue = createFunction('processQueue', sqsTrigger(), $ =>
   $.pipe(

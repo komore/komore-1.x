@@ -3,6 +3,7 @@ export type { BinaryFunction } from './binary-function';
 export { enumEntries } from './enum-entries';
 export { enumKeys } from './enum-keys';
 export { enumValues } from './enum-values';
+export { fromJson } from './from-json';
 export { identity } from './identity';
 export { isDefined } from './is-defined';
 export { isNotNull } from './is-not-null';

@@ -1,7 +1,6 @@
-import { fromEvent, merge, Observable, throwError } from '@komore/reactive';
-import { mergeMap, share, takeUntil } from '@komore/reactive/operators';
+import { fromEvent, merge, mergeMap, Observable, share, takeUntil, throwError } from '@komore/reactive';
 
-// TODO: remove once added to libdom.d.ts
+// TODO: remove once added to libdom.d.ts or use @types/*
 declare global {
   interface SpeechRecognition {
     serviceURI: string;

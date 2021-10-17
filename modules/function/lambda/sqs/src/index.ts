@@ -7,3 +7,4 @@ export type { SqsEventRecordMessageAttribute } from './event/sqs-event-record-me
 export type { SqsEventRecordMessageAttributeDataType } from './event/sqs-event-record-message-attribute-data-type';
 export type { SqsEventTriggerOptions } from './event/sqs-event-trigger-options';
 export { toSqsRecords } from './to-sqs-records';
+export { triggeredBySqs } from './triggered-by-sqs';

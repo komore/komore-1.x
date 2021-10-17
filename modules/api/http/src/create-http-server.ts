@@ -1,6 +1,5 @@
 import type { Observable, Observer } from '@komore/reactive';
-import { of, Subject } from '@komore/reactive';
-import { catchError, defaultIfEmpty, map, mergeMap } from '@komore/reactive/operators';
+import { catchError, defaultIfEmpty, map, mergeMap, of, Subject } from '@komore/reactive';
 import type { Server } from 'http';
 import * as Koa from 'koa';
 import type { ListenOptions } from 'net';

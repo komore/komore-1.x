@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { lastValueFrom } from '@komore/reactive/promise';
+import { lastValueFrom } from '@komore/reactive';
 import { deleteIndexedDBDatabase } from './delete-indexeddb-database';
 
 describe.only('Delete database', () => {

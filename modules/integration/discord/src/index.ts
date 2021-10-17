@@ -1,6 +1,6 @@
 export type { DiscordEvent } from './discord-event';
-export { fromDiscordEvent } from './from-discord-event';
-export { isDiscordEventType } from './is-discord-event-type';
+export { fromDiscordEvents } from './from-discord-events';
+export { isDiscordEventName } from './is-discord-event-name';
 export { sendDiscordWebhookMessage } from './send-discord-webhook-message';
 export { toDiscordEventArguments } from './to-discord-event-arguments';
 export { toDiscordEventName } from './to-discord-event-name';

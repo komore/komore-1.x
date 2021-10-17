@@ -10,6 +10,7 @@ export type { FilterResult } from './filter/filter-result';
 export type { Layout } from './layout/layout';
 export type { LogEvent } from './definition/log-event';
 export type { LogEventCreator } from './definition/log-event-creator';
+export type { LogEventRecord } from './definition/log-event-record';
 export { LogEventSeverities } from './definition/log-event-severities';
 export type { LogEventSeverity } from './definition/log-event-severity';
 export type { LogGroup } from './definition/log-group';

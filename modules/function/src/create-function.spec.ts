@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { ignoreValues, mapTo } from '@komore/reactive/operators';
+import { ignoreValues, mapTo } from '@komore/reactive';
 import { expectTypeOf } from 'expect-type';
 import { createFunction } from './create-function';
 

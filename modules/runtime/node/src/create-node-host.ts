@@ -1,6 +1,6 @@
-import { fromEvent, Subject, Subscription } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
+import { fromEvent, map, Subject, Subscription, tap, tapNext, tapValue } from '@komore/reactive';
 import type { HostLifecycleEvent, HostState } from '@komore/runtime';
+import { HostError } from '@komore/runtime';
 import { buildNodeHostOptions } from './build-node-host-options';
 import type { NodeHost } from './node-host';
 import type { NodeHostOptions } from './node-host-options';
@@ -11,24 +11,26 @@ import type { NodeHostOptions } from './node-host-options';
  * @returns Node host
  */
 export function createNodeHost(hostOptions?: Partial<NodeHostOptions>): NodeHost {
-  const errors = new Subject<Error>();
   const options = buildNodeHostOptions(hostOptions);
   const lifecycle = new Subject<HostLifecycleEvent>();
   const state = new Subject<HostState>();
   const subscription = new Subscription();
 
-  const beforeExitSubscription = fromEvent<number>(process, 'beforeExit').pipe(
-    tapValue(() => state.next('stopping')),
-  ).subscribe();
+  const beforeExitSubscription = fromEvent<number>(process, 'beforeExit')
+    .pipe(tapValue(() => state.next('stopping')))
+    .subscribe();
 
-  const exitSubscription = fromEvent<number>(process, 'exit').pipe(
-    tapValue(() => state.next('stopped'))
-  ).subscribe();
+  const exitSubscription = fromEvent<number>(process, 'exit')
+    .pipe(tapValue(() => state.next('stopped')))
+    .subscribe();
 
   subscription.add(beforeExitSubscription);
   subscription.add(exitSubscription);
 
-  process.on('uncaughtException', error => errors.next(error));
+  const errors = fromEvent<Error>(process, 'uncaughtException').pipe(
+    tapNext(() => (process.exitCode = 1)),
+    map(error => new HostError(error.message, '', 0, 0, error))
+  );
 
   return {
     errors,

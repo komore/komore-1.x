@@ -1,5 +1,4 @@
-import { of } from '@komore/reactive';
-import { mergeMap } from '@komore/reactive/operators';
+import { mergeMap, of } from '@komore/reactive';
 import type { GenericScope } from '@komore/stack';
 import { withResource } from '@komore/stack/operators';
 import type { TerraformMetaArguments, TerraformResource } from 'cdktf';

@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { defer, fromEvent } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { defer, fromEvent, map } from '@komore/reactive';
 
 /**
  * TODO

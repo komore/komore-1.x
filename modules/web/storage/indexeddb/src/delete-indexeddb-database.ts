@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { defer } from '@komore/reactive';
-import { dropValues } from '@komore/reactive/operators';
+import { defer, dropValue } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
 
 /**
@@ -11,6 +10,6 @@ import { fromIDBRequest } from './from-idb-request';
 export function deleteIndexedDBDatabase(name: string): Observable<void> {
   return defer(() => {
     const idbRequest = indexedDB.deleteDatabase(name);
-    return fromIDBRequest(idbRequest).pipe(dropValues());
+    return fromIDBRequest(idbRequest).pipe(dropValue());
   });
 }

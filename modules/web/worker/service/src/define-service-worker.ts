@@ -1,6 +1,6 @@
-import { fromEvent } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { fromEvent, map } from '@komore/reactive';
 
+// TODO: remove this
 declare const self: ServiceWorkerGlobalScope;
 
 export function defineServiceWorker(): void {

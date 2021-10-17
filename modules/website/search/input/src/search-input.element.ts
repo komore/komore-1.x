@@ -1,6 +1,6 @@
 import type { FromChild } from '@komore/element';
-import { EMPTY, fromEvent, merge, Observable, of, Subject } from '@komore/reactive';
-import { distinctUntilChanged, map, switchMap, takeUntil, tap, tapValue } from '@komore/reactive/operators';
+import type { Observable } from '@komore/reactive';
+import { distinctUntilChanged, fromEvent, map, merge, of, Subject, switchMap, takeUntil, tap, tapValue } from '@komore/reactive';
 import { toMessageEventData } from '@komore/web';
 import { createWorker } from '@komore/web/worker';
 import type { SearchWorkerInput, SearchWorkerOutput } from '@komore/website/search/worker';

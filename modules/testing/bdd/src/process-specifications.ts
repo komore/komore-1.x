@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { defer, fromArray } from '@komore/reactive';
-import { toArray } from '@komore/reactive/operators';
+import { defer, fromArray, toArray } from '@komore/reactive';
 import { processSpecification } from './process-specification';
 import type { Specification } from './specification';
 import type { SpecificationInput } from './specification-input';

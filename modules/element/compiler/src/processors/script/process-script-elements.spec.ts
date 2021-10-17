@@ -1,4 +1,4 @@
-import { lastValueFrom } from '@komore/reactive/promise';
+import { lastValueFrom } from '@komore/reactive';
 import { processScriptElements } from './process-script-elements';
 
 describe('Process script elements', () => {

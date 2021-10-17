@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
+import { tapValue } from '@komore/reactive';
 import type { GenericScope } from '@komore/stack';
 import type { AwsProviderConfig } from './.gen/aws-provider';
 import { AwsProvider } from './.gen/aws-provider';

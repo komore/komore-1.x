@@ -1,10 +1,6 @@
+import type { HOST_STATES } from './host-states';
+
 /**
  * Host state
  */
-export enum HostState {
-  STARTING = 'starting',
-  RUNNING = 'running',
-  PAUSED = 'paused',
-  STOPPING = 'stopping',
-  STOPPED = 'stopped'
-}
+export type HostState = typeof HOST_STATES[number];

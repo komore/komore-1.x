@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
+import { tapValue } from '@komore/reactive';
 import type { GenerateArguments } from './generate-arguments';
 import type { GenerateFlags } from './generate-flags';
 

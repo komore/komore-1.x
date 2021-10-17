@@ -1,5 +1,5 @@
 import type { LambdaEvent } from './lambda-event';
-import type { LambdaEventContext } from './lambda-event-context';
+import type { LambdaEventContext } from './context/lambda-event-context';
 
 /**
  * Lambda event input type

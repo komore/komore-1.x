@@ -37,8 +37,7 @@ Unsubscribing releases the lock.
 The lock being released for [other reasons](#page-visibility) makes the observable error.
 
 ```ts
-import { timer } from '@komore/reactive';
-import { takeUntil } from '@komore/reactive/operators';
+import { takeUntil, timer } from '@komore/reactive';
 import { createWakeLock } from '@komore/web/wake-lock';
 
 const timeElapsed = timer(5000);
@@ -59,8 +58,7 @@ The [`retryWhen()`] operator can be used with [`observePageVisibility()`] to rea
 becomes visible again.
 
 ```ts
-import { fromEvent } from '@komore/reactive';
-import { filter, retryWhen, skipFirst, takeUntil } from '@komore/reactive/operators';
+import { filter, fromEvent, retryWhen, skipFirst, takeUntil } from '@komore/reactive';
 import { isPageVisible, observePageVisiblity } from '@komore/web';
 import { createWwakeLock } from '@komore/web/wake-lock';
 

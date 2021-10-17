@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { fromEvent, merge, throwError } from '@komore/reactive';
-import { mergeMap } from '@komore/reactive/operators';
+import { fromEvent, merge, mergeMap, throwError } from '@komore/reactive';
 
 /**
  * Creates an observable that emits a media recorder's events

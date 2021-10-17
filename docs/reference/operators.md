@@ -9,7 +9,6 @@ Reference list of operators available in [komore modules].
 | [`assertThat`]                      | [Reactive]                | Asserts that a condition is met                    |
 | [`decrementCounter`]                | [Observability - Metrics] | Decrements a counter metric                        |
 | [`delayUntil`]                      | [Reactive]                |                                                    |
-| [`deserializeJson`]                 | [Reactive]                |                                                    |
 | [`filterMessageEventOrigin`]        | [Web]                     | Filters a message origin                           |
 | [`incrementCounter`]                | [Observability - Metrics] | Increments a counter metric                        |
 | [`ignoreErrors`]                    | [Reactive]                | Ignores errors                                     |
@@ -30,8 +29,8 @@ Reference list of operators available in [komore modules].
 | [`recordMetricOnCompletion`]        | [Observability - Metrics] | Records a metric when the observable completes     |
 | [`recordMetricOnError`]             | [Observability - Metrics] | Records a metric when the observable errors        |
 | [`sanitizeHtml`]                    | [Web]                     | Sanitizes HTML                                     |
-| [`serializeJson`]                   | [Reactive]                | Serializes JSON                                    |
 | [`throwIf`]                         | [Reactive]                | Throws if a condition is met                       |
+| [`throwUnless`]                     | [Reactive]                | Throws if a condition is met                       |
 | [`throwOnGeolocationPositionError`] | [Web - Geolocation]       | Throws on geolocation position errors              |
 
 [`assertthat`]: ../../modules/reactive/operators/src/assert-that.ts

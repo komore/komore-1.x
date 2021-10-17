@@ -48,19 +48,3 @@ export interface CognitoEventMap {
     CognitoEventVerifyAuthChallengeResponseResponse
   ];
 }
-
-/**
- * Cognito event request type
- * @template TriggerSourceName Trigger source name
- */
-export type CognitoEventRequestType<
-  TriggerSourceName extends keyof CognitoEventMap
-> = CognitoEventMap[TriggerSourceName][0];
-
-/**
- * Cognito event response type
- * @template TriggerSourceName Trigger source name
- */
-export type CognitoEventResponseType<
-  TriggerSourceName extends keyof CognitoEventMap
-> = CognitoEventMap[TriggerSourceName][1];

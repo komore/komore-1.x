@@ -1,24 +1,13 @@
-import { defer, fromEvent } from '@komore/reactive';
-import { map, shareReplay, startWith } from '@komore/reactive/operators';
+import { defer, fromEvent, map, shareReplay, startWith } from '@komore/reactive';
 
 // TODO: remove these once they are available in the shipped typings
 declare global {
   type Megabit = number;
   type Millisecond = number;
-  type ConnectionType =
-    | 'bluetooth'
-    | 'cellular'
-    | 'ethernet'
-    | 'mixed'
-    | 'none'
-    | 'other'
-    | 'unknown'
-    | 'wifi'
-    | 'wimax';
   type EffectiveConnectionType = '2g' | '3g' | '4g' | 'slow-2g';
 
   interface NetworkInformation extends EventTarget {
-    readonly type?: ConnectionType;
+    readonly type: ConnectionType;
     readonly effectiveType?: EffectiveConnectionType;
     readonly downlinkMax?: Megabit;
     readonly downlink?: Megabit;
@@ -30,9 +19,6 @@ declare global {
   interface NavigatorNetworkInformation {
     readonly connection: NetworkInformation;
   }
-
-  interface Navigator extends NavigatorNetworkInformation {} // eslint-disable-line @typescript-eslint/no-empty-interface
-  interface WorkerNavigator extends NavigatorNetworkInformation {} // eslint-disable-line @typescript-eslint/no-empty-interface
 }
 
 /**

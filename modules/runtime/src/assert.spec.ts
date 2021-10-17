@@ -1,5 +1,6 @@
 import { expectTypeOf } from 'expect-type';
 import { assert } from './assert';
+import { AssertionError } from './assertion-error';
 
 describe('Assert', () => {
   it('throws the specified error message when the condition is not met', () => {
@@ -7,6 +8,8 @@ describe('Assert', () => {
     const errorMessage = 'test-error-message';
     expect: 'an error to be thrown when the assertion condition is not met';
     expect(() => assert(4 < 3, errorMessage)).toThrowError(errorMessage);
+    and: 'the thrown error to be an AssertionError';
+    expect(() => assert(4 < 3, errorMessage)).toThrowError(AssertionError);
   });
 
   it('throws the built error message when the condition is not met', () => {

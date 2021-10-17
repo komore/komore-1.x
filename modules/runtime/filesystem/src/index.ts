@@ -1,7 +1,14 @@
 export { closeFile } from './close-file';
 export { observeDirectory } from './observe-directory';
 export { observeFile } from './observe-file';
-export { observeFileContent } from './observe-file-content';
+export { observeFileContent } from './observer-file-content';
+export type { OpenFileOptions } from './open-file-options';
+export { openFile } from './open-file';
 export { readDirectory } from './read-directory';
 export { readFileContent } from './read-file-content';
+export { toFile } from './to-file';
+export { toFileStream } from './to-file-stream';
+export type { WriteFileOptions } from './write-file-options';
+export type { WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
 export { writeFile } from './write-file';
+export { writeFileStream } from './write-file-stream';

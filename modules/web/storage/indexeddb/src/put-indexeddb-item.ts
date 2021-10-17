@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { of } from '@komore/reactive';
-import { map, mergeMap } from '@komore/reactive/operators';
+import { defer } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
 import type { IDBKey } from './idb-key';
 
@@ -22,10 +21,10 @@ export function putIndexedDBItem<T>(
   value: T,
   key?: IDBKey
 ): Observable<IDBValidKey> {
-  return of(idbDatabase).pipe(
-    map(database => database.transaction(storeName, 'readwrite')),
-    map(transaction => transaction.objectStore(storeName)),
-    map(objectStore => objectStore.put(value, key)),
-    mergeMap(fromIDBRequest)
-  );
+  return defer(() => {
+    const transaction = idbDatabase.transaction(storeName, 'readwrite');
+    const objectStore = transaction.objectStore(storeName);
+    const request = objectStore.put(value, key);
+    return fromIDBRequest(request);
+  });
 }

@@ -43,7 +43,7 @@ function createFromAttributeFunctionObservable(
   const pipeFunction = createPropertyAccess(factory, subjectExpression, 'pipe');
   const filterPredicate = createFromAttributeFunctionObservableFilterPredicate(context, name);
   const filter = context.import({
-    path: '@komore/reactive/operators',
+    path: '@komore/reactive',
     name: 'filter'
   });
   const filterCall = factory.createCallExpression(filter, undefined, [filterPredicate]);

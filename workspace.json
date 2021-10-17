@@ -1226,112 +1226,6 @@
         }
       }
     },
-    "devserver": {
-      "root": "modules/dev-server",
-      "sourceRoot": "modules/dev-server/src",
-      "projectType": "application",
-      "generators": {},
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:build",
-          "options": {
-            "outputPath": "dist/dev-server",
-            "main": "modules/dev-server/src/main.ts",
-            "tsConfig": "modules/dev-server/tsconfig.app.json"
-          },
-          "outputs": ["{options.outputPath}"]
-        },
-        "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "devserver:build"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/src/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver"]
-        }
-      }
-    },
-    "devserver-cloudtail": {
-      "root": "modules/dev-server/cloudtail",
-      "sourceRoot": "modules/dev-server/cloudtail/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/cloudtail/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/cloudtail/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/cloudtail/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-cloudtail"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/cloudtail",
-            "tsConfig": "modules/dev-server/cloudtail/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/cloudtail/package.json",
-            "main": "modules/dev-server/cloudtail/src/index.ts",
-            "assets": ["modules/dev-server/cloudtail/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
-    "devserver-core": {
-      "root": "modules/dev-server/core",
-      "sourceRoot": "modules/dev-server/core/src",
-      "projectType": "library",
-      "generators": {},
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/dev-server/core/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "modules/dev-server/core/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "modules/dev-server/core/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/devserver-core"]
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/dev-server/core",
-            "tsConfig": "modules/dev-server/core/tsconfig.lib.json",
-            "packageJson": "modules/dev-server/core/package.json",
-            "main": "modules/dev-server/core/src/index.ts",
-            "assets": ["modules/dev-server/core/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
-    },
     "element": {
       "root": "modules/element",
       "sourceRoot": "modules/element/src",
@@ -6949,68 +6843,6 @@
         }
       }
     },
-    "reactive-operators": {
-      "root": "modules/reactive/operators",
-      "sourceRoot": "modules/reactive/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/reactive/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/reactive/operators"],
-          "options": {
-            "jestConfig": "modules/reactive/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/reactive/operators",
-            "tsConfig": "modules/reactive/operators/tsconfig.lib.json",
-            "packageJson": "modules/reactive/operators/package.json",
-            "main": "modules/reactive/operators/src/index.ts"
-          }
-        }
-      }
-    },
-    "reactive-promise": {
-      "root": "modules/reactive/promise",
-      "sourceRoot": "modules/reactive/promise/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/reactive/promise/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/reactive-promise"],
-          "options": {
-            "jestConfig": "modules/reactive/promise/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/reactive/promise",
-            "tsConfig": "modules/reactive/promise/tsconfig.lib.json",
-            "packageJson": "modules/reactive/promise/package.json",
-            "main": "modules/reactive/promise/src/index.ts"
-          }
-        }
-      }
-    },
     "reactive-testing": {
       "root": "modules/reactive/testing",
       "sourceRoot": "modules/reactive/testing/src",
@@ -7262,37 +7094,6 @@
             "tsConfig": "modules/runtime/node/tsconfig.lib.json",
             "packageJson": "modules/runtime/node/package.json",
             "main": "modules/runtime/node/src/index.ts"
-          }
-        }
-      }
-    },
-    "runtime-operators": {
-      "root": "modules/runtime/operators",
-      "sourceRoot": "modules/runtime/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/runtime/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/runtime-operators"],
-          "options": {
-            "jestConfig": "modules/runtime/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/runtime/operators",
-            "tsConfig": "modules/runtime/operators/tsconfig.lib.json",
-            "packageJson": "modules/runtime/operators/package.json",
-            "main": "modules/runtime/operators/src/index.ts"
           }
         }
       }
@@ -8585,37 +8386,6 @@
             "packageJson": "modules/validation/package.json",
             "main": "modules/validation/src/index.ts",
             "assets": ["modules/validation/*.md"]
-          }
-        }
-      }
-    },
-    "validation-operators": {
-      "root": "modules/validation/operators",
-      "sourceRoot": "modules/validation/operators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["modules/validation/operators/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/validation-operators"],
-          "options": {
-            "jestConfig": "modules/validation/operators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/validation/operators",
-            "tsConfig": "modules/validation/operators/tsconfig.lib.json",
-            "packageJson": "modules/validation/operators/package.json",
-            "main": "modules/validation/operators/src/index.ts"
           }
         }
       }

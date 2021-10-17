@@ -19,7 +19,6 @@ declare global {
       readonly AWS_SESSION_TOKEN: string;
       readonly LAMBDA_TASK_ROOT: string;
       readonly LAMBDA_RUNTIME_DIR: string;
-      readonly TZ: string;
     }
   }
 }
@@ -37,4 +36,3 @@ export const lambdaEnvironmentType = 'aws:lambda';
 export const s3EventType = 'aws:s3';
 export const sesEventType = 'aws:ses';
 export const snsEventType = 'aws:sns';
-export const sqsEventType = 'aws:sqs';

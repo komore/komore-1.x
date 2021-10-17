@@ -1,4 +1,4 @@
-import { map } from '@komore/reactive/operators';
+import { map } from '@komore/reactive';
 import { mapToMessageEventData } from '@komore/web';
 import { defineWorker } from '@komore/web/worker';
 import { computeFactorial } from './compute-factorial';

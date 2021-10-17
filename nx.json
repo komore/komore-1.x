@@ -138,15 +138,6 @@
     "data": {
       "tags": ["scope:data", "trait:base"]
     },
-    "devserver": {
-      "tags": ["scope:devserver", "trait:cli"]
-    },
-    "devserver-cloudtail": {
-      "tags": ["scope:devserver"]
-    },
-    "devserver-core": {
-      "tags": ["scope:devserver"]
-    },
     "element": {
       "tags": ["scope:element", "trait:base"]
     },
@@ -666,12 +657,6 @@
     "reactive-eslint": {
       "tags": ["scope:reactive", "trait:eslint"]
     },
-    "reactive-operators": {
-      "tags": ["scope:reactive", "trait:operators"]
-    },
-    "reactive-promise": {
-      "tags": ["scope:reactive"]
-    },
     "reactive-testing": {
       "tags": ["scope:reactive", "trait:testing"]
     },
@@ -695,9 +680,6 @@
     },
     "runtime-node": {
       "tags": ["scope:runtime", "environment:node"]
-    },
-    "runtime-operators": {
-      "tags": ["scope:runtime", "trait:operators"]
     },
     "runtime-testing": {
       "tags": ["scope:runtime", "trait:testing"]
@@ -822,9 +804,6 @@
     },
     "validation": {
       "tags": ["scope:validation", "trait:base"]
-    },
-    "validation-operators": {
-      "tags": ["scope:validation", "trait:operators"]
     },
     "validation-testing": {
       "tags": ["scope:validation", "trait:testing"]

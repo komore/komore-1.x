@@ -1,7 +1,6 @@
-import { of } from '@komore/reactive';
-import { firstValueFrom } from '@komore/reactive/promise';
+import { firstValueFrom, of } from '@komore/reactive';
 import { mock } from 'jest-mock-extended';
-import { mapResponseToBlob } from './map-response-to-blob';
+import { responseToBlob } from './response-to-blob';
 
 describe('Map response to blob', () => {
   it('waits for the response body to be available as a blob', async () => {
@@ -10,7 +9,7 @@ describe('Map response to blob', () => {
     const response = mock<Response>();
     response.blob.mockImplementationOnce(() => Promise.resolve(responseBlob));
     and: 'a response as blob operator function';
-    const operatorFunction = mapResponseToBlob();
+    const operatorFunction = responseToBlob();
     when: 'applying the operator to a response';
     const $ = of(response).pipe(operatorFunction);
     expect: 'the result to be the payload as a blob';

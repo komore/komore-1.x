@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { fromEvent } from '@komore/reactive';
-import { map, mergeMap } from '@komore/reactive/operators';
+import { fromEvent, map, mergeMap } from '@komore/reactive';
 import type { PermissionDescriptorTypes } from './permission-descriptor-types';
 import { queryPermissionStatus } from './query-permission-status';
 

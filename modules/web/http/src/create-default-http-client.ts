@@ -1,5 +1,5 @@
 import { not } from '@komore/functional';
-import { throwIf } from '@komore/reactive/operators';
+import { throwIf } from '@komore/reactive';
 import { createHttpClient } from './create-http-client';
 import type { HttpClient } from './http-client';
 import { isResponseOk } from './is-response-ok';

@@ -1,4 +1,6 @@
-import type { CognitoEventMap, CognitoEventRequestType, CognitoEventResponseType } from './cognito-event-map';
+import type { CognitoEventMap } from './cognito-event-map';
+import type { CognitoEventRequestType } from './cognito-event-request-type';
+import type { CognitoEventResponseType } from './cognito-event-response-type';
 
 /**
  * Cognito event

@@ -1,5 +1,4 @@
-import { defer, fromEvent, merge } from '@komore/reactive';
-import { mapTo, shareReplay, startWith } from '@komore/reactive/operators';
+import { defer, fromEvent, mapTo, merge, shareReplay, startWith } from '@komore/reactive';
 
 /**
  * Online status

@@ -1,5 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
+import { tapValue } from '@komore/reactive';
 import { createCommand } from '@komore/runtime/cli';
 import { fromRange } from './from-range';
 

@@ -1,8 +1,7 @@
-import { of } from '@komore/reactive';
-import { firstValueFrom } from '@komore/reactive/promise';
+import { firstValueFrom, of } from '@komore/reactive';
 import { expectTypeOf } from 'expect-type';
 import { mock } from 'jest-mock-extended';
-import { mapResponseToJson } from './map-response-to-json';
+import { responseToJson } from './response-to-json';
 
 describe('Map response to JSON', () => {
   interface TestJson {
@@ -15,7 +14,7 @@ describe('Map response to JSON', () => {
     const response = mock<Response>();
     response.json.mockImplementationOnce(() => Promise.resolve(responseJson));
     and: 'a response as JSON operator function';
-    const operatorFunction = mapResponseToJson<TestJson>();
+    const operatorFunction = responseToJson<TestJson>();
     when: 'applying the operator to a response';
     const $ = of(response).pipe(operatorFunction);
     expect: 'the result to be the payload as a JSON object';

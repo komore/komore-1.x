@@ -1,5 +1,4 @@
-import { of } from '@komore/reactive';
-import { lastValueFrom } from '@komore/reactive/promise';
+import { lastValueFrom, of } from '@komore/reactive';
 import { minimum } from './minimum';
 
 describe('minimum validation operator function', () => {

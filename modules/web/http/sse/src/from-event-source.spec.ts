@@ -1,4 +1,4 @@
-import { lastValueFrom } from '@komore/reactive/promise';
+import { lastValueFrom } from '@komore/reactive';
 import { fromEventSource } from './from-event-source';
 
 describe('From event source', () => {

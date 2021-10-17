@@ -2,5 +2,12 @@
  * IndexedDB appender options
  */
 export interface IndexedDBAppenderOptions {
-  readonly name: string;
+  /**
+   * IndexedDB database name
+   */
+  readonly databaseName: string;
+  /**
+   * IndexedDB store name
+   */
+  readonly storeName: string;
 }

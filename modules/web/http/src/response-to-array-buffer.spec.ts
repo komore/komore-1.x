@@ -1,4 +1,4 @@
-import { firstValueFrom } from '@komore/reactive/promise';
+import { firstValueFrom } from '@komore/reactive';
 import { mock } from 'jest-mock-extended';
 import { responseToArrayBuffer } from './response-to-array-buffer';
 

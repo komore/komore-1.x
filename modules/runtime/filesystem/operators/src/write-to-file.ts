@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { tap } from '@komore/reactive/operators';
+import { tap } from '@komore/reactive';
 import type { FileHandle } from 'fs/promises';
 
 /**

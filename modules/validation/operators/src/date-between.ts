@@ -1,4 +1,4 @@
-import { pipe } from '@komore/reactive/operators';
+import { pipe } from '@komore/reactive';
 import { constraint } from './constraint';
 import { date } from './date';
 

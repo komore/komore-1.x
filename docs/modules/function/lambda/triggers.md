@@ -31,8 +31,8 @@ The following table lists the currently supported integrations:
 [amazon api gateway http api]: https://TODO
 [amazon cognito]: ./cognito/README.md
 [amazon dynamodb streams]: https://TODO
-[amazon kinesis data streams]: https://TODO
 [amazon kinesis data firehose]: https://TODO
+[amazon kinesis data streams]: https://TODO
 [amazon s3]: https://TODO
 [amazon ses]: https://TODO
 [amazon sns]: https://TODO

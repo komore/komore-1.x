@@ -1,5 +1,5 @@
 import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map } from '@komore/reactive';
 import { ConstraintViolationError } from '@komore/validation';
 
 export function constraint<T, R extends T, Constraints extends Record<string, unknown> | undefined = undefined>(

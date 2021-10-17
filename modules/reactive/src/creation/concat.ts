@@ -1,6 +1,6 @@
-import type { ObservableInputTuple } from 'rxjs';
 import { concat as rxjsConcat } from 'rxjs';
-import type { Observable } from '../observable';
+import type { Observable } from '../observable/observable';
+import type { ObservableInputTuple } from '../observable/observable-input-tuple';
 
 /**
  * Creates an observable that sequentially emits all values from an observable until completion, then moves on to the

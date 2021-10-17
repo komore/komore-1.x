@@ -1,6 +1,5 @@
 import type { Observable } from '@komore/reactive';
-import { EMPTY, of } from '@komore/reactive';
-import { defaultIfEmpty, expand, ignoreValues } from '@komore/reactive/operators';
+import { defaultIfEmpty, EMPTY, expand, ignoreValues, of } from '@komore/reactive';
 import type { IndexedDBUpgrade } from './indexeddb-upgrade';
 import type { IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
 

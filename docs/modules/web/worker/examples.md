@@ -53,8 +53,7 @@ A pipe is then created and subscribed to, where:
 The [`createWorker()`] function is used to create
 
 ```ts
-import { range } from '@komore/reactive';
-import { delay, neverComplete, tapValue, tapCompletion } from '@komore/reactive/operators';
+import { delay, range, neverComplete, tapValue, tapCompletion } from '@komore/reactive';
 import { mapToMessageData } from '@komore/web/operators';
 import { createWorker } from '@komore/web/worker';
 
