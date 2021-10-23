@@ -1,4 +1,5 @@
-import { CosmosClient, CosmosClientOptions } from '@azure/cosmos';
+import type { CosmosClientOptions } from '@azure/cosmos';
+import { CosmosClient } from '@azure/cosmos';
 
 /**
  * Environment variables

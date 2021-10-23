@@ -4,6 +4,6 @@ import { noRxJSImport } from './no-rxjs-import';
 /**
  * Rules
  */
-export const rules: Record<string, TSESLint.RuleModule<string, unknown[]>> {
+export const rules: Record<string, TSESLint.RuleModule<string, unknown[]>> = {
   'no-rxjs-import': noRxJSImport
 };

@@ -1,6 +1,6 @@
 import type { CosmosClient } from '@azure/cosmos';
 import { withAzureClient } from '@komore/integration-azure';
-import { createCosmosDBClient } from '../create-cosmos-db-client';
+import { createCosmosDBClient } from './create-cosmos-db-client';
 
 /**
  * Adds a Cosmos DB client to a message

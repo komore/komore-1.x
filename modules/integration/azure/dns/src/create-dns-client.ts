@@ -1,5 +1,6 @@
 import { DnsManagementClient } from '@azure/arm-dns';
-import { ServiceClientCredentials } from '@azure/ms-rest-js';
+import type { ServiceClientCredentials } from '@azure/ms-rest-js';
+import type { DnsClient } from './dns-client';
 
 /**
  * DNS management client options
@@ -15,10 +16,9 @@ type DnsManagementClientOptions = NonNullable<ConstructorParameters<typeof DnsMa
  * @returns DNS client
  */
 export function createDnsClient(
-  credentials?: ServiceClientCredentials,
-  subscriptionId?: string,
+  credentials: ServiceClientCredentials,
+  subscriptionId: string,
   options?: DnsManagementClientOptions
-): DnsManagementClient {
-  // TODO: get from env vars
+): DnsClient {
   return new DnsManagementClient(credentials, subscriptionId, options);
 }
