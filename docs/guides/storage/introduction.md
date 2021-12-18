@@ -9,15 +9,15 @@ traditional, on-premise applications do.
 ## Traditional model
 
 Before diving head first into those aforementioned cloud-based solutions, it is interesting to first take a look at how
-such features were usually developed.
+such features are usually developed without them.
 
 A typical file upload mechanism often involves creating an API that receives a file, saves it to a local disk array, and
 adds the file information to a database.
 
 TODO: sequence diagram
 
-For example, a Nest application that exposes an API using Express and stores information in a MongoDB or MySQL database
-is one of many valid options for this.
+For example, exposing an API using Express and storing information in a MongoDB or MySQL database is one of many valid
+options for this.
 
 ### Potential for failure
 
@@ -34,10 +34,10 @@ And many things can wrong:
 - What if instead of failing, writing to the database times out?
 - What if we run out of disk space?
 - What if the local disk array fails?
+- What if the machine fails?
 - What if the data center fails?
 
-The fact that things can go wrong is not an issue on its own, as things can - and of course, always eventually will - go
-wrong.
+The fact that things can go wrong is not an issue on its own, as things can - and eventually will - go wrong.
 
 What matters is that those risks are known, evaluated, documented, and that there are solutions and processes in place
 to limit or work around all those scenarios.
@@ -48,8 +48,8 @@ memory, handling error cases or adding background jobs that perform recovery ope
 Sometimes it means defining processes for human intervention when disks need to be replaced or a volume needs to be
 expanded.
 
-And sometimes it simply means accepting that there are known limitations because not being able to save more than a
-petabyte of files may not be an issue for the business cases covered by the application.
+And sometimes it simply means accepting that there are known limitations because not being able to store more than a
+petabyte worth of files may not be an issue for the business cases covered by the application.
 
 ### Complexity cost
 
