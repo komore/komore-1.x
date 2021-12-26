@@ -1,4 +1,4 @@
-import type { NodeFactory } from 'typescript';
+import { type NodeFactory } from 'typescript';
 
 /**
  * Creates an import declaration

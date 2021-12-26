@@ -1,8 +1,8 @@
-import type { LogEvent } from './log-event';
-import type { LogEventCreator } from './log-event-creator';
-import type { LogEventPropertiesSchema } from './log-event-properties-schema';
-import type { LogEventSeverity } from './log-event-severity';
-import type { LogGroup } from './log-group';
+import { type LogEvent } from './log-event';
+import { type LogEventCreator } from './log-event-creator';
+import { type LogEventPropertiesSchema } from './log-event-properties-schema';
+import { type LogEventSeverity } from './log-event-severity';
+import { type LogGroup } from './log-group';
 
 /**
  * Creates a log event creator

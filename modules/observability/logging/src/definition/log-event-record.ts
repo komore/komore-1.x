@@ -1,5 +1,6 @@
-import type { LogEvent } from './log-event';
-import type { LogGroup } from './log-group';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type LogEvent } from './log-event';
+import { type LogGroup } from './log-group';
 
 /**
  * Log event record
@@ -11,7 +12,7 @@ export interface LogEventRecord<
   readonly logContext: Record<string, unknown>;
   readonly logEvent: LogEventType;
   readonly message: string;
-  readonly timestamp: Date;
+  readonly timestamp: Temporal.PlainDateTime;
 }
 
 /**

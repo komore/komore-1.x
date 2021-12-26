@@ -1,5 +1,4 @@
-import type { SourceFile } from 'typescript';
-import { createSourceFile, ScriptTarget } from 'typescript';
+import { createSourceFile, ScriptTarget, type SourceFile } from 'typescript';
 
 function createTestSource(sourceText: string): SourceFile {
   return createSourceFile('test.ts', sourceText, ScriptTarget.Latest);

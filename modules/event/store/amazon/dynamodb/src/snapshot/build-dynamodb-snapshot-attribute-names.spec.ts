@@ -1,5 +1,5 @@
 import { buildDynamoDBSnapshotAttributeNames } from './build-dynamodb-snapshot-attribute-names';
-import type { DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 describe('Build DynamoDB snapshot repository attribute names', () => {
   it('provides default attribute names', () => {

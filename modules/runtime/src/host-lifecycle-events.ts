@@ -1,5 +1,5 @@
 import { Subject } from '@komore/reactive';
-import type { HostLifecycleEvent } from './host-lifecycle-event';
+import { type HostLifecycleEvent } from './host-lifecycle-event';
 
 /**
  * Host lifecycle events subject

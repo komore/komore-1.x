@@ -1,5 +1,6 @@
-import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
-import { Observable } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { type OperatorFunction } from '../operator-function';
+import { Observable } from '../observable';
 
 export function filterUntil<T, S extends T>(predicate: (value: T) => value is S): OperatorFunction<T, S>;
 export function filterUntil<T>(predicate: (value: T) => boolean): MonoTypeOperatorFunction<T>

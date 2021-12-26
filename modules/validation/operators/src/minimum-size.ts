@@ -1,5 +1,5 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import type { CollectionType } from './collection';
+import { type MonoTypeOperatorFunction } from '@komore/reactive';
+import { type CollectionType } from './collection';
 import { constraint } from './constraint';
 import { getCollectionSize } from './get-collection-size';
 

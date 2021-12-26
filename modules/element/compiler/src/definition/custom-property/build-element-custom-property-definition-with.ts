@@ -1,5 +1,5 @@
-import type { NodeFactory } from 'typescript';
-import type { ElementCustomPropertyDefinition } from '../element-custom-property-definition';
+import { type NodeFactory } from 'typescript';
+import { type ElementCustomPropertyDefinition } from '../element-custom-property-definition';
 import { buildElementCustomPropertyDefinition } from './build-element-custom-property-definition';
 
 /**

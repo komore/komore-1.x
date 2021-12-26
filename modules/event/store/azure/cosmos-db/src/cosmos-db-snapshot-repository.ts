@@ -1,6 +1,6 @@
-import type { SnapshotRepository } from '@komore/event/store';
+import { type SnapshotRepository } from '@komore/event/store';
 import { createCosmosDBClient } from '@komore/integration-azure/cosmos-db';
-import type { CosmosDBSnapshotRepositoryConfiguration } from './cosmos-db-snapshot-repository-configuration';
+import { type CosmosDBSnapshotRepositoryConfiguration } from './cosmos-db-snapshot-repository-configuration';
 
 /**
  * Creates a Cosmos DB snapshot repository

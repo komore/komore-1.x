@@ -1,4 +1,4 @@
-import type { OperatorFunction } from '../operator/operator-function';
+import { type OperatorFunction } from '../operator-function';
 import { mapTo } from './map-to';
 
 /**

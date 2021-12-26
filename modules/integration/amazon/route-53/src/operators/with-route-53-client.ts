@@ -1,4 +1,4 @@
-import type { Route53Client } from '@aws-sdk/client-route-53';
+import { type Route53Client } from '@aws-sdk/client-route-53';
 import { withAmazonClient } from '@komore/integration-amazon';
 import { createRoute53Client } from '../create-route-53-client';
 

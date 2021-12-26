@@ -1,4 +1,5 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { noop } from '@komore/functional';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { tap } from './tap';
 
 /**
@@ -8,6 +9,8 @@ import { tap } from './tap';
  */
 export function tapCompletion<T>(completionObserver: () => void): MonoTypeOperatorFunction<T> {
   return tap({
-    complete: completionObserver
+    complete: completionObserver,
+    error: noop,
+    next: noop
   });
 }

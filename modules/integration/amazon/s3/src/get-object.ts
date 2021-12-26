@@ -1,5 +1,4 @@
-import type { GetObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
-import { GetObjectCommand } from '@aws-sdk/client-s3';
+import { GetObjectCommand, type GetObjectCommandInput, type S3Client } from '@aws-sdk/client-s3';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

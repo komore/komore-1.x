@@ -1,4 +1,4 @@
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 
 // TODO: enable once typings are up-to-date
 //export function createCredential(options: Pick<CredentialCreationOptions, 'password'>): Observable<PasswordCredential>;

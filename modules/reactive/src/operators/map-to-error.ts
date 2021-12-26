@@ -1,4 +1,4 @@
-import type { OperatorFunction } from '@komore/reactive';
+import { type OperatorFunction } from '../operator-function';
 import { map } from './map';
 
 /**

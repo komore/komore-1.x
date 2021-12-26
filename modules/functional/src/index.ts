@@ -1,14 +1,16 @@
 export { and } from './and';
-export type { BinaryFunction } from './binary-function';
+export { type BinaryFunction } from './binary-function';
 export { enumEntries } from './enum-entries';
 export { enumKeys } from './enum-keys';
 export { enumValues } from './enum-values';
 export { fromJson } from './from-json';
 export { identity } from './identity';
 export { isDefined } from './is-defined';
+export { isInstanceOf } from './is-instance-of';
 export { isNotNull } from './is-not-null';
 export { noop } from './noop';
 export { not } from './not';
 export { objectKeys } from './object-keys';
 export { or } from './or';
-export type { UnaryFunction } from './unary-function';
+export { toJson } from './to-json';
+export { type UnaryFunction } from './unary-function';

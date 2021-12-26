@@ -1,5 +1,5 @@
-import type { ElementAttributeValueType } from '@komore/element/parser';
-import type { Expression, TypeNode } from 'typescript';
+import { type ElementAttributeValueType } from '@komore/element/parser';
+import { type Expression, type TypeNode } from 'typescript';
 
 /**
  * Element attribute definition

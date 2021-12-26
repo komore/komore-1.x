@@ -1,5 +1,12 @@
-import type { BindingName, Expression, Identifier, NodeFactory, ParameterDeclaration, TypeNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import {
+  type BindingName,
+  type Expression,
+  type Identifier,
+  type NodeFactory,
+  type ParameterDeclaration,
+  SyntaxKind,
+  type TypeNode
+} from 'typescript';
 
 /**
  * Creates a parameter

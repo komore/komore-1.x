@@ -1,6 +1,5 @@
 import { Observable } from '@komore/reactive';
-import type { Options, Result } from 'sass';
-import { render } from 'sass';
+import { type Options, render, type Result } from 'sass';
 
 /**
  * Renders a SASS

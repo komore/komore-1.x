@@ -1,5 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { fromPromise, mapTo, mergeMap } from '@komore/reactive';
+import { fromPromise, mapTo, mergeMap, type MonoTypeOperatorFunction } from '@komore/reactive';
 
 /**
  * Adds resources to a cache

@@ -1,5 +1,4 @@
-import type { ChimeClientConfig } from '@aws-sdk/client-chime';
-import { ChimeClient } from '@aws-sdk/client-chime';
+import { ChimeClient, type ChimeClientConfig } from '@aws-sdk/client-chime';
 
 /**
  * Creates a Chime client

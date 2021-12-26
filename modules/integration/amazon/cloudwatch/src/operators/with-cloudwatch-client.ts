@@ -1,4 +1,4 @@
-import type { CloudWatchClient } from '@aws-sdk/client-cloudwatch';
+import { type CloudWatchClient } from '@aws-sdk/client-cloudwatch';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createCloudWatchClient } from '../create-cloudwatch-client';
 

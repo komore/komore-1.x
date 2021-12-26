@@ -1,4 +1,4 @@
-import type { XRayClient } from '@aws-sdk/client-xray';
+import { type XRayClient } from '@aws-sdk/client-xray';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createXRayClient } from '../create-xray-client';
 

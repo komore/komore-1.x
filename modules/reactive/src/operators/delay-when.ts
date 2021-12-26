@@ -1,5 +1,5 @@
-import type { Observable } from '../observable/observable';
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
+import { type Observable } from '../observable';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { mapTo } from './map-to';
 import { mergeMap } from './merge-map';
 import { take } from './take';
@@ -12,5 +12,5 @@ import { take } from './take';
 export function delayWhen<T>(
   durationSelector: (value: T, index: number) => Observable<unknown>
 ): MonoTypeOperatorFunction<T> {
-  return mergeMap((value, index) => durationSelector(value, index).pipe(take(1), mapTo(value)));
+  return mergeMap((value: T, index) => durationSelector(value, index).pipe(take(1), mapTo(value)));
 }

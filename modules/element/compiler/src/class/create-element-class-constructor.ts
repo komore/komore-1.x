@@ -1,5 +1,5 @@
 import { createSuperCall } from '@komore/typescript/compiler';
-import type { ConstructorDeclaration, Identifier, NodeFactory, Statement } from 'typescript';
+import { type ConstructorDeclaration, type Identifier, type NodeFactory, type Statement } from 'typescript';
 import { createAppendCallExpression } from '../codegen/create-append-call-expression';
 import { createAdoptedStyleSheetsExpression } from './create-adopted-style-sheets-expression';
 import { createShadowRootVariableStatement } from './create-shadow-root-variable-statement';

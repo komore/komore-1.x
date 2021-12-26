@@ -1,6 +1,6 @@
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventLambdaIdentity } from './event/app-sync-event-lambda-identity';
-import type { AppSyncEventWithLambdaAuthorization } from './event/app-sync-event-with-lambda-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventLambdaIdentity } from './event/app-sync-event-lambda-identity';
+import { type AppSyncEventWithLambdaAuthorization } from './event/app-sync-event-with-lambda-authorization';
 
 /**
  * Tests whether an AppSync event has a Lambda authorization

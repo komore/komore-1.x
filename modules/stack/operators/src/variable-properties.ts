@@ -1,4 +1,4 @@
-import type { Types } from '@komore/stack';
+import { type Types } from '@komore/stack';
 
 /**
  * Variable properties

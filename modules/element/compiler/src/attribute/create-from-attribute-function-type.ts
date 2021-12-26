@@ -1,4 +1,4 @@
-import type { DeclarationStatement, Identifier, NodeFactory, TypeReferenceNode } from 'typescript';
+import { type DeclarationStatement, type Identifier, type NodeFactory, type TypeReferenceNode } from 'typescript';
 
 /**
  * Creates a fromAttribute function type

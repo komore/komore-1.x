@@ -1,5 +1,9 @@
-import type { BatchGetItemCommandInput, BatchGetItemCommandOutput, DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { BatchGetItemCommand } from '@aws-sdk/client-dynamodb';
+import {
+  type BatchGetItemCommandInput,
+  BatchGetItemCommand,
+  type BatchGetItemCommandOutput,
+  type DynamoDBClient
+} from '@aws-sdk/client-dynamodb';
 import { sendBatchCommand } from '@komore/integration-amazon';
 
 /**

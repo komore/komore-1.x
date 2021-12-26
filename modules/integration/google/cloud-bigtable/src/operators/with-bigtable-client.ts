@@ -1,4 +1,4 @@
-import type { Bigtable } from '@google-cloud/bigtable';
+import { type Bigtable } from '@google-cloud/bigtable';
 import { withGoogleCloudClient } from '@komore/integration-google';
 import { createBigTableClient } from '../create-bigtable-client';
 

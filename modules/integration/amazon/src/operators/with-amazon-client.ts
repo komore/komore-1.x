@@ -1,11 +1,10 @@
-import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
-import type { MetadataBearer } from '@aws-sdk/types';
-import type { MessageWithIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { MessageWithAmazonClient } from '../message/message-with-amazon-client';
-import type { MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
+import { type Client, type SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import { type MetadataBearer } from '@aws-sdk/types';
+import { type MessageWithIntegrations } from '@komore/integration';
+import { type Message } from '@komore/message';
+import { map, type OperatorFunction } from '@komore/reactive';
+import { type MessageWithAmazonClient } from '../message/message-with-amazon-client';
+import { type MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
 import { mutateAmazonClient } from '../graph/mutate-amazon-client';
 
 /**

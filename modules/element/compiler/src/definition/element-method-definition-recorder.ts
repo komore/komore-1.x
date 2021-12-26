@@ -1,4 +1,4 @@
-import type { ElementMethodDefinition } from './element-method-definition';
+import { type ElementMethodDefinition } from './element-method-definition';
 
 /**
  * Element method definition recorder

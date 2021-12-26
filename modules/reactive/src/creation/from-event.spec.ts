@@ -1,7 +1,7 @@
 import { mock } from 'jest-mock-extended';
 import { expectTypeOf } from 'expect-type';
 import { fromEvent } from './from-event';
-import type { Observable } from '../observable';
+import { type Observable } from '../observable';
 
 describe('From event', () => {
   it('works with a DOM event target', async () => {

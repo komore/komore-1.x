@@ -1,7 +1,7 @@
-import type { Tree } from '@nrwl/devkit';
-import type { FunctionGeneratorOptions } from '../function/function-generator-options';
+import { type Tree } from '@nrwl/devkit';
+import { type FunctionGeneratorOptions } from '../function/function-generator-options';
 import { normalizeGeneratorOptions } from '../normalize-generator-options';
-import type { NormalizedGeneratorOptions } from '../normalized-generator-options';
+import { type NormalizedGeneratorOptions } from '../normalized-generator-options';
 
 /**
  * Normalized domain generator options

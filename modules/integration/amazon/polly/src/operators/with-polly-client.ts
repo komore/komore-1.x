@@ -1,4 +1,4 @@
-import type { PollyClient } from '@aws-sdk/client-polly';
+import { type PollyClient } from '@aws-sdk/client-polly';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createPollyClient } from '../create-polly-client';
 

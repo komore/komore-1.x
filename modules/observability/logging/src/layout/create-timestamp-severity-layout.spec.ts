@@ -1,7 +1,7 @@
 import { advanceTo } from 'jest-date-mock';
-import { createLogEvent } from '../create-log-event';
-import { createLogGroup } from '../create-log-group';
-import type { UntypedLogEventRecord } from '../log-event-record';
+import { createLogEvent } from '../definition/create-log-event';
+import { createLogGroup } from '../definition/create-log-group';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
 import { createTimestampSeverityLayout } from './create-timestamp-severity-layout';
 
 describe('Create timestamp severity layout', () => {

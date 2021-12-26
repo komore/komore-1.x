@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { EmptyError } from '@komore/reactive';
+import { type Observable } from '../observable';
+import { EmptyError } from '../creation/empty-error';
 
 /**
  * Converts an observable to a promise by waiting for it to complete and resolving the last value it emitted

@@ -1,4 +1,4 @@
-import type { UntypedLogEventRecord } from '../log-event-record';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
 
 /**
  * Layout

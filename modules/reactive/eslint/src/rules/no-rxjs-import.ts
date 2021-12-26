@@ -1,5 +1,5 @@
 import { nodeToReportDescriptorWithMessageId, reportUsing, withRuleFix } from '@komore/eslint';
-import type { TSESTree } from '@typescript-eslint/experimental-utils';
+import { type TSESTree } from '@typescript-eslint/experimental-utils';
 import { createRule } from '../utils/create-rule';
 
 /**
@@ -8,7 +8,6 @@ import { createRule } from '../utils/create-rule';
 export const noRxJSImport = createRule({
   meta: {
     docs: {
-      category: 'Best Practices',
       description: 'forbids importing directly from the rxjs package',
       recommended: 'error'
     },

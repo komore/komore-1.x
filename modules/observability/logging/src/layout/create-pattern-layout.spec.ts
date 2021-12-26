@@ -1,11 +1,12 @@
-import { createLogEvent } from '../create-log-event';
-import { createLogGroup } from '../create-log-group';
-import type { UntypedLogEventRecord } from '../log-event-record';
+import { Temporal } from '@js-temporal/polyfill';
+import { createLogEvent } from '../definition/create-log-event';
+import { createLogGroup } from '../definition/create-log-group';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
 import { props } from '../definition/props';
 import { createPatternLayout } from './create-pattern-layout';
 
 describe('Create pattern layout', () => {
-  const timestamp = new Date('2021-01-23T01:02:03.123Z');
+  const timestamp = Temporal.PlainDateTime.from('2021-01-23T01:02:03.123Z');
   const logGroupName = 'test-group';
   const logGroup = createLogGroup(logGroupName);
   const logId = 1;
@@ -38,7 +39,7 @@ describe('Create pattern layout', () => {
     when: 'transforming a log event record';
     const result = patternLayout(logEventRecord);
     expect: 'the result to have the date token replaced with the log event record timestamp in ISO 8601 format';
-    expect(result).toBe(`test ${timestamp.toISOString()} test`);
+    expect(result).toBe(`test ${timestamp} test`);
   });
 
   it('can create a layout for a pattern with a group token', () => {

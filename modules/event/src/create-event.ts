@@ -1,7 +1,6 @@
-import type { Event } from './event';
-import type { EventCreator } from './event-creator';
-import type { EventPropertiesSchema } from './event-properties-schema';
-import type { EventSchema } from './event-schema';
+import { type Event } from './event';
+import { type EventCreator } from './event-creator';
+import { type EventPropertiesSchema } from './event-properties-schema';
 
 /**
  * Creates an event creator for an event type

@@ -1,7 +1,7 @@
-import type { NodeFactory } from 'typescript';
-import type { ProcessedSource } from '../processors/processed-source';
+import { type NodeFactory } from 'typescript';
+import { type ProcessedSource } from '../processors/processed-source';
 import { buildElementDefinition } from './build-element-definition';
-import type { ElementDefinition } from './element-definition';
+import { type ElementDefinition } from './element-definition';
 
 /**
  * Creates a function that builds an element's definition using a TypeScript node factory

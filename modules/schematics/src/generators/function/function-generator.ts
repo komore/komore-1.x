@@ -1,15 +1,15 @@
-import type { Tree } from '@nrwl/devkit';
+import { type Tree } from '@nrwl/devkit';
 import { addProjectConfiguration, formatFiles, generateFiles, names, offsetFromRoot } from '@nrwl/devkit';
 import * as path from 'path';
 import { createLintTarget } from '../create-lint-target';
 import { createPublishTarget } from '../create-publish-target';
 import { createTestTarget } from '../create-test-target';
 import { normalizeGeneratorOptions } from '../normalize-generator-options';
-import type { NormalizedGeneratorOptions } from '../normalized-generator-options';
+import { type NormalizedGeneratorOptions } from '../normalized-generator-options';
 import { createBuildFunctionTarget } from './create-build-function-target';
 import { createDeployFunctionTarget } from './create-deploy-function-target';
 import { createServeFunctionTarget } from './create-serve-function-target';
-import type { FunctionGeneratorOptions } from './function-generator-options';
+import { type FunctionGeneratorOptions } from './function-generator-options';
 
 /**
  * Function generator

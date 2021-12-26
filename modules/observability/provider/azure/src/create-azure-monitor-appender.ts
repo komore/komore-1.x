@@ -1,5 +1,5 @@
 import * as logger from '@azure/logger';
-import type { Appender } from '@komore/observability/logging';
+import { type Appender } from '@komore/observability/logging';
 
 // TODO: https://www.npmjs.com/package/@azure/logger
 

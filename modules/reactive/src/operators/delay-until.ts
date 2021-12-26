@@ -1,7 +1,7 @@
 import { concat } from '../creation/concat';
-import { Observable } from '../observable/observable';
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
-import { Subscription } from '../subscription/subscription';
+import { Observable } from '../observable';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { Subscription } from '../subscription';
 import { publish } from './publish';
 
 /**

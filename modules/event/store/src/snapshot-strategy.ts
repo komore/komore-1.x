@@ -1,5 +1,5 @@
-import type { Event, EventWithMetadata } from '@komore/event';
-import type { Snapshot } from './snapshot';
+import { type Event, type EventWithMetadata } from '@komore/event';
+import { type Snapshot } from './snapshot';
 
 /**
  * Snapshot strategy

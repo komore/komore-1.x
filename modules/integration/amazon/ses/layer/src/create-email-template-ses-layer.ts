@@ -1,7 +1,6 @@
-import type { CreateEmailTemplateCommandInput, SESv2Client } from "@aws-sdk/client-sesv2";
-import type { EmailTemplate } from "@komore/layer-email";
-import type { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { type CreateEmailTemplateCommandInput, type SESv2Client } from "@aws-sdk/client-sesv2";
+import { type EmailTemplate } from "@komore/layer-email";
+import { map, type Observable } from '@komore/reactive';
 import { createEmailTemplate } from "@komore/integration-amazon/ses";
 
 /**

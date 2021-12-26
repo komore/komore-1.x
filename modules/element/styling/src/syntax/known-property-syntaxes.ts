@@ -1,7 +1,7 @@
-import type { AngleUnit } from '../unit/angle-unit';
-import type { LengthUnit } from '../unit/length-unit';
-import type { ResolutionUnit } from '../unit/resolution-unit';
-import type { TimeUnit } from '../unit/time-unit';
+import { type AngleUnit } from '../unit/angle-unit';
+import { type LengthUnit } from '../unit/length-unit';
+import { type ResolutionUnit } from '../unit/resolution-unit';
+import { type TimeUnit } from '../unit/time-unit';
 
 /**
  * Known property syntaxes

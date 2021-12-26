@@ -1,6 +1,6 @@
 import { createTypeMappingInterface } from '@komore/typescript/compiler';
-import type { Identifier, InterfaceDeclaration, NodeFactory } from 'typescript';
-import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
+import { type Identifier, type InterfaceDeclaration, type NodeFactory } from 'typescript';
+import { type ElementAttributeDefinition } from '../definition/element-attribute-definition';
 
 /**
  * Creates an element attribute map interface
@@ -18,7 +18,7 @@ export function createElementAttributeMap(
   factory: NodeFactory,
   elementClassName: string,
   attributeDefinitions: ReadonlyArray<ElementAttributeDefinition>
-): [InterfaceDeclaration, Identifier] {
+): readonly [declaration: InterfaceDeclaration, identifier: Identifier] {
   const interfaceName = `${elementClassName}AttributeMap`;
   const mappedTypes = attributeDefinitions.map(({ attributeName, attributeType }) => ({
     name: attributeName,

@@ -1,5 +1,6 @@
-import type { LogEventSeverity } from './log-event-severity';
-import type { LogGroup } from './log-group';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type LogEventSeverity } from './log-event-severity';
+import { type LogGroup } from './log-group';
 
 /**
  * Log event
@@ -20,7 +21,7 @@ export interface LogEvent<
   readonly message: LogEventMessage;
   readonly properties: LogEventProperties extends Record<string, unknown> ? LogEventProperties : never;
   readonly severity: LogEventSeverity;
-  readonly timestamp: Date;
+  readonly timestamp: Temporal.PlainDateTime;
 }
 
 /**

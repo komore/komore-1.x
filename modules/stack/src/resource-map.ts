@@ -1,4 +1,4 @@
-import type { TerraformResource } from 'cdktf';
+import { type TerraformResource } from 'cdktf';
 
 /**
  * Resource map

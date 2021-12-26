@@ -1,4 +1,4 @@
-import type { SnapshotRepository } from '@komore/event/store';
+import { type SnapshotRepository } from '@komore/event/store';
 
 /**
  * Creates an IndexedDB snapshot repository

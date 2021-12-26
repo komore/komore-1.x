@@ -1,5 +1,5 @@
 import { distinctUntilChanged as rxjsDistinctUntilChanged } from 'rxjs';
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 
 /**
  * Emits values from the source observable that are distinct when compared to the previous emitted value

@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive/promise';
+import { deferPromise, type Observable } from '@komore/reactive';
 import type Stripe from 'stripe';
-import type { StripeClient } from '../stripe-client';
+import { type StripeClient } from '../stripe-client';
 
 /**
  * Creates a subscription

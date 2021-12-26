@@ -1,4 +1,4 @@
-import type { AppSyncClient } from '@aws-sdk/client-appsync';
+import { type AppSyncClient } from '@aws-sdk/client-appsync';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createAppSyncClient } from '../create-appsync-client';
 

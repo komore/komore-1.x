@@ -1,6 +1,4 @@
-import type { Function } from '@komore/function';
-import { FunctionInputParametersType } from 'modules/function/src/function-input';
-import { FunctionInputType } from 'modules/function/src/function-type';
+import { type Function, type FunctionInputParametersType, type FunctionInputType } from '@komore/function';
 
 export function callFunction<
   F extends Function<any>

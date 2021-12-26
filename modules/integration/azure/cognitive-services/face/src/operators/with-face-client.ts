@@ -1,4 +1,4 @@
-import type { FaceClient } from '@azure/cognitiveservices-face';
+import { type FaceClient } from '@azure/cognitiveservices-face';
 import { withAzureClient } from '@komore/integration-azure';
 import { createFaceClient } from '../create-face-client';
 

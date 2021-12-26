@@ -1,4 +1,5 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
+import { type Observable } from '../observable';
+import { type OperatorFunction } from '../operator-function';
 import { switchMap as rxjsSwitchMap } from 'rxjs';
 
 /**

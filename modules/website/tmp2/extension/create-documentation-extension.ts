@@ -1,4 +1,4 @@
-import type { DocumentationMetadataRecorder } from '../metadata/documentation-metadata-recorder';
+import { type DocumentationMetadataRecorder } from '../metadata/documentation-metadata-recorder';
 import { createDocumentationTokenizer } from './create-documentation-tokenizer';
 
 /**

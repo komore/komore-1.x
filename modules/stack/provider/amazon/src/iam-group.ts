@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { IamGroupConfig } from './.gen/iam-group';
-import { IamGroup } from './.gen/iam-group';
+import { IamGroup, type IamGroupConfig } from './.gen/iam-group';
 
 /**
  * Adds an IAM group resource

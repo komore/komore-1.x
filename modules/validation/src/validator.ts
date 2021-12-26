@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { ConstraintViolationError } from './error/constraint-violation-error';
+import { type Observable } from '@komore/reactive';
+import { type ConstraintViolationError } from './error/constraint-violation-error';
 
 /**
  * Validator

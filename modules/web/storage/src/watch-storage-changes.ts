@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, filter, fromEvent, share } from '@komore/reactive';
+import { defer, filter, fromEvent, type Observable, share } from '@komore/reactive';
 
 /**
  * Shared storage event source

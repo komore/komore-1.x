@@ -1,4 +1,4 @@
-import type { SearchResult } from '@komore/website/search';
+import { type SearchResult } from '@komore/website/search';
 
 /**
  * Search input state

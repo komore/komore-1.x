@@ -1,5 +1,4 @@
-import type { Event, EventWithMetadata } from '@komore/event';
-import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-type';
+import { type Event, type EventWithMetadata } from '@komore/event';
 
 /**
  * Gets an event sequence number from a list of events and an index for `AFTER`, `AT` and `BEFORE` selection types
@@ -11,18 +10,15 @@ import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-ty
  */
 export function getAfterAtOrBeforeSequenceNumber<EventTypes extends Event<any, any>[]>(
   eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
-  selectionType:
-    | SnapshotStrategySelectionType.AFTER
-    | SnapshotStrategySelectionType.AT
-    | SnapshotStrategySelectionType.BEFORE,
+  selectionType: 'after' | 'at' | 'before',
   index: number
 ): number | false {
   switch (selectionType) {
-    case SnapshotStrategySelectionType.AFTER:
+    case 'after':
       return index + 1 < eventsWithMetadata.length ? eventsWithMetadata[index + 1].metadata.sequenceNumber : false;
-    case SnapshotStrategySelectionType.AT:
+    case 'at':
       return eventsWithMetadata[index].metadata.sequenceNumber;
-    case SnapshotStrategySelectionType.BEFORE:
+    case 'before':
       return index > 0 ? eventsWithMetadata[index - 1].metadata.sequenceNumber : false;
   }
 }

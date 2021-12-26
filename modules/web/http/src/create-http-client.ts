@@ -1,6 +1,6 @@
 import { Observable } from '@komore/reactive';
-import type { HttpClient } from './http-client';
-import type { HttpClientOptions } from './http-client-options';
+import { type HttpClient } from './http-client';
+import { type HttpClientOptions } from './http-client-options';
 
 /**
  * Creates an HTTP client
@@ -15,7 +15,7 @@ export function createHttpClient<DefaultContextType = never>(
     input: string | URL | Request,
     _context: ContextType
   ): Observable<Response> =>
-    new Observable<Response>(observer => {
+    new Observable<Response>(subscriber => {
       const request = input instanceof URL ? input.href : input;
       const abortController = new AbortController();
       const { signal } = abortController;
@@ -27,14 +27,14 @@ export function createHttpClient<DefaultContextType = never>(
 
       function errorHandler(error: unknown) {
         emitted = true;
-        observer.error(error);
+        subscriber.error(error);
       }
 
       fetch(request, requestInit)
         .then(response => {
           emitted = true;
-          observer.next(response);
-          observer.complete();
+          subscriber.next(response);
+          subscriber.complete();
         })
         .catch(errorHandler);
 

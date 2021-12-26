@@ -5,7 +5,7 @@ export { negativeOrZero } from './negative-or-zero';
 export { notBlank } from './not-blank';
 export { notEmpty } from './not-empty';
 export { notNull } from './not-null';
-export type { NumericValidationOptions } from './numeric';
+export { type NumericValidationOptions } from './numeric';
 export { numeric } from './numeric';
 export { _null } from './null';
 export { onOrAfter } from './on-or-after';

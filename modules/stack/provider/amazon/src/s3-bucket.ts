@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { S3BucketConfig } from './.gen/s3-bucket';
-import { S3Bucket } from './.gen/s3-bucket';
+import { S3Bucket, type S3BucketConfig } from './.gen/s3-bucket';
 
 /**
  * Adds an S3 bucket

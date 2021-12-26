@@ -1,4 +1,4 @@
-import type { UntypedLogEventRecord } from '@komore/observability/logging';
+import { type UntypedLogEventRecord } from '@komore/observability/logging';
 
 /**
  * Local storage appender options

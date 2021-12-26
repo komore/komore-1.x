@@ -1,5 +1,4 @@
-import type { PollyClientConfig } from '@aws-sdk/client-polly';
-import { PollyClient } from '@aws-sdk/client-polly';
+import { PollyClient, type PollyClientConfig } from '@aws-sdk/client-polly';
 
 /**
  * Creates an Polly client

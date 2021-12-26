@@ -1,4 +1,4 @@
-import type { KinesisClientConfig } from '@aws-sdk/client-kinesis';
+import { type KinesisClientConfig } from '@aws-sdk/client-kinesis';
 import { KinesisClient } from '@aws-sdk/client-kinesis';
 
 /**

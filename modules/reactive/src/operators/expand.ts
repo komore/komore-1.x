@@ -1,7 +1,7 @@
 import { expand as rxjsExpand } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { OperatorFunction } from '../operator/operator-function';
-import type { SchedulerLike } from '../scheduler/scheduler-like';
+import { type Observable } from '../observable';
+import { type OperatorFunction } from '../operator-function';
+import { type SchedulerLike } from '../scheduler/scheduler-like';
 
 /**
  * Recursively projects each source value to an observable that gets merged in the output observable

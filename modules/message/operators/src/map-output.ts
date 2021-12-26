@@ -1,5 +1,4 @@
-import type { Message, MutatedMessageOutputType } from '@komore/message';
-import { map } from '@komore/reactive/operators';
+import { map, type Message, type MutatedMessageOutputType } from '@komore/message';
 
 /**
  * Operator function that maps to a message with a new output

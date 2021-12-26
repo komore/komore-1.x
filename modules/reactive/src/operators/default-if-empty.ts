@@ -1,5 +1,5 @@
 import { defaultIfEmpty as rxjsDefaultIfEmpty } from 'rxjs';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Emits a value if the source observable completes without emitting any value

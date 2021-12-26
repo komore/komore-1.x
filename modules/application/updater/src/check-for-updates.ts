@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { EMPTY } from '@komore/reactive';
+import { EMPTY, type Observable } from '@komore/reactive';
 
 /**
  * Checks whether updates are available

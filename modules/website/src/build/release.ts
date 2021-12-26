@@ -1,4 +1,4 @@
-import type { BuildConfiguration } from './build-configuration';
+import { type BuildConfiguration } from './build-configuration';
 
 /**
  * Release build configuration

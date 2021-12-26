@@ -1,6 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, fromEvent } from '@komore/reactive';
-import { distinctUntilChanged, map, shareReplay, startWith } from '@komore/reactive/operators';
+import { defer, distinctUntilChanged, fromEvent, map, type Observable, shareReplay, startWith } from '@komore/reactive';
 
 /**
  * Location observable

@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive';
-import type { Dirent, ObjectEncodingOptions, PathLike } from 'fs';
+import { deferPromise, type Observable } from '@komore/reactive';
+import { type Dirent, type ObjectEncodingOptions, type PathLike } from 'fs';
 import { readdir } from 'fs/promises';
 
 /**

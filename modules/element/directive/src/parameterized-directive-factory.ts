@@ -1,4 +1,4 @@
-import type { ParameterizedDirective } from './parameterized-directive';
+import { type ParameterizedDirective } from './parameterized-directive';
 
 /**
  * Parameterized directive factory

@@ -1,6 +1,5 @@
 import { addDataSource } from '@komore/stack/provider';
-import type { DataAwsKinesisStreamConfig } from './.gen/data-aws-kinesis-stream';
-import { DataAwsKinesisStream } from './.gen/data-aws-kinesis-stream';
+import { DataAwsKinesisStream, type DataAwsKinesisStreamConfig } from './.gen/data-aws-kinesis-stream';
 
 /**
  * Adds a Kinesis stream reference

@@ -1,4 +1,4 @@
-import type { ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
  * API Gateway HTTP API event

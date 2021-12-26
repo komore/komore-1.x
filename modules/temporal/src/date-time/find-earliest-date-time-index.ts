@@ -1,4 +1,4 @@
-import type { TemporalWithDateTime } from '../temporal-with-date-time';
+import { type TemporalWithDateTime } from '../temporal-with-date-time';
 import { isEarlier } from './is-earlier';
 
 /**

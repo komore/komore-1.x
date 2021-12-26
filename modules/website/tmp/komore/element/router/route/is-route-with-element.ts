@@ -1,5 +1,5 @@
-import type { Route } from './route';
-import type { RouteWithElement } from './route-with-element';
+import { type Route } from './route';
+import { type RouteWithElement } from './route-with-element';
 
 /**
  * Potential route with element

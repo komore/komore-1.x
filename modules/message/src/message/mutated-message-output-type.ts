@@ -1,7 +1,7 @@
-import type { Message } from './message';
-import type { MessageInputType } from './message-input-type';
-import type { MessageMetadataType } from './message-metadata-type';
-import type { MessageTypeName } from './message-type-name';
+import { type Message } from './message';
+import { type MessageInputType } from './message-input-type';
+import { type MessageMetadataType } from './message-metadata-type';
+import { type MessageTypeName } from './message-type-name';
 
 /**
  * Mutated message output type

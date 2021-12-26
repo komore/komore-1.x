@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction, type OperatorFunction } from '@komore/reactive';
 import { map } from '@komore/reactive';
 import { ConstraintViolationError } from '@komore/validation';
 

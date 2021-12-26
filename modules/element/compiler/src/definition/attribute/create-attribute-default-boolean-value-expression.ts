@@ -1,4 +1,4 @@
-import type { NodeFactory, PrimaryExpression } from 'typescript';
+import { type NodeFactory, type PrimaryExpression } from 'typescript';
 
 /**
  * Creates an attribute's default boolean value expression

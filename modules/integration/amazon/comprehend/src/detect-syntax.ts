@@ -1,5 +1,4 @@
-import type { ComprehendClient, DetectSyntaxCommandInput } from '@aws-sdk/client-comprehend';
-import { DetectSyntaxCommand } from '@aws-sdk/client-comprehend';
+import { type ComprehendClient, DetectSyntaxCommand, type DetectSyntaxCommandInput } from '@aws-sdk/client-comprehend';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

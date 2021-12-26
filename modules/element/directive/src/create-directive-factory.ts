@@ -1,5 +1,5 @@
-import type { Directive } from './directive';
-import type { DirectiveFactory } from './directive-factory';
+import { type Directive } from './directive';
+import { type DirectiveFactory } from './directive-factory';
 
 /**
  * Creates a directive factory

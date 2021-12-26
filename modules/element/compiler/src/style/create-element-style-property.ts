@@ -1,5 +1,10 @@
-import type { Identifier, NodeFactory, PropertySignature, TypeReferenceNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import {
+  type Identifier,
+  type NodeFactory,
+  type PropertySignature,
+  SyntaxKind,
+  type TypeReferenceNode
+} from 'typescript';
 
 /**
  * Creates an element style property

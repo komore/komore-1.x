@@ -1,5 +1,5 @@
-import type { Log, Logging } from '@google-cloud/logging';
-import { deferPromise } from '@komore/reactive/promise';
+import { type Log, type Logging } from '@google-cloud/logging';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Writes a log entry

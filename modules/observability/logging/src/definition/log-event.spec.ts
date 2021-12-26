@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { LogEvent } from './log-event';
-import type { LogGroup } from './log-group';
+import { type LogEvent } from './log-event';
+import { type LogGroup } from './log-group';
 
 describe('Log event', () => {
   it('can be defined without properties', () => {

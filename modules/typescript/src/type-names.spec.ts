@@ -1,5 +1,5 @@
 import { expectTypeOf } from 'expect-type';
-import type { TypeNames } from './type-names';
+import { type TypeNames } from './type-names';
 
 describe('Type names', () => {
   it('covers all possible types', () => {

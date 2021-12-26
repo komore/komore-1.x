@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from '../temporal-with-date';
-import type { WeekDay } from './week-day';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { type WeekDay } from './week-day';
 
 /**
  * Creates a function that tests whether a temporal occurs on a specific week day

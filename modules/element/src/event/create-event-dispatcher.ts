@@ -1,4 +1,4 @@
-import type { EventDispatcher } from './event-dispatcher';
+import { type EventDispatcher } from './event-dispatcher';
 
 /**
  * Creates an event dispatcher

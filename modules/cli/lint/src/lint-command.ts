@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive';
-import type { LintArguments } from './lint-arguments';
-import type { LintFlags } from './lint-flags';
+import { type Observable, tapNext } from '@komore/reactive';
+import { type LintArguments } from './lint-arguments';
+import { type LintFlags } from './lint-flags';
 
 /**
  * Lint command
@@ -9,6 +8,6 @@ import type { LintFlags } from './lint-flags';
  */
 export function lintCommand($: Observable<[args: LintArguments, flags: LintFlags]>) {
   return $.pipe(
-    tapValue(value => console.log('lint', value))
+    tapNext(value => console.log('lint', value))
   );
 }

@@ -1,15 +1,13 @@
 import { isNotNull } from '@komore/functional';
-import type { Observable } from '@komore/reactive';
-import { defer, forkJoin } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { ParsedSource } from './parsed-source';
+import { defer, forkJoin, map, type Observable } from '@komore/reactive';
+import { type ParsedSource } from './parsed-source';
 import { isEligibleScriptElement } from './script/is-script-element';
 import { parseScriptElements } from './script/parse-script-elements';
-import type { ScriptResourceLoader } from './script/script-resource-loader';
+import { type ScriptResourceLoader } from './script/script-resource-loader';
 import { isEligibleStyleElement } from './style/is-eligible-style-element';
 import { parseStyleCustomPropertyDefinitions } from './style/parse-style-custom-property-definitions';
 import { parseStyleElements } from './style/parse-style-elements';
-import type { StyleResourceLoader } from './style/style-resource-loader';
+import { type StyleResourceLoader } from './style/style-resource-loader';
 import { parseTemplateElements } from './template/parse-template-elements';
 
 declare global {

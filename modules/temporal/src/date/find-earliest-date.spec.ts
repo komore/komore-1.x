@@ -1,5 +1,5 @@
+import { type TemporalWithDate } from '../temporal-with-date';
 import { findEarliestDate } from './find-earliest-date';
-import type { TemporalWithDate } from './temporal-with-date';
 import { parseLocalDate } from './parse-local-date';
 
 describe('Find earliest date', () => {

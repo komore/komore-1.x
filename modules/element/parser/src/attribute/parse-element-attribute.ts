@@ -1,6 +1,6 @@
-import type { ElementAttributeSpecification } from './element-attribute-specification';
-import type { ElementAttributeValueType } from './element-attribute-value-type';
-import type { ParsedElementAttribute } from './parsed-element-attribute';
+import { type ElementAttributeSpecification } from './element-attribute-specification';
+import { type ElementAttributeValueType } from './element-attribute-value-type';
+import { type ParsedElementAttribute } from './parsed-element-attribute';
 
 /**
  * Attribute name specification regular expression

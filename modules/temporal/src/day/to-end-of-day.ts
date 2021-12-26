@@ -1,4 +1,4 @@
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Returns a temporal representing the end of the passed temporal's day

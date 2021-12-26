@@ -1,5 +1,5 @@
-import type { ValueObserver } from '@komore/reactive';
-import type { EventDispatcher } from './event-dispatcher';
+import { type NextObserver } from '@komore/reactive';
+import { type EventDispatcher } from './event-dispatcher';
 
 /**
  * Creates a value observer that dispatches an event using an event dispatcher
@@ -9,7 +9,7 @@ import type { EventDispatcher } from './event-dispatcher';
  */
 export function toEvent<EventDetailType>(
   eventDispatcher: EventDispatcher<EventDetailType>
-): ValueObserver<EventDetailType> {
+): NextObserver<EventDetailType> {
   return {
     next: eventDetails => eventDispatcher(eventDetails)
   };

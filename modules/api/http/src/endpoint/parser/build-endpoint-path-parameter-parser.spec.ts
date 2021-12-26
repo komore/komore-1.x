@@ -1,5 +1,5 @@
-import type { HttpContext } from '../../http-context';
-import type { EndpointParameters } from '../endpoint-parameters';
+import { type HttpContext } from '../../http-context';
+import { type EndpointParameters } from '../endpoint-parameters';
 import { buildEndpointPathParameterParser } from './build-endpoint-path-parameter-parser';
 
 describe('Build endpoint path parameter parser', () => {

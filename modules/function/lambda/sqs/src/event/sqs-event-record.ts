@@ -1,7 +1,7 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { sqsEventType } from '../lambda';
-import type { SqsEventRecordAttributes } from './sqs-event-record-attributes';
-import type { SqsEventRecordMessageAttribute } from './sqs-event-record-message-attribute';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type SqsEventRecordAttributes } from './sqs-event-record-attributes';
+import { type SqsEventRecordMessageAttribute } from './sqs-event-record-message-attribute';
+import { type sqsEventType } from './sqs-event-type';
 
 /**
  * SQS event record

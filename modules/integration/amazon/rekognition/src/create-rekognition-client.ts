@@ -1,5 +1,4 @@
-import type { RekognitionClientConfig } from '@aws-sdk/client-rekognition';
-import { RekognitionClient } from '@aws-sdk/client-rekognition';
+import { RekognitionClient, type RekognitionClientConfig } from '@aws-sdk/client-rekognition';
 
 /**
  * Creates an Rekognition client

@@ -1,6 +1,6 @@
-import type { OperatorFunction } from '@komore/reactive';
-import type { Stack } from './stack';
-import type { Value, RawValueType } from './value';
+import { type OperatorFunction } from '@komore/reactive';
+import { type Stack } from './stack';
+import { type Value, type RawValueType } from './value';
 
 /**
  * Variable reference

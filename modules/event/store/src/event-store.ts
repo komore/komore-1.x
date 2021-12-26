@@ -1,5 +1,5 @@
-import type { Event, EventReducer } from '@komore/event';
-import type { SnapshotStrategy } from './snapshot-strategy';
+import { type Event, type EventReducer } from '@komore/event';
+import { type SnapshotStrategy } from './snapshot-strategy';
 
 /**
  * Event store

@@ -1,4 +1,4 @@
-import type { WebhookMessageOptions } from 'discord.js';
+import { type WebhookMessageOptions } from 'discord.js';
 
 /**
  * Discord webhook message

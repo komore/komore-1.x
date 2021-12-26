@@ -1,5 +1,4 @@
-import type { ArrowFunction, ConciseBody, NodeFactory, ParameterDeclaration, TypeNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import { type ArrowFunction, type ConciseBody, type NodeFactory, type ParameterDeclaration, SyntaxKind, type TypeNode } from 'typescript';
 
 /**
  * Creates an arrow function

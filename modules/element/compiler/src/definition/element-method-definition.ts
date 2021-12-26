@@ -1,4 +1,4 @@
-import type { FunctionDeclaration } from 'typescript';
+import { type FunctionDeclaration } from 'typescript';
 
 /**
  * Element method definition

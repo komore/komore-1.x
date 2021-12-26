@@ -1,4 +1,4 @@
-import type { ComprehendClient } from '@aws-sdk/client-comprehend';
+import { type ComprehendClient } from '@aws-sdk/client-comprehend';
 import { withAmazonClient } from '@komore/integration-amazon';
 import { createComprehendClient } from '../create-comprehend-client';
 

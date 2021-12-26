@@ -1,9 +1,8 @@
-import type { Observable } from '@komore/reactive';
-import { of } from '@komore/reactive';
+import { type Observable, of } from '@komore/reactive';
 import { createProcessor } from '../create-processor';
 import { scriptProcessorFactories } from './script-processor-factories';
-import type { ScriptProcessorInput } from './script-processor-input';
-import type { ScriptProcessorOutput } from './script-processor-output';
+import { type ScriptProcessorInput } from './script-processor-input';
+import { type ScriptProcessorOutput } from './script-processor-output';
 
 /**
  * Processes a script element

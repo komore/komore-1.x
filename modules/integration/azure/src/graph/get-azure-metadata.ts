@@ -1,5 +1,5 @@
-import type { Message } from '@komore/message';
-import type { AzureMetadata } from './azure-metadata';
+import { type Message } from '@komore/message';
+import { type AzureMetadata } from './azure-metadata';
 
 /**
  * Gets Azure metadata from a message

@@ -1,10 +1,10 @@
-import type { Event } from '@komore/event';
-import { assert } from '@komore/typescript';
-import type { SnapshotStrategy } from './snapshot-strategy';
+import { type Event } from '@komore/event';
+import { assert } from '@komore/runtime';
+import { type SnapshotStrategy } from './snapshot-strategy';
 import { getAfterAtOrBeforeSequenceNumber } from './helpers/get-after-at-or-before-sequence-number';
 import { getFirstOrLastSequenceNumber } from './helpers/get-first-or-last-sequence-number';
 import { isFirstOrLastSelectionType } from './helpers/is-first-or-last-selection-type';
-import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**
  * Creates a snapshot strategy that triggers a snapshot creation around a size threshold being reached
@@ -16,7 +16,7 @@ import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-typ
  */
 export function snapshotOnSize<S, E extends Event<string, any>[]>(
   bytes: number,
-  selectionType: SnapshotStrategySelectionType = SnapshotStrategySelectionType.LAST
+  selectionType: SnapshotStrategySelectionType = 'last'
 ): SnapshotStrategy<S, E> {
   assert(bytes > 0, 'a snapshot on size strategy must have a threshold strictly greater than 0 bytes');
 

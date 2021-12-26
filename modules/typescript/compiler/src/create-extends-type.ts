@@ -1,5 +1,4 @@
-import type { HeritageClause, Identifier, NodeFactory } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import { type HeritageClause, type Identifier, type NodeFactory, SyntaxKind } from 'typescript';
 
 /**
  * Creates an extends heritage clause

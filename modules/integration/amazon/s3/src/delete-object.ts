@@ -1,5 +1,4 @@
-import type { DeleteObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
-import { DeleteObjectCommand } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand, type DeleteObjectCommandInput, type S3Client } from '@aws-sdk/client-s3';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

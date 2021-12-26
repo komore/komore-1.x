@@ -1,8 +1,8 @@
 import { mapIntegrations, MessageWithIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
-import type { OperatorFunction } from '@komore/reactive';
+import { type Message } from '@komore/message';
+import { type OperatorFunction } from '@komore/reactive';
 import * as Discord from 'discord.js';
-import { DiscordIntegration } from '../graph/discord-integration';
+import { type DiscordIntegration } from '../graph/discord-integration';
 
 /**
  * TODO

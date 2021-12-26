@@ -1,6 +1,6 @@
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventCognitoIdentity } from './event/app-sync-event-cognito-identity';
-import type { AppSyncEventWithCognitoAuthorization } from './event/app-sync-event-with-cognito-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventCognitoIdentity } from './event/app-sync-event-cognito-identity';
+import { type AppSyncEventWithCognitoAuthorization } from './event/app-sync-event-with-cognito-authorization';
 
 /**
  * Tests whether an AppSync event has a Cognito user pool authorization

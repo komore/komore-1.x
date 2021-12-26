@@ -1,4 +1,4 @@
-import type { TemplateProcessor } from '@komore/element/compiler';
+import { type TemplateProcessor } from '@komore/element/compiler';
 import { of } from '@komore/reactive';
 import marked from 'marked';
 

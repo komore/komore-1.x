@@ -1,5 +1,5 @@
-import type { RouteInjectionOptions } from './route-injection-options';
-import type { RouteInjector } from './route-injector';
+import { type RouteInjectionOptions } from './route-injection-options';
+import { type RouteInjector } from './route-injector';
 
 /**
  * Creates a route injector

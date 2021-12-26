@@ -1,4 +1,4 @@
-import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createDynamoDBClient } from '../create-dynamodb-client';
 

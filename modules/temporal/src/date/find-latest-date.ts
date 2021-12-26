@@ -1,4 +1,4 @@
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 import { findDateByDuration } from './find-date-by-comparison';
 
 /**

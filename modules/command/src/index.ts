@@ -1,5 +1,5 @@
-export type { Command } from './command';
-export type { CommandHandler } from './command-handler';
+export { type Command } from './command';
+export { type CommandHandler } from './command-handler';
 export { createCommand } from './create-command';
 export { createHandler } from './create-handler';
 export { on } from './command-handler-on';

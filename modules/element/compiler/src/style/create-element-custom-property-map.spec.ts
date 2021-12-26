@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementCustomPropertyDefinition } from '../definition/element-custom-property-definition';
+import { type ElementCustomPropertyDefinition } from '../definition/element-custom-property-definition';
 import { createElementCustomPropertyMap } from './create-element-custom-property-map';
 
 describe('Create element custom property map', () => {

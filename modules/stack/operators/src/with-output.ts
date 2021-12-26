@@ -1,10 +1,8 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { GenericScope, TypedOutput, TypedValue, Types } from '@komore/stack';
-import type { TerraformOutputConfig, TerraformResource } from 'cdktf';
-import { TerraformOutput } from 'cdktf';
-import type { OutputProperties } from './output-properties';
-import type { ScopeWithAddedOutput } from './scope-with-added-output';
+import { map, type OperatorFunction } from '@komore/reactive';
+import { type GenericScope, type TypedOutput, type TypedValue, type Types } from '@komore/stack';
+import { TerraformOutput, type TerraformOutputConfig, type TerraformResource } from 'cdktf';
+import { type OutputProperties } from './output-properties';
+import { type ScopeWithAddedOutput } from './scope-with-added-output';
 
 /**
  * Adds an output value to a scope

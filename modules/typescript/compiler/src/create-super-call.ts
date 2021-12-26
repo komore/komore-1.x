@@ -1,4 +1,4 @@
-import type { Expression, ExpressionStatement, NodeFactory } from 'typescript';
+import { type Expression, type ExpressionStatement, type NodeFactory } from 'typescript';
 
 /**
  * Creates a super() call expression

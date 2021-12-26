@@ -1,4 +1,4 @@
-import type { TypeParameterDeclaration, TypeReferenceNode } from 'typescript';
+import { type TypeParameterDeclaration, type TypeReferenceNode } from 'typescript';
 
 /**
  * Event map index

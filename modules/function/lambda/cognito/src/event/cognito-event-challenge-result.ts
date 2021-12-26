@@ -1,4 +1,4 @@
-import type { CognitoEventChallengeMetadataTypes } from './cognito-event-challenge-metadata-types';
+import { type CognitoEventChallengeMetadataTypes } from './cognito-event-challenge-metadata-types';
 
 /**
  * Cognito event challenge result

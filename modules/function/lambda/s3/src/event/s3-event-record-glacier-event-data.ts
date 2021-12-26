@@ -1,4 +1,4 @@
-import type { S3EventRecordGlacierRestoreEventData } from './s3-event-record-glacier-restore-event-data';
+import { type S3EventRecordGlacierRestoreEventData } from './s3-event-record-glacier-restore-event-data';
 
 /**
  * S3 event record Glacier event data

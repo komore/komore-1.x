@@ -1,4 +1,4 @@
-import type { ScriptTarget } from 'typescript';
+import { type ScriptTarget } from 'typescript';
 
 /**
  * Specification processing options

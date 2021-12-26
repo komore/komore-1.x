@@ -1,4 +1,5 @@
-import type { InstantWithTime } from '../instant-with-time';
+import { asPlainTime } from '../as-plain-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Tests whether an instant occurs during an hour that is earlier than the hour another instant occurs
@@ -6,8 +7,8 @@ import type { InstantWithTime } from '../instant-with-time';
  * @param rhs Right-hand instant
  * @returns true if `lhs` occurs during an hour that is earlier than the hour during which `rhs` occurs
  */
-export function isEarlierHour(lhs: InstantWithTime, rhs: InstantWithTime): boolean {
-  const lhsPt = lhs._.toPlainTime();
-  const rhsPt = rhs._.toPlainTime();
+export function isEarlierHour(lhs: TemporalWithTime, rhs: TemporalWithTime): boolean {
+  const lhsPt = asPlainTime(lhs);
+  const rhsPt = asPlainTime(rhs);
   return lhsPt.hour < rhsPt.hour;
 }

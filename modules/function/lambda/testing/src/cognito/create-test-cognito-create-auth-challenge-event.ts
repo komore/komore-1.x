@@ -1,8 +1,8 @@
-import type {
-  CognitoEvent,
-  CognitoEventCreateAuthChallengeRequest,
-  CognitoEventCreateAuthChallengeResponse
-} from '@komore/function-lambda';
+import {
+  type CognitoEvent,
+  type CognitoEventCreateAuthChallengeRequest,
+  type CognitoEventCreateAuthChallengeResponse
+} from '@komore/function-lambda/cognito';
 import { createTestCognitoEvent } from './create-test-cognito-event';
 
 export function createTestCognitoCreateAuthChallengeEvent(): CognitoEvent<'CreateAuthChallenge_Authentication'> {

@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { Month } from './month';
+import { type Month } from './month';
 
 /**
  * Gets the next month
@@ -7,5 +7,6 @@ import type { Month } from './month';
  */
 export function getNextMonth(): Month {
   const now = Temporal.Now.plainDateISO();
-  return now.month;
+  const nextMonth = now.add({ months: 1 });
+  return nextMonth.month;
 }

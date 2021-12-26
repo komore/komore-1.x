@@ -1,6 +1,6 @@
 import { createHtmlProcessor } from './html/create-html-processor';
-import type { TemplateProcessor } from './template-processor';
-import type { TemplateProcessorFactory } from './template-processor-factory';
+import { type TemplateProcessor } from './template-processor';
+import { type TemplateProcessorFactory } from './template-processor-factory';
 
 /**
  * Template processor factories

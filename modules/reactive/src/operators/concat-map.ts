@@ -1,7 +1,7 @@
-import { concatMap as rxjsConcatMap } from 'rxjs';
-import type { ObservableInput } from '../observable/observable-input';
-import type { ObservableInputType } from '../observable/observable-input-type';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type ObservableInput } from '../observable-input';
+import { type ObservableInputType } from '../observable-input-type';
+import { type OperatorFunction } from '../operator-function';
+import { mergeMap } from './merge-map';
 
 /**
  * Projects each source value to an observable which is merged into the output observable
@@ -15,5 +15,5 @@ import type { OperatorFunction } from '../operator/operator-function';
 export function concatMap<T, O extends ObservableInput<unknown>>(
   project: (value: T, index: number) => O
 ): OperatorFunction<T, ObservableInputType<O>> {
-  return rxjsConcatMap(project);
+  return mergeMap(project, 1);
 }

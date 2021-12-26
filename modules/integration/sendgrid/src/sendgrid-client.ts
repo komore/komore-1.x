@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { Client } from '@sendgrid/client';
+import { type Observable } from '@komore/reactive';
+import { type Client } from '@sendgrid/client';
 
 /**
  * SendGrid client

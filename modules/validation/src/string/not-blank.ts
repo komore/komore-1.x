@@ -1,5 +1,5 @@
 import { not } from '@komore/functional';
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '@komore/reactive';
 import { isBlank } from '@komore/string';
 import { createConstraintValidator } from '../create-constraint-validator';
 

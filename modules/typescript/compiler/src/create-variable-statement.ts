@@ -1,5 +1,11 @@
-import type { Expression, Identifier, NodeFactory, TypeNode, VariableStatement } from 'typescript';
-import { NodeFlags } from 'typescript';
+import {
+  type Expression,
+  type Identifier,
+  type NodeFactory,
+  NodeFlags,
+  type TypeNode,
+  type VariableStatement
+} from 'typescript';
 
 /**
  * Creates a variable statement

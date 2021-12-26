@@ -1,8 +1,8 @@
 import { recordLogEvent } from '@komore/observability/logging';
 import { isMarkdownMetadataDefinition } from './is-markdown-metadata-definition';
-import type { MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
+import { type MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
 import { unknownMetadataKindError, unknownMetadataKindWarn } from './markdown-metadata-logs';
-import type { MarkdownUnknownMetadataKindBehavior } from './markdown-unknown-metadata-kind-behavior';
+import { type MarkdownUnknownMetadataKindBehavior } from './markdown-unknown-metadata-kind-behavior';
 import { toMarkdownMetadataDefinition } from './to-markdown-metadata-definition';
 
 /**

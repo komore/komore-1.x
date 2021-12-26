@@ -1,5 +1,5 @@
-import { forkJoin, Observable, of } from 'rxjs';
-import type { ScriptResourceLoader } from './script-resource-loader';
+import { defaultIfEmpty, forkJoin, type Observable, of } from '@komore/reactive';
+import { type ScriptResourceLoader } from './script-resource-loader';
 
 /**
  * Parses script elements, loading them from external sources if necessary
@@ -12,11 +12,7 @@ export function parseScriptElements(
   scriptResourceLoader: ScriptResourceLoader
 ): Observable<ReadonlyArray<HTMLScriptElement>> {
   const loadScriptElements = scriptElements.map(loadScriptElement(scriptResourceLoader));
-  // TODO: remove block once https://github.com/ReactiveX/rxjs/pull/5922 is merged
-  if (loadScriptElements.length === 0) {
-    return of([]);
-  }
-  return forkJoin(loadScriptElements);
+  return forkJoin(loadScriptElements).pipe(defaultIfEmpty([]));
 }
 
 /**

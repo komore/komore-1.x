@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { map, startWith } from '@komore/reactive/operators';
+import { map, type Observable, startWith } from '@komore/reactive';
 import { observeMediaQuery } from './observe-media-query';
 
 /**

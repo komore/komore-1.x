@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { defaultIfEmpty, EMPTY, expand, ignoreValues, of } from '@komore/reactive';
-import type { IndexedDBUpgrade } from './indexeddb-upgrade';
-import type { IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
+import { defaultIfEmpty, EMPTY, expand, of, type Observable, redactValue } from '@komore/reactive';
+import { type IndexedDBUpgrade } from './indexeddb-upgrade';
+import { type IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
 
 /**
  * Creates an IndexedDB upgrade handler
@@ -33,6 +32,6 @@ export function createIndexedDBUpgradeHandler(
 
         return nextMigration(of(idbDatabase)).pipe(defaultIfEmpty(nextUpgrade));
       }),
-      ignoreValues()
+      redactValue()
     );
 }

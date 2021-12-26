@@ -1,4 +1,4 @@
-import type { SearchQuery } from '@komore/website/search';
+import { type SearchQuery } from '@komore/website/search';
 
 /**
  * Search worker input

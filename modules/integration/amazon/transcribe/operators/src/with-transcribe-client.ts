@@ -1,4 +1,4 @@
-import type { TranscribeClient } from '@aws-sdk/client-transcribe';
+import { type TranscribeClient } from '@aws-sdk/client-transcribe';
 import { withAwsClient } from '@komore/integration-amazon/operators';
 import { createTranscribeClient } from '@komore/integration-amazon/transcribe';
 

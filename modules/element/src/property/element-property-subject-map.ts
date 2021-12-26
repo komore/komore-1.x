@@ -1,4 +1,4 @@
-import type { ElementPropertySubject } from './element-property-subject';
+import { type ElementPropertySubject } from './element-property-subject';
 
 /**
  * Element property subject map

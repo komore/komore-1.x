@@ -1,8 +1,8 @@
 import { PageMetadataKind } from '@komore/element-ssg';
 import type * as marked from 'marked';
 import { createMarkdownMetadataDefinitionProcessor } from './create-markdown-metadata-definition-processor';
-import type { MarkdownMetadataContext } from './markdown-metadata-context';
-import type { MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
+import { type MarkdownMetadataContext } from './markdown-metadata-context';
+import { type MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
 
 /**
  * Creates a Markdown metadata tokenizer

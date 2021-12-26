@@ -1,3 +1,3 @@
-import type { AndroidHost } from './android-host';
+import { type AndroidHost } from './android-host';
 
 export function createAndroidHost(): AndroidHost {}

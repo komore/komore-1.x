@@ -1,7 +1,7 @@
-import type { TemporalWithTime } from '@komore/temporal';
+import { type TemporalWithTime } from '@komore/temporal';
 import { toJavaScriptDate } from '@komore/temporal/compatibility';
-import type { Locales } from './locales';
-import type { TimeLocalizationOptions } from './options/time-localization-options';
+import { type Locales } from './locales';
+import { type TimeLocalizationOptions } from './options/time-localization-options';
 
 /**
  * Creates a function that localizes a temporal to a time format using a set of locales

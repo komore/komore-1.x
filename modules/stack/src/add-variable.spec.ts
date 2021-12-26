@@ -1,9 +1,9 @@
-import type { Construct } from 'constructs';
+import { type Construct } from 'constructs';
 import { expectTypeOf } from 'expect-type';
 import { mock } from 'jest-mock-extended';
 import { addVariable } from './add-variable';
 import { createScope } from './create-scope';
-import type { TypedVariable } from './typed-variable';
+import { type TypedVariable } from './typed-variable';
 
 describe('Add variable', () => {
   it('adds a variable to a scope', () => {

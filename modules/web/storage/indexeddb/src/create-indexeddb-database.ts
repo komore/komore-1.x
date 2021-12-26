@@ -1,15 +1,7 @@
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 import { concat, concatMap, defer, EMPTY, fromEvent, ignoreValues, map, of, race, shareReplay } from '@komore/reactive';
+import { type IndexedDBDatabaseOptions } from './indexeddb-database-options';
 import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
-import type { IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
-
-/**
- * IndexedDB version upgrade event
- */
-interface IDBVersionUpgradeEvent extends Event {
-  readonly newVersion: number;
-  readonly oldVersion: number;
-}
 
 /**
  * Creates an IndexedDB database
@@ -18,21 +10,20 @@ interface IDBVersionUpgradeEvent extends Event {
  * @param upgradeHandler Upgrade handler
  * @returns IndexedDB database
  */
-export function createIndexedDBDatabase(
-  name: string,
-  version?: number,
-  upgradeHandler?: IndexedDBUpgradeHandler
-): Observable<IDBDatabase> {
+export function createIndexedDBDatabase(options: IndexedDBDatabaseOptions): Observable<IDBDatabase> {
+  const { name, version, upgradeHandler } = options;
+
   return defer(() => {
     const idbOpenDBRequest = indexedDB.open(name, version);
     const idbOpenDBRequest$ = fromIDBOpenDBRequest(idbOpenDBRequest);
     const idbDatabase = idbOpenDBRequest.result;
     const databaseUpgraded$ =
       upgradeHandler !== undefined
-        ? fromEvent<IDBVersionUpgradeEvent>(idbOpenDBRequest, 'upgradeneeded').pipe(
+        ? fromEvent<IDBVersionChangeEvent>(idbOpenDBRequest, 'upgradeneeded').pipe(
             map(({ newVersion, oldVersion }) => ({
               idbDatabase,
-              newVersion,
+              // TODO: verify newVersion is not null as this would mean the DB is deleted
+              newVersion: newVersion as number,
               oldVersion
             })),
             concatMap(databaseUpgrade => upgradeHandler(of(databaseUpgrade)).pipe(ignoreValues()))

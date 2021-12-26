@@ -1,4 +1,4 @@
-import type { CosmosClient } from '@azure/cosmos';
+import { type CosmosClient } from '@azure/cosmos';
 
 /**
  * CosmosDB client

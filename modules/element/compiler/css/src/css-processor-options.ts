@@ -1,4 +1,4 @@
-import type { StyleProcessorOptions } from '@komore/element/compiler/processor';
+import { type StyleProcessorOptions } from '@komore/element/compiler/processor';
 
 /**
  * CSS processor factory options

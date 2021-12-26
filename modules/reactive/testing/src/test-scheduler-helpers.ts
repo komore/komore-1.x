@@ -1,4 +1,4 @@
-import type { TestScheduler } from 'rxjs/testing';
+import { type TestScheduler } from 'rxjs/testing';
 
 /**
  * Test scheduler helpers

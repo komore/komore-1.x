@@ -1,7 +1,7 @@
-import type { Event } from '@komore/event';
-import type { Observable } from '@komore/reactive';
-import type { Command } from './command';
-import type { CommandMetadata } from './command-metadata';
+import { type Event } from '@komore/event';
+import { type Observable } from '@komore/reactive';
+import { type Command } from './command';
+import { type CommandMetadata } from './command-metadata';
 
 /**
  * Command handler

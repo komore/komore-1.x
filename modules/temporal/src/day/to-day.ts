@@ -1,4 +1,4 @@
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns the day of the month from a temporal with date

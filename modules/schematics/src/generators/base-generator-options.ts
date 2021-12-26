@@ -2,8 +2,8 @@
  * Base generator options
  */
 export interface BaseGeneratorOptions {
-  name: string;
-  tags?: string;
-  domain?: string;
-  directory?: string;
+  readonly directory?: string;
+  readonly domain?: string;
+  readonly name: string;
+  readonly tags?: string;
 }

@@ -1,4 +1,4 @@
-import type { NodeHostOptions } from './node-host-options';
+import { type NodeHostOptions } from './node-host-options';
 
 /**
  * Builds Node host options with default values when necessary

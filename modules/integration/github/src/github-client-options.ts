@@ -1,4 +1,4 @@
-import type { Octokit } from '@octokit/rest';
+import { type Octokit } from '@octokit/rest';
 
 type OctokitOptions = NonNullable<ConstructorParameters<typeof Octokit>[0]>;
 

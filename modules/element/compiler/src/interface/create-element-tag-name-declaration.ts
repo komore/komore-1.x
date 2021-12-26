@@ -1,6 +1,5 @@
-import type { InterfaceDeclaration, ModuleDeclaration, NodeFactory } from 'typescript';
-import { NodeFlags, SyntaxKind } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type InterfaceDeclaration, type ModuleDeclaration, type NodeFactory, NodeFlags, SyntaxKind } from 'typescript';
+import { type ElementDefinition } from '../definition/element-definition';
 
 /**
  * Creates an element tag name declaration

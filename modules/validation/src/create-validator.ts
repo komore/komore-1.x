@@ -1,6 +1,6 @@
 import { of } from '@komore/reactive';
-import type { Validator } from './validator';
-import type { ValidatorOptions } from './validator-options';
+import { type Validator } from './validator';
+import { type ValidatorOptions } from './validator-options';
 
 /**
  * Creates a validator

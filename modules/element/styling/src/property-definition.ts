@@ -1,4 +1,4 @@
-import type { PropertySyntax } from './syntax/property-syntax';
+import { type PropertySyntax } from './syntax/property-syntax';
 
 /**
  * Property definition

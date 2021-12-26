@@ -1,5 +1,5 @@
 import { LogEventSeverity } from '@komore/observability/logging';
-import type { ConsoleSeverityRange } from './console-severity-range';
+import { type ConsoleSeverityRange } from './console-severity-range';
 
 /**
  * Gets the default log event severity mapping

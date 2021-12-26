@@ -1,4 +1,4 @@
-import type { Feature } from "./feature";
+import { type Feature } from './feature';
 
 /**
  * Specification

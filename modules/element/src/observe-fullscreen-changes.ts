@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { fromEvent, merge } from '@komore/reactive';
-import { map, mapTo, throwIf } from '@komore/reactive/operators';
+import { isNotNull } from '@komore/functional';
+import { fromEvent, map, mapTo, merge, type Observable, throwUnless } from '@komore/reactive';
 
 /**
  * Creates an observable that emits whenever the fullscreen state of an element changes
@@ -14,6 +13,6 @@ export function observeFullscreenChanges(element?: Element): Observable<Element 
     fromEvent(targetElement, 'fullscreenchange').pipe(map(() => document.fullscreenElement ?? undefined)),
     fromEvent(targetElement, 'fullscreenerror').pipe(mapTo(null))
   ]).pipe(
-    throwIf(event => event === null, () => new Error('fullscreen error'))
+    throwUnless(isNotNull, () => new Error('fullscreen error'))
   );
 }

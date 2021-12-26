@@ -1,4 +1,4 @@
-import type { EmailLayer } from '@komore/layer-email';
+import { type EmailLayer } from '@komore/layer-email';
 import {
   createSendGridClient,
   createTransactionalTemplate,

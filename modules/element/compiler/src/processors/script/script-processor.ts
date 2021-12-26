@@ -1,6 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import type { ScriptProcessorInput } from './script-processor-input';
-import type { ScriptProcessorOutput } from './script-processor-output';
+import { type Observable } from '@komore/reactive';
+import { type ScriptProcessorInput } from './script-processor-input';
+import { type ScriptProcessorOutput } from './script-processor-output';
 
 /**
  * Script processor

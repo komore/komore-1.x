@@ -1,4 +1,4 @@
-import type { S3Client } from '@aws-sdk/client-s3';
+import { type S3Client } from '@aws-sdk/client-s3';
 import { withAmazonClient } from '@komore/integration-amazon';
 import { createS3Client } from '@komore/integration/s3';
 

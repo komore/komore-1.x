@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { Host } from '@komore/runtime';
+import { type Observable } from '@komore/reactive';
+import { type Host } from '@komore/runtime';
 
 /**
  * Application

@@ -1,5 +1,5 @@
 import { expectTypeOf } from 'expect-type';
-import type { LogEventPropertiesSchema } from './log-event-properties-schema';
+import { type LogEventPropertiesSchema } from './log-event-properties-schema';
 import { props } from './props';
 
 describe('Properties (logging)', () => {

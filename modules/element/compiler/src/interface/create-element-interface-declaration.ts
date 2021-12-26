@@ -1,7 +1,6 @@
 import { createExtendsType } from '@komore/typescript/compiler';
-import type { InterfaceDeclaration, NodeFactory, TypeNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type InterfaceDeclaration, type NodeFactory, SyntaxKind, type TypeNode } from 'typescript';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createElementEventListenerMethods } from '../event/create-element-event-listener-methods';
 import { createElementInterfaceMethods } from '../method/create-element-interface-methods';
 import { createElementInterfaceProperties } from '../property/create-element-interface-properties';

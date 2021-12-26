@@ -1,5 +1,5 @@
-import type { AccessorDeclaration, NodeFactory } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type AccessorDeclaration, type NodeFactory } from 'typescript';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementClassProperty } from './create-element-class-property';
 
 /**

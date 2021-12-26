@@ -1,5 +1,4 @@
-import type { ChimeClient, CreateChannelCommandInput } from '@aws-sdk/client-chime';
-import { CreateChannelCommand } from '@aws-sdk/client-chime';
+import { type ChimeClient, CreateChannelCommand, type CreateChannelCommandInput } from '@aws-sdk/client-chime';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

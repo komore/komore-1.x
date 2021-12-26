@@ -1,5 +1,5 @@
-import type { Appender } from '@komore/observability/logging';
-import type { ConsoleAppenderOptions } from './console-appender-options';
+import { type Appender } from '@komore/observability/logging';
+import { type ConsoleAppenderOptions } from './console-appender-options';
 
 /**
  * Creates a console appender

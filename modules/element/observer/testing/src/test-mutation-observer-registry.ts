@@ -1,4 +1,4 @@
-import type { TestMutationObserver } from './test-mutation-observer';
+import { type TestMutationObserver } from './test-mutation-observer';
 
 /**
  * Test mutation observer registry

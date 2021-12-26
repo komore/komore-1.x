@@ -1,8 +1,7 @@
-import type { SourceFile } from 'typescript';
-import { transform } from 'typescript';
+import { type SourceFile, transform } from 'typescript';
 import { createFeatureRecorderTransformerFactory } from './create-feature-recorder-transformer-factory';
 import { Feature } from './feature';
-import type { Specification } from './specification';
+import { type Specification } from './specification';
 
 /**
  * Builds a specification from a source file

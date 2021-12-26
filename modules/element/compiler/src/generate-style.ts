@@ -1,10 +1,7 @@
-import type { Observable } from '@komore/reactive';
-import { forkJoin } from '@komore/reactive';
-import { defaultIfEmpty } from '@komore/reactive/operators';
-import { createCssProcessor } from './processors/style/css/create-css-processor';
-import { createScssProcessor } from './processors/style/scss/create-scss-processor';
-import type { StyleProcessor } from './processors/style/style-processor';
-import type { StyleProcessorFactory } from './processors/style/style-processor-factory';
+import { createCssProcessor } from '@komore/element/compiler/css';
+import { type StyleProcessor, type StyleProcessorFactory } from '@komore/element/compiler/processor';
+import { createScssProcessor } from '@komore/element/compiler/scss';
+import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
 
 /**
  * Style processor factories

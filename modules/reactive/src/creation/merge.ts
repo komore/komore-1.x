@@ -1,6 +1,6 @@
 import { merge as rxjsMerge } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { ObservableInputTuple } from '../observable/observable-input-tuple';
+import { type Observable } from '../observable';
+import { type ObservableInputTuple } from '../observable-input-tuple';
 
 /**
  * Creates an output observable that concurrently emits all values from all source observables

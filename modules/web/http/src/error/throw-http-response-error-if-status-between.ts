@@ -1,5 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { throwIf } from '@komore/reactive';
+import { type MonoTypeOperatorFunction, throwIf } from '@komore/reactive';
 import { HttpResponseError } from './http-response-error';
 
 /**

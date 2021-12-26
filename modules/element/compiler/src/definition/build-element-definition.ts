@@ -1,10 +1,10 @@
-import type { NodeFactory } from 'typescript';
-import type { ProcessedSource } from '../processors/processed-source';
+import { type NodeFactory } from 'typescript';
+import { type ProcessedSource } from '../processors/processed-source';
 import { buildElementAttributeDefinitions } from './attribute/build-element-attribute-definitions';
 import { buildElementCustomPropertyDefinitions } from './custom-property/build-element-custom-property-definitions';
 import { buildElementEventDefinitions } from './event/build-element-event-definitions';
 import { buildElementPropertyDefinitions } from './property/build-element-property-definitions';
-import type { ElementDefinition } from './element-definition';
+import { type ElementDefinition } from './element-definition';
 
 /**
  * Builds an element's definition

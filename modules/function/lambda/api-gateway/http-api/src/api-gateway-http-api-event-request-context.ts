@@ -1,5 +1,5 @@
-import type { ApiGatewayHttpApiEventAuthorizer } from './api-gateway-http-api-event-authorizer';
-import type { ApiGatewayHttpApiEventRequest } from './api-gateway-http-api-event-request';
+import { type ApiGatewayHttpApiEventAuthorizer } from './api-gateway-http-api-event-authorizer';
+import { type ApiGatewayHttpApiEventRequest } from './api-gateway-http-api-event-request';
 
 /**
  * API Gateway HTTP API event request context

@@ -1,11 +1,10 @@
 export { convertTimeZone } from './convert-time-zone';
 export { getLocalTimeZone } from './get-local-time-zone';
 export { getLocalTimeZoneId } from './get-local-time-zone-id';
-export { getTimeZoneOffset } from './get-time-zone-offset';
 export { isSameTimeZone } from './is-same-time-zone';
 export { isSameTimeZoneAs } from './is-same-time-zone-as';
 export { toTimeZone } from './to-time-zone';
 export { toTimeZoneId } from './to-time-zone-id';
-//export { toTimeZoneOffsetAt } from './to-time-zone-offset-at';
-//export { toTimeZoneOffsetWith } from './to-time-zone-offset-with';
+export { toTimeZoneOffsetAt } from './to-time-zone-offset-at';
+export { toTimeZoneOffsetWith } from './to-time-zone-offset-with';
 export { withTimeZone } from './with-time-zone';

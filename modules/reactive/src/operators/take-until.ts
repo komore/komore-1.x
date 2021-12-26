@@ -1,5 +1,6 @@
-import type { MonoTypeOperatorFunction, ObservableInput } from '@komore/reactive';
 import { takeUntil as rxjsTakeUntil } from 'rxjs';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { type ObservableInput } from '../observable-input';
 
 /**
  * Emits the values emitted by the source observable until the notifier observable emits a value

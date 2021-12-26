@@ -1,6 +1,6 @@
 import { ElementAttributeSpecification } from './element-attribute-specification';
 import { parseElementAttribute } from './parse-element-attribute';
-import type { ParsedElementAttribute } from './parsed-element-attribute';
+import { type ParsedElementAttribute } from './parsed-element-attribute';
 
 /**
  * Builds a list of parsed element attributes from a named node map

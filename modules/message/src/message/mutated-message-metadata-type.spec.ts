@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { Message } from './message';
-import type { MutatedMessageMetadataType } from './mutated-message-metadata-type';
+import { type Message } from './message';
+import { type MutatedMessageMetadataType } from './mutated-message-metadata-type';
 
 describe('Mutated message metadata type', () => {
   it('can mutate the metadata type of a message', () => {

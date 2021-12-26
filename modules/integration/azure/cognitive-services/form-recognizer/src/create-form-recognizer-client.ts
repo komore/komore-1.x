@@ -1,5 +1,5 @@
 import { FormRecognizerClient } from '@azure/cognitiveservices-formrecognizer';
-import type { ServiceClientCredentials } from '@azure/core-auth';
+import { type ServiceClientCredentials } from '@azure/core-auth';
 
 /**
  * Environment variables

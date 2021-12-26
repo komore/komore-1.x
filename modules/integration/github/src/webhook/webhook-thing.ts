@@ -1,5 +1,5 @@
 import { Webhooks } from '@octokit/webhooks';
-import type { EmitterWebhookEventName } from '@octokit/webhooks';
+import { type EmitterWebhookEventName } from '@octokit/webhooks';
 
 export function fromGithubWebhookEvent()
 

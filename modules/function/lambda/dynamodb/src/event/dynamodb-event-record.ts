@@ -1,6 +1,6 @@
-import type { LambdaEventIdentity } from '@komore/function-lambda';
-import type { DynamoDBEventName } from './dynamodb-event-name';
-import type { DynamoDBEventRecordMessage } from './dynamodb-event-record-message';
+import { type LambdaEventIdentity } from '@komore/function-lambda';
+import { type DynamoDBEventName } from './dynamodb-event-name';
+import { type DynamoDBEventRecordMessage } from './dynamodb-event-record-message';
 
 /**
  * DynamoDB event record

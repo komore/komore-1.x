@@ -1,6 +1,6 @@
 import { getDefaultSeverityNames } from './get-default-severity-names';
-import type { Layout } from './layout';
-import type { TimestampSeverityLayoutOptions } from './timestamp-severity-layout-options';
+import { type Layout } from './layout';
+import { type TimestampSeverityLayoutOptions } from './timestamp-severity-layout-options';
 
 /**
  * Creates a timestamp severity layout

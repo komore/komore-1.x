@@ -1,7 +1,5 @@
-import type { OperatorFunction } from "@komore/reactive";
-import { switchMap } from "@komore/reactive";
-import type { ResponseProgress } from "./response-progress";
-
+import { type OperatorFunction, switchMap } from '@komore/reactive';
+import { type ResponseProgress } from "./response-progress";
 
 /**
  * Fetch underlying byte source

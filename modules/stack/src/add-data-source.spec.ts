@@ -1,5 +1,5 @@
 import { TerraformDataSource } from 'cdktf';
-import type { Construct } from 'constructs';
+import { type Construct } from 'constructs';
 import { mock } from 'jest-mock-extended';
 import { addDataSource } from './add-data-source';
 import { createScope } from './create-scope';

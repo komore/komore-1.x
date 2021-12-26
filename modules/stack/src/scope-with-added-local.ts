@@ -1,5 +1,7 @@
-import type { GenericScope, TypedLocal, Types } from '@komore/stack';
-import type { ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type GenericScope } from './generic-scope';
+import { type TypedLocal } from './typed-local';
+import { type Types } from './types';
 
 /**
  * Scope with an added local

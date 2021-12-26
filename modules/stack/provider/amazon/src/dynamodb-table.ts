@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { DynamodbTableConfig } from './.gen/dynamodb-table';
-import { DynamodbTable } from './.gen/dynamodb-table';
+import { DynamodbTable, type DynamodbTableConfig } from './.gen/dynamodb-table';
 
 /**
  * Adds a DynamoDB table resource

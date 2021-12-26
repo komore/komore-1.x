@@ -1,4 +1,4 @@
-import type { KinesisFirehoseEventRecord } from './kinesis-firehose-event-record';
+import { type KinesisFirehoseEventRecord } from './kinesis-firehose-event-record';
 
 /**
  * Kinesis Firehose event

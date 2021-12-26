@@ -1,5 +1,5 @@
 import { TestScheduler as RxjsTestScheduler } from 'rxjs/testing';
-import type { TestScheduler } from './test-scheduler';
+import { type TestScheduler } from './test-scheduler';
 
 /**
  * Creates a test scheduler

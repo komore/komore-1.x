@@ -1,5 +1,5 @@
 import { fromEvent } from 'rxjs';
-//import type { Observable } from '../observable';
+//import { type Observable } from '../observable';
 
 export { fromEvent };
 

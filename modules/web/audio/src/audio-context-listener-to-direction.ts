@@ -1,4 +1,4 @@
-import type { AudioVector } from './audio-vector';
+import { type AudioVector } from './audio-vector';
 
 /**
  * Creates a function that mutates an audio context's listener forward and up vectors to a set of coordinates

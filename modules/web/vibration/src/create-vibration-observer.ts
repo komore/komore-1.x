@@ -1,5 +1,5 @@
-import type { Observer } from '@komore/reactive';
-import type { VibrationObserverOptions } from './vibration-observer-options';
+import { type Observer } from '@komore/reactive';
+import { type VibrationObserverOptions } from './vibration-observer-options';
 
 /**
  * Creates a vibration observer

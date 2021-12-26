@@ -1,5 +1,5 @@
-import type { Interval } from './interval';
-import type { IntervalTemporal } from './interval-temporal';
+import { type Interval } from './interval';
+import { type IntervalTemporal } from './interval-temporal';
 
 /**
  * Creates an interval

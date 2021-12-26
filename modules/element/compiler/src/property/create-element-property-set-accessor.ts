@@ -1,8 +1,14 @@
 import { createParameter, createPropertyAccess } from '@komore/typescript/compiler';
-import type { AccessorDeclaration, Identifier, NodeFactory, Statement, StringLiteral } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementPropertyAttributeBoundDefinition } from '../definition/element-property-attribute-bound-definition';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import {
+  type AccessorDeclaration,
+  type Identifier,
+  type NodeFactory,
+  type Statement,
+  type StringLiteral,
+  SyntaxKind
+} from 'typescript';
+import { type ElementPropertyAttributeBoundDefinition } from '../definition/element-property-attribute-bound-definition';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { isElementPropertyAttributeBound } from '../definition/is-element-property-attribute-bound';
 import { createElementPropertyType } from './create-element-property-type';
 
@@ -105,7 +111,11 @@ function createBoundAttributeStatements(
  * @param value Value
  * @returns setAttribute call statement
  */
-function createSetAttributeCallStatement(factory: NodeFactory, attributeName: StringLiteral, value: Identifier): Statement {
+function createSetAttributeCallStatement(
+  factory: NodeFactory,
+  attributeName: StringLiteral,
+  value: Identifier
+): Statement {
   const thisExpression = factory.createThis();
   const setAttribute = createPropertyAccess(factory, thisExpression, 'setAttribute');
   const setAttributeCall = factory.createCallExpression(setAttribute, undefined, [attributeName, value]);

@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventWithApiKeyAuthorization } from './event/app-sync-event-with-api-key-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventWithApiKeyAuthorization } from './event/app-sync-event-with-api-key-authorization';
 import { hasApiKeyAuthorization } from './has-api-key-authorization';
 
 describe('Has API key authorization', () => {

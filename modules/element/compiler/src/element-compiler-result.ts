@@ -1,5 +1,5 @@
-import type { SourceFile } from 'typescript';
-import type { ElementCompilerError } from './element-compiler-error';
+import { type SourceFile } from 'typescript';
+import { type ElementCompilerError } from './element-compiler-error';
 
 /**
  * Element compiler result

@@ -1,4 +1,4 @@
-import type { EmitterWebhookEventName } from '@octokit/webhooks';
+import { type EmitterWebhookEventName } from '@octokit/webhooks';
 
 /**
  * Github webhook event name

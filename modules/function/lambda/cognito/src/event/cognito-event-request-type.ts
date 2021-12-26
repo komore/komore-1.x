@@ -1,4 +1,4 @@
-import type { CognitoEventMap } from './cognito-event-map';
+import { type CognitoEventMap } from './cognito-event-map';
 
 /**
  * Cognito event request type

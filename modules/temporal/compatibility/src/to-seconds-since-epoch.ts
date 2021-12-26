@@ -1,4 +1,5 @@
-import type { TemporalWithDate } from '';
+import { Temporal } from '@js-temporal/polyfill';
+import { type TemporalWithDate } from '@komore/temporal';
 
 /**
  * Gets the number of seconds since the Epoch, from a temporal
@@ -6,5 +7,7 @@ import type { TemporalWithDate } from '';
  * @return Number of seconds since the 1st of January 1970
  */
 export function toSecondsSinceEpoch(temporal: TemporalWithDate): number {
-  return temporal.epochSeconds;
+  const zonedDateTime =
+    temporal instanceof Temporal.ZonedDateTime ? temporal : temporal.toZonedDateTime(Temporal.Now.timeZone());
+  return zonedDateTime.epochSeconds;
 }

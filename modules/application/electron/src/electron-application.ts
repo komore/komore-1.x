@@ -1,4 +1,4 @@
-import type { Application } from '@komore/application';
+import { type Application } from '@komore/application';
 
 /**
  * Electron application

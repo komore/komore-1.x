@@ -1,4 +1,4 @@
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal with day occurs on the first day of the year

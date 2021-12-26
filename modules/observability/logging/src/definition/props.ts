@@ -1,5 +1,5 @@
 import { typeSchema } from '@komore/typescript/schema';
-import type { LogEventPropertiesSchema } from './log-event-properties-schema';
+import { type LogEventPropertiesSchema } from './log-event-properties-schema';
 import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';
 
 /**

@@ -1,6 +1,6 @@
-import type { ArrayValueType } from '@komore/array';
+import { type ArrayValueType } from '@komore/array';
 import { from as rxjsFrom } from 'rxjs';
-import type { Observable } from '../observable/observable';
+import { type Observable } from '../observable';
 
 /**
  * Creates an observable that emits all values from an array then completes

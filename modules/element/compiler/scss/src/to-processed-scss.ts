@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { Options, Result } from 'sass';
+import { type Observable } from '@komore/reactive';
+import { type Options, type Result } from 'sass';
 import { renderSass } from './render-sass';
 
 /**

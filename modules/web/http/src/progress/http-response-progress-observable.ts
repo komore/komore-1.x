@@ -1,6 +1,5 @@
-import type { Subscriber } from '@komore/reactive';
-import { Observable } from '@komore/reactive';
-import type { HttpResponseProgress } from './http-response-progress';
+import { Observable, type Subscriber } from '@komore/reactive';
+import { type HttpResponseProgress } from './http-response-progress';
 
 /**
  * HTTP response progress observable

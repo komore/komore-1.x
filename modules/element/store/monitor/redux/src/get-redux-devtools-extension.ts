@@ -1,4 +1,4 @@
-import type { ReduxDevtoolsExtension } from './redux-devtools-extension';
+import { type ReduxDevtoolsExtension } from './redux-devtools-extension';
 
 declare global {
   interface Window {

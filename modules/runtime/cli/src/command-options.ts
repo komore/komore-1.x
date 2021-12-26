@@ -1,4 +1,4 @@
-import type { args, flags } from '@oclif/parser';
+import { type args, type flags } from '@oclif/parser';
 
 /**
  * Command options

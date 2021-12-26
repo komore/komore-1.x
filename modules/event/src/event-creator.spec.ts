@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { Event } from './event';
-import type { EventCreator } from './event-creator';
+import { type Event } from './event';
+import { type EventCreator } from './event-creator';
 
 describe('Event creator', () => {
   it('can be defined without properties', () => {

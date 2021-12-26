@@ -1,8 +1,7 @@
-import type { TypeMapping } from '@komore/typescript/compiler';
-import { createTypeMappingInterface } from '@komore/typescript/compiler';
-import type { Identifier, InterfaceDeclaration, NodeFactory } from 'typescript';
-import type { CompilerContext } from '../codegen/compiler-context';
-import type { ElementCustomPropertyDefinition } from '../definition/element-custom-property-definition';
+import { createTypeMappingInterface, type TypeMapping } from '@komore/typescript/compiler';
+import { type Identifier, type InterfaceDeclaration, type NodeFactory } from 'typescript';
+import { type CompilerContext } from '../codegen/compiler-context';
+import { type ElementCustomPropertyDefinition } from '../definition/element-custom-property-definition';
 
 /**
  * Creates an element custom property map interface
@@ -23,8 +22,7 @@ export function createElementCustomPropertyMap(
 ): [InterfaceDeclaration, Identifier] {
   const factory = compilerContext.factory;
   const interfaceName = `${elementClassName}CustomPropertyMap`;
-  const 
-  compilerContext.import()
+  compilerContext.import();
   const mappedTypes = customPropertyDefinitions.map(toCustomPropertyMappedType(factory));
   return createTypeMappingInterface(factory, interfaceName, mappedTypes);
 }

@@ -1,6 +1,6 @@
 import { race as rxjsRace } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { ObservableInputTuple } from '../observable/observable-input-tuple';
+import { type Observable } from '../observable';
+import { type ObservableInputTuple } from '../observable-input-tuple';
 
 /**
  * Creates an observable that mirrors the first source observable to emit a value

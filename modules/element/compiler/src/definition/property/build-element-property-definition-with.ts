@@ -1,5 +1,5 @@
-import type { NodeFactory } from 'typescript';
-import type { ElementPropertyDefinition } from '../element-property-definition';
+import { type NodeFactory } from 'typescript';
+import { type ElementPropertyDefinition } from '../element-property-definition';
 import { buildElementPropertyDefinition } from './build-element-property-definition';
 
 /**

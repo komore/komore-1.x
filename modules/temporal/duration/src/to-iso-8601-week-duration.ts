@@ -1,4 +1,4 @@
-import type { Temporal } from '@js-temporal/polyfill';
+import { type Temporal } from '@js-temporal/polyfill';
 
 /**
  * Returns an ISO 8601 week duration

@@ -1,5 +1,4 @@
-import type { LambdaClientConfig } from '@aws-sdk/client-lambda';
-import { LambdaClient } from '@aws-sdk/client-lambda';
+import { LambdaClient, type LambdaClientConfig } from '@aws-sdk/client-lambda';
 
 /**
  * Creates an Lambda client

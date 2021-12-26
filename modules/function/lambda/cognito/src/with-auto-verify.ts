@@ -1,7 +1,7 @@
-import type { AutoVerifyOptions } from './auto-verify-options';
+import { type AutoVerifyOptions } from './auto-verify-options';
 import { cognitoEventResponse } from './cognito-event-response';
-import type { CognitoEvent } from './event/cognito-event';
-import type { CognitoEventPreSignUpTriggerSource } from './event/cognito-event-pre-sign-up-trigger-source';
+import { type CognitoEvent } from './event/cognito-event';
+import { type CognitoEventPreSignUpTriggerSource } from './event/cognito-event-pre-sign-up-trigger-source';
 
 /**
  * Creates a function that sets the auto-verify email and phone properties on a pre-sign-up trigger event

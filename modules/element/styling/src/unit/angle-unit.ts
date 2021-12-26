@@ -1,4 +1,4 @@
-import type { ANGLE_UNITS } from './angle-units';
+import { type ANGLE_UNITS } from './angle-units';
 
 /**
  * Angle unit

@@ -1,7 +1,7 @@
-import type { Observable } from '@komore/reactive';
-import type { HostError } from './host-error';
-import type { HostLifecycleEvent } from './host-lifecycle-event';
-import type { HostState } from './host-state';
+import { type Observable } from '@komore/reactive';
+import { type HostError } from './host-error';
+import { type HostLifecycleEvent } from './host-lifecycle-event';
+import { type HostState } from './host-state';
 
 /**
  * Host

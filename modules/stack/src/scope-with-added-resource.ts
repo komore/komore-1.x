@@ -1,7 +1,7 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { TerraformResource } from 'cdktf';
-import type { GenericScope } from './generic-scope';
-import type { ResourceMap } from './resource-map';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type TerraformResource } from 'cdktf';
+import { type GenericScope } from './generic-scope';
+import { type ResourceMap } from './resource-map';
 
 /**
  * Scope with an additional resource

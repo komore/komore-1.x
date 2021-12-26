@@ -1,7 +1,7 @@
-import type { Observable } from '@komore/reactive';
-import type { FunctionTrigger } from './function-trigger';
-import type { FunctionTriggerInputType } from './function-trigger-input-type';
-import type { FunctionTriggerOutputType } from './function-trigger-output-type';
+import { type Observable } from '@komore/reactive';
+import { type FunctionTrigger } from './function-trigger';
+import { type FunctionTriggerInputType } from './function-trigger-input-type';
+import { type FunctionTriggerOutputType } from './function-trigger-output-type';
 
 export function triggeredBy<
   FunctionTriggers extends FunctionTrigger<unknown, unknown>[],
@@ -12,3 +12,5 @@ export function triggeredBy<
 ): Observable<OutputType> {
 
 }
+
+// TODO: for use with createFunction so the function gets a proper signature with the correct Promise<OutputType>

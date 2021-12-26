@@ -1,4 +1,4 @@
-import type { RGB } from './rgb';
+import { type RGB } from './rgb';
 
 /**
  * Returns the red component from an RGB color

@@ -1,4 +1,4 @@
-import type { LambdaEventContext } from './context/lambda-event-context';
+import { type LambdaEventContext } from '../context/lambda-event-context';
 
 /**
  * Lambda event function parameters

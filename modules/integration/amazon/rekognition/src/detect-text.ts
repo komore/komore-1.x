@@ -1,5 +1,4 @@
-import type { DetectTextCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
-import { DetectTextCommand } from '@aws-sdk/client-rekognition';
+import { DetectTextCommand, type DetectTextCommandInput, type RekognitionClient } from '@aws-sdk/client-rekognition';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

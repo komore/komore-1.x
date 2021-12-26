@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, fromEvent, map } from '@komore/reactive';
+import { defer, fromEvent, map, type Observable } from '@komore/reactive';
 
 /**
  * TODO

@@ -1,5 +1,4 @@
-import type { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { type Observable, of } from '@komore/reactive';
 import { createIDBMigration } from './create-indexeddb-migration';
 
 describe('Create IndexedDB migration', () => {

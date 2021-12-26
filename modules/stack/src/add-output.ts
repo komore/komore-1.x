@@ -1,11 +1,11 @@
-import type { DataSourceMap } from './data-source-map';
-import type { ResourceMap } from './resource-map';
-import type { Scope } from './scope';
-import type { ScopeWithAddedOutput } from './scope-with-added-output';
-import type { TypedLocal } from './typed-local';
-import type { TypedOutput } from './typed-output';
-import type { TypedVariable } from './typed-variable';
-import type { Types } from './types';
+import { type DataSourceMap } from './data-source-map';
+import { type ResourceMap } from './resource-map';
+import { type Scope } from './scope';
+import { type ScopeWithAddedOutput } from './scope-with-added-output';
+import { type TypedLocal } from './typed-local';
+import { type TypedOutput } from './typed-output';
+import { type TypedVariable } from './typed-variable';
+import { type Types } from './types';
 
 /**
  * Adds an output to a scope

@@ -1,11 +1,11 @@
-import type { BatchGetItemCommandInput } from '@aws-sdk/client-dynamodb';
-import type { SnapshotRepository } from '@komore/event/store';
+import { type BatchGetItemCommandInput } from '@aws-sdk/client-dynamodb';
+import { type SnapshotRepository } from '@komore/event/store';
 import { batchGetItem, createDynamoDBClient } from '@komore/integration-amazon/dynamodb';
-import { map } from '@komore/reactive/operators';
-import { buildDynamoDBSnapshotRepositoryAttributeNames } from './build-dynamodb-snapshot-repository-attribute-names';
+import { map } from '@komore/reactive';
+import { buildDynamoDBSnapshotAttributeNames } from './build-dynamodb-snapshot-attribute-names';
 import { createDynamoDBSnapshotSaver } from './create-dynamodb-snapshot-saver';
-import type { DynamoDBSnapshotRepositoryAttributeNames } from './dynamodb-snapshot-repository-attribute-names';
-import type { DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
 
 /**
  * Creates a DynamoDB snapshot repository
@@ -26,7 +26,7 @@ export function dynamoDBSnapshotRepository<StateType>(
 ): SnapshotRepository<StateType> {
   const dynamoDBClient = configuration.dynamoDBClient ?? createDynamoDBClient();
   const tableName = configuration.tableName;
-  const attributeNames = buildDynamoDBSnapshotRepositoryAttributeNames(configuration.attributeNames);
+  const attributeNames = buildDynamoDBSnapshotAttributeNames(configuration.attributeNames);
   const loadSnapshots = createDynamoDBSnapshotLoad<StateType>(dynamoDBClient, tableName, attributeNames);
   const storeSnapshots = createDynamoDBSnapshotStore<StateType>(dynamoDBClient, tableName, attributeNames);
 
@@ -55,7 +55,7 @@ export function dynamoDBSnapshotRepository<StateType>(
  */
 function buildGetItemCommandInput(
   tableName: string,
-  attributeNames: DynamoDBSnapshotRepositoryAttributeNames,
+  attributeNames: DynamoDBSnapshotAttributeNames,
   aggregateKeys: ReadonlyArray<string>
 ): BatchGetItemCommandInput {
   return {

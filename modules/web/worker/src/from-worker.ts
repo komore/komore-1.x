@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { fromEvent, mapToError, merge } from '@komore/reactive';
+import { fromEvent, mapToError, merge, type Observable } from '@komore/reactive';
 
 /**
  * Creates an observable from a worker

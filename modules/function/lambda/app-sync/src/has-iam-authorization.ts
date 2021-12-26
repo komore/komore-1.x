@@ -1,6 +1,6 @@
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventIAMIdentity } from './event/app-sync-event-iam-identity';
-import type { AppSyncEventWithIAMAuthorization } from './event/app-sync-event-with-iam-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventIAMIdentity } from './event/app-sync-event-iam-identity';
+import { type AppSyncEventWithIAMAuthorization } from './event/app-sync-event-with-iam-authorization';
 
 /**
  * Tests whether an AppSync event has an IAM authorization

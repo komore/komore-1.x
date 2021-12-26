@@ -1,4 +1,4 @@
-import type { EventDispatcher } from './event-dispatcher';
+import { type EventDispatcher } from './event-dispatcher';
 
 /**
  * Creates a function that dispatches an event using an event dispatcher and returns whether the event was cancelled

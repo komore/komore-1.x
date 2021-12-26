@@ -1,5 +1,5 @@
 import { expectTypeOf } from 'expect-type';
-import type { EventPropertiesSchema } from './event-properties-schema';
+import { type EventPropertiesSchema } from './event-properties-schema';
 import { props } from './props';
 
 describe('Properties (event)', () => {

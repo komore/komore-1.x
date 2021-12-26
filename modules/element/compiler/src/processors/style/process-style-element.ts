@@ -1,6 +1,6 @@
-import type { Observable } from '@komore/reactive';
+import { type ProcessedStyleSheet } from '@komore/element/compiler/processor';
+import { type Observable } from '@komore/reactive';
 import { createProcessor } from '../create-processor';
-import type { ProcessedStyleSheet } from './processed-style-sheet';
 import { styleProcessorFactories } from './style-processor-factories';
 
 /**

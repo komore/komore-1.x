@@ -1,8 +1,8 @@
-import type { Observable } from '@komore/reactive';
-import type { FileHandle } from 'fs/promises';
+import { type Observable } from '@komore/reactive';
+import { type FileHandle } from 'fs/promises';
 import { writeFile } from './write-file';
-import type { WriteFileOptions } from './write-file-options';
-import type { WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
+import { type WriteFileOptions } from './write-file-options';
+import { type WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
 
 /**
  * Creates a function that writes buffers to a file

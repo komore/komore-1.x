@@ -1,5 +1,4 @@
-import type { SESv2ClientConfig } from '@aws-sdk/client-sesv2';
-import { SESv2Client } from '@aws-sdk/client-sesv2';
+import { SESv2Client, type SESv2ClientConfig } from '@aws-sdk/client-sesv2';
 
 /**
  * Creates an SES client

@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal with date occurs this year

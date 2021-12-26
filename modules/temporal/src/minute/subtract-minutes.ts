@@ -1,12 +1,10 @@
-import type { TemporalWithTime } from '../temporal-with-time';
-import { addMinutes } from './add-minutes';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Subtracts minutes from a temporal with time
- * @param temporal Temporal
+ * Creates a function that subtracts minutes from a temporal
  * @param minutes Number of minutes to subtract
- * @returns Temporal with the subtracted minutes
+ * @returns Function that subtracts minutes from a temporal
  */
-export function subtractMinutes<T extends TemporalWithTime>(temporal: T, minutes: number): T {
-  return addMinutes(temporal, -minutes);
+export function subtractMinutes(minutes: number): <T extends TemporalWithTime>(temporal: T) => T {
+  return <T extends TemporalWithTime>(temporal: T) => temporal.subtract({ minutes }) as T;
 }

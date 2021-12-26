@@ -1,4 +1,4 @@
-import type { CapacitorApplication } from '@komore/application-capacitor';
+import { type CapacitorApplication } from '@komore/application-capacitor';
 
 /**
  * Android application

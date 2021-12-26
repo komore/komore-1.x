@@ -1,5 +1,5 @@
 import { of } from '../creation/of';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type OperatorFunction } from '../operator-function';
 import { catchError } from './catch-error';
 
 /**

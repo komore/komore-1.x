@@ -1,5 +1,5 @@
-import type { ElementAttributeValueType } from '@komore/element/parser';
-import type { Expression, NodeFactory } from 'typescript';
+import { type ElementAttributeValueType } from '@komore/element/parser';
+import { type Expression, type NodeFactory } from 'typescript';
 import { createAttributeDefaultBooleanValueExpression } from './create-attribute-default-boolean-value-expression';
 import { createAttributeDefaultNumberValueExpression } from './create-attribute-default-number-value-expression';
 import { createAttributeDefaultStringValueExpression } from './create-attribute-default-string-value-expression';

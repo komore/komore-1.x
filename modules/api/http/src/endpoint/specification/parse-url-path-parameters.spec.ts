@@ -1,4 +1,4 @@
-import type { ParseUrlPathParameters } from './parse-url-path-parameters';
+import { type ParseUrlPathParameters } from './parse-url-path-parameters';
 import { expectTypeOf } from 'expect-type';
 
 describe('Parse path parameters', () => {

@@ -1,6 +1,9 @@
-import type { Observable } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
+import { map, type Observable } from '@komore/reactive';
+import {
+  type CommandProcessor,
+  type CommandProcessorCommandType,
+  type CommandProcessorMessageType
+} from './command-processor';
 
 /**
  * Processes a command

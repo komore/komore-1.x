@@ -1,9 +1,9 @@
-import type { PageMetadataRecorder } from '@komore/element-ssg';
+import { type PageMetadataRecorder } from '@komore/element-ssg';
 import type * as marked from 'marked';
 import { createMarkdownMetadataTokenizer } from './create-markdown-metadata-tokenizer';
-import type { MarkdownMetadataContext } from './markdown-metadata-context';
-import type { MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
-import type { MarkdownMetadataOptions } from './markdown-metadata-options';
+import { type MarkdownMetadataContext } from './markdown-metadata-context';
+import { type MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
+import { type MarkdownMetadataOptions } from './markdown-metadata-options';
 
 /**
  * Creates a Markdown metadata extension

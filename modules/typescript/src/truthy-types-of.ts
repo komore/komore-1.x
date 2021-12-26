@@ -1,4 +1,4 @@
-import type { Falsy } from './falsy';
+import { type Falsy } from './falsy';
 
 /**
  * Truthy types of a type

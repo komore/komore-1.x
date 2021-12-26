@@ -1,7 +1,6 @@
-import type { Observable } from 'rxjs'; // @komore/reactive
-import { map } from 'rxjs'; // @komore/reactive/operators
-import { LOCATION } from '../../../web'; // @komore/web
-import type { RouterNavigationEvent } from './router-navigation-event';
+import { map, type Observable } from '@komore/reactive';
+import { LOCATION } from '@komore/web';
+import { type RouterNavigationEvent } from './router-navigation-event';
 import { toRouterNavigationEvent } from './to-router-navigation-event';
 
 /**

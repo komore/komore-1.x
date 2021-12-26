@@ -1,4 +1,5 @@
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
+import { noop } from '@komore/functional';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { tap } from './tap';
 
 /**
@@ -8,6 +9,8 @@ import { tap } from './tap';
  */
 export function tapNext<T>(nextObserver: (value: T) => void): MonoTypeOperatorFunction<T> {
   return tap({
-    next: nextObserver
+    complete: noop,
+    error: noop,
+    next: nextObserver,
   });
 }

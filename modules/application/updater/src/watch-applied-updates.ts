@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { NEVER } from '@komore/reactive';
-import type { Update } from './update';
+import { NEVER, type Observable } from '@komore/reactive';
+import { type Update } from './update';
 
 /**
  * Watches for applied updates

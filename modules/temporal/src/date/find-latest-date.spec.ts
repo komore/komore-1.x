@@ -1,6 +1,5 @@
+import { type TemporalWithDate } from '../temporal-with-date';
 import { findLatestDate } from './find-latest-date';
-import type { TemporalWithDate } from './temporal-with-date';
-import { parseLocalDate } from './parse-local-date';
 
 describe('Find latest date', () => {
   it('can find the latest date', () => {

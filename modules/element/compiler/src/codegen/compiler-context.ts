@@ -1,5 +1,5 @@
-import type { Identifier, NodeFactory } from 'typescript';
-import type { CompilerContextImportOptions } from './compiler-context-import-options';
+import { type Identifier, type NodeFactory } from 'typescript';
+import { type CompilerContextImportOptions } from './compiler-context-import-options';
 
 /**
  * Compiler context

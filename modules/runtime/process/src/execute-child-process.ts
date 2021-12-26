@@ -1,5 +1,5 @@
 import { Observable } from '@komore/reactive';
-import type { Serializable } from 'child_process';
+import { type Serializable } from 'child_process';
 import { exec } from 'child_process';
 
 /**

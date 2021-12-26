@@ -1,4 +1,4 @@
-import { Observable } from '../observable/observable';
+import { Observable } from '../observable';
 
 /**
  * Creates an observable that notifies its observers of an error upon subscription

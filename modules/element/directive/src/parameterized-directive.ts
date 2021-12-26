@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { ParameterizedDirectiveObservables } from './parameterized-directive-observables';
+import { type Observable } from '@komore/reactive';
+import { type ParameterizedDirectiveObservables } from './parameterized-directive-observables';
 
 /**
  * Parameterized directive

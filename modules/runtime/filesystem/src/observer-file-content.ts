@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { switchMap } from '@komore/reactive';
-import type { PathLike } from 'fs';
+import { type Observable, switchMap } from '@komore/reactive';
+import { type PathLike } from 'fs';
 import { readFileContent } from './read-file-content';
 import { observeFile } from './observe-file';
 

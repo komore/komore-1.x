@@ -1,8 +1,8 @@
-import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import type { Snapshot } from '@komore/event/store';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type Snapshot } from '@komore/event/store';
 import { mock } from 'jest-mock-extended';
 import { createDynamoDBSnapshotSaver } from './create-dynamodb-snapshot-saver';
-import type { DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 describe('Create DynamoDB snapshot saver', () => {
   interface TestState {

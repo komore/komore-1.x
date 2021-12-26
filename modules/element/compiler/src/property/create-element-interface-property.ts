@@ -1,6 +1,5 @@
-import type { Identifier, NodeFactory, PropertySignature } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type Identifier, type NodeFactory, type PropertySignature, SyntaxKind } from 'typescript';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 
 /**
  * Creates an element interface property signature

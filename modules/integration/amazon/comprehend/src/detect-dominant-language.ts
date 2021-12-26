@@ -1,5 +1,8 @@
-import type { ComprehendClient, DetectDominantLanguageCommandInput } from '@aws-sdk/client-comprehend';
-import { DetectDominantLanguageCommand } from '@aws-sdk/client-comprehend';
+import {
+  type ComprehendClient,
+  DetectDominantLanguageCommand,
+  type DetectDominantLanguageCommandInput
+} from '@aws-sdk/client-comprehend';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

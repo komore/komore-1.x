@@ -1,5 +1,5 @@
 import { asPlainTime } from '../as-plain-time';
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Creates a function that tests whether a temporal with time occurs at an earlier time than a reference temporal with time

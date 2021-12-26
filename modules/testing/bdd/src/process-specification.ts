@@ -1,11 +1,9 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map, pipe } from '@komore/reactive';
-import type { SourceFile } from 'typescript';
-import { createSourceFile, ScriptKind, ScriptTarget } from 'typescript';
+import { map, type OperatorFunction, pipe } from '@komore/reactive';
+import { createSourceFile, ScriptKind, ScriptTarget, type SourceFile } from 'typescript';
 import { buildSpecificationFromSourceFile } from './build-specification-from-source-file';
-import type { Specification } from './specification';
-import type { SpecificationInput } from './specification-input';
-import type { SpecificationProcessingOptions } from './specification-processing-options';
+import { type Specification } from './specification';
+import { type SpecificationInput } from './specification-input';
+import { type SpecificationProcessingOptions } from './specification-processing-options';
 
 export function processSpecification(options?: SpecificationProcessingOptions): OperatorFunction<SpecificationInput, Specification> {
   const scriptTarget = options?.scriptTarget ?? ScriptTarget.Latest;

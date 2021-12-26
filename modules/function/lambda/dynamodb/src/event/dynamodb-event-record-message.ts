@@ -1,4 +1,5 @@
-import type { DynamoDBStreamViewType } from './dynamodb-stream-view-type';
+import { type DynamoDBEventRecordAttributeValue } from './dynamodb-event-record-attribute-value';
+import { type DynamoDBStreamViewType } from './dynamodb-stream-view-type';
 
 /**
  * DynamoDB event record message
@@ -6,9 +7,9 @@ import type { DynamoDBStreamViewType } from './dynamodb-stream-view-type';
  */
 export interface DynamoDBEventRecordMessage {
   readonly ApproximateCreationDateTime?: number;
-  readonly Keys?: Record<string, AttributeValue>;
-  readonly NewImage: Record<string, AttributeValue>;
-  readonly OldImage?: Record<string, AttributeValue>;
+  readonly Keys?: Record<string, DynamoDBEventRecordAttributeValue>;
+  readonly NewImage: Record<string, DynamoDBEventRecordAttributeValue>;
+  readonly OldImage?: Record<string, DynamoDBEventRecordAttributeValue>;
   readonly SequenceNumber: string;
   readonly SizeBytes: number;
   readonly StreamViewType: DynamoDBStreamViewType;

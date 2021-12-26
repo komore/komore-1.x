@@ -1,4 +1,4 @@
-import type { CloudWatchClientConfig } from '@aws-sdk/client-cloudwatch';
+import { type CloudWatchClientConfig } from '@aws-sdk/client-cloudwatch';
 import { CloudWatchClient } from '@aws-sdk/client-cloudwatch';
 
 /**

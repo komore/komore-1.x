@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { Message } from './message';
-import type { MessageMetadataType } from './message-metadata-type';
+import { type Message } from './message';
+import { type MessageMetadataType } from './message-metadata-type';
 
 describe('Message metadata type', () => {
   it('can infer the message metadata type', () => {

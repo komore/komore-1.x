@@ -1,5 +1,5 @@
-import type { IdentityProvider } from '@komore/identity/provider';
-import type { FacebookIdentityProviderOptions } from './facebook-identity-provider-options';
+import { type IdentityProvider } from '@komore/identity/provider';
+import { type FacebookIdentityProviderOptions } from './facebook-identity-provider-options';
 
 /**
  * Creates a Facebook identity provider

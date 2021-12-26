@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { KinesisStreamConfig } from './.gen/kinesis-stream';
-import { KinesisStream } from './.gen/kinesis-stream';
+import { KinesisStream, type KinesisStreamConfig } from './.gen/kinesis-stream';
 
 /**
  * Adds a Kinesis stream reference

@@ -1,10 +1,17 @@
-import type { Locales } from '@komore/element/l10n';
 import { asObservableLocales } from '@komore/element/l10n';
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { combineLatest, isObservable, of } from '@komore/reactive';
-import { map, pipe, withLatestFrom } from '@komore/reactive/operators';
-import type { NumberFormatOptionsUnit } from './intl.typing';
-import type { UnitLocalizationOptions } from './unit-localization-options';
+import { type Locales } from '@komore/web/l10n';
+// TODO: remove once available without custom definition
+import { type NumberFormatOptionsUnit, type UnitLocalizationOptions } from '@komore/web/l10n';
+import {
+  combineLatest,
+  isObservable,
+  map,
+  type Observable,
+  of,
+  type OperatorFunction,
+  pipe,
+  withLatestFrom
+} from '@komore/reactive';
 
 /**
  * Localizes a unit

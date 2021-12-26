@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithDateTime } from '@komore/temporal';
+import { type TemporalWithDateTime } from '@komore/temporal';
 
 /**
  * Builds a relative to reference point when necessary

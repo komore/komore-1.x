@@ -1,4 +1,4 @@
-import type { RouterNavigationEvent } from "./router-navigation-event";
+import { type RouterNavigationEvent } from './router-navigation-event';
 
 /**
  * Logs a router navigation event

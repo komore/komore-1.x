@@ -1,5 +1,5 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithDateTime } from '@komore/temporal';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type TemporalWithDateTime } from '@komore/temporal';
 
 /**
  * Creates a function that returns a duration in minutes relative to a reference temporal

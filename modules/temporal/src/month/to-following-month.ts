@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from '../temporal-with-date';
-import type { TemporalWithPartialDate } from '../temporal-with-partial-date';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
 import { withTemporalWithDate } from '../with-temporal-with-date';
 import { Month } from './month';
 

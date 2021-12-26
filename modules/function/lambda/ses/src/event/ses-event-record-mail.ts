@@ -1,5 +1,5 @@
-import type { SesEventRecordMailCommonHeaders } from './ses-event-record-mail-common-headers';
-import type { SesEventRecordMailHeader } from './ses-event-record-mail-header';
+import { type SesEventRecordMailCommonHeaders } from './ses-event-record-mail-common-headers';
+import { type SesEventRecordMailHeader } from './ses-event-record-mail-header';
 
 /**
  * SES event record mail

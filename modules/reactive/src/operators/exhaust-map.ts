@@ -1,7 +1,7 @@
 import { exhaustMap as rxjsExhaustMap } from 'rxjs';
-import type { ObservableInput } from '../observable/observable-input';
-import type { ObservableInputType } from '../observable/observable-input-type';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type ObservableInput } from '../observable-input';
+import { type ObservableInputType } from '../observable-input-type';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Projects each source value to an observable which is merged into the output observable

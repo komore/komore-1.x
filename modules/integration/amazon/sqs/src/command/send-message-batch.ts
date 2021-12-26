@@ -1,7 +1,6 @@
-import type { SendMessageBatchCommandInput, SendMessageBatchCommandOutput, SQSClient } from '@aws-sdk/client-sqs';
-import { SendMessageBatchCommand } from '@aws-sdk/client-sqs';
+import { SendMessageBatchCommand, type SendMessageBatchCommandInput, type SendMessageBatchCommandOutput, type SQSClient } from '@aws-sdk/client-sqs';
 import { sendCommand } from '@komore/integration-amazon';
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Sends a batch of messages

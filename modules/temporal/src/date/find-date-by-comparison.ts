@@ -1,5 +1,5 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Finds a date by duration

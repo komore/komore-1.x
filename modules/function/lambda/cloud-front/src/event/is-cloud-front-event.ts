@@ -1,4 +1,4 @@
-import type { CloudFrontEvent } from './cloud-front-event';
+import { type CloudFrontEvent } from './cloud-front-event';
 
 /**
  * Tests whether an event is a CloudFront event

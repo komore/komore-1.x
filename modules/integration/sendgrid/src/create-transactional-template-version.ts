@@ -1,6 +1,6 @@
-import type { CreateTransactionalTemplateVersionRequest } from './create-transactional-template-version-request';
-import type { CreateTransactionalTemplateVersionResponse } from './create-transactional-template-version-response';
-import type { SendGridClient } from './sendgrid-client';
+import { type CreateTransactionalTemplateVersionRequest } from './create-transactional-template-version-request';
+import { type CreateTransactionalTemplateVersionResponse } from './create-transactional-template-version-response';
+import { type SendGridClient } from './sendgrid-client';
 
 /**
  * Creates a transactional template

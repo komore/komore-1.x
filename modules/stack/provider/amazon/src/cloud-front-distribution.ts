@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { CloudfrontDistributionConfig } from './.gen/cloudfront-distribution';
-import { CloudfrontDistribution } from './.gen/cloudfront-distribution';
+import { CloudfrontDistribution, type CloudfrontDistributionConfig } from './.gen/cloudfront-distribution';
 
 /**
  * Adds a CloudFront distribution

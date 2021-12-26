@@ -1,8 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { forkJoin } from '@komore/reactive';
-import { defaultIfEmpty } from '@komore/reactive/operators';
+import { type ProcessedStyleSheet } from '@komore/element/compiler/processor';
+import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
 import { processStyleElement } from './process-style-element';
-import type { ProcessedStyleSheet } from './processed-style-sheet';
 
 /**
  * Processes style elements

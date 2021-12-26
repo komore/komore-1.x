@@ -1,7 +1,7 @@
 import { defer } from '@komore/reactive';
-import { assert } from '@komore/typescript';
+import { assert } from '@komore/runtime';
 import { Client } from '@sendgrid/client';
-import type { SendGridClient } from './sendgrid-client';
+import { type SendGridClient } from './sendgrid-client';
 
 /**
  * Environment variables

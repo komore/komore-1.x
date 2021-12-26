@@ -1,4 +1,4 @@
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Rounds a temporal with time to the following hour

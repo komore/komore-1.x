@@ -1,5 +1,4 @@
-import type { TranslateClientConfig } from '@aws-sdk/client-translate';
-import { TranslateClient } from '@aws-sdk/client-translate';
+import { TranslateClient, type TranslateClientConfig } from '@aws-sdk/client-translate';
 
 /**
  * Creates an Translate client

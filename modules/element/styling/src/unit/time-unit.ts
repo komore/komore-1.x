@@ -1,4 +1,4 @@
-import type { TIME_UNITS } from './time-units';
+import { type TIME_UNITS } from './time-units';
 
 /**
  * Time unit

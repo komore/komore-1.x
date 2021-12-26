@@ -1,4 +1,4 @@
-import type { ElementPropertySubjectMap } from './element-property-subject-map';
+import { type ElementPropertySubjectMap } from './element-property-subject-map';
 
 /**
  * Upgrades an element properties, moving them from the object to their matching behavior subject

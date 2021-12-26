@@ -1,8 +1,8 @@
-import type { StyleProcessorFactory } from '@komore/element/compiler/processor';
+import { type StyleProcessorFactory } from '@komore/element/compiler/processor';
 import { of } from '@komore/reactive';
-import type { ScssProcessorOptions } from './scss-processor-options';
-import type { ScssProcessorFactoryOptions } from './scss-processor-factory-options';
-import { createScssProcessor } from '.';
+import { createScssProcessor } from './create-scss-processor';
+import { type ScssProcessorOptions } from './scss-processor-options';
+import { type ScssProcessorFactoryOptions } from './scss-processor-factory-options';
 
 /**
  * Creates an SCSS processor factory

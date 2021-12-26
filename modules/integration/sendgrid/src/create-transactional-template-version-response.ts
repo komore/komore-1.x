@@ -1,4 +1,4 @@
-import type { SendGridWarning } from './sendgrid-warning';
+import { type SendGridWarning } from './sendgrid-warning';
 
 /**
  * Create transactional template version response

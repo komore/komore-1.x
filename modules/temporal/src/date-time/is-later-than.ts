@@ -1,4 +1,4 @@
-import type { TemporalWithDateTime } from '../temporal-with-date-time';
+import { type TemporalWithDateTime } from '../temporal-with-date-time';
 
 /**
  * Creates a function that tests whether a temporal with date and time occurs later than a reference temporal with date and time

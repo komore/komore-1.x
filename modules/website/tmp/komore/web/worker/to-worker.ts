@@ -1,5 +1,5 @@
-import type { Observer } from 'rxjs';
-import type { WorkerObserverOptions } from './worker-observer-options';
+import { type Observer } from '@komore/reactive';
+import { type WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Creates a worker observer that posts emitted messages to a worker

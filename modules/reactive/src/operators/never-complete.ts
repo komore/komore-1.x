@@ -1,7 +1,7 @@
 import { NEVER } from '../creation/never';
-import type { OperatorFunction } from '../operator/operator-function';
-import { switchMapTo } from './switch-map-to';
+import { type OperatorFunction } from '../operator-function';
+import { mergeMapTo } from './merge-map-to';
 
 export function neverComplete(): OperatorFunction<unknown, never> {
-  return switchMapTo(NEVER);
+  return mergeMapTo(NEVER);
 }

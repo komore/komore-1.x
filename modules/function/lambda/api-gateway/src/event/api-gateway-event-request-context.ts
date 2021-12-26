@@ -1,4 +1,4 @@
-import type { ApiGatewayEventIdentity } from './api-gateway-event-identity';
+import { type ApiGatewayEventIdentity } from './api-gateway-event-identity';
 
 /**
  * API Gateway event request context

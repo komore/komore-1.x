@@ -1,5 +1,5 @@
-import type { CustomPropertySyntax } from './custom-property-syntax';
-import type { KnownPropertySyntaxes } from './known-property-syntaxes';
+import { type CustomPropertySyntax } from './custom-property-syntax';
+import { type KnownPropertySyntaxes } from './known-property-syntaxes';
 
 /**
  * Property syntax

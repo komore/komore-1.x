@@ -1,4 +1,4 @@
-import type { ElementLifecycleEventType } from './element-lifecycle-event-type';
+import { type ElementLifecycleEventType } from './element-lifecycle-event-type';
 
 /**
  * Element lifecycle event

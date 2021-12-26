@@ -1,9 +1,8 @@
-import type { BatchWriteItemCommandInput, DynamoDBClient, WriteRequest } from '@aws-sdk/client-dynamodb';
-import type { Snapshot } from '@komore/event/store';
+import { type BatchWriteItemCommandInput, type DynamoDBClient, type WriteRequest } from '@aws-sdk/client-dynamodb';
+import { type Snapshot } from '@komore/event/store';
 import { batchWriteItem } from '@komore/integration-amazon/dynamodb';
-import type { Observable } from '@komore/reactive';
-import { retractValue } from '@komore/reactive/operators';
-import type { DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type Observable, redactValue } from '@komore/reactive';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 /**
  * Creates a DynamoDB snapshot saver function that stores snapshots in a DynamoDB table
@@ -26,7 +25,7 @@ export function createDynamoDBSnapshotSaver<StateType>(
         [tableName]: snapshots.map(fromSnapshot)
       }
     };
-    return batchWriteItem(dynamoDBClient, commandInput).pipe(retractValue());
+    return batchWriteItem(dynamoDBClient, commandInput).pipe(redactValue());
   };
 }
 

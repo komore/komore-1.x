@@ -1,5 +1,5 @@
 import { reduce as rxjsReduce } from 'rxjs';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Applies an accumulator function over the source observable, and returns the accumulated result when the source

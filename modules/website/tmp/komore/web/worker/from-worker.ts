@@ -1,5 +1,4 @@
-import type { Observable } from 'rxjs';
-import { fromEvent, map, merge } from 'rxjs';
+import { fromEvent, map, merge, type Observable } from '@komore/reactive';
 
 /**
  * Creates an observable from a worker

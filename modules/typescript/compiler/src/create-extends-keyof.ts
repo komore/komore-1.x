@@ -1,5 +1,11 @@
-import type { Identifier, NodeFactory, TypeNode, TypeParameterDeclaration, TypeReferenceNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import {
+  type Identifier,
+  type NodeFactory,
+  SyntaxKind,
+  type TypeNode,
+  type TypeParameterDeclaration,
+  type TypeReferenceNode
+} from 'typescript';
 
 /**
  * Creates a K extends keyof T parameter declaration

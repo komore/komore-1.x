@@ -1,4 +1,4 @@
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Creates a temporal that occurs at noon on the same day as the given temporal with date time

@@ -1,6 +1,6 @@
 import { toISO8601 } from '@komore/temporal';
-import type { Interval } from './interval';
-import type { IntervalTemporal } from './interval-temporal';
+import { type Interval } from './interval';
+import { type IntervalTemporal } from './interval-temporal';
 
 /**
  * Returns an ISO 8610 interval string

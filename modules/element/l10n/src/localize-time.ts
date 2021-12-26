@@ -1,8 +1,6 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { map, pipe, withLatestFrom } from '@komore/reactive/operators';
-import type { Locales } from '@komore/web/l10n';
+import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { type Locales, type TimeLocalizationOptions } from '@komore/web/l10n';
 import { asObservableLocales } from './as-observable-locales';
-import type { TimeLocalizationOptions } from './options/time-localization-options';
 
 /**
  * Localizes time

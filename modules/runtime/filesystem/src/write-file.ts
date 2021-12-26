@@ -1,8 +1,7 @@
-import type { Observable } from '@komore/reactive';
-import { defer, map } from '@komore/reactive';
-import type { FileHandle } from 'fs/promises';
-import type { WriteFileOptions } from './write-file-options';
-import type { WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
+import { defer, map, type Observable } from '@komore/reactive';
+import { type FileHandle } from 'fs/promises';
+import { type WriteFileOptions } from './write-file-options';
+import { type WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
 
 export function writeFile<BufferType extends Uint8Array>(
   fileHandle: FileHandle,

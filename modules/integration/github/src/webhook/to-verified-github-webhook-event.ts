@@ -1,11 +1,9 @@
 import { fromJson } from '@komore/functional';
-import type { Observable } from '@komore/reactive';
-import { throwIf, map, mapTo } from '@komore/reactive/operators';
-import { deferPromise } from '@komore/reactive/promise';
+import { deferPromise, map, mapTo, type Observable, throwIf } from '@komore/reactive';
 import { verify } from '@octokit/webhooks-methods';
-import type { GithubWebhookEvent } from './github-webhook-event';
-import type { GithubWebhookEventName } from './github-webhook-event-name';
-import type { GithubWebhookEventRequest } from './github-webhook-event-request';
+import { type GithubWebhookEvent } from './github-webhook-event';
+import { type GithubWebhookEventName } from './github-webhook-event-name';
+import { type GithubWebhookEventRequest } from './github-webhook-event-request';
 import { InvalidGithubWebhookSignatureError } from './invalid-github-webhook-signature-error';
 
 export function toVerifiedGithubWebhookEvent(

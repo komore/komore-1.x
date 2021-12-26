@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive';
-import type { MessagePayload, WebhookClient, WebhookMessageOptions } from 'discord.js';
+import { deferPromise, type Observable } from '@komore/reactive';
+import { type MessagePayload, type WebhookClient, type WebhookMessageOptions } from 'discord.js';
 
 /**
  * Discord webhook result

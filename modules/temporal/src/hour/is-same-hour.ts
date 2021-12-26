@@ -1,4 +1,4 @@
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Tests whether two temporals with time occur at the same hour

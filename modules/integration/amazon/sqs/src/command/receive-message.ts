@@ -1,7 +1,11 @@
-import type { ReceiveMessageCommandInput, ReceiveMessageCommandOutput, SQSClient } from '@aws-sdk/client-sqs';
-import { ReceiveMessageCommand } from '@aws-sdk/client-sqs';
+import {
+  ReceiveMessageCommand,
+  type ReceiveMessageCommandInput,
+  type ReceiveMessageCommandOutput,
+  type SQSClient
+} from '@aws-sdk/client-sqs';
 import { sendCommand } from '@komore/integration-amazon';
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Receives up to 10 messages

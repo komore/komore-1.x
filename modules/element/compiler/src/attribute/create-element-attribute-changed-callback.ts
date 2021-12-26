@@ -1,5 +1,5 @@
 import { createObjectLiteral, createParameter, createPropertyAccess } from '@komore/typescript/compiler';
-import type { Block, Expression, Identifier, MethodDeclaration, NodeFactory } from 'typescript';
+import { type Block, type Expression, type Identifier, type MethodDeclaration, type NodeFactory } from 'typescript';
 import { SyntaxKind } from 'typescript';
 
 /**

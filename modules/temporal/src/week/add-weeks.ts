@@ -1,4 +1,4 @@
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Creates a function that adds weeks to a temporal with date

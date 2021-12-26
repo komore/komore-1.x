@@ -1,4 +1,4 @@
-import type { VIEWPORT_PERCENTAGE_LENGTH_UNITS } from './viewport-percentage-length-units';
+import { type VIEWPORT_PERCENTAGE_LENGTH_UNITS } from './viewport-percentage-length-units';
 
 /**
  * Viewport percentage length unit

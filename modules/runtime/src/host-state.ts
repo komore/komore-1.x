@@ -1,4 +1,4 @@
-import type { HOST_STATES } from './host-states';
+import { type HOST_STATES } from './host-states';
 
 /**
  * Host state

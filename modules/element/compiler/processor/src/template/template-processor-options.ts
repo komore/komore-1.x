@@ -1,4 +1,4 @@
-import type { ProcessorOptions } from '../processor-options';
+import { type ProcessorOptions } from '../processor-options';
 
 /**
  * Template processor options

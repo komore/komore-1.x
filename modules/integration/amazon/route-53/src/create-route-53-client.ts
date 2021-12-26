@@ -1,5 +1,4 @@
-import type { Route53ClientConfig } from '@aws-sdk/client-route-53';
-import { Route53Client } from '@aws-sdk/client-route-53';
+import { Route53Client, type Route53ClientConfig } from '@aws-sdk/client-route-53';
 
 /**
  * Creates a Route 53 client

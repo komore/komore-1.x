@@ -1,12 +1,10 @@
-import * as assert from 'assert';
-import { Event } from './event';
-import { SnapshotStrategy } from './snapshot-strategy';
-import {
-  getAfterAtOrBeforeSequenceNumber,
-  getFirstOrLastSequenceNumber,
-  isFirstOrLastSelectionType
-} from './snapshot-strategy-helpers';
-import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+import { type Event } from '@komore/event';
+import { assert } from '@komore/runtime';
+import { type SnapshotStrategy } from './snapshot-strategy';
+import { getAfterAtOrBeforeSequenceNumber } from './helpers/get-after-at-or-before-sequence-number';
+import { getFirstOrLastSequenceNumber } from './helpers/get-first-or-last-sequence-number';
+import { isFirstOrLastSelectionType } from './helpers/is-first-or-last-selection-type';
+import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**
  * Creates a snapshot strategy that triggers a snapshot creation around a delay threshold being reached
@@ -18,7 +16,7 @@ import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-typ
  */
 export function snapshotOnDelay<S, E extends Event<any, any>[]>(
   milliseconds: number,
-  selectionType: SnapshotStrategySelectionType = SnapshotStrategySelectionType.LAST
+  selectionType: SnapshotStrategySelectionType = 'last'
 ): SnapshotStrategy<S, E> {
   assert(milliseconds > 0, 'a snapshot on delay strategy must have a threshold strictly greater than 0 milliseconds');
 

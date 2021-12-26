@@ -1,5 +1,5 @@
-import type { TypeNode, TypeReferenceNode } from 'typescript';
-import type { EventMapIndex } from './event-map-index';
+import { type TypeNode, type TypeReferenceNode } from 'typescript';
+import { type EventMapIndex } from './event-map-index';
 
 /**
  * Event listener typed information

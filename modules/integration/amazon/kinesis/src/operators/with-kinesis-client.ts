@@ -1,4 +1,4 @@
-import type { KinesisClient } from '@aws-sdk/client-kinesis';
+import { type KinesisClient } from '@aws-sdk/client-kinesis';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createKinesisClient } from '../create-kinesis-client';
 

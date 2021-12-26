@@ -1,7 +1,7 @@
 import { defer as rxjsDefer } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { ObservableInput } from '../observable/observable-input';
-import type { ObservableInputType } from '../observable/observable-input-type';
+import { type Observable } from '../observable';
+import { type ObservableInput } from '../observable-input';
+import { type ObservableInputType } from '../observable-input-type';
 
 /**
  * Creates an observable that delegates the creation of a new observable to a factory

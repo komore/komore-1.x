@@ -1,5 +1,5 @@
 import { ReplaySubject } from '@komore/reactive';
-import type { HostState } from './host-state';
+import { type HostState } from './host-state';
 
 /**
  * Host state subject

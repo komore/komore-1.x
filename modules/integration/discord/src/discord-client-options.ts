@@ -1,4 +1,4 @@
-import type { ClientOptions } from 'discord.js';
+import { type ClientOptions } from 'discord.js';
 
 /**
  * Discord client options

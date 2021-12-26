@@ -14,13 +14,13 @@ export function observePosition(options?: PositionOptions): Observable<Geolocati
     return throwError(() => new Error('Geolocation not available outside a secure context'));
   }
 
-  return new Observable<GeolocationPosition | GeolocationPositionError>(observer => {
+  return new Observable<GeolocationPosition | GeolocationPositionError>(subscriber => {
     const watchId = navigator.geolocation.watchPosition(
-      position => observer.next(position),
-      error => observer.next(error),
+      position => subscriber.next(position),
+      error => subscriber.next(error),
       options
     );
 
-    return () => navigator.geolocation.clearWatch(watchId);
+    subscriber.add(() => navigator.geolocation.clearWatch(watchId));
   });
 }

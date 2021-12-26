@@ -1,7 +1,5 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { of } from '@komore/reactive';
-import { switchMap } from '@komore/reactive/operators';
-import { HttpResponseError } from './http-response-error';
+import { type Observable, of, type OperatorFunction, switchMap } from '@komore/reactive';
+import { HttpErrorResponse } from './http-error-response';
 
 /**
  * Catches an HTTP error, returning a new observable or throwing a new error

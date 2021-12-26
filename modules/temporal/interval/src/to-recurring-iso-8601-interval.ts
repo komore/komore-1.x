@@ -1,8 +1,8 @@
 import { getIntervalDuration } from '../duration/get-interval-duration';
 import { toISO8601Duration } from '../duration/get-iso-8601-duration';
-import type { Interval } from './interval';
-import type { IntervalTemporal } from './interval-temporal';
-import type { ISO8601IntervalOptions } from './iso-8601-interval-options';
+import { type Interval } from './interval';
+import { type IntervalTemporal } from './interval-temporal';
+import { type ISO8601IntervalOptions } from './iso-8601-interval-options';
 
 /**
  * Returns a recurring ISO 8610 interval string

@@ -1,5 +1,5 @@
-import type { ReduxDevtoolsConnection } from './redux-devtools-connection';
-import type { ReduxDevtoolsOptions } from './redux-devtools-options';
+import { type ReduxDevtoolsConnection } from './redux-devtools-connection';
+import { type ReduxDevtoolsOptions } from './redux-devtools-options';
 
 /**
  * Redux devtools extension

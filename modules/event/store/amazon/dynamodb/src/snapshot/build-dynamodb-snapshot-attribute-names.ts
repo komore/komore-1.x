@@ -1,4 +1,4 @@
-import type { DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 const defaultAttributeNames = {
   aggregateKey: 'AggregateKey',

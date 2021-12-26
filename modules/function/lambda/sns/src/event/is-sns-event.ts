@@ -1,5 +1,5 @@
 import { createLambdaEventSourceTypeTest } from '../create-lambda-event-source-type-test';
-import type { SnsEvent } from './sns-event';
+import { type SnsEvent } from './sns-event';
 
 /**
  * Tests whether an event is an SNS event

@@ -1,30 +1,34 @@
-import type { EventWithMetadata } from '@komore/event';
+import { type EventWithMetadata } from '@komore/event';
 import { createEvent } from '@komore/event';
 import { snapshotOnCount } from './snapshot-on-count';
-import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**
  * Snapshot on count strategy specification
  */
 describe('Snapshot on count strategy', () => {
+  const AFTER = 'after' as const;
+  const AT = 'at' as const;
+  const BEFORE = 'before' as const;
+  const FIRST = 'first' as const;
+  const LAST = 'last' as const;
   const testEvents = [createTestEvent(1), createTestEvent(2), createTestEvent(3), createTestEvent(4)] as const;
   const testNewState: SnapshotStrategyTestState = {
     value: 0
   };
 
   it.each([
-    [2, SnapshotStrategySelectionType.AFTER, 3],
-    [2, SnapshotStrategySelectionType.AT, 2],
-    [2, SnapshotStrategySelectionType.BEFORE, 1],
-    [2, SnapshotStrategySelectionType.FIRST, 1],
-    [2, SnapshotStrategySelectionType.LAST, 4],
-    [1, SnapshotStrategySelectionType.BEFORE, false],
-    [4, SnapshotStrategySelectionType.AFTER, false],
-    [5, SnapshotStrategySelectionType.AFTER, false],
-    [5, SnapshotStrategySelectionType.AT, false],
-    [5, SnapshotStrategySelectionType.BEFORE, false],
-    [5, SnapshotStrategySelectionType.FIRST, false],
-    [5, SnapshotStrategySelectionType.LAST, false]
+    [2, AFTER, 3],
+    [2, AT, 2],
+    [2, BEFORE, 1],
+    [2, FIRST, 1],
+    [2, LAST, 4],
+    [1, BEFORE, false],
+    [4, AFTER, false],
+    [5, AFTER, false],
+    [5, AT, false],
+    [5, BEFORE, false],
+    [5, FIRST, false],
+    [5, LAST, false]
   ])('properly selects the sequence number (count = %s, selection = %s)', (count, selectionType, expectedResult) => {
     given: 'a snapshot on count strategy'
     const snapshotStrategy = snapshotOnCount(count, selectionType);

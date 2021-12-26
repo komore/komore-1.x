@@ -1,6 +1,5 @@
-import type { NodeFactory, TypeNode } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type NodeFactory, SyntaxKind, type TypeNode } from 'typescript';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 
 /**
  * Creates an element property type

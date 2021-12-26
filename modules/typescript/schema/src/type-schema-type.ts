@@ -1,4 +1,4 @@
-import type { TypeSchema } from './type-schema';
+import { type TypeSchema } from './type-schema';
 
 /**
  * Type schema type from a type schema

@@ -1,4 +1,4 @@
-import type { RedshiftClient } from '@aws-sdk/client-redshift';
+import { type RedshiftClient } from '@aws-sdk/client-redshift';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createRedshiftClient } from '../create-redshift-client';
 

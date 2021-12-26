@@ -1,5 +1,4 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { catchErrorIf } from '@komore/reactive/operators';
+import { catchErrorIf, type Observable, type OperatorFunction } from '@komore/reactive';
 
 /**
  * Catches an HTTP network failure, returning a new observable or throwing a new error

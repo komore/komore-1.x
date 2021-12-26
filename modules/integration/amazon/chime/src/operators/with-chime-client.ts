@@ -1,4 +1,4 @@
-import type { ChimeClient } from '@aws-sdk/client-chime';
+import { type ChimeClient } from '@aws-sdk/client-chime';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createChimeClient } from '../create-chime-client';
 

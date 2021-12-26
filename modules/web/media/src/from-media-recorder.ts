@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { fromEvent, merge, mergeMap, throwError } from '@komore/reactive';
+import { fromEvent, merge, mergeMap, type Observable, throwError } from '@komore/reactive';
 
 /**
  * Creates an observable that emits a media recorder's events
@@ -9,7 +8,7 @@ import { fromEvent, merge, mergeMap, throwError } from '@komore/reactive';
 export function fromMediaRecorder(mediaRecorder: MediaRecorder): Observable<BlobEvent | Event> {
   return merge([
     fromEvent(mediaRecorder, 'dataavailable'),
-    fromEvent(mediaRecorder, 'error').pipe(mergeMap(throwMediaRecorderError)),
+    fromEvent<MediaRecorderErrorEvent>(mediaRecorder, 'error').pipe(mergeMap(throwMediaRecorderError)),
     fromEvent(mediaRecorder, 'pause'),
     fromEvent(mediaRecorder, 'resume'),
     fromEvent(mediaRecorder, 'start'),

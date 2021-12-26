@@ -1,8 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { forkJoin } from '@komore/reactive';
-import { defaultIfEmpty } from '@komore/reactive/operators';
+import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
 import { processScriptElement } from './process-script-element';
-import type { ScriptProcessorOutput } from './script-processor-output';
+import { type ScriptProcessorOutput } from './script-processor-output';
 
 /**
  * Processes script elements

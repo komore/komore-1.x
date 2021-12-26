@@ -1,4 +1,4 @@
-import type { CallExpression, SourceFile } from 'typescript';
+import { type CallExpression, type SourceFile } from 'typescript';
 import { isEligibleTestCallExpression } from './is-eligible-test-call-expression';
 
 describe('Is eligible test function', () => {

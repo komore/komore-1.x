@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { filter } from './filter';
 
 /**

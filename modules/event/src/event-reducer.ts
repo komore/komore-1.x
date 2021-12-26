@@ -1,5 +1,5 @@
-import type { Event } from './event';
-import { EventMetadata } from './event-metadata';
+import { type Event } from './event';
+import { type EventMetadata } from './event-metadata';
 
 /**
  * Event reducer

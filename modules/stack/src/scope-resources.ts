@@ -1,10 +1,10 @@
-import type { DataSourceMap } from './data-source-map';
-import type { GenericScope } from './generic-scope';
-import type { Scope } from './scope';
-import type { TypedLocal } from './typed-local';
-import type { TypedOutput } from './typed-output';
-import type { TypedVariable } from './typed-variable';
-import type { Types } from './types';
+import { type DataSourceMap } from './data-source-map';
+import { type GenericScope } from './generic-scope';
+import { type Scope } from './scope';
+import { type TypedLocal } from './typed-local';
+import { type TypedOutput } from './typed-output';
+import { type TypedVariable } from './typed-variable';
+import { type Types } from './types';
 
 /**
  * Scope resources

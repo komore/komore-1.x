@@ -1,5 +1,5 @@
 import { expectTypeOf } from 'expect-type';
-import type { TypeSchema } from './type-schema';
+import { type TypeSchema } from './type-schema';
 import { typeSchema } from './type-schema';
 import { typeSchemaTypeName } from './type-schema-symbol';
 

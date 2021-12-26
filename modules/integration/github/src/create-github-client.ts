@@ -1,6 +1,6 @@
 import { Octokit } from '@octokit/rest';
-import type { GithubClient } from './github-client';
-import type { GithubClientOptions } from './github-client-options';
+import { type GithubClient } from './github-client';
+import { type GithubClientOptions } from './github-client-options';
 
 /**
  * Creates a Github client

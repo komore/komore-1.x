@@ -1,5 +1,5 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether two temporals occur on the same day of the month

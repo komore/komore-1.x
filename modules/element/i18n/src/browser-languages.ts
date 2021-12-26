@@ -1,7 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { defer, of } from '@komore/reactive';
-import { cache } from '@komore/reactive/operators';
-import type { Languages } from './languages';
+import { cache, defer, type Observable, of } from '@komore/reactive';
+import { type Languages } from './languages';
 
 /**
  * Browser languages

@@ -1,4 +1,4 @@
-import type { ElementPropertyDefinition } from './element-property-definition';
+import { type ElementPropertyDefinition } from './element-property-definition';
 
 /**
  * Element property definition recorder

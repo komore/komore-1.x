@@ -1,6 +1,6 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import type { SchedulerLike } from 'rxjs'; // TODO: type in @komore/reactive
 import { shareReplay as rxjsShareReplay } from 'rxjs';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { type SchedulerLike } from '../scheduler/scheduler-like';
 
 /**
  * Shares the source and replays a specified number of emissions upon subscription

@@ -1,8 +1,8 @@
-import type { FunctionEnvironment } from '@komore/function';
+import { type FunctionEnvironment } from '@komore/function';
 import { lambdaEnvironmentType } from './lambda';
 
 /**
- * Gets the Lambda function environment
+ * Returns the Lambda function environment
  * @returns Lambda fucntion environment
  */
 export function getLambdaFunctionEnvironment(): FunctionEnvironment {

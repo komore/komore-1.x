@@ -1,5 +1,5 @@
 import { createPropertyAccess } from '@komore/typescript/compiler';
-import type { Identifier, NodeFactory } from 'typescript';
+import { type Identifier, type NodeFactory } from 'typescript';
 
 /**
  * Creates a statement that sets a template's HTML

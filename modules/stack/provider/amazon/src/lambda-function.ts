@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { LambdaFunctionConfig } from './.gen/lambda-function';
-import { LambdaFunction } from './.gen/lambda-function';
+import { LambdaFunction, type LambdaFunctionConfig } from './.gen/lambda-function';
 
 /**
  * Adds a Lambda function resource

@@ -1,4 +1,4 @@
-import type { CollectionType } from './collection';
+import { type CollectionType } from './collection';
 
 /**
  * Get a size from a collection

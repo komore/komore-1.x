@@ -1,5 +1,5 @@
-import type { IdentityProvider } from '@komore/identity/provider';
-import type { GoogleIdentityProviderOptions } from './google-identity-provider-options';
+import { type IdentityProvider } from '@komore/identity/provider';
+import { type GoogleIdentityProviderOptions } from './google-identity-provider-options';
 
 /**
  * Creates a Google identity provider

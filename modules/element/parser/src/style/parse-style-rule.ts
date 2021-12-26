@@ -1,5 +1,4 @@
 import { parseCustomPropertyReferences } from './parse-custom-property-references';
-import type { PropertyDefinition } from './property-definition';
 
 /**
  * Parses a CSS style rule

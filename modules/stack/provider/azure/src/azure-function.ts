@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { FunctionAppConfig } from './.gen/function-app';
-import { FunctionApp } from './.gen/function-app';
+import { FunctionApp, type FunctionAppConfig } from './.gen/function-app';
 
 /**
  * Adds an Azure function resource

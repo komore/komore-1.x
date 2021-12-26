@@ -1,9 +1,9 @@
-import { map, startWith, switchMap } from '@komore/reactive/operators';
+import { map, startWith, switchMap } from '@komore/reactive';
 import { toMessageEventData } from '@komore/web';
 import { defineWorker } from '@komore/web/worker';
 import { executeSearch } from './execute-search';
-import type { SearchWorkerInput } from './search-worker-input';
-import type { SearchWorkerOutput } from './search-worker-output';
+import { type SearchWorkerInput } from './search-worker-input';
+import { type SearchWorkerOutput } from './search-worker-output';
 
 const [observable, observer] = defineWorker<SearchWorkerInput, SearchWorkerOutput>();
 

@@ -1,4 +1,4 @@
-import type { ElementAttributeValueType } from './element-attribute-value-type';
+import { type ElementAttributeValueType } from './element-attribute-value-type';
 
 /**
  * Parsed element attribute

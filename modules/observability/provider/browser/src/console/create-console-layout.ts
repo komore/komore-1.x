@@ -1,4 +1,4 @@
-import type { ConsoleLayoutOptions } from './console-layout-options';
+import { type ConsoleLayoutOptions } from './console-layout-options';
 
 /**
  * 

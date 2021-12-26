@@ -1,5 +1,5 @@
-import type { TextAnalyticsClient } from '@azure/ai-text-analytics';
-import { defer } from 'rxjs';
+import { type TextAnalyticsClient } from '@azure/ai-text-analytics';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Analyses the sentiment found in text inputs
@@ -11,5 +11,5 @@ export function analyzeSentiment(
   textAnalysisClient: TextAnalyticsClient,
   ...parameters: Parameters<TextAnalyticsClient['analyzeSentiment']>
 ) {
-  return defer(() => textAnalysisClient.analyzeSentiment(...parameters));
+  return deferPromise(() => textAnalysisClient.analyzeSentiment(...parameters));
 }

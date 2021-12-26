@@ -1,9 +1,8 @@
-import type { MessageWithIntegrations } from '@komore/integration';
-import { mutateIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
-import type {
-  MessageWithAmazonIntegrations,
-  MutatedAmazonIntegrationTypes
+import { type MessageWithIntegrations, mutateIntegrations } from '@komore/integration';
+import { type Message } from '@komore/message';
+import {
+  type MessageWithAmazonIntegrations,
+  type MutatedAmazonIntegrationTypes
 } from '../message/message-with-amazon-integrations';
 
 /**

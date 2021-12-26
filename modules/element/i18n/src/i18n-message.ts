@@ -1,4 +1,4 @@
-import type { ParameterizedI18nMessage } from './parameterized-i18n-message';
+import { type ParameterizedI18nMessage } from './parameterized-i18n-message';
 
 /**
  * Internationalization message

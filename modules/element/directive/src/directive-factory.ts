@@ -1,4 +1,4 @@
-import type { Directive } from './directive';
+import { type Directive } from './directive';
 
 /**
  * Directive factory

@@ -1,6 +1,5 @@
 import { Observable } from '@komore/reactive';
-import type { PathLike } from 'fs';
-import { watch } from 'fs';
+import { type PathLike, watch } from 'fs';
 
 /**
  * Observes a file
@@ -8,8 +7,8 @@ import { watch } from 'fs';
  * @returns Observable that emits the file path whenever the file changes
  */
 export function observeFile(filePath: PathLike): Observable<PathLike> {
-  return new Observable<PathLike>(observer => {
-    const fsWatcher = watch(filePath, () => observer.next(filePath));
-    return () => fsWatcher.close();
+  return new Observable<PathLike>(subscriber => {
+    const fsWatcher = watch(filePath, () => subscriber.next(filePath));
+    subscriber.add(() => fsWatcher.close());
   });
 }

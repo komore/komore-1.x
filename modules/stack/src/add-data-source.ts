@@ -1,12 +1,12 @@
-import type { TerraformDataSource } from 'cdktf';
-import type { DataSourceMap } from './data-source-map';
-import type { ResourceMap } from './resource-map';
-import type { Scope } from './scope';
-import type { ScopeWithAddedDataSource } from './scope-with-added-data-source';
-import type { TypedLocal } from './typed-local';
-import type { TypedOutput } from './typed-output';
-import type { TypedVariable } from './typed-variable';
-import type { Types } from './types';
+import { type TerraformDataSource } from 'cdktf';
+import { type DataSourceMap } from './data-source-map';
+import { type ResourceMap } from './resource-map';
+import { type Scope } from './scope';
+import { type ScopeWithAddedDataSource } from './scope-with-added-data-source';
+import { type TypedLocal } from './typed-local';
+import { type TypedOutput } from './typed-output';
+import { type TypedVariable } from './typed-variable';
+import { type Types } from './types';
 
 /**
  * Adds a data source to a scope

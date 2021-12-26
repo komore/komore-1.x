@@ -1,5 +1,5 @@
-import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import type { DynamoDBEventAttributeNames } from './dynamodb-event-attribute-names';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBEventAttributeNames } from './dynamodb-event-attribute-names';
 
 /**
  * DynamoDB event repository configuration

@@ -1,7 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import { deferPromise } from '@komore/reactive/promise';
-import type { GithubClient } from '../github-client';
+import { deferPromise, map, type Observable } from '@komore/reactive';
+import { type GithubClient } from '../github-client';
 import { toResponseData } from '../to-response-data';
 
 /**

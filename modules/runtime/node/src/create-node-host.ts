@@ -1,9 +1,9 @@
-import { fromEvent, map, Subject, Subscription, tap, tapNext, tapValue } from '@komore/reactive';
-import type { HostLifecycleEvent, HostState } from '@komore/runtime';
+import { fromEvent, map, Subject, Subscription, tapNext } from '@komore/reactive';
+import { type HostLifecycleEvent, type HostState } from '@komore/runtime';
 import { HostError } from '@komore/runtime';
 import { buildNodeHostOptions } from './build-node-host-options';
-import type { NodeHost } from './node-host';
-import type { NodeHostOptions } from './node-host-options';
+import { type NodeHost } from './node-host';
+import { type NodeHostOptions } from './node-host-options';
 
 /**
  * Creates a Node host
@@ -17,11 +17,11 @@ export function createNodeHost(hostOptions?: Partial<NodeHostOptions>): NodeHost
   const subscription = new Subscription();
 
   const beforeExitSubscription = fromEvent<number>(process, 'beforeExit')
-    .pipe(tapValue(() => state.next('stopping')))
+    .pipe(tapNext(() => state.next('stopping')))
     .subscribe();
 
   const exitSubscription = fromEvent<number>(process, 'exit')
-    .pipe(tapValue(() => state.next('stopped')))
+    .pipe(tapNext(() => state.next('stopped')))
     .subscribe();
 
   subscription.add(beforeExitSubscription);

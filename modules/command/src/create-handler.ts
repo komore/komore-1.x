@@ -1,5 +1,5 @@
-import type { CommandHandler } from './command-handler';
-import type { On } from './command-handler-on';
+import { type CommandHandler } from './command-handler';
+import { type On } from './command-handler-on';
 
 type OnCommandType<O> = O extends On<infer C, any> ? C : never;
 type OnEventType<O> = O extends On<any, infer E> ? E : never;

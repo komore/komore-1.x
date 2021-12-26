@@ -1,7 +1,6 @@
-import type { ElementLifecycleEventType } from '@komore/element';
+import { type ElementLifecycleEventType } from '@komore/element';
 import { createObjectLiteral, createPropertyAccess } from '@komore/typescript/compiler';
-import type { Expression, Identifier, MethodDeclaration, NodeFactory } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import { type Expression, type Identifier, type MethodDeclaration, type NodeFactory, SyntaxKind } from 'typescript';
 
 /**
  * Creates a lifecycle callback method

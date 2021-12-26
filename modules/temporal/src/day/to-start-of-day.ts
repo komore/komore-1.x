@@ -1,4 +1,4 @@
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Returns a temporal that occurs at the start of the day on the same date as another temporal

@@ -1,8 +1,8 @@
 import { expectTypeOf } from 'expect-type';
 import { createLogEvent } from './create-log-event';
 import { createLogGroup } from './create-log-group';
-import type { LogEvent } from './log-event';
-import type { LogEventCreator } from './log-event-creator';
+import { type LogEvent } from './log-event';
+import { type LogEventCreator } from './log-event-creator';
 import { props } from './props';
 
 describe('Create log event', () => {

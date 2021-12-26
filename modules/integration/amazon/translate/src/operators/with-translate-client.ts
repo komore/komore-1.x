@@ -1,4 +1,4 @@
-import type { TranslateClient } from '@aws-sdk/client-translate';
+import { type TranslateClient } from '@aws-sdk/client-translate';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createTranslateClient } from '../create-translate-client';
 

@@ -1,4 +1,4 @@
-import type { Temporal } from '@js-temporal/polyfill';
+import { type Temporal } from '@js-temporal/polyfill';
 
 /**
  * Creates a function that returns a time zone's offset at a reference instant

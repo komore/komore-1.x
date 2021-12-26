@@ -1,20 +1,20 @@
-import type { CognitoEventCreateAuthChallengeRequest } from './cognito-event-create-auth-challenge-request';
-import type { CognitoEventCreateAuthChallengeResponse } from './cognito-event-create-auth-challenge-response';
-import type { CognitoEventCustomMessageRequest } from './cognito-event-custom-message-request';
-import type { CognitoEventCustomMessageResponse } from './cognito-event-custom-message-response';
-import type { CognitoEventDefineAuthChallengeRequest } from './cognito-event-define-auth-challenge-request';
-import type { CognitoEventDefineAuthChallengeResponse } from './cognito-event-define-auth-challenge-response';
-import type { CognitoEventPostAuthenticationRequest } from './cognito-event-post-authentication-request';
-import type { CognitoEventPostConfirmationRequest } from './cognito-event-post-confirmation-request';
-import type { CognitoEventPreAuthenticationRequest } from './cognito-event-pre-authentication-request';
-import type { CognitoEventPreSignUpRequest } from './cognito-event-pre-sign-up-request';
-import type { CognitoEventPreSignUpResponse } from './cognito-event-pre-sign-up-response';
-import type { CognitoEventTokenGenerationRequest } from './cognito-event-token-generation-request';
-import type { CognitoEventTokenGenerationResponse } from './cognito-event-token-generation-response';
-import type { CognitoEventUserMigrationRequest } from './cognito-event-user-migration-request';
-import type { CognitoEventUserMigrationResponse } from './cognito-event-user-migration-response';
-import type { CognitoEventVerifyAuthChallengeResponseRequest } from './cognito-event-verify-auth-challenge-response-request';
-import type { CognitoEventVerifyAuthChallengeResponseResponse } from './cognito-event-verify-auth-challenge-response-response';
+import { type CognitoEventCreateAuthChallengeRequest } from './cognito-event-create-auth-challenge-request';
+import { type CognitoEventCreateAuthChallengeResponse } from './cognito-event-create-auth-challenge-response';
+import { type CognitoEventCustomMessageRequest } from './cognito-event-custom-message-request';
+import { type CognitoEventCustomMessageResponse } from './cognito-event-custom-message-response';
+import { type CognitoEventDefineAuthChallengeRequest } from './cognito-event-define-auth-challenge-request';
+import { type CognitoEventDefineAuthChallengeResponse } from './cognito-event-define-auth-challenge-response';
+import { type CognitoEventPostAuthenticationRequest } from './cognito-event-post-authentication-request';
+import { type CognitoEventPostConfirmationRequest } from './cognito-event-post-confirmation-request';
+import { type CognitoEventPreAuthenticationRequest } from './cognito-event-pre-authentication-request';
+import { type CognitoEventPreSignUpRequest } from './cognito-event-pre-sign-up-request';
+import { type CognitoEventPreSignUpResponse } from './cognito-event-pre-sign-up-response';
+import { type CognitoEventTokenGenerationRequest } from './cognito-event-token-generation-request';
+import { type CognitoEventTokenGenerationResponse } from './cognito-event-token-generation-response';
+import { type CognitoEventUserMigrationRequest } from './cognito-event-user-migration-request';
+import { type CognitoEventUserMigrationResponse } from './cognito-event-user-migration-response';
+import { type CognitoEventVerifyAuthChallengeResponseRequest } from './cognito-event-verify-auth-challenge-response-request';
+import { type CognitoEventVerifyAuthChallengeResponseResponse } from './cognito-event-verify-auth-challenge-response-response';
 
 /**
  * Cognito event map

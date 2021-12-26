@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { ProcessedStyleSheet } from './processed-style-sheet';
+import { type Observable } from '@komore/reactive';
+import { type ProcessedStyleSheet } from './processed-style-sheet';
 
 /**
  * Style processor

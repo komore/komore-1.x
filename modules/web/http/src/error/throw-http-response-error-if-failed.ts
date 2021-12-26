@@ -1,6 +1,5 @@
 import { not } from '@komore/functional';
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { throwIf } from '@komore/reactive/operators';
+import { type MonoTypeOperatorFunction, throwIf } from '@komore/reactive';
 import { isResponseOk, toHttpErrorResponse } from '@komore/web/http';
 
 /**

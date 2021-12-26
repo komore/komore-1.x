@@ -1,5 +1,5 @@
-import type { RGB } from '../rgb/rgb';
-import type { RGBA } from './rgba';
+import { type RGB } from '../rgb/rgb';
+import { type RGBA } from './rgba';
 
 /**
  * Creates a function that converts an RGB color to an RGBA color, adding a provided alpha component

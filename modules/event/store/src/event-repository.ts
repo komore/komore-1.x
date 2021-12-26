@@ -1,4 +1,5 @@
-import type { Event } from '@komore/event';
+import { type Event } from '@komore/event';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Event repository
@@ -21,12 +22,12 @@ export interface EventRepository<EventTypes extends Event<any, any>[]> {
     aggregateKey: string,
     sequenceStart: number | undefined,
     sequenceEnd: number | undefined
-  ): Promise<ReadonlyArray<EventTypes[number]>>;
+  ): Observable<ReadonlyArray<EventTypes[number]>>;
 
   /**
-   * Saves events to the repository
+   * Stores events to the repository
    * @param aggregateKey Aggregate key
    * @param events List of events
    */
-  saveEvents(aggregateKey: string, events: ReadonlyArray<EventTypes[number]>): Promise<void>;
+  storeEvents(aggregateKey: string, events: ReadonlyArray<EventTypes[number]>): Observable<void>;
 }

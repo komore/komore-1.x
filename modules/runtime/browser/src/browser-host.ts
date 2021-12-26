@@ -1,5 +1,5 @@
-import type { Host } from '@komore/runtime';
-import type { BrowserHostOptions } from './browser-host-options';
+import { type Host } from '@komore/runtime';
+import { type BrowserHostOptions } from './browser-host-options';
 
 /**
  * Browser host

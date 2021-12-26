@@ -1,5 +1,5 @@
-import type { CallExpression, Expression, NodeFactory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type CallExpression, type Expression, type NodeFactory } from 'typescript';
+import { type ElementDefinition } from '../definition/element-definition';
 
 /**
  * Creates a call to define a custom element with the custom element registry

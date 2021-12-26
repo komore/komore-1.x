@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { DynamodbGlobalTableConfig } from './.gen/dynamodb-global-table';
-import { DynamodbGlobalTable } from './.gen/dynamodb-global-table';
+import { DynamodbGlobalTable, type DynamodbGlobalTableConfig } from './.gen/dynamodb-global-table';
 
 /**
  * Adds a DynamoDB global table resource

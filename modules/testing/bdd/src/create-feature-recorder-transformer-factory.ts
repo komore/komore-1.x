@@ -1,6 +1,12 @@
-import { isCallExpression, Node, SourceFile, TransformerFactory } from 'typescript';
-import { isExpressionStatement, visitEachChild } from 'typescript';
-import type { FeatureRecorder } from './feature-recorder';
+import {
+  isCallExpression,
+  isExpressionStatement,
+  Node,
+  SourceFile,
+  TransformerFactory,
+  visitEachChild
+} from 'typescript';
+import { type FeatureRecorder } from './feature-recorder';
 
 /**
  * Creates a feature recorder transformer factory
@@ -15,10 +21,10 @@ export function createFeatureRecorderTransformerFactory(
 }
 
 /**
- * 
+ *
  * @param sourceFile Source file
  * @param node Node
- * @returns 
+ * @returns
  */
 function visitSourceNodeChild(sourceFile: SourceFile, node: Node): Node {
   console.log('fucking node', node);
@@ -30,7 +36,6 @@ function visitSourceNodeChild(sourceFile: SourceFile, node: Node): Node {
       const end = node.end;
       console.log(`${pos}-${end}: ${calledFunctionName}`);
       if (calledFunctionName === 'describe') {
-
       }
       console.log('wee call expression', expression);
     }

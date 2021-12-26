@@ -1,6 +1,6 @@
-import type { ParsedElementAttribute } from '@komore/element/parser';
-import type { NodeFactory } from 'typescript';
-import type { ElementAttributeDefinition } from '../element-attribute-definition';
+import { type ParsedElementAttribute } from '@komore/element/parser';
+import { type NodeFactory } from 'typescript';
+import { type ElementAttributeDefinition } from '../element-attribute-definition';
 import { createAttributeDefaultValueExpression } from './create-attribute-default-value-expression';
 
 /**

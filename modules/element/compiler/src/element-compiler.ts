@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { ElementCompilerResult } from './element-compiler-result';
+import { type Observable } from '@komore/reactive';
+import { type ElementCompilerResult } from './element-compiler-result';
 
 /**
  * Element compiler

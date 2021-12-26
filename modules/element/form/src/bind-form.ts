@@ -1,7 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { fromEvent, of } from '@komore/reactive';
-import { dropValue } from '@komore/reactive/operators';
-import type { Form } from './form';
+import { fromEvent, type Observable, of, redactValue } from '@komore/reactive';
+import { type Form } from './form';
 
 /**
  * Binds a form
@@ -11,8 +9,8 @@ import type { Form } from './form';
 export function bindForm<ValueType extends Record<string, unknown>>(
   htmlFormElement: HTMLFormElement
 ): Observable<Form<ValueType>> {
-  const reset$ = fromEvent(htmlFormElement, 'reset').pipe(dropValue());
-  const submit$ = fromEvent(htmlFormElement, 'submit').pipe(dropValue());
+  const reset$ = fromEvent(htmlFormElement, 'reset').pipe(redactValue());
+  const submit$ = fromEvent(htmlFormElement, 'submit').pipe(redactValue()); // TODO: grab values and map to ValueType
   const reset = () => htmlFormElement.reset();
   const submit = () => htmlFormElement.submit();
   const form: Form<ValueType> = {

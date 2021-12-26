@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { Route53RecordConfig } from './.gen/route53-record';
-import { Route53Record } from './.gen/route53-record';
+import { Route53Record, type Route53RecordConfig } from './.gen/route53-record';
 
 /**
  * Adds a Route53 record

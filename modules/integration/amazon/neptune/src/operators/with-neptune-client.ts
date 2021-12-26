@@ -1,4 +1,4 @@
-import type { NeptuneClient } from '@aws-sdk/client-neptune';
+import { type NeptuneClient } from '@aws-sdk/client-neptune';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createNeptuneClient } from '../create-neptune-client';
 

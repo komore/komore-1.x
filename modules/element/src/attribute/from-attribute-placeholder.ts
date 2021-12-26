@@ -1,5 +1,5 @@
 import { throwError } from '@komore/reactive';
-import type { FromAttribute } from './from-attribute';
+import { type FromAttribute } from './from-attribute';
 
 /**
  * fromAttribute placeholder implementation

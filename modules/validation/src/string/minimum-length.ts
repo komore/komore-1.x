@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '@komore/reactive';
 import { createConstraintValidator } from '../create-constraint-validator';
 
 /**

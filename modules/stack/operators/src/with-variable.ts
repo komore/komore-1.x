@@ -1,8 +1,7 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { GenericScope, ScopeWithAddedVariable, TypedVariable, Types } from '@komore/stack';
+import { map, type OperatorFunction } from '@komore/reactive';
+import { type GenericScope, type ScopeWithAddedVariable, type TypedVariable, type Types } from '@komore/stack';
 import { TerraformVariable } from 'cdktf';
-import type { VariableProperties } from './variable-properties';
+import { type VariableProperties } from './variable-properties';
 
 /**
  * Adds a boolean variable to a scope
@@ -56,7 +55,11 @@ export function withVariable<ScopeType extends GenericScope, VariableName extend
  * @param properties Variable properties
  * @returns Operator function that adds a variable to a scope
  */
-export function withVariable<ScopeType extends GenericScope, VariableName extends string, VariableTypeName extends keyof Types>(
+export function withVariable<
+  ScopeType extends GenericScope,
+  VariableName extends string,
+  VariableTypeName extends keyof Types
+>(
   name: VariableName,
   type: typeof Boolean | typeof Number | typeof String,
   properties?: VariableProperties<VariableTypeName>
@@ -66,8 +69,9 @@ export function withVariable<ScopeType extends GenericScope, VariableName extend
   const sensitive = properties?.sensitive;
 
   return map(scope => {
-    const typeName: VariableTypeName = (type === String
-      ? 'string' : type === Number ? 'number' : 'boolean') as VariableTypeName;
+    const typeName: VariableTypeName = (
+      type === String ? 'string' : type === Number ? 'number' : 'boolean'
+    ) as VariableTypeName;
     const terraformVariable = new TerraformVariable(scope.construct, name, {
       default: defaultValue,
       description,

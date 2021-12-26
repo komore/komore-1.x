@@ -1,5 +1,5 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
 import { share as rxjsShare } from 'rxjs';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 
 /**
  * Returns a new observable that shares the original observable

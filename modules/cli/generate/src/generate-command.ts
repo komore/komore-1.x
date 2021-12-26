@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive';
-import type { GenerateArguments } from './generate-arguments';
-import type { GenerateFlags } from './generate-flags';
+import { type Observable, tapNext } from '@komore/reactive';
+import { type GenerateArguments } from './generate-arguments';
+import { type GenerateFlags } from './generate-flags';
 
 /**
  * Generate command
@@ -9,6 +8,6 @@ import type { GenerateFlags } from './generate-flags';
  */
 export function generateCommand($: Observable<[args: GenerateArguments, flags: GenerateFlags]>) {
   return $.pipe(
-    tapValue(value => console.log('generate', value))
+    tapNext(value => console.log('generate', value))
   );
 }

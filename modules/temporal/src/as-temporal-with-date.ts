@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from './as-plain-date';
-import type { TemporalWithDate } from './temporal-with-date';
-import type { TemporalWithPartialDate } from './temporal-with-partial-date';
+import { type TemporalWithDate } from './temporal-with-date';
+import { type TemporalWithPartialDate } from './temporal-with-partial-date';
 
 /**
  * Converts a temporal with date, converting the type of a temporal with a partial date if necessary

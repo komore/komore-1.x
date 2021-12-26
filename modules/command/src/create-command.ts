@@ -1,6 +1,6 @@
-import type { Command } from './command';
-import type { CommandCreator } from './command-creator';
-import type { CommandSchema } from './command-schema';
+import { type Command } from './command';
+import { type CommandCreator } from './command-creator';
+import { type CommandSchema } from './command-schema';
 
 /**
  * Creates a command creator for a command type

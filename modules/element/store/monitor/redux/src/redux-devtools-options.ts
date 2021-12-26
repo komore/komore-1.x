@@ -1,4 +1,4 @@
-import type { ReduxDevtoolsSerializationOptions } from './redux-devtools-serialization-options';
+import { type ReduxDevtoolsSerializationOptions } from './redux-devtools-serialization-options';
 
 /**
  * Redux devtools options

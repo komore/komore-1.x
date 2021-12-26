@@ -1,4 +1,4 @@
-import type { TypeNode } from 'typescript';
+import { type TypeNode } from 'typescript';
 
 /**
  * Element property definition

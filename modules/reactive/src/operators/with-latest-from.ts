@@ -1,6 +1,6 @@
 import { withLatestFrom as rxjsWithLatestFrom } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type Observable } from '../observable';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Combines the source observable with another observable

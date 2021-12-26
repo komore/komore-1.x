@@ -1,5 +1,4 @@
-import type { NeptuneClientConfig } from '@aws-sdk/client-neptune';
-import { NeptuneClient } from '@aws-sdk/client-neptune';
+import { NeptuneClient, type NeptuneClientConfig } from '@aws-sdk/client-neptune';
 
 /**
  * Creates an Neptune client

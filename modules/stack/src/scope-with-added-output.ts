@@ -1,5 +1,5 @@
-import type { GenericScope, TypedOutput, Types } from '@komore/stack';
-import type { ReadonlyRecord } from '@komore/typescript';
+import { type GenericScope, type TypedOutput, type Types } from '@komore/stack';
+import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
  * Scope with an added data source

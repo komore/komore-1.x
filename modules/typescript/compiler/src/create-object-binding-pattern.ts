@@ -1,4 +1,4 @@
-import type { BindingElement, Identifier, NodeFactory, ObjectBindingPattern } from 'typescript';
+import { type BindingElement, type Identifier, type NodeFactory, type ObjectBindingPattern } from 'typescript';
 
 export function createObjectBindingPattern(
   factory: NodeFactory,

@@ -1,7 +1,5 @@
-import type { TranscribeClient } from '@aws-sdk/client-transcribe';
-import { DeleteTranscriptionJobCommand } from '@aws-sdk/client-transcribe';
-import type { Observable } from '@komore/reactive';
-import { dropValue } from '@komore/reactive/operators';
+import { DeleteTranscriptionJobCommand, type TranscribeClient } from '@aws-sdk/client-transcribe';
+import { type Observable, redactValue } from '@komore/reactive';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**
@@ -20,5 +18,5 @@ export function deleteTranscriptionJob(
     new DeleteTranscriptionJobCommand({
       TranscriptionJobName: transcriptionJobName
     })
-  ).pipe(dropValue());
+  ).pipe(redactValue());
 }

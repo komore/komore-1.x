@@ -1,5 +1,5 @@
-import type { ClientEvents } from 'discord.js';
-import type { DiscordClient } from './discord-client';
+import { type ClientEvents } from 'discord.js';
+import { type DiscordClient } from './discord-client';
 
 /**
  * Discord event

@@ -1,4 +1,4 @@
-import type { Logging } from '@google-cloud/logging';
+import { type Logging } from '@google-cloud/logging';
 import { withGoogleCloudClient } from '@komore/integration-google';
 import { createCloudLoggingClient } from '../create-cloud-logging-client';
 

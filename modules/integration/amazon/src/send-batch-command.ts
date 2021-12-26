@@ -1,8 +1,6 @@
-import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
-import type { Command, MetadataBearer } from '@aws-sdk/types';
-import type { Observable } from '@komore/reactive';
-import { EMPTY } from '@komore/reactive';
-import { expand, reduce } from '@komore/reactive/operators';
+import { type Client, type SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import { type Command, type MetadataBearer } from '@aws-sdk/types';
+import { EMPTY, expand, type Observable, reduce } from '@komore/reactive';
 import { sendCommand } from './send-command';
 
 /**

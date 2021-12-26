@@ -1,11 +1,11 @@
-import { createCssProcessor } from './css/create-css-processor';
-import { createScssProcessor } from './scss/create-scss-processor';
-import type { StyleProcessorFactory } from './style-processor-factory';
+import { type StyleProcessorFactory, type StyleProcessorOptions } from '@komore/element/compiler/processor';
+import { createCssProcessor } from '@komore/element/compiler/css';
+import { createScssProcessor } from '@komore/element/compiler/scss';
 
 /**
  * Style processor factories
  */
-export const styleProcessorFactories: ReadonlyArray<StyleProcessorFactory> = [
+export const styleProcessorFactories: ReadonlyArray<StyleProcessorFactory<StyleProcessorOptions>> = [
   {
     regExp: /^text\/css$/,
     createProcessor: createCssProcessor

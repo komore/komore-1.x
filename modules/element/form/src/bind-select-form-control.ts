@@ -1,8 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { fromEvent } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { fromEvent, map, type Observable } from '@komore/reactive';
 import { bindFormControl } from './bind-form-control';
-import type { FormControl } from './form-control';
+import { type FormControl } from './form-control';
 
 /**
  * Binds a select element

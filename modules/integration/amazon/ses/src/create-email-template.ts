@@ -1,5 +1,8 @@
-import type { CreateEmailTemplateCommandInput, SESv2Client } from '@aws-sdk/client-sesv2';
-import { CreateEmailTemplateCommand } from '@aws-sdk/client-sesv2';
+import {
+  CreateEmailTemplateCommand,
+  type CreateEmailTemplateCommandInput,
+  type SESv2Client
+} from '@aws-sdk/client-sesv2';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

@@ -1,5 +1,5 @@
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventWithOpenIDConnectAuthorization } from './event/app-sync-event-with-openid-connect-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventWithOpenIDConnectAuthorization } from './event/app-sync-event-with-openid-connect-authorization';
 
 /**
  * Tests whether an AppSync event has an OpenID Connect authorization

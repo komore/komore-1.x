@@ -1,4 +1,6 @@
-import type { ProcessorFactory } from './processor-factory';
+import { type ProcessorFactory } from '@komore/element/compiler/processor';
+import { isDefined } from '@komore/functional';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Creates a processor
@@ -13,10 +15,10 @@ export function createProcessor<Options, Processor>(
   processorFactories: ReadonlyArray<ProcessorFactory<Options, Processor>>,
   type: string,
   options: Options
-): Processor {
-  const processorFactory = processorFactories.find(({ regExp }) => regExp.test(type));
+): Observable<Processor> {
+  const processorFactory = processorFactories.find(({ pathRegExp }) => pathRegExp?.test(type));
   if (processorFactory === undefined) {
-    const availableTypes = processorFactories.map(({ regExp }) => regExp.toString()).join(', ');
+    const availableTypes = processorFactories.map(({ pathRegExp }) => pathRegExp?.toString()).filter(isDefined).join(', ');
     throw new Error(`no processor found for type "${type}" (available: ${availableTypes})`);
   }
 

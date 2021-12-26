@@ -1,4 +1,4 @@
-import type { ComputerVisionClient } from '@azure/cognitiveservices-computervision';
+import { type ComputerVisionClient } from '@azure/cognitiveservices-computervision';
 import { withAzureClient } from '@komore/integration-azure';
 import { createComputerVisionClient } from '../create-computer-vision-client';
 

@@ -1,5 +1,4 @@
-import type { RedshiftDataClientConfig } from '@aws-sdk/client-redshift-data';
-import { RedshiftDataClient } from '@aws-sdk/client-redshift-data';
+import { RedshiftDataClient, type RedshiftDataClientConfig } from '@aws-sdk/client-redshift-data';
 
 /**
  * Creates an Redshift Data client

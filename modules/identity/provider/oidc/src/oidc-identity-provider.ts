@@ -1,5 +1,5 @@
-import type { IdentityProvider } from '@komore/identity/provider';
-import type { OidcIdentityProviderOptions } from './oidc-identity-provider-options';
+import { type IdentityProvider } from '@komore/identity/provider';
+import { type OidcIdentityProviderOptions } from './oidc-identity-provider-options';
 
 /**
  * Creates an OpenID Connect identity provider

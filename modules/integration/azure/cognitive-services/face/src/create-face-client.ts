@@ -1,5 +1,5 @@
 import { FaceClient } from '@azure/cognitiveservices-face';
-import type { ServiceClientCredentials } from '@azure/core-auth';
+import { type ServiceClientCredentials } from '@azure/core-auth';
 
 /**
  * Environment variables

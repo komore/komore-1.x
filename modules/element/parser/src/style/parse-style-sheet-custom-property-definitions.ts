@@ -1,6 +1,6 @@
 import { isStyleRule } from './is-style-rule';
 import { parseStyleRule } from './parse-style-rule';
-import type { PropertyDefinition } from './property-definition';
+import { type PropertyDefinition } from './property-definition';
 
 /**
  * Parses a CSS style sheet's custom property definitions

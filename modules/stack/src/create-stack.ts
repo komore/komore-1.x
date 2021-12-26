@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, of } from '@komore/reactive';
+import { defer, type Observable, of } from '@komore/reactive';
 import { Stack } from './stack';
 
 /**

@@ -1,6 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { forkJoin } from '@komore/reactive';
-import { defaultIfEmpty } from '@komore/reactive/operators';
+import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
 import { processTemplateElement } from './process-template-element';
 
 /**

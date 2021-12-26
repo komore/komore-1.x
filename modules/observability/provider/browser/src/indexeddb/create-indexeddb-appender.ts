@@ -1,7 +1,7 @@
-import type { Appender, UntypedLogEventRecord } from '@komore/observability/logging';
+import { type Appender, type UntypedLogEventRecord } from '@komore/observability/logging';
 import { createIndexedDBDatabase, putIndexedDBItem } from '@komore/web/storage/indexeddb';
-import { combineLatest, Observable, Subject, tapValue } from '@komore/reactive';
-import type { IndexedDBAppenderOptions } from './indexeddb-appender-options';
+import { combineLatest, Observable, Subject, tapNext } from '@komore/reactive';
+import { type IndexedDBAppenderOptions } from './indexeddb-appender-options';
 
 /**
  * Creates an IndexedDB appender
@@ -13,9 +13,9 @@ export function createIndexedDBAppender(options: IndexedDBAppenderOptions): Obse
   return new Observable<Appender>(observer => {
     const logEventRecordSubject = new Subject<UntypedLogEventRecord>();
     const logEventRecorded$ = combineLatest({
-      database: createIndexedDBDatabase(databaseName),
+      database: createIndexedDBDatabase({ name: databaseName }),
       logEventRecord: logEventRecordSubject.asObservable()
-    }).pipe(tapValue(({ database, logEventRecord }) => putIndexedDBItem(database, storeName, logEventRecord)));
+    }).pipe(tapNext(({ database, logEventRecord }) => putIndexedDBItem(database, storeName, logEventRecord)));
     observer.add(logEventRecorded$.subscribe());
     observer.next(logEventRecordSubject);
   });

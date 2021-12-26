@@ -1,4 +1,4 @@
-import type { TemporalWithDateTime } from '../temporal-with-date-time';
+import { type TemporalWithDateTime } from '../temporal-with-date-time';
 
 /**
  * Returns a temporal that is set at midnight for the given day

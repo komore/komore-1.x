@@ -1,6 +1,5 @@
-import type { TextAnalyticsClientOptions } from '@azure/ai-text-analytics';
-import { AzureKeyCredential, TextAnalyticsClient } from '@azure/ai-text-analytics';
-import type { KeyCredential, TokenCredential } from '@azure/core-auth';
+import { AzureKeyCredential, TextAnalyticsClient, type TextAnalyticsClientOptions } from '@azure/ai-text-analytics';
+import { type KeyCredential, type TokenCredential } from '@azure/core-auth';
 
 /**
  * Environment variables

@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { DirectiveObservables } from './directive-observables';
+import { type Observable } from '@komore/reactive';
+import { type DirectiveObservables } from './directive-observables';
 
 /**
  * Directive

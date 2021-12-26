@@ -1,9 +1,9 @@
-import type {
-  CognitoEvent,
-  CognitoEventMap,
-  CognitoEventRequestType,
-  CognitoEventResponseType
-} from '@komore/function-lambda';
+import {
+  type CognitoEvent,
+  type CognitoEventMap,
+  type CognitoEventRequestType,
+  type CognitoEventResponseType
+} from '@komore/function-lambda/cognito';
 
 /**
  * Creates a test Cognito event

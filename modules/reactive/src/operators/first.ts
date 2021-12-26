@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction, Observable } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { take } from './take';
 
 /**
@@ -6,5 +6,5 @@ import { take } from './take';
  * @template T Value type
  */
 export function first<T>(): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) => source.pipe(take(1));
+  return source => source.pipe(take(1));
 }

@@ -1,5 +1,5 @@
-import type { UntypedLogEventRecord } from '../log-event-record';
-import type { FilterResult } from './filter-result';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
+import { type FilterResult } from './filter-result';
 
 /**
  * Filter

@@ -1,5 +1,5 @@
-import type { Construct } from 'constructs';
-import type { Scope } from './scope';
+import { type Construct } from 'constructs';
+import { type Scope } from './scope';
 
 /**
  * Creates a scope

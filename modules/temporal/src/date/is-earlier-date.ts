@@ -1,6 +1,6 @@
 import { asPlainDate } from '../as-plain-date';
-import type { TemporalWithDate } from '../temporal-with-date';
-import type { TemporalWithPartialDate } from '../temporal-with-partial-date';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
 
 /**
  * Tests whether a temporal occurs at an earlier date than another temporal

@@ -1,6 +1,6 @@
 import type * as marked from 'marked';
 import { DocumentationMetadataKind } from '../metadata/documentation-metadata-kind';
-import type { DocumentationMetadataRecorder } from '../metadata/documentation-metadata-recorder';
+import { type DocumentationMetadataRecorder } from '../metadata/documentation-metadata-recorder';
 import { isMetadataDefinition } from '../metadata/is-metadata-definition';
 import { toMetadataDefinition } from '../metadata/to-metadata-definition';
 import { toMetadataSeeAlso } from '../metadata/to-metadata-seealso';

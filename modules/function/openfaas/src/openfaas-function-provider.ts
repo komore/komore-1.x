@@ -1,1 +1,1 @@
-import type { FunctionProvider } from '@komore/function';
+import { type FunctionProvider } from '@komore/function';

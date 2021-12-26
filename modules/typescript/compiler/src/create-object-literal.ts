@@ -1,9 +1,9 @@
-import type {
-  Expression,
-  Identifier,
-  NodeFactory,
-  ObjectLiteralElementLike,
-  ObjectLiteralExpression
+import {
+  type Expression,
+  type Identifier,
+  type NodeFactory,
+  type ObjectLiteralElementLike,
+  type ObjectLiteralExpression
 } from 'typescript';
 
 /**

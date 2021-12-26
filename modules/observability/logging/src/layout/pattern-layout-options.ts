@@ -1,4 +1,4 @@
-import type { LogEventSeverity } from '../log-event-severity';
+import { type LogEventSeverity } from '../definition/log-event-severity';
 
 /**
  * Pattern layout options

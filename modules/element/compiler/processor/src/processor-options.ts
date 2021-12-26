@@ -1,4 +1,4 @@
-import type { recordLogEvent } from "@komore/observability/logging";
+import { type recordLogEvent } from '@komore/observability/logging';
 
 /**
  * Processor options

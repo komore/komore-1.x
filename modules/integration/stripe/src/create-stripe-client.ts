@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
-import type { StripeClient } from './stripe-client';
-import type { StripeClientOptions } from './stripe-client-options';
+import { type StripeClient } from './stripe-client';
+import { type StripeClientOptions } from './stripe-client-options';
 
 /**
  * Creates a Stripe client

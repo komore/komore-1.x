@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { fromArray } from '@komore/reactive';
-import type { SqsEvent } from './event/sqs-event';
-import type { SqsEventRecord } from './event/sqs-event-record';
+import { fromArray, type Observable } from '@komore/reactive';
+import { type SqsEvent } from './event/sqs-event';
+import { type SqsEventRecord } from './event/sqs-event-record';
 
 /**
  * Returns an observable stream of SQS event records

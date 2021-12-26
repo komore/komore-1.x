@@ -1,4 +1,4 @@
-import type { Scenario } from './scenario';
+import { type Scenario } from './scenario';
 
 /**
  * Feature

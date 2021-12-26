@@ -1,8 +1,8 @@
 import { mergeMap, of } from '@komore/reactive';
-import type { GenericScope } from '@komore/stack';
+import { type GenericScope } from '@komore/stack';
 import { withResource } from '@komore/stack/operators';
-import type { TerraformMetaArguments, TerraformResource } from 'cdktf';
-import type { Construct } from 'constructs';
+import { type TerraformMetaArguments, type TerraformResource } from 'cdktf';
+import { type Construct } from 'constructs';
 
 /**
  * Adds a resource

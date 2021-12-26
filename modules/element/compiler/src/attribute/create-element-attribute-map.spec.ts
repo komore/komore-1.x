@@ -1,5 +1,5 @@
 import { factory, SyntaxKind } from 'typescript';
-import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
+import { type ElementAttributeDefinition } from '../definition/element-attribute-definition';
 import { createElementAttributeMap } from './create-element-attribute-map';
 
 describe('Create element attribute map', () => {

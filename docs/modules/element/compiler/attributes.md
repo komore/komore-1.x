@@ -124,7 +124,7 @@ The generated code uses the [`attributeChangedCallback()`] method to feed a shar
 
 ```ts
 // implementation
-import type { ElementAttributeChangedEvent } from '@komore/element';
+import { type ElementAttributeChangedEvent } from '@komore/element';
 
 export class ExampleCustomElement extends HTMLElement {
   #a = new Subject<ElementAttributeChangedEvent>();

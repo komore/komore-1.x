@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { defer } from '@komore/reactive';
+import { defer, type Observable } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
-import type { IDBKey } from './idb-key';
+import { type IDBKey } from './idb-key';
 
 /**
  * Puts an IndexedDB item

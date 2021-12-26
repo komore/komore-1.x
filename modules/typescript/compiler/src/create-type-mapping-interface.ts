@@ -1,5 +1,5 @@
-import type { Identifier, InterfaceDeclaration, NodeFactory, PropertySignature } from 'typescript';
-import type { TypeMapping } from './type-mapping';
+import { type Identifier, type InterfaceDeclaration, type NodeFactory, type PropertySignature } from 'typescript';
+import { type TypeMapping } from './type-mapping';
 
 /**
  * Creates a type mapping interface

@@ -1,7 +1,7 @@
-import type { Directive } from './directive';
-import type { DirectiveFactory } from './directive-factory';
-import type { ParameterizedDirective } from './parameterized-directive';
-import type { ParameterizedDirectiveFactory } from './parameterized-directive-factory';
+import { type Directive } from './directive';
+import { type DirectiveFactory } from './directive-factory';
+import { type ParameterizedDirective } from './parameterized-directive';
+import { type ParameterizedDirectiveFactory } from './parameterized-directive-factory';
 
 /**
  * Creates a directive

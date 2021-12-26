@@ -1,7 +1,7 @@
 import { createDirective } from '@komore/element/directive';
 import { concatMap, map } from '@komore/reactive/operators';
-import type { LocalizedZoneElement } from './localized-zone.element';
-import type { TranslateParameters } from './translate-parameters';
+import { type LocalizedZoneElement } from './localized-zone.element';
+import { type TranslateParameters } from './translate-parameters';
 
 /**
  * Translate directive

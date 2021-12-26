@@ -1,6 +1,6 @@
-import type { TargetConfiguration } from '@nrwl/devkit';
-import type { BaseGeneratorOptions } from '../base-generator-options';
-import type { NormalizedGeneratorOptions } from '../normalized-generator-options';
+import { type TargetConfiguration } from '@nrwl/devkit';
+import { type BaseGeneratorOptions } from '../base-generator-options';
+import { type NormalizedGeneratorOptions } from '../normalized-generator-options';
 
 /**
  * Deploy function executor name

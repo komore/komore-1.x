@@ -1,5 +1,5 @@
 import { throwError } from '../creation/throw-error';
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { catchError } from './catch-error';
 
 /**

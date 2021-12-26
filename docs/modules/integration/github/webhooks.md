@@ -18,7 +18,7 @@ TODO
 import { createFunction } from '@komore/function';
 import { fromApiGatewayEvent, toApiGatewayEventBody } from '@komore/function-lambda/api-gateway';
 import { fromJson, isDefined } from '@komore/functional';
-import type { GithubWebhookEvent } from '@komore/integration-github';
+import { type GithubWebhookEvent } from '@komore/integration-github';
 import { map, throwUnless } from '@komore/reactive';
 
 createFunction('handleGithubWebhook', fromApiGatewayEvent(event$ => event$.pipe(
@@ -34,7 +34,7 @@ createFunction('handleGithubWebhook', fromApiGatewayEvent(event$ => event$.pipe(
 import { createFunction } from '@komore/function';
 import { fromApiGatewayEvent, toApiGatewayEventBody } from '@komore/function-azure/api-gateway';
 import { fromJson, isDefined } from '@komore/functional';
-import type { GithubWebhookEvent } from '@komore/integration-github';
+import { type GithubWebhookEvent } from '@komore/integration-github';
 import { map, throwUnless } from '@komore/reactive';
 
 createFunction('handleGithubWebhook', fromApiGatewayEvent(event$ => event$.pipe(
@@ -50,7 +50,7 @@ createFunction('handleGithubWebhook', fromApiGatewayEvent(event$ => event$.pipe(
 import { createFunction } from '@komore/function';
 import { fromApiGatewayEvent, toApiGatewayEventBody } from '@komore/function-google/api-gateway';
 import { fromJson, isDefined } from '@komore/functional';
-import type { GithubWebhookEvent } from '@komore/integration-github';
+import { type GithubWebhookEvent } from '@komore/integration-github';
 import { map, throwUnless } from '@komore/reactive';
 
 createFunction('handleGithubWebhook', fromApiGatewayEvent(event$ => event$.pipe(

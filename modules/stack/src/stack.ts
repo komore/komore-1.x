@@ -1,7 +1,7 @@
-import type { TerraformStack } from 'cdktf';
-import type { Scope } from './scope';
-import type { TypedVariable } from './typed-variable';
-import type { Types } from './types';
+import { type TerraformStack } from 'cdktf';
+import { type Scope } from './scope';
+import { type TypedVariable } from './typed-variable';
+import { type Types } from './types';
 
 /**
  * Stack

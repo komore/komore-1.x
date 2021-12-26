@@ -1,6 +1,6 @@
-import type { ProcessedStyleSheet, StyleProcessor } from '@komore/element/compiler/processor';
-import type { ScssProcessorOptions } from './scss-processor-options';
-import { map, mergeMap } from 'rxjs';
+import { type StyleProcessor } from '@komore/element/compiler/processor';
+import { map, mergeMap } from '@komore/reactive';
+import { type ScssProcessorOptions } from './scss-processor-options';
 import { toProcessedScss } from './to-processed-scss';
 
 /**

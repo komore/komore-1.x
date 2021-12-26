@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { Route53ZoneConfig } from './.gen/route53-zone';
-import { Route53Zone } from './.gen/route53-zone';
+import { Route53Zone, type Route53ZoneConfig } from './.gen/route53-zone';
 
 /**
  * Adds a Route53 zone

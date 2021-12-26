@@ -1,7 +1,6 @@
 import { MessageWithIntegrations } from '@komore/integration';
 import { Message } from '@komore/message';
-import type { OperatorFunction } from '@komore/reactive';
-import { map, pipe } from '@komore/reactive/operators';
+import { map, type OperatorFunction, pipe } from '@komore/reactive';
 import { MessageWithAmazonIntegrations } from './message-with-amazon-integrations';
 
 /**

@@ -1,4 +1,4 @@
-import type { Expression, NodeFactory, PropertyAccessExpression } from 'typescript';
+import { type Expression, type NodeFactory, type PropertyAccessExpression } from 'typescript';
 
 /**
  * Creates a property access

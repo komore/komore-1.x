@@ -1,5 +1,5 @@
-import type { TerraformVariable } from 'cdktf';
-import type { Types } from './types';
+import { type TerraformVariable } from 'cdktf';
+import { type Types } from './types';
 
 /**
  * Typed variable

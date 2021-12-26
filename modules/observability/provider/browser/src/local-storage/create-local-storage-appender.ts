@@ -1,9 +1,10 @@
-import type { Appender, UntypedLogEventRecord } from '@komore/observability/logging';
+import { type Appender, type UntypedLogEventRecord } from '@komore/observability/logging';
+import { type LocalStorageAppenderOptions } from './local-storage-appender-options';
 
-export function createLocalStorageAppender(options: LocalStorageAppenderOptions): Appender {
+export function createLocalStorageAppender(_options: LocalStorageAppenderOptions): Appender {
   return {
-    next(logEventRecord: UntypedLogEventRecord): void {
-      
+    next(_logEventRecord: UntypedLogEventRecord): void {
+      // TODO
     }
   };
 }

@@ -1,5 +1,5 @@
-import type { AppSyncEvent } from './app-sync-event';
-import type { AppSyncEventIAMIdentity } from './app-sync-event-iam-identity';
+import { type AppSyncEvent } from './app-sync-event';
+import { type AppSyncEventIAMIdentity } from './app-sync-event-iam-identity';
 
 /**
  * AppSync event with an IAM authorization

@@ -1,9 +1,8 @@
-import { of } from '@komore/reactive';
-import type { GenericScope, TypedVariable } from '@komore/stack';
-import type { Construct } from 'constructs';
+import { firstValueFrom, of } from '@komore/reactive';
+import { type GenericScope, type TypedVariable } from '@komore/stack';
+import { type Construct } from 'constructs';
 import { expectTypeOf } from 'expect-type';
 import { mock } from 'jest-mock-extended';
-import { lastValueFrom } from 'rxjs';
 import { withVariable } from './with-variable';
 jest.mock('cdktf');
 
@@ -23,7 +22,7 @@ describe('With variable', () => {
     const $ = scope$.pipe(
       withVariable(variableName, String)
     );
-    const updatedScope = await lastValueFrom($);
+    const updatedScope = await firstValueFrom($);
     expect: 'the variable to have been added to the scope';
     expect(updatedScope.variables.test).toBeDefined();
     const variable = updatedScope.variables.test;
@@ -47,7 +46,7 @@ describe('With variable', () => {
     const $ = scope$.pipe(
       withVariable(variableName, Number)
     );
-    const updatedScope = await lastValueFrom($);
+    const updatedScope = await firstValueFrom($);
     expect: 'the variable to have been added to the scope';
     expect(updatedScope.variables.test).toBeDefined();
     const variable = updatedScope.variables.test;
@@ -71,7 +70,7 @@ describe('With variable', () => {
     const $ = scope$.pipe(
       withVariable(variableName, Boolean)
     );
-    const updatedScope = await lastValueFrom($);
+    const updatedScope = await firstValueFrom($);
     expect: 'the variable to have been added to the scope';
     expect(updatedScope.variables.test).toBeDefined();
     const variable = updatedScope.variables.test;

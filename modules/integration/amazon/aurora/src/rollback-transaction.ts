@@ -1,5 +1,8 @@
-import type { RollbackTransactionCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
-import { RollbackTransactionCommand } from '@aws-sdk/client-rds-data';
+import {
+  RollbackTransactionCommand,
+  type RollbackTransactionCommandInput,
+  type RDSDataClient
+} from '@aws-sdk/client-rds-data';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

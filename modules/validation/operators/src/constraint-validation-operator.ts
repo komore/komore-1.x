@@ -1,4 +1,4 @@
-import type { OperatorFunction } from '@komore/reactive';
+import { type OperatorFunction } from '@komore/reactive';
 
 /**
  * Constraint validation operator

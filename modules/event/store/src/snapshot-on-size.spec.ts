@@ -1,7 +1,8 @@
-import type { EventWithMetadata } from '@komore/event';
+import { Temporal } from '@js-temporal/polyfill';
+import { type EventWithMetadata } from '@komore/event';
 import { createEvent } from '@komore/event';
 import { snapshotOnSize } from './snapshot-on-size';
-import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
 /**
  * Snapshot on size strategy specification
@@ -15,7 +16,7 @@ describe('Snapshot on size strategy', () => {
         aggregateKey: 'test-aggregate-key',
         sequenceNumber: n,
         size: 1,
-        timestamp: new Date()
+        timestamp: Temporal.Now.plainDateTimeISO()
       }
     };
   }
@@ -30,19 +31,25 @@ describe('Snapshot on size strategy', () => {
     value: 0
   };
 
+  const AFTER: SnapshotStrategySelectionType = 'after';
+  const AT: SnapshotStrategySelectionType = 'at';
+  const BEFORE: SnapshotStrategySelectionType = 'before';
+  const FIRST: SnapshotStrategySelectionType = 'first';
+  const LAST: SnapshotStrategySelectionType = 'last'
+
   it.each([
-    [2, SnapshotStrategySelectionType.AFTER, 3],
-    [2, SnapshotStrategySelectionType.AT, 2],
-    [2, SnapshotStrategySelectionType.BEFORE, 1],
-    [2, SnapshotStrategySelectionType.FIRST, 1],
-    [2, SnapshotStrategySelectionType.LAST, 4],
-    [1, SnapshotStrategySelectionType.BEFORE, false],
-    [4, SnapshotStrategySelectionType.AFTER, false],
-    [5, SnapshotStrategySelectionType.AFTER, false],
-    [5, SnapshotStrategySelectionType.AT, false],
-    [5, SnapshotStrategySelectionType.BEFORE, false],
-    [5, SnapshotStrategySelectionType.FIRST, false],
-    [5, SnapshotStrategySelectionType.LAST, false]
+    [2, AFTER, 3],
+    [2, AT, 2],
+    [2, BEFORE, 1],
+    [2, FIRST, 1],
+    [2, LAST, 4],
+    [1, BEFORE, false],
+    [4, AFTER, false],
+    [5, AFTER, false],
+    [5, AT, false],
+    [5, BEFORE, false],
+    [5, FIRST, false],
+    [5, LAST, false]
   ])('properly selects the sequence number (bytes = %s, selection = %s)', (bytes, selectionType, expectedResult) => {
     given: 'a snapshot on size strategy';
     const snapshotStrategy = snapshotOnSize(bytes, selectionType);

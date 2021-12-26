@@ -1,6 +1,5 @@
-import type { GetAccessorDeclaration, Identifier, NodeFactory } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementAttributeDefinition } from '../definition/element-attribute-definition';
+import { type GetAccessorDeclaration, type Identifier, type NodeFactory, SyntaxKind } from 'typescript';
+import { type ElementAttributeDefinition } from '../definition/element-attribute-definition';
 
 /**
  * Creates an element's observed attributes getter declaration
@@ -20,7 +19,7 @@ import type { ElementAttributeDefinition } from '../definition/element-attribute
 export function createElementObservedAttributesGetAccessor(
   factory: NodeFactory,
   elementAttributes: ReadonlyArray<ElementAttributeDefinition>
-): [GetAccessorDeclaration, Identifier] {
+): readonly [declaration: GetAccessorDeclaration, identifier: Identifier] {
   const constType = factory.createTypeReferenceNode('const');
   const attributeNames = elementAttributes.map(({ attributeName }) => factory.createStringLiteral(attributeName, true));
   const attributeNameArray = factory.createArrayLiteralExpression(attributeNames, true);

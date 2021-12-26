@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createElementInterfaceConstructor } from './create-element-interface-constructor';
 
 describe('Create element interface constructor', () => {

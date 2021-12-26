@@ -1,5 +1,5 @@
-import type { SourceFile, TransformerFactory } from 'typescript';
-import type { ElementEventDefinitionRecorder } from '../../../definition/element-event-definition-recorder';
+import { type SourceFile, type TransformerFactory } from 'typescript';
+import { type ElementEventDefinitionRecorder } from '../../../definition/element-event-definition-recorder';
 
 /**
  * Creates a TypeScript event transformer factory

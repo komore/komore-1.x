@@ -1,4 +1,4 @@
-import type { Client } from 'discord.js';
+import { type Client } from 'discord.js';
 
 /**
  * Discord client

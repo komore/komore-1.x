@@ -1,5 +1,5 @@
-import type { ColorWithAlpha } from '../color-with-alpha';
-import type { RGB } from '../rgb/rgb';
+import { type ColorWithAlpha } from '../color-with-alpha';
+import { type RGB } from '../rgb/rgb';
 
 /**
  * Color with a red, green, blue and alpha component

@@ -1,4 +1,4 @@
-import type { FONT_RELATIVE_LENGTH_UNITS } from './font-relative-length-units';
+import { type FONT_RELATIVE_LENGTH_UNITS } from './font-relative-length-units';
 
 /**
  * Font-relative length unit

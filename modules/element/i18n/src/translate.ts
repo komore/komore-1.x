@@ -1,10 +1,8 @@
-import type { Observable } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { MessageFormatOptions } from '@messageformat/core';
-import MessageFormat from '@messageformat/core';
+import { map, type Observable } from '@komore/reactive';
+import MessageFormat, { type MessageFormatOptions } from '@messageformat/core';
 import { asObservableLanguages } from './as-observable-languages';
-import type { I18nMessage } from './i18n-message';
-import type { Languages } from './languages';
+import { type I18nMessage } from './i18n-message';
+import { type Languages } from './languages';
 
 export function translate(
   message: I18nMessage,

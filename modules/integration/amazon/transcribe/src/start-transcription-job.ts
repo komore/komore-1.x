@@ -1,8 +1,11 @@
-import type { StartTranscriptionJobRequest, TranscribeClient, TranscriptionJob } from '@aws-sdk/client-transcribe';
-import { StartTranscriptionJobCommand } from '@aws-sdk/client-transcribe';
+import {
+  StartTranscriptionJobCommand,
+  type StartTranscriptionJobRequest,
+  type TranscribeClient,
+  type TranscriptionJob
+} from '@aws-sdk/client-transcribe';
 import { sendCommand } from '@komore/integration-amazon';
-import type { Observable } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { map, type Observable } from '@komore/reactive';
 
 export function startTranscriptionJob(
   transcribeClient: TranscribeClient,

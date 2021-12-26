@@ -14,10 +14,10 @@ export function observeResizes(
     return throwError(() => new Error('ResizeObserver is not supported'));
   }
 
-  return new Observable(observer => {
-    const resizeObserver = new ResizeObserver(entries => entries.forEach(entry => observer.next(entry)));
+  return new Observable<ResizeObserverEntry>(subscriber => {
+    const resizeObserver = new ResizeObserver(entries => entries.forEach(entry => subscriber.next(entry)));
     const targets = Array.isArray(targetOrTargets) ? targetOrTargets : [targetOrTargets];
     targets.forEach(target => resizeObserver.observe(target, options));
-    return () => targets.forEach(target => resizeObserver.unobserve(target));
+    subscriber.add(() => targets.forEach(target => resizeObserver.unobserve(target)));
   });
 }

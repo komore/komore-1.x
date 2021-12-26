@@ -1,5 +1,5 @@
-import { Subject } from 'rxjs';
-import type { EmailLayer } from './email-layer';
+import { Subject } from '@komore/reactive';
+import { type EmailLayer } from './email-layer';
 
 export const activeEmailLayerSubject = new Subject<EmailLayer>();
 

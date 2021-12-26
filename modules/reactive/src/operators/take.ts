@@ -1,5 +1,5 @@
 import { take as rxjsTake } from 'rxjs';
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 
 /**
  * Emits the first `count` values emitted by the source observable

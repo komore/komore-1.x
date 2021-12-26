@@ -1,5 +1,8 @@
-import type { CloudWatchLogsClient, PutLogEventsCommandInput } from '@aws-sdk/client-cloudwatch-logs';
-import { PutLogEventsCommand } from '@aws-sdk/client-cloudwatch-logs';
+import {
+  type CloudWatchLogsClient,
+  PutLogEventsCommand,
+  type PutLogEventsCommandInput
+} from '@aws-sdk/client-cloudwatch-logs';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

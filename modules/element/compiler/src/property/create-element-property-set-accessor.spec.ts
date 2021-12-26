@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementPropertySetAccessor } from './create-element-property-set-accessor';
 
 describe('Create element property set accessor', () => {

@@ -1,5 +1,5 @@
-import type { ParameterizedDirective } from './parameterized-directive';
-import type { ParameterizedDirectiveFactory } from './parameterized-directive-factory';
+import { type ParameterizedDirective } from './parameterized-directive';
+import { type ParameterizedDirectiveFactory } from './parameterized-directive-factory';
 
 /**
  * Creates a parameterized directive

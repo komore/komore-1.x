@@ -1,1 +1,1 @@
-export type { ObservabilityMetadata } from './observability-metadata';
+export { type ObservabilityMetadata } from './observability-metadata';

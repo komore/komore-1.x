@@ -1,4 +1,4 @@
-import type { ParsedSource } from '@komore/element/parser';
+import { type ParsedSource } from '@komore/element/parser';
 import { factory } from 'typescript';
 import { buildElementDefinition } from './build-element-definition';
 

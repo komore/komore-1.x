@@ -1,5 +1,4 @@
-import type { ListObjectsV2CommandInput, S3Client } from '@aws-sdk/client-s3';
-import { ListObjectsV2Command } from '@aws-sdk/client-s3';
+import { ListObjectsV2Command, type ListObjectsV2CommandInput, type S3Client } from '@aws-sdk/client-s3';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

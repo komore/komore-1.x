@@ -1,4 +1,4 @@
-import type { RouteInjectionOptions } from './injector/route-injection-options';
+import { type RouteInjectionOptions } from './injector/route-injection-options';
 
 /**
  * Router options

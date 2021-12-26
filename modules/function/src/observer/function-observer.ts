@@ -1,7 +1,7 @@
 import { recordLogEvent } from '@komore/observability/logging';
-import type { Observer } from '@komore/reactive';
+import { type Observer } from '@komore/reactive';
 import { functionInvocationIgnored, functionObservableCompleted, functionObservableError } from './function-logs';
-import type { FunctionValue } from './function-value';
+import { type FunctionValue } from './function-value';
 
 /**
  * Function observer

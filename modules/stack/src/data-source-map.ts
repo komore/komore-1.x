@@ -1,5 +1,5 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { TerraformDataSource } from 'cdktf';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type TerraformDataSource } from 'cdktf';
 
 /**
  * Data source map

@@ -1,6 +1,6 @@
-import type { UntypedLogEventRecord } from '../definition/log-event-record';
-import type { LogEventSeverity } from '../definition/log-event-severity';
-import type { Filter } from './filter';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
+import { type LogEventSeverity } from '../definition/log-event-severity';
+import { type Filter } from './filter';
 import { FilterResult } from './filter-result';
 
 /**

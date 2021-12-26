@@ -1,5 +1,10 @@
-import type { CallExpression, SourceFile } from 'typescript';
-import { isCallExpression, isIdentifier, isPropertyAccessExpression } from 'typescript';
+import {
+  type CallExpression,
+  isCallExpression,
+  isIdentifier,
+  isPropertyAccessExpression,
+  type SourceFile
+} from 'typescript';
 
 /**
  * Tests whether a call expression is considered a test call

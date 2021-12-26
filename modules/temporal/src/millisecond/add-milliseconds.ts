@@ -1,13 +1,10 @@
-import { cloneInstant } from '../../clone-instant';
-import type { InstantWithTime } from '../instant-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Adds milliseconds to an instant with time
- * @param instant Instant
+ * Creates a function that adds milliseconds to a temporal
  * @param milliseconds Number of milliseconds to add
- * @returns Instant with the added milliseconds
- * @template T Instant type
+ * @returns Function that adds milliseconds to a temporal
  */
-export function addMilliseconds<T extends InstantWithTime>(instant: T, milliseconds: number): T {
-  return cloneInstant(instant, zdt => zdt.add({ milliseconds }));
+export function addMilliseconds(milliseconds: number): <T extends TemporalWithTime>(temporal: T) => T {
+  return <T extends TemporalWithTime>(temporal: T) => temporal.add({ milliseconds }) as T;
 }

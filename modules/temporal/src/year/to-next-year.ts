@@ -1,6 +1,6 @@
-import type { Temporal } from '@js-temporal/polyfill';
+import { type Temporal } from '@js-temporal/polyfill';
 import { getNowFor } from '../get-now-for';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns a temporal that occurs next year at the same date and time as the passed temporal

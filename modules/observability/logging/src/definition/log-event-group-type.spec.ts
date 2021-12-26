@@ -1,7 +1,7 @@
 import { expectTypeOf } from 'expect-type';
-import type { LogGroup } from '../log-group';
-import type { LogEvent } from './log-event';
-import type { LogEventGroupType } from './log-event-group-type';
+import { type LogEvent } from './log-event';
+import { type LogEventGroupType } from './log-event-group-type';
+import { type LogGroup } from './log-group';
 
 describe('Log event group type', () => {
   it('can infer the group type from a log event', () => {

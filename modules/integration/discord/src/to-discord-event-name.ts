@@ -1,5 +1,5 @@
-import type { ClientEvents } from 'discord.js';
-import type { DiscordEvent } from './discord-event';
+import { type ClientEvents } from 'discord.js';
+import { type DiscordEvent } from './discord-event';
 
 /**
  * Returns the event name from a Discord event

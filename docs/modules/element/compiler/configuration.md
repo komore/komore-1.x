@@ -1,7 +1,7 @@
 # Configuration
 
 ```ts
-import type { ElementCompilerConfigurator } from '@komore/element/compiler';
+import { type ElementCompilerConfigurator } from '@komore/element/compiler';
 import { markdownProcessor } from '@komore/element-compiler-markdown';
 import { scssProcessor } from '@komore/element-compiler-scss';
 import { customProcessor } from './a/b/c';

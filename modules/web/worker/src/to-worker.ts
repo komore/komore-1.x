@@ -1,6 +1,6 @@
-import type { Observer } from '@komore/reactive';
+import { type Observer } from '@komore/reactive';
 import { terminateWorker } from './terminate-worker';
-import type { WorkerObserverOptions } from './worker-observer-options';
+import { type WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Creates a worker observer that posts emitted messages to a worker

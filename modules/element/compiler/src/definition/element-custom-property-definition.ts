@@ -1,4 +1,4 @@
-import type { PropertyDefinition } from '@komore/element/parser';
+import { type PropertyDefinition } from '@komore/element/parser';
 
 /**
  * Element custom property definition

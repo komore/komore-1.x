@@ -1,4 +1,4 @@
-import type { PageOpenGraphMetadataKind } from './page-opengraph-metadata-kind';
+import { type PageOpenGraphMetadataKind } from './page-opengraph-metadata-kind';
 
 /**
  * Page metadata recorder

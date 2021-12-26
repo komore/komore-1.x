@@ -1,4 +1,4 @@
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Template processor

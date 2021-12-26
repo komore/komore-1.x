@@ -1,7 +1,7 @@
-import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { mock } from 'jest-mock-extended';
-import type { DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
 import { dynamoDBSnapshotRepository } from './dynamodb-snapshot-repository';
+import { type DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
 
 jest.mock('@aws-sdk/client-dynamodb', () => ({
   DynamoDBClient: jest.fn().mockImplementation(() => ({

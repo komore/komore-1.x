@@ -1,6 +1,6 @@
-import type { EventMetadata } from './event-metadata';
-import type { EventReducer } from './event-reducer';
-import type { On, OnEventType } from './event-reducer-on';
+import { type EventMetadata } from './event-metadata';
+import { type EventReducer } from './event-reducer';
+import { type On, type OnEventType } from './event-reducer-on';
 
 /**
  * Creates an event reducer

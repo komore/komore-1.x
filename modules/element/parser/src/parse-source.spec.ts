@@ -1,8 +1,8 @@
 import { createDocumentFragment } from '@komore/element/testing';
-import { EMPTY, lastValueFrom } from 'rxjs';
+import { EMPTY, lastValueFrom } from '@komore/reactive';
 import { parseSource } from './parse-source';
-import type { ScriptResourceLoader } from './script/script-resource-loader';
-import type { StyleResourceLoader } from './style/style-resource-loader';
+import { type ScriptResourceLoader } from './script/script-resource-loader';
+import { type StyleResourceLoader } from './style/style-resource-loader';
 
 describe('Parse source', () => {
   const nullScriptResourceLoader: ScriptResourceLoader = () => EMPTY;

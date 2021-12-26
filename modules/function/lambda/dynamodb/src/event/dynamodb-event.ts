@@ -1,4 +1,4 @@
-import type { DynamoDBEventRecord } from './dynamodb-event-record';
+import { type DynamoDBEventRecord } from './dynamodb-event-record';
 
 /**
  * DynamoDB event

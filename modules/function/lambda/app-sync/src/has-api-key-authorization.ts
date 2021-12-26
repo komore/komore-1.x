@@ -1,5 +1,5 @@
-import type { AppSyncEvent } from './event/app-sync-event';
-import type { AppSyncEventWithApiKeyAuthorization } from './event/app-sync-event-with-api-key-authorization';
+import { type AppSyncEvent } from './event/app-sync-event';
+import { type AppSyncEventWithApiKeyAuthorization } from './event/app-sync-event-with-api-key-authorization';
 
 /**
  * Tests whether an AppSync event has an API key authorization

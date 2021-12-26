@@ -1,4 +1,4 @@
-import type { WorkerEmitterOptions } from './worker-emitter-options';
+import { type WorkerEmitterOptions } from './worker-emitter-options';
 
 /**
  * Worker emitter options

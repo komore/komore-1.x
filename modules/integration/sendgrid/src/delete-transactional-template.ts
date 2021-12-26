@@ -1,4 +1,4 @@
-import type { SendGridClient } from './sendgrid-client';
+import { type SendGridClient } from './sendgrid-client';
 
 /**
  * Deletes a transactional template

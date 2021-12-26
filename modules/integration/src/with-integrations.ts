@@ -1,6 +1,5 @@
 import { Message } from '@komore/message';
-import type { OperatorFunction } from '@komore/reactive';
-import { map, pipe } from '@komore/reactive/operators';
+import { map, type OperatorFunction, pipe } from '@komore/reactive';
 import { isMessageWithIntegrations } from '../graph/is-message-with-integrations';
 import { MessageWithIntegrations } from '../graph/message-with-integrations';
 

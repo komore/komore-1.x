@@ -1,4 +1,4 @@
-import type { RouteInjectionType } from './route-injection-type';
+import { type RouteInjectionType } from './route-injection-type';
 
 /**
  * Router injection options

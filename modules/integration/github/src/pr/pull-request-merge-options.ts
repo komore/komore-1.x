@@ -1,4 +1,4 @@
-import type { GithubMergeMethod } from '../github-merge-method';
+import { type GithubMergeMethod } from '../github-merge-method';
 
 /**
  * Pull request merge options

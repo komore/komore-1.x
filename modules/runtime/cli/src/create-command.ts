@@ -1,8 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { of } from '@komore/reactive';
+import { type Observable, of } from '@komore/reactive';
 import { Command } from '@oclif/command';
-import type { args, Input, flags } from '@oclif/parser';
-import type { CommandOptions } from './command-options';
+import { type CommandOptions } from './command-options';
 
 export function createCommand<
   CommandName extends string,

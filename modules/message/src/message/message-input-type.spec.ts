@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { Message } from './message';
-import type { MessageInputType } from './message-input-type';
+import { type Message } from './message';
+import { type MessageInputType } from './message-input-type';
 
 describe('Message input type', () => {
   it('can infer the message input type', () => {

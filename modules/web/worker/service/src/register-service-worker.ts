@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive';
+import { deferPromise, type Observable } from '@komore/reactive';
 
 /**
  * Registers a service worker

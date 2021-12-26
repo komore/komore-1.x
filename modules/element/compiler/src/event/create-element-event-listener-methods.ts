@@ -1,8 +1,8 @@
-import type { MethodSignature, NodeFactory, TypeNode, TypeReferenceNode } from 'typescript';
+import { type MethodSignature, type NodeFactory, type TypeNode, type TypeReferenceNode } from 'typescript';
 import { createElementAddEventListener } from './create-element-add-event-listener';
 import { createElementRemoveEventListener } from './create-element-remove-event-listener';
 import { createEventMapIndexParameter } from './element-event-listener-helpers';
-import type { EventListenerTypedInformation } from './event-listener-typed-information';
+import { type EventListenerTypedInformation } from './event-listener-typed-information';
 
 /**
  * Creates an element's event listener methods

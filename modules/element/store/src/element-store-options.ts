@@ -1,13 +1,13 @@
-import type { Event, EventReducer } from '@komore/event';
+import { type Event, type EventReducer } from '@komore/event';
 
 /**
  * Element store local options
  */
-export interface StoreLocalOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
+export interface ElementStoreLocalOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
   readonly eventReducer: EventReducer<StateType, EventTypes>;
 }
 
-export interface StoreWorkerOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
+export interface ElementStoreWorkerOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
   scriptUrl: URL;
   
 }
@@ -15,6 +15,6 @@ export interface StoreWorkerOptions<StateType, EventTypes extends Event<string, 
 /**
  * Element store options
  */
-export interface StoreOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
+export interface ElementStoreOptions<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
   _?: unknown;
 }

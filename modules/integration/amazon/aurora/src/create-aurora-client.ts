@@ -1,5 +1,4 @@
-import type { RDSDataClientConfig } from '@aws-sdk/client-rds-data';
-import { RDSDataClient } from '@aws-sdk/client-rds-data';
+import { RDSDataClient, type RDSDataClientConfig } from '@aws-sdk/client-rds-data';
 
 /**
  * Creates an Aurora client

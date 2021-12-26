@@ -1,8 +1,6 @@
-import type { CompletionObserver, NextObserver } from '@komore/reactive';
-import { combineLatest, mergeMap, Subject, takeUntil } from '@komore/reactive';
-import type { PathLike } from 'fs';
-import type { FileHandle } from 'fs/promises';
-import { write } from 'fs/promises';
+import { combineLatest, type CompletionObserver, mergeMap, type NextObserver, Subject, takeUntil } from '@komore/reactive';
+import { type PathLike } from 'fs';
+import { type FileHandle, write } from 'fs/promises';
 import { openFile } from './open-file';
 
 /**

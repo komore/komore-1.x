@@ -1,5 +1,4 @@
-import type { MonoTypeOperatorFunction, OperatorFunction } from '@komore/reactive';
-import { assertThat } from '@komore/reactive';
+import { assertThat, type MonoTypeOperatorFunction, type OperatorFunction } from '@komore/reactive';
 import { ConstraintViolationError } from './error/constraint-violation-error';
 
 /**

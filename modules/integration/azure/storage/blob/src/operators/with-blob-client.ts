@@ -1,4 +1,4 @@
-import type { BlobServiceClient } from '@azure/storage-blob';
+import { type BlobServiceClient } from '@azure/storage-blob';
 import { withAzureClient } from '@komore/integration-azure';
 import { createBlobClient } from '../create-blob-client';
 

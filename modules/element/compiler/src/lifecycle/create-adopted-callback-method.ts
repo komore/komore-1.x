@@ -1,4 +1,4 @@
-import type { Expression, Identifier, MethodDeclaration, NodeFactory } from 'typescript';
+import { type Expression, type Identifier, type MethodDeclaration, type NodeFactory } from 'typescript';
 import { createLifecycleCallbackMethod } from './create-lifecycle-callback-method';
 
 /**

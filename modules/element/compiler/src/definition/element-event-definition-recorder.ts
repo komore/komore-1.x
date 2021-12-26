@@ -1,4 +1,4 @@
-import type { ElementEventDefinition } from './element-event-definition';
+import { type ElementEventDefinition } from './element-event-definition';
 
 /**
  * Element event definition recorder

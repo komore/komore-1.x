@@ -1,4 +1,4 @@
-import type { CloudFrontEventConfig } from './cloud-front-event-config';
+import { type CloudFrontEventConfig } from './cloud-front-event-config';
 
 /**
  * CloudFront event

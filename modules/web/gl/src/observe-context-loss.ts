@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, fromEvent } from '@komore/reactive';
+import { defer, fromEvent, type Observable } from '@komore/reactive';
 
 /**
  * Observes a WebGL context loss

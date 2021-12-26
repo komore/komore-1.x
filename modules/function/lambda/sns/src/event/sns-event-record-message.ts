@@ -1,4 +1,4 @@
-import type { SnsEventRecordMessageAttribute } from './sns-event-record-message-attribute';
+import { type SnsEventRecordMessageAttribute } from './sns-event-record-message-attribute';
 
 /**
  * SNS event record message

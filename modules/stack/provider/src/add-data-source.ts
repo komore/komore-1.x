@@ -1,10 +1,8 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { of } from '@komore/reactive';
-import { mergeMap } from '@komore/reactive/operators';
-import type { GenericScope } from '@komore/stack';
+import { mergeMap, of, type OperatorFunction } from '@komore/reactive';
+import { type GenericScope } from '@komore/stack';
 import { withDataSource } from '@komore/stack/operators';
-import type { TerraformDataSource, TerraformMetaArguments } from 'cdktf';
-import type { Construct } from 'constructs';
+import { type TerraformDataSource, type TerraformMetaArguments } from 'cdktf';
+import { type Construct } from 'constructs';
 
 /**
  * Adds a data source

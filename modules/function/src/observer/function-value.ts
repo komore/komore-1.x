@@ -1,4 +1,4 @@
-import type { FunctionCallInformation } from './function-call-information';
+import { type FunctionCallInformation } from './function-call-information';
 
 /**
  * Function value

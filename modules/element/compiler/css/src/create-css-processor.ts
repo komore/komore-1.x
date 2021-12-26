@@ -1,23 +1,22 @@
-import { of } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
-import type { ProcessedStyleSheet, StyleProcessor } from '@komore/element/compiler/processor';
+import { map, type Observable, of, switchMap } from '@komore/reactive';
+import { type StyleProcessor } from '@komore/element/compiler/processor';
+import { toCssStyleSheet } from '@komore/element/styling';
+import { CssProcessorOptions } from './css-processor-options';
 
 /**
  * Creates a CSS style processor
  * @param options Options
  * @returns CSS style processor
  */
-export function createCssProcessor(_: unknown): StyleProcessor {
-  return content => content.pipe(
-    tapValue(content => console.log('wee css', content)),
-
-    const cssStyleSheet = new CSSStyleSheet();
-    cssStyleSheet.
-    const processedStyleSheet: ProcessedStyleSheet = {
-      propertyDefinitions: [],
-      referencedProperties: new Set(),
-      cssStyleSheet
-    };
-    return of(processedStyleSheet);
-  );
+export function createCssProcessor(_: CssProcessorOptions): Observable<StyleProcessor> {
+  const cssProcessor: StyleProcessor = content =>
+    content.pipe(
+      switchMap(toCssStyleSheet()),
+      map(cssStyleSheet => ({
+        propertyDefinitions: [],
+        referencedProperties: new Set(),
+        cssStyleSheet
+      }))
+    );
+  return of(cssProcessor);
 }

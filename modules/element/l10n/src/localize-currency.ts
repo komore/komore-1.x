@@ -1,10 +1,7 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { combineLatest, of } from '@komore/reactive';
-import { map, pipe, withLatestFrom } from '@komore/reactive/operators';
-import type { Locales } from '@komore/web/l10n';
+import { combineLatest, map, type Observable, of, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { type CurrencyLocalizationOptions, type Locales } from '@komore/web/l10n';
 import { asObservableLocales } from './as-observable-locales';
 import { DEFAULT_CURRENCY } from './default-currency';
-import type { CurrencyLocalizationOptions } from './options/currency-localization-options';
 
 /**
  * Localizes a currency

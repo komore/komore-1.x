@@ -1,5 +1,5 @@
-import type { SendGridWarning } from './sendgrid-warning';
-import type { TransactionalTemplateGenerationType } from './transactional-template-generation-type';
+import { type SendGridWarning } from './sendgrid-warning';
+import { type TransactionalTemplateGenerationType } from './transactional-template-generation-type';
 
 /**
  * Create transactional template response

@@ -1,10 +1,10 @@
 import { SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
 import { MetadataBearer } from '@aws-sdk/types';
 import { MessageWithIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
+import { type Message } from '@komore/message';
 import { getAmazonIntegrations } from './get-amazon-integrations';
-import type { MessageWithAmazonClient } from '../message/message-with-amazon-client';
-import type { MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
+import { type MessageWithAmazonClient } from '../message/message-with-amazon-client';
+import { type MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
 
 /**
  * Tests wether a specific AWS client is available within the message

@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { TypeSchema } from './type-schema';
-import type { TypeSchemaType } from './type-schema-type';
+import { type TypeSchema } from './type-schema';
+import { type TypeSchemaType } from './type-schema-type';
 
 describe('Type schema type', () => {
   it('can infer the type name of a type schema', () => {

@@ -1,4 +1,4 @@
-import type { HSL } from './hsl';
+import { type HSL } from './hsl';
 
 /**
  * Returns the hue component from an HSL color

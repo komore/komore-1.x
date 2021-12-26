@@ -1,4 +1,4 @@
-import type { ApiGatewayEvent } from './api-gateway-event';
+import { type ApiGatewayEvent } from './api-gateway-event';
 
 /**
  * Tests whether an event is an API Gateway event

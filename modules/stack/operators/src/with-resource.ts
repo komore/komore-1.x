@@ -1,7 +1,6 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import type { TerraformResource } from 'cdktf';
-import type { GenericScope, ScopeWithAddedResource } from '@komore/stack';
+import { map, type OperatorFunction } from '@komore/reactive';
+import { type GenericScope, type ScopeWithAddedResource } from '@komore/stack';
+import { type TerraformResource } from 'cdktf';
 
 export function withResource<
   ScopeType extends GenericScope,

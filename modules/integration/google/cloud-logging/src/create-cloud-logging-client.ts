@@ -1,5 +1,4 @@
-import type { LoggingOptions } from '@google-cloud/logging';
-import { Logging } from '@google-cloud/logging';
+import { Logging, type LoggingOptions } from '@google-cloud/logging';
 
 /**
  * Creates a Cloud Logging client

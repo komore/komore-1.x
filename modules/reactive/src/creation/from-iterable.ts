@@ -1,6 +1,6 @@
-import type { IterableValueType } from '@komore/typescript';
+import { type IterableValueType } from '@komore/typescript';
 import { from as rxjsFrom } from 'rxjs';
-import type { Observable } from '../observable/observable';
+import { type Observable } from '../observable';
 
 /**
  * Creates an observable that emits all values from an iterable then completes

@@ -1,4 +1,4 @@
-import type { ContentModeratorClient } from '@azure/cognitiveservices-contentmoderator';
+import { type ContentModeratorClient } from '@azure/cognitiveservices-contentmoderator';
 import { withAzureClient } from '@komore/integration-azure';
 import { createContentModeratorClient } from '../create-content-moderator-client';
 

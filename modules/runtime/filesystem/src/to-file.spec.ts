@@ -1,4 +1,4 @@
-import type { FileHandle } from 'fs/promises';
+import { type FileHandle } from 'fs/promises';
 import { toFile } from './to-file';
 
 describe('To file operator', () => {

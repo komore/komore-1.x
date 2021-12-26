@@ -1,8 +1,8 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { AppSyncEventIdentity } from './app-sync-event-identity';
-import type { AppSyncEventInfo } from './app-sync-event-info';
-import type { AppSyncEventPreviousOperation } from './app-sync-event-previous-operation';
-import type { AppSyncEventRequest } from './app-sync-event-request';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type AppSyncEventIdentity } from './app-sync-event-identity';
+import { type AppSyncEventInfo } from './app-sync-event-info';
+import { type AppSyncEventPreviousOperation } from './app-sync-event-previous-operation';
+import { type AppSyncEventRequest } from './app-sync-event-request';
 
 /**
  * AppSync event

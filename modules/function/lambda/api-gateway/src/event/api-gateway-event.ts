@@ -1,5 +1,5 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { ApiGatewayEventRequestContext } from './api-gateway-event-request-context';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type ApiGatewayEventRequestContext } from './api-gateway-event-request-context';
 
 /**
  * API gateway event

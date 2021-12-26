@@ -1,5 +1,3 @@
-import type { PropertyDefinition } from './property-definition';
-
 const regExp = /^\s*(--[^\s,)]+)\s*((?:,\s*)(.*))?$/;
 
 /**

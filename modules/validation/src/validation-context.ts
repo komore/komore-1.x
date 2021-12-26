@@ -1,4 +1,4 @@
-import type { ValidatorOptions } from './validator-options';
+import { type ValidatorOptions } from './validator-options';
 
 /**
  * Validation context

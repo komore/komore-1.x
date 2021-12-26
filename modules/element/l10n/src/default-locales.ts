@@ -1,7 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { ReplaySubject } from '@komore/reactive';
-import { cache } from '@komore/reactive/operators';
-import type { Locales } from '@komore/web/l10n';
+import { cache, type Observable, ReplaySubject } from '@komore/reactive';
+import { type Locales } from '@komore/web/l10n';
 
 /**
  * Default locales subject

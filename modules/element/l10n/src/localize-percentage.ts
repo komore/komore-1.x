@@ -1,8 +1,6 @@
-import { asObservableLocales } from '@komore/element/l10n';
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { map, pipe, withLatestFrom } from '@komore/reactive/operators';
-import type { Locales } from '@komore/web/l10n';
-import type { PercentageLocalizationOptions } from './options/percentage-localization-options';
+import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { type Locales, type PercentageLocalizationOptions } from '@komore/web/l10n';
+import { asObservableLocales } from './as-observable-locales';
 
 /**
  * Localizes a percentage

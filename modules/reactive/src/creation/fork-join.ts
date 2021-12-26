@@ -1,7 +1,7 @@
 import { forkJoin as rxjsForkJoin } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { ObservableTuple } from '../observable/observable-tuple';
-import type { ObservableType } from '../observable/observable-type';
+import { type Observable } from '../observable';
+import { type ObservableTuple } from '../observable-tuple';
+import { type ObservableType } from '../observable-type';
 
 /**
  * Waits for each observable in the list to complete, then emits the last value from each observable

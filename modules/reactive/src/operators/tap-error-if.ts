@@ -1,5 +1,5 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { tap } from './tap';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { tapError } from './tap-error';
 
 /**
  * Performs side-effects on the source observable's errors when a condition is met
@@ -34,11 +34,9 @@ export function tapErrorIf<T>(
   predicate: (error: unknown) => boolean,
   errorObserver: (error: unknown) => void
 ): MonoTypeOperatorFunction<T> {
-  return tap({
-    error(error: unknown) {
-      if (predicate(error)) {
-        errorObserver(error);
-      }
+  return tapError(error => {
+    if (predicate(error)) {
+      errorObserver(error);
     }
   });
 }

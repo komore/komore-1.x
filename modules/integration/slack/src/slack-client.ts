@@ -1,4 +1,4 @@
-import type { WebClient } from '@slack/web-api';
+import { type WebClient } from '@slack/web-api';
 
 /**
  * Slack client

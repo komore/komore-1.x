@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import type { Event } from '@komore/event';
+import { type Event } from '@komore/event';
 import { mocked } from 'ts-jest/utils';
-import type { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
+import { type DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
 import { DynamoDBEventRepository } from './dynamodb-event-repository';
 
 jest.mock('@aws-sdk/client-dynamodb', () => ({

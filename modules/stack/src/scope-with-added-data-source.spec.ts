@@ -1,13 +1,13 @@
 import { TerraformDataSource } from 'cdktf';
 import { expectTypeOf } from 'expect-type';
-import type { DataSourceMap } from './data-source-map';
-import type { ResourceMap } from './resource-map';
-import type { Scope } from './scope';
-import type { ScopeWithAddedDataSource } from './scope-with-added-data-source';
-import type { TypedLocal } from './typed-local';
-import type { TypedOutput } from './typed-output';
-import type { TypedVariable } from './typed-variable';
-import type { Types } from './types';
+import { type DataSourceMap } from './data-source-map';
+import { type ResourceMap } from './resource-map';
+import { type Scope } from './scope';
+import { type ScopeWithAddedDataSource } from './scope-with-added-data-source';
+import { type TypedLocal } from './typed-local';
+import { type TypedOutput } from './typed-output';
+import { type TypedVariable } from './typed-variable';
+import { type Types } from './types';
 
 class TestDataSource extends TerraformDataSource {}
 

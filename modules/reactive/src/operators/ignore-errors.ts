@@ -1,5 +1,6 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { EMPTY, throwError } from '@komore/reactive';
+import { EMPTY } from '../creation/empty';
+import { throwError } from '../creation/throw-error';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { catchError } from './catch-error';
 
 /**

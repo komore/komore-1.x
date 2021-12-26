@@ -1,10 +1,10 @@
-import type { BaseGeneratorOptions } from '../base-generator-options';
+import { type BaseGeneratorOptions } from '../base-generator-options';
 
 /**
  * Function generator options
  */
 export interface FunctionGeneratorOptions extends BaseGeneratorOptions {
-  name: string;
-  tags?: string;
-  directory?: string;
+  readonly directory?: string;
+  readonly name: string;
+  readonly tags?: string;
 }

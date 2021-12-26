@@ -1,6 +1,5 @@
-import type { NodeFactory, SourceFile, Statement } from 'typescript';
-import { NodeFlags, SyntaxKind } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type NodeFactory, NodeFlags, type SourceFile, type Statement, SyntaxKind } from 'typescript';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createElementEventMap } from '../event/create-element-event-map';
 import { createElementInterfaceConstructor } from './create-element-interface-constructor';
 import { createElementInterfaceDeclaration } from './create-element-interface-declaration';

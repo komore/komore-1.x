@@ -1,5 +1,5 @@
-import type { TemplateProcessor } from '@komore/element/compiler/processor'
-import type { HtmlProcessorOptions } from './html-processor-options';
+import { type TemplateProcessor } from '@komore/element/compiler/processor'
+import { type HtmlProcessorOptions } from './html-processor-options';
 
 /**
  * Creates an HTML processor

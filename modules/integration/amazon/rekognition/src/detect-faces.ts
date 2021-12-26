@@ -1,4 +1,4 @@
-import type { DetectFacesCommandInput, RekognitionClient } from '@aws-sdk/client-rekognition';
+import { type DetectFacesCommandInput, type RekognitionClient } from '@aws-sdk/client-rekognition';
 import { DetectFacesCommand } from '@aws-sdk/client-rekognition';
 import { sendCommand } from '@komore/integration-amazon';
 

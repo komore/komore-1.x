@@ -1,4 +1,4 @@
-import type { TSESLint, TSESTree } from '@typescript-eslint/experimental-utils';
+import { type TSESLint, type TSESTree } from '@typescript-eslint/experimental-utils';
 
 /**
  * Creates a function that returns a report descriptor from a node and a message identifier

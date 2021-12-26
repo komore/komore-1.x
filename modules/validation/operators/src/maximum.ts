@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '@komore/reactive';
 import { constraint } from './constraint';
 
 export function maximum(maximum: number): MonoTypeOperatorFunction<number> {

@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { IndexedDBMigration } from './indexeddb-migration';
+import { type Observable } from '@komore/reactive';
+import { type IndexedDBMigration } from './indexeddb-migration';
 
 /**
  * Creates an IndexedDB migration

@@ -1,4 +1,4 @@
-import type { CapacitorHost } from '@komore/application-capacitor';
+import { type CapacitorHost } from '@komore/application-capacitor';
 
 /**
  * Android host

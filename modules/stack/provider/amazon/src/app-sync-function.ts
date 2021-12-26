@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { AppsyncFunctionConfig } from './.gen/appsync-function';
-import { AppsyncFunction } from './.gen/appsync-function';
+import { AppsyncFunction, type AppsyncFunctionConfig } from './.gen/appsync-function';
 
 /**
  * Adds an AppSync function resource

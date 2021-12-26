@@ -1,8 +1,7 @@
 import { fromEvent, map, Subject } from '@komore/reactive';
-import type { HostLifecycleEvent, HostState } from '@komore/runtime';
-import { HostError } from '@komore/runtime';
-import type { BrowserHost } from './browser-host';
-import type { BrowserHostOptions } from './browser-host-options';
+import { HostError, type HostLifecycleEvent, type HostState } from '@komore/runtime';
+import { type BrowserHost } from './browser-host';
+import { type BrowserHostOptions } from './browser-host-options';
 import { buildBrowserHostOptions } from './build-browser-host-options';
 
 /**

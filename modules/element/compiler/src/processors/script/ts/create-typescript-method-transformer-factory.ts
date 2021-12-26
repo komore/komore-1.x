@@ -1,9 +1,14 @@
-import { recordLogEvent } from '@komore/observability/logging';
-import type { FunctionDeclaration, SourceFile, TransformerFactory, Visitor } from 'typescript';
-import { getCombinedModifierFlags, isFunctionDeclaration, ModifierFlags, visitEachChild } from 'typescript';
-import type { ElementMethodDefinition } from '../../../definition/element-method-definition';
-import type { ElementMethodDefinitionRecorder } from '../../../definition/element-method-definition-recorder';
-import { exportedAnynomousFunctionAsElementMethod } from '../../../element-compiler-logs';
+import {
+  getCombinedModifierFlags,
+  isFunctionDeclaration,
+  ModifierFlags,
+  type SourceFile,
+  type TransformerFactory,
+  visitEachChild,
+  type Visitor
+} from 'typescript';
+import { type ElementMethodDefinitionRecorder } from '../../../definition/element-method-definition-recorder';
+import { processExportedTypeScriptFunctionDeclaration } from './process-exported-typescript-function-declaration';
 
 /**
  * Creates a TypeScript transformer for element method statements
@@ -24,7 +29,7 @@ export function createTypeScriptMethodTransformerFactory(
         const modifierFlags = getCombinedModifierFlags(node);
 
         if (modifierFlags & ModifierFlags.Export) {
-          const methodDefinition = processExportedFunctionDeclaration(functionDeclaration);
+          const methodDefinition = processExportedTypeScriptFunctionDeclaration(functionDeclaration);
           if (methodDefinition !== undefined) {
             methodDefinitionRecorder(methodDefinition);      
           }
@@ -35,28 +40,5 @@ export function createTypeScriptMethodTransformerFactory(
     };
 
     return node => visitEachChild(node, visitor, transformationContext);
-  };
-}
-
-/**
- * Processes an exported function declaration
- * @param functionDeclaration Function declaration
- * @returns Element method definition
- */
-function processExportedFunctionDeclaration(
-  functionDeclaration: FunctionDeclaration
-): ElementMethodDefinition | undefined {
-  const name = functionDeclaration.name;
-
-  if (name === undefined) {
-    recordLogEvent(exportedAnynomousFunctionAsElementMethod());
-    return;
-  }
-
-  const functionName = name.text;
-
-  return {
-    functionDeclaration,
-    functionName
   };
 }

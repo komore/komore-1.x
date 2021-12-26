@@ -1,6 +1,6 @@
-import type { MethodSignature, NodeFactory } from 'typescript';
+import { type MethodSignature, type NodeFactory } from 'typescript';
 import { createAddRemoveEventListenerMethodSignature } from './element-event-listener-helpers';
-import type { EventListenerTypedInformation } from './event-listener-typed-information';
+import { type EventListenerTypedInformation } from './event-listener-typed-information';
 
 /**
  * Creates a default or typed removeEventListener method signature

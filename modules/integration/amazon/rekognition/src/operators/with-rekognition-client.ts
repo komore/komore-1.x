@@ -1,4 +1,4 @@
-import type { RekognitionClient } from '@aws-sdk/client-rekognition';
+import { type RekognitionClient } from '@aws-sdk/client-rekognition';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createRekognitionClient } from '../create-rekognition-client';
 

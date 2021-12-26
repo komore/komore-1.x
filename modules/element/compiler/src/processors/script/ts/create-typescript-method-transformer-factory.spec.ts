@@ -1,7 +1,7 @@
-import type { MockProxy } from 'jest-mock-extended';
+import { type MockProxy } from 'jest-mock-extended';
 import { mock } from 'jest-mock-extended';
-import type { EmptyStatement, NodeFactory, TransformationContext } from 'typescript';
-import type { ElementMethodDefinition } from '../../../definition/element-method-definition';
+import { type EmptyStatement, type NodeFactory, type TransformationContext } from 'typescript';
+import { type ElementMethodDefinition } from '../../../definition/element-method-definition';
 import { createTypeScriptMethodTransformerFactory } from './create-typescript-method-transformer-factory';
 
 describe('Create TypeScript method transformer factory', () => {

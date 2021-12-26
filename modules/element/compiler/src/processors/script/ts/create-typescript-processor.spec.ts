@@ -1,6 +1,5 @@
-import { of } from '@komore/reactive';
-import { lastValueFrom } from '@komore/reactive/promise';
-import type { ScriptProcessorInput } from '../script-processor-input';
+import { lastValueFrom, of } from '@komore/reactive';
+import { type ScriptProcessorInput } from '../script-processor-input';
 import { createTypeScriptProcessor } from './create-typescript-processor';
 
 describe('Create a TypeScript processor', () => {

@@ -1,4 +1,4 @@
-import type { CognitoEvent } from './cognito-event';
+import { type CognitoEvent } from './cognito-event';
 import { isCognitoEvent } from './is-cognito-event';
 
 describe('Is Cognito event', () => {

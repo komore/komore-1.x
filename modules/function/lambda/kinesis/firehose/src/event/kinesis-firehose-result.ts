@@ -1,4 +1,4 @@
-import type { KinesisFirehoseResultRecord } from './kinesis-firehose-result-record';
+import { type KinesisFirehoseResultRecord } from './kinesis-firehose-result-record';
 
 /**
  * Kinesis Firehose result

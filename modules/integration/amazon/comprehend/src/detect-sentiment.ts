@@ -1,5 +1,8 @@
-import type { ComprehendClient, DetectSentimentCommandInput } from '@aws-sdk/client-comprehend';
-import { DetectSentimentCommand } from '@aws-sdk/client-comprehend';
+import {
+  type ComprehendClient,
+  DetectSentimentCommand,
+  type DetectSentimentCommandInput
+} from '@aws-sdk/client-comprehend';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

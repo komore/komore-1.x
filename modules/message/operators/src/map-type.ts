@@ -1,6 +1,5 @@
-import type { Message, MutatedMessageTypeName } from '@komore/message';
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
+import { type Message, type MutatedMessageTypeName } from '@komore/message';
+import { map, type OperatorFunction } from '@komore/reactive';
 
 /**
  * Operator function that maps a message to a message with a new type

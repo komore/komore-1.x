@@ -1,5 +1,5 @@
-import type { NodeFactory, PropertySignature } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type NodeFactory, type PropertySignature } from 'typescript';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementInterfaceProperty } from './create-element-interface-property';
 
 /**

@@ -1,6 +1,6 @@
 import { createLambdaEventTypeTest } from '@komore/function-lambda';
-import type { CognitoEvent } from './cognito-event';
-import type { CognitoEventMap } from './cognito-event-map';
+import { type CognitoEvent } from './cognito-event';
+import { type CognitoEventMap } from './cognito-event-map';
 
 /**
  * Tests whether an event is a Cognito event

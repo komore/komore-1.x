@@ -1,4 +1,4 @@
-import type { DynamoDBEventAttributeNames } from './dynamodb-event-attribute-names';
+import { type DynamoDBEventAttributeNames } from './dynamodb-event-attribute-names';
 
 const defaultAttributeNames = {
   aggregateKey: 'AggregateKey',

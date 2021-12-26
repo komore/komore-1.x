@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { LogGroup } from './log-group';
-import type { LogGroupName } from './log-group-name';
+import { type LogGroup } from './log-group';
+import { type LogGroupName } from './log-group-name';
 
 describe('Log group name', () => {
   it('can infer a log group name', () => {

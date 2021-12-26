@@ -1,4 +1,4 @@
-import type { LambdaEventIdentity } from '@komore/function-lambda';
+import { type LambdaEventIdentity } from '@komore/function-lambda';
 
 /**
  * S3 event record message bucket

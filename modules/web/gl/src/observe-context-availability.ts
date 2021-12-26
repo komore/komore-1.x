@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { mapTo, merge } from '@komore/reactive';
+import { mapTo, merge, type Observable } from '@komore/reactive';
 import { observeContextLoss } from './observe-context-loss';
 
 /**

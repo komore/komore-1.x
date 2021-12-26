@@ -1,5 +1,5 @@
-import type { Observable } from 'rxjs';
-import type { UrlMatch } from './url-match';
+import { type Observable } from '@komore/reactive';
+import { type UrlMatch } from './url-match';
 
 /**
  * Router matcher

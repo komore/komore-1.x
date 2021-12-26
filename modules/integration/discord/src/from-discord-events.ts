@@ -1,6 +1,6 @@
 import { Observable } from '@komore/reactive';
-import type { Client, ClientEvents } from 'discord.js';
-import type { DiscordEvent } from './discord-event';
+import { type Client, type ClientEvents } from 'discord.js';
+import { type DiscordEvent } from './discord-event';
 
 /**
  * Creates an observable that emits events from a Discord client

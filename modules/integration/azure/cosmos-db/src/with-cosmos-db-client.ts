@@ -1,5 +1,5 @@
-import type { CosmosClient } from '@azure/cosmos';
 import { withAzureClient } from '@komore/integration-azure';
+import { type CosmosDBClient } from './cosmos-db-client';
 import { createCosmosDBClient } from './create-cosmos-db-client';
 
 /**
@@ -7,5 +7,5 @@ import { createCosmosDBClient } from './create-cosmos-db-client';
  * @param cosmosDBClient Cosmos DB client
  * @returns Operator function that turns a message into a message with a Cosmos DB client
  */
-export const withCosmosDBClient = (cosmosDBClient?: CosmosClient) =>
+export const withCosmosDBClient = (cosmosDBClient?: CosmosDBClient) =>
   withAzureClient('cosmosdb', cosmosDBClient ?? createCosmosDBClient());

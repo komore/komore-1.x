@@ -1,5 +1,5 @@
 import { isDefined } from '@komore/functional';
-import type { FunctionMock } from '@komore/testing';
+import { type FunctionMock } from '@komore/testing';
 import { testMutationObserverRegistry } from './test-mutation-observer-registry';
 
 /**

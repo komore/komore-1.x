@@ -1,5 +1,11 @@
-import type { ClassDeclaration, NodeFactory, SourceFile, Statement } from 'typescript';
-import { NodeFlags, SyntaxKind } from 'typescript';
+import {
+  type ClassDeclaration,
+  type NodeFactory,
+  NodeFlags,
+  type SourceFile,
+  type Statement,
+  SyntaxKind
+} from 'typescript';
 
 /**
  * Creates an element class source

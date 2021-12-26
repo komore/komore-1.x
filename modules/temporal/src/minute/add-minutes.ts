@@ -1,12 +1,10 @@
-import { cloneTemporal } from '../../clone-temporal';
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
- * Adds minutes to a temporal with time
- * @param temporal Temporal
+ * Creates a function that adds minutes to a temporal
  * @param minutes Number of minutes to add
- * @returns Temporal with the added minutes
+ * @returns Function that adds minutes to a temporal
  */
-export function addMinutes<T extends TemporalWithTime>(temporal: T, minutes: number): T {
-  return cloneTemporal(temporal, d => d.setMinutes(d.getMinutes() + minutes));
+export function addMinutes(minutes: number): <T extends TemporalWithTime>(temporal: T) => T {
+  return <T extends TemporalWithTime>(temporal: T) => temporal.add({ minutes }) as T;
 }

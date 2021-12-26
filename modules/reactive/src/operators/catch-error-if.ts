@@ -1,6 +1,6 @@
 import { throwError } from '../creation/throw-error';
-import type { Observable } from '../observable/observable';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type Observable } from '../observable';
+import { type OperatorFunction } from '../operator-function';
 import { catchError } from './catch-error';
 
 /**

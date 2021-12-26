@@ -1,5 +1,4 @@
-import type { ListHostedZonesCommandInput, Route53Client } from '@aws-sdk/client-route-53';
-import { ListHostedZonesCommand } from '@aws-sdk/client-route-53';
+import { ListHostedZonesCommand, type ListHostedZonesCommandInput, type Route53Client } from '@aws-sdk/client-route-53';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

@@ -1,5 +1,4 @@
-import type { EventBridgeClientConfig } from '@aws-sdk/client-eventbridge';
-import { EventBridgeClient } from '@aws-sdk/client-eventbridge';
+import { EventBridgeClient, type EventBridgeClientConfig } from '@aws-sdk/client-eventbridge';
 
 /**
  * Creates an EventBridge client

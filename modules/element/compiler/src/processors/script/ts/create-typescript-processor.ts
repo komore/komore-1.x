@@ -1,18 +1,26 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map, pipe } from '@komore/reactive/operators';
-import type { Printer, SourceFile, TransformerFactory } from 'typescript';
-import { createPrinter, createSourceFile, NewLineKind, ScriptKind, ScriptTarget, transform } from 'typescript';
-import type { ElementEventDefinition } from '../../../definition/element-event-definition';
-import type { ElementMethodDefinition } from '../../../definition/element-method-definition';
-import type { ElementPropertyDefinition } from '../../../definition/element-property-definition';
-import type { ScriptProcessor } from '../script-processor';
-import type { ScriptProcessorInput } from '../script-processor-input';
-import type { ScriptProcessorOutput } from '../script-processor-output';
+import { map, type OperatorFunction, pipe } from '@komore/reactive';
+import {
+  createPrinter,
+  createSourceFile,
+  NewLineKind,
+  type Printer,
+  ScriptKind,
+  ScriptTarget,
+  type SourceFile,
+  transform,
+  type TransformerFactory
+} from 'typescript';
+import { type ElementEventDefinition } from '../../../definition/element-event-definition';
+import { type ElementMethodDefinition } from '../../../definition/element-method-definition';
+import { type ElementPropertyDefinition } from '../../../definition/element-property-definition';
+import { type ScriptProcessor } from '../script-processor';
+import { type ScriptProcessorInput } from '../script-processor-input';
+import { type ScriptProcessorOutput } from '../script-processor-output';
 import { createTypeScriptEventTransformerFactory } from './create-typescript-event-transformer-factory';
 import { createTypeScriptImportTransformerFactory } from './create-typescript-import-transformer-factory';
 import { createTypeScriptMethodTransformerFactory } from './create-typescript-method-transformer-factory';
 import { createTypeScriptPropertyTransformerFactory } from './create-typescript-property-transformer-factory';
-import type { TypeScriptProcessorOptions } from './typescript-processor-options';
+import { type TypeScriptProcessorOptions } from './typescript-processor-options';
 
 /**
  * Creates a TypeScript processor

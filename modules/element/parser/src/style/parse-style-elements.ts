@@ -1,8 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { forkJoin } from '@komore/reactive';
-import { defaultIfEmpty } from '@komore/reactive/operators';
+import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
 import { loadStyleElement } from './load-style-element';
-import type { StyleResourceLoader } from './style-resource-loader';
+import { type StyleResourceLoader } from './style-resource-loader';
 
 /**
  * Parses style or link elements, loading them from external sources if necessary

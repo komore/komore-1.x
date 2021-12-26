@@ -1,4 +1,4 @@
-import type { LogGroup } from './log-group';
+import { type LogGroup } from './log-group';
 
 /**
  * Creates a log group

@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from '../temporal-with-date';
-import { isWeekEnd } from './is-week-end';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { isWeekEnd } from '../week-end/is-week-end';
 
 export function isWeekAfter(referenceTemporal: TemporalWithDate): (temporal: TemporalWithDate) => boolean {
   const referencePlainDate = asPlainDate(referenceTemporal);

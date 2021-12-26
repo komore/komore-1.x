@@ -1,10 +1,10 @@
-import type { BehaviorSubject, Observable } from 'rxjs';
+import { type Observable, type ReplaySubject } from '@komore/reactive';
 
 /**
  * Element property subject
  * @template T Observable value type
  */
 export interface ElementPropertySubject<T> {
-  readonly s: BehaviorSubject<string | undefined>;
+  readonly s: ReplaySubject<string | undefined>;
   readonly $: Observable<T>;
 }

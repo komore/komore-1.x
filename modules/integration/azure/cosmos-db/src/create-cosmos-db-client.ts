@@ -1,5 +1,5 @@
-import type { CosmosClientOptions } from '@azure/cosmos';
-import { CosmosClient } from '@azure/cosmos';
+import { CosmosClient, type CosmosClientOptions } from '@azure/cosmos';
+import { type CosmosDBClient } from './cosmos-db-client';
 
 /**
  * Environment variables
@@ -22,7 +22,7 @@ declare global {
 export function createCosmosDBClient(
   endpointUrl?: string,
   options?: Omit<CosmosClientOptions, 'endpoint'>
-): CosmosClient {
+): CosmosDBClient {
   return new CosmosClient({
     ...options,
     endpoint: endpointUrl ?? process.env.KMR_INTEGRATION_AZURE_COSMOSDB_ENDPOINT,

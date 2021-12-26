@@ -1,6 +1,6 @@
-import type { ProcessorFactory } from '../processor-factory';
-import type { TemplateProcessor } from './template-processor';
-import type { TemplateProcessorOptions } from './template-processor-options';
+import { type ProcessorFactory } from '../processor-factory';
+import { type TemplateProcessor } from './template-processor';
+import { type TemplateProcessorOptions } from './template-processor-options';
 
 /**
  * Template processor factory

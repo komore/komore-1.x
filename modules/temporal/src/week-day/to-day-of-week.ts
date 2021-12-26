@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from '../temporal-with-date';
-import type { WeekDay } from './week-day';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { type WeekDay } from './week-day';
 
 /**
  * Returns the day of the week from a temporal with date

@@ -1,6 +1,6 @@
-import type { ProcessorFactory } from '../processor-factory';
-import type { StyleProcessor } from './style-processor';
-import type { StyleProcessorOptions } from './style-processor-options';
+import { type ProcessorFactory } from '../processor-factory';
+import { type StyleProcessor } from './style-processor';
+import { type StyleProcessorOptions } from './style-processor-options';
 
 /**
  * Style processor factory

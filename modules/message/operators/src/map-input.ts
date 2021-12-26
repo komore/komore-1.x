@@ -1,6 +1,6 @@
-import { map } from '@komore/reactive/operators';
-import type { Message } from '../message';
-import type { MutatedMessageInputType } from '../mutated-message-input-type';
+import { map } from '@komore/reactive';
+import { type Message } from '../message';
+import { type MutatedMessageInputType } from '../mutated-message-input-type';
 
 /**
  * Operator function that maps a message to a message with a new input

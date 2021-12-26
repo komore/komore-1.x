@@ -1,5 +1,4 @@
-import type { ComprehendClientConfig } from '@aws-sdk/client-comprehend';
-import { ComprehendClient } from '@aws-sdk/client-comprehend';
+import { ComprehendClient, type ComprehendClientConfig } from '@aws-sdk/client-comprehend';
 
 /**
  * Creates a Comprehend client

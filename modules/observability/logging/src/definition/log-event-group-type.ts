@@ -1,4 +1,4 @@
-import type { LogEvent } from './log-event';
+import { type LogEvent } from './log-event';
 
 /**
  * Log event group type

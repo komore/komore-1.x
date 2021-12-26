@@ -1,5 +1,6 @@
-import type { CognitoEvent } from './event/cognito-event';
-import type { CognitoEventMap, CognitoEventResponseType } from './event/cognito-event-map';
+import { type CognitoEvent } from './event/cognito-event';
+import { type CognitoEventMap } from './event/cognito-event-map';
+import { type CognitoEventResponseType } from './event/cognito-event-response-type';
 
 /**
  * Creates a function that sets a response for a Cognito event

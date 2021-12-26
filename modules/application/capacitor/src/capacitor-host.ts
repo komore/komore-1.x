@@ -1,4 +1,4 @@
-import type { Host } from "@komore/runtime";
+import { type Host } from '@komore/runtime';
 
 /**
  * Capacitor host

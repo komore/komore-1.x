@@ -1,5 +1,8 @@
-import type { DeleteEmailTemplateCommandInput, SESv2Client } from '@aws-sdk/client-sesv2';
-import { DeleteEmailTemplateCommand } from '@aws-sdk/client-sesv2';
+import {
+  DeleteEmailTemplateCommand,
+  type DeleteEmailTemplateCommandInput,
+  type SESv2Client
+} from '@aws-sdk/client-sesv2';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

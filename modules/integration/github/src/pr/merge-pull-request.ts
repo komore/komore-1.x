@@ -1,10 +1,8 @@
-import type { Observable } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-import { deferPromise } from '@komore/reactive/promise';
-import type { GithubClient } from '../github-client';
+import { deferPromise, map, type Observable } from '@komore/reactive';
+import { type GithubClient } from '../github-client';
 import { toResponseData } from '../to-response-data';
-import type { PullRequestMergeOptions } from './pull-request-merge-options';
-import type { PullRequestMergeResult } from './pull-request-merge-result';
+import { type PullRequestMergeOptions } from './pull-request-merge-options';
+import { type PullRequestMergeResult } from './pull-request-merge-result';
 
 /**
  * Merges a pull request

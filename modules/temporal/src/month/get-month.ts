@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { Month } from './month';
+import { type Month } from './month';
 
 /**
  * Gets the current month

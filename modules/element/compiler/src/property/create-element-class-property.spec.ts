@@ -1,5 +1,5 @@
 import { factory, SyntaxKind } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementClassProperty } from './create-element-class-property';
 
 describe('Create element class property', () => {

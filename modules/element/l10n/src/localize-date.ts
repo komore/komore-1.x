@@ -1,8 +1,6 @@
-import type { Locales } from '@komore/element/l10n';
-import { asObservableLocales } from '@komore/element/l10n';
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { map, pipe, withLatestFrom } from '@komore/reactive/operators';
-import type { DateLocalizationOptions } from './date-localization-options';
+import { type DateLocalizationOptions, type Locales } from '@komore/web/l10n';
+import { asObservableLocales } from './as-observable-locales';
+import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
 
 /**
  * Localizes a date

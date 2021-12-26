@@ -1,11 +1,4 @@
 export { asObservableLocales } from './as-observable-locales';
-export type { CurrencyLocalizationOptions } from './options/currency-localization-options';
 export { DEFAULT_CURRENCY } from './default-currency';
-export type { DateLocalizationOptions } from './options/date-localization-options';
-export type { DateTimeLocalizationOptions } from './options/date-time-localization-options';
-export type { DecimalLocalizationOptions } from './options/decimal-localization-options';
-export type { PercentageLocalizationOptions } from './options/percentage-localization-options';
 export { setDefaultCurrency } from './default-currency';
 export { setDefaultLocales } from './default-locales';
-export type { TimeLocalizationOptions } from './options/time-localization-options';
-export type { UnitLocalizationOptions } from './options/unit-localization-options';

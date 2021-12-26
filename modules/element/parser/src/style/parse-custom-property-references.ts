@@ -1,5 +1,5 @@
 import { parseCustomPropertyReference } from './parse-custom-property-reference';
-import type { PropertyDefinition } from './property-definition';
+import { type PropertyDefinition } from './property-definition';
 
 /**
  * Parses custom property references from a style property value

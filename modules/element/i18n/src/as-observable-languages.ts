@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { isObservable, of } from '@komore/reactive';
+import { isObservable, type Observable, of } from '@komore/reactive';
 import { BROWSER_LANGUAGES } from './browser-languages';
-import type { Languages } from './languages';
+import { type Languages } from './languages';
 
 /**
  * Creates an observable list of languages

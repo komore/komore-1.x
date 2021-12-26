@@ -1,5 +1,4 @@
-import type { Node } from 'typescript';
-import { createPrinter, createSourceFile, EmitHint, NewLineKind, ScriptTarget } from 'typescript';
+import { createPrinter, createSourceFile, EmitHint, NewLineKind, type Node, ScriptTarget } from 'typescript';
 
 const leadingLinesRegExp = /^\s+/gm;
 const emptyLinesRegExp = /^\s*\n/gm;

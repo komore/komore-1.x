@@ -1,8 +1,6 @@
-import type { MockProxy } from 'jest-mock-extended';
-import { mock } from 'jest-mock-extended';
-import type { EmptyStatement, NodeFactory, TransformationContext } from 'typescript';
-import { factory } from 'typescript';
-import type { ElementPropertyDefinition } from '../../../definition/element-property-definition';
+import { mock, type MockProxy } from 'jest-mock-extended';
+import { type EmptyStatement, factory, type NodeFactory, type TransformationContext } from 'typescript';
+import { type ElementPropertyDefinition } from '../../../definition/element-property-definition';
 import { createTypeScriptPropertyTransformerFactory } from './create-typescript-property-transformer-factory';
 
 describe('Create TypeScript property transformer factory', () => {

@@ -1,10 +1,10 @@
 export { isSqsEvent } from './event/is-sqs-event';
 export { sqsEventTrigger } from './event/sqs-event-trigger';
-export type { SqsEvent } from './event/sqs-event';
-export type { SqsEventRecord } from './event/sqs-event-record';
-export type { SqsEventRecordAttributes } from './event/sqs-event-record-attributes';
-export type { SqsEventRecordMessageAttribute } from './event/sqs-event-record-message-attribute';
-export type { SqsEventRecordMessageAttributeDataType } from './event/sqs-event-record-message-attribute-data-type';
-export type { SqsEventTriggerOptions } from './event/sqs-event-trigger-options';
+export { type SqsEvent } from './event/sqs-event';
+export { type SqsEventRecord } from './event/sqs-event-record';
+export { type SqsEventRecordAttributes } from './event/sqs-event-record-attributes';
+export { type SqsEventRecordMessageAttribute } from './event/sqs-event-record-message-attribute';
+export { type SqsEventRecordMessageAttributeDataType } from './event/sqs-event-record-message-attribute-data-type';
+export { type SqsEventTriggerOptions } from './event/sqs-event-trigger-options';
 export { toSqsRecords } from './to-sqs-records';
 export { triggeredBySqs } from './triggered-by-sqs';

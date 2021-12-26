@@ -1,6 +1,6 @@
 import { catchError as rxjsCatchError } from 'rxjs';
-import type { Observable } from '../observable/observable';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type Observable } from '../observable';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Catches errors on the observable, returning a new observable or throwing a new error

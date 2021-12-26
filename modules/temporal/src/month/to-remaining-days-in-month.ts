@@ -1,7 +1,7 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import { getNowFor } from '@komore/temporal';
+import { type Temporal } from '@js-temporal/polyfill';
 import { asTemporalWithDate } from '../as-temporal-with-date';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { getNowFor } from '../get-now-for';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns the number of remaining days in a given month

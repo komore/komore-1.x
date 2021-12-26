@@ -1,4 +1,4 @@
-import type { HostLifecycleEventType } from "./host-lifecycle-event-type";
+import { type HostLifecycleEventType } from './host-lifecycle-event-type';
 
 /**
  * Host lifecycle event

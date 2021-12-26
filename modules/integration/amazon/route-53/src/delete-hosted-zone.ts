@@ -1,5 +1,8 @@
-import type { DeleteHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
-import { DeleteHostedZoneCommand } from '@aws-sdk/client-route-53';
+import {
+  DeleteHostedZoneCommand,
+  type DeleteHostedZoneCommandInput,
+  type Route53Client
+} from '@aws-sdk/client-route-53';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

@@ -1,4 +1,4 @@
-import type { WriteFileOptions } from './write-file-options';
+import { type WriteFileOptions } from './write-file-options';
 
 /**
  * Write file options with encoding

@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import type { CosmosClient, Databases } from '@azure/cosmos';
+import { type CosmosClient, type Databases } from '@azure/cosmos';
 import { createCosmosDBClient } from './create-cosmos-db-client';
 
 describe('Create CosmosDB client', () => {

@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from '../temporal-with-date';
-import type { TemporalWithPartialDate } from '../temporal-with-partial-date';
+import { type TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
 
 /**
  * Tests whether two temporals occur during a same month, not taking the year into account

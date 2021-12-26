@@ -1,4 +1,4 @@
-import type { SesEventRecord } from './ses-event-record';
+import { type SesEventRecord } from './ses-event-record';
 
 /**
  * SES event

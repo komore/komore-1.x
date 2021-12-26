@@ -1,9 +1,8 @@
-import type { UnaryFunction } from '@komore/functional';
-import type { Observable } from '@komore/reactive';
-import { of } from '@komore/reactive';
+import { type UnaryFunction } from '@komore/functional';
+import { type Observable, of } from '@komore/reactive';
 import { isStyleElement } from './is-style-element';
 import { loadStyleLinkElement } from './load-style-link-element';
-import type { StyleResourceLoader } from './style-resource-loader';
+import { type StyleResourceLoader } from './style-resource-loader';
 
 /**
  * Loads a style or link element

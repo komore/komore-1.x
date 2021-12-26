@@ -1,4 +1,4 @@
-import type { AppSyncEvent } from './app-sync-event';
+import { type AppSyncEvent } from './app-sync-event';
 
 /**
  * AppSync event with an API key authorization

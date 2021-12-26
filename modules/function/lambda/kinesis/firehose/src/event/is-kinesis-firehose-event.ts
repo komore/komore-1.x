@@ -1,5 +1,5 @@
 import { createLambdaEventTypeTest } from '../create-lambda-event-type-test';
-import type { KinesisFirehoseEvent } from './kinesis-firehose-event';
+import { type KinesisFirehoseEvent } from './kinesis-firehose-event';
 
 /**
  * Tests whether an event is a Kinesis Firehose event

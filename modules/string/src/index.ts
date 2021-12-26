@@ -1,6 +1,7 @@
 export { endsWith } from './ends-with';
 export { fromCharacterCode } from './from-character-code';
 export { isBlank } from './is-blank';
+export { isEmpty } from './is-empty';
 export { matched } from './matched';
 export { padEnd } from './pad-end';
 export { padStart } from './pad-start';

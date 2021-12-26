@@ -1,5 +1,5 @@
-import type { GithubWebhookEvent } from './github-webhook-event';
-import type { GithubWebhookEventName } from './github-webhook-event-name';
+import { type GithubWebhookEvent } from './github-webhook-event';
+import { type GithubWebhookEventName } from './github-webhook-event-name';
 
 export function isGithubWebhookEventName<EventNames extends GithubWebhookEventName[]>(
   ...eventNames: EventNames

@@ -1,4 +1,4 @@
-import type { Observer } from '@komore/reactive';
+import { type Observer } from '@komore/reactive';
 
 /**
  * Form control

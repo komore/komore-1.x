@@ -1,6 +1,6 @@
 import { DnsManagementClient } from '@azure/arm-dns';
-import type { ServiceClientCredentials } from '@azure/ms-rest-js';
-import type { DnsClient } from './dns-client';
+import { type ServiceClientCredentials } from '@azure/ms-rest-js';
+import { type DnsClient } from './dns-client';
 
 /**
  * DNS management client options

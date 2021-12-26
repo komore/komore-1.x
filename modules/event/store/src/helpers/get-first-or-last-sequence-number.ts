@@ -1,5 +1,4 @@
-import type { Event, EventWithMetadata } from '@komore/event';
-import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-type';
+import { type Event, type EventWithMetadata } from '@komore/event';
 
 /**
  * Gets an event sequence number from a list of events for `FIRST` and `LAST` selection types
@@ -10,9 +9,9 @@ import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-ty
  */
 export function getFirstOrLastSequenceNumber<EventTypes extends Event<any, any>[]>(
   eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
-  selectionType: SnapshotStrategySelectionType.FIRST | SnapshotStrategySelectionType.LAST
+  selectionType: 'first' | 'last'
 ): number {
-  if (selectionType === SnapshotStrategySelectionType.LAST) {
+  if (selectionType === 'last') {
     return eventsWithMetadata[eventsWithMetadata.length - 1].metadata.sequenceNumber;
   }
 

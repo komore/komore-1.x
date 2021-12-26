@@ -1,4 +1,4 @@
-import type { Types } from './types';
+import { type Types } from './types';
 
 /**
  * Typed value

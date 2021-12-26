@@ -1,4 +1,4 @@
-import type { OidcStandardClaimName } from './oidc-standard-claim-name';
+import { type OidcStandardClaimName } from './oidc-standard-claim-name';
 
 /**
  * OpenID Connect user info response

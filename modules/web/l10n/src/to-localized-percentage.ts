@@ -1,5 +1,5 @@
-import type { Locales } from './locales';
-import type { PercentageLocalizationOptions } from './options/percentage-localization-options';
+import { type Locales } from './locales';
+import { type PercentageLocalizationOptions } from './options/percentage-localization-options';
 
 /**
  * Creates a function that localizes a number to a percentage format using a set of locales

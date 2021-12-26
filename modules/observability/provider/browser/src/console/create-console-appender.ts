@@ -1,7 +1,7 @@
-import type { Appender } from '@komore/observability/logging';
-import type { LogEventSeverity } from '@komore/observability/logging';
-import type { ConsoleAppenderOptions } from './console-appender-options';
-import type { ConsoleSeverityRange } from './console-severity-range';
+import { type Appender } from '@komore/observability/logging';
+import { type LogEventSeverity } from '@komore/observability/logging';
+import { type ConsoleAppenderOptions } from './console-appender-options';
+import { type ConsoleSeverityRange } from './console-severity-range';
 
 /**
  * Creates a console appender
@@ -10,10 +10,10 @@ import type { ConsoleSeverityRange } from './console-severity-range';
  */
 export function createConsoleAppender(options: ConsoleAppenderOptions): Appender {
   return {
-    next({ logContext, logEvent, processedMessage }) {
+    next({ logContext, logEvent, message }) {
       const eventSeverity = logEvent.severity;
       const mappedSeverity = options.severityMapping.find(compatibleSeverityMapping(eventSeverity))?.severity ?? 'log';
-      console[mappedSeverity].apply(console, [processedMessage, logContext]);
+      console[mappedSeverity].apply(console, [message, logContext]);
     }
   };
 }

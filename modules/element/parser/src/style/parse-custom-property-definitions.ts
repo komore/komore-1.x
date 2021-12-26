@@ -1,5 +1,4 @@
 import { parseStyleSheetCustomPropertyDefinitions } from './parse-style-sheet-custom-property-definitions';
-import type { PropertyDefinition } from './property-definition';
 
 /**
  * Parses style custom properties

@@ -1,6 +1,6 @@
 import { Client } from 'discord.js';
-import type { DiscordClient } from './discord-client';
-import type { DiscordClientOptions } from './discord-client-options';
+import { type DiscordClient } from './discord-client';
+import { type DiscordClientOptions } from './discord-client-options';
 
 /**
  * Creates a Discord client

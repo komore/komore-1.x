@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { ProcessorOptions } from './processor-options';
+import { type Observable } from '@komore/reactive';
+import { type ProcessorOptions } from './processor-options';
 
 /**
  * Processor factory
@@ -7,6 +7,7 @@ import type { ProcessorOptions } from './processor-options';
  * @template Processor Processor type
  */
 export interface ProcessorFactory<Options extends ProcessorOptions, Processor> {
+  readonly mediaTypeRegExp?: RegExp;
   readonly pathRegExp?: RegExp;
 
   /**

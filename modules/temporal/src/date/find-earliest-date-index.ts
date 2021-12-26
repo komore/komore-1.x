@@ -1,5 +1,5 @@
 import { findDateIndexByComparison } from './find-date-index-by-comparison';
-import type { TemporalWithDate } from './temporal-with-date';
+import { type TemporalWithDate } from './temporal-with-date';
 
 /**
  * Finds the index of the temporal with the earliest date

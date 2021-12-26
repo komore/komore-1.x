@@ -1,4 +1,4 @@
-import type { FilterResult } from './filter-result';
+import { type FilterResult } from './filter-result';
 
 /**
  * Severity filter options

@@ -1,5 +1,5 @@
 import { factory, SyntaxKind } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createElementInterfaceSource } from './create-element-interface-source';
 
 describe('Create element interface source', () => {

@@ -1,5 +1,5 @@
-import type { ValueObserver } from '@komore/reactive';
-import type { UntypedLogEventRecord } from '../definition/log-event-record';
+import { type NextObserver } from '@komore/reactive';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
 
 /**
  * Appender
@@ -10,4 +10,4 @@ import type { UntypedLogEventRecord } from '../definition/log-event-record';
  */
 export type Appender<
   LogEventRecordType extends UntypedLogEventRecord = UntypedLogEventRecord
-> = ValueObserver<LogEventRecordType>;
+> = NextObserver<LogEventRecordType>;

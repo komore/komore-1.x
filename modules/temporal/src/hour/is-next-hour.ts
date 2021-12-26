@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { TemporalWithTime } from '../temporal-with-time';
+import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Tests whether a temporal occurs during the next hour

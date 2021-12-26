@@ -1,4 +1,4 @@
-import type { RESOLUTION_UNITS } from './resolution-units';
+import { type RESOLUTION_UNITS } from './resolution-units';
 
 /**
  * Resolution unit

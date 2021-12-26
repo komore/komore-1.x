@@ -1,5 +1,4 @@
-import type { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, type DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
 
 /**
  * Creates a DynamoDB client

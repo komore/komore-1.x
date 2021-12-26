@@ -1,4 +1,6 @@
-import { EMPTY, Observable, throwError } from '@komore/reactive';
+import { EMPTY } from '../creation/empty';
+import { throwError } from '../creation/throw-error';
+import { Observable } from '../observable';
 import { tapCompletion } from './tap-completion';
 
 describe('Tap completion', () => {

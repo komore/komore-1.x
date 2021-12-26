@@ -1,4 +1,4 @@
-import type { KnownPropertySyntaxes } from './known-property-syntaxes';
+import { type KnownPropertySyntaxes } from './known-property-syntaxes';
 
 /**
  * Known property syntax

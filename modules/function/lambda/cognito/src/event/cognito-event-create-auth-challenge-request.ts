@@ -1,4 +1,4 @@
-import type { ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
 
 export type ChallengeName =
   | 'ADMIN_NO_SRP_AUTH'

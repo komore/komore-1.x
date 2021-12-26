@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
-import type { Message } from './message';
-import type { MutatedMessageOutputType } from './mutated-message-output-type';
+import { type Message } from './message';
+import { type MutatedMessageOutputType } from './mutated-message-output-type';
 
 describe('Mutated message output type', () => {
   it('can mutate the output type of a message', () => {

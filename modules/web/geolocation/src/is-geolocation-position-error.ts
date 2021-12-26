@@ -1,10 +1,8 @@
 /**
- * Returns true if a geolocation position or geolocation position error is a geolocation position error
- * @param geolocationPositionOrError Geolocation position or position error
- * @returns true if the param is a geolocation position error
+ * Returns true if an object is a geolocation position error
+ * @param obj Object
+ * @returns true if the object is a geolocation position error
  */
-export function isGeolocationPositionError(
-  geolocationPositionOrError: GeolocationPosition | GeolocationPositionError
-): geolocationPositionOrError is GeolocationPositionError {
-  return geolocationPositionOrError instanceof GeolocationPositionError;
+export function isGeolocationPositionError(obj: unknown): obj is GeolocationPositionError {
+  return obj instanceof GeolocationPositionError;
 }

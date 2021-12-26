@@ -1,6 +1,6 @@
 import { assert } from '@komore/runtime';
-import type { Layout } from './layout';
-import type { PatternLayoutOptions } from './pattern-layout-options';
+import { type Layout } from './layout';
+import { type PatternLayoutOptions } from './pattern-layout-options';
 
 /**
  * Creates a pattern layout

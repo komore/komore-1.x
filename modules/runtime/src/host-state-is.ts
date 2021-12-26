@@ -1,4 +1,4 @@
-import type { HostState } from './host-state';
+import { type HostState } from './host-state';
 
 /**
  * Creates a function that returns true if a host state matches an expected host state

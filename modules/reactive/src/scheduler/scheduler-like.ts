@@ -1,1 +1,1 @@
-export type { SchedulerLike } from 'rxjs';
+export { type SchedulerLike } from 'rxjs';

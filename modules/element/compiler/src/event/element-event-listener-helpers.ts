@@ -1,15 +1,15 @@
 import { createParameter } from '@komore/typescript/compiler';
-import type {
-  Identifier,
-  MethodSignature,
-  NodeFactory,
-  ParameterDeclaration,
-  TypeNode,
-  TypeParameterDeclaration
+import {
+  type Identifier,
+  type MethodSignature,
+  type NodeFactory,
+  type ParameterDeclaration,
+  SyntaxKind,
+  type TypeNode,
+  type TypeParameterDeclaration
 } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { EventListenerTypedInformation } from './event-listener-typed-information';
-import type { EventMapIndex } from './event-map-index';
+import { type EventListenerTypedInformation } from './event-listener-typed-information';
+import { type EventMapIndex } from './event-map-index';
 
 /**
  * Creates an event map index parameter

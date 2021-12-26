@@ -1,5 +1,5 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import { TemporalWithDate, TemporalWithTime } from '@komore/temporal';
+import { type Temporal } from '@js-temporal/polyfill';
+import { type TemporalWithDate, type TemporalWithTime } from '@komore/temporal';
 
 /**
  * Interval temporal

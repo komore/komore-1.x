@@ -1,4 +1,4 @@
-import type { APIGatewayClient } from '@aws-sdk/client-api-gateway';
+import { type APIGatewayClient } from '@aws-sdk/client-api-gateway';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createApiGatewayClient } from '../create-api-gateway-client';
 

@@ -1,4 +1,4 @@
-import type { SqsEventRecord } from './sqs-event-record';
+import { type SqsEventRecord } from './sqs-event-record';
 
 /**
  * SQS event

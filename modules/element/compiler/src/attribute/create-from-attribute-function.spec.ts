@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { CompilerContext } from '../codegen/compiler-context';
+import { type CompilerContext } from '../codegen/compiler-context';
 import { createFromAttributeFunction } from './create-from-attribute-function';
 
 describe('Create fromAttribute function', () => {

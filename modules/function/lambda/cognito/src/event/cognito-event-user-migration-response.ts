@@ -1,7 +1,7 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { CognitoEventUserMigrationDeliveryMedium } from './cognito-event-user-migration-delivery-medium';
-import type { CognitoEventUserMigrationMessageAction } from './cognito-event-user-migration-message-action';
-import type { CognitoEventUserMigrationStatus } from './cognito-event-user-migration-status';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type CognitoEventUserMigrationDeliveryMedium } from './cognito-event-user-migration-delivery-medium';
+import { type CognitoEventUserMigrationMessageAction } from './cognito-event-user-migration-message-action';
+import { type CognitoEventUserMigrationStatus } from './cognito-event-user-migration-status';
 
 /**
  * Cognito event user migration response

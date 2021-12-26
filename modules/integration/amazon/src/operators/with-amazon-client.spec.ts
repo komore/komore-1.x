@@ -1,8 +1,8 @@
-import type { Client } from '@aws-sdk/smithy-client';
+import { type Client } from '@aws-sdk/smithy-client';
 import { createMessage } from '@komore/message';
+import { of } from '@komore/reactive';
+import { TestScheduler } from '@komore/reactive/testing';
 import { mock } from 'jest-mock-extended';
-import { of } from 'rxjs';
-import { TestScheduler } from 'rxjs/testing';
 import { withAwsClient } from './with-amazon-client';
 
 describe('With Amazon client', () => {

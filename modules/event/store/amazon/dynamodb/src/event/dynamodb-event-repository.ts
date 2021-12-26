@@ -1,8 +1,7 @@
-import type { PutItemCommand, QueryCommandInput, QueryCommandOutput } from '@aws-sdk/client-dynamodb';
-import { QueryCommand } from '@aws-sdk/client-dynamodb';
-import type { Event } from '@komore/event';
-import type { EventRepository } from '@komore/event/store';
-import type { DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
+import { QueryCommand, type QueryCommandInput, type QueryCommandOutput } from '@aws-sdk/client-dynamodb';
+import { type Event } from '@komore/event';
+import { type EventRepository } from '@komore/event/store';
+import { type DynamoDBEventRepositoryConfiguration } from './dynamodb-event-repository-configuration';
 
 /**
  * Exclusive start key type

@@ -1,5 +1,5 @@
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
-import { tap } from './tap';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { tapNext } from './tap-next';
 
 /**
  * Performs side-effects on the source observable's emitted values when a condition is met
@@ -8,7 +8,7 @@ import { tap } from './tap';
  * @template T Value type
  * @template S Asserted type
  */
- export function tapNextIf<T, S extends T>(
+export function tapNextIf<T, S extends T>(
   predicate: (value: T) => value is S,
   nextObserver: (value: S) => void
 ): MonoTypeOperatorFunction<T>;
@@ -28,11 +28,9 @@ export function tapNextIf<T>(
   predicate: (value: T) => boolean,
   nextObserver: (value: T) => void
 ): MonoTypeOperatorFunction<T> {
-  return tap({
-    next(value: T) {
-      if (predicate(value)) {
-        nextObserver(value);
-      }
+  return tapNext(value => {
+    if (predicate(value)) {
+      nextObserver(value);
     }
   });
 }

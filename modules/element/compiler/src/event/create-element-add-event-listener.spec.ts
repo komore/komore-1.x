@@ -1,7 +1,7 @@
 import { factory } from 'typescript';
 import { createElementAddEventListener } from './create-element-add-event-listener';
 import { createEventMapIndexParameter } from './element-event-listener-helpers';
-import type { EventListenerTypedInformation } from './event-listener-typed-information';
+import { type EventListenerTypedInformation } from './event-listener-typed-information';
 
 describe('Create element add event listeners', () => {
   it('can create a default addEventListener method declaration', () => {

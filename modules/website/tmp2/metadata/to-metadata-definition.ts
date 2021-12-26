@@ -1,4 +1,4 @@
-import type { MetadataDefinition } from './metadata-definition';
+import { type MetadataDefinition } from './metadata-definition';
 import { METADATA_DEFINITION_PREFIX } from './metadata-definition-prefix';
 
 /**

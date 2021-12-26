@@ -1,4 +1,4 @@
-import type { ConsoleSeverityRange } from './console-severity-range';
+import { type ConsoleSeverityRange } from './console-severity-range';
 
 /**
  * Console appender options

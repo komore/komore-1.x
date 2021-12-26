@@ -1,4 +1,4 @@
-import type { TypeReferenceNode } from 'typescript';
+import { type TypeReferenceNode } from 'typescript';
 
 /**
  * Element event definition

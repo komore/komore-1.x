@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { of } from '@komore/reactive';
-import type { SearchQuery, SearchResult } from '@komore/website/search';
+import { type Observable, of } from '@komore/reactive';
+import { type SearchQuery, type SearchResult } from '@komore/website/search';
 
 /**
  * Executes a search

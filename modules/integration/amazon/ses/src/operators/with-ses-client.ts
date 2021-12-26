@@ -1,4 +1,4 @@
-import type { SESv2Client } from '@aws-sdk/client-sesv2';
+import { type SESv2Client } from '@aws-sdk/client-sesv2';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createSESClient } from '../create-ses-client';
 

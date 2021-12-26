@@ -1,5 +1,5 @@
-import type { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import type { DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 /**
  * DynamoDB snapshot repository configuration

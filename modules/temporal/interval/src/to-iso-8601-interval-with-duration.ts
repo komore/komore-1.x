@@ -1,8 +1,8 @@
 import { toISO8601 } from '@komore/temporal';
 import { toISO8601Duration } from '@komore/temporal/duration';
-import type { Interval } from './interval';
-import type { IntervalTemporal } from './interval-temporal';
-import type { ISO8601IntervalOptions } from './iso-8601-interval-options';
+import { type Interval } from './interval';
+import { type IntervalTemporal } from './interval-temporal';
+import { type ISO8601IntervalOptions } from './iso-8601-interval-options';
 
 /**
  * Returns an ISO 8610 interval string with a duration

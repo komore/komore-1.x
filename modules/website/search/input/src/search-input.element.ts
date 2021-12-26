@@ -1,9 +1,20 @@
-import type { FromChild } from '@komore/element';
-import type { Observable } from '@komore/reactive';
-import { distinctUntilChanged, fromEvent, map, merge, of, Subject, switchMap, takeUntil, tap, tapValue } from '@komore/reactive';
+import { type FromChild } from '@komore/element';
+import {
+  distinctUntilChanged,
+  fromEvent,
+  map,
+  merge,
+  type Observable,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+  tap,
+  tapNext
+} from '@komore/reactive';
 import { toMessageEventData } from '@komore/web';
 import { createWorker } from '@komore/web/worker';
-import type { SearchWorkerInput, SearchWorkerOutput } from '@komore/website/search/worker';
+import { type SearchWorkerInput, type SearchWorkerOutput } from '@komore/website/search/worker';
 
 const templateElement = document.createElement('template');
 
@@ -63,7 +74,7 @@ interface SearchInputElementInput {
   readonly fromChild: FromChild;
 }
 /**
- * 
+ *
  */
 
 function searchInputElement({ fromChild }: SearchInputElementInput): Observable<unknown> {
@@ -72,11 +83,9 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
   );
 
   const queryChanged = fromChild<HTMLInputElement>(':scope > input').pipe(
-    switchMap(inputElement => fromEvent(inputElement, 'input').pipe(
-      map(() => inputElement.value)
-    )),
+    switchMap(inputElement => fromEvent(inputElement, 'input').pipe(map(() => inputElement.value))),
     distinctUntilChanged()
-  )
+  );
 
   function toSearchWorkerInput(query: string): SearchWorkerInput {
     return {
@@ -88,13 +97,13 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
 
   const dispatchSearch = queryChanged.pipe(
     map(toSearchWorkerInput),
-    tapValue(searchQuery => console.log('[Search] query changed', searchQuery)),
+    tapNext(searchQuery => console.log('[Search] query changed', searchQuery)),
     tap(observer)
   );
 
   const searchResults = observable.pipe(
     map(toMessageEventData),
-    tapValue(results => console.log('[Search] results changed', results))
+    tapNext(results => console.log('[Search] results changed', results))
   );
 
   return merge([dispatchSearch, searchResults]);
@@ -106,6 +115,9 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
 export class SearchInputElement extends HTMLElement {
   private readonly destroyed = new Subject<void>();
 
+  /**
+   * Class constructor
+   */
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: 'open' });
@@ -113,10 +125,11 @@ export class SearchInputElement extends HTMLElement {
     shadowRoot.append(templateContent);
 
     searchInputElement({
-      fromChild: <ElementType extends Element>(selectors: string) => of(shadowRoot.querySelector<ElementType>(selectors)!),
-    }).pipe(
-      takeUntil(this.destroyed)
-    ).subscribe();
+      fromChild: <ElementType extends Element>(selectors: string) =>
+        of(shadowRoot.querySelector<ElementType>(selectors)!)
+    })
+      .pipe(takeUntil(this.destroyed))
+      .subscribe();
   }
 
   connectedCallback(): void {

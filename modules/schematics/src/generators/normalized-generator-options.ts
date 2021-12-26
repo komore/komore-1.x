@@ -1,4 +1,4 @@
-import type { BaseGeneratorOptions } from './base-generator-options';
+import { type BaseGeneratorOptions } from './base-generator-options';
 
 /**
  * Normalized generator options

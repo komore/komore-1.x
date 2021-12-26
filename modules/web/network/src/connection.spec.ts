@@ -1,5 +1,4 @@
-import type { MockProxy } from 'jest-mock-extended';
-import { mock } from 'jest-mock-extended';
+import { mock, type MockProxy } from 'jest-mock-extended';
 import { CONNECTION } from './connection';
 
 describe('Connection', () => {

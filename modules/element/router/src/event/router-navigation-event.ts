@@ -1,5 +1,5 @@
-import type { RouterNavigationEventType } from './router-navigation-event-type';
-import type { RouterNavigationTrigger } from './router-navigation-trigger';
+import { type RouterNavigationEventType } from './router-navigation-event-type';
+import { type RouterNavigationTrigger } from './router-navigation-trigger';
 
 /**
  * Router navigation event

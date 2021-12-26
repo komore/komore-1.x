@@ -1,4 +1,4 @@
-import type { TranscribeClientConfig } from '@aws-sdk/client-transcribe';
+import { type TranscribeClientConfig } from '@aws-sdk/client-transcribe';
 import { TranscribeClient } from '@aws-sdk/client-transcribe';
 
 /**

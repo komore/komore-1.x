@@ -1,6 +1,10 @@
-import type { TokenCredential } from '@azure/core-auth';
-import type { AnonymousCredential, StoragePipelineOptions, StorageSharedKeyCredential } from '@azure/storage-blob';
-import { BlobServiceClient } from '@azure/storage-blob';
+import { type TokenCredential } from '@azure/core-auth';
+import {
+  type AnonymousCredential,
+  BlobServiceClient,
+  type StoragePipelineOptions,
+  type StorageSharedKeyCredential
+} from '@azure/storage-blob';
 
 /**
  * Environment variables

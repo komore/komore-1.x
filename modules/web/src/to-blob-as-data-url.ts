@@ -1,4 +1,4 @@
-import type { Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 import { readBlobAsDataUrl } from './read-blob-as-data-url';
 
 /**

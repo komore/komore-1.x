@@ -1,14 +1,16 @@
-import { concatWith as rxjsConcatWith } from 'rxjs';
-import type { ObservableInputTuple } from '../observable/observable-input-tuple';
-import type { OperatorFunction } from '../operator/operator-function';
+import { concat } from '../creation/concat';
+import { type ObservableInputTuple } from '../observable-input-tuple';
+import { type OperatorFunction } from '../operator-function';
 
 /**
- * TODO
- * @param sources 
- * @returns 
+ * Emits all the values from the source observable until it completes, then subscribes to each passed observable until
+ * it completes, one at a time
+ * @param sources List of observables
+ * @template T Source observable value type
+ * @template A Additional source observable value types
  */
 export function concatWith<T, A extends readonly unknown[]>(
-  ...sources: [...ObservableInputTuple<A>]
+  sources: [...ObservableInputTuple<A>]
 ): OperatorFunction<T, T | A[number]> {
-  return rxjsConcatWith(...sources);
+  return source => concat([source, ...sources]);
 }

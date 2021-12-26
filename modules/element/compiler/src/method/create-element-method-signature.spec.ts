@@ -1,6 +1,5 @@
-import type { ParameterDeclaration, TypeParameterDeclaration } from 'typescript';
-import { factory, SyntaxKind } from 'typescript';
-import type { ElementMethodDefinition } from '../definition/element-method-definition';
+import { factory, type ParameterDeclaration, SyntaxKind, type TypeParameterDeclaration } from 'typescript';
+import { type ElementMethodDefinition } from '../definition/element-method-definition';
 import { createElementMethodSignature } from './create-element-method-signature';
 
 describe('Create element method signature', () => {

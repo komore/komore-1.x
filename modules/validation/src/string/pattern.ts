@@ -1,4 +1,4 @@
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
+import { type MonoTypeOperatorFunction } from '@komore/reactive';
 import { containsPattern } from '@komore/regexp';
 import { createConstraintValidator } from '../create-constraint-validator';
 
@@ -8,5 +8,5 @@ import { createConstraintValidator } from '../create-constraint-validator';
  * @returns 
  */
 export function pattern(regExp: RegExp): MonoTypeOperatorFunction<string> {
-  return createConstraint(containsPattern(regExp), 'string.regexp');
+  return createConstraintValidator(containsPattern(regExp), 'string.regexp');
 }

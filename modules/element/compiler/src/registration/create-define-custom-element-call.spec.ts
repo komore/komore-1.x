@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createDefineCustomElementCall } from './create-define-custom-element-call';
 
 describe('Create define custom element call', () => {

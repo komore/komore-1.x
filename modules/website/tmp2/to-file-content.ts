@@ -1,7 +1,6 @@
+import { deferPromise, type Observable } from '@komore/reactive';
 import { readFile } from 'fs/promises';
-import type { Observable } from 'rxjs';
-import { defer } from 'rxjs';
 
 export function toFileContent(fileName: string): Observable<string> {
-  return defer(() => readFile(fileName, { encoding: 'utf-8' }));
+  return deferPromise(() => readFile(fileName, { encoding: 'utf-8' }));
 }

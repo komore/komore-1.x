@@ -1,6 +1,9 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { map, mergeMap, pipe } from '@komore/reactive/operators';
-import type { CommandProcessor, CommandProcessorCommandType, CommandProcessorMessageType } from './command-processor';
+import { map, mergeMap, type OperatorFunction, pipe } from '@komore/reactive';
+import {
+  type CommandProcessor,
+  type CommandProcessorCommandType,
+  type CommandProcessorMessageType
+} from './command-processor';
 
 /**
  * Processes a command with a command processor

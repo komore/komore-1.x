@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { HostState } from './host-state';
+import { type Observable } from '@komore/reactive';
+import { type HostState } from './host-state';
 import { hostStateSubject } from './host-state-subject';
 
 /**

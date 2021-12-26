@@ -1,11 +1,11 @@
 export { createDefaultHttpClient } from './create-default-http-client';
 export { createHttpClient } from './create-http-client';
-export type { HttpClient } from './http-client';
-export type { HttpClientOptions } from './http-client-options';
-export type { HttpClientRequest } from './http-client-request';
+export { type HttpClient } from './http-client';
+export { type HttpClientOptions } from './http-client-options';
+export { type HttpClientRequest } from './http-client-request';
 export { HttpErrorResponse } from './error/http-error-response';
 export { isResponseOk } from './is-response-ok';
-export type { ResponseProgress } from './progress/response-progress';
+export { type ResponseProgress } from './progress/response-progress';
 export { responseToArrayBuffer } from './response-to-array-buffer';
 export { responseToBlob } from './response-to-blob';
 export { responseToJson } from './response-to-json';

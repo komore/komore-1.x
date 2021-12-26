@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { defer } from '@komore/reactive';
+import { defer } from '../creation/defer';
+import { type Observable } from '../observable';
 
 /**
  * Creates an observable that delegates the creation of a promise that will then be turned into an observable

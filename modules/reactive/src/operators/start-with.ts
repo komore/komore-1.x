@@ -1,6 +1,7 @@
-import type { OperatorFunction } from '@komore/reactive';
-import { concat, fromArray } from '@komore/reactive';
-import type { ArrayValueType } from '@komore/typescript';
+import { type ArrayValueType } from '@komore/array';
+import { concat } from '../creation/concat';
+import { fromArray } from '../creation/from-array';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Synchronously emits all values upon subscription, then subscribes to the source observable and mirrors all of its

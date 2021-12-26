@@ -1,4 +1,4 @@
-import type { KinesisFirehoseEventRecordTransformationResult } from './kinesis-firehose-event-record-transformation-result';
+import { type KinesisFirehoseEventRecordTransformationResult } from './kinesis-firehose-event-record-transformation-result';
 
 /**
  * Kinesis Firehose result record

@@ -1,6 +1,6 @@
 import { Observable } from '@komore/reactive';
-import type { WriteStream } from 'fs';
-import type { WriteFileStreamOptions } from './write-file-stream-options';
+import { type WriteStream } from 'fs';
+import { type WriteFileStreamOptions } from './write-file-stream-options';
 
 export function writeFileStream(
   writeStream: WriteStream,

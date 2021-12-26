@@ -1,5 +1,5 @@
 import { createLambdaEventSourceTypeTest } from '@komore/function-lambda';
-import type { SesEvent } from './ses-event';
+import { type SesEvent } from './ses-event';
 
 /**
  * Tests whether an event is an SES event

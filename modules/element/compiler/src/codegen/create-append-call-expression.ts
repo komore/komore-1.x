@@ -1,5 +1,5 @@
 import { createPropertyAccess } from '@komore/typescript/compiler';
-import type { ExpressionStatement, Identifier, NodeFactory } from 'typescript';
+import { type ExpressionStatement, type Identifier, type NodeFactory } from 'typescript';
 
 /**
  * Creates an append call expression

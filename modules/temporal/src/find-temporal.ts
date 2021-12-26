@@ -1,5 +1,5 @@
-import type { TemporalWithDate } from './temporal-with-date';
-import type { TemporalWithTime } from './temporal-with-time';
+import { type TemporalWithDate } from './temporal-with-date';
+import { type TemporalWithTime } from './temporal-with-time';
 
 export function findTemporal<T extends TemporalWithTime | TemporalWithDate, P>(
   temporals: ReadonlyArray<T>,

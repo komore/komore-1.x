@@ -1,5 +1,5 @@
-import type { NodeFactory } from 'typescript';
-import type { ElementEventDefinition } from '../element-event-definition';
+import { type NodeFactory } from 'typescript';
+import { type ElementEventDefinition } from '../element-event-definition';
 
 /**
  * Builds an element's event definitions

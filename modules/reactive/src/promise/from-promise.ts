@@ -1,4 +1,4 @@
-import { Observable } from '@komore/reactive';
+import { Observable } from '../observable';
 
 /**
  * Creates an observable that emits the resolved value from a promise, or forwards the error if one is encountered

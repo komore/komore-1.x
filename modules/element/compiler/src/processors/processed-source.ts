@@ -1,5 +1,5 @@
-import type { ParsedSource } from '@komore/element/parser';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type ParsedSource } from '@komore/element/parser';
+import { type ElementDefinition } from '../definition/element-definition';
 
 /**
  * Processed source

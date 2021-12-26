@@ -1,5 +1,5 @@
 import { ComputerVisionClient } from '@azure/cognitiveservices-computervision';
-import type { ServiceClientCredentials } from '@azure/core-auth';
+import { type ServiceClientCredentials } from '@azure/core-auth';
 
 /**
  * Environment variables

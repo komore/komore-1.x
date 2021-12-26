@@ -1,6 +1,6 @@
 import { createVariableStatement } from '@komore/typescript/compiler';
-import type { Expression, Identifier, TypeReferenceNode, VariableStatement } from 'typescript';
-import type { CompilerContext } from '../codegen/compiler-context';
+import { type Expression, type Identifier, type TypeReferenceNode, type VariableStatement } from 'typescript';
+import { type CompilerContext } from '../codegen/compiler-context';
 import { createFromAttributeFunction } from './create-from-attribute-function';
 
 /**

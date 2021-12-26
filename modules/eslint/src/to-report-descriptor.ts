@@ -1,4 +1,4 @@
-import type { TSESLint } from '@typescript-eslint/experimental-utils';
+import { type TSESLint } from '@typescript-eslint/experimental-utils';
 
 /**
  * Creates a function that returns a report descriptor using a projection function

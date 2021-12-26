@@ -1,6 +1,4 @@
-import type { Observable } from 'rxjs';
-import { defer, fromEvent } from 'rxjs';
-import { map, shareReplay, startWith } from 'rxjs';
+import { defer, fromEvent, map, type Observable, shareReplay, startWith } from '@komore/reactive';
 
 /**
  * Location observable

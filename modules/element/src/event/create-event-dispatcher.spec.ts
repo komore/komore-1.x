@@ -1,5 +1,4 @@
-import type { MockProxy } from 'jest-mock-extended';
-import { mock } from 'jest-mock-extended';
+import { mock, type MockProxy } from 'jest-mock-extended';
 import { createEventDispatcher } from './create-event-dispatcher';
 
 describe('Create event dispatcher', () => {

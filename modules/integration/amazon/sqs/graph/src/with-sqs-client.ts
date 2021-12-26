@@ -1,4 +1,4 @@
-import type { SQSClient } from '@aws-sdk/client-sqs';
+import { type SQSClient } from '@aws-sdk/client-sqs';
 import { withAmazonClient } from '@komore/integration-amazon/graph';
 import { createSQSClient } from '@komore/integration-amazon/sqs';
 

@@ -1,7 +1,7 @@
 import { createLogEvent } from '../definition/create-log-event';
 import { createLogGroup } from '../definition/create-log-group';
-import type { UntypedLogEventRecord } from '../definition/log-event-record';
-import type { LogEventSeverity } from '../definition/log-event-severity';
+import { type UntypedLogEventRecord } from '../definition/log-event-record';
+import { type LogEventSeverity } from '../definition/log-event-severity';
 import { createThresholdFilter } from './create-threshold-filter';
 import { FilterResult } from './filter-result';
 

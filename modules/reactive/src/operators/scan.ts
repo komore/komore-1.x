@@ -1,5 +1,5 @@
-import type { OperatorFunction } from '@komore/reactive';
 import { scan as rxjsScan } from 'rxjs';
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Applies an accumulator function over the source observable, and returns the accumulated result each time the source

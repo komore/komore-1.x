@@ -1,5 +1,8 @@
-import type { CommitTransactionCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
-import { CommitTransactionCommand } from '@aws-sdk/client-rds-data';
+import {
+  CommitTransactionCommand,
+  type CommitTransactionCommandInput,
+  type RDSDataClient
+} from '@aws-sdk/client-rds-data';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

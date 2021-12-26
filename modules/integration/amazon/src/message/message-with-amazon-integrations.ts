@@ -1,5 +1,5 @@
-import type { MessageWithIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
+import { type MessageWithIntegrations } from '@komore/integration';
+import { type Message } from '@komore/message';
 
 /**
  * Message with Amazon integrations

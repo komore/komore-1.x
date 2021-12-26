@@ -1,5 +1,5 @@
-import type { Host } from '@komore/runtime';
-import type { NodeHostOptions } from './node-host-options';
+import { type Host } from '@komore/runtime';
+import { type NodeHostOptions } from './node-host-options';
 
 /**
  * Node host

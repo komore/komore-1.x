@@ -1,4 +1,4 @@
-import type { FileHandle } from 'fs/promises';
+import { type FileHandle } from 'fs/promises';
 import { mock } from 'jest-mock-extended';
 import { closeFile } from './close-file';
 

@@ -1,5 +1,4 @@
-import type { DynamoDBClient, UpdateItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { UpdateItemCommand } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBClient, UpdateItemCommand, type UpdateItemCommandInput } from '@aws-sdk/client-dynamodb';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

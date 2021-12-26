@@ -1,4 +1,4 @@
-import type { ParsedElementAttribute } from '@komore/element/parser';
+import { type ParsedElementAttribute } from '@komore/element/parser';
 import { factory } from 'typescript';
 import { buildElementAttributeDefinitions } from './build-element-attribute-definitions';
 

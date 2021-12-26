@@ -1,5 +1,8 @@
-import type { CreateHostedZoneCommandInput, Route53Client } from '@aws-sdk/client-route-53';
-import { CreateHostedZoneCommand } from '@aws-sdk/client-route-53';
+import {
+  CreateHostedZoneCommand,
+  type CreateHostedZoneCommandInput,
+  type Route53Client
+} from '@aws-sdk/client-route-53';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

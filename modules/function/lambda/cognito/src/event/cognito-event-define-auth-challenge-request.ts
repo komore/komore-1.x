@@ -1,6 +1,6 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { CognitoEventChallengeMetadataTypes } from './cognito-event-challenge-metadata-types';
-import type { CognitoEventChallengeResult } from './cognito-event-challenge-result';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type CognitoEventChallengeMetadataTypes } from './cognito-event-challenge-metadata-types';
+import { type CognitoEventChallengeResult } from './cognito-event-challenge-result';
 
 /**
  * Cognito event define auth challenge request

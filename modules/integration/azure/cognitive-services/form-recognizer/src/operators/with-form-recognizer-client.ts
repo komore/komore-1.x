@@ -1,4 +1,4 @@
-import type { FormRecognizerClient } from '@azure/cognitiveservices-formrecognizer';
+import { type FormRecognizerClient } from '@azure/cognitiveservices-formrecognizer';
 import { withAzureClient } from '@komore/integration-azure';
 import { createFormRecognizerClient } from '../create-form-recognizer-client';
 

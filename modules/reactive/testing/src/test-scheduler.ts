@@ -1,4 +1,4 @@
-import type { TestSchedulerHelpers } from './test-scheduler-helpers';
+import { type TestSchedulerHelpers } from './test-scheduler-helpers';
 
 /**
  * Test scheduler

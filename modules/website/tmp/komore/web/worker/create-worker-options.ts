@@ -1,4 +1,4 @@
-import type { WorkerObserverOptions } from './worker-observer-options';
+import { type WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Create worker options

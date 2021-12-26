@@ -1,5 +1,4 @@
-import type { ChimeClient, CreateRoomCommandInput } from '@aws-sdk/client-chime';
-import { CreateRoomCommand } from '@aws-sdk/client-chime';
+import { type ChimeClient, CreateRoomCommand, type CreateRoomCommandInput } from '@aws-sdk/client-chime';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

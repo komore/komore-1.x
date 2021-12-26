@@ -1,5 +1,5 @@
 import { findDateByDuration } from './find-date-by-comparison';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Finds the temporal with the earliest date

@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
-import type { BuildArguments } from './build-arguments';
-import type { BuildFlags } from './build-flags';
+import { type Observable, tapNext } from '@komore/reactive';
+import { type BuildArguments } from './build-arguments';
+import { type BuildFlags } from './build-flags';
 
 /**
  * Build command
@@ -9,6 +8,6 @@ import type { BuildFlags } from './build-flags';
  */
 export function buildCommand($: Observable<[args: BuildArguments, flags: BuildFlags]>) {
   return $.pipe(
-    tapValue(value => console.log('build', value))
+    tapNext(value => console.log('build', value))
   );
 }

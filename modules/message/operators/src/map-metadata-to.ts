@@ -1,6 +1,6 @@
-import { map } from '@komore/reactive/operators';
-import type { Message } from '../message';
-import type { MutatedMessageMetadataType } from '../mutated-message-metadata-type';
+import { map } from '@komore/reactive';
+import { type Message } from '../message';
+import { type MutatedMessageMetadataType } from '../mutated-message-metadata-type';
 
 /**
  * Operator function that sets a message's metadata
@@ -18,3 +18,5 @@ export function mapMetadataTo<NewMessageMetadataType extends object>(metadata: N
     })
   );
 }
+
+// TODO: no longer needed if mapTo / map / etc. support objects

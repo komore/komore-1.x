@@ -1,5 +1,5 @@
 import { Temporal } from '@js-temporal/polyfill';
-import type { NowProvider } from './now-provider';
+import { type NowProvider } from './now-provider';
 
 /**
  * Default now provider implementation

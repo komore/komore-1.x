@@ -1,14 +1,13 @@
-import type { Observable } from '@komore/reactive';
-import { filter } from '@komore/reactive';
-import type { HostState } from './host-state';
-import { fromHostState } from './from-host-state';
+import { type HostState } from './host-state';
 
 /**
- * subscription to the source observable until the host reaches a specific state
+ * Returns a function that tests whether a host state matches an expected host state
  * @param expectedHostState Expected host state
+ * @returns Function that tests whether a host state matches the expected host state
+ * @template ExpectedHostState Expected host state type
  */
-export function hostHas(expectedHostState: HostState): Observable<HostState> {
-  return observeHostState().pipe(
-    filter(state => state === expectedHostState)
-  );
+export function hostHas<ExpectedHostState extends HostState>(
+  expectedHostState: ExpectedHostState
+): (hostState: HostState) => hostState is ExpectedHostState {
+  return (hostState): hostState is ExpectedHostState => hostState === expectedHostState;
 }

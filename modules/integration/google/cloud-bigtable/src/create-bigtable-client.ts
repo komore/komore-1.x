@@ -1,5 +1,4 @@
-import type { BigtableOptions } from '@google-cloud/bigtable';
-import { Bigtable } from '@google-cloud/bigtable';
+import { Bigtable, type BigtableOptions } from '@google-cloud/bigtable';
 
 /**
  * Creates a Bigtable client
@@ -9,5 +8,3 @@ import { Bigtable } from '@google-cloud/bigtable';
 export function createBigTableClient(options?: BigtableOptions): Bigtable {
   return new Bigtable(options);
 }
-
-createBigTableClient().createInstance()

@@ -1,5 +1,5 @@
-import type { ClientEvents } from 'discord.js';
-import type { DiscordEvent } from './discord-event';
+import { type ClientEvents } from 'discord.js';
+import { type DiscordEvent } from './discord-event';
 
 /**
  * Creates a function that tests whether a Discord event is one of a set of specific names

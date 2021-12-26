@@ -1,6 +1,5 @@
-import type { Identifier, InterfaceDeclaration, NodeFactory } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import type { ElementEventDefinition } from '../definition/element-event-definition';
+import { type Identifier, type InterfaceDeclaration, type NodeFactory, SyntaxKind } from 'typescript';
+import { type ElementEventDefinition } from '../definition/element-event-definition';
 import { createElementEventProperty } from './create-element-event-property';
 
 /**

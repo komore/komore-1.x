@@ -1,4 +1,4 @@
-import type { DnsManagementClient } from "@azure/arm-dns";
+import { type DnsManagementClient } from "@azure/arm-dns";
 
 /**
  * Azure DNS client

@@ -1,4 +1,4 @@
-import type { EventBridgeClient } from '@aws-sdk/client-eventbridge';
+import { type EventBridgeClient } from '@aws-sdk/client-eventbridge';
 import { withAmazonClient } from '@komore/integration-amazon';
 import { createEventBridgeClient } from '../create-event-bridge-client';
 

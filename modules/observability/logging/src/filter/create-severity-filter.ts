@@ -1,7 +1,7 @@
-import type { LogEventSeverity } from '../definition/log-event-severity';
-import type { Filter } from './filter';
+import { type LogEventSeverity } from '../definition/log-event-severity';
+import { type Filter } from './filter';
 import { FilterResult } from './filter-result';
-import type { SeverityFilterOptions } from './severity-filter-options';
+import { type SeverityFilterOptions } from './severity-filter-options';
 
 /**
  * Creates a severity filter

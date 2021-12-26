@@ -1,6 +1,13 @@
-import type { SourceFile, TransformerFactory, Visitor/*, isVariableStatement*/ } from 'typescript';
-import { /*isVariableDeclaration, SyntaxKind,*/ visitEachChild } from 'typescript';
-import type { ElementPropertyDefinitionRecorder } from '../../../definition/element-property-definition-recorder';
+import {
+  // isVariableDeclaration,
+  // isVariableStatement,
+  type SourceFile,
+  type TransformerFactory,
+  visitEachChild,
+  type Visitor,
+  // SyntaxKind
+} from 'typescript';
+import { type ElementPropertyDefinitionRecorder } from '../../../definition/element-property-definition-recorder';
 
 /**
  * Creates a TypeScript property transformer for element properties

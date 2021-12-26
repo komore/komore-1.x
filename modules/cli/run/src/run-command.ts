@@ -1,7 +1,6 @@
-import type { Observable } from '@komore/reactive';
-import { tapValue } from '@komore/reactive/operators';
-import type { RunArguments } from './run-arguments';
-import type { RunFlags } from './run-flags';
+import { type Observable, tapNext } from '@komore/reactive';
+import { type RunArguments } from './run-arguments';
+import { type RunFlags } from './run-flags';
 
 /**
  * Run command
@@ -9,6 +8,6 @@ import type { RunFlags } from './run-flags';
  */
 export function runCommand($: Observable<[args: RunArguments, flags: RunFlags]>) {
   return $.pipe(
-    tapValue(value => console.log('run', value))
+    tapNext(value => console.log('run', value))
   );
 }

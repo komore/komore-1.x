@@ -1,6 +1,6 @@
-import type { Message } from '@komore/message';
-import type { Observable } from '@komore/reactive';
-import type { Command } from './command';
+import { type Message } from '@komore/message';
+import { type Observable } from '@komore/reactive';
+import { type Command } from './command';
 
 /**
  * Command processor

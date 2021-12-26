@@ -1,5 +1,5 @@
-import type { TerraformResource } from 'cdktf';
-import type { Construct } from 'constructs';
+import { type TerraformResource } from 'cdktf';
+import { type Construct } from 'constructs';
 import { mock } from 'jest-mock-extended';
 import { addResource } from './add-resource';
 import { createScope } from './create-scope';

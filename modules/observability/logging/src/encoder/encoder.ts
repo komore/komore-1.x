@@ -1,6 +1,6 @@
-import type { LogEvent } from '../definition/log-event';
-import type { LogEventRecord } from '../definition/log-event-record';
-import type { LogGroup } from '../definition/log-group';
+import { type LogEvent } from '../definition/log-event';
+import { type LogEventRecord } from '../definition/log-event-record';
+import { type LogGroup } from '../definition/log-group';
 
 /**
  * Encoder

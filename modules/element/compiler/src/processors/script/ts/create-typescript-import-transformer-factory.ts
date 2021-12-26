@@ -1,4 +1,4 @@
-import type { Visitor, SourceFile, TransformerFactory } from 'typescript';
+import { type Visitor, type SourceFile, type TransformerFactory } from 'typescript';
 import { isImportDeclaration, visitEachChild, visitNode } from 'typescript';
 
 /**

@@ -1,5 +1,4 @@
-import type { APIGatewayClientConfig } from '@aws-sdk/client-api-gateway';
-import { APIGatewayClient } from '@aws-sdk/client-api-gateway';
+import { APIGatewayClient, type APIGatewayClientConfig } from '@aws-sdk/client-api-gateway';
 
 /**
  * Creates an API gateway client

@@ -1,5 +1,5 @@
-import type { MonoTypeOperatorFunction } from '../operator/mono-type-operator-function';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { type OperatorFunction } from '../operator-function';
 import { map } from './map';
 
 /**

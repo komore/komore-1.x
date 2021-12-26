@@ -1,4 +1,4 @@
-import type { NodeFactory, StringLiteral } from 'typescript';
+import { type NodeFactory, type StringLiteral } from 'typescript';
 
 /**
  * Creates an attribute's default boolean value expression

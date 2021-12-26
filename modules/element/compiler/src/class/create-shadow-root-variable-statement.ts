@@ -1,5 +1,5 @@
 import { createPropertyAccess, createVariableStatement } from '@komore/typescript/compiler';
-import type { Identifier, NodeFactory, VariableStatement } from 'typescript';
+import { type Identifier, type NodeFactory, type VariableStatement } from 'typescript';
 
 /**
  * Creates a shadow root variable statement

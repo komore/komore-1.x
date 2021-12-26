@@ -1,4 +1,4 @@
-import type { MarkdownMetadataDefinition } from './markdown-metadata-definition';
+import { type MarkdownMetadataDefinition } from './markdown-metadata-definition';
 import { MARKDOWN_METADATA_DEFINITION_PREFIX } from './markdown-metadata-definition-prefix';
 
 /**

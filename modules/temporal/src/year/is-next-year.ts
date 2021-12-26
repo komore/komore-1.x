@@ -1,6 +1,6 @@
-import type { Temporal } from '@js-temporal/polyfill';
-import { getNowFor } from '@komore/temporal';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type Temporal } from '@js-temporal/polyfill';
+import { getNowFor } from '../get-now-for';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal with date occurs next year

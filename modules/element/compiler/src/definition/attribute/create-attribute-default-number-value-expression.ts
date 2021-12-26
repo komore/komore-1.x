@@ -1,4 +1,4 @@
-import type { NodeFactory, NumericLiteral } from 'typescript';
+import { type NodeFactory, type NumericLiteral } from 'typescript';
 
 /**
  * Creates an attribute's default number value expression

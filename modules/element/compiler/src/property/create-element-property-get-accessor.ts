@@ -1,6 +1,6 @@
 import { createPropertyAccess } from '@komore/typescript/compiler';
-import type { GetAccessorDeclaration, Identifier, NodeFactory } from 'typescript';
-import type { ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type GetAccessorDeclaration, type Identifier, type NodeFactory } from 'typescript';
+import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementPropertyType } from './create-element-property-type';
 
 /**

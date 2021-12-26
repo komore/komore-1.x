@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementEventDefinition } from '../definition/element-event-definition';
+import { type ElementEventDefinition } from '../definition/element-event-definition';
 import { createElementEventProperty } from './create-element-event-property';
 
 describe('Create element event property', () => {

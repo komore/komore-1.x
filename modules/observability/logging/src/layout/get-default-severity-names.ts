@@ -1,6 +1,6 @@
 import { enumEntries } from '@komore/functional';
-import { LogEventSeverities } from '../log-event-severities';
-import type { LogEventSeverity } from '../log-event-severity';
+import { LogEventSeverities } from '../definition/log-event-severities';
+import { type LogEventSeverity } from '../definition/log-event-severity';
 
 /**
  * Gets a map of default severity names

@@ -1,1 +1,1 @@
-export type { ElectronApplication } from './electron-application';
+export { type ElectronApplication } from './electron-application';

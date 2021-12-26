@@ -1,5 +1,5 @@
 import { createVariableStatement } from '@komore/typescript/compiler';
-import type { Identifier, NodeFactory, VariableStatement } from 'typescript';
+import { type Identifier, type NodeFactory, type VariableStatement } from 'typescript';
 import { createDocumentCreateElementCall } from '../codegen/create-document-create-element-call';
 
 /**

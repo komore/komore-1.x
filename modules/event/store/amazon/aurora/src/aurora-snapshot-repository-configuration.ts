@@ -1,4 +1,4 @@
-import type { RDSDataClient } from '@aws-sdk/client-rds-data';
+import { type RDSDataClient } from '@aws-sdk/client-rds-data';
 
 /**
  * Aurora snapshot repository configuration

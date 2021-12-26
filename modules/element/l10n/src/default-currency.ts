@@ -1,6 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { ReplaySubject } from '@komore/reactive';
-import { cache } from '@komore/reactive/operators';
+import { cache, type Observable, ReplaySubject } from '@komore/reactive';
 
 /**
  * Default currency subject

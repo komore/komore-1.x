@@ -1,6 +1,21 @@
 import { map as rxjsMap } from 'rxjs';
-import type { OperatorFunction } from '../operator/operator-function';
+import { type OperatorFunction } from '../operator-function';
 
+/**
+ * Applies a mapping function to each value emitted by the source observable, and emits those mapped values
+ * @param project Mapping function
+ * @template InputType Input type
+ * @template OutputType Output type
+ */
+export function map<InputType, OutputType>(
+  project: (value: InputType, index: number) => OutputType
+): OperatorFunction<InputType, OutputType>;
+
+/**
+ * Applies a mapping function to individual elements in the tuple emitted by the source observable, and emits those
+ * mapped values
+ * @param project 
+ */
 // TODO: map([toX, toY]) => Observable<[X, Y]>
 export function map<
   InputType extends ReadonlyArray<unknown>,
@@ -17,16 +32,6 @@ export function map<
   InputType,
   { [K in keyof InputType]: Project[K] extends undefined ? InputType[K] : ReturnType<Project[K]> }
 >;
-
-/**
- * Applies a mapping function to each value emitted by the source observable, and emits those mapped values
- * @param project Mapping function
- * @template InputType Input type
- * @template OutputType Output type
- */
-export function map<InputType, OutputType>(
-  project: (value: InputType, index: number) => OutputType
-): OperatorFunction<InputType, OutputType>;
 
 export function map<InputType, OutputType>(
   project: (value: InputType, index: number) => OutputType

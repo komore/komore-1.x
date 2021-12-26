@@ -1,4 +1,4 @@
-import type { FunctionTrigger } from './function-trigger';
+import { type FunctionTrigger } from './function-trigger';
 
 /**
  * Function trigger output type

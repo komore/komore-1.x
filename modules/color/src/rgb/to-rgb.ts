@@ -1,5 +1,5 @@
-import type { RGBA } from '../rgba/rgba';
-import type { RGB } from './rgb';
+import { type RGBA } from '../rgba/rgba';
+import { type RGB } from './rgb';
 
 /**
  * Returns an RGB color given an RGBA color

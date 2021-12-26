@@ -1,4 +1,4 @@
-import type { SqsEventRecordMessageAttributeDataType } from './sqs-event-record-message-attribute-data-type';
+import { type SqsEventRecordMessageAttributeDataType } from './sqs-event-record-message-attribute-data-type';
 
 /**
  * SQS event record message attribute

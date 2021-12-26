@@ -1,2 +1,2 @@
 export { auroraEventRepository } from './aurora-event-repository';
-export type { AuroraEventRepositoryConfiguration } from './aurora-event-repository-configuration';
+export { type AuroraEventRepositoryConfiguration } from './aurora-event-repository-configuration';

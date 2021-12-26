@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { CompilerContext } from '../codegen/compiler-context';
+import { type CompilerContext } from '../codegen/compiler-context';
 import { createFromAttributeVariableStatement } from './create-from-attribute-variable-statement';
 
 describe('Create fromAttribute variable statement', () => {

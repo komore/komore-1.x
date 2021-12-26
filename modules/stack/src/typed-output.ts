@@ -1,6 +1,6 @@
-import type { Types } from './types';
-import type { TerraformOutput } from 'cdktf';
-import type { TypedValue } from './typed-value';
+import { type TerraformOutput } from 'cdktf';
+import { type Types } from './types';
+import { type TypedValue } from './typed-value';
 
 /**
  * Typed output

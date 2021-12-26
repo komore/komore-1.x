@@ -1,7 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { of, Subject } from '@komore/reactive';
-import { catchError, defaultIfEmpty, map, mergeMap } from '@komore/reactive';
-import type { FunctionCallInformation } from './observer/function-call-information';
+import { catchError, defaultIfEmpty, map, mergeMap, type Observable, of, Subject } from '@komore/reactive';
+import { type FunctionCallInformation } from './observer/function-call-information';
 import { FunctionObserver } from './observer/function-observer';
 
 /**

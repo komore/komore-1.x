@@ -1,8 +1,7 @@
-import type { ReduxDevtoolsOptions } from '@komore/element-redux-store-monitor';
-import { getReduxDevtoolsExtension } from '@komore/element-redux-store-monitor';
 import { identity } from '@komore/functional';
-import type { MonoTypeOperatorFunction } from '@komore/reactive';
-import { Observable } from '@komore/reactive';
+import { type MonoTypeOperatorFunction, Observable } from '@komore/reactive';
+import { getReduxDevtoolsExtension } from './get-redux-devtools-extension';
+import { type ReduxDevtoolsOptions } from './redux-devtools-options';
 
 /**
  * Creates a redux devtools monitor

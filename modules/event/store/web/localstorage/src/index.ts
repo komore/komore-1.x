@@ -1,1 +1,1 @@
-export {};
+export { localStorageEventRepository } from './localstorage-event-repository';

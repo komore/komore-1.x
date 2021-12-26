@@ -1,9 +1,7 @@
-import type { ParsedSource } from '@komore/element/parser';
+import { type ParsedSource } from '@komore/element/parser';
 import { parseSource } from '@komore/element/parser';
-import type { Observable } from '@komore/reactive';
-import { defer, EMPTY, of } from '@komore/reactive';
-import { map, switchMap } from '@komore/reactive/operators';
-import type { NodeFactory } from 'typescript';
+import { defer, EMPTY, map, type Observable, of, switchMap } from '@komore/reactive';
+import { type NodeFactory } from 'typescript';
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
 import { generateStyle } from './generate-style';
 import { buildElementDefinition } from './definition/build-element-definition';

@@ -1,4 +1,4 @@
-import type { IDBKey } from './idb-key';
+import { type IDBKey } from './idb-key';
 
 /**
  * Puts an IndexedDB item within the context of an IndexedDB transaction

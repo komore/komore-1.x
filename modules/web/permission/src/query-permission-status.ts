@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { deferPromise } from '@komore/reactive';
-import type { PermissionDescriptorTypes } from './permission-descriptor-types';
+import { deferPromise, type Observable } from '@komore/reactive';
+import { type PermissionDescriptorTypes } from './permission-descriptor-types';
 
 /**
  * Queries a permission status

@@ -1,5 +1,5 @@
-import type { Locales } from './locales';
-import type { DecimalLocalizationOptions } from './options/decimal-localization-options';
+import { type Locales } from './locales';
+import { type DecimalLocalizationOptions } from './options/decimal-localization-options';
 
 /**
  * Creates a function that localizes a number to a decimal format using a set of locales

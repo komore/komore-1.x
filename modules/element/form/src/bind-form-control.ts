@@ -1,5 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import type { FormControl } from './form-control';
+import { type Observable } from '@komore/reactive';
+import { type FormControl } from './form-control';
 
 /**
  * Binds a control

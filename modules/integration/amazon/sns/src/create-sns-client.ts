@@ -1,4 +1,4 @@
-import type { SNSClientConfig } from '@aws-sdk/client-sns';
+import { type SNSClientConfig } from '@aws-sdk/client-sns';
 import { SNSClient } from '@aws-sdk/client-sns';
 
 /**

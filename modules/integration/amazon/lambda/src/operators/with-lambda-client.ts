@@ -1,4 +1,4 @@
-import type { LambdaClient } from '@aws-sdk/client-lambda';
+import { type LambdaClient } from '@aws-sdk/client-lambda';
 import { withAwsClient } from '@komore/integration-amazon';
 import { createLambdaClient } from '../create-lambda-client';
 

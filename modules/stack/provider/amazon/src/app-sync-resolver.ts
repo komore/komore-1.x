@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { AppsyncResolverConfig } from './.gen/appsync-resolver';
-import { AppsyncResolver } from './.gen/appsync-resolver';
+import { AppsyncResolver, type AppsyncResolverConfig } from './.gen/appsync-resolver';
 
 /**
  * Adds an AppSync resolver

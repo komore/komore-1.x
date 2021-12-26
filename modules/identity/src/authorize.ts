@@ -1,7 +1,3 @@
-import { createFunction } from '@komore/function';
-import type { OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive/operators';
-
 /**
  * Authorize query parameters
  */

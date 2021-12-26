@@ -1,4 +1,4 @@
-import type { ParsedElementAttribute } from '../attribute/parsed-element-attribute';
+import { type ParsedElementAttribute } from '../attribute/parsed-element-attribute';
 
 /**
  * Parsed element template

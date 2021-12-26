@@ -1,4 +1,4 @@
-import type { ComputationInput, ComputationResult } from './types';
+import { type ComputationInput, type ComputationResult } from './types';
 
 export function computeFactorial(input: ComputationInput): ComputationResult {
   let value = 1;

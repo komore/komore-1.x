@@ -1,4 +1,4 @@
-import type { RGB } from './rgb';
+import { type RGB } from './rgb';
 
 /**
  * Returns the green component from an RGB color

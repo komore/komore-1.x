@@ -1,5 +1,5 @@
-import type { MethodSignature, NodeFactory } from 'typescript';
-import type { ElementMethodDefinition } from '../definition/element-method-definition';
+import { type MethodSignature, type NodeFactory } from 'typescript';
+import { type ElementMethodDefinition } from '../definition/element-method-definition';
 import { createElementMethodSignature } from './create-element-method-signature';
 
 /**

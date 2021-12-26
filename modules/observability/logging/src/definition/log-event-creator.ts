@@ -1,6 +1,6 @@
-import type { LogEvent } from './log-event';
-import type { LogGroup } from './log-group';
-import type { LogGroupName } from './log-group-name';
+import { type LogEvent } from './log-event';
+import { type LogGroup } from './log-group';
+import { type LogGroupName } from './log-group-name';
 
 /**
  * Log event with properties creator function type

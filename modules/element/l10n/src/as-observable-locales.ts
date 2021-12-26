@@ -1,6 +1,5 @@
-import type { Observable } from '@komore/reactive';
-import { isObservable, of } from '@komore/reactive';
-import type { Locales } from '@komore/web/l10n';
+import { isObservable, type Observable, of } from '@komore/reactive';
+import { type Locales } from '@komore/web/l10n';
 import { DEFAULT_LOCALES } from './default-locales';
 
 /**

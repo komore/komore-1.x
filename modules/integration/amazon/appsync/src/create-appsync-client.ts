@@ -1,5 +1,4 @@
-import type { AppSyncClientConfig } from '@aws-sdk/client-appsync';
-import { AppSyncClient } from '@aws-sdk/client-appsync';
+import { AppSyncClient, type AppSyncClientConfig } from '@aws-sdk/client-appsync';
 
 /**
  * Creates an AppSync client

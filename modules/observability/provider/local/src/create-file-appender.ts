@@ -1,6 +1,6 @@
-import type { Appender, UntypedLogEventRecord } from '@komore/observability/logging';
+import { type Appender, type UntypedLogEventRecord } from '@komore/observability/logging';
 import { open } from 'fs';
-import type { FileAppenderOptions } from './file-appender-options';
+import { type FileAppenderOptions } from './file-appender-options';
 import { CompletionObserver, Observer, PartialObserver } from 'rxjs';
 
 export function createFileAppender(options: FileAppenderOptions): Appender {

@@ -1,9 +1,9 @@
-import type { Client, SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
-import type { MetadataBearer } from '@aws-sdk/types';
-import type { MessageWithIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
-import type { AmazonIntegrations } from './amazon-integrations';
-import type { MessageWithAmazonIntegrations } from './message-with-amazon-integrations';
+import { type Client, type SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
+import { type MetadataBearer } from '@aws-sdk/types';
+import { type MessageWithIntegrations } from '@komore/integration';
+import { type Message } from '@komore/message';
+import { type AmazonIntegrations } from './amazon-integrations';
+import { type MessageWithAmazonIntegrations } from './message-with-amazon-integrations';
 
 /**
  * Message with an AWS client

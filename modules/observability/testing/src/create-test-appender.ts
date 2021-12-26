@@ -1,5 +1,5 @@
-import type { UntypedLogEventRecord } from '@komore/observability/logging';
-import type { TestAppender } from './test-appender';
+import { type UntypedLogEventRecord } from '@komore/observability/logging';
+import { type TestAppender } from './test-appender';
 
 /**
  * Creates a test appender

@@ -1,5 +1,5 @@
 import { getNowFor } from '@komore/temporal';
-import type { TemporalWithDate } from '../temporal-with-date';
+import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal occurs this week

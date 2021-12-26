@@ -1,11 +1,20 @@
-import type { BatchDetectDominantLanguageCommandInput, BatchDetectDominantLanguageCommandOutput, ComprehendClient } from "@aws-sdk/client-comprehend";
-import { BatchDetectDominantLanguageCommand } from '@aws-sdk/client-comprehend';
-import type { FixedAwsType } from '@komore/integration-amazon';
-import { sendBatchCommand, sendCommand } from "@komore/integration-amazon";
-import { of } from 'rxjs';
+import {
+  BatchDetectDominantLanguageCommand,
+  type BatchDetectDominantLanguageCommandInput,
+  type BatchDetectDominantLanguageCommandOutput,
+  type ComprehendClient
+} from '@aws-sdk/client-comprehend';
+import { type FixedAmazonType, sendBatchCommand, sendCommand } from '@komore/integration-amazon';
+import { of } from '@komore/reactive';
 
-type BatchDetectDominantLanguageCommandOutputFixed = FixedAwsType<BatchDetectDominantLanguageCommandOutput, 'ErrorList' | 'ResultList'>;
-type BatchDetectDominantLanguageCommandInputFixed = FixedAwsType<BatchDetectDominantLanguageCommandInput, 'TextList'>;
+type BatchDetectDominantLanguageCommandOutputFixed = FixedAmazonType<
+  BatchDetectDominantLanguageCommandOutput,
+  'ErrorList' | 'ResultList'
+>;
+type BatchDetectDominantLanguageCommandInputFixed = FixedAmazonType<
+  BatchDetectDominantLanguageCommandInput,
+  'TextList'
+>;
 
 /**
  * Detects the dominant languages used in a batch of texts
@@ -20,7 +29,10 @@ type BatchDetectDominantLanguageCommandInputFixed = FixedAwsType<BatchDetectDomi
  * @returns List of detected dominant language for each text in the batch
  * @note {@link https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectDominantLanguage.html BatchDetectDominantLanguage}
  */
-export const batchDetectDominantLanguage = (comprehendClient: ComprehendClient, commandInput: BatchDetectDominantLanguageCommandInputFixed) => {
+export const batchDetectDominantLanguage = (
+  comprehendClient: ComprehendClient,
+  commandInput: BatchDetectDominantLanguageCommandInputFixed
+) => {
   if (commandInput.TextList.length === 0) {
     const noTextOutput: BatchDetectDominantLanguageCommandOutputFixed = {
       $metadata: {},
@@ -31,9 +43,8 @@ export const batchDetectDominantLanguage = (comprehendClient: ComprehendClient, 
     return of(noTextOutput);
   }
 
-
   return sendCommand(comprehendClient, new BatchDetectDominantLanguageCommand(commandInput));
-
+  /*
   const textCount = commandInput.TextList.length;
 
   if (textCount < 25) {
@@ -50,8 +61,8 @@ export const batchDetectDominantLanguage = (comprehendClient: ComprehendClient, 
       ErrorList: [],
       ResultList: []
     } as BatchDetectDominantLanguageReducedCommandOutput
-  );
-}
+  );*/
+};
 
 /**
  * Reduces `BatchDetectDominantLanguage` command outputs into a single output

@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementEventDefinition } from '../definition/element-event-definition';
+import { type ElementEventDefinition } from '../definition/element-event-definition';
 import { createElementEventMap } from './create-element-event-map';
 
 describe('Create element event map', () => {

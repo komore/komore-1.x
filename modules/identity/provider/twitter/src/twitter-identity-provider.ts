@@ -1,5 +1,5 @@
-import type { IdentityProvider } from '@komore/identity/provider';
-import type { TwitterIdentityProviderOptions } from './twitter-identity-provider-options';
+import { type IdentityProvider } from '@komore/identity/provider';
+import { type TwitterIdentityProviderOptions } from './twitter-identity-provider-options';
 
 /**
  * Creates a Twitter identity provider

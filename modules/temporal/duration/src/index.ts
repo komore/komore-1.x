@@ -1,6 +1,6 @@
-export type { DurationUnit } from './duration-unit';
+export { type DurationUnit } from './duration-unit';
 export { fromISO8601Duration } from './from-iso-8601-duration';
-export { getDurationBetween } from './get-duration-between';
+export { fromISO8601WeekDuration } from './from-iso-8601-week-duration';
 export { toDurationInDays } from './to-duration-in-days';
 export { toDurationInHours } from './to-duration-in-hours';
 export { toDurationInMilliseconds } from './to-duration-in-milliseconds';

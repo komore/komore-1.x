@@ -1,5 +1,5 @@
 import { factory } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type ElementDefinition } from '../definition/element-definition';
 import { createElementClassDeclaration } from './create-element-class-declaration';
 
 describe('Create element class declaration', () => {

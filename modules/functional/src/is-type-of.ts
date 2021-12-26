@@ -1,4 +1,4 @@
-import type { TypeNames } from '@komore/typescript';
+import { type TypeNames } from '@komore/typescript';
 
 /**
  * Creates a function that tests whether a value is of a specific type, using `typeof`

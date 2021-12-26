@@ -1,4 +1,4 @@
-import type { RGB } from './rgb';
+import { type RGB } from './rgb';
 import { toRGBString } from './to-rgb-string';
 
 describe('To RGB string', () => {

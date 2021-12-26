@@ -1,4 +1,4 @@
-import type { HostOptions } from '@komore/runtime';
+import { type HostOptions } from '@komore/runtime';
 
 /**
  * Capacitor host options

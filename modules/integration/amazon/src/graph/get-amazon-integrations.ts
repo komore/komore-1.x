@@ -1,7 +1,6 @@
-import type { MessageWithIntegrations } from '@komore/integration';
-import { getIntegrations } from '@komore/integration';
-import type { Message } from '@komore/message';
-import type { MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
+import { getIntegrations, type MessageWithIntegrations } from '@komore/integration';
+import { type Message } from '@komore/message';
+import { type MessageWithAmazonIntegrations } from '../message/message-with-amazon-integrations';
 
 /**
  * Gets the Amazon integrations from a message

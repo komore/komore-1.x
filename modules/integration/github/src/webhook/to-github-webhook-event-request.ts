@@ -1,4 +1,4 @@
-import type { GithubWebhookEventRequest } from './github-webhook-event-request';
+import { type GithubWebhookEventRequest } from './github-webhook-event-request';
 import { InvalidGithubWebhookRequestError } from './invalid-github-webhook-request-error';
 
 export function toGithubWebhookEventRequest<T>(

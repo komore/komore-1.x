@@ -1,4 +1,4 @@
-import type { Event } from './event';
+import { type Event } from './event';
 
 /**
  * Event with properties creator function type

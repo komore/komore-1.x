@@ -1,6 +1,5 @@
 import { addResource } from '@komore/stack/provider';
-import type { AppsyncGraphqlApiConfig } from './.gen/appsync-graphql-api';
-import { AppsyncGraphqlApi } from './.gen/appsync-graphql-api';
+import { AppsyncGraphqlApi, type AppsyncGraphqlApiConfig } from './.gen/appsync-graphql-api';
 
 /**
  * Adds an AppSync GraphQL API

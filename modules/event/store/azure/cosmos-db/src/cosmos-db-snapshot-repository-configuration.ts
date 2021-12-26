@@ -1,4 +1,4 @@
-import type { CosmosClient } from '@azure/cosmos';
+import { type CosmosClient } from '@azure/cosmos';
 
 /**
  * Cosmos DB snapshot repository configuration

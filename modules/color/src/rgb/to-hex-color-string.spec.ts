@@ -1,4 +1,4 @@
-import type { RGB } from './rgb';
+import { type RGB } from './rgb';
 import { toHexColorString } from './to-hex-color-string';
 
 describe('To hexadecimal color string', () => {

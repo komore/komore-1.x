@@ -1,5 +1,5 @@
-import type { ReadonlyRecord } from '@komore/typescript';
-import type { CognitoEventTokenGenerationGroupOverrideDetails } from './cognito-event-token-generation-group-override-details';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type CognitoEventTokenGenerationGroupOverrideDetails } from './cognito-event-token-generation-group-override-details';
 
 /**
  * Cognito event token generation request

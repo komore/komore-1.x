@@ -1,5 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { map, mergeMap, of } from '@komore/reactive';
+import { map, mergeMap, type Observable, of } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
 
 /**

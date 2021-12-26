@@ -1,4 +1,4 @@
-import type { KinesisFirehoseEventRecordMetadata } from './kinesis-firehose-event-record-metadata';
+import { type KinesisFirehoseEventRecordMetadata } from './kinesis-firehose-event-record-metadata';
 
 /**
  * Kinesis Firehose event record

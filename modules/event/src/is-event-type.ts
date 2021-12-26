@@ -1,5 +1,5 @@
-import type { Event } from './event';
-import type { EventCreator } from './event-creator';
+import { type Event } from './event';
+import { type EventCreator } from './event-creator';
 
 //type EventCreatorEventType<EC> = EC extends EventCreator<infer E> ? EventType<E> : never;
 

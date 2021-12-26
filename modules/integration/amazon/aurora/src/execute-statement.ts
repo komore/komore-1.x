@@ -1,5 +1,8 @@
-import type { ExecuteStatementCommandInput, RDSDataClient } from '@aws-sdk/client-rds-data';
-import { ExecuteStatementCommand } from '@aws-sdk/client-rds-data';
+import {
+  ExecuteStatementCommand,
+  type ExecuteStatementCommandInput,
+  type RDSDataClient
+} from '@aws-sdk/client-rds-data';
 import { sendCommand } from '@komore/integration-amazon';
 
 /**

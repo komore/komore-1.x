@@ -1,4 +1,4 @@
-import type { KinesisEventRecord } from './kinesis-event-record';
+import { type KinesisEventRecord } from './kinesis-event-record';
 
 /**
  * Kinesis event

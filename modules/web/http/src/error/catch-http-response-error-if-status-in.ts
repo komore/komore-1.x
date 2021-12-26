@@ -1,5 +1,4 @@
-import type { Observable, OperatorFunction } from '@komore/reactive';
-import { map } from '@komore/reactive';
+import { map, type Observable, type OperatorFunction } from '@komore/reactive';
 
 /**
  * Catches an HTTP error in a response

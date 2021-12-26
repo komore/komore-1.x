@@ -1,4 +1,4 @@
-import type { RouteWithElement } from '../route/route-with-element';
+import { type RouteWithElement } from '../route/route-with-element';
 
 /**
  * Route injector

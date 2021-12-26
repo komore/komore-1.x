@@ -1,5 +1,5 @@
-import type { MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
-import type { MarkdownUnknownMetadataKindBehavior } from './markdown-unknown-metadata-kind-behavior';
+import { type MarkdownMetadataDefinitionHandler } from './markdown-metadata-definition-handler';
+import { type MarkdownUnknownMetadataKindBehavior } from './markdown-unknown-metadata-kind-behavior';
 
 /**
  * Markdown metadata options

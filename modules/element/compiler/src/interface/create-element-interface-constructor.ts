@@ -1,5 +1,5 @@
-import type { NodeFactory, VariableDeclaration } from 'typescript';
-import type { ElementDefinition } from '../definition/element-definition';
+import { type NodeFactory, type VariableDeclaration } from 'typescript';
+import { type ElementDefinition } from '../definition/element-definition';
 
 /**
  * Creates an element interface constructor

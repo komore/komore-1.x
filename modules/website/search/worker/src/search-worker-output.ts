@@ -1,5 +1,5 @@
-import type { SearchResult } from '@komore/website/search';
-import type { SearchWorkerInput } from './search-worker-input';
+import { type SearchResult } from '@komore/website/search';
+import { type SearchWorkerInput } from './search-worker-input';
 
 /**
  * Search worker output

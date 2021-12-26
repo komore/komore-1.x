@@ -1,6 +1,4 @@
-import type { Observable } from '@komore/reactive';
-import { defer, fromEvent } from '@komore/reactive';
-import { map, startWith } from '@komore/reactive/operators';
+import { defer, fromEvent, map, type Observable, startWith } from '@komore/reactive';
 
 /**
  * Returns an observable that emits a slot's elements

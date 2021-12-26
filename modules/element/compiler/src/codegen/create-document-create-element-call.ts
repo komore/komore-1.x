@@ -1,5 +1,5 @@
 import { createPropertyAccess } from '@komore/typescript/compiler';
-import type { CallExpression, NodeFactory } from 'typescript';
+import { type CallExpression, type NodeFactory } from 'typescript';
 
 /**
  * Creates a document.createElement call expression
