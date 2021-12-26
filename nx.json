@@ -811,6 +811,9 @@
     "web": {
       "tags": ["scope:web", "trait:base"]
     },
+    "web-assembly": {
+      "tags": ["scope:web"]
+    },
     "web-audio": {
       "tags": ["scope:web"]
     },

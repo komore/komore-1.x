@@ -1,4 +1,5 @@
 import { type TemporalWithDate } from '../temporal-with-date';
+import { isSameWeekAs } from '../week/is-same-week-as';
 import { isWeekEnd } from './is-week-end';
 
 /**
@@ -7,12 +8,11 @@ import { isWeekEnd } from './is-week-end';
  * @returns Function that tests whether a temporal occurs on the same week-end as the reference temporal
  */
 export function isSameWeekEnd(referenceTemporal: TemporalWithDate): (temporal: TemporalWithDate) => boolean {
-  const referenceYear = referenceTemporal.year;
-  const referenceWeekOfYear = referenceTemporal.weekOfYear;
   const isReferenceWeekEnd = isWeekEnd(referenceTemporal);
-  return temporal =>
-    isReferenceWeekEnd &&
-    isWeekEnd(temporal) &&
-    referenceYear === temporal.year &&
-    referenceWeekOfYear === temporal.weekOfYear;
+  if (!isReferenceWeekEnd) {
+    return () => false;
+  }
+
+  const sameWeekAs = isSameWeekAs(referenceTemporal);
+  return temporal => sameWeekAs(temporal) && isWeekEnd(temporal);
 }

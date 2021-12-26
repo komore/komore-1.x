@@ -29,6 +29,7 @@
     "tools:generate-website-tree": "ts-node ./tools/generate-website-tree.ts ./docs/modules"
   },
   "dependencies": {
+    "@assemblyscript/loader": "0.19.22",
     "@aws-sdk/client-api-gateway": "3.43.0",
     "@aws-sdk/client-appsync": "3.43.0",
     "@aws-sdk/client-chime": "3.43.0",
@@ -92,6 +93,7 @@
     "@sendgrid/client": "7.6.0",
     "@slack/web-api": "6.5.1",
     "@typescript-eslint/experimental-utils": "5.7.0",
+    "assemblyscript": "0.19.22",
     "cdktf": "0.8.3",
     "constructs": "10.0.12",
     "css": "3.0.0",

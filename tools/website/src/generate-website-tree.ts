@@ -1,4 +1,4 @@
-import { readDirectory } from '@komore/local/filesystem';
+import { readDirectory } from '@komore/runtime/filesystem';
 //import { marked } from 'marked';
 
 const path = process.argv[2];

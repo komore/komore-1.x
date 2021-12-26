@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { isSameHour } from './is-same-hour';
+import { isSameHourAs } from './is-same-hour-as';
 
-describe('Is same hour', () => {
+describe('Is same hour as', () => {
   const pt1 = Temporal.PlainTime.from('12:34:56.789123456');
   const pt2 = Temporal.PlainTime.from('01:23:45.678912345');
   const pt3 = Temporal.PlainTime.from('12:23:45.678912345');
@@ -22,11 +22,15 @@ describe('Is same hour', () => {
     ['zoned date time', zdt1, zdt2, false],
     ['zoned date time', zdt1, zdt3, true],
     ['zoned date time', zdt2, zdt3, false]
-  ])('can test whether a %s occurs during the same hour as another temporal', (_, lhs, rhs, expectedResult) => {
-    given: 'two temporals';
-    when: 'testing whether the temporals occur during the same hour';
-    const result = isSameHour(lhs, rhs);
-    expect: 'true to have been returned if both temporals occur during the same hour';
-    expect(result).toBe(expectedResult);
-  });
+  ])(
+    'can test whether a %s occurs during the same hour as another temporal',
+    (_, referenceTemporal, temporal, expectedResult) => {
+      given: 'a function that tests whether a temporal occurs during the same hour as a reference temporal';
+      const func = isSameHourAs(referenceTemporal);
+      when: 'calling the function';
+      const result = func(temporal);
+      expect: 'true to have been returned if the temporal occurs during the same hour as the reference temporal';
+      expect(result).toBe(expectedResult);
+    }
+  );
 });

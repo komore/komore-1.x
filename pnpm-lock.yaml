@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@assemblyscript/loader': ^0.19.22
   '@aws-sdk/client-api-gateway': 3.43.0
   '@aws-sdk/client-appsync': 3.43.0
   '@aws-sdk/client-chime': 3.43.0
@@ -91,6 +92,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.7.0
   '@typescript-eslint/experimental-utils': 5.7.0
   '@typescript-eslint/parser': 5.7.0
+  assemblyscript: ^0.19.22
   cdktf: 0.8.3
   cdktf-cli: 0.4.1
   commitizen: 4.2.4
@@ -137,6 +139,7 @@ specifiers:
   webpack-hot-middleware: 2.25.0
 
 dependencies:
+  '@assemblyscript/loader': 0.19.22
   '@aws-sdk/client-api-gateway': 3.43.0
   '@aws-sdk/client-appsync': 3.43.0
   '@aws-sdk/client-chime': 3.43.0
@@ -200,6 +203,7 @@ dependencies:
   '@sendgrid/client': 7.6.0
   '@slack/web-api': 6.5.1
   '@typescript-eslint/experimental-utils': 5.7.0_eslint@8.5.0+typescript@4.5.4
+  assemblyscript: 0.19.22
   cdktf: 0.8.3_constructs@10.0.12
   constructs: 10.0.12
   css: 3.0.0
@@ -275,6 +279,10 @@ devDependencies:
   vscode-uri: 3.0.2
 
 packages:
+
+  /@assemblyscript/loader/0.19.22:
+    resolution: {integrity: sha512-ksrMVpPOatD7ZzXCw+c/g3zId5rm8MMnQe7P32dH/qtDrgT9SbQjJYEngRP0YhRF0qrBCga2PtpID7arqphGyg==}
+    dev: false
 
   /@aws-crypto/crc32/2.0.0:
     resolution: {integrity: sha512-TvE1r2CUueyXOuHdEigYjIZVesInd9KN+K/TFFNfkkxRThiNxO6i4ZqqAVMoEjAamZZ1AA8WXJkjCz7YShHPQA==}
@@ -5085,6 +5093,15 @@ packages:
       safer-buffer: 2.1.2
     dev: true
 
+  /assemblyscript/0.19.22:
+    resolution: {integrity: sha512-+Rclbx0+BI3qAe9fjc8XGbSUDaayTtjINnD19I4MmfpT2R43c9YTQERP36676shkPxb1fisDFZeSTL65Da8Q2g==}
+    hasBin: true
+    dependencies:
+      binaryen: 102.0.0-nightly.20211028
+      long: 5.2.0
+      source-map-support: 0.5.21
+    dev: false
+
   /assert/1.5.0:
     resolution: {integrity: sha512-EDsgawzwoun2CZkCgtxJbv392v4nbk9XDD06zI+kQYoBM/3RBWLlEyJARDOmhAAosBjWACEkKL6S+lIZtcAubA==}
     dependencies:
@@ -5358,6 +5375,11 @@ packages:
       buffers: 0.1.1
       chainsaw: 0.1.0
     dev: true
+
+  /binaryen/102.0.0-nightly.20211028:
+    resolution: {integrity: sha512-GCJBVB5exbxzzvyt8MGDv/MeUjs6gkXDvf4xOIItRBptYl0Tz5sm1o/uG95YK0L0VeG5ajDu3hRtkBP2kzqC5w==}
+    hasBin: true
+    dev: false
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
@@ -9065,7 +9087,7 @@ packages:
       jest-runtime: 27.2.1
       jest-util: 27.2.0
       jest-worker: 27.2.0
-      source-map-support: 0.5.19
+      source-map-support: 0.5.21
       throat: 6.0.1
     transitivePeerDependencies:
       - bufferutil
@@ -9755,6 +9777,10 @@ packages:
 
   /long/4.0.0:
     resolution: {integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==}
+    dev: false
+
+  /long/5.2.0:
+    resolution: {integrity: sha512-9RTUNjK60eJbx3uz+TEGF7fUr29ZDxR5QzXcyDpeSfeH28S9ycINflOgOlppit5U+4kNTe83KQnMEerw7GmE8w==}
     dev: false
 
   /longest/2.0.1:
@@ -11561,6 +11587,12 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /source-map-support/0.5.21:
+    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
+    dependencies:
+      buffer-from: 1.1.1
+      source-map: 0.6.1
+
   /source-map-url/0.4.1:
     resolution: {integrity: sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==}
     dev: true
@@ -11955,7 +11987,7 @@ packages:
     dependencies:
       commander: 2.20.3
       source-map: 0.6.1
-      source-map-support: 0.5.19
+      source-map-support: 0.5.21
     dev: true
 
   /test-exclude/6.0.0:
