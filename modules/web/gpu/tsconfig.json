@@ -1,5 +1,8 @@
 {
   "extends": "../../../tsconfig.dom.json",
+  "compilerOptions": {
+    "types": ["jest", "@webgpu/types"]
+  },
   "include": [],
   "files": [],
   "references": [

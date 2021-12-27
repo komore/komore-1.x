@@ -93,6 +93,7 @@
     "@sendgrid/client": "7.6.0",
     "@slack/web-api": "6.5.1",
     "@typescript-eslint/experimental-utils": "5.7.0",
+    "@webgpu/types": "^0.1.9",
     "assemblyscript": "0.19.22",
     "cdktf": "0.8.3",
     "constructs": "10.0.12",

@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@assemblyscript/loader': ^0.19.22
+  '@assemblyscript/loader': 0.19.22
   '@aws-sdk/client-api-gateway': 3.43.0
   '@aws-sdk/client-appsync': 3.43.0
   '@aws-sdk/client-chime': 3.43.0
@@ -92,7 +92,8 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.7.0
   '@typescript-eslint/experimental-utils': 5.7.0
   '@typescript-eslint/parser': 5.7.0
-  assemblyscript: ^0.19.22
+  '@webgpu/types': ^0.1.9
+  assemblyscript: 0.19.22
   cdktf: 0.8.3
   cdktf-cli: 0.4.1
   commitizen: 4.2.4
@@ -203,6 +204,7 @@ dependencies:
   '@sendgrid/client': 7.6.0
   '@slack/web-api': 6.5.1
   '@typescript-eslint/experimental-utils': 5.7.0_eslint@8.5.0+typescript@4.5.4
+  '@webgpu/types': 0.1.9
   assemblyscript: 0.19.22
   cdktf: 0.8.3_constructs@10.0.12
   constructs: 10.0.12
@@ -4833,6 +4835,10 @@ packages:
       '@webassemblyjs/wast-parser': 1.9.0
       '@xtuc/long': 4.2.2
     dev: true
+
+  /@webgpu/types/0.1.9:
+    resolution: {integrity: sha512-CGG93bZ4znugJ7KWdvWYGTemt7rUmdpzt1BOMCHI/5Kgt08tOtnn9sFmk4ZT26aGgwxBT5iC/djCxzbfxVdldA==}
+    dev: false
 
   /@xtuc/ieee754/1.2.0:
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
