@@ -1,0 +1,32 @@
+{
+  "root": "modules/temporal",
+  "sourceRoot": "modules/temporal/src",
+  "projectType": "library",
+  "tags": ["scope:temporal", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/temporal/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/temporal"],
+      "options": {
+        "jestConfig": "modules/temporal/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/temporal",
+        "tsConfig": "modules/temporal/tsconfig.lib.json",
+        "packageJson": "modules/temporal/package.json",
+        "main": "modules/temporal/src/index.ts"
+      }
+    }
+  }
+}

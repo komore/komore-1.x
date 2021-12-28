@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/audio",
+  "sourceRoot": "modules/web/audio/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/audio/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-audio"],
+      "options": {
+        "jestConfig": "modules/web/audio/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/audio",
+        "tsConfig": "modules/web/audio/tsconfig.lib.json",
+        "packageJson": "modules/web/audio/package.json",
+        "main": "modules/web/audio/src/index.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "root": "modules/ai",
+  "sourceRoot": "modules/ai/src",
+  "projectType": "library",
+  "generators": {},
+  "tags": ["scope:ai", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/ai/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/ai/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/ai/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/ai"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/ai",
+        "tsConfig": "modules/ai/tsconfig.lib.json",
+        "packageJson": "modules/ai/package.json",
+        "main": "modules/ai/src/index.ts",
+        "assets": ["modules/ai/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

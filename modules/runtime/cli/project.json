@@ -1,0 +1,32 @@
+{
+  "root": "modules/runtime/cli",
+  "sourceRoot": "modules/runtime/cli/src",
+  "projectType": "library",
+  "tags": ["scope:runtime"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/runtime/cli/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/runtime-cli"],
+      "options": {
+        "jestConfig": "modules/runtime/cli/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/runtime/cli",
+        "tsConfig": "modules/runtime/cli/tsconfig.lib.json",
+        "packageJson": "modules/runtime/cli/package.json",
+        "main": "modules/runtime/cli/src/index.ts"
+      }
+    }
+  }
+}

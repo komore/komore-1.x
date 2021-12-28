@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/worker/service",
+  "sourceRoot": "modules/web/worker/service/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/worker/service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-worker-service"],
+      "options": {
+        "jestConfig": "modules/web/worker/service/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/worker/service",
+        "tsConfig": "modules/web/worker/service/tsconfig.lib.json",
+        "packageJson": "modules/web/worker/service/package.json",
+        "main": "modules/web/worker/service/src/index.ts"
+      }
+    }
+  }
+}

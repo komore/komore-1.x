@@ -1,0 +1,32 @@
+{
+  "root": "modules/runtime/testing",
+  "sourceRoot": "modules/runtime/testing/src",
+  "projectType": "library",
+  "tags": ["scope:runtime", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/runtime/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/runtime-time"],
+      "options": {
+        "jestConfig": "modules/runtime/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/runtime/testing",
+        "tsConfig": "modules/runtime/testing/tsconfig.lib.json",
+        "packageJson": "modules/runtime/testing/package.json",
+        "main": "modules/runtime/testing/src/index.ts"
+      }
+    }
+  }
+}

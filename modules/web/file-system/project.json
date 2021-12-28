@@ -1,0 +1,31 @@
+{
+  "root": "modules/web/file-system",
+  "sourceRoot": "modules/web/file-system/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/file-system/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-filesystem"],
+      "options": {
+        "jestConfig": "modules/web/file-system/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/file-system",
+        "tsConfig": "modules/web/file-system/tsconfig.lib.json",
+        "packageJson": "modules/web/file-system/package.json",
+        "main": "modules/web/file-system/src/index.ts"
+      }
+    }
+  }
+}

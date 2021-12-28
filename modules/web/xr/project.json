@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/xr",
+  "sourceRoot": "modules/web/xr/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/xr/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-xr"],
+      "options": {
+        "jestConfig": "modules/web/xr/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/xr",
+        "tsConfig": "modules/web/xr/tsconfig.lib.json",
+        "packageJson": "modules/web/xr/package.json",
+        "main": "modules/web/xr/src/index.ts"
+      }
+    }
+  }
+}

@@ -1,3 +1,18 @@
+export { closeFile } from './file-system/close-file';
 export { createNodeHost } from './create-node-host';
+export { executeChildProcess } from './process/execute-child-process';
 export { type NodeHost } from './node-host';
 export { type NodeHostOptions } from './node-host-options';
+export { observeDirectory } from './file-system/observe-directory';
+export { observeFile } from './file-system/observe-file';
+export { observeFileContent } from './file-system/observer-file-content';
+export { type OpenFileOptions } from './file-system/open-file-options';
+export { openFile } from './file-system/open-file';
+export { readDirectory } from './file-system/read-directory';
+export { readFileContent } from './file-system/read-file-content';
+export { toFile } from './file-system/to-file';
+export { toFileStream } from './file-system/to-file-stream';
+export { type WriteFileOptions } from './file-system/write-file-options';
+export { type WriteFileOptionsWithEncoding } from './file-system/write-file-options-with-encoding';
+export { writeFile } from './file-system/write-file';
+export { writeFileStream } from './file-system/write-file-stream';

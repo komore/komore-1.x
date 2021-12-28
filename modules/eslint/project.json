@@ -1,0 +1,33 @@
+{
+  "root": "modules/eslint",
+  "sourceRoot": "modules/eslint/src",
+  "projectType": "library",
+  "tags": ["scope:eslint", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/eslint/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/eslint"],
+      "options": {
+        "jestConfig": "modules/eslint/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/eslint",
+        "tsConfig": "modules/eslint/tsconfig.lib.json",
+        "packageJson": "modules/eslint/package.json",
+        "main": "modules/eslint/src/index.ts",
+        "assets": ["modules/eslint/*.md"]
+      }
+    }
+  }
+}

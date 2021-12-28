@@ -1,0 +1,32 @@
+{
+  "root": "modules/authorization/abac/alfa",
+  "sourceRoot": "modules/authorization/abac/alfa/src",
+  "projectType": "library",
+  "tags": ["scope:authorization"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/authorization/abac/alfa/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/authorization-abac-alfa"],
+      "options": {
+        "jestConfig": "modules/authorization/abac/alfa/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/authorization/abac/alfa",
+        "tsConfig": "modules/authorization/abac/alfa/tsconfig.lib.json",
+        "packageJson": "modules/authorization/abac/alfa/package.json",
+        "main": "modules/authorization/abac/alfa/src/index.ts"
+      }
+    }
+  }
+}

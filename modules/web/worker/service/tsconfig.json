@@ -1,8 +1,7 @@
 {
-  "extends": "../../../../tsconfig.base.json",
+  "extends": "../../../../tsconfig.dom.json",
   "compilerOptions": {
     "lib": ["ES2019", "DOM", "WebWorker"],
-    "types": ["jest"]
   },
   "include": [],
   "files": [],

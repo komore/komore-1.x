@@ -1,0 +1,33 @@
+{
+  "root": "modules/mail",
+  "sourceRoot": "modules/mail/src",
+  "projectType": "library",
+  "tags": ["scope:mail", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/mail/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/mail"],
+      "options": {
+        "jestConfig": "modules/mail/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/mail",
+        "tsConfig": "modules/mail/tsconfig.lib.json",
+        "packageJson": "modules/mail/package.json",
+        "main": "modules/mail/src/index.ts",
+        "assets": ["modules/mail/*.md"]
+      }
+    }
+  }
+}

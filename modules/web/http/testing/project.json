@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/http/testing",
+  "sourceRoot": "modules/web/http/testing/src",
+  "projectType": "library",
+  "tags": ["scope:web", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/http/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-http-testing"],
+      "options": {
+        "jestConfig": "modules/web/http/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/http/testing",
+        "tsConfig": "modules/web/http/testing/tsconfig.lib.json",
+        "packageJson": "modules/web/http/testing/package.json",
+        "main": "modules/web/http/testing/src/index.ts"
+      }
+    }
+  }
+}

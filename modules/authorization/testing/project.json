@@ -1,0 +1,32 @@
+{
+  "root": "modules/authorization/testing",
+  "sourceRoot": "modules/authorization/testing/src",
+  "projectType": "library",
+  "tags": ["scope:authorization", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/authorization/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/authorization-testing"],
+      "options": {
+        "jestConfig": "modules/authorization/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/authorization/testing",
+        "tsConfig": "modules/authorization/testing/tsconfig.lib.json",
+        "packageJson": "modules/authorization/testing/package.json",
+        "main": "modules/authorization/testing/src/index.ts"
+      }
+    }
+  }
+}

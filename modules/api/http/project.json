@@ -1,0 +1,35 @@
+{
+  "root": "modules/api/http",
+  "sourceRoot": "modules/api/http/src",
+  "projectType": "library",
+  "generators": {},
+  "tags": ["scope:api"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/api/http/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/api/http/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/api/http/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/api-http"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/api/http",
+        "tsConfig": "modules/api/http/tsconfig.lib.json",
+        "packageJson": "modules/api/http/package.json",
+        "main": "modules/api/http/src/index.ts",
+        "assets": ["modules/api/http/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

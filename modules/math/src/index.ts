@@ -1,0 +1,9 @@
+//export { toCeil } from './arithmetic/to-ceil';
+//export { toFloor } from './arithmetic/to-floor';
+export { toValueDividedBy } from './arithmetic/to-value-divided-by';
+export { toValueMinus } from './arithmetic/to-value-minus';
+export { toValueMultipliedBy } from './arithmetic/to-value-multiplied-by';
+export { toValuePlus } from './arithmetic/to-value-plus';
+export { toValueSign } from './arithmetic/to-value-sign';
+export { toValueSquared } from './arithmetic/to-value-squared';
+//export { toSquareRoot } from './arithmetic/to-square-root';

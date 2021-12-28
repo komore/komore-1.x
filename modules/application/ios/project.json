@@ -1,0 +1,33 @@
+{
+  "root": "modules/application/ios",
+  "sourceRoot": "modules/application/ios/src",
+  "projectType": "library",
+  "tags": ["scope:application"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/application/ios/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/application-ios"],
+      "options": {
+        "jestConfig": "modules/application/ios/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/application/ios",
+        "tsConfig": "modules/application/ios/tsconfig.lib.json",
+        "packageJson": "modules/application/ios/package.json",
+        "main": "modules/application/ios/src/index.ts",
+        "assets": ["modules/application/ios/*.md"]
+      }
+    }
+  }
+}

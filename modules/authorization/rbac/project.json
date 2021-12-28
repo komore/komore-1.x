@@ -1,0 +1,32 @@
+{
+  "root": "modules/authorization/rbac",
+  "sourceRoot": "modules/authorization/rbac/src",
+  "projectType": "library",
+  "tags": ["scope:authorization"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/authorization/rbac/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/authorization-rbac"],
+      "options": {
+        "jestConfig": "modules/authorization/rbac/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/authorization/rbac",
+        "tsConfig": "modules/authorization/rbac/tsconfig.lib.json",
+        "packageJson": "modules/authorization/rbac/package.json",
+        "main": "modules/authorization/rbac/src/index.ts"
+      }
+    }
+  }
+}

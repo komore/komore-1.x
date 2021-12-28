@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/vibration",
+  "sourceRoot": "modules/web/vibration/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/vibration/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-vibration"],
+      "options": {
+        "jestConfig": "modules/web/vibration/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/vibration",
+        "tsConfig": "modules/web/vibration/tsconfig.lib.json",
+        "packageJson": "modules/web/vibration/package.json",
+        "main": "modules/web/vibration/src/index.ts"
+      }
+    }
+  }
+}

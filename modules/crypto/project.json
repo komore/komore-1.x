@@ -1,0 +1,33 @@
+{
+  "root": "modules/crypto",
+  "sourceRoot": "modules/crypto/src",
+  "projectType": "library",
+  "tags": ["scope:crypto", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/crypto/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/crypto"],
+      "options": {
+        "jestConfig": "modules/crypto/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/crypto",
+        "tsConfig": "modules/crypto/tsconfig.lib.json",
+        "packageJson": "modules/crypto/package.json",
+        "main": "modules/crypto/src/index.ts",
+        "assets": ["modules/crypto/*.md"]
+      }
+    }
+  }
+}

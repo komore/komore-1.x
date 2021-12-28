@@ -1,0 +1,32 @@
+{
+  "root": "modules/temporal/compatibility",
+  "sourceRoot": "modules/temporal/compatibility/src",
+  "projectType": "library",
+  "tags": ["scope:temporal", "trait:compatibility"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/temporal/compatibility/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/temporal-compatibility"],
+      "options": {
+        "jestConfig": "modules/temporal/compatibility/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/temporal/compatibility",
+        "tsConfig": "modules/temporal/compatibility/tsconfig.lib.json",
+        "packageJson": "modules/temporal/compatibility/package.json",
+        "main": "modules/temporal/compatibility/src/index.ts"
+      }
+    }
+  }
+}

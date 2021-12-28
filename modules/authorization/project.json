@@ -1,0 +1,38 @@
+{
+  "root": "modules/authorization",
+  "sourceRoot": "modules/authorization/src",
+  "projectType": "library",
+  "tags": ["scope:authorization", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/authorization/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/authorization"],
+      "options": {
+        "jestConfig": "modules/authorization/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/authorization",
+        "tsConfig": "modules/authorization/tsconfig.lib.json",
+        "packageJson": "modules/authorization/package.json",
+        "main": "modules/authorization/src/index.ts",
+        "assets": ["modules/authorization/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@komore/nx:publish",
+      "packageJson": "modules/authorization/package.json",
+      "buildTarget": ["authorization:build"]
+    }
+  }
+}

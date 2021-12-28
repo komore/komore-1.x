@@ -1,0 +1,32 @@
+{
+  "root": "modules/authorization/abac/xacml",
+  "sourceRoot": "modules/authorization/abac/xacml/src",
+  "projectType": "library",
+  "tags": ["scope:authorization"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/authorization/abac/xacml/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/authorization-abac-xacml"],
+      "options": {
+        "jestConfig": "modules/authorization/abac/xacml/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/authorization/abac/xacml",
+        "tsConfig": "modules/authorization/abac/xacml/tsconfig.lib.json",
+        "packageJson": "modules/authorization/abac/xacml/package.json",
+        "main": "modules/authorization/abac/xacml/src/index.ts"
+      }
+    }
+  }
+}
