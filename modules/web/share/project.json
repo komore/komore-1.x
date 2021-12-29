@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/share",
+  "sourceRoot": "modules/web/share/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/share/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-share"],
+      "options": {
+        "jestConfig": "modules/web/share/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/share",
+        "tsConfig": "modules/web/share/tsconfig.lib.json",
+        "packageJson": "modules/web/share/package.json",
+        "main": "modules/web/share/src/index.ts"
+      }
+    }
+  }
+}

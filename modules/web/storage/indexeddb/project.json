@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/storage/indexeddb",
+  "sourceRoot": "modules/web/storage/indexeddb/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/storage/indexeddb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-storage-indexeddb"],
+      "options": {
+        "jestConfig": "modules/web/storage/indexeddb/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/storage/indexeddb",
+        "tsConfig": "modules/web/storage/indexeddb/tsconfig.lib.json",
+        "packageJson": "modules/web/storage/indexeddb/package.json",
+        "main": "modules/web/storage/indexeddb/src/index.ts"
+      }
+    }
+  }
+}

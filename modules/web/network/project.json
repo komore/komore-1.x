@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/network",
+  "sourceRoot": "modules/web/network/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/network/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-network"],
+      "options": {
+        "jestConfig": "modules/web/network/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/network",
+        "tsConfig": "modules/web/network/tsconfig.lib.json",
+        "packageJson": "modules/web/network/package.json",
+        "main": "modules/web/network/src/index.ts"
+      }
+    }
+  }
+}

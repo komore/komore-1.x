@@ -8,8 +8,7 @@ When doing `k generate @komore/schematics:stack`, a stack gets created + the abi
 on that stack.
 
 ```ts
-import { createStack } from '@komore/stack';
-import { withVariable } from '@komore/stack/operators';
+import { createStack, withVariable } from '@komore/stack';
 
 export const myStack = createStack(stack => stack.pipe(
   withVariable('')

@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/permission",
+  "sourceRoot": "modules/web/permission/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/permission/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-permission"],
+      "options": {
+        "jestConfig": "modules/web/permission/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/permission",
+        "tsConfig": "modules/web/permission/tsconfig.lib.json",
+        "packageJson": "modules/web/permission/package.json",
+        "main": "modules/web/permission/src/index.ts"
+      }
+    }
+  }
+}

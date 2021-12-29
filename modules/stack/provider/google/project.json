@@ -1,0 +1,32 @@
+{
+  "root": "modules/stack/provider/google",
+  "sourceRoot": "modules/stack/provider/google/src",
+  "projectType": "library",
+  "tags": ["scope:stack", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/stack/provider/google/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/stack-provider-google"],
+      "options": {
+        "jestConfig": "modules/stack/provider/google/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/stack-provider-google",
+        "tsConfig": "modules/stack/provider/google/tsconfig.lib.json",
+        "packageJson": "modules/stack/provider/google/package.json",
+        "main": "modules/stack/provider/google/src/index.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "root": "modules/web/gamepad",
+  "sourceRoot": "modules/web/gamepad/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/web/gamepad/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/web-gamepad"],
+      "options": {
+        "jestConfig": "modules/web/gamepad/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/gamepad",
+        "tsConfig": "modules/web/gamepad/tsconfig.lib.json",
+        "packageJson": "modules/web/gamepad/package.json",
+        "main": "modules/web/gamepad/src/index.ts"
+      }
+    }
+  }
+}

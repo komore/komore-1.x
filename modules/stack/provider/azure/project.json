@@ -1,0 +1,32 @@
+{
+  "root": "modules/stack/provider/azure",
+  "sourceRoot": "modules/stack/provider/azure/src",
+  "projectType": "library",
+  "tags": ["scope:stack", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/stack/provider/azure/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/stack-provider-azure"],
+      "options": {
+        "jestConfig": "modules/stack/provider/azure/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/stack-provider-azure",
+        "tsConfig": "modules/stack/provider/azure/tsconfig.lib.json",
+        "packageJson": "modules/stack/provider/azure/package.json",
+        "main": "modules/stack/provider/azure/src/index.ts"
+      }
+    }
+  }
+}
