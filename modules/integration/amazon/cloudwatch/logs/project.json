@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/amazon/cloudwatch/logs",
+  "sourceRoot": "modules/integration/amazon/cloudwatch/logs/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/cloudwatch/logs/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-cloudwatch-logs"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/cloudwatch/logs/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/cloudwatch/logs",
+        "tsConfig": "modules/integration/amazon/cloudwatch/logs/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/cloudwatch/logs/package.json",
+        "main": "modules/integration/amazon/cloudwatch/logs/src/index.ts"
+      }
+    }
+  }
+}

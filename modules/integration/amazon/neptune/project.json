@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/amazon/neptune",
+  "sourceRoot": "modules/integration/amazon/neptune/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/neptune/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/amazon/neptune/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/neptune/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-amazon-neptune"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/amazon/neptune",
+        "tsConfig": "modules/integration/amazon/neptune/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/neptune/package.json",
+        "main": "modules/integration/amazon/neptune/src/index.ts",
+        "assets": ["modules/integration/amazon/neptune/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

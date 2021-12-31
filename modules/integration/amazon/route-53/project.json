@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/amazon/route-53",
+  "sourceRoot": "modules/integration/amazon/route-53/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/route-53/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/amazon/route-53/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/route-53/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-amazon-route53"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/amazon/route-53",
+        "tsConfig": "modules/integration/amazon/route-53/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/route-53/package.json",
+        "main": "modules/integration/amazon/route-53/src/index.ts",
+        "assets": ["modules/integration/amazon/route-53/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

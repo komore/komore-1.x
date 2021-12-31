@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration",
+  "sourceRoot": "modules/integration/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration",
+        "tsConfig": "modules/integration/tsconfig.lib.json",
+        "packageJson": "modules/integration/package.json",
+        "main": "modules/integration/src/index.ts",
+        "assets": ["modules/integration/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/amazon/transcribe",
+  "sourceRoot": "modules/integration/amazon/transcribe/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/transcribe/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/amazon/transcribe/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/transcribe/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-amazon-transcribe"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/amazon/transcribe",
+        "tsConfig": "modules/integration/amazon/transcribe/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/transcribe/package.json",
+        "main": "modules/integration/amazon/transcribe/src/index.ts",
+        "assets": ["modules/integration/amazon/transcribe/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

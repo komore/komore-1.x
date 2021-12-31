@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/amazon/eventbridge",
+  "sourceRoot": "modules/integration/amazon/eventbridge/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/eventbridge/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-eventbridge"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/eventbridge/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/eventbridge",
+        "tsConfig": "modules/integration/amazon/eventbridge/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/eventbridge/package.json",
+        "main": "modules/integration/amazon/eventbridge/src/index.ts"
+      }
+    }
+  }
+}

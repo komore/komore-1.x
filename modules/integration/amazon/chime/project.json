@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/amazon/chime",
+  "sourceRoot": "modules/integration/amazon/chime/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/chime/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-chime"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/chime/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/chime",
+        "tsConfig": "modules/integration/amazon/chime/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/chime/package.json",
+        "main": "modules/integration/amazon/chime/src/index.ts"
+      }
+    }
+  }
+}

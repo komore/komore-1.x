@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/amazon/rekognition",
+  "sourceRoot": "modules/integration/amazon/rekognition/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/rekognition/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/amazon/rekognition/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/rekognition/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-amazon-rekognition"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/amazon/rekognition",
+        "tsConfig": "modules/integration/amazon/rekognition/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/rekognition/package.json",
+        "main": "modules/integration/amazon/rekognition/src/index.ts",
+        "assets": ["modules/integration/amazon/rekognition/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

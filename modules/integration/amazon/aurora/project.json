@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/amazon/aurora",
+  "sourceRoot": "modules/integration/amazon/aurora/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/aurora/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-aurora"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/aurora/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/aurora",
+        "tsConfig": "modules/integration/amazon/aurora/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/aurora/package.json",
+        "main": "modules/integration/amazon/aurora/src/index.ts"
+      }
+    }
+  }
+}

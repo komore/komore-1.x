@@ -11,6 +11,7 @@ export { openFile } from './file-system/open-file';
 export { readDirectory } from './file-system/read-directory';
 export { readFileContent } from './file-system/read-file-content';
 export { toFile } from './file-system/to-file';
+export { toFileContent } from './file-system/to-file-content';
 export { toFileStream } from './file-system/to-file-stream';
 export { type WriteFileOptions } from './file-system/write-file-options';
 export { type WriteFileOptionsWithEncoding } from './file-system/write-file-options-with-encoding';

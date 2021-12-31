@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/amazon",
+  "sourceRoot": "modules/integration/amazon/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/amazon/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-amazon"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/amazon",
+        "tsConfig": "modules/integration/amazon/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/package.json",
+        "main": "modules/integration/amazon/src/index.ts",
+        "assets": ["modules/integration/amazon/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

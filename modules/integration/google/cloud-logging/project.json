@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/google/cloud-logging",
+  "sourceRoot": "modules/integration/google/cloud-logging/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/google/cloud-logging/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/google/cloud-logging/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/google/cloud-logging/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-google-cloudlogging"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/google/cloud-logging",
+        "tsConfig": "modules/integration/google/cloud-logging/tsconfig.lib.json",
+        "packageJson": "modules/integration/google/cloud-logging/package.json",
+        "main": "modules/integration/google/cloud-logging/src/index.ts",
+        "assets": ["modules/integration/google/cloud-logging/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

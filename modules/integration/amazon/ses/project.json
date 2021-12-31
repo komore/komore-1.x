@@ -1,0 +1,31 @@
+{
+  "root": "modules/integration/amazon/ses",
+  "sourceRoot": "modules/integration/amazon/ses/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/ses/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-ses"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/ses/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/ses",
+        "tsConfig": "modules/integration/amazon/ses/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/ses/package.json",
+        "main": "modules/integration/amazon/ses/src/index.ts"
+      }
+    }
+  }
+}

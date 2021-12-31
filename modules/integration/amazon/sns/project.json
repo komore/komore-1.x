@@ -1,0 +1,33 @@
+{
+  "root": "modules/integration/amazon/sns",
+  "sourceRoot": "modules/integration/amazon/sns/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/sns/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-sns"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/sns/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/amazon/sns/tsconfig.spec.json"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/sns",
+        "tsConfig": "modules/integration/amazon/sns/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/sns/package.json",
+        "main": "modules/integration/amazon/sns/src/index.ts"
+      }
+    }
+  }
+}

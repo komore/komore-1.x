@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/google/cloud-metrics",
+  "sourceRoot": "modules/integration/google/cloud-metrics/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/google/cloud-metrics/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/google/cloud-metrics/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-google-cloudmetrics"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/google/cloud-metrics",
+        "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.lib.json",
+        "packageJson": "modules/integration/google/cloud-metrics/package.json",
+        "main": "modules/integration/google/cloud-metrics/src/index.ts",
+        "assets": ["modules/integration/google/cloud-metrics/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

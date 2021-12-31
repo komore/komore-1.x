@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/google/cloud-pub-sub",
+  "sourceRoot": "modules/integration/google/cloud-pub-sub/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/google/cloud-pub-sub/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/google/cloud-pub-sub/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/google/cloud-pub-sub/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-google-cloudpubsub"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/google/cloud-pub-sub",
+        "tsConfig": "modules/integration/google/cloud-pub-sub/tsconfig.lib.json",
+        "packageJson": "modules/integration/google/cloud-pub-sub/package.json",
+        "main": "modules/integration/google/cloud-pub-sub/src/index.ts",
+        "assets": ["modules/integration/google/cloud-pub-sub/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/amazon/dynamodb",
+  "sourceRoot": "modules/integration/amazon/dynamodb/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/amazon/dynamodb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-amazon-dynamodb"],
+      "options": {
+        "jestConfig": "modules/integration/amazon/dynamodb/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/amazon/dynamodb",
+        "tsConfig": "modules/integration/amazon/dynamodb/tsconfig.lib.json",
+        "packageJson": "modules/integration/amazon/dynamodb/package.json",
+        "main": "modules/integration/amazon/dynamodb/src/index.ts"
+      }
+    }
+  }
+}
