@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/azure/service-bus",
+  "sourceRoot": "modules/integration/azure/service-bus/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/azure/service-bus/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/azure/service-bus/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/azure/service-bus/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-azure-servicebus"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/azure/service-bus",
+        "tsConfig": "modules/integration/azure/service-bus/tsconfig.lib.json",
+        "packageJson": "modules/integration/azure/service-bus/package.json",
+        "main": "modules/integration/azure/service-bus/src/index.ts",
+        "assets": ["modules/integration/azure/service-bus/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

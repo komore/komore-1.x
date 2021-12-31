@@ -15,6 +15,6 @@ import { type Snapshot } from './snapshot';
  * @template S State type
  * @template E Event types
  */
-export interface SnapshotStrategy<S, E extends Event<any, any>[]> {
+export interface SnapshotStrategy<S, E extends Event<string, Record<string, unknown> | undefined>[]> {
   (eventsWithMetadata: ReadonlyArray<EventWithMetadata<E>>, state: S, currentSnapshot?: Snapshot<S>): boolean | number;
 }

@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/l10n",
+  "sourceRoot": "modules/element/l10n/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/l10n/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-l10n"],
+      "options": {
+        "jestConfig": "modules/element/l10n/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/l10n",
+        "tsConfig": "modules/element/l10n/tsconfig.lib.json",
+        "packageJson": "modules/element/l10n/package.json",
+        "main": "modules/element/l10n/src/index.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "root": "modules/function/lambda/sns",
+  "sourceRoot": "modules/function/lambda/sns/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:amazon", "service:sns"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/lambda/sns/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/lambda/sns/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/lambda/sns/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-lambda-sns"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/lambda/sns",
+        "tsConfig": "modules/function/lambda/sns/tsconfig.lib.json",
+        "packageJson": "modules/function/lambda/sns/package.json",
+        "main": "modules/function/lambda/sns/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

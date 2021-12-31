@@ -1,0 +1,33 @@
+{
+  "root": "modules/function/lambda/app-sync",
+  "sourceRoot": "modules/function/lambda/app-sync/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:amazon", "service:appsync"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/lambda/app-sync/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/lambda/app-sync/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/lambda/app-sync/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-lambda-appsync"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/lambda/app-sync",
+        "tsConfig": "modules/function/lambda/app-sync/tsconfig.lib.json",
+        "packageJson": "modules/function/lambda/app-sync/package.json",
+        "main": "modules/function/lambda/app-sync/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

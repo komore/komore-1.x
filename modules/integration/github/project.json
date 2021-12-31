@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/github",
+  "sourceRoot": "modules/integration/github/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:github"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/github/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/github/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/github/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-github"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/github",
+        "tsConfig": "modules/integration/github/tsconfig.lib.json",
+        "packageJson": "modules/integration/github/package.json",
+        "main": "modules/integration/github/src/index.ts",
+        "assets": ["modules/integration/github/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

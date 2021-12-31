@@ -1,0 +1,32 @@
+{
+  "root": "modules/event/store/web/localstorage",
+  "sourceRoot": "modules/event/store/web/localstorage/src",
+  "projectType": "library",
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/web/localstorage/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/event-store-web-localstorage"],
+      "options": {
+        "jestConfig": "modules/event/store/web/localstorage/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/event/store/web/localstorage",
+        "tsConfig": "modules/event/store/web/localstorage/tsconfig.lib.json",
+        "packageJson": "modules/event/store/web/localstorage/package.json",
+        "main": "modules/event/store/web/localstorage/src/index.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "root": "modules/identity/testing",
+  "sourceRoot": "modules/identity/testing/src",
+  "projectType": "library",
+  "tags": ["scope:identity", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/identity/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/identity/testing/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/identity/testing/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/identity-testing"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/identity/testing",
+        "tsConfig": "modules/identity/testing/tsconfig.lib.json",
+        "packageJson": "modules/identity/testing/package.json",
+        "main": "modules/identity/testing/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

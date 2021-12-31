@@ -1,0 +1,33 @@
+{
+  "root": "modules/integration/paddle",
+  "sourceRoot": "modules/integration/paddle/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:paddle"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/paddle/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-paddle"],
+      "options": {
+        "jestConfig": "modules/integration/paddle/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/paddle",
+        "tsConfig": "modules/integration/paddle/tsconfig.lib.json",
+        "packageJson": "modules/integration/paddle/package.json",
+        "main": "modules/integration/paddle/src/index.ts",
+        "assets": ["modules/integration/paddle/*.md"]
+      }
+    }
+  }
+}

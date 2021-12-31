@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/gitlab",
+  "sourceRoot": "modules/integration/gitlab/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:gitlab"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/gitlab/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/gitlab/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/gitlab/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-gitlab"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/gitlab",
+        "tsConfig": "modules/integration/gitlab/tsconfig.lib.json",
+        "packageJson": "modules/integration/gitlab/package.json",
+        "main": "modules/integration/gitlab/src/index.ts",
+        "assets": ["modules/integration/gitlab/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

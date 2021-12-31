@@ -1,0 +1,32 @@
+{
+  "root": "modules/event/store/web/indexeddb",
+  "sourceRoot": "modules/event/store/web/indexeddb/src",
+  "projectType": "library",
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/web/indexeddb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/event-store-web-indexeddb"],
+      "options": {
+        "jestConfig": "modules/event/store/web/indexeddb/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/event/store/web/indexeddb",
+        "tsConfig": "modules/event/store/web/indexeddb/tsconfig.lib.json",
+        "packageJson": "modules/event/store/web/indexeddb/package.json",
+        "main": "modules/event/store/web/indexeddb/src/index.ts"
+      }
+    }
+  }
+}

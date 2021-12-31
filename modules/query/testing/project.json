@@ -1,0 +1,32 @@
+{
+  "root": "modules/query/testing",
+  "sourceRoot": "modules/query/testing/src",
+  "projectType": "library",
+  "tags": ["scope:query", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/query/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/query-testing"],
+      "options": {
+        "jestConfig": "modules/query/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/query/testing",
+        "tsConfig": "modules/query/testing/tsconfig.lib.json",
+        "packageJson": "modules/query/testing/package.json",
+        "main": "modules/query/testing/src/index.ts"
+      }
+    }
+  }
+}

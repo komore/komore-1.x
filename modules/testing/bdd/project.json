@@ -1,0 +1,33 @@
+{
+  "root": "modules/testing/bdd",
+  "sourceRoot": "modules/testing/bdd/src",
+  "projectType": "library",
+  "tags": ["scope:testing", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/testing/bdd/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/testing-bdd"],
+      "options": {
+        "jestConfig": "modules/testing/bdd/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/testing/bdd",
+        "tsConfig": "modules/testing/bdd/tsconfig.lib.json",
+        "packageJson": "modules/testing/bdd/package.json",
+        "main": "modules/testing/bdd/src/index.ts",
+        "assets": ["modules/testing/bdd/*.md"]
+      }
+    }
+  }
+}

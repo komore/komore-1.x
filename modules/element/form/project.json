@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/form",
+  "sourceRoot": "modules/element/form/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/form/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-form"],
+      "options": {
+        "jestConfig": "modules/element/form/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/form",
+        "tsConfig": "modules/element/form/tsconfig.lib.json",
+        "packageJson": "modules/element/form/package.json",
+        "main": "modules/element/form/src/index.ts"
+      }
+    }
+  }
+}

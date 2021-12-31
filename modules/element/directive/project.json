@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/directive",
+  "sourceRoot": "modules/element/directive/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/directive/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-directive"],
+      "options": {
+        "jestConfig": "modules/element/directive/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/directive",
+        "tsConfig": "modules/element/directive/tsconfig.lib.json",
+        "packageJson": "modules/element/directive/package.json",
+        "main": "modules/element/directive/src/index.ts"
+      }
+    }
+  }
+}

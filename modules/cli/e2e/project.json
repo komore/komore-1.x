@@ -1,0 +1,18 @@
+{
+  "projectType": "application",
+  "root": "modules/cli/e2e",
+  "sourceRoot": "modules/cli/e2e",
+  "tags": ["scope:cli"],
+  "implicitDependencies": ["cli"],
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cli-plugin:e2e",
+      "options": {
+        "target": "cli:build",
+        "npmPackageName": "@komore/nx",
+        "pluginoutputPath": "dist/cli",
+        "jestConfig": "modules/nx/e2e/jest.config.js"
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/azure/cognitive-services/form-recognizer",
+  "sourceRoot": "modules/integration/azure/cognitive-services/form-recognizer/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/azure/cognitive-services/form-recognizer/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/azure/cognitive-services/form-recognizer/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-azure-cognitiveservices-formrecognizer"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/azure/cognitive-services/form-recognizer",
+        "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.lib.json",
+        "packageJson": "modules/integration/azure/cognitive-services/form-recognizer/package.json",
+        "main": "modules/integration/azure/cognitive-services/form-recognizer/src/index.ts",
+        "assets": ["modules/integration/azure/cognitive-services/form-recognizer/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

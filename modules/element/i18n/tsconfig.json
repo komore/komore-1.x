@@ -1,11 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
-  "compilerOptions": {
-    "lib": ["ES2019", "DOM"],
-    "types": ["jest"]
-  },
-  "include": [],
-  "files": [],
+  "extends": "../../../tsconfig.dom.json",
   "references": [
     {
       "path": "./tsconfig.lib.json"

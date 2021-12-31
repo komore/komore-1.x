@@ -1,0 +1,33 @@
+{
+  "root": "modules/event/store/google/cloud-bigtable",
+  "sourceRoot": "modules/event/store/google/cloud-bigtable/src",
+  "projectType": "library",
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/google/cloud-bigtable/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/event/store/google/cloud-bigtable/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/event/store/google/cloud-bigtable/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/event-store-google-cloudbigtable"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/event/store/google/cloud-bigtable",
+        "tsConfig": "modules/event/store/google/cloud-bigtable/tsconfig.lib.json",
+        "packageJson": "modules/event/store/google/cloud-bigtable/package.json",
+        "main": "modules/event/store/google/cloud-bigtable/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

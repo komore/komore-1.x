@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { type EventWithMetadata } from '@komore/event';
 import { createEvent } from '@komore/event';
 import { snapshotOnCount } from './snapshot-on-count';
@@ -54,7 +55,7 @@ function createTestEvent(n: number): EventWithMetadata<any> {
       aggregateKey: 'test-aggregate-key',
       sequenceNumber: n,
       size: 0,
-      timestamp: new Date()
+      timestamp: Temporal.Now.plainDateTimeISO()
     }
   };
 }

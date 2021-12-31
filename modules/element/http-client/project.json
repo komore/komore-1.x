@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/http-client",
+  "sourceRoot": "modules/element/http-client/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/http-client/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-httpclient"],
+      "options": {
+        "jestConfig": "modules/element/http-client/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/http-client",
+        "tsConfig": "modules/element/http-client/tsconfig.lib.json",
+        "packageJson": "modules/element/http-client/package.json",
+        "main": "modules/element/http-client/src/index.ts"
+      }
+    }
+  }
+}

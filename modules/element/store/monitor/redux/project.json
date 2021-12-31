@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/store/monitor/redux",
+  "sourceRoot": "modules/element/store/monitor/redux/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/store/monitor/redux/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-store-monitor-redux"],
+      "options": {
+        "jestConfig": "modules/element/store/monitor/redux/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/store/monitor/redux",
+        "tsConfig": "modules/element/store/monitor/redux/tsconfig.lib.json",
+        "packageJson": "modules/element/store/monitor/redux/package.json",
+        "main": "modules/element/store/monitor/redux/src/index.ts"
+      }
+    }
+  }
+}

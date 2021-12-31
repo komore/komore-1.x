@@ -8,7 +8,7 @@ import { type Event, type EventWithMetadata } from '@komore/event';
  * @returns Sequence number
  * @template EventTypes Event types
  */
-export function getAfterAtOrBeforeSequenceNumber<EventTypes extends Event<any, any>[]>(
+export function getAfterAtOrBeforeSequenceNumber<EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
   eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
   selectionType: 'after' | 'at' | 'before',
   index: number

@@ -5,7 +5,6 @@
     "outDir": "../../../dist/out-tsc",
     "declaration": true
   },
-  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"],
-  "include": ["src/**/*.ts"],
-  "files": []
+  "exclude": ["src/**/*.spec.ts"],
+  "include": ["src/**/*.ts"]
 }

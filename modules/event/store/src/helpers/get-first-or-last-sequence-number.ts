@@ -7,7 +7,7 @@ import { type Event, type EventWithMetadata } from '@komore/event';
  * @returns Sequence number
  * @template EventTypes Event types
  */
-export function getFirstOrLastSequenceNumber<EventTypes extends Event<any, any>[]>(
+export function getFirstOrLastSequenceNumber<EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
   eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
   selectionType: 'first' | 'last'
 ): number {

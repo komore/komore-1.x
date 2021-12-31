@@ -1,0 +1,32 @@
+{
+  "root": "modules/cli/lint",
+  "sourceRoot": "modules/cli/lint/src",
+  "projectType": "library",
+  "tags": ["scope:cli"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/cli/lint/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/cli-lint"],
+      "options": {
+        "jestConfig": "modules/cli/lint/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cli/lint",
+        "tsConfig": "modules/cli/lint/tsconfig.lib.json",
+        "packageJson": "modules/cli/lint/package.json",
+        "main": "modules/cli/lint/src/index.ts"
+      }
+    }
+  }
+}

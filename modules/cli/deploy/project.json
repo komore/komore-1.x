@@ -1,0 +1,32 @@
+{
+  "root": "modules/cli/deploy",
+  "sourceRoot": "modules/cli/deploy/src",
+  "projectType": "library",
+  "tags": ["scope:cli"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/cli/deploy/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/cli-deploy"],
+      "options": {
+        "jestConfig": "modules/cli/deploy/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cli/deploy",
+        "tsConfig": "modules/cli/deploy/tsconfig.lib.json",
+        "packageJson": "modules/cli/deploy/package.json",
+        "main": "modules/cli/deploy/src/index.ts"
+      }
+    }
+  }
+}

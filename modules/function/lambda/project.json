@@ -1,0 +1,34 @@
+{
+  "root": "modules/function/lambda",
+  "sourceRoot": "modules/function/lambda/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:amazon"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/lambda/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/lambda/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/lambda/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-lambda"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/lambda",
+        "tsConfig": "modules/function/lambda/tsconfig.lib.json",
+        "packageJson": "modules/function/lambda/package.json",
+        "main": "modules/function/lambda/src/index.ts",
+        "assets": ["modules/function/lambda/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

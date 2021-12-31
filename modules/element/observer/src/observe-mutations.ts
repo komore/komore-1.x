@@ -11,9 +11,9 @@ export function observeMutations(target: Node, options?: MutationObserverInit): 
     return throwError(() => new Error('MutationObserver not supported'));
   }
 
-  return new Observable<ReadonlyArray<MutationRecord>>(observer => {
-    const mutationObserver = new MutationObserver(entries => observer.next(entries));
+  return new Observable<ReadonlyArray<MutationRecord>>(subscriber => {
+    const mutationObserver = new MutationObserver(entries => subscriber.next(entries));
     mutationObserver.observe(target, options);
-    return () => mutationObserver.disconnect();
+    subscriber.add(() => mutationObserver.disconnect());
   });
 }

@@ -1,0 +1,32 @@
+{
+  "root": "modules/cli/run",
+  "sourceRoot": "modules/cli/run/src",
+  "projectType": "library",
+  "tags": ["scope:cli"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/cli/run/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/cli-run"],
+      "options": {
+        "jestConfig": "modules/cli/run/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cli/run",
+        "tsConfig": "modules/cli/run/tsconfig.lib.json",
+        "packageJson": "modules/cli/run/package.json",
+        "main": "modules/cli/run/src/index.ts"
+      }
+    }
+  }
+}

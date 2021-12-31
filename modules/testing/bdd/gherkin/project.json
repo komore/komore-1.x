@@ -1,0 +1,32 @@
+{
+  "root": "modules/testing/bdd/gherkin",
+  "sourceRoot": "modules/testing/bdd/gherkin/src",
+  "projectType": "library",
+  "tags": ["scope:testing", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/testing/bdd/gherkin/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/testing-bdd-gherkin"],
+      "options": {
+        "jestConfig": "modules/testing/bdd/gherkin/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/testing/bdd/gherkin",
+        "tsConfig": "modules/testing/bdd/gherkin/tsconfig.lib.json",
+        "packageJson": "modules/testing/bdd/gherkin/package.json",
+        "main": "modules/testing/bdd/gherkin/src/index.ts"
+      }
+    }
+  }
+}

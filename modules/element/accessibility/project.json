@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/accessibility",
+  "sourceRoot": "modules/element/accessibility/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/accessibility/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-accessibility"],
+      "options": {
+        "jestConfig": "modules/element/accessibility/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/accessibility",
+        "tsConfig": "modules/element/accessibility/tsconfig.lib.json",
+        "packageJson": "modules/element/accessibility/package.json",
+        "main": "modules/element/accessibility/src/index.ts"
+      }
+    }
+  }
+}

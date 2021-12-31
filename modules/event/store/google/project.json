@@ -1,0 +1,34 @@
+{
+  "root": "modules/event/store/google",
+  "sourceRoot": "modules/event/store/google/src",
+  "projectType": "library",
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/google/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/event/store/google/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/event/store/google/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/event-store-google"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/event/store/google",
+        "tsConfig": "modules/event/store/google/tsconfig.lib.json",
+        "packageJson": "modules/event/store/google/package.json",
+        "main": "modules/event/store/google/src/index.ts",
+        "assets": ["modules/event/store/google/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

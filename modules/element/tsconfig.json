@@ -3,8 +3,6 @@
   "compilerOptions": {
     "types": ["jest", "trusted-types"]
   },
-  "include": [],
-  "files": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"

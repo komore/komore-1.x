@@ -14,12 +14,12 @@ export function observeIntersections(
     return throwError(() => new Error('IntersectionObserver is not supported'));
   }
 
-  return new Observable<IntersectionObserverEntry>(observer => {
+  return new Observable<IntersectionObserverEntry>(subscriber => {
     const intersectionObserver = new IntersectionObserver(
-      entries => entries.forEach(entry => observer.next(entry)),
+      entries => entries.forEach(entry => subscriber.next(entry)),
       options
     );
     intersectionObserver.observe(target);
-    return () => intersectionObserver.unobserve(target);
+    subscriber.add(() => intersectionObserver.unobserve(target));
   });
 }

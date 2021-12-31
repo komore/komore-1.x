@@ -1,0 +1,34 @@
+{
+  "root": "modules/graph",
+  "sourceRoot": "modules/graph/src",
+  "projectType": "library",
+  "tags": ["scope:graph", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/graph/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/graph/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/graph/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/graph"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/graph",
+        "tsConfig": "modules/graph/tsconfig.lib.json",
+        "packageJson": "modules/graph/package.json",
+        "main": "modules/graph/src/index.ts",
+        "assets": ["modules/graph/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

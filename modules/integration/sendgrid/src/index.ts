@@ -1,4 +1,5 @@
 export { createSendGridClient } from './create-sendgrid-client';
+export { createSendGridEmailLayer } from './layer/create-sendgrid-email-layer';
 export { createTransactionalTemplate } from './create-transactional-template';
 export { type CreateTransactionalTemplateRequest } from './create-transactional-template-request';
 export { type CreateTransactionalTemplateResponse } from './create-transactional-template-response';

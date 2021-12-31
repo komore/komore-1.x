@@ -8,7 +8,6 @@ Event: ?between domains/contexts?
 Bounded context | Action | bounded context | 
 Event = between contexts?
 
-
 ### Mapping
 
 - API-REQUEST: GraphQL mutation or REST write operation, i.e. POST/PUT/PATCH/DELETE
@@ -16,7 +15,6 @@ Event = between contexts?
 - COMMAND: a command performed by the client wishing to modify a part of the application state; the command includes permissions/etc. as metadata
 - COMMAND-STORE: a store holding commands for a domain, e.g. a DynamoDB, a Kinesis stream or an SQS queue
 - COMMAND-FUNCTION: a function that processes a COMMAND
-
 
 1. API-REQUEST stores a COMMAND in the relevant COMMAND-STORE via multiple possible mechanisms:
   a. Best:

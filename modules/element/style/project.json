@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/style",
+  "sourceRoot": "modules/element/style/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/style/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-style"],
+      "options": {
+        "jestConfig": "modules/element/style/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/style",
+        "tsConfig": "modules/element/style/tsconfig.lib.json",
+        "packageJson": "modules/element/style/package.json",
+        "main": "modules/element/style/src/index.ts"
+      }
+    }
+  }
+}

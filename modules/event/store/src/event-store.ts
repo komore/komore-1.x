@@ -6,7 +6,7 @@ import { type SnapshotStrategy } from './snapshot-strategy';
  * @template StateType State type
  * @template EventTypes Event types
  */
-export type EventStore<StateType, EventTypes extends Event<any, any>[]> = Readonly<{
+export type EventStore<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]> = Readonly<{
   /**
    * Initial state or initial state creator for new aggregates
    */

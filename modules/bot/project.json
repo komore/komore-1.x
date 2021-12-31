@@ -1,0 +1,40 @@
+{
+  "root": "modules/bot",
+  "sourceRoot": "modules/bot/src",
+  "projectType": "application",
+  "tags": ["scope:bot", "trait:base"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/bot/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/bot"],
+      "options": {
+        "jestConfig": "modules/bot/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/bot",
+        "tsConfig": "modules/bot/tsconfig.app.json",
+        "packageJson": "modules/bot/package.json",
+        "main": "modules/bot/src/index.ts",
+        "assets": [
+          "modules/bot/*.md",
+          {
+            "glob": "*",
+            "input": "modules/bot/bin",
+            "output": "/bin"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "root": "modules/element/ssg",
+  "sourceRoot": "modules/element/ssg/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/ssg/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-ssg"],
+      "options": {
+        "jestConfig": "modules/element/ssg/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/ssg",
+        "tsConfig": "modules/element/ssg/tsconfig.lib.json",
+        "packageJson": "modules/element/ssg/package.json",
+        "main": "modules/element/ssg/src/index.ts",
+        "assets": ["modules/element/ssg/README.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "root": "modules/integration/sendgrid",
+  "sourceRoot": "modules/integration/sendgrid/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:sendgrid"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/sendgrid/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-sendgrid"],
+      "options": {
+        "jestConfig": "modules/integration/sendgrid/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/sendgrid",
+        "tsConfig": "modules/integration/sendgrid/tsconfig.lib.json",
+        "packageJson": "modules/integration/sendgrid/package.json",
+        "main": "modules/integration/sendgrid/src/index.ts",
+        "assets": ["modules/integration/sendgrid/*.md"]
+      }
+    }
+  }
+}

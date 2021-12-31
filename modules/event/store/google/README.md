@@ -8,17 +8,17 @@ Support for Google Cloud services as [komore] event stores:
 
 The `@komore/event-store-google` module can be installed via Npm or Yarn:
 
-```shell
+```sh
 npm install @komore/event-store-google --save
 ```
 
-```shell
+```sh
 yarn add @komore/event-store-google
 ```
 
 ## Configure
 
-```typescript
+```ts
 // TODO
 ```
 

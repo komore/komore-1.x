@@ -1,0 +1,33 @@
+{
+  "root": "modules/integration/azure/storage/queue",
+  "sourceRoot": "modules/integration/azure/storage/queue/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/azure/storage/queue/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/azure/storage/queue/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/azure/storage/queue/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-azure-storage-queue"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/azure/storage/queue",
+        "tsConfig": "modules/integration/azure/storage/queue/tsconfig.lib.json",
+        "packageJson": "modules/integration/azure/storage/queue/package.json",
+        "main": "modules/integration/azure/storage/queue/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

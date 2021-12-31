@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/scrolling",
+  "sourceRoot": "modules/element/scrolling/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/scrolling/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-scrolling"],
+      "options": {
+        "jestConfig": "modules/element/scrolling/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/scrolling",
+        "tsConfig": "modules/element/scrolling/tsconfig.lib.json",
+        "packageJson": "modules/element/scrolling/package.json",
+        "main": "modules/element/scrolling/src/index.ts"
+      }
+    }
+  }
+}

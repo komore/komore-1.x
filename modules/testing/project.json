@@ -1,0 +1,33 @@
+{
+  "root": "modules/testing",
+  "sourceRoot": "modules/testing/src",
+  "projectType": "library",
+  "tags": ["scope:testing", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/testing"],
+      "options": {
+        "jestConfig": "modules/testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/testing",
+        "tsConfig": "modules/testing/tsconfig.lib.json",
+        "packageJson": "modules/testing/package.json",
+        "main": "modules/testing/src/index.ts",
+        "assets": ["modules/testing/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/slack",
+  "sourceRoot": "modules/integration/slack/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:slack"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/slack/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/slack/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/slack/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-slack"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration-slack",
+        "tsConfig": "modules/integration/slack/tsconfig.lib.json",
+        "packageJson": "modules/integration/slack/package.json",
+        "main": "modules/integration/slack/src/index.ts",
+        "assets": ["modules/integration/slack/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/twitter",
+  "sourceRoot": "modules/integration/twitter/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:twitter"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/twitter/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/twitter/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/twitter/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-twitter"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration-twitter",
+        "tsConfig": "modules/integration/twitter/tsconfig.lib.json",
+        "packageJson": "modules/integration/twitter/package.json",
+        "main": "modules/integration/twitter/src/index.ts",
+        "assets": ["modules/integration/twitter/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

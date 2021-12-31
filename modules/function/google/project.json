@@ -1,0 +1,34 @@
+{
+  "root": "modules/function/google",
+  "sourceRoot": "modules/function/google/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/google/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/google/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/google/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-google"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/google",
+        "tsConfig": "modules/function/google/tsconfig.lib.json",
+        "packageJson": "modules/function/google/package.json",
+        "main": "modules/function/google/src/index.ts",
+        "assets": ["modules/function/google/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

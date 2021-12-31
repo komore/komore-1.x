@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/overlay",
+  "sourceRoot": "modules/element/overlay/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/overlay/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-overlay"],
+      "options": {
+        "jestConfig": "modules/element/overlay/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/overlay",
+        "tsConfig": "modules/element/overlay/tsconfig.lib.json",
+        "packageJson": "modules/element/overlay/package.json",
+        "main": "modules/element/overlay/src/index.ts"
+      }
+    }
+  }
+}

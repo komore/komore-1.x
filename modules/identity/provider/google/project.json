@@ -1,0 +1,34 @@
+{
+  "root": "modules/identity/provider/google",
+  "sourceRoot": "modules/identity/provider/google/src",
+  "projectType": "library",
+  "tags": ["scope:identity", "trait:provider", "provider:google"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/identity/provider/google/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/identity/provider/google/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/identity/provider/google/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/identity-provider-google"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/identity/provider/google",
+        "tsConfig": "modules/identity/provider/google/tsconfig.lib.json",
+        "packageJson": "modules/identity/provider/google/package.json",
+        "main": "modules/identity/provider/google/src/index.ts",
+        "assets": ["modules/identity/provider/google/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

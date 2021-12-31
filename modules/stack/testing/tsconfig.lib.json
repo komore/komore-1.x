@@ -6,6 +6,5 @@
     "declaration": true
   },
   "exclude": ["**/*.spec.ts"],
-  "include": ["**/*.ts"],
-  "files": []
+  "include": ["**/*.ts"]
 }

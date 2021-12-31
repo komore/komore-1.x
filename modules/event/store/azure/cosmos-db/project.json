@@ -1,0 +1,32 @@
+{
+  "root": "modules/event/store/azure/cosmos-db",
+  "sourceRoot": "modules/event/store/azure/cosmos-db/src",
+  "projectType": "library",
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/azure/cosmos-db/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/event-store-azure-cosmosdb"],
+      "options": {
+        "jestConfig": "modules/event/store/azure/cosmos-db/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/event/store/azure/cosmos-db",
+        "tsConfig": "modules/event/store/azure/cosmos-db/tsconfig.lib.json",
+        "packageJson": "modules/event/store/azure/cosmos-db/package.json",
+        "main": "modules/event/store/azure/cosmos-db/src/index.ts"
+      }
+    }
+  }
+}

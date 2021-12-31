@@ -1,0 +1,33 @@
+{
+  "root": "modules/image",
+  "sourceRoot": "modules/image/src",
+  "projectType": "library",
+  "tags": ["scope:image"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/image/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/image"],
+      "options": {
+        "jestConfig": "modules/image/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/image",
+        "tsConfig": "modules/image/tsconfig.lib.json",
+        "packageJson": "modules/image/package.json",
+        "main": "modules/image/src/index.ts",
+        "assets": ["modules/image/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "root": "modules/function/lambda/dynamodb",
+  "sourceRoot": "modules/function/lambda/dynamodb/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:amazon", "service:dynamodb"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/lambda/dynamodb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/lambda/dynamodb/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/lambda/dynamodb/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-lambda-dynamodb"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/lambda/dynamodb",
+        "tsConfig": "modules/function/lambda/dynamodb/tsconfig.lib.json",
+        "packageJson": "modules/function/lambda/dynamodb/package.json",
+        "main": "modules/function/lambda/dynamodb/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

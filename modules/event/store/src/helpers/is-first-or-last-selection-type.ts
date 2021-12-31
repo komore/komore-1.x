@@ -1,4 +1,4 @@
-import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-type';
+import { type SnapshotStrategySelectionType } from '../snapshot-strategy-selection-type';
 
 /**
  * Tests whether a selection type is a `FIRST` or `LAST` selection type
@@ -7,6 +7,6 @@ import { SnapshotStrategySelectionType } from '../snapshot-strategy-selection-ty
  */
 export function isFirstOrLastSelectionType(
   selectionType: SnapshotStrategySelectionType
-): selectionType is SnapshotStrategySelectionType.FIRST | SnapshotStrategySelectionType.LAST {
-  return selectionType === SnapshotStrategySelectionType.FIRST || selectionType === SnapshotStrategySelectionType.LAST;
+): selectionType is 'first' | 'last' {
+  return selectionType === 'first' || selectionType === 'last';
 }

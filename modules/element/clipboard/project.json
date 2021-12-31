@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/clipboard",
+  "sourceRoot": "modules/element/clipboard/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/clipboard/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-clipboard"],
+      "options": {
+        "jestConfig": "modules/element/clipboard/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/clipboard",
+        "tsConfig": "modules/element/clipboard/tsconfig.lib.json",
+        "packageJson": "modules/element/clipboard/package.json",
+        "main": "modules/element/clipboard/src/index.ts"
+      }
+    }
+  }
+}

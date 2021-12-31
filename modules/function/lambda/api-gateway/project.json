@@ -1,0 +1,33 @@
+{
+  "root": "modules/function/lambda/api-gateway",
+  "sourceRoot": "modules/function/lambda/api-gateway/src",
+  "projectType": "library",
+  "tags": ["scope:function", "trait:provider", "provider:amazon", "service:apigateway"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/function/lambda/api-gateway/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/function/lambda/api-gateway/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/function/lambda/api-gateway/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/function-lambda-apigateway"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/function/lambda/api-gateway",
+        "tsConfig": "modules/function/lambda/api-gateway/tsconfig.lib.json",
+        "packageJson": "modules/function/lambda/api-gateway/package.json",
+        "main": "modules/function/lambda/api-gateway/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

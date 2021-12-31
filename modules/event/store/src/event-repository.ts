@@ -5,7 +5,7 @@ import { type Observable } from '@komore/reactive';
  * Event repository
  * @template EventTypes Event types
  */
-export interface EventRepository<EventTypes extends Event<any, any>[]> {
+export interface EventRepository<EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
   /**
    * Loads events from the repository
    *

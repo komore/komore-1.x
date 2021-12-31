@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/google/perspective",
+  "sourceRoot": "modules/integration/google/perspective/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:google", "service:perspective"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/google/perspective/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-google-perspective"],
+      "options": {
+        "jestConfig": "modules/integration/google/perspective/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/integration/google/perspective",
+        "tsConfig": "modules/integration/google/perspective/tsconfig.lib.json",
+        "packageJson": "modules/integration/google/perspective/package.json",
+        "main": "modules/integration/google/perspective/src/index.ts"
+      }
+    }
+  }
+}

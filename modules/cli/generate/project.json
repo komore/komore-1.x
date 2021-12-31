@@ -1,0 +1,32 @@
+{
+  "root": "modules/cli/generate",
+  "sourceRoot": "modules/cli/generate/src",
+  "projectType": "library",
+  "tags": ["scope:cli"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/cli/generate/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/cli-generate"],
+      "options": {
+        "jestConfig": "modules/cli/generate/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cli/generate",
+        "tsConfig": "modules/cli/generate/tsconfig.lib.json",
+        "packageJson": "modules/cli/generate/package.json",
+        "main": "modules/cli/generate/src/index.ts"
+      }
+    }
+  }
+}

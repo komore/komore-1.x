@@ -1,0 +1,33 @@
+{
+  "root": "modules/element/router",
+  "sourceRoot": "modules/element/router/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/router/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-router"],
+      "options": {
+        "jestConfig": "modules/element/router/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/element/router/tsconfig.spec.json"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/router",
+        "tsConfig": "modules/element/router/tsconfig.lib.json",
+        "packageJson": "modules/element/router/package.json",
+        "main": "modules/element/router/src/index.ts"
+      }
+    }
+  }
+}

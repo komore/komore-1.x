@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/testing",
+  "sourceRoot": "modules/integration/testing/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:testing"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/testing/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/testing/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/testing/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-testing"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/testing",
+        "tsConfig": "modules/integration/testing/tsconfig.lib.json",
+        "packageJson": "modules/integration/testing/package.json",
+        "main": "modules/integration/testing/src/index.ts",
+        "assets": ["modules/integration/testing/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

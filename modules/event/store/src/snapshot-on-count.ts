@@ -14,7 +14,7 @@ import { type SnapshotStrategySelectionType } from './snapshot-strategy-selectio
  * @template StateType State type
  * @template EventTypes Event types
  */
-export function snapshotOnCount<StateType, EventTypes extends Event<any, any>[]>(
+export function snapshotOnCount<StateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
   count: number,
   selectionType: SnapshotStrategySelectionType = 'last'
 ): SnapshotStrategy<StateType, EventTypes> {

@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/drag-drop",
+  "sourceRoot": "modules/element/drag-drop/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/drag-drop/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-dragdrop"],
+      "options": {
+        "jestConfig": "modules/element/drag-drop/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/drag-drop",
+        "tsConfig": "modules/element/drag-drop/tsconfig.lib.json",
+        "packageJson": "modules/element/drag-drop/package.json",
+        "main": "modules/element/drag-drop/src/index.ts"
+      }
+    }
+  }
+}

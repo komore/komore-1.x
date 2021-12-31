@@ -1,0 +1,32 @@
+{
+  "root": "modules/element/compiler",
+  "sourceRoot": "modules/element/compiler/src",
+  "projectType": "library",
+  "tags": ["scope:element"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/element/compiler/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/element-compiler"],
+      "options": {
+        "jestConfig": "modules/element/compiler/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/element/compiler",
+        "tsConfig": "modules/element/compiler/tsconfig.lib.json",
+        "packageJson": "modules/element/compiler/package.json",
+        "main": "modules/element/compiler/src/index.ts"
+      }
+    }
+  }
+}
