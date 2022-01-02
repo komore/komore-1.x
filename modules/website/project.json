@@ -1,0 +1,71 @@
+{
+  "projectType": "application",
+  "root": "modules/website",
+  "sourceRoot": "modules/website/src",
+  "tags": ["scope:website", "trait:base"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "options": {
+        "outputPath": "dist/website",
+        "index": "modules/website/src/index.html",
+        "main": "modules/website/src/main.ts",
+        "polyfills": "modules/website/src/polyfills.ts",
+        "tsConfig": "modules/website/tsconfig.app.json",
+        "assets": ["modules/website/src/assets", "modules/website/src/config.json", "modules/website/src/favicon.svg"],
+        "styles": ["modules/website/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "modules/website/src/build/debug.ts",
+              "with": "modules/website/src/build/release.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "website:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "website:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/website/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/website/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/website"]
+    }
+  }
+}

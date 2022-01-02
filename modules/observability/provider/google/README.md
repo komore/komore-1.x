@@ -9,11 +9,11 @@ Observability module for [Google Cloud Platform]:
 ## Install
 
 ```shell
-npm install @komore/observability-google
+npm install @komore/observability-provider-google
 ```
 
 ```shell
-yarn add @komore/observability-google
+yarn add @komore/observability-provider-google
 ```
 
 [cloud logging]: https://cloud.google.com/logging/

@@ -1,6 +1,6 @@
 import { createCloudLoggingClient, writeLogEntry } from '@komore/integration-google/cloud-logging';
-import { type LoggingDriver } from '@komore/observability/driver';
+import { type LoggingProvider } from '@komore/observability/provider';
 
-export function cloudLogging(): LoggingDriver {
+export function cloudLogging(): LoggingProvider {
   const cloudLoggingClient = createCloudLoggingClient();
 }

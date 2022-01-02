@@ -1,0 +1,32 @@
+{
+  "root": "modules/observability/logging",
+  "sourceRoot": "modules/observability/logging/src",
+  "projectType": "library",
+  "tags": ["scope:observability"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/observability/logging/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/observability-logging"],
+      "options": {
+        "jestConfig": "modules/observability/logging/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/observability/logging",
+        "tsConfig": "modules/observability/logging/tsconfig.lib.json",
+        "packageJson": "modules/observability/logging/package.json",
+        "main": "modules/observability/logging/src/index.ts"
+      }
+    }
+  }
+}

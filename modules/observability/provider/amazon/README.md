@@ -9,11 +9,11 @@ Observability module for AWS:
 ## Install
 
 ```shell
-npm install @komore/observability-amazon
+npm install @komore/observability-provider-amazon
 ```
 
 ```shell
-yarn add @komore/observability-amazon
+yarn add @komore/observability-provider-amazon
 ```
 
 ## Documentation

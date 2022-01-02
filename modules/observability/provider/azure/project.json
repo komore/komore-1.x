@@ -1,0 +1,33 @@
+{
+  "root": "modules/observability/provider/azure",
+  "sourceRoot": "modules/observability/provider/azure/src",
+  "projectType": "library",
+  "tags": ["scope:observability", "trait:provider", "provider:azure"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/observability/provider/azure/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/observability-provider-azure"],
+      "options": {
+        "jestConfig": "modules/observability/provider/azure/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/observability-provider-azure",
+        "tsConfig": "modules/observability/provider/azure/tsconfig.lib.json",
+        "packageJson": "modules/observability/provider/azure/package.json",
+        "main": "modules/observability/provider/azure/src/index.ts",
+        "assets": ["modules/observability/provider/azure/*.md"]
+      }
+    }
+  }
+}

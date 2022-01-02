@@ -1,0 +1,33 @@
+{
+  "root": "modules/website/search/input",
+  "sourceRoot": "modules/website/search/input/src",
+  "projectType": "library",
+  "tags": ["scope:website"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/website/search/input/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/website/search/input/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/website/search/input/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/website-search-input"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/website/search/input",
+        "tsConfig": "modules/website/search/input/tsconfig.lib.json",
+        "packageJson": "modules/website/search/input/package.json",
+        "main": "modules/website/search/input/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

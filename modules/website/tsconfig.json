@@ -1,7 +1,5 @@
 {
   "extends": "../../tsconfig.dom.json",
-  "files": [],
-  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"

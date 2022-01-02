@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/observability/google/src/**/*.spec.ts'],
-  preset: '../../../jest.preset.js',
-  coverageDirectory: '../../../coverage/observability-google',
+  testMatch: ['**/modules/observability/provider/google/src/**/*.spec.ts'],
+  preset: '../../../../jest.preset.js',
+  coverageDirectory: '../../../../coverage/observability-google',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'observability-google',
+  displayName: 'observability-provider-google',
   testEnvironment: 'node'
 };

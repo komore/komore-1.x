@@ -1,0 +1,32 @@
+{
+  "root": "modules/schematics/process",
+  "sourceRoot": "modules/schematics/process/src",
+  "projectType": "library",
+  "tags": ["scope:schematics", "trait:schematics"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/schematics/process/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/schematics-process"],
+      "options": {
+        "jestConfig": "modules/schematics/process/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/schematics/process",
+        "tsConfig": "modules/schematics/process/tsconfig.lib.json",
+        "packageJson": "modules/schematics/process/package.json",
+        "main": "modules/schematics/process/src/index.ts"
+      }
+    }
+  }
+}

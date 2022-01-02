@@ -11,11 +11,11 @@ Full documentation for the module can be found [here].
 ## Install
 
 ```shell
-npm install @komore/observability-azure
+npm install @komore/observability-provider-azure
 ```
 
 ```shell
-yarn add @komore/observability-azure
+yarn add @komore/observability-provider-azure
 ```
 
 [azure]: https://azure.microsoft.com/

@@ -13,4 +13,4 @@ TODO:
 Design     => Build     => Run      => Observe
 - DDD       - code       - stack     - observability
 - events    - quality    - CD        - design feedback loop
-            - CI
+            - CI                     - data/analytics
