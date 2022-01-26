@@ -1,5 +1,5 @@
+import { FunctionApp, type FunctionAppConfig } from '@cdktf/provider-azurerm';
 import { addResource } from '@komore/stack/provider';
-import { FunctionApp, type FunctionAppConfig } from './.gen/function-app';
 
 /**
  * Adds an Azure function resource

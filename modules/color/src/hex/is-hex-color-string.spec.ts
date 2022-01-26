@@ -1,4 +1,5 @@
-import { type HexColorString } from '../hex/hex-color-string';
+// TODO: import { expectTypeOf } from 'expect-type';
+// TODO: import { type HexColorString } from './hex-color-string';
 import { isHexColorString } from './is-hex-color-string';
 
 describe('Is hexadecimal color string', () => {
@@ -20,7 +21,7 @@ describe('Is hexadecimal color string', () => {
   ])('returns whether a string is a valid hexadecimal color string', (string, expectedResult) => {
     given: 'a string';
     when: 'testing whether the string is a hexadecimal color string';
-    const result = isHexColorString(string as HexColorString);
+    const result = isHexColorString(string);
     expect: 'true to have been returned if the string is a valid hexadecimal color string';
     expect(result).toBe(expectedResult);
   });

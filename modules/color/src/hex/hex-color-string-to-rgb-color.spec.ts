@@ -1,7 +1,7 @@
 import { type HexColorString } from '../hex/hex-color-string';
-import { fromHexColorString } from './from-hex-color-string';
+import { hexColorStringToRgbColor } from './hex-color-string-to-rgb-color';
 
-describe('From hexadecimal color string', () => {
+describe('RGB from hexadecimal color string', () => {
   it.each([
     ['#000000', { red: 0, green: 0, blue: 0 }],
     ['#000', { red: 0, green: 0, blue: 0 }],
@@ -10,7 +10,7 @@ describe('From hexadecimal color string', () => {
   ])('returns an RGB color from an hexadecimal color string', (hexColorString, expectedResult) => {
     given: 'a hexadecimal color string';
     when: 'converting it to an RGB color';
-    const result = fromHexColorString(hexColorString as HexColorString);
+    const result = hexColorStringToRgbColor(hexColorString as HexColorString);
     expect: 'a proper RGB color object to have been built';
     expect(result).toStrictEqual(expectedResult);
   });
@@ -20,7 +20,7 @@ describe('From hexadecimal color string', () => {
     hexColorString => {
       given: 'a hexadecimal color string';
       expect: 'an error to be thrown when attempting to convert an invalid hexadecimal color string';
-      expect(() => fromHexColorString(hexColorString as HexColorString)).toThrowError(
+      expect(() => hexColorStringToRgbColor(hexColorString as HexColorString)).toThrowError(
         `invalid hexadecimal color string "${hexColorString}`
       );
     }

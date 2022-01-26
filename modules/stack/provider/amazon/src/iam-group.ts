@@ -1,5 +1,5 @@
+import { iam } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { IamGroup, type IamGroupConfig } from './.gen/iam-group';
 
 /**
  * Adds an IAM group resource
@@ -8,6 +8,6 @@ import { IamGroup, type IamGroupConfig } from './.gen/iam-group';
  * @returns Operator function that adds an IAM group resource
  * @template ResourceId Resource identifier
  */
-export function iamGroup<ResourceId extends string>(resourceId: ResourceId, config: IamGroupConfig) {
-  return addResource(IamGroup, 'aws_iam_group', resourceId, config);
+export function iamGroup<ResourceId extends string>(resourceId: ResourceId, config: iam.IamGroupConfig) {
+  return addResource(iam.IamGroup, 'aws_iam_group', resourceId, config);
 }

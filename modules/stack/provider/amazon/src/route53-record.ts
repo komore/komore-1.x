@@ -1,5 +1,5 @@
+import { route53 } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { Route53Record, type Route53RecordConfig } from './.gen/route53-record';
 
 /**
  * Adds a Route53 record
@@ -8,6 +8,6 @@ import { Route53Record, type Route53RecordConfig } from './.gen/route53-record';
  * @returns Operator function that adds a Route53 record
  * @template ResourceId Resource identifier
  */
-export function route53Record<ResourceId extends string>(resourceId: ResourceId, config: Route53RecordConfig) {
-  return addResource(Route53Record, 'aws_route53_record', resourceId, config);
+export function route53Record<ResourceId extends string>(resourceId: ResourceId, config: route53.Route53RecordConfig) {
+  return addResource(route53.Route53Record, 'aws_route53_record', resourceId, config);
 }

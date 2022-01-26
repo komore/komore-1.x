@@ -1,6 +1,6 @@
+import { appsync } from '@cdktf/provider-aws';
 import { type GenericScope } from '@komore/stack';
 import { addResource } from '@komore/stack/provider';
-import { AppsyncDatasource, type AppsyncDatasourceConfig } from './.gen/appsync-datasource';
 
 /**
  * Adds an AppSync data source
@@ -12,7 +12,7 @@ import { AppsyncDatasource, type AppsyncDatasourceConfig } from './.gen/appsync-
 export function addAppSyncDataSource<ScopeType extends GenericScope, ResourceId extends string>(
   scope: ScopeType,
   resourceId: ResourceId,
-  config: AppsyncDatasourceConfig
+  config: appsync.AppsyncDatasourceConfig
 ) {
-  return addResource(AppsyncDatasource, 'aws_appsync_datasource', resourceId, config);
+  return addResource(appsync.AppsyncDatasource, 'aws_appsync_datasource', resourceId, config);
 }

@@ -5,6 +5,6 @@ import { type HSL } from './hsl';
  * @param color HSL color
  * @returns Saturation component
  */
-export function toSaturation(color: HSL): number {
+export function hslColorToSaturation(color: HSL): number {
   return color.saturation;
 }

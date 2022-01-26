@@ -1,5 +1,5 @@
 import { type RGB } from './rgb';
-import { type RGBString } from './rgb-string';
+import { type RGBString } from './rgb-color-string';
 
 /**
  * Returns an RGB string, given an RGB color

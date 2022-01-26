@@ -15,7 +15,7 @@ export function createCommand<
     [commandName]: class extends Command {
       async run() {
         const { args, flags } = this.parse(options);
-        const $ = of([args, flags]);
+        const $ = of([args, flags] as const);
         commandHandler($).pipe(
 
         );

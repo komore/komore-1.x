@@ -1,10 +1,10 @@
-export { fromHexColorString } from './rgb/from-hex-color-string';
+export { fromHexColorString } from './rgb/rgb-color-from-hex-color-string';
 export { type HexColorString, type HexColorString3, type HexColorString6 } from './hex/hex-color-string';
 export { type HSL } from './hsl/hsl';
 export { type HSLString } from './hsl/hsl-string';
 export { isHexColorString } from './rgb/is-hex-color-string';
 export { type RGB } from './rgb/rgb';
-export { type RGBString } from './rgb/rgb-string';
+export { type RGBString } from './rgb/rgb-color-string';
 export { type RGBA } from './rgba/rgba';
 export { toBlue } from './rgb/to-blue';
 export { toGreen } from './rgb/to-green';

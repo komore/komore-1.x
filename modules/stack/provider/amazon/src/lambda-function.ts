@@ -1,5 +1,5 @@
+import { lambdafunction } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { LambdaFunction, type LambdaFunctionConfig } from './.gen/lambda-function';
 
 /**
  * Adds a Lambda function resource
@@ -8,6 +8,6 @@ import { LambdaFunction, type LambdaFunctionConfig } from './.gen/lambda-functio
  * @returns Operator function that adds a Lambda function resource
  * @template ResourceId Resource identifier
  */
-export function lambdaFunction<ResourceId extends string>(resourceId: ResourceId, config: LambdaFunctionConfig) {
-  return addResource(LambdaFunction, 'aws_lambda_function', resourceId, config);
+export function lambdaFunction<ResourceId extends string>(resourceId: ResourceId, config: lambdafunction.LambdaFunctionConfig) {
+  return addResource(lambdafunction.LambdaFunction, 'aws_lambda_function', resourceId, config);
 }

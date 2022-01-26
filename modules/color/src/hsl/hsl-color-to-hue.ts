@@ -5,6 +5,6 @@ import { type HSL } from './hsl';
  * @param color HSL color
  * @returns Hue component
  */
-export function toHue(color: HSL): number {
+export function hslColorToHue(color: HSL): number {
   return color.hue;
 }

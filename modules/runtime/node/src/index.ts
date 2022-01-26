@@ -10,6 +10,7 @@ export { type OpenFileOptions } from './file-system/open-file-options';
 export { openFile } from './file-system/open-file';
 export { readDirectory } from './file-system/read-directory';
 export { readFileContent } from './file-system/read-file-content';
+export { removeFile } from './file-system/remove-file';
 export { toFile } from './file-system/to-file';
 export { toFileContent } from './file-system/to-file-content';
 export { toFileStream } from './file-system/to-file-stream';

@@ -1,5 +1,5 @@
+import { cloudfront } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { CloudfrontDistribution, type CloudfrontDistributionConfig } from './.gen/cloudfront-distribution';
 
 /**
  * Adds a CloudFront distribution
@@ -10,7 +10,7 @@ import { CloudfrontDistribution, type CloudfrontDistributionConfig } from './.ge
  */
 export function cloudFrontDistribution<ResourceId extends string>(
   resourceId: ResourceId,
-  config: CloudfrontDistributionConfig
+  config: cloudfront.CloudfrontDistributionConfig
 ) {
-  return addResource(CloudfrontDistribution, 'aws_cloudfront_distribution', resourceId, config);
+  return addResource(cloudfront.CloudfrontDistribution, 'aws_cloudfront_distribution', resourceId, config);
 }

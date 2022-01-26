@@ -1,5 +1,5 @@
+import { kinesis } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { KinesisStream, type KinesisStreamConfig } from './.gen/kinesis-stream';
 
 /**
  * Adds a Kinesis stream reference
@@ -8,6 +8,6 @@ import { KinesisStream, type KinesisStreamConfig } from './.gen/kinesis-stream';
  * @returns Operator function that adds a Kinesis stream reference
  * @template ResourceId Resource identifier
  */
-export function kinesisStream<ResourceId extends string>(resourceId: ResourceId, config: KinesisStreamConfig) {
-  return addResource(KinesisStream, 'aws_kinesis_stream', resourceId, config);
+export function kinesisStream<ResourceId extends string>(resourceId: ResourceId, config: kinesis.KinesisStreamConfig) {
+  return addResource(kinesis.KinesisStream, 'aws_kinesis_stream', resourceId, config);
 }

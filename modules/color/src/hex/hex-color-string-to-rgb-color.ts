@@ -1,13 +1,13 @@
 import { type HexColorString } from '../hex/hex-color-string';
-import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from '../hex/hex-color-string-regexp';
-import { type RGB } from './rgb';
+import { type RGB } from '../rgb/rgb';
+import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from './hex-color-string-regexp';
 
 /**
  * Returns an RGB color from a hexadecimal color string
  * @param hexColorString Hexadecimal color string
  * @returns RGB color
  */
-export function fromHexColorString(hexColorString: HexColorString): RGB {
+export function hexColorStringToRgbColor(hexColorString: HexColorString): RGB {
   const isShort = hexColorString.length === 4;
   const matches = hexColorString.match(isShort ? HEX_COLOR_STRING_REGEXP_SHORT : HEX_COLOR_STRING_REGEXP);
   if (matches === null) {

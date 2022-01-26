@@ -1,5 +1,5 @@
+import { s3 } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { S3Bucket, type S3BucketConfig } from './.gen/s3-bucket';
 
 /**
  * Adds an S3 bucket
@@ -8,6 +8,6 @@ import { S3Bucket, type S3BucketConfig } from './.gen/s3-bucket';
  * @returns Operator function that adds an S3 bucket
  * @template ResourceId Resource identifier
  */
-export function s3Bucket<ResourceId extends string>(resourceId: ResourceId, config: S3BucketConfig) {
-  return addResource(S3Bucket, 'aws_s3_bucket', resourceId, config);
+export function s3Bucket<ResourceId extends string>(resourceId: ResourceId, config: s3.S3BucketConfig) {
+  return addResource(s3.S3Bucket, 'aws_s3_bucket', resourceId, config);
 }

@@ -6,7 +6,7 @@ import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from '../hex/h
  * @param string String
  * @returns true if the string is a valid hexadecimal color string
  */
-export function isHexColorString(string: HexColorString): boolean {
+export function isHexColorString(string: string): string is HexColorString {
   const longMatch = string.length === 7 && string.match(HEX_COLOR_STRING_REGEXP) !== null;
   if (longMatch) {
     return true;

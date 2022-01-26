@@ -1,5 +1,5 @@
+import { dynamodb } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { DynamodbGlobalTable, type DynamodbGlobalTableConfig } from './.gen/dynamodb-global-table';
 
 /**
  * Adds a DynamoDB global table resource
@@ -10,7 +10,7 @@ import { DynamodbGlobalTable, type DynamodbGlobalTableConfig } from './.gen/dyna
  */
 export function dynamoDBGlobalTable<ResourceId extends string>(
   resourceId: ResourceId,
-  config: DynamodbGlobalTableConfig
+  config: dynamodb.DynamodbGlobalTableConfig
 ) {
-  return addResource(DynamodbGlobalTable, 'aws_dynamodb_global_table', resourceId, config);
+  return addResource(dynamodb.DynamodbGlobalTable, 'aws_dynamodb_global_table', resourceId, config);
 }

@@ -1,5 +1,5 @@
+import { appsync } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { AppsyncResolver, type AppsyncResolverConfig } from './.gen/appsync-resolver';
 
 /**
  * Adds an AppSync resolver
@@ -8,6 +8,6 @@ import { AppsyncResolver, type AppsyncResolverConfig } from './.gen/appsync-reso
  * @returns Operator function that asdds an AppSync resolver
  * @template ResourceId Resource identifier
  */
-export function appSyncResolver<ResourceId extends string>(resourceId: ResourceId, config: AppsyncResolverConfig) {
-  return addResource(AppsyncResolver, 'aws_appsync_resolver', resourceId, config);
+export function appSyncResolver<ResourceId extends string>(resourceId: ResourceId, config: appsync.AppsyncResolverConfig) {
+  return addResource(appsync.AppsyncResolver, 'aws_appsync_resolver', resourceId, config);
 }

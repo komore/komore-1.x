@@ -1,5 +1,5 @@
+import { kinesis } from '@cdktf/provider-aws';
 import { addDataSource } from '@komore/stack/provider';
-import { DataAwsKinesisStream, type DataAwsKinesisStreamConfig } from './.gen/data-aws-kinesis-stream';
 
 /**
  * Adds a Kinesis stream reference
@@ -10,7 +10,7 @@ import { DataAwsKinesisStream, type DataAwsKinesisStreamConfig } from './.gen/da
  */
 export function kinesisStreamReference<DataSourceId extends string>(
   dataSourceId: DataSourceId,
-  config: DataAwsKinesisStreamConfig
+  config: kinesis.DataAwsKinesisStreamConfig
 ) {
-  return addDataSource(DataAwsKinesisStream, 'aws_kinesis_stream', dataSourceId, config);
+  return addDataSource(kinesis.DataAwsKinesisStream, 'aws_kinesis_stream', dataSourceId, config);
 }

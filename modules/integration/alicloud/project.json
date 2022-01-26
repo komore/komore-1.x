@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/alicloud",
+  "sourceRoot": "modules/integration/alicloud/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:alicloud"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/alicloud/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/alicloud/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/alicloud/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-alicloud"]
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/alicloud",
+        "tsConfig": "modules/integration/alicloud/tsconfig.lib.json",
+        "packageJson": "modules/integration/alicloud/package.json",
+        "main": "modules/integration/alicloud/src/index.ts",
+        "assets": ["modules/integration/alicloud/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    }
+  }
+}

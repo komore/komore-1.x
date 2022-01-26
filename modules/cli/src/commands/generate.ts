@@ -30,7 +30,7 @@
 }*/
 
 import { generateCommand } from '@komore/cli/generate';
-import { createCommand } from '@komore/local/cli';
+import { createCommand } from '@komore/runtime/cli';
 
 export default createCommand('generate', generateCommand, {
   args: {

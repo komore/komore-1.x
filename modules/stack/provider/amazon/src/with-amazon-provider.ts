@@ -1,6 +1,6 @@
+import { AwsProvider, type AwsProviderConfig } from '@cdktf/provider-aws';
 import { type MonoTypeOperatorFunction, tapNext } from '@komore/reactive';
 import { type GenericScope } from '@komore/stack';
-import { AwsProvider, type AwsProviderConfig } from './.gen/aws-provider';
 
 /**
  * Adds the Amazon provider

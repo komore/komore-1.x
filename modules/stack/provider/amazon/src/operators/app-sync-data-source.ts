@@ -1,5 +1,5 @@
+import { appsync } from '@cdktf/provider-aws';
 import { addResource } from '@komore/stack/provider';
-import { AppsyncDatasource, type AppsyncDatasourceConfig } from './.gen/appsync-datasource';
 
 /**
  * Adds an AppSync data source
@@ -8,6 +8,9 @@ import { AppsyncDatasource, type AppsyncDatasourceConfig } from './.gen/appsync-
  * @returns Operator function that adds an AppSync data source
  * @template ResourceId Resource identifier
  */
-export function appSyncDataSource<ResourceId extends string>(resourceId: ResourceId, config: AppsyncDatasourceConfig) {
-  return addResource(AppsyncDatasource, 'aws_appsync_datasource', resourceId, config);
+export function appSyncDataSource<ResourceId extends string>(
+  resourceId: ResourceId,
+  config: appsync.AppsyncDatasourceConfig
+) {
+  return addResource(appsync.AppsyncDatasource, 'aws_appsync_datasource', resourceId, config);
 }
