@@ -1,6 +1,6 @@
 import { deferPromise, map, type Observable } from '@komore/reactive';
 import { type GithubClient } from '../github-client';
-import { toResponseData } from '../to-response-data';
+import { toGithubResponseData } from '../to-github-response-data';
 import { type PullRequestMergeOptions } from './pull-request-merge-options';
 import { type PullRequestMergeResult } from './pull-request-merge-result';
 
@@ -24,5 +24,5 @@ export function mergePullRequest(
   const sha = mergeOptions?.pullRequestHeadSHA;
   return deferPromise(() =>
     octokit.pulls.merge({ owner, repo, pull_number, commit_message, commit_title, merge_method, sha })
-  ).pipe(map(toResponseData));
+  ).pipe(map(toGithubResponseData));
 }
