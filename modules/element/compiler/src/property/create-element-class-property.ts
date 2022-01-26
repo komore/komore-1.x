@@ -1,7 +1,8 @@
-import { type AccessorDeclaration, type NodeFactory } from 'typescript';
-import { type ElementPropertyDefinition } from '../definition/element-property-definition';
-import { createElementPropertyGetAccessor } from './create-element-property-get-accessor';
-import { createElementPropertySetAccessor } from './create-element-property-set-accessor';
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
+import { type AccessorDeclaration } from 'typescript';
+import { type ElementCompilerContext } from '../element-compiler-context';
+import { createElementPropertyGetAccessor } from './get-accessor/create-element-property-get-accessor';
+import { createElementPropertySetAccessor } from './set-accessor/create-element-property-set-accessor';
 
 /**
  * Creates an element property for a class
@@ -9,19 +10,20 @@ import { createElementPropertySetAccessor } from './create-element-property-set-
  * get propertyName(): propertyType { }
  * set propertyName(value: propertyType) { }
  * ```
- * @param factory TypeScript node factory
+ * @param context Element compiler context
  * @param propertyDefinition Element property definition
  * @returns List of accessor declarations
  */
 export function createElementClassProperty(
-  factory: NodeFactory,
+  context: ElementCompilerContext,
+  containerName: string,
   propertyDefinition: ElementPropertyDefinition
 ): ReadonlyArray<AccessorDeclaration> {
-  const [getAccessor] = createElementPropertyGetAccessor(factory, propertyDefinition);
+  const [getAccessor] = createElementPropertyGetAccessor(context, containerName, propertyDefinition);
   const declarations: Array<AccessorDeclaration> = [getAccessor];
 
   if (!propertyDefinition.isReadOnly) {
-    const [setAccessor] = createElementPropertySetAccessor(factory, propertyDefinition);
+    const [setAccessor] = createElementPropertySetAccessor(context, containerName, propertyDefinition);
     declarations.push(setAccessor);
   }
 

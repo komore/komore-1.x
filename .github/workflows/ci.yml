@@ -12,7 +12,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # TODO: keep a depth and separately checkout main
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
 
       - name: Cache pnpm modules
         uses: actions/cache@v2
@@ -28,7 +36,7 @@ jobs:
         env:
           cache-name: cache-pnpm-modules
         with:
-          version: 6.2.3
+          version: 6.24.1
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
@@ -50,7 +58,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # TODO: keep a depth and separately checkout main
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
 
       - name: Cache pnpm modules
         uses: actions/cache@v2
@@ -64,7 +80,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.2.3
+          version: 6.24.1
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
@@ -74,4 +90,45 @@ jobs:
 
       - name: Test
         run: pnpm test
+        if: ${{ github.ref == 'refs/heads/main' }}
+
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.24.1
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Buid (affected)
+        run: pnpm build:affected
+        if: ${{ github.ref != 'refs/heads/main' }}
+
+      - name: Build
+        run: pnpm build
         if: ${{ github.ref == 'refs/heads/main' }}

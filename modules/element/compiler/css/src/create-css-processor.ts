@@ -1,7 +1,7 @@
 import { map, type Observable, of, switchMap } from '@komore/reactive';
 import { type StyleProcessor } from '@komore/element/compiler/processor';
-import { toCssStyleSheet } from '@komore/element/styling';
-import { CssProcessorOptions } from './css-processor-options';
+import { toCssStyleSheet } from '@komore/element/style';
+import { type CssProcessorOptions } from './css-processor-options';
 
 /**
  * Creates a CSS style processor

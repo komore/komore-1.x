@@ -1,7 +1,7 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { createMessage } from '@komore/message';
+import { lastValueFrom, of } from '@komore/reactive';
 import { mock } from 'jest-mock-extended';
-import { lastValueFrom, of } from 'rxjs';
 import { withDynamoDBClient } from './with-dynamodb-client';
 
 describe('With DynamoDB client operator', () => {

@@ -1,6 +1,5 @@
 import { defer, type Observable } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
-import { type IDBKey } from './idb-key';
 
 /**
  * Puts an IndexedDB item
@@ -18,7 +17,7 @@ export function putIndexedDBItem<T>(
   idbDatabase: IDBDatabase,
   storeName: string,
   value: T,
-  key?: IDBKey
+  key?: IDBValidKey
 ): Observable<IDBValidKey> {
   return defer(() => {
     const transaction = idbDatabase.transaction(storeName, 'readwrite');

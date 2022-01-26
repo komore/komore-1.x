@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/lambda/app-sync/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/lambda/app-sync/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-lambda-appsync"]
     },

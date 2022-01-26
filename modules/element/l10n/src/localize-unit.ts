@@ -1,4 +1,3 @@
-import { asObservableLocales } from '@komore/element/l10n';
 import { type Locales } from '@komore/web/l10n';
 // TODO: remove once available without custom definition
 import { type NumberFormatOptionsUnit, type UnitLocalizationOptions } from '@komore/web/l10n';
@@ -12,6 +11,7 @@ import {
   pipe,
   withLatestFrom
 } from '@komore/reactive';
+import { asObservableLocales } from './as-observable-locales';
 
 /**
  * Localizes a unit

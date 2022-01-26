@@ -1,42 +1,27 @@
-import { createTypeMappingInterface, type TypeMapping } from '@komore/typescript/compiler';
-import { type Identifier, type InterfaceDeclaration, type NodeFactory } from 'typescript';
-import { type CompilerContext } from '../codegen/compiler-context';
+import { createTypeMappingInterface } from '@komore/typescript/compiler';
+import { type Identifier, type InterfaceDeclaration } from 'typescript';
+import { type ElementCompilerContext } from '../element-compiler-context';
 import { type ElementCustomPropertyDefinition } from '../definition/element-custom-property-definition';
+import { customPropertyDefinitionToTypeMapping } from './custom-property-definition-to-type-mapping';
 
 /**
  * Creates an element custom property map interface
  * ```ts
- * interface ElementClassNameCustomPropertyMap {
+ * interface name {
  *   '--property-name-1': string;
  * }
  * ```
- * @param compilerContext Compiler context
- * @param elementClassName Element class name
+ * @param context Element compiler context
+ * @param name Interface name
  * @param customPropertyDefinitions Element custom property definitions
- * @returns Interface declaration
+ * @returns Interface declaration and identifier
  */
 export function createElementCustomPropertyMap(
-  compilerContext: CompilerContext,
-  elementClassName: string,
+  context: ElementCompilerContext,
+  name: string,
   customPropertyDefinitions: ReadonlyArray<ElementCustomPropertyDefinition>
-): [InterfaceDeclaration, Identifier] {
-  const factory = compilerContext.factory;
-  const interfaceName = `${elementClassName}CustomPropertyMap`;
-  compilerContext.import();
-  const mappedTypes = customPropertyDefinitions.map(toCustomPropertyMappedType(factory));
-  return createTypeMappingInterface(factory, interfaceName, mappedTypes);
-}
-
-function toCustomPropertyMappedType(factory: NodeFactory): (customPropertyDefinition: ElementCustomPropertyDefinition) => TypeMapping {
-  const stringType = factory.createTypeReferenceNode('string');
-  const numberType = factory.createTypeReferenceNode('number');
-  const syntaxMapping = new Map<string, TypeReference
-
-  return customPropertyDefinition => {
-    const { name, syntax } = customPropertyDefinition.propertyDefinition;
-    return {
-      name,
-      type
-    }
-  };
+): readonly [interfaceDeclaration: InterfaceDeclaration, identifier: Identifier] {
+  const factory = context.factory;
+  const mappedTypes = customPropertyDefinitions.map(customPropertyDefinitionToTypeMapping(factory));
+  return createTypeMappingInterface(factory, name, mappedTypes);
 }

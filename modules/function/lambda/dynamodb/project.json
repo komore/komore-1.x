@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/lambda/dynamodb/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/lambda/dynamodb/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-lambda-dynamodb"]
     },

@@ -7,7 +7,14 @@ import { type ProcessorOptions } from './processor-options';
  * @template Processor Processor type
  */
 export interface ProcessorFactory<Options extends ProcessorOptions, Processor> {
+  /**
+   * Media type regular expression
+   */
   readonly mediaTypeRegExp?: RegExp;
+
+  /**
+   * Path regular expression
+   */
   readonly pathRegExp?: RegExp;
 
   /**

@@ -1,5 +1,5 @@
-import { type Identifier, type NodeFactory, type PropertySignature, SyntaxKind } from 'typescript';
-import { type ElementPropertyDefinition } from '../definition/element-property-definition';
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
+import { SyntaxKind, type Identifier, type NodeFactory, type PropertySignature } from 'typescript';
 
 /**
  * Creates an element interface property signature
@@ -18,7 +18,7 @@ import { type ElementPropertyDefinition } from '../definition/element-property-d
 export function createElementInterfaceProperty(
   factory: NodeFactory,
   propertyDefinition: ElementPropertyDefinition
-): [PropertySignature, Identifier] {
+): readonly [propertySignature: PropertySignature, identifier: Identifier] {
   const { propertyName, propertyType, isOptional, isReadOnly } = propertyDefinition;
   const identifier = factory.createIdentifier(propertyName);
   const modifiers = isReadOnly ? [factory.createModifier(SyntaxKind.ReadonlyKeyword)] : [];

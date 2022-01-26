@@ -1,10 +1,13 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
+import { map } from './map';
 import { type RetryOptions } from './retry-options';
 
 export function retryIf<T>(
-  condition: (error: unknown) => boolean,
-  options?: Partial<RetryOptions>
+  _condition: (error: unknown) => boolean,
+  _options?: Partial<RetryOptions>
 ): MonoTypeOperatorFunction<T> {
-  const count = options?.count;
-  const resetOnSuccess = options?.resetOnSuccess ?? true;
+  //const _count = options?.count;
+  //const _resetOnSuccess = options?.resetOnSuccess ?? true;
+  // TODO
+  return map(x => x);
 }

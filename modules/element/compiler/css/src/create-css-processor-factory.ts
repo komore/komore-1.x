@@ -7,11 +7,11 @@ import { type CssProcessorFactoryOptions } from './css-processor-factory-options
  * Creates a CSS processor factory
  */
 export function createCssProcessorFactory(
-  options: CssProcessorFactoryOptions
+  _options: CssProcessorFactoryOptions
 ): StyleProcessorFactory<CssProcessorOptions> {
   return {
     mediaTypeRegExp: /^text\/css$/,
-    pathRegExp: /\.css$/,
+    pathRegExp: /.+\.css$/,
     createProcessor: createCssProcessor
   };
 }

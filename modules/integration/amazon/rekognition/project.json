@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/amazon/rekognition/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/amazon/rekognition/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-amazon-rekognition"]
     },

@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/identity/provider/twitter/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/identity/provider/twitter/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/identity-provider-twitter"]
     },

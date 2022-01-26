@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/openfaas/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/openfaas/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-openfaas"]
     },

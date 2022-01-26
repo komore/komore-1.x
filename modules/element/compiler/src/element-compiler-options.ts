@@ -1,6 +1,11 @@
+import { type ElementCompilerOptimizationOptions } from './element-compiler-optimization-options';
+
 /**
  * Element compiler options
  */
 export interface ElementCompilerOptions {
-  readonly _?: undefined;
+  /**
+   * Optimization options
+   */
+  readonly optimizations: ElementCompilerOptimizationOptions;
 }

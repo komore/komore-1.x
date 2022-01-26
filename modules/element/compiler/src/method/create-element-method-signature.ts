@@ -1,5 +1,5 @@
+import { type ElementMethodDefinition } from '@komore/element/compiler/processor';
 import { type Identifier, type NodeFactory, type MethodSignature } from 'typescript';
-import { type ElementMethodDefinition } from '../definition/element-method-definition';
 
 /**
  * Creates an element method signature
@@ -9,16 +9,23 @@ import { type ElementMethodDefinition } from '../definition/element-method-defin
  * }
  * ```
  * @param factory TypeScript node factory
- * @param propertyDefinition Property definition
+ * @param methodDefinition Method definition
  * @returns Method signature and identifier
  */
 export function createElementMethodSignature(
   factory: NodeFactory,
   methodDefinition: ElementMethodDefinition
-): [MethodSignature, Identifier] {
+): readonly [methodSignature: MethodSignature, identifier: Identifier] {
   const { functionName, functionDeclaration } = methodDefinition;
   const { parameters, type, typeParameters } = functionDeclaration;
   const identifier = factory.createIdentifier(functionName);
-  const signature = factory.createMethodSignature(undefined, identifier, undefined, typeParameters, parameters, type);
-  return [signature, identifier];
+  const methodSignature = factory.createMethodSignature(
+    undefined,
+    identifier,
+    undefined,
+    typeParameters,
+    parameters,
+    type
+  );
+  return [methodSignature, identifier];
 }

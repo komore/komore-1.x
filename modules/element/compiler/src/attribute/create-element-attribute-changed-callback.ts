@@ -1,6 +1,12 @@
 import { createObjectLiteral, createParameter, createPropertyAccess } from '@komore/typescript/compiler';
-import { type Block, type Expression, type Identifier, type MethodDeclaration, type NodeFactory } from 'typescript';
-import { SyntaxKind } from 'typescript';
+import {
+  SyntaxKind,
+  type Block,
+  type Expression,
+  type Identifier,
+  type MethodDeclaration,
+  type NodeFactory
+} from 'typescript';
 
 /**
  * Creates an attributeChangedCallback method declaration
@@ -20,7 +26,7 @@ import { SyntaxKind } from 'typescript';
 export function createElementAttributeChangedCallback(
   factory: NodeFactory,
   subjectExpression: Expression
-): [MethodDeclaration, Identifier] {
+): readonly [methodDeclaration: MethodDeclaration, identifier: Identifier] {
   const methodName = 'attributeChangedCallback';
   const methodNameId = factory.createIdentifier(methodName);
   const string = factory.createKeywordTypeNode(SyntaxKind.StringKeyword);

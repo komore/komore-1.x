@@ -1,6 +1,6 @@
-import { defer } from 'rxjs';
+import { deferPromise } from '@komore/reactive';
 
-const azureModule$ = defer(() => import('@komore/integration-azure/text-analytics').then(({ createDefaultTextAnalyticsClient, analyzeText }) => ({})));
+const azureModule$ = deferPromise(() => import('@komore/integration-azure/text-analytics').then(({ createDefaultTextAnalyticsClient, analyzeText }) => ({})));
 
 export function detectSentiment() {
 

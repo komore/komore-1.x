@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/azure/service-bus/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/azure/service-bus/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-azure-servicebus"]
     },

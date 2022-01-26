@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/identity/provider/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/identity/provider/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/identity-provider"]
     },

@@ -15,8 +15,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/api/testing/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/api/testing/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/api-testing"]
     },

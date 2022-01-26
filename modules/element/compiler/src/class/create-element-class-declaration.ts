@@ -1,8 +1,8 @@
 import { createExtendsType } from '@komore/typescript/compiler';
 import { type ClassDeclaration, type Identifier, type NodeFactory } from 'typescript';
 import { createElementObservedAttributesGetAccessor } from '../attribute/create-element-observed-attributes-get-accessor';
+import { createElementClassConstructor } from '../constructor/create-element-class-constructor';
 import { type ElementDefinition } from '../definition/element-definition';
-import { createElementClassConstructor } from './create-element-class-constructor';
 
 /**
  * Creates an element class declaration
@@ -27,7 +27,7 @@ export function createElementClassDeclaration(
   elementDefinition: ElementDefinition,
   templateElement: Identifier | undefined,
   styleSheets: Identifier | undefined
-): [ClassDeclaration, Identifier] {
+): readonly [classDeclaration: ClassDeclaration, identifier: Identifier] {
   const { baseClassName, className, attributeDefinitions } = elementDefinition;
   const [getAccessor] = createElementObservedAttributesGetAccessor(factory, attributeDefinitions ?? []);
   const classConstructor = createElementClassConstructor(factory, templateElement, styleSheets);

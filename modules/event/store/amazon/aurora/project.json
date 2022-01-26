@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/event/store/amazon/aurora/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/event/store/amazon/aurora/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/event-store-amazon-aurora"]
     },

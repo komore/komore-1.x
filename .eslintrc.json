@@ -5,35 +5,12 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": "./tsconfig.*?.json"
-      },
-      "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
-          "error",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "files": ["*.ts"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "parserOptions": {
         "project": "./tsconfig.*?.json"
       },
       "rules": {
-        "no-unused-labels": [
-          "off"
-        ],
+        "no-unused-labels": ["off"],
         "@typescript-eslint/no-unused-vars": [
           "error",
           {

@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/lambda/api-gateway/http-api/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/lambda/api-gateway/http-api/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-lambda-apigateway-httpapi"]
     },

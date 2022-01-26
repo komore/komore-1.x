@@ -5,8 +5,8 @@
 [//]: #keyword (overview)
 [//]: #keyword (@komore/element)
 [//]: #keyword (@komore/element/compiler)
-[//]: #path (modules/element/compiler)
-[//]: #path-alias (modules/element/compiler/overview)
+[//]: #path (modules/element/compiler/overview)
+[//]: #path-alias (modules/element/compiler)
 
 # Element Compiler
 

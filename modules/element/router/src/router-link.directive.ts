@@ -1,5 +1,5 @@
-import { createDirective } from '@komore/element';
-import { Observable } from 'rxjs';
+import { createDirective } from '@komore/element/directive';
+import { type Observable } from '@komore/reactive';
 
 /**
  * Router link directive

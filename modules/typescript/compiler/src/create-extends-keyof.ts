@@ -1,11 +1,11 @@
 import {
   type Identifier,
   type NodeFactory,
-  SyntaxKind,
   type TypeNode,
   type TypeParameterDeclaration,
   type TypeReferenceNode
 } from 'typescript';
+import { createKeyof } from './create-keyof';
 
 /**
  * Creates a K extends keyof T parameter declaration
@@ -22,7 +22,7 @@ export function createExtendsKeyof(
   keyName: string | Identifier,
   type: TypeNode
 ): [typeParameterDeclaration: TypeParameterDeclaration, typeReferenceNode: TypeReferenceNode] {
-  const extendsKeyOfType = factory.createTypeOperatorNode(SyntaxKind.KeyOfKeyword, type);
+  const extendsKeyOfType = createKeyof(factory, type);
   const typeParameterDeclaration = factory.createTypeParameterDeclaration(keyName, extendsKeyOfType);
   const typeReferenceNode = factory.createTypeReferenceNode(typeParameterDeclaration.name);
   return [typeParameterDeclaration, typeReferenceNode];

@@ -1,8 +1,8 @@
-import { type ElementPropertyDefinition } from './element-property-definition';
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
 
 /**
  * Element property definition with a bount attribute
  */
-export type ElementPropertyAttributeBoundDefinition = ElementPropertyDefinition & {
+export interface ElementPropertyAttributeBoundDefinition extends ElementPropertyDefinition {
   readonly boundAttributeName: string;
-};
+}

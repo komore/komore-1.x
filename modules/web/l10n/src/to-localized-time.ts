@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithTime } from '@komore/temporal';
 import { toJavaScriptDate } from '@komore/temporal/compatibility';
 import { type Locales } from './locales';
@@ -19,7 +20,8 @@ export function toLocalizedTime(
   const dateTimeFormat = new Intl.DateTimeFormat([...locales], dateTimeFormatOptions);
   return temporal => {
     // TODO: remove when Intl.DateTimeFormat supports Temporal
-    const date = toJavaScriptDate(temporal);
+    const dateTimeTemporal = temporal instanceof Temporal.PlainTime ? temporal.toPlainDateTime('1970/01/01') : temporal;
+    const date = toJavaScriptDate(dateTimeTemporal);
     return dateTimeFormat.format(date);
   };
 }

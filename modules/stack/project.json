@@ -2,7 +2,7 @@
   "root": "modules/stack",
   "sourceRoot": "modules/stack/src",
   "projectType": "library",
-  "tags": ["scope:stack", "trait:provider"],
+  "tags": ["scope:stack", "trait:base"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

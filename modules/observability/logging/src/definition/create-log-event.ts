@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { type LogEvent } from './log-event';
 import { type LogEventCreator } from './log-event-creator';
 import { type LogEventPropertiesSchema } from './log-event-properties-schema';
@@ -87,7 +88,7 @@ export function createLogEvent<
   const logCreator = (properties?: LogEventProperties): LogEvent<LogGroupType, LogEventId, LogEventMessage, LogEventProperties> => ({
     ...logEventBase,
     properties: properties as LogEvent<LogGroupType, LogEventId, LogEventMessage, LogEventProperties>['properties'],
-    timestamp: new Date()
+    timestamp: Temporal.Now.plainDateTimeISO()
   });
 
   return Object.defineProperty(logCreator, 'type', {

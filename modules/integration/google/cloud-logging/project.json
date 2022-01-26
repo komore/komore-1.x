@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/google/cloud-logging/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/google/cloud-logging/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-google-cloudlogging"]
     },

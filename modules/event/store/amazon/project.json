@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/event/store/amazon/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/event/store/amazon/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/event-store-amazon"]
     },

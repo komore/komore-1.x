@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/azure/cognitive-services/form-recognizer/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/azure/cognitive-services/form-recognizer/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-azure-cognitiveservices-formrecognizer"]
     },

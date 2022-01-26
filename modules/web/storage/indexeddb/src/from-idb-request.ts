@@ -4,12 +4,11 @@ import { Observable } from '@komore/reactive';
  * IndexedDB request event
  * @template T Event value type
  */
-type IDBRequestEvent<T> = Event &
-  Readonly<{
-    target: Readonly<{
-      result: T;
-    }>;
-  }>;
+type IDBRequestEvent<T> = Event & {
+  readonly target: {
+    readonly result: T;
+  };
+};
 
 /**
  * Tests whether an event is a database request event

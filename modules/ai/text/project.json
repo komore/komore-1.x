@@ -15,8 +15,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/ai/text/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/ai/text/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/ai-text"]
     },

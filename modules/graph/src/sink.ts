@@ -1,4 +1,4 @@
-import { PartialObserver } from 'rxjs';
+import { type PartialObserver } from '@komore/reactive';
 
 /**
  * Sink

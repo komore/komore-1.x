@@ -1,4 +1,4 @@
-import { lastValueFrom, of } from 'rxjs';
+import { lastValueFrom, of } from '@komore/reactive';
 import { createMessage } from '../create-message';
 import { mapMetadataTo } from './map-metadata-to';
 

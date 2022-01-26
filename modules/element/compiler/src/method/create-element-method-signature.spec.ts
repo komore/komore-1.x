@@ -1,5 +1,5 @@
+import { type ElementMethodDefinition } from '@komore/element/compiler/processor';
 import { factory, type ParameterDeclaration, SyntaxKind, type TypeParameterDeclaration } from 'typescript';
-import { type ElementMethodDefinition } from '../definition/element-method-definition';
 import { createElementMethodSignature } from './create-element-method-signature';
 
 describe('Create element method signature', () => {

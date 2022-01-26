@@ -1,5 +1,5 @@
 import { type ElementPropertyAttributeBoundDefinition } from './element-property-attribute-bound-definition';
-import { type ElementPropertyDefinition } from './element-property-definition';
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
 
 /**
  * Tests whether an element property is bound to an attribute

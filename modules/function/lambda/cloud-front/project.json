@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/lambda/cloud-front/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/lambda/cloud-front/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-lambda-cloudfront"]
     },

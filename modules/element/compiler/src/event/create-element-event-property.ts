@@ -1,6 +1,5 @@
-import { type NodeFactory, type PropertySignature } from 'typescript';
-import { SyntaxKind } from 'typescript';
-import { type ElementEventDefinition } from '../definition/element-event-definition';
+import { type ElementEventDefinition } from '@komore/element/compiler/processor';
+import { SyntaxKind, type NodeFactory, type PropertySignature } from 'typescript';
 
 /**
  * Creates an element event property
@@ -18,6 +17,6 @@ export function createElementEventProperty(
   const { eventName, eventDetailsType } = elementEventDefinition;
   const customEventTemplateParameter = eventDetailsType ?? factory.createKeywordTypeNode(SyntaxKind.VoidKeyword);
   const propertyType = factory.createTypeReferenceNode('CustomEvent', [customEventTemplateParameter]);
-  const propertyName = factory.createStringLiteral(eventName);
+  const propertyName = factory.createStringLiteral(eventName, true);
   return factory.createPropertySignature(undefined, propertyName, undefined, propertyType);
 }

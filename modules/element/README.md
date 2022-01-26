@@ -95,16 +95,21 @@ Reactive, observable [custom elements].
 <element-name attribute="value"></element-name>
 <element-name attribute="${expression}"></element-name>
 <element-name ${attributeNameExpression}="expression"></element-name>
-<element-name ?attribute="boolean-value"></element-name>
-<element-name ?attribute="boolean-expression"></element-name>
-<element-name ?${attributeNameExpression}="boolean-expression"></element-name>
+<element-name attribute?="boolean-value"></element-name>
+<element-name attribute?="boolean-expression"></element-name>
+<element-name ${attributeNameExpression}?="boolean-expression"></element-name>
 
 <!-- property -->
 <element-name .propertyName="expression"></element-name>
 <element-name .${dynamicPropertyNameExpression}="expression"></element-name>
+<element-name .class="stringOrArrayOrBooleanRecordsExpression"></element-name>
+<element-name .class.class-name="booleanExpression"></element-name>
+<element-name .style.styleName="expression"></element-name>
+<element-name .style.--custom-property-name="expression"></element-name>
 
 <!-- event listener -->
 <element-name @event-name="functionName"></element-name>
+<element-name @event-name="subject$"></element-name><!-- alias for subject$.next(event) -->
 <element-name @event-name="onX(event)"></element-name>
 <element-name @${dynamic-event-name-expression}="onX(event)"></element-name>
 <element-name @event-name.stop="x"><!-- stopPropagation() -->
@@ -128,14 +133,14 @@ Reactive, observable [custom elements].
 
 ```html
 <!-- condition: if -->
-<element-name k-if="condition">
+<element-name ^if="condition">
 </element-name>
 
 <!-- condition: else -->
-<element-a k-if="condition">
+<element-a ^if="condition">
   condition is true
 </element-a>
-<element-b k-else>
+<element-b ^else>
   condition is false
 </element-b>
 
@@ -151,35 +156,35 @@ Reactive, observable [custom elements].
 </element-c>
 
 <!-- condition: switch/case -->
-<template-or-element k-switch="statement">
-  <template-or-element-a k-case="value-a">
+<template-or-element ^switch="statement">
+  <template-or-element-a ^case="value-a">
     statement is value-a
   </template-or-element-a>
-  <template-or-element-a k-case="value-a">
+  <template-or-element-a ^case="value-a">
     statement is value-b
   </template-or-element-a>
-  <template-or-element-c k-otherwise>
+  <template-or-element-c ^otherwise>
     none of the cases matched
   </template-or-element-c>
 </template-or-element>
 
 <!-- loop -->
-<template k-for="let x of y">
-</template>
+<template-or-element ^for="let x of y">
+</template-or-element>
 
 <!-- conditional element -->
-<template k-element="ElementClass">
+<template ^element="ElementClass">
   <!-- can still use slots -->
 </template>
 
 <!-- transparent element -->
-<template k-for="let anyElement of elements">
-  <template k-element="anyElement">
+<template ^for="let anyElement of elements">
+  <template ^element="anyElement">
 </template>
 
 <!-- conditional display -->
-<element-name k-show="condition">
-  <!-- display is set to none if condition is false -->
+<element-name ^show="condition">
+  <!-- style.display = condition ? null : 'none' -->
 </element-name>
 ```
 
@@ -189,6 +194,5 @@ Reactive, observable [custom elements].
 <k-router>
 </k-router>
 ```
-
 
 [custom elements]: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements

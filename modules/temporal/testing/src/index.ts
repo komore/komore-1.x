@@ -1,3 +1,4 @@
+export { mockCurrentInstant } from './mock-current-instant';
 export { mockCurrentPlainDate } from './mock-current-plain-date';
 export { mockCurrentPlainDateTime } from './mock-current-plain-date-time';
 export { mockCurrentPlainTime } from './mock-current-plain-time';

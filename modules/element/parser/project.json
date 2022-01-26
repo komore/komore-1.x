@@ -15,8 +15,7 @@
       "outputs": ["coverage/element-parser"],
       "options": {
         "jestConfig": "modules/element/parser/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/element/parser/tsconfig.spec.json"
+        "passWithNoTests": true
       }
     },
     "build": {

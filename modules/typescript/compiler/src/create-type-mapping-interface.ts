@@ -17,11 +17,18 @@ export function createTypeMappingInterface(
   factory: NodeFactory,
   interfaceName: string,
   typeMappings: ReadonlyArray<TypeMapping>
-): [InterfaceDeclaration, Identifier] {
+): readonly [interfaceDeclaration: InterfaceDeclaration, identifier: Identifier] {
   const members = typeMappings.map(toTypeMappingPropertySignature(factory));
-  const nameId = factory.createIdentifier(interfaceName);
-  const declaration = factory.createInterfaceDeclaration(undefined, undefined, nameId, undefined, undefined, members);
-  return [declaration, nameId];
+  const identifier = factory.createIdentifier(interfaceName);
+  const interfaceDeclaration = factory.createInterfaceDeclaration(
+    undefined,
+    undefined,
+    identifier,
+    undefined,
+    undefined,
+    members
+  );
+  return [interfaceDeclaration, identifier];
 }
 
 /**

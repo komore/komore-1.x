@@ -1,4 +1,4 @@
-import { of } from 'rxjs';
+import { of } from '@komore/reactive';
 import { Source } from './source';
 
 export function createSource<OutputType>(): Source<OutputType> {

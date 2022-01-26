@@ -1,4 +1,5 @@
-import { Observable, pipe, UnaryFunction } from 'rxjs';
+import { type UnaryFunction } from '@komore/functional';
+import { type Observable, pipe } from '@komore/reactive';
 
 /**
  * Executes a statement

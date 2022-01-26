@@ -15,8 +15,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/api/graphql/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/api/graphql/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/api-graphql"]
     },

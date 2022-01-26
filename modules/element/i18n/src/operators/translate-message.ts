@@ -1,11 +1,9 @@
-import {
-  asObservableLanguages,
-  type I18nMessage,
-  type Languages,
-  type ParameterizedI18nMessage
-} from '@komore/element/i18n';
 import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
 import MessageFormat, { type MessageFormatOptions } from '@messageformat/core';
+import { asObservableLanguages } from '../as-observable-languages';
+import { type I18nMessage } from '../i18n-message';
+import { type Languages } from '../languages';
+import { type ParameterizedI18nMessage } from '../parameterized-i18n-message';
 
 /**
  * Translates a message

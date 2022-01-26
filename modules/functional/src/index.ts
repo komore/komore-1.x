@@ -10,6 +10,8 @@ export { isInstanceOf } from './is-instance-of';
 export { isNotNull } from './is-not-null';
 export { noop } from './noop';
 export { not } from './not';
+export { objectEntries } from './object-entries';
+export { objectFromEntries } from './object-from-entries';
 export { objectKeys } from './object-keys';
 export { or } from './or';
 export { toJson } from './to-json';

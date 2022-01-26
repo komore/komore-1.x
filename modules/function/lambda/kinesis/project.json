@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/lambda/kinesis/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/lambda/kinesis/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-lambda-kinesis"]
     },

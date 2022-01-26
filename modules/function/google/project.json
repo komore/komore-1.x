@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/function/google/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/function/google/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/function-google"]
     },

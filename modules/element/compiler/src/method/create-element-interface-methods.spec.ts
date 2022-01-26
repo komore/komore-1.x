@@ -1,5 +1,5 @@
+import { type ElementMethodDefinition } from '@komore/element/compiler/processor';
 import { factory } from 'typescript';
-import { type ElementMethodDefinition } from '../definition/element-method-definition';
 import { createElementInterfaceMethods } from './create-element-interface-methods';
 
 describe('Create element interface methods', () => {

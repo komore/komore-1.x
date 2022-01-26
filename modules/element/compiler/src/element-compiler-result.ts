@@ -5,6 +5,7 @@ import { type ElementCompilerError } from './element-compiler-error';
  * Element compiler result
  */
 export interface ElementCompilerResult {
-  readonly source?: SourceFile;
+  readonly declarationSource?: SourceFile;
   readonly errors: ReadonlyArray<ElementCompilerError>;
+  readonly source?: SourceFile;
 }

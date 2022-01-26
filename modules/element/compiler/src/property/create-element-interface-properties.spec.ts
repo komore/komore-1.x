@@ -1,5 +1,5 @@
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
 import { factory } from 'typescript';
-import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 import { createElementInterfaceProperties } from './create-element-interface-properties';
 
 describe('Create element interface properties', () => {

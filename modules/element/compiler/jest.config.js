@@ -5,5 +5,6 @@ module.exports = {
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
   displayName: 'element-compiler',
   setupFilesAfterEnv: ['./test-setup.ts'],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  modulePathIgnorePatterns: ['test-helpers.spec.ts']
 };

@@ -1,5 +1,5 @@
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
 import { type NodeFactory, SyntaxKind, type TypeNode } from 'typescript';
-import { type ElementPropertyDefinition } from '../definition/element-property-definition';
 
 /**
  * Creates an element property type

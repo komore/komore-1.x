@@ -1,4 +1,4 @@
-import { OperatorFunction } from 'rxjs';
+import { type OperatorFunction } from '@komore/reactive';
 
 /**
  * Flow

@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/website/layout/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/website/layout/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/website-layout"]
     },

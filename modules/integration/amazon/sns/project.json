@@ -15,8 +15,7 @@
       "outputs": ["coverage/integration-amazon-sns"],
       "options": {
         "jestConfig": "modules/integration/amazon/sns/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/amazon/sns/tsconfig.spec.json"
+        "passWithNoTests": true
       }
     },
     "build": {

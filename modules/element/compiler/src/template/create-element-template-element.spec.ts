@@ -8,7 +8,7 @@ describe('Create template element', () => {
     when: 'creating a template element variable';
     const [variableStatement, identifier] = createElementTemplateElement(factory, variableName);
     expect: 'the correct variable statement to be created';
-    expect(variableStatement).toBeInlineSource(`const ${variableName} = document.createElement("template");`);
+    expect(variableStatement).toBeInlineSource(`const ${variableName} = document.createElement('template');`);
     expect(identifier.text).toBe('templateElement');
   });
 });

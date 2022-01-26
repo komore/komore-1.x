@@ -4,15 +4,15 @@ import { createElementTagNameDeclaration } from './create-element-tag-name-decla
 
 describe('Create element tag name declaration', () => {
   it('creates an element tag declaration', () => {
-    given: 'an element definition'
+    given: 'an element definition';
     const elementDefinition: ElementDefinition = {
       baseClassName: 'HTMLElement',
       className: 'TestElement',
       tagName: 'test-element'
     };
-    when: 'creating an element tag name declaration'
+    when: 'creating an element tag name declaration';
     const moduleDeclaration = createElementTagNameDeclaration(factory, elementDefinition);
-    then: 'the module declaration updates the interface with a new entry for the element'
+    then: 'the module declaration to have an update for the interface with a new entry for the element';
     expect(moduleDeclaration).toBeSource(`
       declare global {
         interface HTMLElementTagNameMap {

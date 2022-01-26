@@ -1,5 +1,3 @@
-import { type IDBKey } from './idb-key';
-
 /**
  * Puts an IndexedDB item within the context of an IndexedDB transaction
  * @param idbTransaction IndexedDB transaction
@@ -11,7 +9,7 @@ export function putIndexedDBTransactionItem<T>(
   idbTransaction: IDBTransaction,
   storeName: string,
   value: T,
-  key?: IDBKey
+  key?: IDBValidKey
 ): void;
 
 /**
@@ -20,16 +18,16 @@ export function putIndexedDBTransactionItem<T>(
  * @param value Value
  * @param key Key
  */
-export function putIndexedDBTransactionItem<T>(idbObjectStore: IDBObjectStore, value: T, key?: IDBKey): void;
+export function putIndexedDBTransactionItem<T>(idbObjectStore: IDBObjectStore, value: T, key?: IDBValidKey): void;
 
 export function putIndexedDBTransactionItem<T>(
   idbTransactionOrObjectStore: IDBTransaction | IDBObjectStore,
   storeNameOrValue: string | T,
-  valueOrKey?: T | IDBKey,
-  key?: IDBKey
+  valueOrKey?: T | IDBValidKey,
+  key?: IDBValidKey
 ): void {
   if ('name' in idbTransactionOrObjectStore) {
-    idbTransactionOrObjectStore.put(storeNameOrValue, valueOrKey as IDBKey | undefined);
+    idbTransactionOrObjectStore.put(storeNameOrValue, valueOrKey as IDBValidKey | undefined);
   } else {
     idbTransactionOrObjectStore.objectStore(storeNameOrValue as string).put(valueOrKey, key);
   }

@@ -1,4 +1,5 @@
 import { assert } from '@komore/runtime';
+import { toJavaScriptDate } from '@komore/temporal/compatibility';
 import { type Layout } from './layout';
 import { type PatternLayoutOptions } from './pattern-layout-options';
 
@@ -64,7 +65,7 @@ function contextToken(contextName: string): Layout {
 function dateToken(dateOptions?: PatternLayoutOptions['date']): Layout {
   const dateTimeFormat =
     dateOptions !== undefined ? new Intl.DateTimeFormat(dateOptions?.locales, dateOptions?.options) : undefined;
-  return ({ timestamp }) => dateTimeFormat?.format(timestamp) ?? timestamp.toISOString();
+  return ({ timestamp }) => dateTimeFormat?.format(toJavaScriptDate(timestamp)) ?? timestamp.toString();
 }
 
 function groupToken(): Layout {

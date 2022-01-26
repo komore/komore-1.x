@@ -9,7 +9,7 @@ import { type TimestampSeverityLayoutOptions } from './timestamp-severity-layout
 export function createTimestampSeverityLayout(options?: TimestampSeverityLayoutOptions): Layout {
   const severityNames = options?.severityNames ?? getDefaultSeverityNames();
   return ({ message, logEvent: { severity, timestamp } }) => {
-    const date = timestamp.toISOString();
+    const date = timestamp.toString();
     const severityName = severityNames.get(severity) ?? severity;
     return `${date} ${severityName} ${message}`;
   };

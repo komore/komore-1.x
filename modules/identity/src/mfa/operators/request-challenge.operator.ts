@@ -1,5 +1,5 @@
-import { ChallengeType } from '../challenge-type';
-import { OperatorFunction } from 'rxjs';
+import { type OperatorFunction } from '@komore/reactive';
+import { type ChallengeType } from '../challenge-type';
 
 /**
  * Request challenge parameters

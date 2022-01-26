@@ -1,5 +1,5 @@
+import { type ElementMethodDefinition } from '@komore/element/compiler/processor';
 import { type MethodSignature, type NodeFactory } from 'typescript';
-import { type ElementMethodDefinition } from '../definition/element-method-definition';
 import { createElementMethodSignature } from './create-element-method-signature';
 
 /**
@@ -12,8 +12,17 @@ export function createElementInterfaceMethods(
   factory: NodeFactory,
   methodDefinitions: ReadonlyArray<ElementMethodDefinition>
 ): ReadonlyArray<MethodSignature> {
-  return methodDefinitions.map(methodDefinition => {
+  return methodDefinitions.map(toMethodSignature(factory));
+}
+
+/**
+ * Returns a function that turns a method definition into a method signature
+ * @param factory TypeScript node factory
+ * @returns Function that turns a method definition into a method signature
+ */
+function toMethodSignature(factory: NodeFactory): (methodDefinition: ElementMethodDefinition) => MethodSignature {
+  return methodDefinition => {
     const [methodSignature] = createElementMethodSignature(factory, methodDefinition);
     return methodSignature;
-  });
+  };
 }

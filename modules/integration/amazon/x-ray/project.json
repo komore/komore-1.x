@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/amazon/x-ray/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/amazon/x-ray/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-amazon-xray"]
     },

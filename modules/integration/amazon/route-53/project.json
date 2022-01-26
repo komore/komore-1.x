@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/amazon/route-53/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/amazon/route-53/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-amazon-route53"]
     },

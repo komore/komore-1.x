@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/azure/text-analytics/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/azure/text-analytics/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-azure-textanalytics"]
     },

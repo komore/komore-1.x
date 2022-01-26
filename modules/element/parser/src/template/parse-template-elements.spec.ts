@@ -1,4 +1,4 @@
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom } from '@komore/reactive';
 import { parseTemplateElements } from './parse-template-elements';
 
 describe('Parse template elements', () => {

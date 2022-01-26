@@ -1,6 +1,6 @@
 import { factory } from 'typescript';
-import { createElementObservedAttributesGetAccessor } from './create-element-observed-attributes-get-accessor';
 import { type ElementAttributeDefinition } from '../definition/element-attribute-definition';
+import { createElementObservedAttributesGetAccessor } from './create-element-observed-attributes-get-accessor';
 
 describe('Create element observed attributes get accessor', () => {
   it('creates a static getter that returns the list of observed attributes', () => {

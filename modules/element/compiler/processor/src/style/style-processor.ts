@@ -1,14 +1,10 @@
-import { type Observable } from '@komore/reactive';
-import { type ProcessedStyleSheet } from './processed-style-sheet';
+import { type Processor } from '../processor';
+import { type StyleProcessorInput } from './style-processor-input';
+import { type StyleProcessorOutput } from './style-processor-output';
 
 /**
  * Style processor
  */
-export interface StyleProcessor {
-  /**
-   * Processes style content
-   * @param content Content
-   * @returns Processed style sheet
-   */
-  (content: Observable<string>): Observable<ProcessedStyleSheet>;
+export interface StyleProcessor extends Processor<StyleProcessorInput, StyleProcessorOutput> {
+  readonly _?: undefined;
 }

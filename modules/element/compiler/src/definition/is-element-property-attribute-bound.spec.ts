@@ -1,7 +1,7 @@
+import { type ElementPropertyDefinition } from '@komore/element/compiler/processor';
 import { expectTypeOf } from 'expect-type';
 import { factory, SyntaxKind } from 'typescript';
 import { type ElementPropertyAttributeBoundDefinition } from './element-property-attribute-bound-definition';
-import { type ElementPropertyDefinition } from './element-property-definition';
 import { isElementPropertyAttributeBound } from './is-element-property-attribute-bound';
 
 describe('Is element property attribute bound', () => {

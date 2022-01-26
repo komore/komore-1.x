@@ -15,8 +15,7 @@
       "outputs": ["coverage/element-router"],
       "options": {
         "jestConfig": "modules/element/router/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/element/router/tsconfig.spec.json"
+        "passWithNoTests": true
       }
     },
     "build": {

@@ -14,8 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "options": {
         "jestConfig": "modules/integration/github/jest.config.js",
-        "passWithNoTests": true,
-        "tsConfig": "modules/integration/github/tsconfig.spec.json"
+        "passWithNoTests": true
       },
       "outputs": ["coverage/integration-github"]
     },

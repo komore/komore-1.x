@@ -1,7 +1,7 @@
-import { toLowerCase } from '@komore/string';
 import { type Observable, of } from '@komore/reactive';
-import { parseElementAttributes } from '../attribute/parse-element-attributes';
-import { getElementBaseClassInfo } from './get-element-base-class-info';
+import { toLowerCaseString } from '@komore/string';
+import { htmlElementToParsedElementAttributes } from '../attribute/html-element-to-parsed-element-attributes';
+import { templateElementToElementBaseClassInfo } from './template-element-to-element-base-class-info';
 import { getElementClassName } from './get-element-class-name';
 import { getElementTagName } from './get-element-tag-name';
 import { type ParsedElementTemplate } from './parsed-element-template';
@@ -17,10 +17,10 @@ export function parseTemplateElements(
   scriptElements: ReadonlyArray<HTMLScriptElement>
 ): Observable<ParsedElementTemplate> {
   const templateElement = getTemplateElement(templateElements);
-  const { baseClassName, baseTagName } = getElementBaseClassInfo(templateElement);
+  const { baseClassName, baseTagName } = templateElementToElementBaseClassInfo(templateElement);
   const className = getElementClassName(scriptElements, templateElement);
   const tagName = getElementTagName(templateElement);
-  const parsedAttributes = parseElementAttributes(templateElement);
+  const parsedAttributes = htmlElementToParsedElementAttributes(templateElement);
   const parsedElementTemplate: ParsedElementTemplate = {
     baseClassName,
     baseTagName,
@@ -49,6 +49,6 @@ function getTemplateElement(templateElements: ReadonlyArray<HTMLElement>): HTMLE
     throw new Error('an element template must have a root element');
   }
 
-  const tagNamesList = templateElements.map(({ tagName }) => tagName).map(toLowerCase).join(', ');
+  const tagNamesList = templateElements.map(({ tagName }) => tagName).map(toLowerCaseString).join(', ');
   throw new Error(`an element template cannot have more than one root element (found: ${tagNamesList})`);
 }
