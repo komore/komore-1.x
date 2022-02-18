@@ -13,14 +13,3 @@ export { toLocalizedPercentage } from './to-localized-percentage';
 export { toLocalizedTime } from './to-localized-time';
 export { toLocalizedUnit } from './to-localized-unit';
 export { type UnitLocalizationOptions } from './options/unit-localization-options';
-// TODO: remove when available in TS typings
-export {
-  type DateTimeFormatOptionsDateStyle,
-  type DateTimeFormatOptionsTimeStyle,
-  type NumberFormatOptionsNotation,
-  type NumberFormatOptionsNumberingSystem,
-  type NumberFormatOptionsSignDisplay,
-  type NumberFormatOptionsUnit,
-  type NumberFormatOptionsUnitComponent,
-  type NumberFormatOptionsUnitDisplay
-} from './intl.typing';
