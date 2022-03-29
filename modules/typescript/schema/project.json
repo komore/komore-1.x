@@ -10,14 +10,6 @@
         "lintFilePatterns": ["modules/typescript/schema/src/**/*.ts"]
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/typescript-schema"],
-      "options": {
-        "jestConfig": "modules/typescript/schema/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
@@ -26,6 +18,14 @@
         "tsConfig": "modules/typescript/schema/tsconfig.lib.json",
         "packageJson": "modules/typescript/schema/package.json",
         "main": "modules/typescript/schema/src/index.ts"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/typescript-schema"],
+      "options": {
+        "jestConfig": "modules/typescript/schema/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

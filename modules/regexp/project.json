@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:regexp", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/regexp",
+        "tsConfig": "modules/regexp/tsconfig.lib.json",
+        "packageJson": "modules/regexp/package.json",
+        "main": "modules/regexp/src/index.ts",
+        "assets": ["modules/regexp/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/regexp/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/regexp",
-        "tsConfig": "modules/regexp/tsconfig.lib.json",
-        "packageJson": "modules/regexp/package.json",
-        "main": "modules/regexp/src/index.ts",
-        "assets": ["modules/regexp/*.md"]
       }
     }
   }

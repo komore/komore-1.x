@@ -15,6 +15,7 @@ describe('Map operator', () => {
     expect: 'the value to have been properly mapped';
     const result = await firstValueFrom(result$);
     expect(result).toBe(`test${value}`);
+    expectTypeOf(result).toEqualTypeOf<string>();
     and: 'the mapping function to have been called only once, with the value and the index';
     expect(mappingFunction).toHaveBeenCalledTimes(1);
     expect(mappingFunction).toHaveBeenCalledWith(value, 0);
@@ -44,12 +45,15 @@ describe('Map operator', () => {
     const value = { n: 42, s: 'test', b: true };
     const $ = of(value);
     and: 'mapping functions for some properties in the object';
-    const mappingFunctionN = jest.fn((v: number, { s }: typeof value) => `${s}${v}`);
+    const mappingFunctionN = jest.fn((p: number, _, { s }: typeof value) => `${s}${p}`);
     const mappingFunctionB = jest.fn((v: boolean) => !v);
     when: 'using the operator to map an emitted value';
     const result$ = $.pipe(map({ n: mappingFunctionN, b: mappingFunctionB }));
     expect: 'the value to have been properly mapped';
     const result = await firstValueFrom(result$);
+    result.b;
+    result.n;
+    result.s;
     expect(result).toBe({ n: `${value.s}${value.n}`, s: value.s, b: !value.b });
     and: 'the mapping functions to have been called only once, with the value, the tuple and the index';
     expect(mappingFunctionN).toHaveBeenCalledTimes(1);

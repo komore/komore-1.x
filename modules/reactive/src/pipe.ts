@@ -1,4 +1,4 @@
-import { pipe } from 'rxjs';
+import { pipe as rxjsPipe } from 'rxjs';
 
 // TODO: proper signature once TS can avoid the overloads
-export { pipe };
+export { rxjsPipe as pipe };

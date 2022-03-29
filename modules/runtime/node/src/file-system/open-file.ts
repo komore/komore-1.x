@@ -9,6 +9,6 @@ import { type FileHandle, open } from 'fs/promises';
  * @param mode Mode used when creating the file; defaults to `0666` (readable and writable)
  * @returns File handle
  */
-export function openFile(path: PathLike, flags: string, mode?: number): Observable<FileHandle> {
-  return deferPromise(() => open(path, flags, mode));
+export function openFile(path: PathLike, flags?: string, mode?: number): Observable<FileHandle> {
+  return deferPromise(() => open(path, flags ?? 'r', mode));
 }

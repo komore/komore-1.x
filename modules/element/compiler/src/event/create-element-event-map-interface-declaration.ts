@@ -47,7 +47,7 @@ export function createElementEventMapInterfaceDeclaration(
 }
 
 /**
- * Returns a function that returns a property signature, given an element event definition
+ * Creates a function that returns a property signature, given an element event definition
  * @param factory TypeScript node factory
  * @returns Function that returns a property signature, given an element event definition
  */

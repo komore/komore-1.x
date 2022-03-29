@@ -1,4 +1,4 @@
-import { defer, map, type Observable } from '@komore/reactive';
+import { deferPromise, map, type Observable } from '@komore/reactive';
 import { type FileHandle } from 'fs/promises';
 import { type WriteFileOptions } from './write-file-options';
 import { type WriteFileOptionsWithEncoding } from './write-file-options-with-encoding';
@@ -34,7 +34,7 @@ function writeBufferToFile<BufferType extends Uint8Array>(
   const length = options?.bytesCount;
   const offset = options?.dataOffset;
   const position = options?.fileOffset;
-  return defer(() => fileHandle.write(data, offset, length, position));
+  return deferPromise(() => fileHandle.write(data, offset, length, position));
 }
 
 function writeStringToFile(
@@ -47,5 +47,5 @@ function writeStringToFile(
   const encoding = options?.encoding;
   const position = options?.fileOffset;
   const preparedData = offset !== undefined || bytesCount !== undefined ? data.substr(offset ?? 0, bytesCount) : data;
-  return defer(() => fileHandle.write(preparedData, position, encoding));
+  return deferPromise(() => fileHandle.write(preparedData, position, encoding));
 }

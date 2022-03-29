@@ -4,20 +4,6 @@
   "projectType": "library",
   "tags": ["scope:typescript", "trait:base"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/typescript/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/typescript"],
-      "options": {
-        "jestConfig": "modules/typescript/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
@@ -27,6 +13,25 @@
         "packageJson": "modules/typescript/package.json",
         "main": "modules/typescript/src/index.ts",
         "assets": ["modules/typescript/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/typescript/src/**/*.ts"]
+      }
+    },
+    "publish": {
+      "executor": "@komore/nx:publish",
+      "packageJson": "modules/typescript/package.json",
+      "buildTarget": ["typescript:build", "typescript-schema:build"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/typescript"],
+      "options": {
+        "jestConfig": "modules/typescript/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

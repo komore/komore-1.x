@@ -20,6 +20,7 @@ export function scan<T, A>(
   accumulator: (accumulated: A, value: T, index: number) => A,
   seed: A
 ): OperatorFunction<T, A>;
+
 export function scan<T, A, S = A>(
   accumulator: (accumulated: A | S, value: T, index: number) => A,
   seed: S

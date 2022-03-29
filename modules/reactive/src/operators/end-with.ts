@@ -9,6 +9,8 @@ import { type OperatorFunction } from '../operator-function';
  * @template T Value type
  * @template A Ending value types
  */
-export function endWith<T, A extends unknown[] = T[]>(...values: A): OperatorFunction<T, T | ArrayValueType<A>> {
+export function endWith<T, A extends readonly unknown[] = readonly T[]>(
+  ...values: A
+): OperatorFunction<T, T | ArrayValueType<A>> {
   return source => concat([source, fromArray(values)]);
 }

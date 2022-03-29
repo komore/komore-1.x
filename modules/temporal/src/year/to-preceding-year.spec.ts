@@ -5,8 +5,10 @@ describe('To preceding year', () => {
   it('can return a plain date that occurs the year before the passed temporal', () => {
     given: 'a temporal';
     const temporal = Temporal.PlainDate.from('2020-01-01');
+
     when: 'getting the preceding year';
     const result = toPrecedingYear(temporal);
+
     expect: 'a temporal occuring a year before the passed temporal to have been returned';
     const { year, month, day } = result;
     expect(year).toBe(2019);
@@ -19,8 +21,10 @@ describe('To preceding year', () => {
     ['zoned date time', Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]'), 2019]
   ])('can return a %s that occurs the year before the passed temporal', (_, temporal, expectedYear) => {
     given: 'a temporal';
+
     when: 'getting the preceding year';
     const result = toPrecedingYear(temporal);
+
     expect: 'a temporal occuring the preceding yeart to have been returned, keeping all other units untouched';
     const { year, month, day, hour, minute, second, millisecond, microsecond, nanosecond } = result;
     expect(year).toBe(expectedYear);
@@ -37,8 +41,10 @@ describe('To preceding year', () => {
   it('can return a plain year month that occurs the year before the passed temporal', () => {
     given: 'a year month';
     const temporal = Temporal.PlainYearMonth.from('2020-01');
+
     when: 'getting the preceding year';
     const result = toPrecedingYear(temporal);
+
     expect: 'a plain year month occuring the preceding year to have been returned, keeping the month unit untouched';
     const { year, month } = result;
     expect(year).toBe(2019);

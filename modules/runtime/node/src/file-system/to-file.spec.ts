@@ -7,3 +7,16 @@ describe('To file operator', () => {
     toFile((undefined as unknown) as FileHandle);
   });
 });
+
+describe('lala', () => {
+  it.each([
+    [false, false],
+    [false, true],
+    [true, false],
+    [true, true]
+  ])('lets see then', (sidebar, widerContainer) => {
+    const cond1 = !sidebar && widerContainer;
+    const cond2 = sidebar || widerContainer;
+    expect(cond1).toBe(cond2);
+  });
+});

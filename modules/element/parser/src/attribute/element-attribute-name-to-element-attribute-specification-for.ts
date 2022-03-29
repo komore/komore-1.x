@@ -1,7 +1,7 @@
 import { type ElementAttributeSpecification } from './element-attribute-specification';
 
 /**
- * Returns a function that gets an element attribute specification for an HTML element, given an attribute name
+ * Creates a function that gets an element attribute specification for an HTML element, given an attribute name
  * @param htmlElement HTML element
  * @returns Function that gets an element attribute specification for the HTML element, given an attribute name
  */

@@ -6,7 +6,7 @@ import { type TemporalWithPartialDate } from './temporal-with-partial-date';
  * Converts a temporal with date, converting the type of a temporal with a partial date if necessary
  * @param temporal Temporal with a date or a partial date
  * @returns Plain date
- * @internal
+ * @private
  */
 export function asPlainDate(temporal: TemporalWithDate | TemporalWithPartialDate): Temporal.PlainDate {
   if (temporal instanceof Temporal.PlainDate) {

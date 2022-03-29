@@ -1,6 +1,6 @@
 import { findTemporal } from '../find-temporal';
 import { type TemporalWithTime } from '../temporal-with-time';
-import { toHour } from './to-hour';
+import { timeToHour } from './time-to-hour';
 
 /**
  * Creates a function that picks the temporal with the latest hour from a list, with a default value when the list is empty
@@ -10,5 +10,5 @@ import { toHour } from './to-hour';
  */
 export function toLatestHour<T extends TemporalWithTime>(defaultIfEmpty?: T): (temporals: ReadonlyArray<T>) => T {
   return temporals =>
-    findTemporal(temporals, toHour, (previous, current) => previous < current, 'latest hour', defaultIfEmpty);
+    findTemporal(temporals, timeToHour, (previous, current) => previous < current, 'latest hour', defaultIfEmpty);
 }

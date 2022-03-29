@@ -1,3 +1,3 @@
-export { containsPattern } from './contains-pattern';
 export { executeRegExp } from './execute-reg-exp';
-export { searchWith } from './search-with';
+export { stringContainsPattern } from './string-contains-pattern';
+export { stringToSearchWith } from './string-to-search-with';

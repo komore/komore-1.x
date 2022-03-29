@@ -16,6 +16,7 @@ describe('Get current milliseconds since Epoch', () => {
   it('returns the number of milliseconds since Epoch', () => {
     when: 'getting the number of milliseconds since Epoch';
     const seconds = getCurrentMillisecondsSinceEpoch();
+
     expect: 'the number of milliseconds since epoch to have been returned';
     expect(seconds).toBe(1577882096789);
   });

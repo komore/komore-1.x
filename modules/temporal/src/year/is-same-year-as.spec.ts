@@ -2,31 +2,86 @@ import { Temporal } from '@js-temporal/polyfill';
 import { isSameYearAs } from './is-same-year-as';
 
 describe('Is same year as', () => {
-  const pd2020 = Temporal.PlainDate.from('2020-01-01');
-  const pd2021 = Temporal.PlainDate.from('2021-01-01');
-  const pdt2020 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
-  const pdt2021 = Temporal.PlainDateTime.from('2021-01-01T12:34:56.789');
-  const zdt2020 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
-  const zdt2021 = Temporal.PlainDateTime.from('2021-01-01T12:34:56.789[Europe/Paris]');
-  const pym2020 = Temporal.PlainYearMonth.from('2020-01');
-  const pym2021 = Temporal.PlainYearMonth.from('2021-01');
+  const pd = Temporal.PlainDate.from('2020-01-01');
+  const pdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
+  const zdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
+  const pym = Temporal.PlainYearMonth.from('2020-01');
 
   it.each([
-    ['plain date', 'plain date', pd2020, pd2020, true],
-    ['plain date', 'plain date', pd2020, pd2021, false],
-    ['plain date time', 'plain date time', pdt2020, pdt2020, true],
-    ['plain date time', 'plain date time', pdt2020, pdt2021, false],
-    ['zoned date time', 'zoned date time', zdt2020, zdt2020, true],
-    ['zoned date time', 'zoned date time', zdt2020, zdt2021, false],
-    ['plain year month', 'plain year month', pym2020, pym2020, true],
-    ['plain year month', 'plain year month', pym2020, pym2021, false]
-  ])('can test whether a %s occurs the same year as %s', (_1, _2, lhs, rhs, expectedResult) => {
-    given: 'temporals';
-    when: 'creating a function that tests whether they occur the same year';
-    const func = isSameYearAs(rhs);
-    and: 'calling it';
-    const result = func(lhs);
-    expect: 'true to be returned when the temporals occur the same year';
-    expect(result).toBe(expectedResult);
-  });
+    [2020, Temporal.PlainDate, '2020-01-01', true],
+    [2020, Temporal.PlainDate, '2021-01-01', false],
+    [2020, Temporal.PlainDate, '2019-01-01', false],
+    [2020, Temporal.PlainDateTime, '2020-01-01T12:34:56.789', true],
+    [2020, Temporal.PlainDateTime, '2021-01-01T12:34:56.789', false],
+    [2020, Temporal.PlainDateTime, '2019-01-01T12:34:56.789', false],
+    [2020, Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', true],
+    [2020, Temporal.ZonedDateTime, '2021-01-01T12:34:56.789[Europe/Paris]', false],
+    [2020, Temporal.ZonedDateTime, '2019-01-01T12:34:56.789[Europe/Paris]', false],
+    [2020, Temporal.PlainYearMonth, '2020-01', true],
+    [2020, Temporal.PlainYearMonth, '2021-01', false],
+    [2020, Temporal.PlainYearMonth, '2019-01', false],
+    [pd, Temporal.PlainDate, '2020-01-01', true],
+    [pd, Temporal.PlainDate, '2021-01-01', false],
+    [pd, Temporal.PlainDate, '2019-01-01', false],
+    [pd, Temporal.PlainDateTime, '2020-01-01T12:34:56.789', true],
+    [pd, Temporal.PlainDateTime, '2021-01-01T12:34:56.789', false],
+    [pd, Temporal.PlainDateTime, '2019-01-01T12:34:56.789', false],
+    [pd, Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', true],
+    [pd, Temporal.ZonedDateTime, '2021-01-01T12:34:56.789[Europe/Paris]', false],
+    [pd, Temporal.ZonedDateTime, '2019-01-01T12:34:56.789[Europe/Paris]', false],
+    [pd, Temporal.PlainYearMonth, '2020-01', true],
+    [pd, Temporal.PlainYearMonth, '2021-01', false],
+    [pd, Temporal.PlainYearMonth, '2019-01', false],
+    [pdt, Temporal.PlainDate, '2020-01-01', true],
+    [pdt, Temporal.PlainDate, '2021-01-01', false],
+    [pdt, Temporal.PlainDate, '2019-01-01', false],
+    [pdt, Temporal.PlainDateTime, '2020-01-01T12:34:56.789', true],
+    [pdt, Temporal.PlainDateTime, '2021-01-01T12:34:56.789', false],
+    [pdt, Temporal.PlainDateTime, '2019-01-01T12:34:56.789', false],
+    [pdt, Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', true],
+    [pdt, Temporal.ZonedDateTime, '2021-01-01T12:34:56.789[Europe/Paris]', false],
+    [pdt, Temporal.ZonedDateTime, '2019-01-01T12:34:56.789[Europe/Paris]', false],
+    [pdt, Temporal.PlainYearMonth, '2020-01', true],
+    [pdt, Temporal.PlainYearMonth, '2021-01', false],
+    [pdt, Temporal.PlainYearMonth, '2019-01', false],
+    [zdt, Temporal.PlainDate, '2020-01-01', true],
+    [zdt, Temporal.PlainDate, '2021-01-01', false],
+    [zdt, Temporal.PlainDate, '2019-01-01', false],
+    [zdt, Temporal.PlainDateTime, '2020-01-01T12:34:56.789', true],
+    [zdt, Temporal.PlainDateTime, '2021-01-01T12:34:56.789', false],
+    [zdt, Temporal.PlainDateTime, '2019-01-01T12:34:56.789', false],
+    [zdt, Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', true],
+    [zdt, Temporal.ZonedDateTime, '2021-01-01T12:34:56.789[Europe/Paris]', false],
+    [zdt, Temporal.ZonedDateTime, '2019-01-01T12:34:56.789[Europe/Paris]', false],
+    [zdt, Temporal.PlainYearMonth, '2020-01', true],
+    [zdt, Temporal.PlainYearMonth, '2021-01', false],
+    [zdt, Temporal.PlainYearMonth, '2019-01', false],
+    [pym, Temporal.PlainDate, '2020-01-01', true],
+    [pym, Temporal.PlainDate, '2021-01-01', false],
+    [pym, Temporal.PlainDate, '2019-01-01', false],
+    [pym, Temporal.PlainDateTime, '2020-01-01T12:34:56.789', true],
+    [pym, Temporal.PlainDateTime, '2021-01-01T12:34:56.789', false],
+    [pym, Temporal.PlainDateTime, '2019-01-01T12:34:56.789', false],
+    [pym, Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', true],
+    [pym, Temporal.ZonedDateTime, '2021-01-01T12:34:56.789[Europe/Paris]', false],
+    [pym, Temporal.ZonedDateTime, '2019-01-01T12:34:56.789[Europe/Paris]', false],
+    [pym, Temporal.PlainYearMonth, '2020-01', true],
+    [pym, Temporal.PlainYearMonth, '2021-01', false],
+    [pym, Temporal.PlainYearMonth, '2019-01', false],
+  ])(
+    'creates a function that tests whether a temporal with a date occurs as the same year as a reference',
+    (reference, temporalClass, value, expectedResult) => {
+      given: 'a reference';
+      and: 'a temporal';
+      const temporal = temporalClass.from(value);
+
+      when: 'creating a function that tests whether a temporal occurs the same year as the reference';
+      const func = isSameYearAs(reference);
+      and: 'calling it';
+      const result = func(temporal);
+
+      expect: 'true to have been called if the temporal occurs the same year as the reference';
+      expect(result).toBe(expectedResult);
+    }
+  );
 });

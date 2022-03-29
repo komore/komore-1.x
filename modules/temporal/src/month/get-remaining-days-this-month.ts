@@ -6,9 +6,6 @@ import { Temporal } from '@js-temporal/polyfill';
  */
 export function getRemainingDaysThisMonth(): number {
   const now = Temporal.Now.plainDateISO();
-  const endOfMonth = now
-    .add({ months: 1 })
-    .with({ day: 1 })
-    .subtract({ days: 1 });
-  return now.until(endOfMonth, { largestUnit: 'days'}).days;
+  const endOfMonth = now.add({ months: 1 }).with({ day: 1 }).subtract({ days: 1 });
+  return endOfMonth.day - now.day;
 }

@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:reactive", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/reactive",
+        "tsConfig": "modules/reactive/tsconfig.lib.json",
+        "packageJson": "modules/reactive/package.json",
+        "main": "modules/reactive/src/index.ts",
+        "assets": ["modules/reactive/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/reactive/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/reactive",
-        "tsConfig": "modules/reactive/tsconfig.lib.json",
-        "packageJson": "modules/reactive/package.json",
-        "main": "modules/reactive/src/index.ts",
-        "assets": ["modules/reactive/*.md"]
       }
     }
   }

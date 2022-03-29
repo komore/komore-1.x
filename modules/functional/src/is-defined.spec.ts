@@ -14,7 +14,7 @@ describe('Is defined', () => {
 
   it('acts as a type guard', () => {
     given: 'a value that may be undefined';
-    const value: string | undefined = 'test';
+    const value = 'test' as string | undefined;
     if (isDefined(value)) {
       expectTypeOf(value).toEqualTypeOf<string>();
     }

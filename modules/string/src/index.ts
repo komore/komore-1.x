@@ -1,4 +1,6 @@
-export { fromCharacterCode } from './from-character-code';
+export { characterCodesToString } from './character-codes-to-string';
+export { characterToZwjSequence } from './character-to-zwj-sequence';
+export { codePointToString } from './code-point-to-string';
 export { isBlankString } from './is-blank-string';
 export { isEmptyString } from './is-empty-string';
 export { matched } from './matched';

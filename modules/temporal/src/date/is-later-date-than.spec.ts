@@ -3,11 +3,11 @@ import { isLaterDateThan } from './is-later-date-than';
 
 describe('Is later date than', () => {
   const pd1 = Temporal.PlainDate.from('2020-01-01');
-  const pd2 = Temporal.PlainDate.from('2020-06-01');
+  const pd2 = Temporal.PlainDate.from('2020-01-02');
   const pdt1 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
-  const pdt2 = Temporal.PlainDateTime.from('2020-06-01T12:34:56.789');
-  const zdt1 = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
-  const zdt2 = Temporal.ZonedDateTime.from('2020-06-01T12:34:56.789[Europe/Paris]');
+  const pdt2 = Temporal.PlainDateTime.from('2020-01-02T12:34:56.789');
+  const zdt1 = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789+01:00[Europe/Paris]');
+  const zdt2 = Temporal.ZonedDateTime.from('2020-01-02T12:34:56.789+01:00[Europe/Paris]');
 
   it.each([
     ['plain date', 'plain date', pd1, pd1, false],
@@ -22,9 +22,11 @@ describe('Is later date than', () => {
   ])('can test whether a %s occurs later than another %s', (_1, _2, lhs, rhs, expectedResult) => {
     given: 'two temporals';
     when: 'creating a function that tests whether a temporal occurs at a later date than a reference temporal';
+
     const func = isLaterDateThan(rhs);
     and: 'testing whether a temporal occurs at a later date than the reference temporal';
     const result = func(lhs);
+
     expect: 'the correct result to have been returned';
     expect(result).toBe(expectedResult);
   });

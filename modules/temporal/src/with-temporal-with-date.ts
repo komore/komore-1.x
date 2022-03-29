@@ -9,7 +9,7 @@ import { type TemporalWithPartialDate } from './temporal-with-partial-date';
  * @param predicate Predicate that returns a new plain date
  * @returns Updated temporal with date or partial date
  * @template T Temporal with date or partial date type
- * @internal
+ * @private
  */
 export function withTemporalWithDate<T extends TemporalWithDate | TemporalWithPartialDate>(
   temporal: T,

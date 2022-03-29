@@ -4,20 +4,22 @@ import { getLocalTimeZoneId } from './get-local-time-zone-id';
 
 describe('Get local time zone identifier', () => {
   const currentTimeZoneName = 'Europe/Paris';
-  const currentTimeZone = Temporal.TimeZone.from(currentTimeZoneName);
-  let restoreCurrentTimeZone: ReturnType<typeof mockCurrentTimeZone>;
+  // NOTE: should not return TimeZone | TimeZoneProtocol?
+  const currentTimeZone = Temporal.TimeZone.from(currentTimeZoneName) as Temporal.TimeZone;
+  let mockedCurrentTimeZone: ReturnType<typeof mockCurrentTimeZone>;
 
   beforeAll(() => {
-    restoreCurrentTimeZone = mockCurrentTimeZone(currentTimeZone);
+    mockedCurrentTimeZone = mockCurrentTimeZone(currentTimeZone);
   });
 
   afterAll(() => {
-    restoreCurrentTimeZone();
+    mockedCurrentTimeZone.clearMock();
   });
 
   it('returns the local time zone identifier', () => {
     when: 'getting the local time zone identifier';
     const localTimeZoneId = getLocalTimeZoneId();
+
     expect: 'the correct identifier to have been returned';
     expect(localTimeZoneId).toBe(currentTimeZoneName);
   });

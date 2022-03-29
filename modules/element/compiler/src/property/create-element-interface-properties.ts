@@ -16,7 +16,7 @@ export function createElementInterfaceProperties(
 }
 
 /**
- * Returns a function that returns a property signature, given an element property definition
+ * Creates a function that returns a property signature, given an element property definition
  * @param factory TypeScript node factory
  * @returns Fucntion that returns a property signature, given an element property definition
  */

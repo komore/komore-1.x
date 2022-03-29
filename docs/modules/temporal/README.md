@@ -11,7 +11,7 @@
 
 # @komore/temporal
 
-The `@komore/temporal` module helps manipulate temporal structures.
+The `@komore/temporal` module helps manipulate temporal data.
 
 ## Key concepts
 

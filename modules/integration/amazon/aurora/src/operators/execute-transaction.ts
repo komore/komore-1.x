@@ -1,9 +1,7 @@
-import { type UnaryFunction } from '@komore/functional';
 import { type Message } from '@komore/message';
-import { type Observable, pipe } from '@komore/reactive';
-import { MessageWithTransaction } from './message-with-transaction';
+import { pipe, type MonoTypeOperatorFunction } from '@komore/reactive';
 
-export function executeTransaction<M extends Message<any, any>>(): UnaryFunction<Observable<M>> {
+export function executeTransaction<M extends Message<any, any>>(): MonoTypeOperatorFunction<M> {
   pipe(
     
     message

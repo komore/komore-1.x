@@ -1,0 +1,37 @@
+{
+  "root": "modules/documentation",
+  "sourceRoot": "modules/documentation/src",
+  "projectType": "library",
+  "tags": ["scope:documentation", "trait:base"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/documentation",
+        "tsConfig": "modules/documentation/tsconfig.lib.json",
+        "packageJson": "modules/documentation/package.json",
+        "main": "modules/documentation/src/index.ts",
+        "assets": [
+          "modules/documentation/README.md",
+          "modules/documentation/executors.json",
+          "modules/documentation/generators.json"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/documentation/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/documentation"],
+      "options": {
+        "jestConfig": "modules/documentation/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

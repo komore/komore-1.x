@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:temporal", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/temporal",
+        "tsConfig": "modules/temporal/tsconfig.lib.json",
+        "packageJson": "modules/temporal/package.json",
+        "main": "modules/temporal/src/index.ts",
+        "assets": ["modules/temporal/README.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,16 +27,6 @@
       "options": {
         "jestConfig": "modules/temporal/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/temporal",
-        "tsConfig": "modules/temporal/tsconfig.lib.json",
-        "packageJson": "modules/temporal/package.json",
-        "main": "modules/temporal/src/index.ts"
       }
     }
   }

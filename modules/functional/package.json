@@ -1,3 +1,7 @@
 {
-  "name": "@komore/functional"
+  "name": "@komore/functional",
+  "description": "Functional programming helper functions",
+  "keywords": [
+    "functional"
+  ]
 }

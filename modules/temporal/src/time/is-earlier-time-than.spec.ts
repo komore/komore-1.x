@@ -26,10 +26,12 @@ describe('Is earlier time than', () => {
     'can create a function that tests whether a temporal occurs at an earlier time than a reference temporal',
     (temporal, referenceTemporal, expectedResult) => {
       given: 'two temporals';
+
       when: 'creating a function that tests whether a temporal occurs at an earlier time than a reference temporal';
       const func = isEarlierTimeThan(referenceTemporal);
       and: 'calling the function';
       const result = func(temporal);
+
       expect: 'true to have been returned if the temporal occurs at an earlier time than the reference temporal';
       expect(result).toBe(expectedResult);
     }

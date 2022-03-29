@@ -1,3 +1,7 @@
 {
-  "name": "@komore/testing"
+  "name": "@komore/testing",
+  "description": "",
+  "keywords": [
+    "testing"
+  ]
 }

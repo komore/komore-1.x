@@ -18,7 +18,7 @@ export function createElementClassProperties(
 }
 
 /**
- * Returns a function that returns a list of property accessor declarations, given an element property definition
+ * Creates a function that returns a list of property accessor declarations, given an element property definition
  * @param context Element compiler context
  * @param containerName Container name
  * @returns Function that returns a list of property accessor declarations, given an element property definition

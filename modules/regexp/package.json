@@ -1,3 +1,11 @@
 {
-  "name": "@komore/regexp"
+  "name": "@komore/regexp",
+  "description": "Regular expression features",
+  "keywords": [
+    "functional",
+    "regular",
+    "expression",
+    "regex",
+    "regexp"
+  ]
 }

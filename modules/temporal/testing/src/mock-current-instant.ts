@@ -1,14 +1,15 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { Observable } from '@komore/reactive';
+import { type MockTemporal } from './mock-temporal';
 
 /**
  * Mocks the current instant
  * @param instant Instant
+ * @returns Mock temporal
  */
-export function mockCurrentInstant(instant: Temporal.Instant): Observable<void> {
-  return new Observable<void>(subscriber => {
-    const previousInstant = Temporal.Now.instant;
-    Temporal.Now.instant = () => instant;
-    subscriber.add(() => (Temporal.Now.instant = previousInstant));
-  });
+export function mockCurrentInstant(instant: Temporal.Instant): MockTemporal {
+  const previousInstant = Temporal.Now.instant;
+  Temporal.Now.instant = () => instant;
+  return {
+    clearMock: () => (Temporal.Now.instant = previousInstant),
+  };
 }

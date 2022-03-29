@@ -1,14 +1,12 @@
 import { defer as rxjsDefer } from 'rxjs';
 import { type Observable } from '../observable';
-import { type ObservableInput } from '../observable-input';
-import { type ObservableInputType } from '../observable-input-type';
 
 /**
  * Creates an observable that delegates the creation of a new observable to a factory
  * @param factory Factory that returns a new observable
  * @returns Observable
- * @template T Observable input type
+ * @template T Observable value type
  */
-export function defer<T extends ObservableInput<unknown>>(factory: () => T): Observable<ObservableInputType<T>> {
+export function defer<T>(factory: () => Observable<T>): Observable<T> {
   return rxjsDefer(factory);
 }

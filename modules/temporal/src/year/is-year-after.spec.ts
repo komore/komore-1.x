@@ -26,10 +26,12 @@ describe('Is year after', () => {
     'can test whether a %s occurs the year after another temporal',
     (_, temporal, referenceTemporal, expectedResult) => {
       given: 'two temporals';
+
       when: 'creating a function that tests whether a temporal occurs the year after the reference temporal';
       const func = isYearAfter(referenceTemporal);
       and: 'calling the function';
       const result = func(temporal);
+
       expect: 'true to have been returned when the temporal occurs the year after the reference temporal';
       expect(result).toBe(expectedResult);
     }
@@ -44,9 +46,11 @@ describe('Is year after', () => {
     ['zoned date time', zdt1, 2020, true]
   ])('can test whether a %s occurs the year after a specific year', (_, temporal, referenceYear, expectedResult) => {
     given: 'two temporals';
+
     when: 'creating a function that tests whether a temporal occurs the year after the reference year';
     const func = isYearAfter(referenceYear);
     and: 'calling the function';
+
     const result = func(temporal);
     expect: 'true to have been returned when the temporal occurs the year after the reference year';
     expect(result).toBe(expectedResult);

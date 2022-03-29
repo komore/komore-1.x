@@ -8,5 +8,5 @@ import { isWeekEnd } from './is-week-end';
  * @returns true if the temporal occurs during the current week's week-end
  */
 export function isThisWeekEnd(temporal: TemporalWithDate): boolean {
-  return isThisWeek(temporal) && isWeekEnd(temporal);
+  return isWeekEnd(temporal) && isThisWeek(temporal);
 }

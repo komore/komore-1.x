@@ -1,5 +1,7 @@
-import { or } from './and';
+import { or } from './or';
 
 describe('Or', () => {
-
+  it('TODO', () => {
+    or();
+  });
 });

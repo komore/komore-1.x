@@ -1,20 +1,22 @@
-import { fromEvent } from 'rxjs';
-//import { type Observable } from '../observable';
+import { fromEvent as rxjsFromEvent } from 'rxjs';
 
-export { fromEvent };
+export { rxjsFromEvent as fromEvent };
 
 /**
  * Creates an observable that emits events of a specific type from a DOM event target
  * @param eventTarget Event target
  * @param eventTypeName Event type name
- * @template EventType Event type
+ * @template EventMapType Event map type
  * @template EventTypeName Event type name
  * @returns Observable that emits events of the specific type
  */
-/*export function fromEvent<EventType, EventTypeName extends string = string>(
-  eventTarget: EventTargetLikeWithEventMap<EventTypeName, EventType>,
+/*export function fromEvent<
+  EventMapType extends ReadonlyRecord<string, unknown>,
+  EventTypeName extends keyof EventMapType
+>(
+  eventTarget: EventTargetLikeWithEventMap<EventMapType>,
   eventTypeName: EventTypeName
-): Observable<EventType>;*/
+): Observable<EventMapType[EventTypeName]>;*/
 
 /**
  * Creates an observable that emits events of a specific type from a DOM event target
@@ -43,13 +45,10 @@ export { fromEvent };
  * @param eventTypeName Event type name
  * @returns Observable that emits events of the specific type
  */
-/*export function fromEvent(
-  eventEmitter: EventEmitterLike,
-  eventTypeName: string
-): Observable<unknown>;
+/*export function fromEvent(eventEmitter: EventEmitterLike, eventTypeName: string): Observable<unknown>;
 
 export function fromEvent<T>(
-  eventTargetOrEmitter: EventTargetLike<T> | EventEmitterLike,
+  eventTargetOrEmitter: EventTargetLike<T> | EventEmitterLike<T>,
   eventTypeName: string
 ): Observable<T> {
   return rxjsFromEvent(eventTargetOrEmitter, eventTypeName);
@@ -61,38 +60,52 @@ export function fromEvent<T>(
 /*interface EventTargetLike<T> {
   addEventListener(type: string, listener: (event: T) => void, options?: boolean | AddEventListenerOptions): void;
   removeEventListener(type: string, listener: (event: T) => void, options?: boolean | EventListenerOptions): void;
-}*/
+}
+
+interface AddEventListenerOptionsLike {
+  capture?: boolean;
+  once?: boolean;
+  passive?: boolean;
+}
+*/
 
 /**
  * Signature that matches a DOM event target with a typed event map
  * @template EventMapType Event map type
- * @template Event
  */
-/*interface EventTargetLikeWithEventMap<EventTypeName extends string, EventType = unknown> {
-  addEventListener(
-    type: EventTypeName,
-    listener: (event: EventType) => void,
+/*interface EventTargetLikeWithEventMap<EventMapType extends ReadonlyRecord<string, unknown>> {
+  addEventListener<K extends keyof EventMapType>(
+    type: K,
+    listener: (event: EventMapType[K]) => void,
     options?: boolean | AddEventListenerOptions
   ): void;
-  removeEventListener(
-    type: EventTypeName,
-    listener: (event: EventType) => unknown,
+  removeEventListener<K extends keyof EventMapType>(
+    type: K,
+    listener: (event: EventMapType[K]) => unknown,
     options?: boolean | EventListenerOptions
   ): void;
 }*/
 
 /**
  * Signature that matches a Node event emitter
+ * @template ArgumentsType Arguments type
  */
-/*interface EventEmitterLike {
-  addListener(event: string | symbol, listener: (...args: unknown[]) => void): this;
-  removeListener(event: string | symbol, listener: (...args: unknown[]) => void): this;
-}*/
+/*interface EventEmitterLike<ArgumentsType> {
+  addListener(event: string | symbol, listener: (...args: readonly ArgumentsType[]) => void): this;
+  removeListener(event: string | symbol, listener: (...args: readonly ArgumentsType[]) => void): this;
+}
 
+type EventEmitterValueType<EventEmitter extends EventEmitterLike<unknown>> = EventEmitter extends EventEmitterLike<
+  infer ArgumentsType
+>
+  ? ArgumentsType
+  : never;
+*/
 /**
  * Signature that matches a Node event emitter with a typed event map
  */
 /*interface EventEmitterLikeWithEventMap<EventTypeName extends string> {
   addListener(event: EventTypeName, listener: (...args: unknown[]) => void): this;
   removeListener(event: EventTypeName, listener: (...args: unknown[]) => void): this;
-}*/
+}
+*/

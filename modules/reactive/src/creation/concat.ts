@@ -1,6 +1,6 @@
 import { concat as rxjsConcat } from 'rxjs';
 import { type Observable } from '../observable';
-import { type ObservableInputTuple } from '../observable-input-tuple';
+import { type ObservableTuple } from '../observable-tuple';
 
 /**
  * Creates an observable that sequentially emits all values from an observable until completion, then moves on to the
@@ -10,7 +10,7 @@ import { type ObservableInputTuple } from '../observable-input-tuple';
  * @template T Observable value types
  */
 export function concat<T extends ReadonlyArray<unknown>>(
-  sources: readonly [...ObservableInputTuple<T>]
+  sources: readonly [...ObservableTuple<T>]
 ): Observable<T[number]> {
   return rxjsConcat(...sources);
 }

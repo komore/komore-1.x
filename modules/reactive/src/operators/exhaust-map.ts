@@ -1,6 +1,5 @@
 import { exhaustMap as rxjsExhaustMap } from 'rxjs';
-import { type ObservableInput } from '../observable-input';
-import { type ObservableInputType } from '../observable-input-type';
+import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 
 /**
@@ -9,10 +8,8 @@ import { type OperatorFunction } from '../operator-function';
  * Values only get emitted from the most recently projected observable until it completes.
  * @param project Projection function
  * @template T Value type
- * @template O Observable input type
+ * @template U Observable value type
  */
-export function exhaustMap<T, O extends ObservableInput<unknown>>(
-  project: (value: T, index: number) => O
-): OperatorFunction<T, ObservableInputType<O>> {
+export function exhaustMap<T, U>(project: (value: T, index: number) => Observable<U>): OperatorFunction<T, U> {
   return rxjsExhaustMap(project);
 }

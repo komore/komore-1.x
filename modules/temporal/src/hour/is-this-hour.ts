@@ -1,4 +1,4 @@
-import { getNowFor } from '@komore/temporal';
+import { getNowFor } from '../get-now-for';
 import { type TemporalWithDateTime } from '../temporal-with-date-time';
 
 /**

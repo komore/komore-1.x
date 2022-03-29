@@ -1,14 +1,15 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { Observable } from '@komore/reactive';
+import { type MockTemporal } from './mock-temporal';
 
 /**
  * Mocks the current zoned date time
  * @param zonedDateTime Zoned date time
+ * @returns Mock temporal
  */
-export function mockCurrentZonedDateTime(zonedDateTime: Temporal.ZonedDateTime): Observable<void> {
-  return new Observable<void>(subscriber => {
-    const previousZonedDateTimeISO = Temporal.Now.zonedDateTimeISO;
-    Temporal.Now.zonedDateTimeISO = () => zonedDateTime;
-    subscriber.add(() => (Temporal.Now.zonedDateTimeISO = previousZonedDateTimeISO));
-  });
+export function mockCurrentZonedDateTime(zonedDateTime: Temporal.ZonedDateTime): MockTemporal {
+  const previousZonedDateTimeISO = Temporal.Now.zonedDateTimeISO;
+  Temporal.Now.zonedDateTimeISO = () => zonedDateTime;
+  return {
+    clearMock: () => (Temporal.Now.zonedDateTimeISO = previousZonedDateTimeISO),
+  };
 }

@@ -1,3 +1,8 @@
 {
-  "name": "@komore/string"
+  "name": "@komore/string",
+  "description": "String functions",
+  "keywords": [
+    "functional",
+    "string"
+  ]
 }

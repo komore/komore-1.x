@@ -1,3 +1,8 @@
 {
-  "name": "@komore/reactive"
+  "name": "@komore/reactive",
+  "description": "Reactive programming features",
+  "keywords": [
+    "reactive",
+    "functional"
+  ]
 }

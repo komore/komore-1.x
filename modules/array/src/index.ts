@@ -1,8 +1,11 @@
+export { arrayFilledWith } from './array-filled-with';
+export { arrayFromRange } from './array-from-range';
+export { arrayFromRepeatedValue } from './array-from-repeated-value';
+export { type ArrayRange } from './array-range';
 export { arrayToElementAt } from './array-to-element-at';
-export { type ArrayValueType } from './array-value-type';
+export { arrayToMap } from './array-to-map';
+export { arrayToSlice } from './array-to-slice';
+export { arrayToSlices } from './array-to-slices';
 export { arrayToString } from './array-to-string';
-export { fromRange } from './from-range';
-export { fromRepeated } from './from-repeated';
-export { toMap } from './to-map';
-export { toSlice } from './to-slice';
-export { toSlices } from './to-slices';
+export { type ArrayValueType } from './array-value-type';
+export { isArray } from './is-array';

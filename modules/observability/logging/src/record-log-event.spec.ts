@@ -11,16 +11,16 @@ describe('Record log event', () => {
   const testLogGroupName = 'test-group';
   const testLogGroup = createLogGroup(testLogGroupName);
   const mockLogEventRecordsSubject = logEventRecordsSubject as jest.Mocked<typeof logEventRecordsSubject>;
-  let unmockPlainDateTime: () => void;
+  let mockedPlainDateTime: ReturnType<typeof mockCurrentPlainDateTime>;
 
   beforeEach(() => {
     mockLogEventRecordsSubject.next.mockClear();
-    unmockPlainDateTime = mockCurrentPlainDateTime(Temporal.PlainDateTime.from('2020-01-01T12:34:56.789'));
+    mockedPlainDateTime = mockCurrentPlainDateTime(Temporal.PlainDateTime.from('2020-01-01T12:34:56.789'));
   });
 
   afterEach(() => {
-    unmockPlainDateTime();
-  })
+    mockedPlainDateTime.clearMock();
+  });
 
   it('can record a direct log event', () => {
     given: 'a log event';
@@ -33,7 +33,7 @@ describe('Record log event', () => {
       logContext: {},
       logEvent,
       message: logEvent.message,
-      timestamp: Temporal.PlainDateTime.from('2020-01-01T12:34:56.789')
+      timestamp: Temporal.PlainDateTime.from('2020-01-01T12:34:56.789'),
     };
     expect(mockLogEventRecordsSubject.next).toHaveBeenCalledTimes(1);
     expect(mockLogEventRecordsSubject.next).toHaveBeenCalledWith(expectedLogEventRecord);

@@ -1,3 +1,8 @@
 {
-  "name": "@komore/typescript"
+  "name": "@komore/typescript",
+  "description": "TypeScript type and schema helpers",
+  "keywords": [
+    "typescript",
+    "schema"
+  ]
 }

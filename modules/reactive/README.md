@@ -1,23 +1,23 @@
 # @komore/reactive
 
-[![NPM version](https://img.shields.io/npm/v/@komore/reactive.svg)](https://www.npmjs.com/package/@komore/reactive)
+[Reactive programming] features.
+
+- [Tutorials]
+- [Guides]
+- [Reference]
+
+For a complete description of the features and how to use them, please refer to the [komore documentation].
 
 ## Install
 
-The module can be installed via pnpm, Npm or Yarn:
-
-```shell
+```sh
+npm install @komore/reactive
 pnpm add @komore/reactive
+yarn add @komore/reactive
 ```
 
-```shell
-npm install @komore/operators --save
-```
-
-```shell
-yarn add @komore/operators
-```
-
-## Usage
-
-Documentation is available at https://komore.dev/modules/reactive.
+[reactive programming]: https://en.wikipedia.org/wiki/Reactive_programming
+[guides]: https://komore.dev/modules/reactive/guides/
+[komore documentation]: https://komore.dev/modules/reactive/
+[reference]: https://komore.dev/modules/reactive/reference/
+[tutorials]: https://komore.dev/modules/reactive/tutorials/

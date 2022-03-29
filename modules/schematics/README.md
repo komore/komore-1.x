@@ -1,4 +1,6 @@
-# @komore/nx
+# @komore/schematics
+
+TODO: move all schematics to their own module, this one should be helper functions only
 
 ## Executors
 

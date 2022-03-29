@@ -1,14 +1,15 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { Observable } from '@komore/reactive';
+import { type MockTemporal } from './mock-temporal';
 
 /**
  * Mocks the current plain date time
  * @param plainDateTime Plain date time
+ * @returns Mock temporal
  */
-export function mockCurrentPlainDateTime(plainDateTime: Temporal.PlainDateTime): Observable<void> {
-  return new Observable<void>(subscriber => {
-    const previousPlainDateTimeISO = Temporal.Now.plainDateTimeISO;
-    Temporal.Now.plainDateTimeISO = () => plainDateTime;
-    subscriber.add(() => (Temporal.Now.plainDateTimeISO = previousPlainDateTimeISO));
-  });
+export function mockCurrentPlainDateTime(plainDateTime: Temporal.PlainDateTime): MockTemporal {
+  const previousPlainDateTimeISO = Temporal.Now.plainDateTimeISO;
+  Temporal.Now.plainDateTimeISO = () => plainDateTime;
+  return {
+    clearMock: () => (Temporal.Now.plainDateTimeISO = previousPlainDateTimeISO),
+  };
 }

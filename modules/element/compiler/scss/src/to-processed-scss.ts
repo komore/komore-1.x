@@ -3,7 +3,7 @@ import { type Options, type Result } from 'sass';
 import { renderSass } from './render-sass';
 
 /**
- * Returns a function that renders SCSS content
+ * Creates a function that renders SCSS content
  * @param options Options
  * @returns Function that renders SCSS content
  */

@@ -1,11 +1,13 @@
-import { type UnaryFunction } from '@komore/functional';
-import { type Observable, pipe } from '@komore/reactive';
+import { pipe, type OperatorFunction } from '@komore/reactive';
 
 /**
  * Executes a statement
  * @param statement Statement
  * @param parameters Parameters
  */
-export function executeStatement<P extends Record<string, any>>(statement: string, parameters: P): UnaryFunction<Observable<any>, Observable<any>> {
+export function executeStatement<P extends Record<string, any>>(
+  statement: string,
+  parameters: P
+): OperatorFunction<unknown, unknown> {
   return pipe();
 }

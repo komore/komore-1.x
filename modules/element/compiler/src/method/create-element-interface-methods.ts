@@ -16,7 +16,7 @@ export function createElementInterfaceMethods(
 }
 
 /**
- * Returns a function that turns a method definition into a method signature
+ * Creates a function that turns a method definition into a method signature
  * @param factory TypeScript node factory
  * @returns Function that turns a method definition into a method signature
  */

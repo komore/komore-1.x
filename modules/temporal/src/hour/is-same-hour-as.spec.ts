@@ -3,14 +3,14 @@ import { isSameHourAs } from './is-same-hour-as';
 
 describe('Is same hour as', () => {
   const pt1 = Temporal.PlainTime.from('12:34:56.789123456');
-  const pt2 = Temporal.PlainTime.from('01:23:45.678912345');
+  const pt2 = Temporal.PlainTime.from('11:45:56.678912345');
   const pt3 = Temporal.PlainTime.from('12:23:45.678912345');
   const pdt1 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789123456');
-  const pdt2 = Temporal.PlainDateTime.from('2020-01-01T01:23:45.678912345');
-  const pdt3 = Temporal.PlainDateTime.from('2020-06-01T12:23:45.678912345');
-  const zdt1 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789123456[Europe/Paris]');
-  const zdt2 = Temporal.PlainDateTime.from('2020-01-01T01:23:45.678912345[Europe/Paris]');
-  const zdt3 = Temporal.PlainDateTime.from('2020-06-01T12:23:45.678912345[Europe/London]');
+  const pdt2 = Temporal.PlainDateTime.from('2020-01-01T11:45:56.678912345');
+  const pdt3 = Temporal.PlainDateTime.from('2020-01-01T12:23:45.678912345');
+  const zdt1 = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789123456+01:00[Europe/Paris]');
+  const zdt2 = Temporal.PlainDateTime.from('2020-01-01T11:45:56.678912345+01:00[Europe/Paris]');
+  const zdt3 = Temporal.PlainDateTime.from('2020-01-01T12:23:45.678912345+00:00[Europe/London]');
 
   it.each([
     ['plain time', pt1, pt2, false],
@@ -27,8 +27,10 @@ describe('Is same hour as', () => {
     (_, referenceTemporal, temporal, expectedResult) => {
       given: 'a function that tests whether a temporal occurs during the same hour as a reference temporal';
       const func = isSameHourAs(referenceTemporal);
+
       when: 'calling the function';
       const result = func(temporal);
+
       expect: 'true to have been returned if the temporal occurs during the same hour as the reference temporal';
       expect(result).toBe(expectedResult);
     }

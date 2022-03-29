@@ -2,23 +2,10 @@ import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
- * Returns a function that tests whether a temporal occurs an earlier year than a reference year
+ * Returns a function that tests whether a temporal occurs an earlier year than a reference temporal or year
  * @param referenceYear Reference year
- * @returns Function that tests whether a temporal occurs an earlier year than the reference year
+ * @returns Function that tests whether a temporal occurs an earlier year than the reference temporal or year
  */
-export function isEarlierYearThan(
-  referenceYear: number
-): (temporal: TemporalWithDate | Temporal.PlainYearMonth) => boolean;
-
-/**
- * Returns a function that tests whether a temporal occurs an earlier year than a reference temporal
- * @param referenceTemporal Reference temporal
- * @returns Function that tests whether a temporal occurs an earlier year than the reference temporal
- */
-export function isEarlierYearThan(
-  referenceTemporal: TemporalWithDate | Temporal.PlainYearMonth
-): (temporal: TemporalWithDate | Temporal.PlainYearMonth) => boolean;
-
 export function isEarlierYearThan(
   referenceTemporalOrYear: TemporalWithDate | Temporal.PlainYearMonth | number
 ): (temporal: TemporalWithDate | Temporal.PlainYearMonth) => boolean {

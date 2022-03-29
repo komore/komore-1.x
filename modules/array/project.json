@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:array", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/array",
+        "tsConfig": "modules/array/tsconfig.lib.json",
+        "packageJson": "modules/array/package.json",
+        "main": "modules/array/src/index.ts",
+        "assets": ["modules/array/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/array/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/array",
-        "tsConfig": "modules/array/tsconfig.lib.json",
-        "packageJson": "modules/array/package.json",
-        "main": "modules/array/src/index.ts",
-        "assets": ["modules/array/*.md"]
       }
     }
   }

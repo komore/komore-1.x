@@ -1,3 +1,8 @@
 {
-  "name": "@komore/array"
+  "name": "@komore/array",
+  "description": "Array functions",
+  "keywords": [
+    "functional",
+    "array"
+  ]
 }

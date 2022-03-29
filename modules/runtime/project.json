@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:runtime", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/runtime",
+        "tsConfig": "modules/runtime/tsconfig.lib.json",
+        "packageJson": "modules/runtime/package.json",
+        "main": "modules/runtime/src/index.ts",
+        "assets": ["modules/runtime/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/runtime/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/runtime",
-        "tsConfig": "modules/runtime/tsconfig.lib.json",
-        "packageJson": "modules/runtime/package.json",
-        "main": "modules/runtime/src/index.ts",
-        "assets": ["modules/runtime/*.md"]
       }
     }
   }

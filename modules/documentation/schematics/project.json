@@ -1,0 +1,32 @@
+{
+  "root": "modules/documentation/schematics",
+  "sourceRoot": "modules/documentation/schematics/src",
+  "projectType": "library",
+  "tags": ["scope:documentation", "trait:schematics"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/documentation/schematics",
+        "tsConfig": "modules/documentation/schematics/tsconfig.lib.json",
+        "packageJson": "modules/documentation/schematics/package.json",
+        "main": "modules/documentation/schematics/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/documentation/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/documentation"],
+      "options": {
+        "jestConfig": "modules/documentation/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

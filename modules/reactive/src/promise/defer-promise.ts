@@ -1,4 +1,4 @@
-import { defer } from '../creation/defer';
+import { defer as rxjsDefer } from 'rxjs';
 import { type Observable } from '../observable';
 
 /**
@@ -7,6 +7,6 @@ import { type Observable } from '../observable';
  * @returns Observable
  * @template T Value type
  */
-export function deferPromise<T>(factory: () => Promise<T>): Observable<T> {
-  return defer(() => factory());
+export function deferPromise<T>(factory: () => PromiseLike<T>): Observable<T> {
+  return rxjsDefer(() => factory());
 }

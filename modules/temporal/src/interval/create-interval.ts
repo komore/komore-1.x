@@ -11,6 +11,6 @@ import { type IntervalTemporal } from './interval-temporal';
 export function createInterval<T extends IntervalTemporal>(start: T, end: T): Interval<T> {
   return {
     start,
-    end
+    end,
   };
 }

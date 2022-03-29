@@ -4,6 +4,16 @@
   "projectType": "library",
   "tags": ["scope:reactive", "trait:testing"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/reactive/testing",
+        "tsConfig": "modules/reactive/testing/tsconfig.lib.json",
+        "packageJson": "modules/reactive/testing/package.json",
+        "main": "modules/reactive/testing/src/index.ts"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,16 +26,6 @@
       "options": {
         "jestConfig": "modules/reactive/testing/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/reactive/testing",
-        "tsConfig": "modules/reactive/testing/tsconfig.lib.json",
-        "packageJson": "modules/reactive/testing/package.json",
-        "main": "modules/reactive/testing/src/index.ts"
       }
     }
   }

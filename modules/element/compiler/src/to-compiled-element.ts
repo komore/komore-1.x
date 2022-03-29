@@ -8,7 +8,7 @@ import { type ElementCompilerOptions } from './element-compiler-options';
 import { type ElementCompilerResult } from './element-compiler-result';
 
 /**
- * Returns a function that compiles a processed source
+ * Creates a function that compiles a processed source
  * @param compilerOptions Element compiler options
  * @returns Function that compiles a processed source
  */

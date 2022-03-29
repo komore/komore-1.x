@@ -12,6 +12,6 @@ describe('_typeSchema function', () => {
     const schema = typeSchema<typeof schemaTypeName, { x: number }>(schemaTypeName);
     expect: 'a property typed type schema to be created';
     expect(schema[typeSchemaTypeName]).toBe(schemaTypeName);
-    expectTypeOf(typeSchema).toEqualTypeOf<TypeSchema<'test-type', SchemaType>>();
+    expectTypeOf(schema).toEqualTypeOf<TypeSchema<'test-type', SchemaType>>();
   });
 });

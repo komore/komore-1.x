@@ -23,10 +23,12 @@ describe('Is same time', () => {
     'can test whether a %s occurs at the same time as another temporal',
     (_, referenceTemporal, temporal, expectedResult) => {
       given: 'a reference temporal and a temporal';
+
       when: 'creating a function that tests whether they occur at the same time';
       const func = isSameTimeAs(referenceTemporal);
       and: 'calling the function';
       const result = func(temporal);
+
       expect: 'true to have been returned if both temporals occur at the same time';
       expect(result).toBe(expectedResult);
     }

@@ -8,7 +8,7 @@ import { type Languages } from './languages';
  * When no languages are provided, the browser languages are used.
  * @param languages List or observable list of languages
  * @returns Observable list of languages
- * @internal
+ * @private
  */
 export function asObservableLanguages(languages?: Observable<Languages> | Languages): Observable<Languages> {
   if (languages === undefined) {

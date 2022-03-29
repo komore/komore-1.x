@@ -3,16 +3,16 @@
   "name": "komore",
   "version": "0.0.1",
   "generators": {
-    "init": {
-      "factory": "./src/generators/init/init-generator",
-      "schema": "./src/generators/init/init-generator-schema.json",
-      "description": "Initialize the @komore/nx plugin",
-      "hidden": true
-    },
     "api": {
       "factory": "./src/generators/api/api-generator",
       "schema": "./src/generators/api/api-generator-schema.json",
       "description": "Create an API"
+    },
+    "init": {
+      "factory": "./src/generators/init/init-generator",
+      "schema": "./src/generators/init/init-generator-schema.json",
+      "description": "Initialize the @komore/schematics plugin",
+      "hidden": true
     }
   }
 }

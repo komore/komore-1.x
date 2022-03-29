@@ -29,6 +29,7 @@
       "@komore/application": ["modules/application/src/index.ts"],
       "@komore/application-android": ["modules/application/android/src/index.ts"],
       "@komore/application-capacitor": ["modules/application/capacitor/src/index.ts"],
+      "@komore/application-cli": ["modules/application/cli/src/index.ts"],
       "@komore/application-electron": ["modules/application/electron/src/index.ts"],
       "@komore/application-ios": ["modules/application/ios/src/index.ts"],
       "@komore/application/updater": ["modules/application/updater/src/index.ts"],
@@ -223,7 +224,6 @@
       "@komore/regexp": ["modules/regexp/src/index.ts"],
       "@komore/runtime": ["modules/runtime/src/index.ts"],
       "@komore/runtime/browser": ["modules/runtime/browser/src/index.ts"],
-      "@komore/runtime/cli": ["modules/runtime/cli/src/index.ts"],
       "@komore/runtime/node": ["modules/runtime/node/src/index.ts"],
       "@komore/runtime/testing": ["modules/runtime/testing/src/index.ts"],
       "@komore/schematics": ["modules/schematics/src/index.ts"],
@@ -253,9 +253,9 @@
       "@komore/testing/bdd": ["modules/testing/bdd/src/index.ts"],
       "@komore/testing/bdd/gherkin": ["modules/testing/bdd/gherkin/src/index.ts"],
       "@komore/typescript": ["modules/typescript/src/index.ts"],
-      "@komore/typescript/compiler": ["modules/typescript/compiler/src/index.ts"],
-      "@komore/typescript/compiler/testing": ["modules/typescript/compiler/testing/src/index.ts"],
       "@komore/typescript/schema": ["modules/typescript/schema/src/index.ts"],
+      "@komore/typescript-compiler": ["modules/typescript/compiler/src/index.ts"],
+      "@komore/typescript-compiler/testing": ["modules/typescript/compiler/testing/src/index.ts"],
       "@komore/validation": ["modules/validation/src/index.ts"],
       "@komore/validation/testing": ["modules/validation/testing/src/index.ts"],
       "@komore/web": ["modules/web/src/index.ts"],
@@ -304,7 +304,5 @@
       "@komore/website/search/worker": ["modules/website/search/worker/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"],
-  "include": [],
-  "files": []
+  "exclude": ["node_modules", "tmp"]
 }

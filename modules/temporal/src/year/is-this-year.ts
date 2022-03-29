@@ -1,4 +1,5 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { type Temporal } from '@js-temporal/polyfill';
+import { getNowFor } from '../get-now-for';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
@@ -7,6 +8,6 @@ import { type TemporalWithDate } from '../temporal-with-date';
  * @returns true if the temporal occurs this year
  */
 export function isThisYear(temporal: TemporalWithDate | Temporal.PlainYearMonth): boolean {
-  const now = Temporal.Now.plainDateISO();
+  const now = getNowFor(temporal);
   return temporal.year === now.year;
 }

@@ -5,10 +5,12 @@ describe('Subtract weeks', () => {
   it('can subtract weeks from a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-06-01');
+
     when: 'creating a function that subtracts weeks';
     const func = subtractWeeks(4);
-    when: 'calling it';
+    and: 'calling it';
     const result = func(plainDate);
+
     expect: 'the correct number of weeks to have been subtracted';
     expect(result).toBeInstanceOf(Temporal.PlainDate);
     const { year, month, day } = result;
@@ -20,10 +22,12 @@ describe('Subtract weeks', () => {
   it('can subtract weeks from a plain date time', () => {
     given: 'a plain date time';
     const plainDateTime = Temporal.PlainDateTime.from('2020-06-01T12:34:56.789');
+
     when: 'creating a function that subtracts weeks';
     const func = subtractWeeks(4);
-    when: 'calling it';
+    and: 'calling it';
     const result = func(plainDateTime);
+
     expect: 'the correct number of weeks to have been subtracted';
     expect(result).toBeInstanceOf(Temporal.PlainDateTime);
     const { year, month, day, hour, minute, second, millisecond } = result;
@@ -39,10 +43,12 @@ describe('Subtract weeks', () => {
   it('can subtract weeks from a zoned date time', () => {
     given: 'a zoned date time';
     const zonedDateTime = Temporal.ZonedDateTime.from('2020-06-01T12:34:56.789[Europe/Paris]');
+
     when: 'creating a function that subtracts weeks';
     const func = subtractWeeks(4);
-    when: 'calling it';
+    and: 'calling it';
     const result = func(zonedDateTime);
+
     expect: 'the correct number of weeks to have been subtracted';
     expect(result).toBeInstanceOf(Temporal.ZonedDateTime);
     const { year, month, day, hour, minute, second, millisecond, timeZone } = result;

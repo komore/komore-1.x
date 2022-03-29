@@ -4,6 +4,16 @@
   "projectType": "library",
   "tags": ["scope:string", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/string",
+        "tsConfig": "modules/string/tsconfig.lib.json",
+        "packageJson": "modules/string/package.json",
+        "main": "modules/string/src/index.ts"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,16 +26,6 @@
       "options": {
         "jestConfig": "modules/string/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/string",
-        "tsConfig": "modules/string/tsconfig.lib.json",
-        "packageJson": "modules/string/package.json",
-        "main": "modules/string/src/index.ts"
       }
     }
   }

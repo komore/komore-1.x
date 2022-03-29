@@ -1,5 +1,4 @@
-import { type ObservableInput } from '../observable-input';
-import { type ObservableInputType } from '../observable-input-type';
+import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 import { mergeMap } from './merge-map';
 
@@ -12,8 +11,6 @@ import { mergeMap } from './merge-map';
  * @template T Value type
  * @template O Observable input type
  */
-export function concatMap<T, O extends ObservableInput<unknown>>(
-  project: (value: T, index: number) => O
-): OperatorFunction<T, ObservableInputType<O>> {
+export function concatMap<T, U>(project: (value: T, index: number) => Observable<U>): OperatorFunction<T, U> {
   return mergeMap(project, 1);
 }

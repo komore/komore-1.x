@@ -10,6 +10,9 @@ import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
 export function isSameMonthAs(
   referenceTemporal: TemporalWithDate | TemporalWithPartialDate
 ): (temporal: TemporalWithDate | TemporalWithPartialDate) => boolean {
-  const referencePd = asPlainDate(referenceTemporal);
-  return temporal => referencePd.month === asPlainDate(temporal).month;
+  const { year: referenceYear, month: referenceMonth } = asPlainDate(referenceTemporal);
+  return temporal => {
+    const { year, month } = asPlainDate(temporal);
+    return referenceYear === year && referenceMonth === month;
+  };
 }

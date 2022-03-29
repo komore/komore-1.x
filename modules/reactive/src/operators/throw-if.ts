@@ -1,5 +1,6 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { map } from './map';
+import { ThrowIfOptions } from './throw-if-options';
 
 /**
  * Throws an error if a condition is met
@@ -18,15 +19,15 @@ export function throwIf<T>(
  * @param errorFactory Error factory
  * @template T Value type
  */
-export function throwIf<T>({ condition, errorFactory }: ThrowIfProperties<T>): MonoTypeOperatorFunction<T>;
+export function throwIf<T>({ condition, errorFactory }: ThrowIfOptions<T>): MonoTypeOperatorFunction<T>;
 
 export function throwIf<T>(
-  conditionOrProperties: ((value: T, index: number) => boolean) | ThrowIfProperties<T>,
+  conditionOrProperties: ((value: T, index: number) => boolean) | ThrowIfOptions<T>,
   errorFactoryOrUndefined?: (value: T) => unknown
 ): MonoTypeOperatorFunction<T> {
   const properties = typeof conditionOrProperties !== 'function' ? conditionOrProperties : undefined;
-  const condition = properties?.condition ?? (conditionOrProperties as ThrowIfProperties<T>['condition']);
-  const errorFactory = properties?.errorFactory ?? (errorFactoryOrUndefined as ThrowIfProperties<T>['errorFactory']);
+  const condition = properties?.condition ?? (conditionOrProperties as ThrowIfOptions<T>['condition']);
+  const errorFactory = properties?.errorFactory ?? (errorFactoryOrUndefined as ThrowIfOptions<T>['errorFactory']);
   return map((value, index) => {
     if (condition(value, index)) {
       const error = errorFactory(value);
@@ -35,9 +36,4 @@ export function throwIf<T>(
 
     return value;
   });
-}
-
-interface ThrowIfProperties<T> {
-  readonly condition: (value: T, index: number) => boolean;
-  readonly errorFactory: (value: T) => unknown;
 }

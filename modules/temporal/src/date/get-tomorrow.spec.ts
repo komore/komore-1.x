@@ -4,19 +4,20 @@ import { getTomorrow } from './get-tomorrow';
 
 describe('Get tomorrow', () => {
   const currentPlainDate = Temporal.PlainDate.from('2020-01-01');
-  let restoreCurrentPlainDate: ReturnType<typeof mockCurrentPlainDate>;
+  let mockedCurrentPlainDate: ReturnType<typeof mockCurrentPlainDate>;
 
   beforeAll(() => {
-    restoreCurrentPlainDate = mockCurrentPlainDate(currentPlainDate);
+    mockedCurrentPlainDate = mockCurrentPlainDate(currentPlainDate);
   });
 
   afterAll(() => {
-    restoreCurrentPlainDate();
+    mockedCurrentPlainDate.clearMock();
   });
 
   it('returns tomorrow as a plain date', () => {
     when: 'getting tomorrow';
     const result = getTomorrow();
+
     expect: 'a plain date to have been returned';
     expect(result).toBeInstanceOf(Temporal.PlainDate);
     and: 'the plain date to occur tomorrow';

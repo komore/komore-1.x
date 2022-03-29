@@ -7,12 +7,12 @@ import { isWeekEnd } from './is-week-end';
  * @param referenceTemporal Reference temporal
  * @returns Function that tests whether a temporal occurs on the same week-end as the reference temporal
  */
-export function isSameWeekEnd(referenceTemporal: TemporalWithDate): (temporal: TemporalWithDate) => boolean {
+export function isSameWeekEndAs(referenceTemporal: TemporalWithDate): (temporal: TemporalWithDate) => boolean {
   const isReferenceWeekEnd = isWeekEnd(referenceTemporal);
   if (!isReferenceWeekEnd) {
     return () => false;
   }
 
   const sameWeekAs = isSameWeekAs(referenceTemporal);
-  return temporal => sameWeekAs(temporal) && isWeekEnd(temporal);
+  return temporal => isWeekEnd(temporal) && sameWeekAs(temporal);
 }
