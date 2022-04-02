@@ -1,9 +1,11 @@
 import { not } from '@komore/functional';
-import { throwIf } from '@komore/reactive';
+import { of, throwIf } from '@komore/reactive';
+import { toHttpErrorResponse } from './error/to-http-error-response';
+import { withResponseInterceptor } from './interceptor/with-response-interceptor';
 import { createHttpClient } from './create-http-client';
 import { type HttpClient } from './http-client';
+import { type HttpClientOptions } from './http-client-options';
 import { isResponseOk } from './is-response-ok';
-import { toHttpErrorResponse } from './to-http-error-response';
 
 /**
  * Creates a default HTTP client
@@ -13,10 +15,13 @@ import { toHttpErrorResponse } from './to-http-error-response';
  *
  * @param options HTTP client options
  * @returns HTTP client that turns failed responses into thrown HTTP response errors
+ * @template DefaultContextType Default contextual information type
  */
-export function createDefaultHttpClient(...options: Parameters<typeof createHttpClient>): HttpClient {
-  const httpClient = createHttpClient(...options);
-  const defaultHttpClient = (...parameters: Parameters<HttpClient>) =>
-    httpClient(...parameters).pipe(throwIf(not(isResponseOk), toHttpErrorResponse));
-  return defaultHttpClient as HttpClient;
+export function createDefaultHttpClient<DefaultContextType = undefined>(
+  options?: HttpClientOptions
+): HttpClient<DefaultContextType> {
+  const httpClient = createHttpClient(options);
+  return withResponseInterceptor(httpClient, response =>
+    of(response).pipe(throwIf(not(isResponseOk), toHttpErrorResponse))
+  );
 }

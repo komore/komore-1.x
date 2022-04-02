@@ -4,6 +4,7 @@ import { type CliParameterTypeName } from '../parameter/cli-parameter-type-name'
 
 /**
  * CLI flag
+ *
  * @template FlagType Flag type
  */
 export interface CliFlag<FlagType extends CliParameterTypeName> {

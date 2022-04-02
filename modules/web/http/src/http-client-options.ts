@@ -1,6 +1,5 @@
 /**
  * HTTP client options
  */
-export interface HttpClientOptions extends Omit<RequestInit, 'signal'> {
-
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface HttpClientOptions extends Omit<RequestInit, 'signal'> {}

@@ -1,10 +1,9 @@
 import { deferPromise, type Observable } from '@komore/reactive';
 
 /**
- * Returns a response as an observable blob
- * @param response Response
- * @returns Observable blob
+ * Creates a function that returns a response as an observable blob
+ * @returns Function that returns a response as an observable blob
  */
-export function responseToBlob(response: Response): Observable<Blob> {
-  return deferPromise(() => response.blob());
+export function responseToBlob(): (response: Response) => Observable<Blob> {
+  return response => deferPromise(() => response.blob());
 }

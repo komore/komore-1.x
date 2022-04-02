@@ -8,6 +8,8 @@ Storybook support for komore-based elements:
 
 TODO: look at https://github.com/ljcl/storybook-addon-cssprops for displaying those attributes/properties
 
+TODO: eventually replace storybook...
+
 ```json
 {
   "storybook": {

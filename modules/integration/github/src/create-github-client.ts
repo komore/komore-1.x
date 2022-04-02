@@ -3,9 +3,9 @@ import { type GithubClient } from './github-client';
 import { type GithubClientOptions } from './github-client-options';
 
 /**
- * Creates a Github client
- * @param options Github client options
- * @returns Github client
+ * Creates a GitHub client
+ * @param options GitHub client options
+ * @returns GitHub client
  */
 export function createGithubClient(options: GithubClientOptions): GithubClient {
   const { owner, repo, ...octokitOptions } = options;
@@ -13,6 +13,6 @@ export function createGithubClient(options: GithubClientOptions): GithubClient {
   return {
     octokit,
     owner,
-    repo
+    repo,
   };
 }

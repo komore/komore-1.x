@@ -3,6 +3,7 @@ import { type CliFlag } from './cli-flag';
 
 /**
  * Creates a CLI flag
+ *
  * @param flag Flag
  * @returns CLI flag
  * @template FlagType Flag type

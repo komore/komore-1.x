@@ -1,7 +1,7 @@
 import { type Octokit } from '@octokit/rest';
 
 /**
- * Github client
+ * GitHub client
  */
 export interface GithubClient {
   readonly octokit: Octokit;

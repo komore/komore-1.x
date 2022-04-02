@@ -1,10 +1,10 @@
+export { blobToDataUrl } from './blob-to-data-url';
+export { blobToText } from './blob-to-text';
+export { dataUrlToData } from './data-url-to-data';
+export { dataUrlToMediaType } from './data-url-to-media-type';
 export { isMessageEventOriginIn } from './is-message-event-origin-in';
 export { isSecureContext } from './is-secure-context';
+export { messageEventToData } from './message-event-to-data';
 export { readBlobAsDataUrl } from './read-blob-as-data-url';
 export { readBlobAsText } from './read-blob-as-text';
-export { toBlobAsDataUrl } from './to-blob-as-data-url';
-export { toBlobAsText } from './to-blob-as-text';
-export { toDataUrlData } from './to-data-url-data';
-export { toDataUrlMediaType } from './to-data-url-media-type';
-export { toMessageEventData } from './to-message-event-data';
 export { toNormalizedFileName } from './to-normalized-file-name';

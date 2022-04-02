@@ -14,7 +14,7 @@ export function dynamoDBEventRepository(): EventRepository<E> {
 
 /**
  * DynamoDB event repository
- * @typeparam E Event type
+ * @template E Event type
  */
 export class DynamoDBEventRepository<E extends Event> implements EventRepository<E> {
   private readonly client = this.configuration.dynamoDBClient;

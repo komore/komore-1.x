@@ -3,6 +3,7 @@ import { type CliArgument } from './cli-argument';
 
 /**
  * Creates a CLI argument
+ *
  * @param name Argument name
  * @param argument Argument
  * @returns CLI argument

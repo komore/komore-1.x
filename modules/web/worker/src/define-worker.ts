@@ -9,8 +9,8 @@ import { type DefineWorkerOptions } from './define-worker-options';
  * @template OutgoingType Outgoing type
  */
 export function defineWorker<IncomingType = unknown, OutgoingType = unknown>(
-  options?: DefineWorkerOptions
-): [observable: Observable<MessageEvent<IncomingType>>, observer: Observer<OutgoingType>] {
+  _options?: DefineWorkerOptions
+): readonly [observable: Observable<MessageEvent<IncomingType>>, observer: Observer<OutgoingType>] {
   //const isShared = self instanceof SharedWorkerGlobalScope;
   const observable = fromEvent<MessageEvent<IncomingType>>(self, 'message');
 

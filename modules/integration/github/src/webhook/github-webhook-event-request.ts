@@ -1,5 +1,5 @@
 /**
- * Github Webhook event request
+ * GitHub Webhook event request
  */
 export interface GithubWebhookEventRequest {
   readonly event: string;

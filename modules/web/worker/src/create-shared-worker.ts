@@ -14,7 +14,7 @@ import { toWorker } from './to-worker';
 export function createSharedWorker<OutgoingType = unknown, IncomingType = unknown>(
   scriptUrl: URL,
   options?: CreateWorkerOptions
-): [observer: Observer<OutgoingType>, observable: Observable<MessageEvent<IncomingType>>] {
+): readonly [observer: Observer<OutgoingType>, observable: Observable<MessageEvent<IncomingType>>] {
   const worker = new SharedWorker(scriptUrl.toString(), options);
   const observer = toWorker(worker, options);
   const observable = fromWorker<IncomingType>(worker);

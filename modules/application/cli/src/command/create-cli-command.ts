@@ -53,6 +53,7 @@ export function createCliCommand<
 
 /**
  * CLI command properties, omitting the function signature
+ *
  * @template CommandName Command name
  */
 type CliCommandProperties<CommandName extends string> = Pick<CliCommand<CommandName>, keyof CliCommand<CommandName>>;

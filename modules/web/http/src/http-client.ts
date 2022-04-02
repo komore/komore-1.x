@@ -1,16 +1,19 @@
 import { type Observable } from '@komore/reactive';
-import { type HttpClientRequest } from './http-client-request';
+import { type HttpClientRequestOptions } from './http-client-request-options';
 
 /**
  * HTTP client
- * @template ContextType Contextual information type
+ * @template DefaultContextType Default contextual information type
  */
-export interface HttpClient<ContextType = never> {
+export interface HttpClient<DefaultContextType = undefined> {
   /**
    * Submits a request
-   * @param input Input URL or HTTP client request
-   * @param context Contextual information
+   * @param url URL
+   * @param requestOptions Request options
    * @returns Observable response
    */
-  (input: string | URL | HttpClientRequest, context?: ContextType): Observable<Response>;
+  <ContextType = DefaultContextType>(
+    url: string | URL,
+    requestOptions?: HttpClientRequestOptions<ContextType>
+  ): Observable<Response>;
 }

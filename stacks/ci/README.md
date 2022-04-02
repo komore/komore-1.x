@@ -1,3 +1,3 @@
-# ci Stack
+# komore Continuous Integration Stack
 
 TODO

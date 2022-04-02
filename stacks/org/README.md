@@ -1,4 +1,4 @@
-# org Stack
+# komore Organization Stack
 
 TODO
 

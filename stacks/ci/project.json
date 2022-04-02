@@ -1,0 +1,57 @@
+{
+  "projectType": "application",
+  "root": "stacks/ci",
+  "sourceRoot": "stacks/ci/src",
+  "tags": ["scope:stacks", "stack:ci"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "options": {
+        "assets": [],
+        "entryFile": "stacks/ci/src/main.ts",
+        "outputPath": "dist/stacks/ci",
+        "project": "stacks/ci/package.json",
+        "tsConfig": "stacks/ci/tsconfig.stack.json"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "stacks/ci/src/build/debug.ts",
+              "with": "stacks/ci/src/build/release.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["stacks/ci/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "stacks/ci/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/stacks-ci"]
+    }
+  }
+}

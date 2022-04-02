@@ -1,4 +1,16 @@
+import { type HttpClientRequestOptions } from './http-client-request-options';
+
 /**
- * HTTP client request
+ * Http client request
+ * @template ContextType Context type
  */
-export type HttpClientRequest = Omit<Request, 'url'> & { readonly url: string | URL };
+export interface HttpClientRequest<ContextType = undefined> {
+  /**
+   * Options
+   */
+  readonly options?: HttpClientRequestOptions<ContextType>;
+  /**
+   * URL
+   */
+  readonly url: string;
+}

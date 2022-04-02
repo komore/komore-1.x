@@ -1,6 +1,7 @@
 export { isValidWebAssemblySource } from './is-valid-web-assembly-source';
-export { toWebAssemblyExport } from './to-web-assembly-export';
-export { toWebAssemblyExportedFunction } from './to-web-assembly-exported-function';
-export { toWebAssemblyExports } from './to-web-assembly-exports';
-export { toWebAssemblyInstance } from './to-web-assembly-instance';
-export { toWebAssemblyModule } from './to-web-assembly-module';
+export { webAssemblyBufferToModule } from './web-assembly-buffer-to-module';
+export { webAssemblyInstanceToExport } from './web-assembly-instance-to-export';
+export { webAssemblyInstanceToExportedFunction } from './web-assembly-instance-to-exported-function';
+export { webAssemblyInstanceToExportedFunctions } from './web-assembly-instance-to-exported-functions';
+export { webAssemblyInstanceToExports } from './web-assembly-instance-to-exports';
+export { webAssemblyModuleToInstance } from './web-assembly-module-to-instance';

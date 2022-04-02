@@ -1,2 +1,3 @@
-
-export function fromSharedWorkerConnection()
+export function fromSharedWorkerConnection() {
+  // TODO
+}

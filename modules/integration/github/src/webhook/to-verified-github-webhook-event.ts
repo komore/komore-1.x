@@ -1,4 +1,4 @@
-import { fromJson } from '@komore/functional';
+import { jsonToObject } from '@komore/functional';
 import { deferPromise, map, mapTo, type Observable, throwIf } from '@komore/reactive';
 import { verify } from '@octokit/webhooks-methods';
 import { type GithubWebhookEvent } from './github-webhook-event';
@@ -13,9 +13,9 @@ export function toVerifiedGithubWebhookEvent(
     deferPromise(() => verify(githubSecret, payload, signature)).pipe(
       throwIf(
         result => result === false,
-        () => new InvalidGithubWebhookSignatureError('Github webhook payload did not match the signature')
+        () => new InvalidGithubWebhookSignatureError('GitHub webhook payload did not match the signature')
       ),
       mapTo(eventPayload),
-      map(fromJson<GithubWebhookEvent<GithubWebhookEventName>>())
+      map(jsonToObject<GithubWebhookEvent<GithubWebhookEventName>>())
     );
 }

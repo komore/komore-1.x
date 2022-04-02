@@ -1,7 +1,7 @@
 import { type OctokitResponse } from '@octokit/types';
 
 /**
- * Github response data type
+ * GitHub response data type
  */
 export type GithubResponseDataType<
   GithubResponseType extends OctokitResponse<unknown, number> | Promise<OctokitResponse<unknown, number>>

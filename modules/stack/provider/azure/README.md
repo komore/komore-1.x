@@ -1,3 +1,0 @@
-# komore Stack - Azure
-
-TODO.

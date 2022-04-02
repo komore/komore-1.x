@@ -1,10 +1,9 @@
 import { deferPromise, type Observable } from '@komore/reactive';
 
 /**
- * Returns a response as an observable array buffer
- * @param response Response
- * @returns Observable array buffer
+ * Create a function that returns a response as an observable array buffer
+ * @returns Function that returns a response as an observable array buffer
  */
-export function responseToArrayBuffer(response: Response): Observable<ArrayBuffer> {
-  return deferPromise(() => response.arrayBuffer());
+export function responseToArrayBuffer(): (response: Response) => Observable<ArrayBuffer> {
+  return response => deferPromise(() => response.arrayBuffer());
 }

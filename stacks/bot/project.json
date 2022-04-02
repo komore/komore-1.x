@@ -1,0 +1,57 @@
+{
+  "projectType": "application",
+  "root": "stacks/bot",
+  "sourceRoot": "stacks/bot/src",
+  "tags": ["scope:stacks", "stack:bot"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/bot:rollup",
+      "options": {
+        "assets": [],
+        "entryFile": "stacks/bot/src/main.ts",
+        "outputPath": "dist/stacks/bot",
+        "project": "stacks/bot/package.json",
+        "tsConfig": "stacks/bot/tsconfig.stack.json"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "stacks/bot/src/build/debug.ts",
+              "with": "stacks/bot/src/build/release.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["stacks/bot/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "stacks/bot/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/stacks-bot"]
+    }
+  }
+}

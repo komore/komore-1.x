@@ -8,9 +8,12 @@ describe('Response to array buffer', () => {
     const responseArrayBuffer = mock<ArrayBuffer>();
     const response = mock<Response>();
     response.arrayBuffer.mockImplementationOnce(() => Promise.resolve(responseArrayBuffer));
-    and: 'a response as array buffer operator function';
-    when: 'getting the response as an array buffer';
-    const $ = responseToArrayBuffer(response);
+
+    when: 'creating a function that returns the response as an array buffer';
+    const func = responseToArrayBuffer();
+    when: 'calling it';
+    const $ = func(response);
+
     expect: 'the observable to be cold';
     expect(response.arrayBuffer).toHaveBeenCalledTimes(0);
     and: 'the result to be the payload as an array buffer';

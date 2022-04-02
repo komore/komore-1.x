@@ -1,4 +1,4 @@
-import { createExtendsKeyof, createParameter } from '@komore/typescript/compiler';
+import { createExtendsKeyof, createParameter } from '@komore/typescript-compiler';
 import { type MethodSignature, type NodeFactory, SyntaxKind, type TypeReferenceNode } from 'typescript';
 
 /**

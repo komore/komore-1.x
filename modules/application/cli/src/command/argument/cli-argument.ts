@@ -4,6 +4,7 @@ import { type CliParameterTypeName } from '../parameter/cli-parameter-type-name'
 
 /**
  * CLI argument
+ *
  * @template ArgumentName Argument name
  * @template ArgumentTypeName Argument type name
  */

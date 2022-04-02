@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.stack.json",
+  "references": [
+    {
+      "path": "./tsconfig.stack.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

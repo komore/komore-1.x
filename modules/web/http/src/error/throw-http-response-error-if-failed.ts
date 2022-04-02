@@ -1,6 +1,7 @@
 import { not } from '@komore/functional';
 import { type MonoTypeOperatorFunction, throwIf } from '@komore/reactive';
-import { isResponseOk, toHttpErrorResponse } from '@komore/web/http';
+import { isResponseOk } from '../is-response-ok';
+import { responseToHttpResponseError } from './response-to-http-response-error';
 
 /**
  * Throws an HTTP response error when an emitted response indicates a failure
@@ -10,5 +11,5 @@ import { isResponseOk, toHttpErrorResponse } from '@komore/web/http';
  * @returns Operator function that throws an `HttpResponseError` if the emitted response indicates a failure
  */
 export function throwHttpErrorResponseIfFailed(): MonoTypeOperatorFunction<Response> {
-  return throwIf(not(isResponseOk), toHttpErrorResponse);
+  return throwIf(not(isResponseOk), responseToHttpResponseError);
 }

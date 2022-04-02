@@ -1,6 +1,8 @@
 import { Observable } from '@komore/reactive';
 import { type HttpClient } from './http-client';
 import { type HttpClientOptions } from './http-client-options';
+import { type HttpClientRequestOptions } from './http-client-request-options';
+import { normalizeUrl } from './normalize-url';
 
 /**
  * Creates an HTTP client
@@ -8,19 +10,20 @@ import { type HttpClientOptions } from './http-client-options';
  * @returns HTTP client
  * @template DefaultContextType Default contextual information type
  */
-export function createHttpClient<DefaultContextType = never>(
+export function createHttpClient<DefaultContextType = undefined>(
   options?: HttpClientOptions
 ): HttpClient<DefaultContextType> {
   return <ContextType = DefaultContextType>(
-    input: string | URL | Request,
-    _context: ContextType
+    url: string | URL,
+    requestOptions?: HttpClientRequestOptions<ContextType>
   ): Observable<Response> =>
     new Observable<Response>(subscriber => {
-      const request = input instanceof URL ? input.href : input;
+      const urlString = normalizeUrl(url);
       const abortController = new AbortController();
       const { signal } = abortController;
       const requestInit: RequestInit = {
         ...options,
+        ...requestOptions,
         signal
       };
       let emitted = false;
@@ -30,7 +33,7 @@ export function createHttpClient<DefaultContextType = never>(
         subscriber.error(error);
       }
 
-      fetch(request, requestInit)
+      fetch(urlString, requestInit)
         .then(response => {
           emitted = true;
           subscriber.next(response);
@@ -38,12 +41,10 @@ export function createHttpClient<DefaultContextType = never>(
         })
         .catch(errorHandler);
 
-      return () => {
+      subscriber.add(() => {
         if (!emitted) {
           abortController.abort();
         }
-      };
+      });
     });
 }
-
-// https://github.com/samundrak/fetch-progress/blob/master/index.js

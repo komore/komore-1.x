@@ -1,1 +1,0 @@
-# @komore/stack-provider-alicloud
