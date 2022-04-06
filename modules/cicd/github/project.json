@@ -1,0 +1,33 @@
+{
+  "projectType": "library",
+  "root": "modules/cicd/github",
+  "sourceRoot": "modules/cicd/github/src",
+  "tags": ["scope:cicd", "trait:provider", "provider:github"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cicd-github",
+        "tsConfig": "modules/cicd/github/tsconfig.lib.json",
+        "packageJson": "modules/cicd/github/package.json",
+        "main": "modules/cicd/github/src/index.ts",
+        "assets": ["modules/cicd/github/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/cicd/github/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/cicd-github"],
+      "options": {
+        "jestConfig": "modules/cicd/github/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

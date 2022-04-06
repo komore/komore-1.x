@@ -1,5 +1,5 @@
 import { defineModule, variable } from '@komore/stack';
-import { sesConfigurationSet, sesEmailIdentity } from '@komore/stack-amazon';
+import { sesConfigurationSet, sesEmailIdentity } from '@komore/stack-aws';
 
 /**
  * Organization stack - email module

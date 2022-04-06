@@ -1,0 +1,151 @@
+import { EMPTY } from '@komore/reactive';
+import { type Workflow } from './workflow';
+
+/**
+ * Defines a workflow
+ *
+ * @param workflowName Workflow name
+ * @returns Workflow
+ * @template WorkflowName Workflow name
+ */
+export function defineWorkflow<WorkflowName extends string>(_workflowName: WorkflowName): Workflow {
+  return () => EMPTY;
+}
+
+/**
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          version: 6.28.0
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Lint (workspace)
+        run: pnpm lint:workspace
+
+      - name: Lint (affected)
+        run: pnpm lint:affected
+        if: ${{ github.ref != 'refs/heads/main' }}
+
+      - name: Lint
+        run: pnpm lint
+        if: ${{ github.ref == 'refs/heads/main' }}
+
+  test:
+    name: Test
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.28.0
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Test (affected)
+        run: pnpm test:affected
+        if: ${{ github.ref != 'refs/heads/main' }}
+
+      - name: Test
+        run: pnpm test
+        if: ${{ github.ref == 'refs/heads/main' }}
+
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Derivate SHAs for base and head for affected commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.28.0
+          run_install: |
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Buid (affected)
+        run: pnpm build:affected
+        if: ${{ github.ref != 'refs/heads/main' }}
+
+      - name: Build
+        run: pnpm build
+        if: ${{ github.ref == 'refs/heads/main' }}
+
+ */

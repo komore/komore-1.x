@@ -5,37 +5,13 @@
   "tags": ["scope:stacks", "stack:bot"],
   "targets": {
     "build": {
-      "executor": "@nrwl/bot:rollup",
+      "executor": "@nrwl/node:package",
       "options": {
         "assets": [],
         "entryFile": "stacks/bot/src/main.ts",
         "outputPath": "dist/stacks/bot",
         "project": "stacks/bot/package.json",
         "tsConfig": "stacks/bot/tsconfig.stack.json"
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "stacks/bot/src/build/debug.ts",
-              "with": "stacks/bot/src/build/release.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "extractCss": true,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false,
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "2mb",
-              "maximumError": "5mb"
-            }
-          ]
-        }
       },
       "outputs": ["{options.outputPath}"]
     },

@@ -1,32 +1,34 @@
-import { defineModule, variable } from '@komore/stack';
-import { acmCertificateValidatedByDns, cloudFrontDistribution } from '@komore/stack-amazon';
+import { defineModule, importModule, variables } from '@komore/stack';
+import { acmCertificateValidatedByDns, cloudFrontDistribution } from '@komore/stack-aws';
 
 /**
  * Web - CDN module
  */
 export const webCdnModule = defineModule('cdn', scope$ =>
   scope$.pipe(
-    variable('bucket_id', {
-      description: 'Bucket identifier',
-      type: 'string',
+    variables({
+      bucketId: {
+        description: 'Bucket identifier',
+        type: 'string',
+      },
+      domainName: {
+        description: 'Domain name',
+        type: 'string',
+      },
+      zoneId: {
+        description: 'Zone identifier',
+        type: 'string',
+      },
     }),
-    variable('domainName', {
-      description: 'Domain name',
-      type: 'string',
-    }),
-    variable('zoneId', {
-      description: 'Zone identifier',
-      type: 'string',
-    }),
-    acmCertificateValidatedByDns('certificate', scope => ({
-      domainName: scope.variables.domainName.stringValue,
-      zoneId: scope.variables.zoneId.stringValue,
+    importModule('certificate', acmCertificateValidatedByDns, ({ variables: { domainName, zoneId } }) => ({
+      domainName,
+      zoneId,
     })),
-    cloudFrontDistribution('distribution', _scope => ({
+    cloudFrontDistribution('distribution', scope => ({
       aliases: ['domain_name_here_variable_from_module_input'],
       customErrorResponse: [
         {
-          errorCode: 404 + _scope.variables,
+          errorCode: 404,
           responseCode: 404,
           responsePagePath: '/index.html',
         },
@@ -67,7 +69,7 @@ export const webCdnModule = defineModule('cdn', scope$ =>
         },
       },
       viewerCertificate: {
-        acmCertificateArn: 'aws_acm_certificate.certificate.arn',
+        acmCertificateArn: /*scope.modules.certificate.arn*/'aws_acm_certificate.certificate.arn',
         sslSupportMethod: 'sni-only',
       },
       waitForDeployment: false,

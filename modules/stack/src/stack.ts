@@ -1,23 +1,24 @@
 import { ReplaySubject } from '@komore/reactive';
-import { TerraformStack } from 'cdktf';
-import { type Construct } from 'constructs';
-import { type GenericScope } from './scope/generic-scope';
+import { type App, TerraformStack } from 'cdktf';
+import { type EmptyScope } from './scope/empty-scope';
 
 /**
  * Stack
  */
 export class Stack extends TerraformStack {
-  private readonly scope = new ReplaySubject<GenericScope>(1);
+  private readonly scope = new ReplaySubject<EmptyScope>(1);
 
   readonly scope$ = this.scope.asObservable();
+  readonly app: App;
 
   /**
    * Class constructor
-   * @param construct Construct
+   * @param app Terraform application
    * @param id Identifier
    */
-  constructor(construct: Construct, id: string) {
-    super(construct, id);
+  constructor(app: App, id: string) {
+    super(app, id);
+    this.app = app;
     this.scope.next({
       construct: this,
       dataSources: {},
@@ -26,7 +27,7 @@ export class Stack extends TerraformStack {
       outputs: {},
       providers: {},
       resources: {},
-      variables: {}
+      variables: {},
     });
   }
 }

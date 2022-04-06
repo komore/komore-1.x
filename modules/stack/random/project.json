@@ -1,0 +1,32 @@
+{
+  "root": "modules/stack/random",
+  "sourceRoot": "modules/stack/random/src",
+  "projectType": "library",
+  "tags": ["scope:stack", "trait:provider", "provider:random"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/stack/random/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/stack-random"],
+      "options": {
+        "jestConfig": "modules/stack/random/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/stack/random",
+        "tsConfig": "modules/stack/random/tsconfig.lib.json",
+        "packageJson": "modules/stack/random/package.json",
+        "main": "modules/stack/random/src/index.ts"
+      }
+    }
+  }
+}

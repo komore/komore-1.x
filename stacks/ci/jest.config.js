@@ -1,7 +1,7 @@
 module.exports = {
-  testMatch: ['**/stacks/org/src/**/*.spec.ts'],
+  testMatch: ['**/stacks/ci/src/**/*.spec.ts'],
   preset: '../../jest.preset.js',
-  coverageDirectory: '../../coverage/stack-org',
+  coverageDirectory: '../../coverage/stacks-ci',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'stack-org'
+  displayName: 'stacks-ci'
 };

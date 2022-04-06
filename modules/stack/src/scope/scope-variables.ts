@@ -1,12 +1,25 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { type StackType } from '../type/stack-type';
+import { type GenericScope } from './generic-scope';
+import { type GenericScopeDataSources } from './generic-scope-data-sources';
+import { type GenericScopeLocals } from './generic-scope-locals';
+import { type GenericScopeModules } from './generic-scope-modules';
+import { type GenericScopeOutputs } from './generic-scope-outputs';
+import { type GenericScopeProviders } from './generic-scope-providers';
+import { type GenericScopeResources } from './generic-scope-resources';
+import { type Scope } from './scope';
 
 /**
  * Scope variables
- * @template Variables Variable names and types
+ *
+ * @template ScopeType Scope type
  */
-export interface ScopeVariables<Variables extends ReadonlyRecord<string, StackType>> {
-  readonly variables: Variables;
-}
-
-export type GenericScopeVariables = ScopeVariables<ReadonlyRecord<string, StackType>>;
+export type ScopeVariables<ScopeType extends GenericScope> = ScopeType extends Scope<
+  infer Variables,
+  GenericScopeLocals,
+  GenericScopeOutputs,
+  GenericScopeProviders,
+  GenericScopeResources,
+  GenericScopeDataSources,
+  GenericScopeModules
+>
+  ? Variables
+  : never;

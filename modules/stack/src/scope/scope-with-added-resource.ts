@@ -1,19 +1,18 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 import { type TerraformResource } from 'cdktf';
 import { type GenericScope } from './generic-scope';
-import {
-  type Scope,
-  type ScopeDataSources,
-  type ScopeLocals,
-  type ScopeModules,
-  type ScopeOutputs,
-  type ScopeProviders,
-  type ScopeResources,
-  type ScopeVariables,
-} from './scope';
+import { type Scope } from './scope';
+import { type ScopeDataSources } from './scope-data-sources';
+import { type ScopeLocals } from './scope-locals';
+import { type ScopeModules } from './scope-modules';
+import { type ScopeOutputs } from './scope-outputs';
+import { type ScopeProviders } from './scope-providers';
+import { type ScopeResources } from './scope-resources';
+import { type ScopeVariables } from './scope-variables';
 
 /**
  * Scope with an additional resource
+ *
  * @template ScopeType Scope type
  * @template ResourceTypeName Resource type name
  * @template ResourceId Resource identifier

@@ -1,32 +1,33 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { type StackType } from '../type/stack-type';
-import { type TypedVariable } from '../type/typed-variable';
+import { type Expand, type ReadonlyRecord } from '@komore/typescript';
 import { type GenericScope } from './generic-scope';
-import {
-  type Scope,
-  type ScopeDataSources,
-  type ScopeLocals,
-  type ScopeModules,
-  type ScopeOutputs,
-  type ScopeProviders,
-  type ScopeResources,
-  type ScopeVariables
-} from './scope';
+import { type GenericScopeVariables } from './generic-scope-variables';
+import { type Scope } from './scope';
+import { type ScopeDataSources } from './scope-data-sources';
+import { type ScopeLocals } from './scope-locals';
+import { type ScopeModules } from './scope-modules';
+import { type ScopeOutputs } from './scope-outputs';
+import { type ScopeProviders } from './scope-providers';
+import { type ScopeResources } from './scope-resources';
+import { type ScopeVariables } from './scope-variables';
 
 /**
  * Scope with additional variables
+ *
  * @template ScopeType Scope type
- * @template VariableId Variable identifier
- * @template VariableType Variable type
+ * @template Variables Variable types
  */
-export type ScopeWithAddedVariables<
-  ScopeType extends GenericScope,
-  VariableId extends string,
-  VariableType extends StackType
-> = Scope<
-  {
-    readonly [K in keyof ScopeVariables<ScopeType>]: ScopeVariables<ScopeType>[K];
-  } & ReadonlyRecord<VariableId, TypedVariable<VariableType>>,
+export type ScopeWithAddedVariables<ScopeType extends GenericScope, Variables extends GenericScopeVariables> = Scope<
+  ScopeVariables<ScopeType> extends ReadonlyRecord<string, never>
+    ? {
+        readonly [K in keyof Variables]: Variables[K];
+      }
+    : Expand<
+        {
+          readonly [K in keyof ScopeVariables<ScopeType>]: ScopeVariables<ScopeType>[K];
+        } & {
+          readonly [K in keyof Variables]: Variables[K];
+        }
+      >,
   ScopeLocals<ScopeType>,
   ScopeOutputs<ScopeType>,
   ScopeProviders<ScopeType>,

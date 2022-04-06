@@ -1,5 +1,8 @@
+export { type Expand } from './expand';
 export { type Falsy } from './falsy';
+export { type IntersectionFromUnion } from './intersection-from-union';
 export { type IterableValueType } from './iterable-value-type';
+export { type KeysFromUnion } from './keys-from-union';
 export { type ReadonlyRecord } from './readonly-record';
 export { type TruthyTypesOf } from './truthy-types-of';
 export { type TypeNames } from './type-names';

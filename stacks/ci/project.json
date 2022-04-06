@@ -5,37 +5,13 @@
   "tags": ["scope:stacks", "stack:ci"],
   "targets": {
     "build": {
-      "executor": "@nrwl/web:rollup",
+      "executor": "@nrwl/node:package",
       "options": {
         "assets": [],
         "entryFile": "stacks/ci/src/main.ts",
         "outputPath": "dist/stacks/ci",
         "project": "stacks/ci/package.json",
         "tsConfig": "stacks/ci/tsconfig.stack.json"
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "stacks/ci/src/build/debug.ts",
-              "with": "stacks/ci/src/build/release.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "extractCss": true,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false,
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "2mb",
-              "maximumError": "5mb"
-            }
-          ]
-        }
       },
       "outputs": ["{options.outputPath}"]
     },

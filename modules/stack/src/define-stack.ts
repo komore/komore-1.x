@@ -5,17 +5,17 @@ import { Stack } from './stack';
 
 /**
  * Defines a stack
- * @param id Stack identifier
+ * @param stackId Stack identifier
  * @param project Projection function
  * @returns Observable stack
  */
 export function defineStack<ScopeType extends GenericScope>(
-  id: string,
+  stackId: string,
   project: (scope: Observable<GenericScope>) => Observable<ScopeType>
 ): Observable<TerraformStack> {
   return defer(() => {
     const app = new App();
-    const stack = new Stack(app, id);
+    const stack = new Stack(app, stackId);
 
     return stack.scope$.pipe(
       switchMap(scope =>

@@ -3,10 +3,11 @@ import { type TerraformResource } from 'cdktf';
 
 /**
  * Typed resource map
- * @param ResourceId Resource identifier
- * @param ResourceType Resource type
+ *
+ * @template ResourceId Resource identifier
+ * @template ResourceType Resource type
  */
-export type TypedResourceMap<
-  ResourceId extends string,
-  ResourceType extends TerraformResource = TerraformResource
-> = ReadonlyRecord<ResourceId, ResourceType>;
+export type TypedResourceMap<ResourceId extends string, ResourceType extends TerraformResource> = ReadonlyRecord<
+  ResourceId,
+  ResourceType
+>;

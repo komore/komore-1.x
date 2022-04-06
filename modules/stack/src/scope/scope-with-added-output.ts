@@ -1,20 +1,19 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 import { type StackType } from '../type/stack-type';
-import { type TypedVariable } from '../type/typed-variable';
+import { type TypedOutput } from '../type/typed-output';
 import { type GenericScope } from './generic-scope';
-import {
-  type Scope,
-  type ScopeDataSources,
-  type ScopeLocals,
-  type ScopeModules,
-  type ScopeOutputs,
-  type ScopeProviders,
-  type ScopeResources,
-  type ScopeVariables,
-} from './scope';
+import { type Scope } from './scope';
+import { type ScopeDataSources } from './scope-data-sources';
+import { type ScopeLocals } from './scope-locals';
+import { type ScopeModules } from './scope-modules';
+import { type ScopeOutputs } from './scope-outputs';
+import { type ScopeProviders } from './scope-providers';
+import { type ScopeResources } from './scope-resources';
+import { type ScopeVariables } from './scope-variables';
 
 /**
  * Scope with an additional output
+ *
  * @template ScopeType Scope type
  * @template OutputId Output identifier
  * @template OutputType Output type
@@ -28,7 +27,7 @@ export type ScopeWithAddedOutput<
   ScopeLocals<ScopeType>,
   {
     readonly [K in keyof ScopeOutputs<ScopeType>]: ScopeOutputs<ScopeType>[K];
-  } & ReadonlyRecord<OutputId, TypedVariable<OutputType>>,
+  } & ReadonlyRecord<OutputId, TypedOutput<OutputType>>,
   ScopeProviders<ScopeType>,
   ScopeResources<ScopeType>,
   ScopeDataSources<ScopeType>,

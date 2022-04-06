@@ -3,9 +3,10 @@ import { type Construct } from 'constructs';
 
 /**
  * Creates a typed resource constructor
+ *
  * @param resourceTypeName Resource type name
  * @param constructor Constructor
- * @deprecated Will be removed when/if https://github.com/hashicorp/terraform-cdk/issues/1523 is accepted
+ * @deprecated Will be removed once https://github.com/hashicorp/terraform-cdk/issues/1523 is released and used by providers
  */
 export function typedResource<ResourceTypeName extends string, ResourceType extends TerraformResource, ConfigType>(
   _resourceTypeName: ResourceTypeName,
