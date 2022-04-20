@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/x-ray/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/x-ray/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-xray',
+  coverageDirectory: '../../../../coverage/integration-aws-xray',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-xray',
+  displayName: 'integration-aws-xray',
   testEnvironment: 'node'
 };

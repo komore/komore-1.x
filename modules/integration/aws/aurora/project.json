@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/aurora",
-  "sourceRoot": "modules/integration/amazon/aurora/src",
+  "root": "modules/integration/aws/aurora",
+  "sourceRoot": "modules/integration/aws/aurora/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/integration/amazon/aurora/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-aurora"],
-      "options": {
-        "jestConfig": "modules/integration/amazon/aurora/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/aurora",
-        "tsConfig": "modules/integration/amazon/aurora/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/aurora/package.json",
-        "main": "modules/integration/amazon/aurora/src/index.ts"
+        "outputPath": "dist/integration/aws/aurora",
+        "tsConfig": "modules/integration/aws/aurora/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/aurora/package.json",
+        "main": "modules/integration/aws/aurora/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/aws/aurora/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-aws-aurora"],
+      "options": {
+        "jestConfig": "modules/integration/aws/aurora/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

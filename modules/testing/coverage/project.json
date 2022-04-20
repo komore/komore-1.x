@@ -1,0 +1,32 @@
+{
+  "root": "modules/testing/coverage",
+  "sourceRoot": "modules/testing/coverage/src",
+  "projectType": "library",
+  "tags": ["scope:testing", "trait:testing", "trait:coverage"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/testing/coverage",
+        "tsConfig": "modules/testing/coverage/tsconfig.lib.json",
+        "packageJson": "modules/testing/coverage/package.json",
+        "main": "modules/testing/coverage/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:coverage",
+      "options": {
+        "lintFilePatterns": ["modules/testing/coverage/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/testing-coverage"],
+      "options": {
+        "jestConfig": "modules/testing/coverage/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

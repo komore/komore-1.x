@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/dynamodb",
-  "sourceRoot": "modules/integration/amazon/dynamodb/src",
+  "root": "modules/integration/aws/dynamodb",
+  "sourceRoot": "modules/integration/aws/dynamodb/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/integration/amazon/dynamodb/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-dynamodb"],
-      "options": {
-        "jestConfig": "modules/integration/amazon/dynamodb/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/dynamodb",
-        "tsConfig": "modules/integration/amazon/dynamodb/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/dynamodb/package.json",
-        "main": "modules/integration/amazon/dynamodb/src/index.ts"
+        "outputPath": "dist/integration/aws/dynamodb",
+        "tsConfig": "modules/integration/aws/dynamodb/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/dynamodb/package.json",
+        "main": "modules/integration/aws/dynamodb/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/aws/dynamodb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-aws-dynamodb"],
+      "options": {
+        "jestConfig": "modules/integration/aws/dynamodb/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

@@ -1,1 +1,1 @@
-export { type FunctionMock } from './function-mock';
+export { type FunctionMock } from './mock/function-mock';

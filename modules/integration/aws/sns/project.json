@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/sns",
-  "sourceRoot": "modules/integration/amazon/sns/src",
+  "root": "modules/integration/aws/sns",
+  "sourceRoot": "modules/integration/aws/sns/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/integration/amazon/sns/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-sns"],
-      "options": {
-        "jestConfig": "modules/integration/amazon/sns/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/sns",
-        "tsConfig": "modules/integration/amazon/sns/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/sns/package.json",
-        "main": "modules/integration/amazon/sns/src/index.ts"
+        "outputPath": "dist/integration/aws/sns",
+        "tsConfig": "modules/integration/aws/sns/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/sns/package.json",
+        "main": "modules/integration/aws/sns/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/aws/sns/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-aws-sns"],
+      "options": {
+        "jestConfig": "modules/integration/aws/sns/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

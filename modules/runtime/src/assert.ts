@@ -2,6 +2,7 @@ import { AssertionError } from './assertion-error';
 
 /**
  * Asserts a condition
+ *
  * @param condition Condition
  * @param message Message or error builder
  */

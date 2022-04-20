@@ -1,3 +1,7 @@
 {
-  "name": "@komore/application-ios"
+  "name": "@komore/application-ios",
+  "komore": {
+    "executors": "./schematics/executors.json",
+    "generators": "./schematics/generators.json"
+  }
 }

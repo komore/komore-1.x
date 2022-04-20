@@ -3,5 +3,10 @@
   "description": "",
   "keywords": [
     "testing"
-  ]
+  ],
+  "komore": {
+    "executors": "./schematics/executors.json",
+    "generators": "./schematics/generators.json",
+    "lint-rules": "./lint/rules.json"
+  }
 }

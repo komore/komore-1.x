@@ -1,23 +1,27 @@
 import { type HexColorString } from '../hex/hex-color-string';
-import { type RGB } from '../rgb/rgb';
+import { type RGBColor } from '../rgb/rgb-color';
 import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from './hex-color-string-regexp';
 
 /**
  * Returns an RGB color from a hexadecimal color string
+ *
  * @param hexColorString Hexadecimal color string
  * @returns RGB color
  */
-export function hexColorStringToRgbColor(hexColorString: HexColorString): RGB {
+export function hexColorStringToRgbColor(hexColorString: HexColorString): RGBColor {
   const isShort = hexColorString.length === 4;
-  const matches = hexColorString.match(isShort ? HEX_COLOR_STRING_REGEXP_SHORT : HEX_COLOR_STRING_REGEXP);
+  const matches = hexColorString.match(isShort ? HEX_COLOR_STRING_REGEXP_SHORT : HEX_COLOR_STRING_REGEXP) as
+    | readonly [matched: string, red: string, green: string, blue: string]
+    | null;
   if (matches === null) {
     throw new Error(`invalid hexadecimal color string "${hexColorString}`);
   }
 
+  const [, redString, greenString, blueString] = matches;
+  const redValue = parseInt(redString, 16);
+  const greenValue = parseInt(greenString, 16);
+  const blueValue = parseInt(blueString, 16);
   const divisor = isShort ? 15 : 255;
-  const redValue = parseInt(matches[1], 16);
-  const greenValue = parseInt(matches[2], 16);
-  const blueValue = parseInt(matches[3], 16);
   const red = redValue / divisor;
   const green = greenValue / divisor;
   const blue = blueValue / divisor;
@@ -25,6 +29,6 @@ export function hexColorStringToRgbColor(hexColorString: HexColorString): RGB {
   return {
     red,
     green,
-    blue
+    blue,
   };
 }

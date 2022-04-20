@@ -1,0 +1,18 @@
+{
+  "build": {
+    "description": "Builds an iOS application",
+    "main": "./src/executor/build/build-ios-application-executor#buildIOSApplicationExecutor"
+  },
+  "publish": {
+    "description": "Publishes an iOS application",
+    "main": "./src/executor/publish/publish-ios-application-executor#signIOSApplicationExecutor"
+  },
+  "serve": {
+    "description": "Serves an iOS application",
+    "main": "./src/executor/serve/serve-ios-application-executor#serveIOSApplicationExecutor"
+  },
+  "sign": {
+    "description": "Signs an iOS application",
+    "main": "./src/executor/sign/sign-ios-application-executor#signIOSApplicationExecutor"
+  }
+}

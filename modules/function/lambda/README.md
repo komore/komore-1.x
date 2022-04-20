@@ -1,5 +1,9 @@
 # @komore/function for AWS Lambda
 
+TODO: [Lambda Function URL]
+
+[lambda function url]: https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/
+
 Support for the [AWS Lambda] execution environment.
 
 [Official documentation]

@@ -1,4 +1,4 @@
-# @komore/event-store-amazon
+# @komore/event-store-aws
 
 Support for AWS services as [komore] event stores:
 

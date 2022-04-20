@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/sns/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/sns/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-sns',
+  coverageDirectory: '../../../../coverage/integration-aws-sns',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-sns',
+  displayName: 'integration-aws-sns',
   testEnvironment: 'node'
 };

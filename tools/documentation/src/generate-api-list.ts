@@ -1,9 +1,9 @@
 import { createCliCommand, createCliArgument as arg, createCliFlag as flag } from '@komore/application-cli';
+import { createTypeScriptApiDescription } from '@komore/documentation';
 import { objectToValues } from '@komore/functional';
-import { ignoreValues, map, mapTo, switchMap, tapNext } from '@komore/reactive';
+import { ignoreErrors, ignoreValues, map, mergeMap, tapError, tapNext } from '@komore/reactive';
 import { loadWorkspaceConfiguration, projectToTargetsUsingExecutor } from '@komore/schematics';
 import { TargetConfiguration } from '@nrwl/devkit';
-import { createCompilerHost } from 'typescript';
 
 // TODO: move implementation to an executor via @komore/documentation:api
 
@@ -11,21 +11,56 @@ export const generateApiList = createCliCommand(
   'generate',
   $ =>
     $.pipe(
-      mapTo({ workspace: './workspace.json' }),
-      map(({ workspace }) => workspace),
-      switchMap(loadWorkspaceConfiguration),
-      map(({ projects }) =>
-        objectToValues(projects)
-          .map(projectToTargetsUsingExecutor('@nrwl/node:package'))
-          .flat()
-          .filter(hasNodePackageTargetConfiguration)
-      ),
-      tapNext(hm => {
-        createCompilerHost({
+      mergeMap(({ flags: { project } }) =>
+        loadWorkspaceConfiguration('./workspace.json').pipe(
+          map(({ projects }) => {
+            if (project === undefined) {
+              return objectToValues(projects);
+            }
 
+            const projectConfiguration = projects[project];
+            if (projectConfiguration === undefined) {
+              throw new Error(`project ${project} not found`);
+            }
+
+            return [projectConfiguration];
+          }),
+          map(projects =>
+            projects
+              .map(projectToTargetsUsingExecutor('@nrwl/node:package'))
+              .flat()
+              .filter(hasNodePackageTargetConfiguration)
+          )
+        )
+      ),
+      map(projects => projects[0]),
+      mergeMap(({ options: { main, packageJson, tsConfig } }) =>
+        createTypeScriptApiDescription({
+          paths: {
+            entryPoint: main,
+            packageJson,
+            tsConfig,
+          },
+        })
+      ),
+      tapNext(({ name, exports }) => {
+        console.log(name);
+        console.log('  Functions');
+        exports.functions.forEach(({ name: functionName, declarations }) => {
+          declarations.forEach(({ description }) => {
+            const newLineIndex = description.indexOf('\n');
+            const firstLine = (newLineIndex !== -1 ? description.substring(0, newLineIndex) : description).trim();
+            const shortDesc = firstLine.length > 70 ? firstLine.substring(0, 68) + '...' : firstLine;
+            console.log(`    ${functionName}: ${shortDesc}`);
+          });
         });
-        console.log('hm hm hm', hm, hm.length);
+        console.log('  Types');
+        console.log('    TODO');
       }),
+      tapError(error =>
+        error instanceof Error ? console.log(`Error: ${error.message}`) : console.log('Unknown error', error)
+      ),
+      ignoreErrors(),
       ignoreValues()
     ),
   {
@@ -40,6 +75,10 @@ export const generateApiList = createCliCommand(
       }),
     ],
     flags: {
+      project: flag({
+        description: 'Pattern used to match the projects that must be processed',
+        type: 'string',
+      }),
       watch: flag({
         defaultValue: false,
         description: 'When set to true, run the generate whenever the workspace file changes',

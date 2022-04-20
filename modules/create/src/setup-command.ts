@@ -1,35 +1,44 @@
-import { Command, flags } from '@oclif/command';
+import { createCliArgument, createCliCommand, createCliFlag } from '@komore/application-cli';
+import { mapTo, tapNext } from '@komore/reactive';
 
 /**
- * Create command
+ * Setup command
  */
-export default class Create extends Command {
-  static readonly description = 'Create a komore-based platform';
-  static readonly flags = {
-    help: flags.help({
-      char: 'h',
-      description: 'Print the CLI flags'
-    }),
-    scope: flags.string({
-      char: 's',
-      description: 'Scope for the modules'
-    }),
-    version: flags.version({
-      char: 'v',
-      description: 'Print the version'
-    })
-  };
-
-  static readonly args = [
-    { name: 'name' }
-  ];
-
-  async run(): Promise<void> {
-    const { args, flags } = this.parse(Create);
-    console.log('args', args);
-    console.log('flags', flags);
-    //const name = flags.name;
-    //const scope = flags.scope ?? `@${flags.name}`;
-    //console.log
+export const setupCommand = createCliCommand(
+  'setup',
+  $ =>
+    $.pipe(
+      tapNext(({ args, flags: { help, scope, version } }) => {
+        console.log('help', help);
+        console.log('scope', scope);
+        console.log('version', version);
+        console.log('args', args);
+      }),
+      mapTo(0)
+    ),
+  {
+    description: 'Create a komore-based repository',
+    args: [
+      createCliArgument('name', {
+        description: 'Project name',
+        required: true,
+        type: 'string',
+      }),
+    ],
+    flags: {
+      help: createCliFlag({
+        character: 'h',
+        description: 'Print the CLI flags',
+      }),
+      scope: createCliFlag({
+        character: 's',
+        description: 'Scope for the modules (e.g. @my-project)',
+        type: 'string',
+      }),
+      version: createCliFlag({
+        character: 'v',
+        description: 'Print the version',
+      }),
+    },
   }
-}
+);

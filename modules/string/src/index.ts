@@ -7,6 +7,8 @@ export { matched } from './matched';
 export { search } from './search';
 export { stringEndsWith } from './string-ends-with';
 export { stringStartsWith } from './string-starts-with';
+export { stringToLine } from './string-to-line';
+export { stringToLines } from './string-to-lines';
 export { stringToLowerCase } from './string-to-lower-case';
 export { stringToUpperCase } from './string-to-upper-case';
 export { toCharacterAt } from './to-character-at';

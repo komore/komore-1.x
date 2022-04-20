@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/route-53",
-  "sourceRoot": "modules/integration/amazon/route-53/src",
+  "root": "modules/integration/aws/route-53",
+  "sourceRoot": "modules/integration/aws/route-53/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/route-53",
+        "tsConfig": "modules/integration/aws/route-53/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/route-53/package.json",
+        "main": "modules/integration/aws/route-53/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/route-53/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/route-53/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/route-53/jest.config.js",
+        "jestConfig": "modules/integration/aws/route-53/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-route53"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/route-53",
-        "tsConfig": "modules/integration/amazon/route-53/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/route-53/package.json",
-        "main": "modules/integration/amazon/route-53/src/index.ts",
-        "assets": ["modules/integration/amazon/route-53/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-route53"]
     }
   }
 }

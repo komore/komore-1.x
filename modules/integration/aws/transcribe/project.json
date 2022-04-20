@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/transcribe",
-  "sourceRoot": "modules/integration/amazon/transcribe/src",
+  "root": "modules/integration/aws/transcribe",
+  "sourceRoot": "modules/integration/aws/transcribe/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/transcribe",
+        "tsConfig": "modules/integration/aws/transcribe/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/transcribe/package.json",
+        "main": "modules/integration/aws/transcribe/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/transcribe/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/transcribe/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/transcribe/jest.config.js",
+        "jestConfig": "modules/integration/aws/transcribe/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-transcribe"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/transcribe",
-        "tsConfig": "modules/integration/amazon/transcribe/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/transcribe/package.json",
-        "main": "modules/integration/amazon/transcribe/src/index.ts",
-        "assets": ["modules/integration/amazon/transcribe/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-transcribe"]
     }
   }
 }

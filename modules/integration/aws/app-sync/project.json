@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/app-sync",
-  "sourceRoot": "modules/integration/amazon/app-sync/src",
+  "root": "modules/integration/aws/app-sync",
+  "sourceRoot": "modules/integration/aws/app-sync/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/integration/amazon/app-sync/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-appsync"],
-      "options": {
-        "jestConfig": "modules/integration/amazon/app-sync/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/app-sync",
-        "tsConfig": "modules/integration/amazon/app-sync/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/app-sync/package.json",
-        "main": "modules/integration/amazon/app-sync/src/index.ts"
+        "outputPath": "dist/integration/aws/app-sync",
+        "tsConfig": "modules/integration/aws/app-sync/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/app-sync/package.json",
+        "main": "modules/integration/aws/app-sync/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/aws/app-sync/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-aws-appsync"],
+      "options": {
+        "jestConfig": "modules/integration/aws/app-sync/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

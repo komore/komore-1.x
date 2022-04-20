@@ -1,4 +1,4 @@
-import { type LabelWorkflowTriggerCondition } from './label-workflow-trigger-condition';
+import { type LabelWorkflowTriggerCondition } from './label/label-workflow-trigger-condition';
 import { type PullRequestWorkflowTriggerCondition } from './pull-request-workflow-trigger-condition';
 import { type PushWorkflowTriggerCondition } from './push-workflow-trigger-condition';
 import { type ScheduleWorkflowTriggerCondition } from './schedule-workflow-trigger-condition';

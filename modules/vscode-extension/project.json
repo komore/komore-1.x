@@ -4,20 +4,6 @@
   "projectType": "library",
   "tags": ["scope:schematics", "trait:vscode"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/vscode-extension/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "options": {
-        "jestConfig": "modules/vscode-extension/jest.config.js",
-        "passWithNoTests": true
-      },
-      "outputs": ["coverage/vscode-extension"]
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
@@ -25,7 +11,7 @@
         "outputPath": "dist/vscode-extension",
         "tsConfig": "modules/vscode-extension/tsconfig.lib.json",
         "packageJson": "modules/vscode-extension/package.json",
-        "main": "modules/vscode-extension/src/index.ts",
+        "main": "modules/vscode-extension/src/extension.ts",
         "assets": [
           "modules/vscode-extension/*.md",
           "modules/vscode-extension/package.json",
@@ -42,6 +28,20 @@
           }
         ]
       }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/vscode-extension/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/vscode-extension/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/vscode-extension"]
     }
   }
 }

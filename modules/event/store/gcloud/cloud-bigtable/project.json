@@ -1,32 +1,32 @@
 {
-  "root": "modules/event/store/google/cloud-bigtable",
-  "sourceRoot": "modules/event/store/google/cloud-bigtable/src",
+  "root": "modules/event/store/gcloud/cloud-bigtable",
+  "sourceRoot": "modules/event/store/gcloud/cloud-bigtable/src",
   "projectType": "library",
-  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:google"],
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:gcloud"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/event/store/gcloud/cloud-bigtable",
+        "tsConfig": "modules/event/store/gcloud/cloud-bigtable/tsconfig.lib.json",
+        "packageJson": "modules/event/store/gcloud/cloud-bigtable/package.json",
+        "main": "modules/event/store/gcloud/cloud-bigtable/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/event/store/google/cloud-bigtable/src/**/*.ts"]
+        "lintFilePatterns": ["modules/event/store/gcloud/cloud-bigtable/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/event/store/google/cloud-bigtable/jest.config.js",
+        "jestConfig": "modules/event/store/gcloud/cloud-bigtable/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/event-store-google-cloudbigtable"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/event/store/google/cloud-bigtable",
-        "tsConfig": "modules/event/store/google/cloud-bigtable/tsconfig.lib.json",
-        "packageJson": "modules/event/store/google/cloud-bigtable/package.json",
-        "main": "modules/event/store/google/cloud-bigtable/src/index.ts"
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/event-store-gcloud-cloudbigtable"]
     }
   }
 }

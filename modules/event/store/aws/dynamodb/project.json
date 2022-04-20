@@ -1,31 +1,31 @@
 {
-  "root": "modules/event/store/amazon/dynamodb",
-  "sourceRoot": "modules/event/store/amazon/dynamodb/src",
+  "root": "modules/event/store/aws/dynamodb",
+  "sourceRoot": "modules/event/store/aws/dynamodb/src",
   "projectType": "library",
-  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"],
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/event/store/amazon/dynamodb/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/event-store-amazon-dynamodb"],
-      "options": {
-        "jestConfig": "modules/event/store/amazon/dynamodb/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/event/store/amazon/dynamodb",
-        "tsConfig": "modules/event/store/amazon/dynamodb/tsconfig.lib.json",
-        "packageJson": "modules/event/store/amazon/dynamodb/package.json",
-        "main": "modules/event/store/amazon/dynamodb/src/index.ts"
+        "outputPath": "dist/event/store/aws/dynamodb",
+        "tsConfig": "modules/event/store/aws/dynamodb/tsconfig.lib.json",
+        "packageJson": "modules/event/store/aws/dynamodb/package.json",
+        "main": "modules/event/store/aws/dynamodb/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/event/store/aws/dynamodb/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/event-store-aws-dynamodb"],
+      "options": {
+        "jestConfig": "modules/event/store/aws/dynamodb/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

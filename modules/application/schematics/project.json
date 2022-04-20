@@ -1,0 +1,33 @@
+{
+  "root": "modules/application/electron",
+  "sourceRoot": "modules/application/electron/src",
+  "projectType": "library",
+  "tags": ["scope:application"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/application/electron/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/application-electron"],
+      "options": {
+        "jestConfig": "modules/application/electron/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/application/electron",
+        "tsConfig": "modules/application/electron/tsconfig.lib.json",
+        "packageJson": "modules/application/electron/package.json",
+        "main": "modules/application/electron/src/index.ts",
+        "assets": ["modules/application/electron/*.md"]
+      }
+    }
+  }
+}

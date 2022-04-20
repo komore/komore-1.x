@@ -4,7 +4,7 @@ import { type Construct } from 'constructs';
 import { type GenericScope } from '../scope/generic-scope';
 import { type ScopedConfiguration } from '../scope/scoped-configuration';
 import { type ScopeWithAddedResource } from '../scope/scope-with-added-resource';
-import { resolveConfig } from './resolve-config';
+import { resolveScopedConfiguration } from './resolve-scoped-configuration';
 
 /**
  * Adds a resource
@@ -33,10 +33,10 @@ export function resource<
   config: ScopedConfiguration<ScopeType, ConfigType>
 ): OperatorFunction<ScopeType, ScopeWithAddedResource<ScopeType, ResourceTypeName, ResourceId, ResourceType>> {
   return map(scope => {
-    const resourceConfig = resolveConfig(scope, config);
+    const resourceConfig = resolveScopedConfiguration(scope, config);
     const resource = new constructor(scope.construct, resourceId, resourceConfig);
     const resourceTypeName = constructor.tfResourceType;
-    const existingResources = scope.resources[resourceTypeName] as ;
+    //const existingResources = scope.resources[resourceTypeName] as unknown;
     const updatedResourcesOfType = {
       ...scope.resources[resourceTypeName],
       [resourceId]: resource,

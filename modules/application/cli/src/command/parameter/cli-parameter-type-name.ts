@@ -1,6 +1,9 @@
-import { type CliParameterTypeMapping } from './cli-parameter-type-mapping';
+import { type CliParameterValueTypeName } from './cli-parameter-value-type-name';
 
 /**
  * CLI parameter type name
  */
-export type CliParameterTypeName = keyof CliParameterTypeMapping;
+export type CliParameterTypeName =
+  | CliParameterValueTypeName
+  | `array<${CliParameterValueTypeName}>`
+  | `set<${CliParameterValueTypeName}>`;

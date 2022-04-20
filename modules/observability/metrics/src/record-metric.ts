@@ -1,5 +1,5 @@
-import { type MetricsDriver } from '@komore/observability/driver';
+import { type MetricsProvider } from '@komore/observability/provider';
 
-export function recordMetric() {
-
+export function recordMetric(_metricsProvider: MetricsProvider): void {
+  // TODO
 }

@@ -1,19 +1,20 @@
-import { Command } from '@oclif/command';
+import { mapTo } from '@komore/reactive';
 import { createCliArgument as arg } from './argument/create-cli-argument';
-import { createCliFlag as flag } from './flag/create-cli-flag';
+import { CliCommandOptions } from './cli-command-options';
 import { createCliCommand } from './create-cli-command';
+import { createCliFlag as flag } from './flag/create-cli-flag';
 
 describe('Create CLI command', () => {
-  it('can create an OCLIF compatible class', () => {
-    given: 'a CLI command name';
-    const cliCommandName = 'testCommand';
+  it('can create a CLI command', () => {
+    given: 'a command name';
+    const commandName = 'testCommand';
     and: 'a list of aliases';
     const aliases = ['tc'];
     and: 'a description';
     const description = 'Test description';
 
     when: 'creating a CLI command';
-    const cliCommandClass = createCliCommand(cliCommandName, $ => $.pipe(), {
+    const cliCommand = createCliCommand(commandName, $ => $.pipe(mapTo(0)), {
       aliases,
       args: [
         arg('testArg1', {
@@ -39,38 +40,17 @@ describe('Create CLI command', () => {
           defaultValue: true,
           description: 'Test flag 2 description',
           type: 'boolean',
-        },)
+        }),
       },
     });
 
-    expect: 'the class to inherit from the OCLIF command class';
-    expect(cliCommandClass.prototype).toBeInstanceOf(Command);
-    and: 'the class to have the aliases as a static property';
-    expect(cliCommandClass.aliases).toStrictEqual(aliases);
-    and: 'the class to have the description as a static property';
-    expect(cliCommandClass.description).toBe(description);
-    and: 'the class to have properly built argument definitions';
-    expect(cliCommandClass.args).toBeDefined();
-    const args = cliCommandClass.args as NonNullable<typeof cliCommandClass.args>;
-    expect(args.length).toBe(2);
-    const arg0 = args[0];
-    expect(arg0).toBeDefined();
-    expect(arg0.default).toBe('test-default-arg1');
-    expect(arg0.description).toBe('Test arg1 description');
-    expect(arg0.name).toBe('testArg1');
-    expect(arg0.required).toBe(true);
-    const arg1 = args[1];
-    expect(arg1).toBeDefined();
-    expect(arg1.default).toBe(42);
-    expect(arg1.description).toBe('Test arg2 description');
-    expect(arg1.name).toBe('testArg2');
-    expect(arg1.required).toBe(false);
-    and: 'the class to have properly  built flag definitions';
-    expect(cliCommandClass.flags).toBeDefined();
-    const flags = cliCommandClass.flags as NonNullable<typeof cliCommandClass.flags>;
-    const flag1 = flags['test-flag-1'];
-    expect(flag1).toBeDefined();
-    const flag2 = flags['test-flag-2'];
-    expect(flag2).toBeDefined();
+    then: 'the command to be callable';
+    expect(cliCommand).toBeInstanceOf(Function);
+    and: 'the name to be available';
+    expect(cliCommand.commandName).toBe(commandName);
+    and: 'the description to be available';
+    expect(cliCommand.description).toBe(description);
+    and: 'the list of aliases to be available';
+    expect(cliCommand.aliases).toStrictEqual(aliases);
   });
 });

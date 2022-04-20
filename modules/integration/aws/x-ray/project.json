@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/x-ray",
-  "sourceRoot": "modules/integration/amazon/x-ray/src",
+  "root": "modules/integration/aws/x-ray",
+  "sourceRoot": "modules/integration/aws/x-ray/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/x-ray",
+        "tsConfig": "modules/integration/aws/x-ray/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/x-ray/package.json",
+        "main": "modules/integration/aws/x-ray/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/x-ray/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/x-ray/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/x-ray/jest.config.js",
+        "jestConfig": "modules/integration/aws/x-ray/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-xray"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/x-ray",
-        "tsConfig": "modules/integration/amazon/x-ray/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/x-ray/package.json",
-        "main": "modules/integration/amazon/x-ray/src/index.ts",
-        "assets": ["modules/integration/amazon/x-ray/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-xray"]
     }
   }
 }

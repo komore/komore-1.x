@@ -1,0 +1,32 @@
+{
+  "root": "modules/bot/github",
+  "sourceRoot": "modules/bot/github/src",
+  "projectType": "application",
+  "tags": ["scope:bot", "trait:base"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/bot/github",
+        "tsConfig": "modules/bot/github/tsconfig.app.json",
+        "packageJson": "modules/bot/github/package.json",
+        "main": "modules/bot/github/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/bot/github/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/bot-github"],
+      "options": {
+        "jestConfig": "modules/bot/github/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

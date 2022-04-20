@@ -1,3 +1,7 @@
 {
-  "name": "@komore/element"
+  "name": "@komore/element",
+  "komore": {
+    "executors": "./schematics/executors.json",
+    "generators": "./schematics/generators.json"
+  }
 }

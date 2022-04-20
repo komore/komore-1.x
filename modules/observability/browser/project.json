@@ -1,0 +1,32 @@
+{
+  "root": "modules/observability/browser",
+  "sourceRoot": "modules/observability/browser/src",
+  "projectType": "library",
+  "tags": ["scope:observability", "trait:provider", "provider:browser", "environment:browser"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/observability/browser",
+        "tsConfig": "modules/observability/browser/tsconfig.lib.json",
+        "packageJson": "modules/observability/browser/package.json",
+        "main": "modules/observability/browser/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/observability/browser/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/observability-browser"],
+      "options": {
+        "jestConfig": "modules/observability/browser/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

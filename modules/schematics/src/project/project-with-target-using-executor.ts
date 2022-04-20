@@ -1,6 +1,6 @@
 import { objectToValues } from '@komore/functional';
 import { type ProjectConfiguration } from '@nrwl/devkit';
-import { targetUsingExecutor } from '../target/target-using-executor';
+import { projectTaskUsingExecutor } from '../task/project-task-using-executor';
 
 /**
  * Creates a function that tests whether a project has at least one target using a specific executor
@@ -10,5 +10,5 @@ import { targetUsingExecutor } from '../target/target-using-executor';
 export function projectWithTargetUsingExecutor(
   executorName: string
 ): (projectConfiguration: ProjectConfiguration) => boolean {
-  return ({ targets }) => objectToValues(targets ?? {}).some(targetUsingExecutor(executorName));
+  return ({ targets }) => objectToValues(targets ?? {}).some(projectTaskUsingExecutor(executorName));
 }

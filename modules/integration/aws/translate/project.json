@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/translate",
-  "sourceRoot": "modules/integration/amazon/translate/src",
+  "root": "modules/integration/aws/translate",
+  "sourceRoot": "modules/integration/aws/translate/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/translate",
+        "tsConfig": "modules/integration/aws/translate/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/translate/package.json",
+        "main": "modules/integration/aws/translate/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/translate/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/translate/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/translate/jest.config.js",
+        "jestConfig": "modules/integration/aws/translate/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-translate"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/translate",
-        "tsConfig": "modules/integration/amazon/translate/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/translate/package.json",
-        "main": "modules/integration/amazon/translate/src/index.ts",
-        "assets": ["modules/integration/amazon/translate/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-translate"]
     }
   }
 }

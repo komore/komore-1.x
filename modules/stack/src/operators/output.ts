@@ -5,7 +5,7 @@ import { type ScopedConfiguration } from '../scope/scoped-configuration';
 import { type ScopeWithAddedOutput } from '../scope/scope-with-added-output';
 import { type TypedOutput } from '../type/typed-output';
 import { type StackTypeNames } from '../type/stack-type-names';
-import { resolveConfig } from './resolve-config';
+import { resolveScopedConfiguration } from './resolve-scoped-configuration';
 
 /**
  * Adds an output
@@ -26,7 +26,7 @@ export function output<
   config: ScopedConfiguration<ScopeType, TerraformOutputConfig & { readonly type: OutputTypeName }>
 ): OperatorFunction<ScopeType, ScopeWithAddedOutput<ScopeType, OutputId, StackTypeNames[OutputTypeName]>> {
   return map(scope => {
-    const outputConfig = resolveConfig(scope, config);
+    const outputConfig = resolveScopedConfiguration(scope, config);
     const output = new TerraformOutput(scope.construct, outputId, outputConfig) as unknown as TypedOutput<
       StackTypeNames[OutputTypeName]
     >;

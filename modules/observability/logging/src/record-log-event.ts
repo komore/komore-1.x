@@ -1,24 +1,16 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { type LogEvent } from './definition/log-event';
-import { type LogEventRecord } from './definition/log-event-record';
-import { logEventRecordsSubject } from './definition/log-event-records';
-import { type LogGroup } from './definition/log-group';
+import { type LogEvent } from './event/log-event';
+import { logEventRecordsSubject } from './event-record/log-event-records';
+import { type LogGroup } from './group/log-group';
+import { buildLogEventRecord } from './event-record/build-log-event-record';
 
 /**
  * Records a log event
+ *
  * @param logEvent Log event
  */
-export function recordLogEvent<LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>>(
-  logEvent: LogEventType
-): void {
-  const { message } = logEvent;
-  const timestamp = Temporal.Now.plainDateTimeISO();
-  const logEventRecord: LogEventRecord<LogEventType> = {
-    logContext: {},
-    logEvent,
-    message,
-    timestamp
-  };
-
+export function recordLogEvent<
+  LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>
+>(logEvent: LogEventType): void {
+  const logEventRecord = buildLogEventRecord(logEvent);
   logEventRecordsSubject.next(logEventRecord);
 }

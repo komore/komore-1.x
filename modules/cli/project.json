@@ -4,6 +4,24 @@
   "projectType": "application",
   "tags": ["scope:cli", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cli",
+        "tsConfig": "modules/cli/tsconfig.app.json",
+        "packageJson": "modules/cli/package.json",
+        "main": "modules/cli/src/main.ts",
+        "assets": [
+          "modules/cli/*.md",
+          {
+            "glob": "*",
+            "input": "modules/cli/bin",
+            "output": "/bin"
+          }
+        ]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,24 +34,6 @@
       "options": {
         "jestConfig": "modules/cli/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/cli",
-        "tsConfig": "modules/cli/tsconfig.app.json",
-        "packageJson": "modules/cli/package.json",
-        "main": "modules/cli/src/index.ts",
-        "assets": [
-          "modules/cli/*.md",
-          {
-            "glob": "*",
-            "input": "modules/cli/bin",
-            "output": "/bin"
-          }
-        ]
       }
     }
   }

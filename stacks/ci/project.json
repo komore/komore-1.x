@@ -7,10 +7,9 @@
     "build": {
       "executor": "@nrwl/node:package",
       "options": {
-        "assets": [],
-        "entryFile": "stacks/ci/src/main.ts",
+        "main": "stacks/ci/src/main.ts",
         "outputPath": "dist/stacks/ci",
-        "project": "stacks/ci/package.json",
+        "packageJson": "stacks/ci/package.json",
         "tsConfig": "stacks/ci/tsconfig.stack.json"
       },
       "outputs": ["{options.outputPath}"]

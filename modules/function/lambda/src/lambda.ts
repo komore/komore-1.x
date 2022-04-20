@@ -2,7 +2,6 @@
  * Variables available on Lambda host environments
  */
 declare global {
-  // TODO: remove the disabled rule once https://github.com/typescript-eslint/typescript-eslint/pull/2238 works
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface ProcessEnv {

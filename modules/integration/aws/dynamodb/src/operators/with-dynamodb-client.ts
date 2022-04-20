@@ -1,9 +1,10 @@
 import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { withAwsClient } from '@komore/integration-amazon';
+import { withAwsClient } from '@komore/integration-aws';
 import { createDynamoDBClient } from '../create-dynamodb-client';
 
 /**
  * Adds a DynamoDB client to a message
+ *
  * @param dynamoDBClient DynamoDB client
  * @returns Operator function that turns a message into a message with a DynamoDB client
  */

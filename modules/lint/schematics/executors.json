@@ -1,0 +1,10 @@
+{
+  "lint": {
+    "description": "Lints a project",
+    "main": "./src/executors/lint/lint-executor#lintExecutor"
+  },
+  "lint-workspace": {
+    "description": "Lints the workspace",
+    "main": "./src/executors/lint-workspace/lint-workspace-executor#lintWorkspaceExecutor"
+  }
+}

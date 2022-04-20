@@ -3,7 +3,7 @@ import { type TerraformBackend } from 'cdktf';
 import { type Construct } from 'constructs';
 import { type GenericScope } from '../scope/generic-scope';
 import { type ScopedConfiguration } from '../scope/scoped-configuration';
-import { resolveConfig } from './resolve-config';
+import { resolveScopedConfiguration } from './resolve-scoped-configuration';
 
 /**
  * Adds a backend
@@ -21,7 +21,7 @@ export function backend<ScopeType extends GenericScope, BackendType extends Terr
   config: ScopedConfiguration<ScopeType, ConfigType>
 ): MonoTypeOperatorFunction<ScopeType> {
   return map(scope => {
-    const backendConfig = resolveConfig(scope, config);
+    const backendConfig = resolveScopedConfiguration(scope, config);
     // TODO: can be an issue if done more than once
     new constructor(scope.construct, backendConfig);
     return scope;

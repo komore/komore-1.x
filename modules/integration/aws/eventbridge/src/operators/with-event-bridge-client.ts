@@ -1,11 +1,13 @@
 import { type EventBridgeClient } from '@aws-sdk/client-eventbridge';
-import { withAmazonClient } from '@komore/integration-amazon';
+import { withAwsClient } from '@komore/integration-aws';
 import { createEventBridgeClient } from '../create-event-bridge-client';
 
 /**
  * Adds an EventBridge client to a message
+ *
  * @param eventBridgeClient EventBridge client
  * @returns Operator function that turns a message into a message with a EventBridge client
  */
-export const withEventBridgeClient = (eventBridgeClient?: EventBridgeClient) =>
-  withAmazonClient('eventbridge', eventBridgeClient ?? createEventBridgeClient());
+export function withEventBridgeClient(eventBridgeClient?: EventBridgeClient) {
+  return withAwsClient('eventbridge', eventBridgeClient ?? createEventBridgeClient());
+}

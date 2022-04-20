@@ -1,0 +1,12 @@
+{
+  "build": {
+    "description": "Builds a CLI application",
+    "documentation": "https://komore.dev/modules/application-cli/schematics/build",
+    "main": "./src/executor/build/build-cli-application-executor#buildCliApplicationExecutor"
+  },
+  "serve": {
+    "description": "Serves a CLI application",
+    "documentation": "https://komore.dev/modules/application-cli/schematics/serve",
+    "main": "./src/executor/serve/serve-cli-application-executor#serveCliApplicationExecutor"
+  }
+}

@@ -6,6 +6,7 @@ import { type TemporalWithDate } from '../temporal-with-date';
  * ```ts
  * const earliestDateIndex = temporals.reduce(temporalsToEarliestDateIndex, -1);
  * ```
+ *
  * @param prevIndex Previous temporal index
  * @param curr Current temporal
  * @param index Index
@@ -23,6 +24,9 @@ export function datesToEarliestDateIndex<T extends TemporalWithDate>(
   }
 
   const prev = temporals[prevIndex];
+  if (prev === undefined) {
+    return index;
+  }
 
   return prev.year <= curr.year && prev.month <= curr.month && prev.day <= curr.day ? prevIndex : index;
 }

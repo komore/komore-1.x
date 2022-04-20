@@ -5,6 +5,16 @@
   "generators": {},
   "tags": ["scope:ai"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/ai/text",
+        "tsConfig": "modules/ai/text/tsconfig.lib.json",
+        "packageJson": "modules/ai/text/package.json",
+        "main": "modules/ai/text/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -18,16 +28,6 @@
         "passWithNoTests": true
       },
       "outputs": ["coverage/ai-text"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/ai/text",
-        "tsConfig": "modules/ai/text/tsconfig.lib.json",
-        "packageJson": "modules/ai/text/package.json",
-        "main": "modules/ai/text/src/index.ts"
-      },
-      "outputs": ["{options.outputPath}"]
     }
   }
 }

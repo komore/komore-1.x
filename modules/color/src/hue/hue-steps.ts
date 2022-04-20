@@ -1,9 +1,9 @@
-import { type RGB } from '../rgb/rgb';
+import { type RGBColor } from '../rgb/rgb-color';
 
 /**
  * Hue steps
  */
-export const HUE_STEPS: ReadonlyArray<RGB> = [
+export const HUE_STEPS: ReadonlyArray<RGBColor> = [
   { red: 255, green: 0, blue: 0 },
   { red: 255, green: 255, blue: 0 },
   { red: 0, green: 255, blue: 0 },

@@ -1,33 +1,38 @@
 import { objectToEntries } from '@komore/functional';
-import { of, type Observable } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type CliArgument } from './argument/cli-argument';
-import { type CliFlag } from './flag/cli-flag';
-import { type CliParameterTypeName } from './parameter/cli-parameter-type-name';
+import { type CliArgumentDefinition } from './argument/cli-argument-definition';
+import { buildCliCommandContext } from './build-cli-command-context';
 import { type CliCommand } from './cli-command';
 import { type CliCommandOptions } from './cli-command-options';
+import { type CliCommandContext } from './cli-command-context';
+import { type CliFlagDefinition } from './flag/cli-flag-definition';
+import { type CliParameterTypeName } from './parameter/cli-parameter-type-name';
 
 /**
  * Creates a command-line interface command
+ *
  * @param commandName Command name
  * @param commandHandler Command handler
  * @param options Options
  * @returns Command
+ * @template CommandName Command name
+ * @template ArgumentDefinitions Argument definitions
+ * @template FlagDefinitions Flag definitions
  */
 export function createCliCommand<
   CommandName extends string,
-  Arguments extends ReadonlyArray<CliArgument<string, CliParameterTypeName>>,
-  Flags extends ReadonlyRecord<string, CliFlag<CliParameterTypeName>>
+  ArgumentDefinitions extends ReadonlyArray<CliArgumentDefinition<string, CliParameterTypeName, boolean>>,
+  FlagDefinitions extends ReadonlyRecord<string, CliFlagDefinition<CliParameterTypeName, boolean>>
 >(
   commandName: CommandName,
-  commandHandler: ($: Observable<[args: Arguments, flags: Flags]>) => Observable<number | never>,
-  options: CliCommandOptions<Arguments, Flags>
+  commandHandler: ($: Observable<CliCommandContext<CommandName, ArgumentDefinitions, FlagDefinitions>>) => Observable<number | never>,
+  options: CliCommandOptions<ArgumentDefinitions, FlagDefinitions>
 ): CliCommand<CommandName> {
   const wrapper = {
     [commandName]: function (argv: ReadonlyArray<string>): Observable<number> {
-      const $ = of(42 as unknown as [args: Arguments, flags: Flags]);
-      console.log('weeeeeeeeeeeeeeeee', argv);
-      return commandHandler($);
+      const context = buildCliCommandContext(commandName, argv, options);
+      return commandHandler(context);
     },
   };
 

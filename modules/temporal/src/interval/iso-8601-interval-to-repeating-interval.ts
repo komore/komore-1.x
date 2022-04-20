@@ -15,15 +15,15 @@ export function iso8601IntervalToRepeatingInterval<T extends IntervalTemporal>(t
   from(str: string): T;
 }): (iso8601Interval: string) => RepeatingInterval<T> {
   return iso8601Interval => {
-    const parts = iso8601Interval.split('/');
-
-    if (parts.length !== 3) {
+    const potentialParts = iso8601Interval.split('/');
+    if (potentialParts.length !== 3) {
       throw new InvalidISO8601IntervalError(
         'an ISO 8601 repeating interval must feature 2 / characters',
         iso8601Interval
       );
     }
 
+    const parts = potentialParts as unknown as readonly [repartitions: string, start: string, end: string];
     const [repetitionsString, startString, endString] = parts;
     const repetitions = parseRepetitions(repetitionsString, iso8601Interval);
     const interval = iso8601IntervalPartsToInterval(temporalClass, iso8601Interval, startString, endString);

@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/api-gateway",
-  "sourceRoot": "modules/integration/amazon/api-gateway/src",
+  "root": "modules/integration/aws/api-gateway",
+  "sourceRoot": "modules/integration/aws/api-gateway/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/api-gateway/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/api-gateway/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/api-gateway/jest.config.js",
+        "jestConfig": "modules/integration/aws/api-gateway/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-apigateway"]
+      "outputs": ["coverage/integration-aws-apigateway"]
     },
     "build": {
       "executor": "@nrwl/node:package",
       "options": {
-        "outputPath": "dist/integration/amazon/api-gateway",
-        "tsConfig": "modules/integration/amazon/api-gateway/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/api-gateway/package.json",
-        "main": "modules/integration/amazon/api-gateway/src/index.ts",
-        "assets": ["modules/integration/amazon/api-gateway/*.md"]
+        "outputPath": "dist/integration/aws/api-gateway",
+        "tsConfig": "modules/integration/aws/api-gateway/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/api-gateway/package.json",
+        "main": "modules/integration/aws/api-gateway/src/index.ts",
+        "assets": ["modules/integration/aws/api-gateway/*.md"]
       },
       "outputs": ["{options.outputPath}"]
     }

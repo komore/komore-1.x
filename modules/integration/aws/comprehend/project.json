@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/comprehend",
-  "sourceRoot": "modules/integration/amazon/comprehend/src",
+  "root": "modules/integration/aws/comprehend",
+  "sourceRoot": "modules/integration/aws/comprehend/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/comprehend",
+        "tsConfig": "modules/integration/aws/comprehend/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/comprehend/package.json",
+        "main": "modules/integration/aws/comprehend/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/comprehend/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/comprehend/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/comprehend/jest.config.js",
+        "jestConfig": "modules/integration/aws/comprehend/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-comprehend"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/comprehend",
-        "tsConfig": "modules/integration/amazon/comprehend/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/comprehend/package.json",
-        "main": "modules/integration/amazon/comprehend/src/index.ts",
-        "assets": ["modules/integration/amazon/comprehend/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-comprehend"]
     }
   }
 }

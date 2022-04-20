@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/polly/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/polly/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-polly',
+  coverageDirectory: '../../../../coverage/integration-aws-polly',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-polly',
+  displayName: 'integration-aws-polly',
   testEnvironment: 'node'
 };

@@ -1,1 +1,1 @@
-export { randomUuid } from './uuid/random-uuid';
+export { randomUUID } from './uuid/random-uuid';

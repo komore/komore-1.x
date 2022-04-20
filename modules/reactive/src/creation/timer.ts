@@ -1,5 +1,5 @@
-import { toJavaScriptDate } from '@komore/temporal/compatibility';
 import { Temporal } from '@js-temporal/polyfill';
+import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 import { timer as rxjsTimer } from 'rxjs';
 import { type SchedulerLike } from '../scheduler/scheduler-like';
 import { type Observable } from '../observable';
@@ -53,7 +53,7 @@ export function timer(
   intervalDurationOrScheduler?: number | Temporal.Duration | SchedulerLike,
   scheduler?: SchedulerLike
 ): Observable<number> {
-  const due = typeof start === 'number' ? start : toJavaScriptDate(start);
+  const due = typeof start === 'number' ? start : temporalToJavaScriptDate(start);
   const isIntervalDurationNumber = typeof intervalDurationOrScheduler === 'number';
   const isIntervalDuration = intervalDurationOrScheduler instanceof Temporal.Duration;
   if (isIntervalDurationNumber || isIntervalDuration) {

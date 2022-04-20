@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/redshift",
-  "sourceRoot": "modules/integration/amazon/redshift/src",
+  "root": "modules/integration/aws/redshift",
+  "sourceRoot": "modules/integration/aws/redshift/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/redshift",
+        "tsConfig": "modules/integration/aws/redshift/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/redshift/package.json",
+        "main": "modules/integration/aws/redshift/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/redshift/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/redshift/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/redshift/jest.config.js",
+        "jestConfig": "modules/integration/aws/redshift/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-redshift"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/redshift",
-        "tsConfig": "modules/integration/amazon/redshift/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/redshift/package.json",
-        "main": "modules/integration/amazon/redshift/src/index.ts",
-        "assets": ["modules/integration/amazon/redshift/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-redshift"]
     }
   }
 }

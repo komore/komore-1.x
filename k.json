@@ -1,0 +1,33 @@
+{
+  "defaults": {
+    "project": "website"
+  },
+  "domains": {
+    "string": {},
+    "temporal": {}
+  },
+  "layout": {
+    "applications": "modules",
+    "libraries": "modules",
+    "stacks": "stacks"
+  },
+  "package": {
+    "manager": "pnpm",
+    "scope": "komore"
+  },
+  "projects": {
+    "string": "./modules/string",
+    "temporal": "./modules/temporal"
+  },
+  "schematics": {
+    "@komore/schematics": {}
+  },
+  "task": {
+    "runner": "@komore/schematics/runner#createTaskRunner",
+    "options": {
+      "cacheable": ["build", "document", "lint", "test"],
+      "parallel": 1
+    }
+  },
+  "version": "@komore/schematics#1.0.0"
+}

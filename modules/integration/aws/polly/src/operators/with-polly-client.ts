@@ -1,9 +1,10 @@
 import { type PollyClient } from '@aws-sdk/client-polly';
-import { withAwsClient } from '@komore/integration-amazon';
+import { withAwsClient } from '@komore/integration-aws';
 import { createPollyClient } from '../create-polly-client';
 
 /**
  * Adds a Polly client to a message
+ *
  * @param pollyClient Polly client
  * @returns Unary function that turns a message into a message with a Polly client
  */

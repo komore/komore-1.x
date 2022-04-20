@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/event/store/amazon/aurora/src/**/*.spec.ts'],
+  testMatch: ['**/modules/event/store/aws/aurora/src/**/*.spec.ts'],
   preset: '../../../../../jest.preset.js',
-  coverageDirectory: '../../../../../coverage/event-amazon-aurora',
+  coverageDirectory: '../../../../../coverage/event-aws-aurora',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'event-store-amazon-aurora',
+  displayName: 'event-store-aws-aurora',
   testEnvironment: 'node'
 };

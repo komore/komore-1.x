@@ -3,6 +3,7 @@ import { KinesisClient } from '@aws-sdk/client-kinesis';
 
 /**
  * Creates an Kinesis client
+ *
  * @param configuration Configuration
  * @returns Kinesis client
  */

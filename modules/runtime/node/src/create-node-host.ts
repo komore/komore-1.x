@@ -7,6 +7,7 @@ import { type NodeHostOptions } from './node-host-options';
 
 /**
  * Creates a Node host
+ *
  * @param hostOptions Node host options
  * @returns Node host
  */

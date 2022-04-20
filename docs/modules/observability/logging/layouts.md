@@ -23,9 +23,9 @@ A pattern layout uses a pattern to format a log event record.
 A pattern layout is created using the [`createPatternLayout`] function:
 
 ```ts
-import { createPatternLayout } from '@komore/observability/logging';
+import { createPatternEncoder } from '@komore/observability/logging';
 
-const patternLayout = createPatternLayout('%level [%date]: %message', {
+const patternLayout = createPatternEncoder('%level [%date]: %message', {
   date: {
     locales: ['it', 'en'],
     options: {

@@ -1,6 +1,7 @@
 # @komore/schematics
 
 TODO: move all schematics to their own module, this one should be helper functions only
+TODO: ban non-type import of 'typescript'
 
 ## Executors
 

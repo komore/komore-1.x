@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/chime/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/chime/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-chime',
+  coverageDirectory: '../../../../coverage/integration-aws-chime',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-chime',
+  displayName: 'integration-aws-chime',
   testEnvironment: 'node'
 };

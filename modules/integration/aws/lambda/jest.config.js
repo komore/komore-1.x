@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/lambda/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/lambda/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-lambda',
+  coverageDirectory: '../../../../coverage/integration-aws-lambda',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-lambda',
+  displayName: 'integration-aws-lambda',
   testEnvironment: 'node'
 };

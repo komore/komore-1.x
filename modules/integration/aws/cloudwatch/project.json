@@ -1,31 +1,31 @@
 {
-  "root": "modules/integration/amazon/cloudwatch",
-  "sourceRoot": "modules/integration/amazon/cloudwatch/src",
+  "root": "modules/integration/aws/cloudwatch",
+  "sourceRoot": "modules/integration/aws/cloudwatch/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["modules/integration/amazon/cloudwatch/src/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-cloudwatch"],
-      "options": {
-        "jestConfig": "modules/integration/amazon/cloudwatch/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "build": {
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/cloudwatch",
-        "tsConfig": "modules/integration/amazon/cloudwatch/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/cloudwatch/package.json",
-        "main": "modules/integration/amazon/cloudwatch/src/index.ts"
+        "outputPath": "dist/integration/aws/cloudwatch",
+        "tsConfig": "modules/integration/aws/cloudwatch/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/cloudwatch/package.json",
+        "main": "modules/integration/aws/cloudwatch/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/aws/cloudwatch/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/integration-aws-cloudwatch"],
+      "options": {
+        "jestConfig": "modules/integration/aws/cloudwatch/jest.config.js",
+        "passWithNoTests": true
       }
     }
   }

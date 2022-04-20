@@ -1,10 +1,10 @@
 import {
   isCallExpression,
   isExpressionStatement,
-  Node,
-  SourceFile,
-  TransformerFactory,
-  visitEachChild
+  visitEachChild,
+  type Node,
+  type SourceFile,
+  type TransformerFactory,
 } from 'typescript';
 import { type FeatureRecorder } from './feature-recorder';
 

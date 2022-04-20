@@ -1,3 +1,3 @@
-# komore Continuous Integration Stack
+# komore/ci
 
 TODO

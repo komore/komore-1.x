@@ -7,3 +7,4 @@ export { cloudStorageBucket } from './storage/cloud-storage-bucket';
 export { cloudStorageBucketObject } from './storage/cloud-storage-bucket-object';
 export { gcloudProvider } from './gcloud-provider';
 export { gcloudStorageBackend } from './gcloud-storage-backend';
+export { getGcloudCliVersion } from './cli/get-gcloud-cli-version';

@@ -1,4 +1,4 @@
-# komore Function Module (Google)
+# @komore/function-gcloud
 
 Support for the Google Cloud Function execution environment.
 
@@ -14,3 +14,8 @@ export const exampleFunction = createFunction({ providers: [GoogleFunctionProvid
   mapTo({ hello: 'world' })
 );
 ```
+
+TODO:
+
+- Cloud Endpoinds OpenAPI is equivalent to API gateway
+- HTTP functions = Lambda Function URL

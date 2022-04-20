@@ -3,6 +3,7 @@ import { type Observable } from '@komore/reactive';
 
 /**
  * Event repository
+ *
  * @template EventTypes Event types
  */
 export interface EventRepository<EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
@@ -23,7 +24,6 @@ export interface EventRepository<EventTypes extends Event<string, Record<string,
     sequenceStart: number | undefined,
     sequenceEnd: number | undefined
   ): Observable<ReadonlyArray<EventTypes[number]>>;
-
   /**
    * Stores events to the repository
    * @param aggregateKey Aggregate key

@@ -1,7 +1,8 @@
 import { PollyClient, type PollyClientConfig } from '@aws-sdk/client-polly';
 
 /**
- * Creates an Polly client
+ * Creates a Polly client
+ *
  * @param configuration Configuration
  * @returns Polly client
  */

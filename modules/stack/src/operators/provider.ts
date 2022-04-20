@@ -4,7 +4,7 @@ import { type Construct } from 'constructs';
 import { type GenericScope } from '../scope/generic-scope';
 import { type ScopedConfiguration } from '../scope/scoped-configuration';
 import { type ScopeWithAddedProvider } from '../scope/scope-with-added-provider';
-import { resolveConfig } from './resolve-config';
+import { resolveScopedConfiguration } from './resolve-scoped-configuration';
 
 /**
  * Adds a provider
@@ -27,14 +27,14 @@ export function provider<
   config: ScopedConfiguration<ScopeType, ConfigType>
 ): OperatorFunction<ScopeType, ScopeWithAddedProvider<ScopeType, ProviderId, ProviderType>> {
   return map(scope => {
-    const providerConfig = resolveConfig(scope, config);
+    const providerConfig = resolveScopedConfiguration(scope, config);
     const provider = new constructor(scope.construct, providerId, providerConfig);
     return {
       ...scope,
       providers: {
         ...scope.providers,
-        [providerId]: provider
-      }
+        [providerId]: provider,
+      },
     } as ScopeWithAddedProvider<ScopeType, ProviderId, ProviderType>;
   });
 }

@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/cloudwatch/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/cloudwatch/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-cloudwatch',
+  coverageDirectory: '../../../../coverage/integration-aws-cloudwatch',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  name: 'integration-amazon-cloudwatch',
+  name: 'integration-aws-cloudwatch',
   testEnvironment: 'node'
 };

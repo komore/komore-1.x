@@ -3,6 +3,7 @@ export { arrayFromRange } from './array-from-range';
 export { arrayFromRepeatedValue } from './array-from-repeated-value';
 export { type ArrayRange } from './array-range';
 export { arrayToElementAt } from './array-to-element-at';
+export { arrayToFlattenedArray } from './array-to-flattened-array';
 export { arrayToMap } from './array-to-map';
 export { arrayToSlice } from './array-to-slice';
 export { arrayToSlices } from './array-to-slices';

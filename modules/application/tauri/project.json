@@ -1,0 +1,33 @@
+{
+  "root": "modules/application/tauri",
+  "sourceRoot": "modules/application/tauri/src",
+  "projectType": "library",
+  "tags": ["scope:application"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/application-tauri",
+        "tsConfig": "modules/application/tauri/tsconfig.lib.json",
+        "packageJson": "modules/application/tauri/package.json",
+        "main": "modules/application/tauri/src/index.ts",
+        "assets": ["modules/application/tauri/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/application/tauri/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/application-tauri"],
+      "options": {
+        "jestConfig": "modules/application/tauri/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

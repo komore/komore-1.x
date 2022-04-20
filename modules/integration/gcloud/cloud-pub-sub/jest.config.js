@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/google/cloud-pub-sub/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/gcloud/cloud-pub-sub/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-google-cloud-pub-sub',
+  coverageDirectory: '../../../../coverage/integration-gcloud-cloudpubsub',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudpubsub',
+  displayName: 'integration-gcloud-cloudpubsub',
   testEnvironment: 'node'
 };

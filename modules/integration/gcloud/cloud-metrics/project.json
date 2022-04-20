@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/google/cloud-metrics",
-  "sourceRoot": "modules/integration/google/cloud-metrics/src",
+  "root": "modules/integration/gcloud/cloud-metrics",
+  "sourceRoot": "modules/integration/gcloud/cloud-metrics/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "tags": ["scope:integration", "trait:provider", "provider:gcloud"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/gcloud/cloud-metrics",
+        "tsConfig": "modules/integration/gcloud/cloud-metrics/tsconfig.lib.json",
+        "packageJson": "modules/integration/gcloud/cloud-metrics/package.json",
+        "main": "modules/integration/gcloud/cloud-metrics/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/google/cloud-metrics/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/gcloud/cloud-metrics/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/google/cloud-metrics/jest.config.js",
+        "jestConfig": "modules/integration/gcloud/cloud-metrics/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-google-cloudmetrics"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/google/cloud-metrics",
-        "tsConfig": "modules/integration/google/cloud-metrics/tsconfig.lib.json",
-        "packageJson": "modules/integration/google/cloud-metrics/package.json",
-        "main": "modules/integration/google/cloud-metrics/src/index.ts",
-        "assets": ["modules/integration/google/cloud-metrics/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-gcloud-cloudmetrics"]
     }
   }
 }

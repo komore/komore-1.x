@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/kinesis/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/kinesis/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-kinesis',
+  coverageDirectory: '../../../../coverage/integration-aws-kinesis',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-kinesis',
+  displayName: 'integration-aws-kinesis',
   testEnvironment: 'node'
 };

@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/ses/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/ses/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-ses',
+  coverageDirectory: '../../../../coverage/integration-aws-ses',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-ses',
+  displayName: 'integration-aws-ses',
   testEnvironment: 'node'
 };

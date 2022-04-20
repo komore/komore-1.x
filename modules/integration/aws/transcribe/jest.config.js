@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/transcribe/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/transcribe/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-transcribe',
+  coverageDirectory: '../../../../coverage/integration-aws-transcribe',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-transcribe',
+  displayName: 'integration-aws-transcribe',
   testEnvironment: 'node'
 };

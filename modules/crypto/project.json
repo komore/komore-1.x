@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:crypto", "trait:base"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/crypto",
+        "tsConfig": "modules/crypto/tsconfig.lib.json",
+        "packageJson": "modules/crypto/package.json",
+        "main": "modules/crypto/src/index.ts",
+        "assets": ["modules/crypto/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/crypto/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/crypto",
-        "tsConfig": "modules/crypto/tsconfig.lib.json",
-        "packageJson": "modules/crypto/package.json",
-        "main": "modules/crypto/src/index.ts",
-        "assets": ["modules/crypto/*.md"]
       }
     }
   }

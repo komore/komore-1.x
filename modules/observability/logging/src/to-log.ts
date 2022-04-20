@@ -1,6 +1,6 @@
-import { type LogEvent } from './definition/log-event';
-import { type LogGroup } from './definition/log-group';
-import { type UntypedLogEventCreator } from './definition/log-event-creator';
+import { type LogEvent } from './event/log-event';
+import { type UntypedLogEventCreator } from './event/log-event-creator';
+import { type LogGroup } from './group/log-group';
 import { recordLogEvent } from './record-log-event';
 
 /**

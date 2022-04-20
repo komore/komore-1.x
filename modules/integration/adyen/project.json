@@ -1,0 +1,34 @@
+{
+  "root": "modules/integration/adyen",
+  "sourceRoot": "modules/integration/adyen/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:adyen"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/adyen",
+        "tsConfig": "modules/integration/adyen/tsconfig.lib.json",
+        "packageJson": "modules/integration/adyen/package.json",
+        "main": "modules/integration/adyen/src/index.ts",
+        "assets": ["modules/integration/adyen/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/adyen/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/adyen/jest.config.js",
+        "passWithNoTests": true,
+        "tsConfig": "modules/integration/adyen/tsconfig.spec.json"
+      },
+      "outputs": ["coverage/integration-adyen"]
+    }
+  }
+}

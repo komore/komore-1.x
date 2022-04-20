@@ -1,33 +1,32 @@
 {
-  "root": "modules/event/store/amazon/aurora",
-  "sourceRoot": "modules/event/store/amazon/aurora/src",
+  "root": "modules/event/store/aws/aurora",
+  "sourceRoot": "modules/event/store/aws/aurora/src",
   "projectType": "library",
-  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"],
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/event/store/aws/aurora",
+        "tsConfig": "modules/event/store/aws/aurora/tsconfig.lib.json",
+        "packageJson": "modules/event/store/aws/aurora/package.json",
+        "main": "modules/event/store/aws/aurora/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/event/store/amazon/aurora/src/**/*.ts"]
+        "lintFilePatterns": ["modules/event/store/aws/aurora/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/event/store/amazon/aurora/jest.config.js",
+        "jestConfig": "modules/event/store/aws/aurora/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/event-store-amazon-aurora"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/event/store/amazon/aurora",
-        "tsConfig": "modules/event/store/amazon/aurora/tsconfig.lib.json",
-        "packageJson": "modules/event/store/amazon/aurora/package.json",
-        "main": "modules/event/store/amazon/aurora/src/index.ts",
-        "assets": ["modules/event/store/amazon/aurora/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/event-store-aws-aurora"]
     }
   }
 }

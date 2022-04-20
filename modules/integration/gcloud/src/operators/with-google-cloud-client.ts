@@ -28,7 +28,7 @@ import { mutateAwsClient } from '../graph/mutate-aws-client';
  * @template AwsClientType AWS client type
  * @template AwsClientIntegrationType AWS client integration type
  */
-export function withAwsClient<
+export function withGoogleCloudClient<
   MessageTypeName extends string,
   MessageMetadataType extends object,
   MessageInputType,

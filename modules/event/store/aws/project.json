@@ -1,33 +1,33 @@
 {
-  "root": "modules/event/store/amazon",
-  "sourceRoot": "modules/event/store/amazon/src",
+  "root": "modules/event/store/aws",
+  "sourceRoot": "modules/event/store/aws/src",
   "projectType": "library",
-  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:amazon"],
+  "tags": ["scope:event", "scope:event-store", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/event/store/aws",
+        "tsConfig": "modules/event/store/aws/tsconfig.lib.json",
+        "packageJson": "modules/event/store/aws/package.json",
+        "main": "modules/event/store/aws/src/index.ts",
+        "assets": ["modules/event/store/aws/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/event/store/amazon/src/**/*.ts"]
+        "lintFilePatterns": ["modules/event/store/aws/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/event/store/amazon/jest.config.js",
+        "jestConfig": "modules/event/store/aws/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/event-store-amazon"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/event/store/amazon",
-        "tsConfig": "modules/event/store/amazon/tsconfig.lib.json",
-        "packageJson": "modules/event/store/amazon/package.json",
-        "main": "modules/event/store/amazon/src/index.ts",
-        "assets": ["modules/event/store/amazon/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/event-store-aws"]
     }
   }
 }

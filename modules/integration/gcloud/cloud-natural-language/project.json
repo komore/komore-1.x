@@ -1,0 +1,32 @@
+{
+  "root": "modules/integration/gcloud/cloud-natural-language",
+  "sourceRoot": "modules/integration/gcloud/cloud-natural-language/src",
+  "projectType": "library",
+  "tags": ["scope:integration", "trait:provider", "provider:gcloud"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/gcloud/cloud-natural-language",
+        "tsConfig": "modules/integration/gcloud/cloud-natural-language/tsconfig.lib.json",
+        "packageJson": "modules/integration/gcloud/cloud-natural-language/package.json",
+        "main": "modules/integration/gcloud/cloud-natural-language/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/integration/gcloud/cloud-natural-language/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "modules/integration/gcloud/cloud-natural-language/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/integration-gcloud-cloudnaturallanguage"]
+    }
+  }
+}

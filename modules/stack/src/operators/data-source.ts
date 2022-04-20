@@ -4,10 +4,11 @@ import { type Construct } from 'constructs';
 import { type GenericScope } from '../scope/generic-scope';
 import { type ScopedConfiguration } from '../scope/scoped-configuration';
 import { type ScopeWithAddedDataSource } from '../scope/scope-with-added-data-source';
-import { resolveConfig } from './resolve-config';
+import { resolveScopedConfiguration } from './resolve-scoped-configuration';
 
 /**
  * Adds a data source
+ *
  * @param dataSourceId Data source identifier
  * @param constructor Data source class constructor
  * @param config Configuration or function that returns the configuration
@@ -32,7 +33,7 @@ export function dataSource<
   config: ScopedConfiguration<ScopeType, ConfigType>
 ): OperatorFunction<ScopeType, ScopeWithAddedDataSource<ScopeType, DataSourceTypeName, DataSourceId, DataSourceType>> {
   return map(scope => {
-    const dataSourceConfig = resolveConfig(scope, config);
+    const dataSourceConfig = resolveScopedConfiguration(scope, config);
     const dataSource = new constructor(scope.construct, dataSourceId, dataSourceConfig);
     const dataSourceTypeName = constructor.tfResourceType;
     return {

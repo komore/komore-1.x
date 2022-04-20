@@ -16,14 +16,14 @@ export function createDynamoDBSnapshotSaver<StateType>(
   dynamoDBClient: DynamoDBClient,
   tableName: string,
   attributeNames: DynamoDBSnapshotAttributeNames
-) {
+): (snapshots: ReadonlyArray<Snapshot<StateType>>) => Observable<void> {
   const fromSnapshot = createFromSnapshotMapper(attributeNames);
 
-  return (snapshots: ReadonlyArray<Snapshot<StateType>>): Observable<void> => {
+  return snapshots => {
     const commandInput: BatchWriteItemCommandInput = {
       RequestItems: {
-        [tableName]: snapshots.map(fromSnapshot)
-      }
+        [tableName]: snapshots.map(fromSnapshot),
+      },
     };
     return batchWriteItem(dynamoDBClient, commandInput).pipe(redactValue());
   };
@@ -40,18 +40,18 @@ function createFromSnapshotMapper<StateType>(attributeNames: DynamoDBSnapshotAtt
     PutRequest: {
       Item: {
         [attributeNames.aggregateKey]: {
-          S: snapshot.aggregateKey
+          S: snapshot.aggregateKey,
         },
         [attributeNames.sequenceNumber]: {
-          N: `${snapshot.sequenceNumber}`
+          N: `${snapshot.sequenceNumber}`,
         },
         [attributeNames.state]: {
-          S: JSON.stringify(snapshot.state)
+          S: JSON.stringify(snapshot.state),
         },
         [attributeNames.timestamp]: {
-          S: snapshot.timestamp.toISOString()
-        }
-      }
-    }
+          S: snapshot.timestamp.toISOString(),
+        },
+      },
+    },
   });
 }

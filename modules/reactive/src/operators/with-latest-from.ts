@@ -1,5 +1,6 @@
 import { withLatestFrom as rxjsWithLatestFrom } from 'rxjs';
 import { type Observable } from '../observable';
+import { type ObservableTuple } from '../observable-tuple';
 import { type OperatorFunction } from '../operator-function';
 
 /**
@@ -11,9 +12,7 @@ import { type OperatorFunction } from '../operator-function';
  * @template T Value type
  * @template O Observable input type
  */
-export function withLatestFrom<T, O>(
-  input: Observable<O>
-): OperatorFunction<T, [T, O]>;
+export function withLatestFrom<T, O>(input: Observable<O>): OperatorFunction<T, [T, O]>;
 
 /**
  * Combines the source observable with other observables
@@ -24,12 +23,12 @@ export function withLatestFrom<T, O>(
  * @template T Value type
  * @template O Additional source types
  */
-/* TODO: export function withLatestFrom<T, O extends ReadonlyArray<unknown>>(
-  ...inputs: [...ObservableInputTuple<O>]
-): OperatorFunction<T, [T, ...O]>;*/
+export function withLatestFrom<T, O extends ReadonlyArray<unknown>>(
+  inputs: readonly [...ObservableTuple<O>]
+): OperatorFunction<T, [T, ...O]>;
 
 export function withLatestFrom<T, O>(
-  input: Observable<O>
+  input: Observable<O> | ReadonlyArray<ObservableTuple<O>>
 ): OperatorFunction<T, [T, O]> {
-  return rxjsWithLatestFrom(input);
+  return rxjsWithLatestFrom(input as Observable<O>);
 }

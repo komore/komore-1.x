@@ -5,6 +5,7 @@ import { iso8601IntervalPartsToInterval } from './iso-8601-interval-parts-to-int
 
 /**
  * Creates a function that builds an interval of a given temporal class from an ISO 8601 interval string
+ *
  * @param temporalClass Temporal class
  * @returns Function that builds an interval of the given temporal class from an ISO 8601 interval string
  */
@@ -13,11 +14,10 @@ export function iso8601IntervalToInterval<T extends IntervalTemporal>(temporalCl
 }): (iso8601Interval: string) => Interval<T> {
   return iso8601Interval => {
     const parts = iso8601Interval.split('/');
-    if (parts.length !== 2) {
+    const [startString, endString] = parts;
+    if (startString === undefined || endString === undefined) {
       throw new InvalidISO8601IntervalError('an ISO 8601 interval must feature a single / character', iso8601Interval);
     }
-
-    const [startString, endString] = parts;
 
     return iso8601IntervalPartsToInterval(temporalClass, iso8601Interval, startString, endString);
   };

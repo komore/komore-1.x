@@ -1,19 +1,19 @@
 {
-  "root": "modules/integration/amazon/ses",
-  "sourceRoot": "modules/integration/amazon/ses/src",
+  "root": "modules/integration/aws/ses",
+  "sourceRoot": "modules/integration/aws/ses/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/ses/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/ses/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-ses"],
+      "outputs": ["coverage/integration-aws-ses"],
       "options": {
-        "jestConfig": "modules/integration/amazon/ses/jest.config.js",
+        "jestConfig": "modules/integration/aws/ses/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -21,10 +21,10 @@
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/ses",
-        "tsConfig": "modules/integration/amazon/ses/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/ses/package.json",
-        "main": "modules/integration/amazon/ses/src/index.ts"
+        "outputPath": "dist/integration/aws/ses",
+        "tsConfig": "modules/integration/aws/ses/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/ses/package.json",
+        "main": "modules/integration/aws/ses/src/index.ts"
       }
     }
   }

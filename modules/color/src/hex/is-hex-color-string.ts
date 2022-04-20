@@ -3,6 +3,7 @@ import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from '../hex/h
 
 /**
  * Tests whether a string is a valid hexadecimal color string
+ *
  * @param string String
  * @returns true if the string is a valid hexadecimal color string
  */

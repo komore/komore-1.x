@@ -8,7 +8,7 @@
       "executor": "@nrwl/node:package",
       "options": {
         "assets": [],
-        "entryFile": "stacks/org/src/main.ts",
+        "main": "stacks/org/src/main.ts",
         "outputPath": "dist/stacks/org",
         "project": "stacks/org/package.json",
         "tsConfig": "stacks/org/tsconfig.stack.json"

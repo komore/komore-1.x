@@ -17,11 +17,13 @@ describe('Is hexadecimal color string', () => {
     ['#ffffff', true],
     ['#fffffg', false],
     ['#17f', true],
-    ['#1gf', false]
+    ['#1gf', false],
   ])('returns whether a string is a valid hexadecimal color string', (string, expectedResult) => {
     given: 'a string';
+
     when: 'testing whether the string is a hexadecimal color string';
     const result = isHexColorString(string);
+
     expect: 'true to have been returned if the string is a valid hexadecimal color string';
     expect(result).toBe(expectedResult);
   });

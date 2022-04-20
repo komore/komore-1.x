@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/redshift/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/redshift/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-redshift',
+  coverageDirectory: '../../../../coverage/integration-aws-redshift',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-redshift',
+  displayName: 'integration-aws-redshift',
   testEnvironment: 'node'
 };

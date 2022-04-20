@@ -1,1 +1,1 @@
-export {} from './operators/with-gcp-client';
+export { withGoogleCloudClient } from './operators/with-google-cloud-client';

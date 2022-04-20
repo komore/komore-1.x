@@ -1,20 +1,20 @@
 {
-  "root": "modules/integration/amazon/sqs",
-  "sourceRoot": "modules/integration/amazon/sqs/src",
+  "root": "modules/integration/aws/sqs",
+  "sourceRoot": "modules/integration/aws/sqs/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/sqs/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/sqs/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/integration-amazon-sqs"],
+      "outputs": ["coverage/integration-aws-sqs"],
       "options": {
-        "jestConfig": "modules/integration/amazon/sqs/jest.config.js",
+        "jestConfig": "modules/integration/aws/sqs/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -22,10 +22,10 @@
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/integration/amazon/sqs",
-        "tsConfig": "modules/integration/amazon/sqs/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/sqs/package.json",
-        "main": "modules/integration/amazon/sqs/src/index.ts"
+        "outputPath": "dist/integration/aws/sqs",
+        "tsConfig": "modules/integration/aws/sqs/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/sqs/package.json",
+        "main": "modules/integration/aws/sqs/src/index.ts"
       }
     }
   }

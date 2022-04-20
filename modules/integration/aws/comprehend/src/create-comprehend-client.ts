@@ -2,6 +2,7 @@ import { ComprehendClient, type ComprehendClientConfig } from '@aws-sdk/client-c
 
 /**
  * Creates a Comprehend client
+ *
  * @param configuration Configuration
  * @returns Comprehend client
  */

@@ -2,6 +2,7 @@ import { XRayClient, type XRayClientConfig } from '@aws-sdk/client-xray';
 
 /**
  * Creates an X-Ray client
+ *
  * @param configuration Configuration
  * @returns X-Ray client
  */

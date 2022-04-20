@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/amazon/polly",
-  "sourceRoot": "modules/integration/amazon/polly/src",
+  "root": "modules/integration/aws/polly",
+  "sourceRoot": "modules/integration/aws/polly/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:amazon"],
+  "tags": ["scope:integration", "trait:provider", "provider:aws"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/aws/polly",
+        "tsConfig": "modules/integration/aws/polly/tsconfig.lib.json",
+        "packageJson": "modules/integration/aws/polly/package.json",
+        "main": "modules/integration/aws/polly/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/amazon/polly/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/aws/polly/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/amazon/polly/jest.config.js",
+        "jestConfig": "modules/integration/aws/polly/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-amazon-polly"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/amazon/polly",
-        "tsConfig": "modules/integration/amazon/polly/tsconfig.lib.json",
-        "packageJson": "modules/integration/amazon/polly/package.json",
-        "main": "modules/integration/amazon/polly/src/index.ts",
-        "assets": ["modules/integration/amazon/polly/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-aws-polly"]
     }
   }
 }

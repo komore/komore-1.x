@@ -1,6 +1,6 @@
 import { type SourceFile, transform } from 'typescript';
 import { createFeatureRecorderTransformerFactory } from './create-feature-recorder-transformer-factory';
-import { Feature } from './feature';
+import { type Feature } from './feature';
 import { type Specification } from './specification';
 
 /**

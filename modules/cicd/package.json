@@ -1,3 +1,6 @@
 {
-  "name": "@komore/cicd"
+  "name": "@komore/cicd",
+  "komore": {
+    "generators": "./schematics/generators.json"
+  }
 }

@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/aurora/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/aurora/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-aurora',
+  coverageDirectory: '../../../../coverage/integration-aws-aurora',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-aurora',
+  displayName: 'integration-aws-aurora',
   testEnvironment: 'node'
 };

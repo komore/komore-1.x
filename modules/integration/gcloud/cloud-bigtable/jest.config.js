@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/google/cloud-bigtable/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/gcloud/cloud-bigtable/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-google-cloudbigtable',
+  coverageDirectory: '../../../../coverage/integration-gcloud-cloudbigtable',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudbigtable',
+  displayName: 'integration-gcloud-cloudbigtable',
   testEnvironment: 'node'
 };

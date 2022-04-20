@@ -1,13 +1,13 @@
 import {
   commands,
-  ConfigurationChangeEvent,
-  ExtensionContext,
-  Uri,
   ViewColumn,
-  WebviewPanel,
   window,
-  workspace,/*,
-  WorkspaceConfiguration*/
+  workspace /*,
+  WorkspaceConfiguration*/,
+  type ConfigurationChangeEvent,
+  type ExtensionContext,
+  type Uri,
+  type WebviewPanel,
 } from 'vscode';
 import { HelpTreeProvider, StackTreeProvider } from './views';
 import { FileLocator } from './utilities';
@@ -40,7 +40,7 @@ class KomoreExtension {
    * @param extensionContext Extension context
    */
   static async activateExtension(extensionContext: ExtensionContext): Promise<void> {
-    const instance = KomoreExtension.instance = new KomoreExtension(extensionContext);
+    const instance = (KomoreExtension.instance = new KomoreExtension(extensionContext));
     await instance.activate();
   }
 
@@ -76,7 +76,7 @@ class KomoreExtension {
       ViewColumn.Active,
       {
         retainContextWhenHidden: true,
-        enableScripts: true
+        enableScripts: true,
       }
     );
     webviewPanel.onDidDispose(() => {
@@ -99,11 +99,11 @@ class KomoreExtension {
 
     window.createTreeView('komore-help-tree', {
       treeDataProvider: this.helpTreeProvider,
-      showCollapseAll: true
+      showCollapseAll: true,
     });
     window.createTreeView('komore-stack-tree', {
       treeDataProvider: this.stackTreeProvider,
-      showCollapseAll: true
+      showCollapseAll: true,
     });
   }
 
@@ -207,7 +207,7 @@ class KomoreExtension {
  */
 export const activate = (context: ExtensionContext) => {
   KomoreExtension.activateExtension(context);
-}
+};
 
 /**
  * Deactivates the extension

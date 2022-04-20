@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/google/cloud-metrics/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/gcloud/cloud-metrics/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-google-cloudmetrics',
+  coverageDirectory: '../../../../coverage/integration-gcloud-cloudmetrics',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudmetrics',
+  displayName: 'integration-gcloud-cloudmetrics',
   testEnvironment: 'node'
 };

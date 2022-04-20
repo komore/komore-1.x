@@ -1,33 +1,33 @@
 {
-  "root": "modules/integration/google",
-  "sourceRoot": "modules/integration/google/src",
+  "root": "modules/integration/gcloud",
+  "sourceRoot": "modules/integration/gcloud/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "tags": ["scope:integration", "trait:provider", "provider:gcloud"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/gcloud",
+        "tsConfig": "modules/integration/gcloud/tsconfig.lib.json",
+        "packageJson": "modules/integration/gcloud/package.json",
+        "main": "modules/integration/gcloud/src/index.ts",
+        "assets": ["modules/integration/gcloud/*.md"]
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/google/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/gcloud/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/google/jest.config.js",
+        "jestConfig": "modules/integration/gcloud/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-google"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/google",
-        "tsConfig": "modules/integration/google/tsconfig.lib.json",
-        "packageJson": "modules/integration/google/package.json",
-        "main": "modules/integration/google/src/index.ts",
-        "assets": ["modules/integration/google/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-gcloud"]
     }
   }
 }

@@ -16,9 +16,9 @@ TODO: "getAll" type of operator to expand/reduce/map paginated results with a cu
 
 Create an observable that maps a command to an HTTP request.
 
-```typescript
+```ts
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { createRequest } from '@komore/integration-amazon';
+import { createRequest } from '@komore/integration-aws';
 
 const s3Client = new S3Client({});
 const command = new GetObjectCommand({ /* parameters */ });
@@ -29,11 +29,11 @@ const request$ = createRequest(command, s3Client);
 
 Create an observable that sends a command.
 
-```typescript
+```ts
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { sendCommand } from '@komore/integration-amazon';
+import { sendAwsCommand } from '@komore/integration-aws';
 
 const s3Client = new S3Client({});
 const command = new GetObjectCommand({ /* parameters */ });
-const result$ = sendCommand(s3Client, command);
+const result$ = sendAwsCommand(s3Client, command);
 ```

@@ -1,0 +1,33 @@
+{
+  "root": "modules/observability/aws",
+  "sourceRoot": "modules/observability/aws/src",
+  "projectType": "library",
+  "tags": ["scope:observability", "trait:provider", "provider:aws"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/observability-aws",
+        "tsConfig": "modules/observability/aws/tsconfig.lib.json",
+        "packageJson": "modules/observability/aws/package.json",
+        "main": "modules/observability/aws/src/index.ts",
+        "assets": ["modules/observability/aws/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/observability/aws/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/observability-aws"],
+      "options": {
+        "jestConfig": "modules/observability/aws/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

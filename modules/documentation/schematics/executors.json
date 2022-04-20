@@ -1,0 +1,18 @@
+{
+  "build": {
+    "description": "Builds a project's documentation",
+    "main": "./src/executor/build/build-documentation-executor#buildDocumentationExecutor"
+  },
+  "build-workspace": {
+    "description": "Builds a workspace's documentation",
+    "main": "./src/executor/build-workspace/build-workspace-documentation-executor#buildWorkspaceDocumentationExecutor"
+  },
+  "serve": {
+    "description": "Serves a project's documentation",
+    "main": "./src/executor/serve/serve-documentation-executor#serveDocumentationExecutor"
+  },
+  "serve-workspace": {
+    "description": "Serves a project's documentation",
+    "main": "./src/executor/serve-workspace/serve-workspace-documentation-executor#serveWorkspaceDocumentationExecutor"
+  }
+}

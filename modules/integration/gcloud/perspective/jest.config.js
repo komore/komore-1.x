@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/google/perspective/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/gcloud/perspective/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-google-perspective',
+  coverageDirectory: '../../../../coverage/integration-gcloud-perspective',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-perspective',
+  displayName: 'integration-gcloud-perspective',
   testEnvironment: 'node'
 };

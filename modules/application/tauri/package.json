@@ -1,0 +1,7 @@
+{
+  "name": "@komore/application-tauri",
+  "komore": {
+    "executors": "./schematics/executors.json",
+    "generators": "./schematics/generators.json"
+  }
+}

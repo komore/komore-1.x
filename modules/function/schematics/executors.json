@@ -1,0 +1,10 @@
+{
+  "build": {
+    "description": "Builds a function",
+    "main": "./src/executor/build/build-function-executor#buildFunctionExecutor"
+  },
+  "serve": {
+    "description": "Serves a function",
+    "main": "./src/executor/serve/serve-function-executor#serveFunctionExecutor"
+  }
+}

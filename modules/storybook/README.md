@@ -1,5 +1,7 @@
 # @komore/storybook
 
+TODO: storybook alternative
+
 Storybook support for komore-based elements:
 
 - Attributes auto-discovery

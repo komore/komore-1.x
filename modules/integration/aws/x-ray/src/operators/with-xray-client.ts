@@ -1,5 +1,5 @@
 import { type XRayClient } from '@aws-sdk/client-xray';
-import { withAwsClient } from '@komore/integration-amazon';
+import { withAwsClient } from '@komore/integration-aws';
 import { createXRayClient } from '../create-xray-client';
 
 /**
@@ -7,5 +7,4 @@ import { createXRayClient } from '../create-xray-client';
  * @param xRayClient X-Ray client
  * @returns Operator function that turns a message into a message with a X-Ray client
  */
-export const withXRayClient = (xRayClient?: XRayClient) =>
-  withAwsClient('xray', xRayClient ?? createXRayClient());
+export const withXRayClient = (xRayClient?: XRayClient) => withAwsClient('xray', xRayClient ?? createXRayClient());

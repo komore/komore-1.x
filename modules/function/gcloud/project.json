@@ -1,31 +1,31 @@
 {
-  "root": "modules/function/google",
-  "sourceRoot": "modules/function/google/src",
+  "root": "modules/function/gcloud",
+  "sourceRoot": "modules/function/gcloud/src",
   "projectType": "library",
-  "tags": ["scope:function", "trait:provider", "provider:google"],
+  "tags": ["scope:function", "trait:provider", "provider:gcloud"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/function/google/src/**/*.ts"]
+        "lintFilePatterns": ["modules/function/gcloud/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/function/google/jest.config.js",
+        "jestConfig": "modules/function/gcloud/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/function-google"]
+      "outputs": ["coverage/function-gcloud"]
     },
     "build": {
       "executor": "@nrwl/node:package",
       "options": {
-        "outputPath": "dist/function/google",
-        "tsConfig": "modules/function/google/tsconfig.lib.json",
-        "packageJson": "modules/function/google/package.json",
-        "main": "modules/function/google/src/index.ts",
-        "assets": ["modules/function/google/*.md"]
+        "outputPath": "dist/function/gcloud",
+        "tsConfig": "modules/function/gcloud/tsconfig.lib.json",
+        "packageJson": "modules/function/gcloud/package.json",
+        "main": "modules/function/gcloud/src/index.ts",
+        "assets": ["modules/function/gcloud/*.md"]
       },
       "outputs": ["{options.outputPath}"]
     }

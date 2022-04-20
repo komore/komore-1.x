@@ -1,11 +1,14 @@
-export { type CliArgument } from './command/argument/cli-argument';
-export { type CliFlag } from './command/flag/cli-flag';
+export { type CliApplication } from './cli-application';
+export { type CliArgumentDefinition } from './command/argument/cli-argument-definition';
+export { type CliFlagDefinition } from './command/flag/cli-flag-definition';
 export { type CliCommand } from './command/cli-command';
+export { type CliCommandContext } from './command/cli-command-context';
 export { type CliCommandOptions } from './command/cli-command-options';
 export { type CliOptions } from './cli-options';
 export { type CliParameterDefault } from './command/parameter/cli-parameter-default';
 export { type CliParameterTypeName } from './command/parameter/cli-parameter-type-name';
+export { createCliApplication } from './create-cli-application';
 export { createCliArgument } from './command/argument/create-cli-argument';
 export { createCliCommand } from './command/create-cli-command';
 export { createCliFlag } from './command/flag/create-cli-flag';
-export { executeCli } from './execute-cli';
+export { executeCliApplication } from './execute-cli-application';

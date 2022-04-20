@@ -23,8 +23,8 @@
 }*/
 
 
-
-
+// TODO: move to @komore/stacks/schematics
+/*
 import { deployCommand } from '@komore/cli/deploy';
 import { createCommand } from '@komore/runtime/cli';
 
@@ -34,3 +34,4 @@ export default createCommand('deploy', deployCommand, {
   flags: {
   }
 });
+*/

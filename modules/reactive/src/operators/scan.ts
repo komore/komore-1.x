@@ -32,3 +32,5 @@ export function scan<T, A>(
 ): OperatorFunction<T, A | T> {
   return rxjsScan(accumulator, seed as A);
 }
+
+// TODO: overload so that scan((acc, curr), []) is not initialized with never[]

@@ -1,5 +1,5 @@
-import { SNSClient } from '@aws-sdk/client-sns';
-import { withAwsClient } from '@komore/integration-amazon';
+import { type SNSClient } from '@aws-sdk/client-sns';
+import { withAwsClient } from '@komore/integration-aws';
 import { createSNSClient } from '../create-sns-client';
 
 /**

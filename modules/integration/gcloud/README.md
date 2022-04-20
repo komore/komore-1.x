@@ -1,3 +1,3 @@
-# komore Integration - GCP
+# @komore/integration-gcloud
 
 TODO.

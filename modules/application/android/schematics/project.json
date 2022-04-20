@@ -1,0 +1,32 @@
+{
+  "root": "modules/application/android/schematics",
+  "sourceRoot": "modules/application/android/schematics/src",
+  "projectType": "library",
+  "tags": ["scope:application"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/application/android/schematics",
+        "tsConfig": "modules/application/android/schematics/tsconfig.lib.json",
+        "packageJson": "modules/application/android/schematics/package.json",
+        "main": "modules/application/android/schematics/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/application/android/schematics/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/application-android-schematics"],
+      "options": {
+        "jestConfig": "modules/application/android/schematics/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

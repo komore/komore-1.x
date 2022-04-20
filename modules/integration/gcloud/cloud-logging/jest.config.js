@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/google/cloud-logging/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/gcloud/cloud-logging/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-google-cloud-logging',
+  coverageDirectory: '../../../../coverage/integration-gcloud-cloud-logging',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-google-cloudlogging',
+  displayName: 'integration-gcloud-cloudlogging',
   testEnvironment: 'node'
 };

@@ -1,0 +1,32 @@
+{
+  "root": "modules/bot/mdn",
+  "sourceRoot": "modules/bot/mdn/src",
+  "projectType": "application",
+  "tags": ["scope:bot", "trait:base"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/bot/mdn",
+        "tsConfig": "modules/bot/mdn/tsconfig.app.json",
+        "packageJson": "modules/bot/mdn/package.json",
+        "main": "modules/bot/mdn/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/bot/mdn/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/bot-mdn"],
+      "options": {
+        "jestConfig": "modules/bot/mdn/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,33 +1,32 @@
 {
-  "root": "modules/integration/google/cloud-bigtable",
-  "sourceRoot": "modules/integration/google/cloud-bigtable/src",
+  "root": "modules/integration/gcloud/cloud-bigtable",
+  "sourceRoot": "modules/integration/gcloud/cloud-bigtable/src",
   "projectType": "library",
-  "tags": ["scope:integration", "trait:provider", "provider:google"],
+  "tags": ["scope:integration", "trait:provider", "provider:gcloud"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "options": {
+        "outputPath": "dist/integration/gcloud/cloud-bigtable",
+        "tsConfig": "modules/integration/gcloud/cloud-bigtable/tsconfig.lib.json",
+        "packageJson": "modules/integration/gcloud/cloud-bigtable/package.json",
+        "main": "modules/integration/gcloud/cloud-bigtable/src/index.ts"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["modules/integration/google/cloud-bigtable/src/**/*.ts"]
+        "lintFilePatterns": ["modules/integration/gcloud/cloud-bigtable/src/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "modules/integration/google/cloud-bigtable/jest.config.js",
+        "jestConfig": "modules/integration/gcloud/cloud-bigtable/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": ["coverage/integration-google-cloudbigtable"]
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "options": {
-        "outputPath": "dist/integration/google/cloud-bigtable",
-        "tsConfig": "modules/integration/google/cloud-bigtable/tsconfig.lib.json",
-        "packageJson": "modules/integration/google/cloud-bigtable/package.json",
-        "main": "modules/integration/google/cloud-bigtable/src/index.ts",
-        "assets": ["modules/integration/google/cloud-bigtable/*.md"]
-      },
-      "outputs": ["{options.outputPath}"]
+      "outputs": ["coverage/integration-gcloud-cloudbigtable"]
     }
   }
 }

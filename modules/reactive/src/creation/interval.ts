@@ -1,14 +1,14 @@
 import { Temporal } from '@js-temporal/polyfill';
 import {
+  durationToMilliseconds,
   intervalToRepeatingInterval,
-  type TemporalWithDate,
-  type TemporalWithTime,
   type Interval,
   type IntervalTemporal,
   type RepeatingInterval,
-  durationToMilliseconds,
+  type TemporalWithDate,
+  type TemporalWithTime,
 } from '@komore/temporal';
-import { toJavaScriptDate } from '@komore/temporal/compatibility';
+import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 import { interval as rxjsInterval, timer as rxjsTimer } from 'rxjs';
 import { type Observable } from '../observable';
 import { type SchedulerLike } from '../scheduler/scheduler-like';
@@ -69,7 +69,7 @@ export function interval(
         : start instanceof Temporal.PlainTime
         ? start.toPlainDateTime(Temporal.Now.plainDateISO())
         : start.toPlainDateTime(Temporal.Now.plainTimeISO());
-    const due = toJavaScriptDate(startDateTime);
+    const due = temporalToJavaScriptDate(startDateTime);
     const duration = durationToMilliseconds(startDateTime)(repeatingInterval.duration);
     if (duration < 0) {
       throw new Error('Negative duration not implemented yet');

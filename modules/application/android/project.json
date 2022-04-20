@@ -4,6 +4,17 @@
   "projectType": "library",
   "tags": ["scope:application"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/application/android",
+        "tsConfig": "modules/application/android/tsconfig.lib.json",
+        "packageJson": "modules/application/android/package.json",
+        "main": "modules/application/android/src/index.ts",
+        "assets": ["modules/application/android/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,17 +27,6 @@
       "options": {
         "jestConfig": "modules/application/android/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/application/android",
-        "tsConfig": "modules/application/android/tsconfig.lib.json",
-        "packageJson": "modules/application/android/package.json",
-        "main": "modules/application/android/src/index.ts",
-        "assets": ["modules/application/android/*.md"]
       }
     }
   }

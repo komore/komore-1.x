@@ -23,6 +23,9 @@ export function datesToLatestDateIndex<T extends TemporalWithDate>(
   }
 
   const prev = temporals[prevIndex];
+  if (prev === undefined) {
+    return index;
+  }
 
   return prev.year >= curr.year && prev.month >= curr.month && prev.day >= curr.day ? prevIndex : index;
 }

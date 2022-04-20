@@ -1,5 +1,5 @@
-import { MetricServiceClient } from '@google-cloud/monitoring';
-import { withGoogleCloudClient } from '@komore/integration-google';
+import { type MetricServiceClient } from '@google-cloud/monitoring';
+import { withGoogleCloudClient } from '@komore/integration-gcloud';
 import { createCloudMetricsClient } from '../create-cloud-metrics-client';
 
 /**

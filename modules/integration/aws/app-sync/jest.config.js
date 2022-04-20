@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/appsync/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/appsync/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-appsync',
+  coverageDirectory: '../../../../coverage/integration-aws-appsync',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-appsync',
+  displayName: 'integration-aws-appsync',
   testEnvironment: 'node'
 };

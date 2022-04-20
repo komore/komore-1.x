@@ -2,6 +2,7 @@ import { EventBridgeClient, type EventBridgeClientConfig } from '@aws-sdk/client
 
 /**
  * Creates an EventBridge client
+ *
  * @param configuration Configuration
  * @returs EventBridge client
  */

@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/translate/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/translate/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-translate',
+  coverageDirectory: '../../../../coverage/integration-aws-translate',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-translate',
+  displayName: 'integration-aws-translate',
   testEnvironment: 'node'
 };

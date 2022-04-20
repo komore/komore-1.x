@@ -1,0 +1,32 @@
+{
+  "root": "modules/schematics/worker",
+  "sourceRoot": "modules/schematics/worker/src",
+  "projectType": "library",
+  "tags": ["scope:schematics", "trait:schematics"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/schematics/worker",
+        "tsConfig": "modules/schematics/worker/tsconfig.lib.json",
+        "packageJson": "modules/schematics/worker/package.json",
+        "main": "modules/schematics/worker/src/index.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/schematics/worker/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/schematics-worker"],
+      "options": {
+        "jestConfig": "modules/schematics/worker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

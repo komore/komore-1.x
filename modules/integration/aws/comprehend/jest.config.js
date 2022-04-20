@@ -1,8 +1,8 @@
 module.exports = {
-  testMatch: ['**/modules/integration/amazon/comprehend/src/**/*.spec.ts'],
+  testMatch: ['**/modules/integration/aws/comprehend/src/**/*.spec.ts'],
   preset: '../../../../jest.preset.js',
-  coverageDirectory: '../../../../coverage/integration-amazon-comprehend',
+  coverageDirectory: '../../../../coverage/integration-aws-comprehend',
   globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
-  displayName: 'integration-amazon-comprehend',
+  displayName: 'integration-aws-comprehend',
   testEnvironment: 'node'
 };

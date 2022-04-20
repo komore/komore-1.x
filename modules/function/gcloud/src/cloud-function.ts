@@ -2,6 +2,7 @@
  * Variables available on Cloud Function host environments
  */
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface ProcessEnv {
       FUNCTION_TARGET: string;
@@ -16,4 +17,4 @@ declare global {
 /**
  * Cloud Function provider name
  */
-export const cloudFunctionProviderName = 'gcp:function';
+export const cloudFunctionProviderName = 'gcloud:function';

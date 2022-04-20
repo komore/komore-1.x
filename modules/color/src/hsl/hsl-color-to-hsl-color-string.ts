@@ -1,12 +1,13 @@
-import { type HSL } from './hsl';
-import { type HSLString } from './hsl-string';
+import { type HSLColor } from './hsl-color';
+import { type HSLColorString } from './hsl-color-string';
 
 /**
- * Returns an HSL string, given an HSL color
- * @param color Color
- * @returns HSL string
+ * Returns an HSL color string, given an HSL color
+ *
+ * @param color HSL color
+ * @returns HSL color string
  */
-export function toHSLString(color: HSL): HSLString {
+export function hslColorToHSLColorString(color: HSLColor): HSLColorString {
   const { hue, saturation, lightness } = color;
   const h = hue * 360;
   const s = saturation * 100;
