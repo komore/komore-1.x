@@ -1,80 +1,23 @@
-import { entriesToObject, jsonToObject, objectToEntries } from '@komore/functional';
-import { map, throwError, type Observable } from '@komore/reactive';
-import { readFileContent } from '@komore/runtime/node';
-import { type ReadonlyRecord } from '@komore/typescript';
-import { join } from 'path';
-import { type ProjectTaskConfiguration } from '../task/project-task-configuration';
-import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
-import { type ProjectConfiguration } from './project-configuration';
+import { isDefined } from '@komore/functional';
+import { type Observable } from '@komore/reactive';
+import { assert } from '@komore/runtime';
+import { WorkspaceContext } from '../context/workspace-context';
+import { ProjectConfiguration } from './project-configuration';
+import { ProjectName } from './project-name';
 
 /**
- * Creates a function that returns a project configuration from a workspace configuration, given a project name
+ * Creates a function that returns a project configuration, given a project name
  *
- * @param workspaceConfiguration Workspace configuration
- * @param relativeTo Relative path from which to load project configurations
- * @returns Function that returns a project configuration from the workspace configuration, given a project name
+ * @param workspaceContext Workspace context
+ * @returns Function that returns a project configuration, given a project name
  */
 export function projectNameToProjectConfiguration(
-  workspaceConfiguration: WorkspaceConfiguration,
-  relativeTo: string
-): (projectName: string) => Observable<ProjectConfiguration> {
+  workspaceContext: WorkspaceContext
+): (projectName: ProjectName) => Observable<ProjectConfiguration> {
+  const byName = workspaceContext.project.byName;
   return projectName => {
-    const projectConfiguration = workspaceConfiguration.projects[projectName];
-    if (projectConfiguration === undefined) {
-      return throwError(() => new Error(`project ${projectName} not found in the workspace`));
-    }
-
-    const projectConfigurationPath = join(relativeTo, projectConfiguration, `${projectName}.project.json`); // TODO: project.json
-    return readFileContent(projectConfigurationPath, 'utf-8').pipe(
-      map(jsonToObject<Partial<ProjectConfigurationWithSimpleTasks>>()),
-      map(projectConfigurationWithSimpleTasksToProjectConfiguration)
-    );
+    const projectConfiguration$ = byName.get(projectName);
+    assert(isDefined(projectConfiguration$));
+    return projectConfiguration$;
   };
 }
-
-function projectConfigurationWithSimpleTasksToProjectConfiguration(
-  projectConfiguration: Partial<ProjectConfigurationWithSimpleTasks>
-): ProjectConfiguration {
-  const { domain, type, tags = [], tasks = {} } = projectConfiguration;
-  if (domain === undefined) {
-    throw new Error('TODO: no domain specified');
-  }
-
-  if (type === undefined) {
-    throw new Error('TODO: no project type specified');
-  }
-
-  return {
-    ...projectConfiguration,
-    domain,
-    tags,
-    tasks: normalizeProjectTaskConfigurations(tasks),
-    type,
-  };
-}
-
-function normalizeProjectTaskConfigurations(
-  taskConfigurations: ReadonlyRecord<string, ProjectTaskConfiguration | string>
-): ReadonlyRecord<string, ProjectTaskConfiguration> {
-  const entries = objectToEntries(taskConfigurations);
-  const normalizedEntries = entries.map(toNormalizedProjectTaskConfigurationEntry);
-  return entriesToObject(normalizedEntries);
-}
-
-function toNormalizedProjectTaskConfigurationEntry([name, configuration]: readonly [
-  name: string,
-  configuration: ProjectTaskConfiguration | string
-]): readonly [name: string, configuration: ProjectTaskConfiguration] {
-  const normalizedConfiguration =
-    typeof configuration === 'string'
-      ? {
-          executor: configuration,
-        }
-      : configuration;
-
-  return [name, normalizedConfiguration];
-}
-
-type ProjectConfigurationWithSimpleTasks = Omit<ProjectConfiguration, 'tasks'> & {
-  readonly tasks?: ReadonlyRecord<string, ProjectTaskConfiguration | string>;
-};

@@ -5,6 +5,7 @@
     "node_modules": true
   },
   "search.exclude": {
+    "build": true,
     "dist": true,
     "node_modules": true
   },

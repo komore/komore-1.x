@@ -1,0 +1,18 @@
+[package]
+name = "<%= projectName %>"
+description = "<%= projectDescription %>"
+version = "0.1.0"
+edition = "<%= edition %>"
+repository = "<%= repository %>"
+
+[dependencies]
+<% if (proceduralMacros) { %>
+syn = { version = "1.0.86" }
+<% } %>
+
+<% if (proceduralMacros) { %>
+[lib]
+proc-macro = true
+<% } %>
+
+[package.metadata.nx-rust]

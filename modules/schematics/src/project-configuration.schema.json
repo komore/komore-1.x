@@ -1,0 +1,6 @@
+{
+  "$id": "https://komore.dev/schematics/project-configuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project configuration",
+  "type": "object"
+}

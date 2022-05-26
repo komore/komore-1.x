@@ -3,12 +3,29 @@
  */
 export class ConstraintViolationError<Constraints extends Record<string, unknown>> extends Error {
   /**
+   * Constraints
+   */
+  readonly constraints?: Constraints;
+  /**
+   * Message identifier
+   */
+  readonly messageId: string;
+  /**
+   * Error name
+   */
+  readonly name = 'ConstraintViolationError';
+
+  /**
    * Class constructor
-   * @param message Message
+   *
+   * @param messageId Message identifier
    * @param constraints Constraints
    */
-  constructor(messageId: string, readonly constraints?: Constraints) {
+  constructor(messageId: string, constraints?: Constraints) {
     super(messageId);
-    this.name = 'ContraintViolationError';
+    this.messageId = messageId;
+    if (constraints !== undefined) {
+      this.constraints = constraints;
+    }
   }
 }

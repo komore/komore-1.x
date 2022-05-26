@@ -1,16 +1,13 @@
 import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDateTime } from '@komore/temporal';
-import { buildRelativeToDuration } from './build-relative-to-duration';
+import { buildDurationTotalOfRelativeToReference } from './build-duration-total-of-relative-to-reference';
 
 /**
  * Creates a functon that returns a duration in days
+ *
  * @param relativeTo Reference temporal
  * @returns Function that returns a duration in days
  */
 export function durationToDays(relativeTo?: TemporalWithDateTime): (duration: Temporal.Duration) => number {
-  return duration =>
-    duration.total({
-      unit: 'day',
-      relativeTo: buildRelativeToDuration(duration, relativeTo),
-    });
+  return duration => duration.total(buildDurationTotalOfRelativeToReference(duration, 'day', relativeTo));
 }

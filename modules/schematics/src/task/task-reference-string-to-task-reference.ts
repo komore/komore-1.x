@@ -1,17 +1,20 @@
+import { type ProjectName } from '../project/project-name';
+import { InvalidTaskConfigurationError } from './invalid-task-configuration-error';
+import { type TaskName } from './task-name';
 import { type TaskReference } from './task-reference';
 import { type TaskReferenceString } from './task-reference-string';
 
 /**
  * Returns a task reference, given a task reference string
  *
- * @param taskReferenceString
- * @returns 
+ * @param taskReferenceString Task reference string
+ * @returns Task reference
  */
-export function taskNameToTaskReference(taskReferenceString: TaskReferenceString): TaskReference {
+export function taskReferenceStringToTaskReference(taskReferenceString: TaskReferenceString): TaskReference {
   const split = taskReferenceString.split(':');
   if (split.length !== 2) {
-    throw new Error(`invalid workspace task ${taskReferenceString}`);
+    throw new InvalidTaskConfigurationError(`invalid task reference string "${taskReferenceString}"`);
   }
-  const [projectName, taskName] = split as unknown as readonly [string, string];
+  const [projectName, taskName] = split as unknown as readonly [ProjectName, TaskName];
   return { projectName, taskName };
 }

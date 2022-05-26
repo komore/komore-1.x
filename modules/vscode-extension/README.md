@@ -55,3 +55,24 @@ it.each([
   expect(id1 + id2 + id3).toBe(result);
 });
 ```
+
+## Code lens
+
+[programmatic language features]
+
+- .spec.ts support
+  - createDiagnosticCollection: underline erroneus lines when a test fails
+- .element.html support
+- compute function complexity
+
+- registerCodeActionsProvider: offer to create resources when using them before creation?
+
+- languages.registerDefinitionProvider(): allows jump to definition
+- languages.registerCompletionItemProvider(): allows offering auto-completion suggestions
+- languages.registerHoverProvider(): allows adding hovering info (e.g. for custom elements in HTML)
+
+[programmatic language features]: https://code.visualstudio.com/api/language-extensions/programmatic-language-features
+
+## Others
+
+- integrate the eslint extension in order to avoid having eslintrc files everywhere

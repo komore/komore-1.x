@@ -1,11 +1,11 @@
 import { not } from '@komore/functional';
-import { type MonoTypeOperatorFunction } from '@komore/reactive';
-import { isBlank } from '@komore/string';
+import { isBlankString } from '@komore/string';
+import { type ConstraintValidator } from '../constraint-validator';
 import { createConstraintValidator } from '../create-constraint-validator';
 
 /**
- * Constraint validation operator that tests whether the value is a non-blank string
+ * Constraint validation operator that tests whether a string value is a non-blank string
  */
-export function notBlank(): MonoTypeOperatorFunction<string> {
-  return createConstraintValidator(not(isBlank), 'string.blank.not');
+export function notBlank(): ConstraintValidator<string> {
+  return createConstraintValidator(not(isBlankString), 'string.blank.not');
 }

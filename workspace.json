@@ -221,7 +221,6 @@
     "runtime-node": "modules/runtime/node",
     "runtime-testing": "modules/runtime/testing",
     "schematics": "modules/schematics",
-    "schematics-domain": "modules/schematics/domain",
     "stack": "modules/stack",
     "stack-alicloud": "modules/stack/alicloud",
     "stack-archive": "modules/stack/archive",

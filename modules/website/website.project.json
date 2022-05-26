@@ -1,0 +1,11 @@
+{
+  "domain": "website",
+  "type": "application",
+  "tags": ["trait:base"],
+  "tasks": {
+    "build": "@komore/application:build",
+    "lint": "@komore/linting:lint",
+    "serve": "@komore/application:serve",
+    "test": "@komore/testing:test"
+  }
+}

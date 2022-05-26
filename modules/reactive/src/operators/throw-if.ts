@@ -1,6 +1,6 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { map } from './map';
-import { ThrowIfOptions } from './throw-if-options';
+import { type ThrowIfOptions } from './throw-if-options';
 
 /**
  * Throws an error if a condition is met

@@ -1,8 +1,10 @@
 export { createEvent } from './create-event';
-export { createReducer } from './create-reducer';
+export { createEventDomain } from './create-event-domain';
+export { createEventReducer } from './create-event-reducer';
 export { Event } from './event';
+export { type EventDomain } from './event-domain';
 export { EventMetadata, EventWithMetadata } from './event-metadata';
+export { eventProperties } from './event-properties';
 export { type EventReducer } from './event-reducer';
 export { isEventType } from './is-event-type';
-export { on } from './event-reducer-on';
-export { props } from './props';
+export { onEvent } from './on-event';

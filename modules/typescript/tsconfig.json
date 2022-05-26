@@ -2,10 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./typescript.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./typescript.tsconfig.specifications.json"
     }
   ]
 }

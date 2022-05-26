@@ -1,12 +1,11 @@
 {
   "name": "@komore/schematics",
-  "description": "komore schematics for Nx",
+  "description": "Schematics for komore-based repositories",
   "keywords": [
-    "komore",
-    "nx",
-    "nx-plugin"
+    "schematics"
   ],
-  "main": "src/index.js",
-  "generators": "./generators.json",
-  "executors": "./executors.json"
+  "komore": {
+    "executors": "./schematics-executors.json",
+    "generators": "./schematics-generators.json"
+  }
 }

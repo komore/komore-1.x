@@ -1,0 +1,10 @@
+{
+  "code-coverage": {
+    "description": "Enables code coverage generation and reporting",
+    "main": "./src/generator/code-coverage/code-coverage-generator#codeCoverageGenerator"
+  },
+  "feature": {
+    "description": "Creates a new feature specification",
+    "main": "./src/generator/feature/feature-generator#featureGenrator"
+  }
+}

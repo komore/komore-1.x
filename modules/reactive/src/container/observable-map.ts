@@ -1,0 +1,34 @@
+import { type Observable } from '../observable';
+
+/**
+ * Observable map
+ *
+ * @template K Key type
+ * @template V Value type
+ */
+export class ObservableMap<K, V> extends Map<K, Observable<V>> {
+  private readonly resolver: (key: K) => Observable<V>;
+
+  /**
+   * Class constructor
+   *
+   * @param resolver Resolver
+   * @param entries Entries
+   */
+  constructor(resolver: (key: K) => Observable<V>, entries?: readonly (readonly [K, Observable<V>])[] | null) {
+    // TODO: TS 4.7: entries?: ConstructorParameters<typeof Map<K, V>>[0]
+    super(entries);
+    this.resolver = resolver;
+  }
+
+  get(key: K): Observable<V> {
+    const value = super.get(key);
+    if (value !== undefined) {
+      return value;
+    }
+
+    const obs = this.resolver(key);
+    this.set(key, obs);
+    return obs;
+  }
+}

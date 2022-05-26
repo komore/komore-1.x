@@ -1,3 +1,4 @@
+import { type ReadonlyRecord } from '@komore/typescript';
 import { type TypeSchema } from '@komore/typescript/schema';
 import { type eventPropertiesSchemaTypeName } from './event-properties-schema-type-name';
 
@@ -6,7 +7,7 @@ import { type eventPropertiesSchemaTypeName } from './event-properties-schema-ty
  * @template SchemaType Schema type
  * @private
  */
-export type EventPropertiesSchema<SchemaType extends Record<string, unknown>> = TypeSchema<
+export type EventPropertiesSchema<SchemaType extends ReadonlyRecord<string, unknown>> = TypeSchema<
   typeof eventPropertiesSchemaTypeName,
   SchemaType
 >;

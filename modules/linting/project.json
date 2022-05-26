@@ -1,0 +1,33 @@
+{
+  "root": "modules/linting",
+  "sourceRoot": "modules/linting/src",
+  "projectType": "library",
+  "tags": ["scope:linting", "trait:base"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/linting",
+        "tsConfig": "modules/linting/tsconfig.lib.json",
+        "packageJson": "modules/linting/package.json",
+        "main": "modules/linting/src/index.ts",
+        "assets": ["modules/linting/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/linting/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/linting"],
+      "options": {
+        "jestConfig": "modules/linting/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

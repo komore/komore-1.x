@@ -1,3 +1,5 @@
+export { isNumberNegative } from './arithmetic/is-number-negative';
+export { isNumberPositive } from './arithmetic/is-number-positive';
 export { numberToArcSine } from './trigonometry/number-to-arc-sine';
 export { numberToPower } from './arithmetic/number-to-power';
 export { numberToRoundedDownNumber } from './arithmetic/number-to-rounded-down-number';

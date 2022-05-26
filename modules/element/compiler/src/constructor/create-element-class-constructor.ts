@@ -39,6 +39,7 @@ import { createTemplateContentVariableStatement } from './create-template-conten
  *   const templateContent = templateElement.content.cloneNode(true);
  *   shadowRoot.adoptedStyleSheets = styleSheets;
  *   shadowRoot.append(templateContent);
+ * }
  * ```
  * @param elementCompilerContext Element compiler context
  * @param templateIdentifier Template identifier

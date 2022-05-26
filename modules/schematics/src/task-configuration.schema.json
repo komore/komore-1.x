@@ -1,0 +1,6 @@
+{
+  "$id": "https://komore.dev/schematics/task-configuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task configuration",
+  "type": "object"
+}

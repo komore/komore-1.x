@@ -8,7 +8,7 @@
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/temporal/testing",
+        "outputPath": "dist/temporal-testing",
         "tsConfig": "modules/temporal/testing/tsconfig.lib.json",
         "packageJson": "modules/temporal/testing/package.json",
         "main": "modules/temporal/testing/src/index.ts"

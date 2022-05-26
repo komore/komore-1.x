@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "Rust lint executor",
+  "description": "Rust lint executor",
+  "cli": "nx",
+  "type": "object",
+  "properties": {
+    "cache": {
+      "default": false,
+      "description": "Only check files that have changed",
+      "type": "boolean"
+    },
+    "fix": {
+      "default": false,
+      "description": "Attempt to fix linting errors",
+      "type": "boolean"
+    }
+  }
+}

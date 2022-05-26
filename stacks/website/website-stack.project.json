@@ -1,0 +1,10 @@
+{
+  "domain": "website",
+  "type": "stack",
+  "tasks": {
+    "build": "@komore/stack:build",
+    "deploy": "@komore/stack:deploy",
+    "lint": "@komore/linting:lint",
+    "test": "@komore/stack:test"
+  }
+}

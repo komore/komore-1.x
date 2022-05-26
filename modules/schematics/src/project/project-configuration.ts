@@ -1,5 +1,6 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 import { type TaskConfiguration } from '../task/task-configuration';
+import { type ProjectName } from './project-name';
 import { type ProjectType } from './project-type';
 
 /**
@@ -10,6 +11,14 @@ export interface ProjectConfiguration {
    * Domain
    */
   readonly domain: string;
+  /**
+   * Project name
+   */
+  readonly name: ProjectName;
+  /**
+   * Project path relative to the workspace root
+   */
+  readonly path: string;
   /**
    * Tasks
    */

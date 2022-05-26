@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "PcxOneNxRustLibrary",
+  "cli": "nx",
+  "title": "Create a Rust library",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Library name",
+      "pattern": "^[a-zA-Z].*$",
+      "type": "string",
+      "x-prompt": "What name would you like to use for the library?",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "directory": {
+      "description": "Directory for the new library",
+      "type": "string"
+    },
+    "edition": {
+      "default": "2021",
+      "description": "Rust edition to use",
+      "enum": ["2015", "2018", "2021"],
+      "type": "string",
+      "x-prompt": {
+        "items": [
+          { "value": "2015", "label": "Rust 2015" },
+          { "value": "2018", "label": "Rust 2018" },
+          { "value": "2021", "label": "Rust 2021" }
+        ],
+        "message": "Which Rust edition would you like to use?",
+        "type": "list"
+      }
+    },
+    "proceduralMacros": {
+      "default": false,
+      "description": "Whether the library will export procedural macros",
+      "type": "boolean"
+    },
+    "tags": {
+      "description": "List of tags",
+      "type": "string"
+    }
+  },
+  "required": ["name"]
+}

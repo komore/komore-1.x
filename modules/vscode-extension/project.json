@@ -1,31 +1,29 @@
 {
   "root": "modules/vscode-extension",
-  "sourceRoot": "modules/vscode-extension/src",
+  "sourceRoot": "modules/vscode-extension",
   "projectType": "library",
   "tags": ["scope:schematics", "trait:vscode"],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/node:build",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/vscode-extension",
         "tsConfig": "modules/vscode-extension/tsconfig.lib.json",
         "packageJson": "modules/vscode-extension/package.json",
-        "main": "modules/vscode-extension/src/extension.ts",
+        "main": "modules/vscode-extension/src/index.ts",
         "assets": [
-          "modules/vscode-extension/*.md",
+          "modules/vscode-extension/README.md",
           "modules/vscode-extension/package.json",
           "modules/vscode-extension/package.nls.json",
           {
             "glob": "**/*",
             "input": "modules/vscode-extension/assets/",
             "output": "./assets"
-          },
-          {
-            "glob": "**/*",
-            "input": "modules/vscode-extension/locales/",
-            "output": "./locales"
           }
+        ],
+        "webpackConfig": [
+          "modules/vscode-extension/webpack.config.js"
         ]
       }
     },

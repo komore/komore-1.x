@@ -1,7 +1,13 @@
 {
   "name": "@komore/stack",
+  "description": "Infrastructure provisioning and deployment using Terraform",
+  "keywords": [
+    "stack",
+    "terraform"
+  ],
   "komore": {
-    "executors": "./schematics/executors.json",
-    "generators": "./schematics/generators.json"
+    "commands": "./schematics/stack-commands.json",
+    "executors": "./schematics/stack-executors.json",
+    "generators": "./schematics/stack-generators.json"
   }
 }

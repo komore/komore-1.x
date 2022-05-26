@@ -1,7 +1,8 @@
+import { feature } from '@komore/testing';
 import { maximumLength } from './maximum-length';
 
-describe('Maximum length validation operator', () => {
-  it.skip('todo', () => {
+feature('Maximum length validation operator', {
+  todo() {
     maximumLength(4);
-  });
+  },
 });

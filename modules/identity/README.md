@@ -17,3 +17,6 @@ TODO: identity provider
   - listAuthenticators
   - deleteAuthenticator
 - federation is out of scope for now
+- one-time password: https://blog.shahednasser.com/how-to-add-authentication-with-google-authenticator-in-node-js/
+  - QR code with value `otpauth://{type}/{app}:{accountName}?secret={secret}{query}`
+  - https://github.com/yeojz/otplib

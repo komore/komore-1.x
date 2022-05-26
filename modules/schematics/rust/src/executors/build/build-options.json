@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Build executor",
+  "description": "Build a Rust project with Cargo",
+  "type": "object",
+  "properties": {
+    "frozen": {
+      "description": "TODO",
+      "type": "boolean"
+    },
+    "locked": {
+      "description": "TODO",
+      "type": "boolean"
+    },
+    "messageFormat": {
+      "description": "TODO",
+      "enum": ["human", "json", "short"],
+      "type": "string"
+    },
+    "offline": {
+      "description": "TODO",
+      "type": "boolean"
+    },
+    "quiet": {
+      "description": "TODO",
+      "type": "boolean"
+    },
+    "target": {
+      "description": "TODO",
+      "type": "string"
+    },
+    "verbose": {
+      "description": "TODO",
+      "type": "boolean"
+    }
+  }
+}

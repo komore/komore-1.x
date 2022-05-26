@@ -1,0 +1,32 @@
+{
+  "root": "modules/bot/schematics",
+  "sourceRoot": "modules/bot/schematics/src",
+  "projectType": "application",
+  "tags": ["scope:bot", "trait:schematics"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/bot/schematics/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/bot-schematics"],
+      "options": {
+        "jestConfig": "modules/bot/schematics/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/bot/schematics",
+        "tsConfig": "modules/bot/schematics/tsconfig.lib.json",
+        "packageJson": "modules/bot/schematics/package.json",
+        "main": "modules/bot/schematics/src/index.ts"
+      }
+    }
+  }
+}

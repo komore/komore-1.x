@@ -1,18 +1,16 @@
 import { type Observable } from '@komore/reactive';
-import { type WorkspaceContext } from '../context/workspace-context';
 
 /**
  * Workspace executor
  *
- * @template Parameters Parameters type
+ * @template OptionsType Options type
  */
-export interface WorkspaceExecutor<Parameters> {
+export interface WorkspaceExecutor<OptionsType = unknown> {
   /**
    * Workspace executor function
    *
-   * @param workspaceContext Workspace context
-   * @param parameters$ Observable parameters
+   * @param options$ Observable options
    * @returns Observable that can optionally emit a completion percentage before completing
    */
-  (workspaceContext: WorkspaceContext, parameters$: Observable<Parameters>): Observable<number>;
+  (options$: Observable<OptionsType>): Observable<number>;
 }

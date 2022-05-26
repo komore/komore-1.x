@@ -1,19 +1,31 @@
+import { type PackageName } from '../package/package-name';
+import { type PackageReferenceName } from '../package/package-reference-name';
+import { type ExecutorName } from './executor-name';
+
 /**
  * Workspace executor descriptor
  */
 export interface WorkspaceExecutorDescriptor {
   /**
+   * Default task factory
+   */
+  readonly defaultTask?: PackageReferenceName;
+  /**
    * Description
    */
-  readonly description: string;
+  readonly description?: string;
+  /**
+   * Documentation
+   */
+  readonly documentation?: string;
   /**
    * Entry-point
    */
-  readonly main: string;
+  readonly factory: PackageReferenceName;
   /**
-   * Name
+   * Executor name
    */
-  readonly name: string;
+  readonly name: ExecutorName;
   /**
    * Package
    */
@@ -21,10 +33,23 @@ export interface WorkspaceExecutorDescriptor {
     /**
      * Package name
      */
-    readonly name: string;
+    readonly name: PackageName;
     /**
      * Package path
      */
     readonly path: string;
+  };
+  /**
+   * Options
+   */
+  readonly options: {
+    /**
+     * Options processor
+     */
+    readonly processor?: PackageReferenceName;
+    /**
+     * Parameters schema
+     */
+    readonly schema?: string;
   };
 }

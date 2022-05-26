@@ -24,12 +24,15 @@ export function intervalToRepeatingInterval(
     interval: T
   ) => {
     const intervalDuration = intervalToDuration(interval);
-    const [duration, start] =
+    const [duration, genericStart] =
       direction === 'future' ? [intervalDuration, interval.start] : [intervalDuration.negated(), interval.end];
-    return {
-      duration,
-      repetitions,
-      start: start as IntervalTemporalType<T>,
-    };
+    const start = genericStart as IntervalTemporalType<T>;
+    return repetitions !== undefined
+      ? {
+          duration,
+          repetitions,
+          start,
+        }
+      : { duration, start };
   };
 }

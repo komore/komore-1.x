@@ -1,12 +1,7 @@
-import { type PackageJson } from '@komore/runtime/node';
 import { type LocalPackage } from './local-package';
+import { type PackageWithPackageJson } from './package-with-package-json';
 
 /**
  * Local package with package.json content
  */
-export interface LocalPackageWithPackageJson extends LocalPackage {
-  /**
-   * package.json content
-   */
-  readonly packageJson: Partial<PackageJson>;
-}
+export interface LocalPackageWithPackageJson extends LocalPackage, PackageWithPackageJson {}

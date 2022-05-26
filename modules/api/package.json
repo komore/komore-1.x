@@ -1,3 +1,7 @@
 {
-  "name": "@komore/api"
+  "name": "@komore/api",
+  "komore": {
+    "executors": "./schematics/api-executors.json",
+    "generators": "./schematics/api-generators.json"
+  }
 }

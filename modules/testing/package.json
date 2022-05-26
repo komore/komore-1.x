@@ -5,8 +5,8 @@
     "testing"
   ],
   "komore": {
-    "executors": "./schematics/executors.json",
-    "generators": "./schematics/generators.json",
-    "lint-rules": "./lint/rules.json"
+    "executors": "./schematics/testing-executors.json",
+    "generators": "./schematics/testing-generators.json",
+    "lint-rules": "./linting/rules.json"
   }
 }

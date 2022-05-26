@@ -1,0 +1,10 @@
+{
+  "domain": "validation",
+  "type": "library",
+  "tags": ["trait:testing"],
+  "tasks": {
+    "build": "@komore/schematics:build",
+    "lint": "@komore/linting:lint",
+    "test": "@komore/testing:test"
+  }
+}

@@ -10,3 +10,5 @@ export { arrayToSlices } from './array-to-slices';
 export { arrayToString } from './array-to-string';
 export { type ArrayValueType } from './array-value-type';
 export { isArray } from './is-array';
+export { isArrayEmpty } from './is-array-empty';
+export { isArrayLengthBetween } from './is-array-length-between';

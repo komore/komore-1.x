@@ -1,6 +1,7 @@
 import { objectToValues } from '@komore/functional';
-import { type ProjectTaskConfiguration } from '../task/project-task-configuration';
-import { projectTaskUsingExecutor } from '../task/project-task-using-executor';
+import { type ExecutorReferenceString } from '../executor/executor-reference-string';
+import { type TaskConfiguration } from '../task/task-configuration';
+import { taskUsingExecutor } from '../task/task-using-executor';
 import { type ProjectConfiguration } from './project-configuration';
 
 /**
@@ -10,8 +11,7 @@ import { type ProjectConfiguration } from './project-configuration';
  * @returns Function that returns a list of task configuration matching the executor name
  */
 export function projectToTasksUsingExecutor(
-  executorName: string
-): (projectConfiguration: ProjectConfiguration) => ReadonlyArray<ProjectTaskConfiguration> {
-  const usingExecutor = projectTaskUsingExecutor(executorName);
-  return ({ tasks }) => (tasks === undefined ? [] : objectToValues(tasks).filter(usingExecutor));
+  executorName: ExecutorReferenceString
+): (projectConfiguration: ProjectConfiguration) => ReadonlyArray<TaskConfiguration> {
+  return ({ tasks }) => (tasks === undefined ? [] : objectToValues(tasks).filter(taskUsingExecutor(executorName)));
 }

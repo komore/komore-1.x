@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "PcxOneNxRustInit",
+  "cli": "nx",
+  "title": "Initialize the @pcxone/nx-rust plugin",
+  "type": "object",
+  "properties": {
+    "channel": {
+      "default": "stable",
+      "description": "Name of the rustup toolchain channel to use (stable, nightly, etc.)",
+      "type": "string"
+    }
+  },
+  "required": []
+}

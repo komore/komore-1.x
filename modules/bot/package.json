@@ -1,3 +1,6 @@
 {
-  "name": "@komore/bot"
+  "name": "@komore/bot",
+  "komore": {
+    "generators": "./schematics/generators.json"
+  }
 }

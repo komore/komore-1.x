@@ -1,3 +1,7 @@
 {
-  "name": "@komore/schematics/observability"
+  "name": "@komore/schematics/observability",
+  "description": "Schematics for the @komore/observability package",
+  "keywords": [
+    "schematics"
+  ]
 }

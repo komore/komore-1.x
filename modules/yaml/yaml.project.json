@@ -1,0 +1,6 @@
+{
+  "domain": "yaml",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": ["build", "document", "lint", "publish", "test"]
+}

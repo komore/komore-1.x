@@ -1,4 +1,4 @@
-import { jsonToObject } from '@komore/functional';
+import { jsonToObject } from '@komore/json';
 import { map, type Observable } from '@komore/reactive';
 import { readFileContent } from '../file-system/read-file-content';
 import { type PackageJson } from './package-json';

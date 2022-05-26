@@ -1,41 +1,58 @@
-import { assertThat, type MonoTypeOperatorFunction, type OperatorFunction } from '@komore/reactive';
-import { ConstraintViolationError } from './error/constraint-violation-error';
+import { type ConstraintValidator } from './constraint-validator';
+import { type ValidationContext } from './context/validation-context';
 
 /**
  * Creates a constraint validator that asserts the type of the validated value
+ *
  * @param constraint Constraint test function
  * @param messageId Message identifier
  * @param constraint Constraints
+ * @template InputType Input type
+ * @template OutputType Output type
+ * @template Constraints Constraints
  */
 export function createConstraintValidator<
-  T,
-  R extends T,
+  InputType,
+  OutputType extends InputType,
   Constraints extends Record<string, unknown> | undefined = undefined
->(constraint: (value: T) => value is R, messageId: string, constraints?: Constraints): OperatorFunction<T, R>;
+>(
+  constraint: (value: InputType, context: Omit<ValidationContext<InputType>, 'value'>) => value is OutputType,
+  messageId: string,
+  constraints?: Constraints
+): ConstraintValidator<InputType, OutputType>;
 
 /**
  * Creates a constraint validator
+ *
  * @param constraint Constraint test function
  * @param messageId Message identifier
  * @param constraints Constraints
+ * @template ValueType Value type
  */
-export function createConstraintValidator<T, Constraints extends Record<string, unknown> | undefined = undefined>(
-  constraint: (value: T) => boolean,
-  messageId: string,
-  constraints?: Constraints
-): MonoTypeOperatorFunction<T>;
-
 export function createConstraintValidator<
-  T,
-  R extends T = T,
+  ValueType,
   Constraints extends Record<string, unknown> | undefined = undefined
 >(
-  constraint: ((value: T) => value is R) | ((value: T) => boolean),
+  constraint: (value: ValueType, context: Omit<ValidationContext<ValueType>, 'value'>) => boolean,
   messageId: string,
   constraints?: Constraints
-): OperatorFunction<T, R> {
-  return assertThat<T, R>(
-    constraint as (value: T) => value is R,
-    () => new ConstraintViolationError(messageId, constraints)
-  );
+): ConstraintValidator<ValueType, ValueType>;
+
+export function createConstraintValidator<
+  InputType,
+  OutputType extends InputType = InputType,
+  Constraints extends Record<string, unknown> | undefined = undefined
+>(
+  constraint: (value: InputType, context: Omit<ValidationContext<InputType>, 'value'>) => boolean,
+  messageId: string,
+  constraints?: Constraints
+): ConstraintValidator<InputType, OutputType> {
+  const test = constraint as (value: InputType) => value is OutputType;
+  return constraints !== undefined
+    ? {
+        constraints,
+        messageId,
+        test,
+      }
+    : { messageId, test };
 }

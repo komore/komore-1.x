@@ -1,7 +1,8 @@
+import { feature } from '@komore/testing';
 import { minimumLength } from './minimum-length';
 
-describe('Minimum length validation operator', () => {
-  it.skip('todo', () => {
+feature('Minimum length validation operator', {
+  todo() {
     minimumLength(4);
-  });
+  },
 });

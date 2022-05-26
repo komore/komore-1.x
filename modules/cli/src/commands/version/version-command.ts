@@ -10,7 +10,13 @@ export const versionCommand = createCliCommand(
   $ => {
     return $.pipe(
       mergeMapTo(createWorkspaceContext(process.cwd())),
-      mergeMap(({ package: { installed } }) => installed.pipe(take(1))),
+      mergeMap(
+        ({
+          package: {
+            list: { installed },
+          },
+        }) => installed.pipe(take(1))
+      ),
       map(packages => packages.filter(({ name }) => name.startsWith('@komore/') || name.startsWith('@cdktf/'))),
       tapNext(packages => {
         console.log('komore v?.?.?', packages);

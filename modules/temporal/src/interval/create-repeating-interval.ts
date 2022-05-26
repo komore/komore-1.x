@@ -15,9 +15,11 @@ export function createRepeatingInterval<T extends IntervalTemporal>(
   duration: Temporal.Duration,
   repetitions?: number
 ): RepeatingInterval<T> {
-  return {
-    duration,
-    repetitions,
-    start,
-  };
+  return repetitions !== undefined
+    ? {
+        duration,
+        repetitions,
+        start,
+      }
+    : { duration, start };
 }

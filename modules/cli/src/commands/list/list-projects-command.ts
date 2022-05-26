@@ -1,6 +1,5 @@
 import { createCliCommand } from '@komore/application-cli';
-import { objectToEntries } from '@komore/functional';
-import { map, mapTo, mergeMap, take, tapNext } from '@komore/reactive';
+import { mapTo, mergeMap, take, tapNext } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 import chalk = require('chalk');
 
@@ -13,19 +12,13 @@ export const listProjectsCommand = createCliCommand(
   $ =>
     $.pipe(
       mergeMap(() => createWorkspaceContext(process.cwd())),
-      mergeMap(workspaceContext =>
-        workspaceContext.configuration.pipe(
-          take(1),
-          map(configuration => configuration.projects)
-        )
-      ),
+      mergeMap(({ project: { list } }) => list.pipe(take(1))),
       tapNext(projects => {
-        const projectEntries = objectToEntries(projects);
-        const longestProjectName = projectEntries.reduce((acc, [name]) => Math.max(acc, name.length), 0);
+        const longestProjectName = projects.reduce((acc, [name]) => Math.max(acc, name.length), 0);
 
-        projectEntries.forEach(([projectName, projectConfiguration]) => {
+        projects.forEach(([projectName, projectConfiguration]) => {
           const name = chalk.whiteBright(projectName.padEnd(longestProjectName, ' '));
-          console.log(`  ${name} : ${projectConfiguration.projectType}`);
+          console.log(`  ${name} : ${projectConfiguration.type}`);
         });
       }),
       mapTo(0)

@@ -1,0 +1,33 @@
+{
+  "root": "modules/json",
+  "sourceRoot": "modules/json/src",
+  "projectType": "library",
+  "tags": ["scope:json"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/json",
+        "tsConfig": "modules/json/tsconfig.lib.json",
+        "packageJson": "modules/json/package.json",
+        "main": "modules/json/src/index.ts",
+        "assets": ["modules/json/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["modules/json/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/json"],
+      "options": {
+        "jestConfig": "modules/json/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

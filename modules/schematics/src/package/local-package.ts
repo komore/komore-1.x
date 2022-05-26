@@ -1,3 +1,5 @@
+import { type PackageName } from './package-name';
+
 /**
  * Local package
  */
@@ -5,7 +7,7 @@ export interface LocalPackage {
   /**
    * Package name
    */
-  readonly name: string;
+  readonly name: PackageName;
   /**
    * Package path
    */

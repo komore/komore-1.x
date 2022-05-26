@@ -1,15 +1,17 @@
 import { isDefined, objectToEntries } from '@komore/functional';
 import { defaultIfEmpty, forkJoin, map, of, type Observable } from '@komore/reactive';
-import { isFileAccessible } from '@komore/runtime/node';
+import { readPackageJson } from '@komore/runtime/node';
+import { type ReadonlyRecord } from '@komore/typescript';
 import { dirname, join, relative } from 'path';
 import { type TsConfigJson } from '../typescript/tsconfig-json';
 import { type LocalPackage } from './local-package';
+import { type PackageName } from './package-name';
 
 export function tsConfigToLocalPackages(
   basePath: string
 ): (tsConfig: TsConfigJson) => Observable<ReadonlyArray<LocalPackage>> {
   return ({ compilerOptions }) => {
-    const paths = compilerOptions?.paths;
+    const paths = compilerOptions?.paths as ReadonlyRecord<PackageName, ReadonlyArray<string>> | undefined;
     if (paths === undefined) {
       return of([]);
     }
@@ -22,25 +24,27 @@ export function tsConfigToLocalPackages(
 
 function pathAliasToLocalPackage(
   basePath: string
-): (entry: readonly [string, ReadonlyArray<string>]) => Observable<LocalPackage | undefined> {
-  return ([name, files]) => {
+): (entry: readonly [PackageName, ReadonlyArray<string>]) => Observable<LocalPackage | undefined> {
+  return ([_name, files]) => {
     const filePath = files[0];
     if (filePath === undefined) {
       return of(undefined);
     }
 
-    // TODO: this is cheating, should look for the package.json via the workspace projects
+    // TODO: should look for the package.json via the workspace projects and not the tsconfig alias itself?
     const fileFullPath = join(basePath, filePath);
     const directoryPath = dirname(fileFullPath);
     const fullPath = join(directoryPath, '..');
     const packageJsonPath = join(fullPath, 'package.json');
     const path = relative(basePath, fullPath);
 
-    return isFileAccessible(packageJsonPath).pipe(
-      map(accessible =>
-        accessible
+    // TODO: avoid I/O operation?
+    return readPackageJson(packageJsonPath).pipe(
+      map(packageJson => packageJson.name),
+      map(packageJsonName =>
+        packageJsonName !== undefined
           ? {
-              name,
+              name: packageJsonName as PackageName,
               path,
             }
           : undefined

@@ -1,21 +1,23 @@
 # @komore/stack
 
-Describe the stack with a DSL / cdktf.
+Infrastructure provisioning and deployment using [Terraform].
 
-Generate Terraform modules from it.
+- [Tutorials]
+- [Guides]
+- [Reference]
 
-When doing `k generate @komore/schematics:stack`, a stack gets created + the ability to `k serve` and `k deploy` based
-on that stack.
+For a complete description of the features and how to use them, please refer to the [komore documentation].
 
-```ts
-import { createStack, withVariable } from '@komore/stack';
+## Install
 
-export const myStack = createStack(stack => stack.pipe(
-  withVariable('')
-));
+```sh
+npm install @komore/stack
+pnpm add @komore/stack
+yarn add @komore/stack
 ```
 
-TODO:
-
-- stack graph command to show a graph of the infrastructure?
-- observability: create cloudwatch alarms or gcp alert policies
+[guides]: https://komore.dev/modules/stack/guides/
+[komore documentation]: https://komore.dev/modules/stack/
+[reference]: https://komore.dev/modules/stack/reference/
+[terraform]: https://www.terraform.io/
+[tutorials]: https://komore.dev/modules/stack/tutorials/

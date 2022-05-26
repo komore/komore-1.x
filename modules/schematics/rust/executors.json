@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "build": {
+      "description": "Build a Rust application or library",
+      "implementation": "./src/executors/build/build-executor",
+      "schema": "./src/executors/build/build-schema.json"
+    },
+    "doc": {
+      "description": "Generate Rust code documentation "
+    },
+    "fix": {
+      "description": "Fix Rust code using rustfix",
+      "implementation": "./src/executors/fix/fix-executor",
+      "schema": "./src/executors/format/fix-schema.json"
+    },
+    "format": {
+      "description": "Format Rust code using rustfmt",
+      "implementation": "./src/executors/format/format-executor",
+      "schema": "./src/executors/format/format-schema.json"
+    },
+    "lint": {
+      "description": "Lint Rust code",
+      "implementation": "./src/executors/lint/lint-executor",
+      "schema": "./src/executors/lint/lint-schema.json"
+    },
+    "test": {
+      "description": "Execute Rust unit tests",
+      "implementation": "./src/executors/test/test-executor",
+      "schema": "./src/executors/test/test-schema.json"
+    }
+  }
+}

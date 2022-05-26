@@ -1,14 +1,25 @@
-import { of } from '@komore/reactive';
+import { map, of, type Observable } from '@komore/reactive';
+import { createValidationContext } from './context/create-validation-context';
+import { type ValidationContext } from './context/validation-context';
 import { type Validator } from './validator';
-import { type ValidatorOptions } from './validator-options';
 
 /**
  * Creates a validator
- * @param options Validator options
+ *
+ * @param project Projection
  * @returns Validator
+ * @template InputType Input type
+ * @template OutputType Output type
  */
-export function createValidator<T>(_options: ValidatorOptions): Validator<T> {
+export function createValidator<InputType = unknown, OutputType = InputType>(
+  project: (value: Observable<ValidationContext<InputType>>) => Observable<ValidationContext<OutputType>>
+): Validator<InputType, OutputType> {
   return value => {
-    return of([]);
+    const context = createValidationContext(value);
+    const context$ = of(context);
+    return project(context$).pipe(
+      // TODO: catchError(),
+      map(validatedContext => validatedContext.value)
+    );
   };
 }

@@ -19,3 +19,5 @@ TODO:
 
 - Cloud Endpoinds OpenAPI is equivalent to API gateway
 - HTTP functions = Lambda Function URL
+
+TODO: https://itnext.io/gcp-cloud-functions-gen-2nd-pub-sub-development-testing-2c498fa4464e

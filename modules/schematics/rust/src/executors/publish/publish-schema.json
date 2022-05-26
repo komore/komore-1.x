@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "Rust publish executor",
+  "description": "Rust publish executor",
+  "cli": "nx",
+  "type": "object",
+  "properties": {
+    "allowDirty": {
+      "default": false,
+      "description": "Allow directories with uncommitted VCS changes to be packaged",
+      "type": "boolean"
+    },
+    "dryRun": {
+      "default": false,
+      "description": "Performs all checks without uploading",
+      "type": "boolean"
+    },
+    "index": {
+      "description": "URL of the registry index to use",
+      "type": "string"
+    },
+    "registry": {
+      "description": "Name of the registry to publish to",
+      "type": "string"
+    },
+    "verify": {
+      "default": false,
+      "description": "Verifies the content by building them",
+      "type": "boolean"
+    }
+  }
+}

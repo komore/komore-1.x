@@ -6,10 +6,10 @@ import { AssertionError } from './assertion-error';
  * @param condition Condition
  * @param message Message or error builder
  */
-export function assert<T>(condition: T, message: string | (() => Error)): asserts condition {
+export function assert<T>(condition: T, message?: string | (() => Error)): asserts condition {
   if (!condition) {
-    if (typeof message === 'string') {
-      throw new AssertionError(message);
+    if (message === undefined || typeof message === 'string') {
+      throw new AssertionError(message ?? 'assertion failed');
     } else {
       throw message();
     }

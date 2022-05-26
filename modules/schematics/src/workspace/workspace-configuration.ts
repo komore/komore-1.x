@@ -1,37 +1,24 @@
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type PackageManagerType } from '../package/package-manager-type';
-import { type WorkspaceScriptOrPackage } from './workspace-script-or-package';
+import { type PackageManagerType } from '../package/manager/package-manager-type';
+import { type ProjectName } from '../project/project-name';
+import { type TaskConfiguration } from '../task/task-configuration';
+import { type WorkspaceConfigurationSchemaVersionString } from './schema/workspace-configuration-schema-version-string';
+import { type TaskWorkspaceConfiguration } from './task-workspace-configuration';
+import { type WorkspaceDefaultsConfiguration } from './workspace-defaults-configuration';
+import { type WorkspaceLayoutConfiguration } from './workspace-layout-configuration';
 
 /**
- * Raw workspace configuration
+ * Workspace configuration
  */
 export interface WorkspaceConfiguration {
   /**
    * Defaults
    */
-  readonly defaults: {
-    /**
-     * Default project name
-     */
-    readonly project?: string;
-  };
+  readonly defaults: WorkspaceDefaultsConfiguration;
   /**
    * Layout configuration
    */
-  readonly layout: {
-    /**
-     * Base path for applications
-     */
-    readonly applications: string;
-    /**
-     * Base path for libraries
-     */
-    readonly libraries: string;
-    /**
-     * Base path for stacks
-     */
-    readonly stacks: string;
-  };
+  readonly layout: WorkspaceLayoutConfiguration;
   /**
    * Package management settings
    */
@@ -46,37 +33,23 @@ export interface WorkspaceConfiguration {
     readonly scope: string;
   };
   /**
-   * Schematics
+   * Workspace project configurations
+   */
+  readonly projects: ReadonlyRecord<ProjectName, string>;
+  /**
+   * Schematics configuration
    */
   readonly schematics: ReadonlyRecord<string, unknown>;
   /**
-   * Workspace projects with the path to their configuration
+   * Task workspace configuration
    */
-  readonly projects: ReadonlyRecord<string, string>;
+  readonly task: TaskWorkspaceConfiguration;
   /**
-   * Task configuration
+   * Workspace tasks configuration
    */
-  readonly task: {
-    /**
-     * Task runner configuration
-     */
-    readonly runner: WorkspaceScriptOrPackage;
-    /**
-     * Task options
-     */
-    readonly options: {
-      /**
-       * List of tasks that are considered cacheable
-       */
-      readonly cacheable: ReadonlyArray<string>;
-      /**
-       * Maximum parallelism when running tasks
-       */
-      readonly parallel: number;
-    };
-  };
+  readonly tasks: ReadonlyRecord<string, TaskConfiguration>;
   /**
-   * Workspace version
+   * Workspace configuration schema version
    */
-  readonly version: '@komore/schematics#1.0.0';
+  readonly version: WorkspaceConfigurationSchemaVersionString<number, number, number>;
 }

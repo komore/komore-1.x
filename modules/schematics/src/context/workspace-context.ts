@@ -1,12 +1,9 @@
 import { type Observable } from '@komore/reactive';
-import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';
-import { type WorkspaceGeneratorDescriptor } from '../generator/workspace-generator-descriptor';
-import { type InstalledPackage } from '../package/installed-package';
-import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
-import { type LocalPackage } from '../package/local-package';
-import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
-import { type PackageManager } from '../package/package-manager';
-import { type ResolvedWorkspaceConfiguration } from '../workspace/resolved-workspace-configuration';
+import { type ProjectConfiguration } from '../project/project-configuration';
+import { type ProjectName } from '../project/project-name';
+import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
+import { type WorkspaceContextPackage } from './workspace-context-package';
+import { type WorkspaceContextSchematics } from './workspace-context-schematics';
 
 /**
  * Workspace context
@@ -19,49 +16,39 @@ export interface WorkspaceContext {
   /**
    * Workspace configuration
    */
-  readonly configuration: Observable<ResolvedWorkspaceConfiguration>;
+  readonly configuration: WorkspaceConfiguration;
   /**
    * Package infomation
    */
-  readonly package: {
+  readonly package: WorkspaceContextPackage;
+  /**
+   * Project information
+   */
+  readonly project: {
     /**
-     * Installed packages
+     * Map of projects
      */
-    readonly installed: Observable<ReadonlyArray<InstalledPackage>>;
+    readonly byName: ReadonlyMap<ProjectName, Observable<ProjectConfiguration>>;
     /**
-     * Installed packages' package.json files
+     * List of projects
      */
-    readonly installedPackageJsons: Observable<ReadonlyArray<InstalledPackageWithPackageJson>>;
-    /**
-     * Local packages, i.e. packages discovered via TypeScript aliases
-     */
-    readonly local: Observable<ReadonlyArray<LocalPackage>>;
-    /**
-     * Local packages' package.json files
-     */
-    readonly localPackageJsons: Observable<ReadonlyArray<LocalPackageWithPackageJson>>;
-    /**
-     * Package manager
-     */
-    readonly manager: Observable<PackageManager>;
+    readonly list: Observable<ReadonlyArray<readonly [projectName: ProjectName, configuration: ProjectConfiguration]>>;
   };
   /**
    * Schematics information
    */
-  readonly schematics: {
-    /**
-     * List of installed executors
-     */
-    readonly executors: Observable<ReadonlyArray<WorkspaceExecutorDescriptor>>;
-    /**
-     * List of installed generators
-     */
-    readonly generators: Observable<ReadonlyArray<WorkspaceGeneratorDescriptor>>;
-  };
+  readonly schematics: WorkspaceContextSchematics;
   /**
    * TypeScript information
    */
   readonly ts: {
+    /**
+     * TypeScript configuration base
+     */
     readonly tsConfigBase: Observable<unknown>;
   };
+  /**
+   * Whether watch workflows should be applied
+   */
+  readonly watch: boolean;
 }

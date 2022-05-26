@@ -1,5 +1,5 @@
 import { type Observable } from '@komore/reactive';
-import { type ProjectTaskReference } from '@komore/schematics';
+import { type TaskReference } from '@komore/schematics';
 
 /**
  * Task runner
@@ -11,5 +11,5 @@ export interface TaskRunner {
    * @param taskReference Project task reference observable
    * @returns Result
    */
-  (taskReference: Observable<ProjectTaskReference>): Observable<number>;
+  (taskReference: Observable<TaskReference>): Observable<number>;
 }

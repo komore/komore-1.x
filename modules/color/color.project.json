@@ -1,0 +1,11 @@
+{
+  "domain": "color",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": {
+    "build": "@komore/schematics:build",
+    "lint": "@komore/linting:lint",
+    "publish": "@komore/schematics:publish",
+    "test": "@komore/testing:test"
+  }
+}

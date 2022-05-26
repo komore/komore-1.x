@@ -25,8 +25,7 @@
         "outputPath": "dist/api/http",
         "tsConfig": "modules/api/http/tsconfig.lib.json",
         "packageJson": "modules/api/http/package.json",
-        "main": "modules/api/http/src/index.ts",
-        "assets": ["modules/api/http/*.md"]
+        "main": "modules/api/http/src/index.ts"
       },
       "outputs": ["{options.outputPath}"]
     }

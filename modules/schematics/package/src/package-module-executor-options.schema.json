@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Package module executor options",
+  "type": "object",
+  "properties": {
+    "buildTaskName": {
+      "description": "Name of the build task",
+      "type": "string"
+    },
+    "outputPath": {
+      "description": "Path where the package is written",
+      "type": "string"
+    },
+    "packageJson": {
+      "description": "Path to the package.json file",
+      "type": "string"
+    },
+    "workspacePackageJson": {
+      "description": "Workspace package.json",
+      "type": "string"
+    }
+  },
+  "required": []
+}

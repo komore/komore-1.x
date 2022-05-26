@@ -1,47 +1,76 @@
+import { type ReadonlyRecord } from '@komore/typescript';
 import { type Event } from './event';
 import { type EventCreator } from './event-creator';
+import { type EventDomain } from './event-domain';
 import { type EventPropertiesSchema } from './event-properties-schema';
 
 /**
  * Creates an event creator for an event type
- * @param type Event type
+ *
+ * @param eventDomain Event domain
+ * @param eventType Event type
  * @returns Event creator
+ * @template EventDomainType Event domain type
  * @template EventTypeName Event type name
  */
-export function createEvent<EventTypeName extends string>(type: EventTypeName): EventCreator<EventTypeName>;
+export function createEvent<EventDomainType extends EventDomain<string>, EventTypeName extends string>(
+  eventDomain: EventDomainType,
+  eventType: EventTypeName
+): EventCreator<EventDomainType, EventTypeName>;
 
 /**
  * Creates an event creator for an event type with properties
- * @param type Event type
- * @param schema Event schema
+ *
+ * @param eventDomain Event domain
+ * @param eventType Event type
+ * @param eventPropertiesSchema Event properties schema
  * @returns Event creator
- * @template EventTypeName Event type
- * @template S Event schema type
+ * @template EventTypeName Event type name
+ * @template EventProperties Event schema type
  */
-export function createEvent<EventTypeName extends string, EventProperties extends Record<string, unknown>>(
-  type: EventTypeName,
-  properties: EventPropertiesSchema<EventProperties>
-): EventCreator<EventTypeName, EventProperties>;
+export function createEvent<
+  EventDomainType extends EventDomain<string>,
+  EventTypeName extends string,
+  EventProperties extends ReadonlyRecord<string, unknown>
+>(
+  eventDomain: EventDomainType,
+  eventType: EventTypeName,
+  eventPropertiesSchema: EventPropertiesSchema<EventProperties>
+): EventCreator<EventDomainType, EventTypeName, EventProperties>;
 
 /**
  * Creates an event creator
- * @param type Event type
+ *
+ * @param eventDomain Event domain
+ * @param eventType Event type
  * @param schema Event schema
  * @returns Event creator
- * @template T Event type
- * @template S Event schema type
+ * @template EventDomainType Event domain type
+ * @template EventTypeName Event type name
+ * @template EventProperties Event schema type
  */
-export function createEvent<T extends string, S extends object | void>(
-  type: T,
+export function createEvent<
+  EventDomainType extends EventDomain<string>,
+  EventTypeName extends string,
+  EventProperties extends ReadonlyRecord<string, unknown>
+>(
+  eventDomain: EventDomainType,
+  eventType: EventTypeName,
   _?: { _t: 'schema' }
-): EventCreator<Event<T, S>> {
-  const eventCreator = (properties?: any): Event<T, S> => ({
-    type,
-    ...(properties || {})
+): EventCreator<EventDomainType, EventTypeName> | EventCreator<EventDomainType, EventTypeName, EventProperties> {
+  const eventCreator = (properties?: any): Event<EventDomainType, EventTypeName, EventProperties> => ({
+    type: eventType,
+    ...(properties ?? {}),
   });
 
-  return Object.defineProperty(eventCreator, 'type', {
-    value: type,
-    writable: false
-  });
+  return Object.defineProperties(eventCreator, {
+    domain: {
+      value: eventDomain,
+      writable: false,
+    },
+    type: {
+      value: eventType,
+      writable: false,
+    },
+  }) as EventCreator<EventDomainType, EventTypeName, EventProperties>;
 }

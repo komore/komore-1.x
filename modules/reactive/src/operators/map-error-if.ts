@@ -1,5 +1,5 @@
-import { type OperatorFunction } from '../operator-function';
+//import { type OperatorFunction } from '../operator-function';
 
-export function mapErrorIf<InputType, OutputType>(): OperatorFunction<InputType, OutputType> {
+export function mapErrorIf<_InputType, _OutputType>(): void/* OperatorFunction<InputType, OutputType>*/ {
   // TODO
 }

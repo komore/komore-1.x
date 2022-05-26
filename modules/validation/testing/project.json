@@ -4,6 +4,16 @@
   "projectType": "library",
   "tags": ["scope:validation", "trait:testing"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/validation/testing",
+        "tsConfig": "modules/validation/testing/tsconfig.lib.json",
+        "packageJson": "modules/validation/testing/package.json",
+        "main": "modules/validation/testing/src/index.ts"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
@@ -16,16 +26,6 @@
       "options": {
         "jestConfig": "modules/validation/testing/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/validation/testing",
-        "tsConfig": "modules/validation/testing/tsconfig.lib.json",
-        "packageJson": "modules/validation/testing/package.json",
-        "main": "modules/validation/testing/src/index.ts"
       }
     }
   }

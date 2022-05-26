@@ -1,14 +1,22 @@
 # @komore/validation
 
-## Constraint Validation
+Constraint validation mechanisms.
 
-### Operators
+- [Tutorials]
+- [Guides]
+- [Reference]
 
-A constraint validation operator is a function operator that validates an emitted value.
+For a complete description of the features and how to use them, please refer to the [komore documentation].
 
-If the value fails to
+## Install
 
-### Base Operators
+```sh
+npm install @komore/validation
+pnpm add @komore/validation
+yarn add @komore/validation
+```
 
-The following constraint validation operators are available:
-
+[guides]: https://komore.dev/modules/validation/guides/
+[komore documentation]: https://komore.dev/modules/validation/
+[reference]: https://komore.dev/modules/validation/reference/
+[tutorials]: https://komore.dev/modules/validation/tutorials/

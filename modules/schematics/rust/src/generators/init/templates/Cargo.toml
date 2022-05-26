@@ -1,0 +1,5 @@
+[workspace]
+members = []
+exclude = []
+
+[workspace.metadata.nx-rust]

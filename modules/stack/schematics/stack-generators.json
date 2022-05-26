@@ -1,0 +1,16 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators",
+  "__init__": {
+    "description": "Initializes the @komore/stack schematics",
+    "documentation": "https://komore.dev/modules/stack/schematics/generators/init",
+    "main": "@komore/stack/schematics#stackInitializationGenerator",
+    "schema": "./src/generator/init/init-stack-generator.schema.json",
+    "triggers": ["post-install"]
+  },
+  "stack": {
+    "description": "Creates a stack project",
+    "documentation": "https://komore.dev/modules/stack/schematics/generators/stack",
+    "main": "@komore/stack/schematics#stackGenerator",
+    "schema": "./src/generator/stack/stack-generator.schema.json"
+  }
+}

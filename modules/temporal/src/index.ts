@@ -114,6 +114,8 @@ export { isSameWeekAs } from './week/is-same-week-as';
 export { isSameYearAs } from './year/is-same-year-as';
 export { isSaturday } from './week-day/is-saturday';
 export { isSunday } from './week-day/is-sunday';
+export { isTemporalEarlierThan } from './is-temporal-earlier-than';
+export { isTemporalLaterThan } from './is-temporal-later-than';
 export { isThisCentury } from './century/is-this-century';
 export { isThisHour } from './hour/is-this-hour';
 export { isThisMinute } from './minute/is-this-minute';

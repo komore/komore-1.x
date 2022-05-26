@@ -1,4 +1,8 @@
 <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path fill="#ffffff" d="M0,0h20v20z"/>
-<path fill="#ffffff" d="M20,20h24v24h-14z"/>
+  <g transform="scale(0.046875, 0.046875)">
+    <path class="c0" d="M512,0l116,116l-116,116,l-116,-116z"/>
+    <path class="c1" d="M512,264l132,-132l116,116,l-248,248l-248,-248l116,-116z"/>
+    <path class="c2" d="M512,528l264,-264l116,116,l-380,380l-380,-380l116,-116z"/>
+    <path class="c3" d="M512,792l396,-396l116,116,l-512,512l-512,-512l116,-116z"/>
+  </g>
 </svg>

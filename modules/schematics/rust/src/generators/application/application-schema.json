@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "PcxOneNxRustApplication",
+  "cli": "nx",
+  "title": "Create a Rust application",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Application name",
+      "pattern": "^[a-zA-Z].*$",
+      "type": "string",
+      "x-prompt": "What name would you like to use for the application?",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "directory": {
+      "description": "Directory for the new application",
+      "type": "string"
+    },
+    "edition": {
+      "default": "2021",
+      "description": "Rust edition to use",
+      "enum": ["2015", "2018", "2021"],
+      "type": "string",
+      "x-prompt": {
+        "items": [
+          { "value": "2015", "label": "Rust 2015" },
+          { "value": "2018", "label": "Rust 2018" },
+          { "value": "2021", "label": "Rust 2021" }
+        ],
+        "message": "Which Rust edition would you like to use?",
+        "type": "list"
+      }
+    },
+    "tags": {
+      "description": "List of tags",
+      "type": "string"
+    }
+  },
+  "required": ["name"]
+}

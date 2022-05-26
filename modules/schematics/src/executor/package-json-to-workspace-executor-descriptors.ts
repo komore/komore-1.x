@@ -2,6 +2,7 @@ import { mapEach, of, type Observable } from '@komore/reactive';
 import { type PackageJson } from '@komore/runtime/node';
 import { join } from 'path';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
+import { type PackageName } from '../package/package-name';
 import { readWorkspaceExecutorDescriptors } from './read-workspace-executor-descriptors';
 import { type WorkspaceExecutorDescriptor } from './workspace-executor-descriptor';
 
@@ -29,7 +30,7 @@ export function packageJsonToWorkspaceExecutorDescriptors(
       mapEach(descriptor => ({
         ...descriptor,
         package: {
-          name: packageJsonWithPotentialExecutors.name,
+          name: packageJsonWithPotentialExecutors.name as PackageName,
           path,
         },
       }))

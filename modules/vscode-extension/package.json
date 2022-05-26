@@ -2,9 +2,10 @@
   "name": "@komore/vscode-extension",
   "displayName": "%displayName%",
   "description": "%description%",
-  "icon": "icon.png",
+  "icon": "assets/icons/vscode-extension.png",
   "publisher": "komore",
   "license": "MIT",
+  "version": "0.0.0-TODOreplace",
   "author": {
     "name": "komore",
     "email": "contact@komore.dev"
@@ -18,16 +19,12 @@
   "bugs": {
     "url": "https://github.com/komore/komore/issues"
   },
-  "main": "./extension.js",
+  "main": "./main.js",
   "contributes": {
     "commands": [
       {
         "command": "komore.openApi",
         "title": "%command.openApi%"
-      },
-      {
-        "command": "komore.openBoundedContext",
-        "title": "%command.openBoundedContext%"
       },
       {
         "command": "komore.openCommandHandler",
@@ -40,6 +37,10 @@
       {
         "command": "komore.openCommandStore",
         "title": "%command.openCommandStore%"
+      },
+      {
+        "command": "komore.openDomain",
+        "title": "%command.openDomain%"
       },
       {
         "command": "komore.openEventReducer",
@@ -81,7 +82,7 @@
       "activitybar": [
         {
           "id": "komore-console",
-          "title": "%activitybar.komore%",
+          "title": "%komore.activitybar%",
           "icon": "assets/icons/activitybar.svg"
         }
       ]
@@ -89,12 +90,16 @@
     "views": {
       "komore-console": [
         {
+          "id": "komore-domain-tree",
+          "name": "%komore.view.domain-tree.title%"
+        },
+        {
           "id": "komore-stack-tree",
-          "name": "%view.komore-stack-tree.title%"
+          "name": "%komore.view.stack-tree.title%"
         },
         {
           "id": "komore-help-tree",
-          "name": "%view.komore-help.title%"
+          "name": "%komore.view.help.title%"
         }
       ]
     }

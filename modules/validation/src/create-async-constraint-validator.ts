@@ -1,8 +1,9 @@
-import { catchError, type MonoTypeOperatorFunction, type Observable, switchMap } from '@komore/reactive';
+import { switchMap, throwIf, mapTo, type MonoTypeOperatorFunction, type Observable } from '@komore/reactive';
 import { ConstraintViolationError } from './error/constraint-violation-error';
 
 /**
  * Creates an asynchronous constraint validator
+ *
  * @param constraint Constraint test function
  * @param messageId Message identifier
  * @param constraints Constraints
@@ -12,10 +13,13 @@ export function createAsyncConstraintValidator<T, Constraints extends Record<str
   messageId: string,
   constraints?: Constraints
 ): MonoTypeOperatorFunction<T> {
-  return switchMap(value => constraint(value).pipe(
-    throwIf(error => )
-  )
-    (value): value is R => constraint(value),
-    () => new ConstraintViolationError(messageId, constraints)
+  return switchMap(value =>
+    constraint(value).pipe(
+      throwIf(
+        result => result === false,
+        () => new ConstraintViolationError(messageId, constraints)
+      ),
+      mapTo(value)
+    )
   );
 }

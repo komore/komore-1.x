@@ -1,0 +1,16 @@
+{
+  "domain": "vscode-extension",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": {
+    "build": {
+      "executor": "@komore/schematics:build",
+      "options": {
+        "assets": ["./assets", "./package.nls.json"]
+      }
+    },
+    "lint": "@komore/lint:lint",
+    "publish": "@komore/schematics:publish",
+    "test": "@komore/testing:test"
+  }
+}

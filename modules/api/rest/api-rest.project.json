@@ -1,0 +1,6 @@
+{
+  "domain": "api-rest",
+  "type": "library",
+  "tags": [],
+  "tasks": ["build", "document", "lint", "package", "publish"]
+}

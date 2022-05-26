@@ -13,7 +13,7 @@ export const listExecutorsCommand = createCliCommand(
   $ =>
     $.pipe(
       mergeMap(() => createWorkspaceContext(process.cwd())),
-      mergeMap(workspaceContext => workspaceContext.schematics.executors.pipe(take(1))),
+      mergeMap(workspaceContext => workspaceContext.schematics.executor.list.pipe(take(1))),
       map(executors => executors.reduce(executorsToExecutorGroups, [])),
       map(executorGroups => [...executorGroups].sort(byName)),
       mapEach(executorGroup => ({

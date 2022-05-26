@@ -1,5 +1,5 @@
 import { type LocalPackage } from './local-package';
-import { type PackageDependencyType } from './package-dependency-type';
+import { type PackageDependencyType } from './manager/package-dependency-type';
 
 /**
  * Installed package

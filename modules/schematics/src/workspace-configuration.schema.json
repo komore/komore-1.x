@@ -1,0 +1,105 @@
+{
+  "$id": "https://komore.dev/schematics/workspace-configuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workspace configuration",
+  "type": "object",
+  "properties": {
+    "defaults": {
+      "$ref": "#/$defs/DefaultsConfiguration"
+    },
+    "domains": {
+      "$ref": "#/$defs/DomainsConfiguration"
+    },
+    "layout": {
+      "$ref": "#/$defs/LayoutConfiguration"
+    },
+    "package": {
+      "$ref": "#/$defs/PackageConfiguration"
+    },
+    "projects": {
+      "description": "List of project paths",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "schematics": {
+      "description": "Schematics configuration",
+      "type": "object"
+    },
+    "tasks": {
+      "description": "Workspace tasks",
+      "type": "object"
+    },
+    "version": {
+      "description": "Workspace configuration schema version",
+      "type": "string",
+      "enum": ["@komore/schematics#1.0.0"]
+    }
+  },
+  "required": ["package"],
+  "defs": {
+    "DefaultsConfiguration": {
+      "description": "Defaults configuration",
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "object",
+          "description": "Default project"
+        }
+      }
+    },
+    "DomainsConfiguration": {
+      "description": "Domains configuration",
+      "type": "object"
+    },
+    "LayoutConfiguration": {
+      "description": "Layout configuration",
+      "type": "object",
+      "properties": {
+        "applications": {
+          "description": "Base path for applications",
+          "type": "string"
+        },
+        "libraries": {
+          "description": "Base path for libraries",
+          "type": "string"
+        },
+        "stacks": {
+          "description": "Base path for stacks",
+          "type": "string"
+        }
+      }
+    },
+    "PackageConfiguration": {
+      "description": "Package configuration",
+      "type": "object",
+      "properties": {
+        "manager": {
+          "description": "Package manager type",
+          "type": "string",
+          "enum": ["npm", "pnpm", "yarn"]
+        },
+        "scope": {
+          "description": "Package scope",
+          "type": "string"
+        }
+      },
+      "required": ["scope"]
+    },
+    "TaskWorkspaceConfiguration": {
+      "description": "Task workspace configuration",
+      "type": "object",
+      "properties": {
+        "runner": {
+          "description": "Task runner",
+          "type": "string"
+        },
+        "options": {
+          "description": "Task options",
+          "type": "object"
+        }
+      }
+    }
+  }
+}

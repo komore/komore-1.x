@@ -8,6 +8,7 @@ import { listExecutorsCommand } from './commands/list/list-executors-command';
 import { listProjectsCommand } from './commands/list/list-projects-command';
 import { reportCommand } from './commands/report/report-command';
 import { runCommand } from './commands/run/run-command';
+import { validateCommand } from './commands/validate/validate-command';
 import { versionCommand } from './commands/version/version-command';
 
 /*const root = Node.create();
@@ -27,6 +28,7 @@ const cli = createCliApplication({
     listProjectsCommand,
     reportCommand,
     runCommand,
+    validateCommand,
     versionCommand,
   ],
 });

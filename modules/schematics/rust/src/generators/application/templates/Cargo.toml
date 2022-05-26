@@ -1,0 +1,10 @@
+[package]
+name        = "<%= projectName %>"
+description = "<%= projectDescription %>"
+version     = "0.1.0"
+edition     = "<%= edition %>"
+repository  = "<%= repository %>"
+
+[dependencies]
+
+[package.metadata.nx-rust]

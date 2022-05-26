@@ -28,11 +28,16 @@ export function iso8601IntervalToRepeatingInterval<T extends IntervalTemporal>(t
     const repetitions = parseRepetitions(repetitionsString, iso8601Interval);
     const interval = iso8601IntervalPartsToInterval(temporalClass, iso8601Interval, startString, endString);
     const isStartDuration = startString.charAt(0) === 'P';
+    const direction = isStartDuration ? 'past' : 'future';
 
-    return intervalToRepeatingInterval({
-      direction: isStartDuration ? 'past' : 'future',
-      repetitions,
-    })(interval as Interval<TemporalWithDate>) as RepeatingInterval<T>;
+    return intervalToRepeatingInterval(
+      repetitions !== undefined
+        ? {
+            direction,
+            repetitions,
+          }
+        : { direction }
+    )(interval as Interval<TemporalWithDate>) as RepeatingInterval<T>;
   };
 }
 

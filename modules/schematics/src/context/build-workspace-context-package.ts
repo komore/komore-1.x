@@ -1,0 +1,92 @@
+import { arrayToFlattenedArray } from '@komore/array';
+import { isDefined } from '@komore/functional';
+import {
+  cache,
+  combineLatest,
+  map,
+  mergeMap,
+  ObservableMap,
+  switchMap,
+  throwUnless,
+  type Observable,
+} from '@komore/reactive';
+import { assert } from '@komore/runtime';
+import { readPackageJson } from '@komore/runtime/node';
+import { join } from 'path';
+import { type InstalledPackage } from '../package/installed-package';
+import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
+import { type LocalPackage } from '../package/local-package';
+import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
+import { createPackageManager } from '../package/manager/create-package-manager';
+import { packageManagerToPackageList } from '../package/manager/package-manager-to-package-list';
+import { type PackageName } from '../package/package-name';
+import { packageToPackageWithJson } from '../package/package-to-package-with-json';
+import { tsConfigToLocalPackages } from '../package/tsconfig-to-local-packages';
+import { type TsConfigJson } from '../typescript/tsconfig-json';
+import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
+import { buildWorkspaceContextPackageList } from './build-workspace-context-package-list';
+import { type WorkspaceContextPackage } from './workspace-context-package';
+
+/**
+ * Builds a workspace context package
+ *
+ * @param basePath Base path
+ * @param tsConfigBase TypeScript base configuration
+ * @param workspaceConfiguration Workspace configuration
+ * @returns Workspace context package
+ */
+export function buildWorkspaceContextPackage(
+  basePath: string,
+  tsConfigBase: Observable<TsConfigJson>,
+  workspaceConfiguration: WorkspaceConfiguration
+): WorkspaceContextPackage {
+  const packageJsonPath = join(basePath, 'package.json');
+  const json = readPackageJson(packageJsonPath).pipe(cache());
+  const manager = createPackageManager(basePath, workspaceConfiguration.package.manager).pipe(cache());
+  const installed = manager.pipe(mergeMap(packageManagerToPackageList), cache());
+  const local = tsConfigBase.pipe(mergeMap(tsConfigToLocalPackages(basePath)), cache());
+  const all = combineLatest([installed, local]).pipe(map(arrayToFlattenedArray()), cache());
+  const byName = new ObservableMap(packageByName(all));
+  const byNameWithPackageJson = new ObservableMap(packageWithPackageJsonByName(byName));
+  const list = buildWorkspaceContextPackageList(all, installed, local, byNameWithPackageJson);
+
+  return {
+    byName,
+    byNameWithPackageJson,
+    json,
+    manager,
+    list,
+  };
+}
+
+/**
+ * Creates a function that resolves a package name to a package's information
+ *
+ * @returns Function that resolves a package name to a package's information
+ */
+function packageByName(
+  all$: Observable<ReadonlyArray<InstalledPackage | LocalPackage>>
+): (packageName: PackageName) => Observable<InstalledPackage | LocalPackage> {
+  return packageName =>
+    all$.pipe(
+      map(all => all.find(({ name }) => name === packageName)),
+      throwUnless(isDefined, () => new Error(`TODO: typed; package "${packageName}" not found`)),
+      mergeMap(packageToPackageWithJson)
+    );
+}
+
+/**
+ * Creates a function that resolves a package name to a package with its package.json
+ *
+ * @param byName Map of packages
+ * @returns Function that resolves a package name to a package with its package.json
+ */
+function packageWithPackageJsonByName(
+  byName: ReadonlyMap<PackageName, Observable<InstalledPackage | LocalPackage>>
+): (packageName: PackageName) => Observable<InstalledPackageWithPackageJson | LocalPackageWithPackageJson> {
+  return packageName => {
+    const package$ = byName.get(packageName);
+    assert(isDefined(package$));
+    return package$.pipe(switchMap(packageToPackageWithJson));
+  };
+}

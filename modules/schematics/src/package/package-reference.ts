@@ -1,7 +1,15 @@
+import { type PackageName } from "./package-name";
+
 /**
  * Package reference
  */
 export interface PackageReference {
-  readonly packageName: string;
+  /**
+   * Exported entry name
+   */
   readonly exportedEntryName: string;
+  /**
+   * Package name
+   */
+  readonly packageName: PackageName;
 }

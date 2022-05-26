@@ -8,7 +8,7 @@
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/temporal/compatibility",
+        "outputPath": "dist/temporal-compatibility",
         "tsConfig": "modules/temporal/compatibility/tsconfig.lib.json",
         "packageJson": "modules/temporal/compatibility/package.json",
         "main": "modules/temporal/compatibility/src/index.ts"
