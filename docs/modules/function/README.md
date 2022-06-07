@@ -3,16 +3,12 @@
 [//]: #keyword (function)
 [//]: #keyword (overview)
 [//]: #keyword (@komore/function)
-[//]: #path (modules/function/overview)
-[//]: #path-alias (modules/function)
-[//]: #see-also (./architecture.md)
-[//]: #see-also (./install.md)
-[//]: #see-also (./usage.md)
+[//]: #path-alias (modules/function/overview)
 [//]: #see-also (../../concepts/function-as-a-service.md)
 
 # @komore/function
 
-The `@komore/function` module allows the execution of pipelines within serverless function environments.
+The [@komore/function] module helps creating functions for serverless environments.
 
 ## Key concepts
 
@@ -20,22 +16,6 @@ The `@komore/function` module allows the execution of pipelines within serverles
 - [Function triggers] are event-emitting sources that cause a function to run
 - Functions get deployed to [serverless platforms] and are only active when triggered
 - Functions are [elastic]: they automatically scale up or down
-
-## Installation
-
-The [@komore/function] module can be installed via Npm, pnpm, or Yarn:
-
-```sh
-npm install @komore/function --save
-```
-
-```sh
-pnpm add @komore/function
-```
-
-```sh
-yarn add @komore/function
-```
 
 ## Environments
 

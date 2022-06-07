@@ -9,6 +9,7 @@
 [//]: #see-also (./usage.md)
 [//]: #see-also (./testing.md)
 [//]: #see-also (./best-practices.md)
+[//]: #see-also (./examples.md)
 [//]: #see-also (./schematics.md)
 
 # @komore/element

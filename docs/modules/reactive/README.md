@@ -5,12 +5,10 @@
 [//]: #keyword (@komore/reactive)
 [//]: #path (modules/reactive/overview)
 [//]: #path-alias (modules/reactive)
-[//]: #see-also (./architecture.md)
-[//]: #see-also (./usage.md)
 
 # @komore/reactive
 
-The `@komore/reactive` module helps build reactive and observable flows.
+The [@komore/reactive] module helps build reactive and observable flows.
 
 ## Key concepts
 
@@ -21,21 +19,10 @@ The `@komore/reactive` module helps build reactive and observable flows.
 
 # Installation
 
-The `@komore/reactive` module can be installed via pnpm, Npm or Yarn:
+<k-doc-module-install name="@komore/reactive"></k-doc-module-install>
 
-```sh
-npm install @komore/reactive --save
-```
-
-```sh
-pnpm add @komore/reactive
-```
-
-```sh
-yarn add @komore/reactive
-```
-
+[@komore/reactive]: https://npmjs.com/package/@komore/reactive
+[notifications]: ./architecture.md#Notifications
 [observables]: ./architecture.md#Observables
 [observers]: ./architecture.md#Observers
 [operators]: ./architecture.md#Operators
-[notifications]: ./architecture.md#Notifications

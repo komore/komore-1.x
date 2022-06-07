@@ -1,14 +1,14 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
- * Error class
+ * Error type
  *
- * @template GroupName Error group name
+ * @template ErrorGroupName Error group name
  * @template ErrorCode Error code
  * @template ErrorContextByCode Error context by code
  */
-export interface ErrorClass<
-  GroupName extends string,
+export interface ErrorType<
+  ErrorGroupName extends string,
   ErrorCode extends keyof ErrorContextByCode,
   ErrorContextByCode extends ReadonlyRecord<string, unknown>
 > extends Error {
@@ -23,5 +23,5 @@ export interface ErrorClass<
   /**
    * Error group name
    */
-  readonly name: GroupName;
+  readonly name: ErrorGroupName;
 }

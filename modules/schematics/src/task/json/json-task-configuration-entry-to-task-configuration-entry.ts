@@ -19,11 +19,11 @@ export function jsonTaskConfigurationEntryToTaskConfigurationEntry(
 ) => readonly [name: TaskName, configuration: TaskConfiguration] {
   return ([name, { executor, inputs = [], outputs = [], options }]) => {
     if (!isTaskName(name)) {
-      throw new InvalidTaskConfigurationError(`task name ${name} is not valid`);
+      throw InvalidTaskConfigurationError.INVALID_TASK_NAME({ taskName: name });
     }
 
     if (!isExecutorReferenceString(executor)) {
-      throw new InvalidTaskConfigurationError(`task ${name} configuration uses an invalid executor reference`);
+      throw InvalidTaskConfigurationError(`task ${name} configuration uses an invalid executor reference`);
     }
 
     return [
