@@ -12,7 +12,7 @@ import { ErrorType } from './error-type';
 export function createErrorType<ErrorGroupName extends string, ContextByCode extends ReadonlyRecord<string, unknown>>(
   groupName: ErrorGroupName,
   typeName: string
-): ErrorClass<ErrorGroupName, keyof ContextByCode, keyof ContextByCode> {
+): ErrorType<ErrorGroupName, keyof ContextByCode, keyof ContextByCode> {
   return class extends Error {
     readonly code: keyof ContextByCode;
     readonly context: ContextByCode[keyof ContextByCode];

@@ -15,19 +15,19 @@ import { type JsonTaskConfiguration } from './json-task-configuration';
 export function jsonTaskConfigurationEntryToTaskConfigurationEntry(
   _projectName: ProjectName | undefined
 ): (
-  entry: readonly [name: string, jsonConfiguration: JsonTaskConfiguration]
-) => readonly [name: TaskName, configuration: TaskConfiguration] {
-  return ([name, { executor, inputs = [], outputs = [], options }]) => {
-    if (!isTaskName(name)) {
-      throw InvalidTaskConfigurationError.INVALID_TASK_NAME({ taskName: name });
+  entry: readonly [taskName: string, jsonConfiguration: JsonTaskConfiguration]
+) => readonly [taskName: TaskName, configuration: TaskConfiguration] {
+  return ([taskName, { executor, inputs = [], outputs = [], options }]) => {
+    if (!isTaskName(taskName)) {
+      throw InvalidTaskConfigurationError.INVALID_TASK_NAME({ taskName });
     }
 
     if (!isExecutorReferenceString(executor)) {
-      throw InvalidTaskConfigurationError(`task ${name} configuration uses an invalid executor reference`);
+      throw InvalidTaskConfigurationError(`task ${taskName} configuration uses an invalid executor reference`);
     }
 
     return [
-      name,
+      taskName,
       {
         dependencies: [],
         executor,
