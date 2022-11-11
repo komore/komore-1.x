@@ -30,6 +30,7 @@
     "event": "modules/event",
     "functional": "modules/functional",
     "init-stack": "stacks/init",
+    "integration-bigcommerce": "modules/integration/bigcommerce",
     "json": "modules/json",
     "math": "modules/math",
     "regexp": "modules/regexp",

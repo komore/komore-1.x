@@ -189,6 +189,7 @@
       "@komore/integration-azure/storage/blob": ["modules/integration/azure/storage/blob/src/index.ts"],
       "@komore/integration-azure/storage/queue": ["modules/integration/azure/storage/queue/src/index.ts"],
       "@komore/integration-azure/text-analytics": ["modules/integration/azure/text-analytics/src/index.ts"],
+      "@komore/integration-bigcommerce": ["modules/integration/bigcommerce/src/index.ts"],
       "@komore/integration-discord": ["modules/integration/discord/src/index.ts"],
       "@komore/integration-github": ["modules/integration/github/src/index.ts"],
       "@komore/integration-gitlab": ["modules/integration/gitlab/src/index.ts"],
