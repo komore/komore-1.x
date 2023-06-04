@@ -1,5 +1,6 @@
 /**
  * Returns an array with the same `value` repeated `count` times
+ *
  * @param value Value
  * @param count Count
  * @returns Array with `count` times the `value`

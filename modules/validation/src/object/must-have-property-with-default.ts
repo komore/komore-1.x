@@ -1,5 +1,6 @@
 import { map, mergeMap, of, type Observable, type OperatorFunction } from '@komore/reactive';
 import { type Expand, type ReadonlyRecord } from '@komore/typescript';
+
 import { type ValidationContext } from '../context/validation-context';
 
 /**
@@ -39,8 +40,9 @@ export function mustHavePropertyWithDefault<
     });
   } else {
     return map(ctx => {
+      const { value } = ctx;
       const context =
-        propertyKey in ctx.value
+        typeof value === 'object' && value !== null && propertyKey in value
           ? ctx
           : {
               ...ctx,

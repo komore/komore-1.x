@@ -1,5 +1,6 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
       "path": "./error.tsconfig.library.json"

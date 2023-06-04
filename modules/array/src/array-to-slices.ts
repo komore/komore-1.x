@@ -1,5 +1,6 @@
 /**
  * Creates a function that turns an array into a list of array slices with a maximum size
+ *
  * @param sliceSize Maximum size of a slice
  * @returns Function that turns an array into a list of array slices of maximum size `sliceSize`
  */

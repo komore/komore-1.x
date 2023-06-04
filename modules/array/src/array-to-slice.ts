@@ -2,6 +2,7 @@ import { type ArrayRange } from './array-range';
 
 /**
  * Creates a function that returns a section from an array
+ *
  * @param range Range
  * @returns Function that returns the section from an array
  */

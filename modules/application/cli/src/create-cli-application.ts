@@ -1,7 +1,9 @@
+import { bgRedBright, redBright } from 'chalk';
+
 import { isInstanceOf } from '@komore/functional';
 import { recordLogEvent } from '@komore/observability/logging';
 import { catchError, catchErrorIf, defaultIfEmpty, of } from '@komore/reactive';
-import * as chalk from 'chalk';
+
 import { type CliApplication } from './cli-application';
 import { CliError } from './cli-error';
 import { type CliOptions } from './cli-options';
@@ -36,7 +38,7 @@ export function createCliApplication(options: CliOptions): CliApplication {
       }),
       catchError(error => {
         const errorMessage = error instanceof Error ? error.message : (error as string);
-        const message = chalk.bgRedBright(' ERROR ') + ' ' + chalk.redBright(errorMessage);
+        const message = bgRedBright(' ERROR ') + ' ' + redBright(errorMessage);
         console.log(message);
         return of(1);
       })

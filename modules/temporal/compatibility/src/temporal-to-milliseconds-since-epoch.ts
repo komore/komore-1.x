@@ -8,6 +8,6 @@ import { Temporal } from '@js-temporal/polyfill';
  */
 export function temporalToMillisecondsSinceEpoch(temporal: Temporal.PlainDateTime | Temporal.ZonedDateTime): number {
   const zonedDateTime =
-    temporal instanceof Temporal.ZonedDateTime ? temporal : temporal.toZonedDateTime(Temporal.Now.timeZone());
+    temporal instanceof Temporal.ZonedDateTime ? temporal : temporal.toZonedDateTime(Temporal.Now.timeZoneId());
   return zonedDateTime.epochMilliseconds;
 }

@@ -1,7 +1,6 @@
 import { createCliArgument as arg, createCliCommand, createCliFlag as flag } from '@komore/application-cli';
-import { mapTo, mergeMap, tapNext, toArray } from '@komore/reactive';
+import { mapTo, mergeMap, tapNext } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
-import { executeTerraformCommand } from '@komore/stack/schematics';
 
 /**
  * List command definition
@@ -20,16 +19,7 @@ export const listCommand = createCliCommand(
         return createWorkspaceContext(process.cwd()).pipe(
           tapNext(workspace => {
             console.log('list', workspace);
-          }),
-          mergeMap(() =>
-            executeTerraformCommand('c:/git/chantelle/tf-darj-dns', 'plan', [
-              '-detailed-exitcode',
-              '-refresh=false',
-            ]).pipe(
-              tapNext(x => console.log('omg', x)),
-              toArray()
-            )
-          )
+          })
         );
       }),
       mapTo(0)

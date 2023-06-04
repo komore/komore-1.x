@@ -1,0 +1,11 @@
+{
+  "extends": "../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./typescript-schema.tsconfig.library.json"
+    },
+    {
+      "path": "./typescript-schema.tsconfig.specifications.json"
+    }
+  ]
+}

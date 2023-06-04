@@ -1,4 +1,4 @@
 
-export function isErrorOfType() {
+export function isErrorOfType(): (error: GenericError) {
 
 }

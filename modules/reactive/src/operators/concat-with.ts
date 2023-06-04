@@ -1,10 +1,12 @@
-import { concat } from '../creation/concat';
+import { concatWith as rxjsConcatWith } from 'rxjs';
+
 import { type ObservableTuple } from '../observable-tuple';
 import { type OperatorFunction } from '../operator-function';
 
 /**
  * Emits all the values from the source observable until it completes, then subscribes to each passed observable until
  * it completes, one at a time
+ *
  * @param sources List of observables
  * @template T Source observable value type
  * @template A Additional source observable value types
@@ -12,5 +14,5 @@ import { type OperatorFunction } from '../operator-function';
 export function concatWith<T, A extends readonly unknown[]>(
   sources: [...ObservableTuple<A>]
 ): OperatorFunction<T, T | A[number]> {
-  return source => concat([source, ...sources]);
+  return rxjsConcatWith(sources);
 }

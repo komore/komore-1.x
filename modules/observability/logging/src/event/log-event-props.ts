@@ -1,4 +1,6 @@
-import { typeSchema, type ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { typeSchema } from '@komore/typescript/schema';
+
 import { type LogEventPropertiesSchema } from './log-event-properties-schema';
 import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';
 
@@ -8,6 +10,8 @@ import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-
  * @returns Log event properties schema
  * @template SchemaType Schema type
  */
-export function logEventProps<SchemaType extends ReadonlyRecord<string, unknown>>(): LogEventPropertiesSchema<SchemaType> {
+export function logEventProps<
+  SchemaType extends ReadonlyRecord<string, unknown>
+>(): LogEventPropertiesSchema<SchemaType> {
   return typeSchema<typeof logEventPropertiesSchemaTypeName, SchemaType>(logEventPropertiesSchemaTypeName);
 }

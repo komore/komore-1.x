@@ -1,9 +1,9 @@
-[//]: #title (Error)
-[//]: #description (komore error module overview)
-[//]: #keyword (error)
-[//]: #keyword (overview)
-[//]: #keyword (@komore/error)
-[//]: #path-alias (modules/error/overview)
+[//]: #title 'Error'
+[//]: #description 'komore error module overview'
+[//]: #keyword 'error'
+[//]: #keyword 'overview'
+[//]: #keyword '@komore/error'
+[//]: #path-alias 'modules/error/overview'
 
 # @komore/error
 
@@ -14,7 +14,7 @@ The [@komore/error] module allows defining typed errors with an attached context
 - [Error types] define specific errors
 - Error types have an associated typed [error context]
 - Error types can have [error message translations]
-- [Error domains] encompass the error types that may occur within a [domain]
+- [Error groups] encompass the error types that may occur within a [domain]
 - [Errors] are instances of error types occuring at runtime
 
 ## Installation

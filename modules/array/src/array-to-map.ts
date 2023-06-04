@@ -1,5 +1,6 @@
 /**
  * Creates a function that maps an array to a map
+ *
  * @param keyMapper Function that maps an array element to a map key
  * @param valueMapper Function that maps an array element to a map value
  * @param merger Function that merges duplicate keys

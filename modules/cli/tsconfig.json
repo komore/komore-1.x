@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.node.json",
+  "extends": "../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./cli.tsconfig.application.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./cli.tsconfig.specifications.json"
     }
   ]
 }

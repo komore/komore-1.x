@@ -1,5 +1,6 @@
 import { map, mergeMap, of, type Observable, type OperatorFunction } from '@komore/reactive';
 import { type Expand, type ReadonlyRecord } from '@komore/typescript';
+
 import { type ValidationContext } from '../context/validation-context';
 import { ConstraintViolationError } from '../error/constraint-violation-error';
 
@@ -34,7 +35,8 @@ export function mustHaveProperty<
     });
   } else {
     return map(ctx => {
-      if (!(propertyKey in ctx.value)) {
+      const { value } = ctx;
+      if (typeof value !== 'object' || value === null || !(propertyKey in value)) {
         throw new ConstraintViolationError('property.missing', { propertyKey, propertyPath: ctx.propertyPath });
       }
 

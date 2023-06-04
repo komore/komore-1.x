@@ -1,18 +1,21 @@
-/**
- * Command
- * @template T Command type
- * @template S Command schema type
- */
-export type Command<T extends string, S extends object | void = void> = Readonly<{
-  type: T;
-}> &
-  (S extends object ? Readonly<S> : {});
+import { type Domain } from '@komore/domain';
 
 /**
- * Command type from an command type
- * @template E Command type
+ * Command
+ *
+ * @template DomainType Domain name
+ * @template CommandType Command name
+ * @template S Command schema type
  */
-export type CommandType<E> = E extends Command<infer T, any> ? T : never;
+export type Command<
+  DomainType extends Domain<string>,
+  CommandType extends string,
+  CommandProperties extends object | void = void
+> = Readonly<{
+  readonly commandType: CommandType;
+  readonly domain: DomainType;
+}> &
+  (CommandProperties extends object ? Readonly<CommandProperties> : {});
 
 /**
  * Command schema type from an command type

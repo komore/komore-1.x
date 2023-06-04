@@ -7,7 +7,3 @@ export { type KeysFromUnion } from './keys-from-union';
 export { type ReadonlyRecord } from './readonly-record';
 export { type TruthyTypesOf } from './truthy-types-of';
 export { type TypeNames } from './type-names';
-export { type TypeSchema } from './schema/type-schema';
-export { typeSchema } from './schema/type-schema';
-export { type TypeSchemaType } from './schema/type-schema-type';
-export { type TypeSchemaTypeName } from './schema/type-schema-type-name';

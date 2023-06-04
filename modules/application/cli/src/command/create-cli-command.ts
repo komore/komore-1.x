@@ -1,6 +1,7 @@
 import { objectToEntries } from '@komore/functional';
 import { type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type CliArgumentDefinition } from './argument/cli-argument-definition';
 import { buildCliCommandContext } from './build-cli-command-context';
 import { type CliCommand } from './cli-command';
@@ -26,7 +27,9 @@ export function createCliCommand<
   FlagDefinitions extends ReadonlyRecord<string, CliFlagDefinition<CliParameterTypeName, boolean>>
 >(
   commandName: CommandName,
-  commandHandler: ($: Observable<CliCommandContext<CommandName, ArgumentDefinitions, FlagDefinitions>>) => Observable<number | never>,
+  commandHandler: (
+    $: Observable<CliCommandContext<CommandName, ArgumentDefinitions, FlagDefinitions>>
+  ) => Observable<number | never>,
   options: CliCommandOptions<ArgumentDefinitions, FlagDefinitions>
 ): CliCommand<CommandName> {
   const wrapper = {

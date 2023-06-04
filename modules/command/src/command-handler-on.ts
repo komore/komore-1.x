@@ -1,5 +1,6 @@
 import { type Event } from '@komore/event';
 import { type Observable } from '@komore/reactive';
+
 import { type Command, type CommandType } from './command';
 import { type CommandCreator, type CommandCreatorCommandType } from './command-creator';
 import { type CommandMetadata } from './command-metadata';
@@ -22,11 +23,17 @@ export type On<C extends Command<any, any>, E extends Event<any, any>[] | void> 
  * @template E Event types
  */
 export type OnCommandHandler<CC extends CommandCreator<any, any>, E extends Event<any, any>[] | void> = (
-  command$: Observable<{ command: CommandCreatorCommandType<CC>, metadata: CommandMetadata }>
+  command$: Observable<{ command: CommandCreatorCommandType<CC>; metadata: CommandMetadata }>
 ) => Observable<E extends Event<any, any>[] ? E[number] : void>;
 
-export function on<CC extends CommandCreator<any, any>>(commandCreator: CC, commandHandler: OnCommandHandler<CC, void>): On<CC, void>;
-export function on<CC extends CommandCreator<any, any>, E extends Event<any, any>[]>(commandCreator: CC, commandHandler: OnCommandHandler<CC, E>): On<CC, E>;
+export function on<CC extends CommandCreator<any, any>>(
+  commandCreator: CC,
+  commandHandler: OnCommandHandler<CC, void>
+): On<CC, void>;
+export function on<CC extends CommandCreator<any, any>, E extends Event<any, any>[]>(
+  commandCreator: CC,
+  commandHandler: OnCommandHandler<CC, E>
+): On<CC, E>;
 
 /**
  * Associates a command with a command handler function
@@ -42,6 +49,6 @@ export function on<CC extends CommandCreator<any, any>, E extends Event<any, any
 ): On<CC, E> {
   return {
     commandHandler,
-    type: commandCreator.type
+    type: commandCreator.type,
   };
 }

@@ -3,6 +3,7 @@
 TODO.
 
 - eslint rule: blank line between groups:
+
   - given:,and:,and: blank
   - when:,and:,and,:and: blank
   - expect:/then:,and:,and: blank
@@ -10,6 +11,7 @@ TODO.
   - issue: https://github.com/x/y/issues/###
 
 - jest replacement using code generation for given/when/then/etc?
+
   - maintain jest compatibility?
 
 - unit tests: the main goal is to validate and document the behavior of the code
@@ -20,14 +22,16 @@ TODO.
 ### Supported syntax
 
 ```ts
-a;                // expectTruthy(a)         expect(a).toBeTruthy()
-!a;               // expectFalsy(a)          expect(a).toBeFalsy()
-a === undefined;  // expectUndefined(a)      expect(a).toBeUndefined()
-a !== undefined;  // expectDefined(a)        expect(a).toBeDefined()
-a === null;       // expectNull(a)           expect(a).toBeNull()
-a !== null;       // expectNotNull(a)        expect(a).not.toBeNull()
-a instanceof b;   // expectInstanceOf(a, b)  expect(a).toBeInstanceOf(b)
-typeof a === 'b'; // expectTypeOf(a, 'b')    
+a; // expectTruthy(a)         expect(a).toBeTruthy()
+!a; // expectFalsy(a)          expect(a).toBeFalsy()
+a === undefined; // expectUndefined(a)      expect(a).toBeUndefined()
+a !== undefined; // expectDefined(a)        expect(a).toBeDefined()
+a === null; // expectNull(a)           expect(a).toBeNull()
+a === b; // expectEqual(a)(b)       expect(a).toBe(b)
+a !== b; // expectNotEqual(a)(b)    expect(a).not.toBe(b)
+a !== null; // expectNotNull(a)        expect(a).not.toBeNull()
+a instanceof b; // expectInstanceOf(a, b)  expect(a).toBeInstanceOf(b)
+typeof a === 'b'; // expectTypeOf(a, 'b')
 ```
 
 ### Generated code
@@ -35,20 +39,17 @@ typeof a === 'b'; // expectTypeOf(a, 'b')
 ```ts
 feature('x', () => {
   scenario('y', () => {
-    given:
     // vars here
-    then:
-    a.b !== undefined;
+    given: then: a.b !== undefined;
     a.b.c === x.y.z;
   });
-})
+});
 ```
 
 Becomes
 
 ```ts
-then:
-const τa = a;
+then: const τa = a;
 const τa_b = τa.b;
 try {
   expectDefined(τa_b);
@@ -92,6 +93,6 @@ Note: supported file formats for codecoverage: xml & gcov?
 ### Generators
 
 - code-coverage: adds code coverage reporting to the GH workflow (e.g. [Codecov])
-- feature: creates a *.spec.ts file
+- feature: creates a \*.spec.ts file
 
 [codecov]: https://github.com/marketplace/actions/codecov
