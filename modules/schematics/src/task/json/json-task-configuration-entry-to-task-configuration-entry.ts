@@ -1,6 +1,6 @@
 import { isExecutorReferenceString } from '../../executor/is-executor-reference-string';
 import { type ProjectName } from '../../project/project-name';
-import { InvalidTaskConfigurationError } from '../invalid-task-configuration-error';
+import { invalidExecutorReference, invalidTaskName } from '../invalid-task-configuration-errors';
 import { isTaskName } from '../is-task-name';
 import { type TaskConfiguration } from '../task-configuration';
 import { type TaskName } from '../task-name';
@@ -19,11 +19,11 @@ export function jsonTaskConfigurationEntryToTaskConfigurationEntry(
 ) => readonly [taskName: TaskName, configuration: TaskConfiguration] {
   return ([taskName, { executor, inputs = [], outputs = [], options }]) => {
     if (!isTaskName(taskName)) {
-      throw InvalidTaskConfigurationError.INVALID_TASK_NAME({ taskName });
+      throw invalidTaskName({ taskName });
     }
 
     if (!isExecutorReferenceString(executor)) {
-      throw InvalidTaskConfigurationError(`task ${taskName} configuration uses an invalid executor reference`);
+      throw invalidExecutorReference({ executor, taskName });
     }
 
     return [

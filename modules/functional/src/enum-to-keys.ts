@@ -1,5 +1,6 @@
 /**
- * Gets a list of enum keys from an enum
+ * Returns the list of enum keys from an enum
+ *
  * @param enumType Enum type
  * @returns List of enum keys
  */

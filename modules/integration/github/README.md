@@ -1,3 +1,0 @@
-# komore Integration - Github
-
-TODO.

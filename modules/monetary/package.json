@@ -1,0 +1,9 @@
+{
+  "name": "@komore/monetary",
+  "description": "Monetary features",
+  "keywords": [
+    "monetary",
+    "currency",
+    "amount"
+  ]
+}

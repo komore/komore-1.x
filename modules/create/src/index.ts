@@ -1,6 +1,8 @@
-import { setupCommand } from './setup-command';
-import { executeCli } from '@komore/application-cli';
+import { createCliApplication, executeCliApplication } from '@komore/application-cli';
 
-executeCli(process.argv, {
+import { setupCommand } from './setup-command';
+
+createCliApplication({ })
+executeCliApplication(process.argv, {
   commands: [setupCommand],
 });

@@ -4,17 +4,17 @@
  * @param lineNumber Line number
  * @returns Function that returns the specified line from a string
  */
-export function stringToLine(lineNumber: number): (str: string) => string | undefined {
-  if (lineNumber < 1) {
-    throw new Error(`invalid line number ${lineNumber}`);
+export function stringToLine(lineNumber: number): (string: string) => string | undefined {
+  if (!(0 < lineNumber)) {
+    throw new Error(`invalid line number ${lineNumber} (must be greater than 0)`);
   }
 
-  return str => {
+  return string => {
     let nthNewLine = -1;
     let count: number;
 
     for (count = 1; count !== lineNumber; ++count) {
-      nthNewLine = str.indexOf('\n', nthNewLine + 1);
+      nthNewLine = string.indexOf('\n', nthNewLine + 1);
       if (nthNewLine === -1) {
         break;
       }
@@ -25,10 +25,10 @@ export function stringToLine(lineNumber: number): (str: string) => string | unde
     }
 
     const lineStart = nthNewLine + 1;
-    const nextNewLine = str.indexOf('\n', lineStart);
+    const nextNewLine = string.indexOf('\n', lineStart);
     const lineEnd =
-      nextNewLine === -1 ? undefined : str.charAt(nextNewLine - 1) === '\r' ? nextNewLine - 1 : nextNewLine;
+      nextNewLine === -1 ? undefined : string.charAt(nextNewLine - 1) === '\r' ? nextNewLine - 1 : nextNewLine;
 
-    return str.substring(lineStart, lineEnd);
+    return string.substring(lineStart, lineEnd);
   };
 }

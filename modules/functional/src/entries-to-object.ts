@@ -1,5 +1,6 @@
 /**
  * Creates an object from a list of key/value pairs
+ *
  * @param entries Entries
  * @returns Object
  */

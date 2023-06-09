@@ -1,8 +1,10 @@
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { enumToKeys } from './enum-to-keys';
 
 /**
- * Gets a list of enum values from an enum
+ * Returns the list of enum values from an enum
+ *
  * @param enumObject Enum object
  * @returns List of enum values
  * @template EnumType Enum type

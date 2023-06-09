@@ -1,0 +1,12 @@
+{
+  "extends": "../../../conf/tsconfig.base.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./android-schematics.tsconfig.library.json"
+    },
+    {
+      "path": "./android-schematics.tsconfig.specifications.json"
+    }
+  ]
+}

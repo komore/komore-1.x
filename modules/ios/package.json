@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/ios",
+  "komore": {
+    "executors": "./schematics/ios-schematics.executors.json",
+    "generators": "./schematics/ios-schematics.generators.json"
+  }
+}

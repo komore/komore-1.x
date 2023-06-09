@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/k",
+  "description": "Command-line interface for komore",
+  "keywords": [
+    "CLI"
+  ],
+  "bin": {
+    "k": "./bin/k",
+    "komore": "./bin/k"
+  },
+  "files": [
+    "/bin"
+  ]
+}

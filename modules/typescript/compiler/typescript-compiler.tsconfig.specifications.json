@@ -1,4 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["src/**/*.spec.ts", "./testing/typings/helpers.d.ts", "./testing/typings/matchers.d.ts"]
-}

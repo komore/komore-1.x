@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/application",
   "komore": {
-    "executors": "./schematics/executors.json",
-    "generators": "./schematics/generators.json"
+    "executors": "./schematics/application-schematics.executors.json",
+    "generators": "./schematics/application-schematics.generators.json"
   }
 }

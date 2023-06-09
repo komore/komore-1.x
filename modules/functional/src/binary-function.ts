@@ -1,5 +1,6 @@
 /**
  * Function that takes two arguments
+ *
  * @template ArgumentType1 Argument type 1
  * @template ArgumentType2 Argument type 2
  * @template ResultType Result type

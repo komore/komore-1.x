@@ -1,5 +1,5 @@
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type TypeSchema } from '@komore/typescript/schema';
+import { type TypeSchema } from '@komore/typescript';
 
 import { type errorPropertiesSchemaTypeName } from './error-properties-schema-type-name';
 

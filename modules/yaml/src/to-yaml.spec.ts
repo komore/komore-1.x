@@ -1,5 +1,7 @@
+import { feature } from '@komore/testing';
+
 import { toYaml } from './to-yaml';
 
-describe('To YAML', () => {
+toYaml;
 
-});
+feature('To YAML', {});

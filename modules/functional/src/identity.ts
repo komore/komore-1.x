@@ -1,5 +1,6 @@
 /**
  * Returns the passed parameter without making any change
+ *
  * @param value Value
  * @returns Value
  */

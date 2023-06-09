@@ -10,6 +10,7 @@ export { isInstanceOf } from './is-instance-of';
 export { isNotNull } from './is-not-null';
 export { isTypeOf } from './is-type-of';
 export { isUndefined } from './is-undefined';
+export { newInstanceOf } from './new-instance-of';
 export { noop } from './noop';
 export { not } from './not';
 export { objectToEntries } from './object-to-entries';

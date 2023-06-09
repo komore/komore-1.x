@@ -1,18 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/cli",
-  "description": "Command-line interface for komore",
-  "keywords": [
-    "CLI"
-  ],
-  "bin": {
-    "k": "./bin/k",
-    "komore": "./bin/k"
-  },
-  "files": [
-    "/bin"
-  ],
-  "oclif": {
-    "bin": "k",
-    "commands": "./src/commands"
+  "komore": {
+    "executors": "./schematics/cli-schematics.executors.json",
+    "generators": "./schematics/cli-schematics.generators.json"
   }
 }

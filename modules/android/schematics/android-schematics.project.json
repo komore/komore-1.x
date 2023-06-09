@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schematics/src/project-configuration.schema.json",
+  "domain": "android",
+  "type": "library",
+  "tags": ["trait:schematics"],
+  "tasks": {
+    "build": "@komore/schematics:build",
+    "lint": "@komore/linting:lint",
+    "test": "@komore/testing:test"
+  }
+}

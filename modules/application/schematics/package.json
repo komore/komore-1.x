@@ -1,3 +1,4 @@
 {
-  "name": "@komore/application-electron"
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/application/schematics"
 }

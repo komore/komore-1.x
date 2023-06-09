@@ -1,8 +1,10 @@
+import { feature } from '@komore/testing';
+
 import { and } from './and';
 
-describe('And', () => {
-  it('x', () => {
+feature('And', {
+  x: () => {
     given: '';
     and();
-  });
+  },
 });

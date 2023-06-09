@@ -1,5 +1,6 @@
 /**
  * Type guard that tests whether a value is not null
+ *
  * @param value Value
  * @returns true if the value is not null
  */

@@ -9,5 +9,11 @@
     "dist": true,
     "node_modules": true
   },
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "i18n-ally.localesPaths": [
+    "modules/element/i18n",
+    "docs/modules/element/i18n",
+    "modules/vscode-extension/assets/i18n",
+    "modules/ai/text/src/language"
+  ]
 }

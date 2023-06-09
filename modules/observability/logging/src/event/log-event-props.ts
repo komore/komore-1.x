@@ -1,5 +1,4 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { typeSchema } from '@komore/typescript/schema';
+import { typeSchema, type ReadonlyRecord } from '@komore/typescript';
 
 import { type LogEventPropertiesSchema } from './log-event-properties-schema';
 import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';

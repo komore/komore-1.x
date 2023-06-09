@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/typescript",
   "description": "TypeScript type and schema helpers",
   "keywords": [

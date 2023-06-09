@@ -1,5 +1,6 @@
 /**
  * Creates a function that inverts the result of another function
+ *
  * @param fn Function
  * @returns `false` if the wrapped function returns `true`, otherwise `true`
  * @template Parameters Parameters type

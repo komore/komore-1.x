@@ -11,7 +11,7 @@ The `@komore/command` ... TODO.
 import { createCommandGroup } from '@komore/command';
 import { defineDomain } from '@komore/domain';
 import { createFunction } from '@komore/function';
-import { properties } from '@komore/typescript/schema';
+import { properties } from '@komore/typescript';
 
 const domain = createDomain('example');
 const commandGroup = createCommandGroup(domain, 'example group');

@@ -1,8 +1,10 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../conf/tsconfig.node.json",
+  "files": [],
   "references": [
     {
-      "path": "./cli.tsconfig.application.json"
+      "path": "./cli.tsconfig.library.json"
     },
     {
       "path": "./cli.tsconfig.specifications.json"

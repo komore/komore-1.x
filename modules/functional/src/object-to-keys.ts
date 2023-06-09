@@ -2,6 +2,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
  * Returns the list of property keys from an object
+ *
  * @param obj Object
  * @returns List of property keys
  */

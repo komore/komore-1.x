@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/src/project-configuration.schema.json",
+  "domain": "typescript-compiler",
+  "type": "library",
+  "tags": ["trait:testing"],
+  "tasks": ["build", "lint", "test"]
+}

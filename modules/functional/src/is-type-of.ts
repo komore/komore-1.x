@@ -2,6 +2,7 @@ import { type TypeNames } from '@komore/typescript';
 
 /**
  * Creates a function that tests whether a value is of a specific type, using `typeof`
+ *
  * @param typeName Type name
  * @returns Function that tests whether a value is of the specific type
  */

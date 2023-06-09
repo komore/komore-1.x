@@ -1,3 +1,0 @@
-# komore Integration - Slack
-
-TODO.

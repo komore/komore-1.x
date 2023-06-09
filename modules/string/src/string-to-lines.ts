@@ -2,6 +2,6 @@
  * TODO
  * @returns
  */
-export function stringToLines(): (str: string) => Array<string> {
-  return str => str.split('\n');
+export function stringToLines(): (string: string) => Array<string> {
+  return string => string.split('\n');
 }

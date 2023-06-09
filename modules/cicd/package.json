@@ -1,6 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/cicd",
+  "description": "CI/CD features",
+  "keywords": [
+    "ci",
+    "cd",
+    "continuous",
+    "integration",
+    "delivery"
+  ],
   "komore": {
-    "generators": "./schematics/cicd-generators.json"
+    "generators": "./schematics/cicd-schematics.generators.json"
   }
 }

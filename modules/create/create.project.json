@@ -1,4 +1,5 @@
 {
+  "$schema": "../schematics/src/project-configuration.schema.json",
   "domain": "create",
   "type": "application",
   "tags": ["trait:base"],

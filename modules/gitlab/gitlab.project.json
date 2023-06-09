@@ -1,0 +1,7 @@
+{
+  "$schema": "../schematics/src/project-configuration.schema.json",
+  "domain": "gitlab",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": ["build", "lint", "publish", "test"]
+}

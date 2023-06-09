@@ -9,13 +9,19 @@ import { type TaskName } from './task-name';
  */
 const invalidTaskConfigurationError = createErrorGroup(schematicsDomain, '@komore/schematics/task/configuration');
 
-export const InvalidTaskName = invalidTaskConfigurationError(
+export const invalidExecutorReference = invalidTaskConfigurationError(
+  'task.executor.invalid',
+  'task ${taskName} configuration uses invalid executor reference ${executor}',
+  errorProperties<{ executor: string; taskName: TaskName }>()
+);
+
+export const invalidTaskName = invalidTaskConfigurationError(
   'task.name.invalid',
   'task name ${taskName} is not valid',
   errorProperties<{ taskName: string }>()
 );
 
-export const TaskNotFound = invalidTaskConfigurationError(
+export const taskNotFound = invalidTaskConfigurationError(
   'task.not-found',
   'task ${taskName} not found in project ${projectName}',
   errorProperties<{ projectName: ProjectName; taskName: TaskName }>()

@@ -1,4 +1,4 @@
-# komore Create
+# @komore/create
 
 ```sh
 pnpm init @komore my-platform

@@ -14,7 +14,7 @@ export function matchCommand<T extends ReadonlyArray<Command<Domain<string>, str
   command: T[number],
   matcher: CommandMatcher<T, Result>
 ): Result {
-  const { commandType } = command;
+  const { commandName: commandType } = command;
   const handler = matcher[commandType];
   return handler(command);
 }

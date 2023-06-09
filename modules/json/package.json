@@ -1,3 +1,9 @@
 {
-  "name": "@komore/json"
+  "name": "@komore/json",
+  "description": "JSON and JSON schema features",
+  "keywords": [
+    "json",
+    "schema",
+    "serialization"
+  ]
 }

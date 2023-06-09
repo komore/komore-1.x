@@ -1,5 +1,6 @@
 /**
  * Function that takes a single argument and asserts its type
+ *
  * @template ArgumentType Argument type
  * @template ResultType Result type
  */
