@@ -1,3 +1,0 @@
-# @komore/integration-twitter
-
-TODO.
