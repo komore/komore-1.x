@@ -1,9 +1,11 @@
+import { join } from 'path';
+
 import { objectToEntries } from '@komore/functional';
 import { cache, defaultIfEmpty, forkJoin, map, take, type Observable } from '@komore/reactive';
-import { join } from 'path';
+
 import { loadProjectConfiguration } from '../project/load-project-configuration';
+import { type ProjectName } from '../project/name/project-name';
 import { type ProjectConfiguration } from '../project/project-configuration';
-import { type ProjectName } from '../project/project-name';
 import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
 import { type WorkspaceContext } from './workspace-context';
 

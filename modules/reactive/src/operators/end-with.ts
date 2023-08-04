@@ -1,4 +1,5 @@
-import { type ArrayValueType } from '@komore/array';
+import { type ArrayValueType } from '@komore/collection';
+
 import { concat } from '../creation/concat';
 import { fromArray } from '../creation/from-array';
 import { type OperatorFunction } from '../operator-function';

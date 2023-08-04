@@ -1,5 +1,6 @@
-import { type Observable } from '@komore/reactive';
-//import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
+import { type ScenarioBlock } from './scenario-block';
+
+import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
 
 /**
  * Defines a scenario
@@ -7,7 +8,6 @@ import { type Observable } from '@komore/reactive';
  * @param scenarioTitle Scenario title
  * @param scenarioBlock Scenario block
  */
-export function scenario(scenarioTitle: string, scenarioBlock: () => void | Promise<void> | Observable<void>): void {
-  return it(scenarioTitle, scenarioBlock as () => void);
-  // TODO: post-jest throw new SpecificationNotPreprocessedError('scenario');
+export function scenario(_scenarioTitle: string, _scenarioBlock: ScenarioBlock): void {
+  throw new SpecificationNotPreprocessedError('scenario');
 }

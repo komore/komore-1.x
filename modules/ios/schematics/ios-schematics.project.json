@@ -1,11 +1,7 @@
 {
-  "$schema": "../../schematics/src/project-configuration.schema.json",
+  "$schema": "../../schematics/project-configuration.schema.json",
   "domain": "ios",
   "type": "library",
   "tags": ["trait:schematics"],
-  "tasks": {
-    "build": "@komore/schematics:build",
-    "lint": "@komore/linting:lint",
-    "test": "@komore/testing:test"
-  }
+  "tasks": ["build", "document", "lint", "test"]
 }

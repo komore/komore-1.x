@@ -1,9 +1,10 @@
 import { isDefined } from '@komore/functional';
 import { type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
+
 import { WorkspaceContext } from '../context/workspace-context';
+import { ProjectName } from './name/project-name';
 import { ProjectConfiguration } from './project-configuration';
-import { ProjectName } from './project-name';
 
 /**
  * Creates a function that returns a project configuration, given a project name

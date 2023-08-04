@@ -1,5 +1,6 @@
+import { type PackageJson } from '@komore/node';
 import { of, type Observable } from '@komore/reactive';
-import { type PackageJson } from '@komore/runtime/node';
+
 import { type WorkspaceGeneratorDescriptor } from './workspace-generator-descriptor';
 
 /**

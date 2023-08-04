@@ -1,4 +1,4 @@
-import { type ExecutorName } from './executor-name';
+import { type ExecutorName } from './name/executor-name';
 import { type WorkspaceExecutorDescriptor } from './workspace-executor-descriptor';
 
 /**

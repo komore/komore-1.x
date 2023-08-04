@@ -1,8 +1,10 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '@komore/temporal';
+
 import { type MockTemporal } from './mock-temporal';
 
 /**
  * Mocks the current zoned date time
+ *
  * @param zonedDateTime Zoned date time
  * @returns Mock temporal
  */

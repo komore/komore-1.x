@@ -1,4 +1,4 @@
-import { type PackageName } from './package-name';
+import { type PackageName } from './name/package-name';
 
 /**
  * Local package

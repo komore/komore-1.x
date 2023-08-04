@@ -1,6 +1,7 @@
-import { type PackageReferenceName } from '../../package/package-reference-name';
-import { type WorkspaceConfiguration } from '../workspace-configuration';
-import { type JsonWorkspaceConfiguration } from './json-workspace-configuration';
+import { type PackageReferenceName } from '../../package/reference/package-reference-name';
+import { validatePackageReferenceName } from '../../package/reference/validate-package-reference-name';
+import { type WorkspaceTaskConfiguration } from '../workspace-task-configuration';
+import { type WorkspaceTaskConfigurationJson } from './workspace-task-configuration-json';
 
 /**
  * Normalizes a workspace taask configuration
@@ -9,10 +10,14 @@ import { type JsonWorkspaceConfiguration } from './json-workspace-configuration'
  * @returns Workspace task configuration
  */
 export function normalizeWorkspaceTaskConfiguration(
-  task: JsonWorkspaceConfiguration['task']
-): WorkspaceConfiguration['task'] {
+  taskConfiguration: WorkspaceTaskConfigurationJson | undefined
+): WorkspaceTaskConfiguration {
+  const runner = taskConfiguration?.runner;
+  if (runner !== undefined) {
+    validatePackageReferenceName(runner);
+  }
+
   return {
-    runner: '@komore/schematics/runner#createTaskRunner' as PackageReferenceName,
-    ...task,
+    runner: runner ?? ('@komore/schematics/runner#createTaskRunner' as PackageReferenceName),
   };
 }

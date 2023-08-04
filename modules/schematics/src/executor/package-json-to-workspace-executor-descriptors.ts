@@ -1,8 +1,10 @@
-import { mapEach, of, type Observable } from '@komore/reactive';
-import { type PackageJson } from '@komore/runtime/node';
 import { join } from 'path';
+
+import { type PackageJson } from '@komore/node';
+import { mapEach, of, type Observable } from '@komore/reactive';
+
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { readWorkspaceExecutorDescriptors } from './read-workspace-executor-descriptors';
 import { type WorkspaceExecutorDescriptor } from './workspace-executor-descriptor';
 

@@ -1,6 +1,7 @@
-import { switchMap, type Observable } from '@komore/reactive';
-import { jsonWorkspaceConfigurationToWorkspaceConfiguration } from './json/json-workspace-configuration-to-workspace-configuration';
-import { loadJsonWorkspaceConfiguration } from './json/load-json-workspace-configuration';
+import { mergeMap, type Observable } from '@komore/reactive';
+
+import { loadWorkspaceConfigurationJson } from './json/load-workspace-configuration-json';
+import { workspaceConfigurationJsonToWorkspaceConfiguration } from './json/workspace-configuration-json-to-workspace-configuration';
 import { type WorkspaceConfiguration } from './workspace-configuration';
 
 /**
@@ -10,7 +11,7 @@ import { type WorkspaceConfiguration } from './workspace-configuration';
  * @returns Workspace configuration
  */
 export function loadWorkspaceConfiguration(workspacePath: string): Observable<WorkspaceConfiguration> {
-  return loadJsonWorkspaceConfiguration(workspacePath).pipe(
-    switchMap(jsonWorkspaceConfigurationToWorkspaceConfiguration(workspacePath))
+  return loadWorkspaceConfigurationJson(workspacePath).pipe(
+    mergeMap(workspaceConfigurationJsonToWorkspaceConfiguration(workspacePath))
   );
 }

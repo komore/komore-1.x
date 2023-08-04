@@ -1,7 +1,12 @@
-import { enumToValues } from '@komore/functional';
-import { WeekDay } from './week-day';
+import { friday } from './friday';
+import { monday } from './monday';
+import { saturday } from './saturday';
+import { sunday } from './sunday';
+import { thursday } from './thursday';
+import { tuesday } from './tuesday';
+import { wednesday } from './wednesday';
 
 /**
  * List of week days
  */
-export const WEEK_DAYS: ReadonlyArray<WeekDay> = enumToValues(WeekDay);
+export const weekDays = [monday, tuesday, wednesday, thursday, friday, saturday, sunday] as const;

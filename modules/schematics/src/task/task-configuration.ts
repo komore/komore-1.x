@@ -1,7 +1,7 @@
+import { type TaskReferenceString } from './reference/task-reference-string';
 import { type TaskExecutorConfiguration } from './task-executor-configuration';
 import { type TaskInput } from './task-input';
 import { type TaskOutput } from './task-output';
-import { type TaskReferenceString } from './task-reference-string';
 
 /**
  * Task configuration

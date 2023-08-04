@@ -1,11 +1,7 @@
 {
+  "$schema": "../schematics/project-configuration.schema.json",
   "domain": "temporal",
   "type": "library",
   "tags": ["trait:base"],
-  "tasks": {
-    "build": "@komore/schematics:build",
-    "lint": "@komore/lint:lint",
-    "publish": "@komore/schematics:publish",
-    "test": "@komore/testing:test"
-  }
+  "tasks": ["build", "document", "lint", "publish", "test"]
 }

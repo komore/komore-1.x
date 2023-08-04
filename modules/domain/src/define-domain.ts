@@ -9,6 +9,6 @@ import { type Domain } from './domain';
  */
 export function defineDomain<DomainName extends string>(domainName: DomainName): Domain<DomainName> {
   return {
-    domainName,
+    name: domainName,
   };
 }

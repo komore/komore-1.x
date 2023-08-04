@@ -1,5 +1,6 @@
 import { objectToValues } from '@komore/functional';
-import { type ExecutorReferenceString } from '../executor/executor-reference-string';
+
+import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type TaskConfiguration } from '../task/task-configuration';
 import { taskUsingExecutor } from '../task/task-using-executor';
 import { type ProjectConfiguration } from './project-configuration';

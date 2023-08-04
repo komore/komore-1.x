@@ -8,6 +8,7 @@ export { type CliOptions } from './cli-options';
 export { type CliParameterDefault } from './command/parameter/cli-parameter-default';
 export { type CliParameterTypeName } from './command/parameter/cli-parameter-type-name';
 export { createCliApplication } from './create-cli-application';
+export { createCliApplicationLogEncoder } from './log/create-cli-application-log-encoder';
 export { createCliArgument } from './command/argument/create-cli-argument';
 export { createCliCommand } from './command/create-cli-command';
 export { createCliFlag } from './command/flag/create-cli-flag';

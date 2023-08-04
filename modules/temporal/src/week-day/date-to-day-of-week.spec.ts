@@ -1,12 +1,13 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '@komore/temporal';
+
 import { dateToDayOfWeek } from './date-to-day-of-week';
-import { WeekDay } from './week-day';
+import { wednesday } from './wednesday';
 
 describe('Date to day of week', () => {
   it.each([
-    ['plain date', Temporal.PlainDate, '2020-01-01', WeekDay.WEDNESDAY],
-    ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', WeekDay.WEDNESDAY],
-    ['zoned date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', WeekDay.WEDNESDAY],
+    ['plain date', Temporal.PlainDate, '2020-01-01', wednesday],
+    ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', wednesday],
+    ['zoned date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', wednesday],
   ])('can get the week day from a %s', (_, temporalClass, value, expectedWeekDay) => {
     given: 'a temporal';
     const temporal = temporalClass.from(value);

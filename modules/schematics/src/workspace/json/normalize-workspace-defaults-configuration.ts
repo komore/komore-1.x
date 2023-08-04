@@ -1,6 +1,7 @@
-import { type ProjectName } from '../../project/project-name';
-import { type WorkspaceConfiguration } from '../workspace-configuration';
-import { type JsonWorkspaceConfiguration } from './json-workspace-configuration';
+import { type ProjectName } from '../../project/name/project-name';
+import { validateProjectName } from '../../project/name/validate-project-name';
+import { type WorkspaceDefaultsConfiguration } from '../workspace-defaults-configuration';
+import { type WorkspaceDefaultsConfigurationJson } from './workspace-defaults-configuration-json';
 
 /**
  * Normalizes a workspace's defaults configuration
@@ -10,12 +11,22 @@ import { type JsonWorkspaceConfiguration } from './json-workspace-configuration'
  * @returns Normalized defaults configuration
  */
 export function normalizeWorkspaceDefaultsConfiguration(
-  defaults: JsonWorkspaceConfiguration['defaults'],
+  defaults: WorkspaceDefaultsConfigurationJson | undefined,
   defaultProjectName: ProjectName | undefined
-): WorkspaceConfiguration['defaults'] {
+): WorkspaceDefaultsConfiguration {
+  const outputPath = defaults?.outputPath ?? 'build';
+  const project = defaults?.project ?? defaultProjectName;
+  const tasks = defaults?.tasks ?? [];
+
+  tasks; // TODO
+
+  if (project !== undefined) {
+    validateProjectName(project);
+  }
+
   return {
-    ...defaults,
-    outputPath: defaults?.outputPath ?? 'build',
-    project: defaults?.project ?? defaultProjectName,
+    outputPath,
+    project,
+    tasks: {},
   };
 }

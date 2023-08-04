@@ -1,12 +1,7 @@
-import {
-  addLogAppender,
-  addLogEventMapping,
-  createLogEventMapping,
-  enableLogging,
-} from '@komore/observability/logging';
-import { createNodeConsoleLogAppender } from '@komore/observability/node';
+import { addLogEventMapping, createLogEventMapping } from '@komore/logging';
+import { createNodeConsoleLogAppender } from '@komore/logging/node';
 import { firstValueFrom } from '@komore/reactive';
-import { createNodeHost } from '@komore/runtime/node';
+import { createNodeHost } from '@komore/node';
 
 import { type CliApplication } from './cli-application';
 import { createCliApplicationLogEncoder } from './log/create-cli-application-log-encoder';
@@ -23,16 +18,14 @@ export async function executeCliApplication(
 ): Promise<never> {
   const nodeHost = createNodeHost();
   nodeHost; // TODO
-
-  enableLogging().subscribe();
-
+  /*
   addLogAppender(
-    'console',
-    createNodeConsoleLogAppender({
-      encoder: createCliApplicationLogEncoder(),
-      target: console,
-    })
-  );
+    'console',*/
+  createNodeConsoleLogAppender({
+    encoder: createCliApplicationLogEncoder(),
+    target: console,
+  }); /*
+  );*/
 
   addLogEventMapping(createLogEventMapping('console'));
 

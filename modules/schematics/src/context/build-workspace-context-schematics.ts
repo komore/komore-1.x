@@ -1,10 +1,11 @@
 import { isDefined } from '@komore/functional';
 import { cache, map, ObservableMap, throwUnless, type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
+
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
 import { isPackageWithSchematics } from '../package/is-package-with-schematics';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { type PackageWithPackageJsonAndSchematics } from '../package/package-with-package-json-and-schematics';
 import { buildWorkspaceContextSchematicsExecutor } from './build-workspace-context-schematics-executor';
 import { buildWorkspaceContextSchematicsGenerator } from './build-workspace-context-schematics-generator';
@@ -56,7 +57,8 @@ function packageNameToPackageWithSchematics(
     return packageWithPackageJson$.pipe(
       throwUnless(
         isPackageWithSchematics,
-        (xyz) => new Error(`TODO: typed; package ${packageName} does not have schematics` + JSON.stringify(xyz, undefined, 2))
+        xyz =>
+          new Error(`TODO: typed; package ${packageName} does not have schematics` + JSON.stringify(xyz, undefined, 2))
       )
     );
   };

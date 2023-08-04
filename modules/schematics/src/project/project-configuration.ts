@@ -1,6 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type TaskConfiguration } from '../task/task-configuration';
-import { type ProjectName } from './project-name';
+import { type ProjectName } from './name/project-name';
 import { type ProjectType } from './project-type';
 
 /**

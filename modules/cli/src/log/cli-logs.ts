@@ -1,9 +1,9 @@
-import { createLogEvent, createLogGroup, logEventProps, LogEventSeverities } from '@komore/observability/logging';
+import { createLogEvent, createLogGroup, logEventProps, LogEventSeverities } from '@komore/logging';
 
 /**
  * CLI application log group
  */
-const cliApplicationLogGroup = createLogGroup('komore/application-cli');
+const cliApplicationLogGroup = createLogGroup('komore/cli');
 
 /**
  * Unknown CLI command

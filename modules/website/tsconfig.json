@@ -1,11 +1,12 @@
 {
-  "extends": "../../tsconfig.dom.json",
+  "extends": "../../conf/tsconfig.browser.json",
+  "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./website.tsconfig.application.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./website.tsconfig.specifications.json"
     }
   ]
 }

@@ -1,5 +1,5 @@
+import { monetaryError } from '../monetary.error';
 import { type CurrencyCode } from './currency-code';
-import { InvalidCurrencyCodeError } from './invalid-currency-code-error';
 import { isCurrencyCode } from './is-currency-code';
 
 /**
@@ -9,6 +9,6 @@ import { isCurrencyCode } from './is-currency-code';
  */
 export function validateCurrencyCode(currencyCode: string): asserts currencyCode is CurrencyCode {
   if (!isCurrencyCode(currencyCode)) {
-    throw new InvalidCurrencyCodeError(`invalid currency code "${currencyCode}"`, currencyCode);
+    throw monetaryError('currency.code.invalid', { currencyCode });
   }
 }

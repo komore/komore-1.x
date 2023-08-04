@@ -1,12 +1,6 @@
 /**
- * Day of the week
+ * Week day
  */
-export enum WeekDay {
-  MONDAY = 1,
-  TUESDAY = 2,
-  WEDNESDAY = 3,
-  THURSDAY = 4,
-  FRIDAY = 5,
-  SATURDAY = 6,
-  SUNDAY = 7
-}
+export type WeekDay = (1 | 2 | 3 | 4 | 5 | 6 | 7) & {
+  readonly __tag_weekDay: unique symbol;
+};

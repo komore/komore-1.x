@@ -1,8 +1,8 @@
 import { bgRedBright, redBright } from 'chalk';
 
 import { isInstanceOf } from '@komore/functional';
-import { recordLogEvent } from '@komore/observability/logging';
-import { catchError, catchErrorIf, defaultIfEmpty, of } from '@komore/reactive';
+import { catchError, catchErrorIf, defaultIfEmpty, deferPromise, map, mergeMap, of } from '@komore/reactive';
+import { type WorkspaceExecutorTaskId } from '@komore/schematics';
 
 import { type CliApplication } from './cli-application';
 import { CliError } from './cli-error';
@@ -17,6 +17,8 @@ import { unknownCliCommand } from './log/cli-logs';
  * @returns CLI application
  */
 export function createCliApplication(options: CliOptions): CliApplication {
+  const { logger } = options;
+
   return argv => {
     const commandLineArguments = argv[0]?.includes('node') ? argv.slice(1) : argv;
     const [_bin, commandName] = commandLineArguments;
@@ -24,10 +26,34 @@ export function createCliApplication(options: CliOptions): CliApplication {
       throw new Error('TODO: no command name in executeCli');
     }
 
-    const command = options.commands.find(cliCommandByName(commandName));
+    const command = options.commands.find(cliCommandByName(commandName)) ?? 'build';
     if (command === undefined) {
-      recordLogEvent(unknownCliCommand({ commandName }));
+      logger(unknownCliCommand({ commandName }));
       return of(1);
+    }
+
+    if (command === 'build') {
+      return deferPromise(() => import('@komore/linting/schematics')).pipe(
+        mergeMap(({ createLintModuleExecutor }) => createLintModuleExecutor({ logger })),
+        mergeMap(workspaceExecutor => {
+          /*const options$ = of({
+            entryPoint: 'modules/collection/src/index.ts',
+            outputPath: './tmp-test-esbuild/collection',
+            tsConfig: 'modules/collection/collection.tsconfig.library.json',
+            sourceMap: false,
+            watch: false,
+          }); <= build*/
+          const options$ = of({
+            eslintConfig: 'modules/collection/.eslintrc.json',
+            filesPattern: 'src/**/*.ts',
+            tsConfig: 'modules/collection/tsconfig.json',
+            taskId: 'test' as WorkspaceExecutorTaskId,
+            watch: false,
+          });
+          return workspaceExecutor(options$);
+        }),
+        map(() => 0)
+      );
     }
 
     const result$ = command(commandLineArguments.slice(2)).pipe(

@@ -1,4 +1,4 @@
-import { type HttpClient } from '@komore/http';
+import { type HttpClient } from '@komore/http/client';
 
 import { type AdyenClientApiVersions } from './adyen-client-api-versions';
 

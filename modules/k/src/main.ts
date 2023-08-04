@@ -1,15 +1,17 @@
-import { createCliApplication, executeCliApplication } from '@komore/cli';
+import { createCliApplication, createCliApplicationLogEncoder, executeCliApplication } from '@komore/cli';
+import { createLogger } from '@komore/logging';
+import { createNodeConsoleLogAppender } from '@komore/logging/node';
 
-import { fetchAffectedBaseCommand } from './commands/fetch-affected-base/fetch-affected-base-command';
-import { generateCommand } from './commands/generate/generate-command';
-import { infoCommand } from './commands/info/info-command';
-import { listCommand } from './commands/list/list-command';
-import { listExecutorsCommand } from './commands/list/list-executors-command';
-import { listProjectsCommand } from './commands/list/list-projects-command';
-import { reportCommand } from './commands/report/report-command';
-import { runCommand } from './commands/run/run-command';
-import { validateCommand } from './commands/validate/validate-command';
-import { versionCommand } from './commands/version/version-command';
+//import { fetchAffectedBaseCommand } from './commands/fetch-affected-base/fetch-affected-base-command';
+//import { generateCommand } from './commands/generate/generate-command';
+//import { infoCommand } from './commands/info/info-command';
+//import { listCommand } from './commands/list/list-command';
+//import { listExecutorsCommand } from './commands/list/list-executors-command';
+//import { listProjectsCommand } from './commands/list/list-projects-command';
+//import { reportCommand } from './commands/report/report-command';
+//import { runCommand } from './commands/run/run-command';
+//import { validateCommand } from './commands/validate/validate-command';
+//import { versionCommand } from './commands/version/version-command';
 
 /*const root = Node.create();
 
@@ -20,17 +22,24 @@ root.setJustifyContent(JUSTIFY_CENTER);
 
 const cli = createCliApplication({
   commands: [
-    fetchAffectedBaseCommand,
-    generateCommand,
-    infoCommand,
-    listCommand,
-    listExecutorsCommand,
-    listProjectsCommand,
-    reportCommand,
-    runCommand,
-    validateCommand,
-    versionCommand,
+    //fetchAffectedBaseCommand,
+    //generateCommand,
+    //infoCommand,
+    //listCommand,
+    //listExecutorsCommand,
+    //listProjectsCommand,
+    //reportCommand,
+    //runCommand,
+    //validateCommand,
+    //versionCommand,
   ],
+  logger: createLogger({
+    appenders: [
+      createNodeConsoleLogAppender({
+        encoder: createCliApplicationLogEncoder(),
+      }),
+    ],
+  }),
 });
 
 executeCliApplication(cli, process.argv);

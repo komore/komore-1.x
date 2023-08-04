@@ -1,11 +1,12 @@
-import { arrayToFlattenedArray } from '@komore/array';
+import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined, objectToEntries } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
+import { executeChildProcess } from '@komore/node';
 import { cache, map, mapEach, of, redactValue, throwUnless, type Observable } from '@komore/reactive';
-import { executeChildProcess } from '@komore/runtime/node';
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type InstalledPackage } from '../../installed-package';
-import { type PackageName } from '../../package-name';
+import { type PackageName } from '../../name/package-name';
 import { type PackageDependencyType } from '../package-dependency-type';
 import { type PackageManager } from '../package-manager';
 import { getPnpmVersion } from './get-pnpm-version';

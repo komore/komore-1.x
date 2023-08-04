@@ -1,4 +1,4 @@
-import { InvalidUrlStringError } from './invalid-url-string-error';
+import { InvalidUrlStringError } from '../error/invalid-url-string-error';
 import { isUrlString } from './is-url-string';
 import { type UrlString } from './url-string';
 

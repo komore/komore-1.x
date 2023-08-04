@@ -1,0 +1,60 @@
+import { shareReplay, Subject, tapNext } from '@komore/reactive';
+
+import { UntypedLogEvent, type LogEvent } from './event/log-event';
+import { buildLogEventRecord } from './event-record/build-log-event-record';
+import { type LogEventRecord } from './event-record/log-event-record';
+import { type LogGroup } from './group/log-group';
+import { type Logger } from './logger';
+import { type LoggerOptions } from './logger-options';
+
+/**
+ * Creates a logger
+ *
+ * @param options Logger options
+ * @returns Logger
+ */
+export function createLogger(options: LoggerOptions): Logger {
+  const appenders = options.appenders ?? [];
+  const logEventRecordsSubject = new Subject<LogEventRecord<UntypedLogEvent>>();
+  const logEventRecords$ = logEventRecordsSubject
+    .asObservable()
+    .pipe(shareReplay({ bufferSize: 100, refCount: false }));
+  logEventRecords$.pipe(tapNext(eventRecord => appenders.forEach(appender => appender(eventRecord)))).subscribe();
+  return <LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>>(
+    logEvent: LogEventType
+  ) => {
+    const logEventRecord = buildLogEventRecord(logEvent);
+    logEventRecordsSubject.next(logEventRecord);
+  };
+}
+
+/*import { isDefined } from '@komore/functional';
+import { combineLatest, map, redactValue, tapNext, withLatestFrom, type Observable } from '@komore/reactive';
+
+import { logAppenders } from './appender/log-appenders';
+import { logEventRecords } from './event-record/log-event-records';
+import { logEventMappings } from './mapping/log-event-mappings';
+
+export function enableLogging(): Observable<void> {
+  const mappingsWithAppender = combineLatest([logEventMappings, logAppenders]).pipe(
+    map(([eventMappings, appenders]) =>
+      eventMappings.map(eventMapping => ({
+        ...eventMapping,
+        appender: appenders.get(eventMapping.appenderName),
+      }))
+    )
+  );
+
+  return logEventRecords.pipe(
+    withLatestFrom(mappingsWithAppender),
+    tapNext(([logEventRecord, mappings]) =>
+      mappings
+        .filter(({ severity }) => severity <= logEventRecord.logEvent.severity)
+        .map(({ appender }) => appender)
+        .filter(isDefined)
+        .forEach(appender => appender(logEventRecord))
+    ),
+    redactValue()
+  );
+}
+*/

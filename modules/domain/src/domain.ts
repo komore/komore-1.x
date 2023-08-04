@@ -5,7 +5,7 @@
  */
 export interface Domain<DomainName extends string> {
   /**
-   * Domain name
+   * Name
    */
-  readonly domainName: DomainName;
+  readonly name: DomainName;
 }

@@ -1,11 +1,12 @@
+import { type PackageJson } from '@komore/node';
 import { type Observable } from '@komore/reactive';
-import { type PackageJson } from '@komore/runtime/node';
+
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
 import { type LocalPackage } from '../package/local-package';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { type PackageManager } from '../package/manager/package-manager';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 
 /**
  * Workspace context package information

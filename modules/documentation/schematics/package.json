@@ -1,7 +1,4 @@
 {
-  "name": "@komore/documentation",
-  "description": "TODO",
-  "keywords": [
-    "documentation"
-  ]
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/documentation/schematics"
 }

@@ -1,3 +1,4 @@
+export { todo } from './dsl/todo';
 export { example } from './dsl/example';
 export { expectCalled } from './expect/expect-called';
 export { expectDefined } from './expect/expect-defined';

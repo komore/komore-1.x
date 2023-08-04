@@ -1,11 +1,13 @@
-import { isDefined, objectToEntries } from '@komore/functional';
-import { defaultIfEmpty, forkJoin, map, of, type Observable } from '@komore/reactive';
-import { readPackageJson } from '@komore/runtime/node';
-import { type ReadonlyRecord } from '@komore/typescript';
 import { dirname, join, relative } from 'path';
+
+import { isDefined, objectToEntries } from '@komore/functional';
+import { readPackageJson } from '@komore/node';
+import { defaultIfEmpty, forkJoin, map, of, type Observable } from '@komore/reactive';
+import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type TsConfigJson } from '../typescript/tsconfig-json';
 import { type LocalPackage } from './local-package';
-import { type PackageName } from './package-name';
+import { type PackageName } from './name/package-name';
 
 export function tsConfigToLocalPackages(
   basePath: string

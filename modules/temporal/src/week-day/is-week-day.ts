@@ -3,6 +3,7 @@ import { type WeekDay } from './week-day';
 
 /**
  * Creates a function that tests whether a temporal occurs on a specific week day
+ *
  * @param weekDay Week day
  * @returns Function that tests whether a temporal occurs on the specific week day
  */

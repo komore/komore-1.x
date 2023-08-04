@@ -1,5 +1,5 @@
-import { type WorkspaceConfiguration } from '../workspace-configuration';
-import { type JsonWorkspaceConfiguration } from './json-workspace-configuration';
+import { type WorkspaceLayoutConfiguration } from '../workspace-layout-configuration';
+import { type WorkspaceLayoutConfigurationJson } from './workspace-layout-configuration-json';
 
 /**
  * Normalizes a workspace's layout configuration
@@ -8,12 +8,14 @@ import { type JsonWorkspaceConfiguration } from './json-workspace-configuration'
  * @returns Normalized workspace layout configuration
  */
 export function normalizeWorkspaceLayoutConfiguration(
-  layout: JsonWorkspaceConfiguration['layout']
-): WorkspaceConfiguration['layout'] {
+  layout: WorkspaceLayoutConfigurationJson | undefined
+): WorkspaceLayoutConfiguration {
+  const applications = layout?.applications ?? 'applications';
+  const libraries = layout?.libraries ?? 'libraries';
+  const stacks = layout?.stacks ?? 'stacks';
   return {
-    ...layout,
-    applications: layout?.applications ?? 'applications',
-    libraries: layout?.libraries ?? 'libraries',
-    stacks: layout?.stacks ?? 'stacks',
+    applications,
+    libraries,
+    stacks,
   };
 }

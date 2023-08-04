@@ -1,6 +1,7 @@
 import { isDefined } from '@komore/functional';
 import { forkJoin, map, mergeMap, throwUnless, type Observable } from '@komore/reactive';
-import { readPackageJson } from '@komore/runtime/node';
+import { readPackageJson } from '@komore/node';
+
 import { Project, SyntaxKind, type KindToNodeMappings, type SourceFile } from 'ts-morph';
 import { functionDeclarationEntryToTypeScriptApiFunctionDescription } from './function/function-declaration-entry-to-typescript-api-function-description';
 import { type TypeScriptApiDescription } from './typescript-api-description';
@@ -24,7 +25,7 @@ export function createTypeScriptApiDescription(
   return packageName$.pipe(
     mergeMap(name => {
       console.log(`Package ${name}`);
-      
+
       const project = new Project({
         tsConfigFilePath,
       });

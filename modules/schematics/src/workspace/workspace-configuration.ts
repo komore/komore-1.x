@@ -1,11 +1,12 @@
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type PackageManagerType } from '../package/manager/package-manager-type';
-import { type ProjectName } from '../project/project-name';
+
+import { type ProjectName } from '../project/name/project-name';
 import { type TaskConfiguration } from '../task/task-configuration';
 import { type WorkspaceConfigurationSchemaVersionString } from './schema/workspace-configuration-schema-version-string';
-import { type TaskWorkspaceConfiguration } from './task-workspace-configuration';
 import { type WorkspaceDefaultsConfiguration } from './workspace-defaults-configuration';
 import { type WorkspaceLayoutConfiguration } from './workspace-layout-configuration';
+import { type WorkspacePackageConfiguration } from './workspace-package-configuration';
+import { type WorkspaceTaskConfiguration } from './workspace-task-configuration';
 
 /**
  * Workspace configuration
@@ -22,16 +23,7 @@ export interface WorkspaceConfiguration {
   /**
    * Package management settings
    */
-  readonly package: {
-    /**
-     * Package manager type
-     */
-    readonly manager: PackageManagerType;
-    /**
-     * Package scope
-     */
-    readonly scope: string;
-  };
+  readonly package: WorkspacePackageConfiguration;
   /**
    * Workspace project configurations
    */
@@ -43,7 +35,7 @@ export interface WorkspaceConfiguration {
   /**
    * Task workspace configuration
    */
-  readonly task: TaskWorkspaceConfiguration;
+  readonly task: WorkspaceTaskConfiguration;
   /**
    * Workspace tasks configuration
    */

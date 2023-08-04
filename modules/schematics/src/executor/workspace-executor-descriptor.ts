@@ -1,5 +1,5 @@
-import { type PackageName } from '../package/package-name';
-import { type PackageReferenceName } from '../package/package-reference-name';
+import { type PackageName } from '../package/name/package-name';
+import { type PackageReferenceName } from '../package/reference/package-reference-name';
 import { type ExecutorName } from './executor-name';
 
 /**

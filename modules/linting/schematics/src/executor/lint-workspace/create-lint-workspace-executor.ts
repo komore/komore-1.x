@@ -1,5 +1,6 @@
 /**
  * Creates a lint workspace executor
  *
+ * @returns Lint workspace executor
  */
-export function createLintWorkspaceExecutor(): Observable<WorkspaceExecutor<BuildModuleExecutorParameters>>
+export {};

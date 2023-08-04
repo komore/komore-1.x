@@ -22,7 +22,7 @@ export const createPackageModuleExecutor = createWorkspaceExecutorFactory<Packag
           workspacePackageJson,
         })
       ),
-      tapNext(res => console.log('wezult', res)),
+      tapNext(res => console.log('wezultpkg', res)),
       mapTo(420)
     )
   )

@@ -1,7 +1,7 @@
 {
-  "$schema": "../schematics/src/project-configuration.schema.json",
+  "$schema": "../schematics/project-configuration.schema.json",
   "domain": "regexp",
   "type": "library",
   "tags": ["trait:base"],
-  "tasks": ["build", "lint", "publish", "test"]
+  "tasks": ["build", "document", "lint", "publish", "test"]
 }

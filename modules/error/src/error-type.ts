@@ -1,17 +1,30 @@
+import { type Domain } from '@komore/domain';
 import { type ReadonlyRecord } from '@komore/typescript';
+
+import { type ErrorCategory } from './category/error-category';
+import { type ErrorCategoryDefinitions } from './category/error-category-definitions';
+import { type ErrorDefinition } from './definition/error-definition';
+import { type ErrorDefinitionProperties } from './definition/error-definition-properties';
+import { type ErrorPropertiesSchema } from './properties/error-properties-schema';
 
 /**
  * Error type
  *
- * @template ErrorGroupName Error group name
+ * @template ErrorCategoryType Error category type
  * @template ErrorCode Error code
- * @template ErrorContextByCode Error context by code
  */
 export interface ErrorType<
-  ErrorGroupName extends string,
-  ErrorCode extends keyof ErrorContextByCode,
-  ErrorContextByCode extends ReadonlyRecord<string, unknown>
+  ErrorCategoryType extends ErrorCategory<
+    Domain<string>,
+    string,
+    ReadonlyRecord<string, ErrorDefinition<ErrorPropertiesSchema<ReadonlyRecord<string, unknown>>>>
+  >,
+  ErrorCode extends keyof ErrorCategoryDefinitions<ErrorCategoryType>
 > extends Error {
+  /**
+   * Error categorr
+   */
+  readonly category: ErrorCategoryType;
   /**
    * Error code
    */
@@ -19,9 +32,9 @@ export interface ErrorType<
   /**
    * Error context
    */
-  readonly context: ErrorContextByCode[ErrorCode];
+  readonly context: ErrorDefinitionProperties<ErrorCategoryDefinitions<ErrorCategoryType>[ErrorCode]>;
   /**
-   * Error group name
+   * Error name
    */
-  readonly name: ErrorGroupName;
+  readonly name: 'KomoreError';
 }

@@ -1,3 +1,3 @@
 export {};
 
-// TODO: events packageRemovalRequsted, packageRemovalSucceeded, packageRemovalFailed => removePackageFromWorkspace
+// TODO: events packageRemovalRequested, packageRemovalSucceeded, packageRemovalFailed => removePackageFromWorkspace

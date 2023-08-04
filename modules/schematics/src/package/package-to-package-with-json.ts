@@ -1,6 +1,8 @@
-import { defer, map, type Observable } from '@komore/reactive';
-import { readPackageJson, type PackageJson } from '@komore/runtime/node';
 import { join } from 'path';
+
+import { readPackageJson, type PackageJson } from '@komore/node';
+import { defer, map, type Observable } from '@komore/reactive';
+
 import { type LocalPackage } from './local-package';
 
 /**

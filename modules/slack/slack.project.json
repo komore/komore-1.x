@@ -1,5 +1,5 @@
 {
-  "$schema": "../schematics/src/project-configuration.schema.json",
+  "$schema": "../schematics/project-configuration.schema.json",
   "domain": "slack",
   "type": "library",
   "tags": ["trait:base"],

@@ -1,5 +1,5 @@
-import { type Observable } from '@komore/reactive';
-//import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
+import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
+import { type ExampleBlock } from './example-block';
 
 /**
  * Defines an example
@@ -7,7 +7,6 @@ import { type Observable } from '@komore/reactive';
  * @param exampleTitle Example title
  * @param exampleBlock Example block
  */
-export function example(exampleTitle: string, exampleBlock: () => void | Promise<void> | Observable<void>): void {
-  return it(exampleTitle, exampleBlock as () => void);
-  // TODO: post-jest throw new SpecificationNotPreprocessedError('example');
+export function example(_exampleTitle: string, _exampleBlock: () => ExampleBlock): void {
+  throw new SpecificationNotPreprocessedError('example');
 }

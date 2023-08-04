@@ -3,11 +3,11 @@
   "lint": {
     "description": "Lints a project",
     "documentation": "https://komore.dev/modules/linting/schematics/executors/lint",
-    "main": "@komore/linting/schematics#createLintExecutor",
-    "schema": "./src/executor/lint/lint-executor.schema.json"
+    "main": "@komore/linting/schematics#createLintModuleExecutor",
+    "schema": "./src/executor/lint/lint-module-executor.schema.json"
   },
   "lint-workspace": {
-    "description": "Lints the workspace",
+    "description": "Lints a workspace",
     "documentation": "https://komore.dev/modules/linting/schematics/executors/lint-workspace",
     "main": "@komore/linting/schematics#createLintWorkspaceExecutor",
     "schema": "./src/executor/lint-workspace/lint-workspace-executor.schema.json"

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./logging-browser.tsconfig.library.json"
+    },
+    {
+      "path": "./logging-browser.tsconfig.specifications.json"
+    }
+  ]
+}

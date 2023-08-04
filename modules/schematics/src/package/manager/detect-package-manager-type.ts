@@ -1,8 +1,10 @@
-import { concatMap, filter, fromArray, mapTo, take, throwIfEmpty, type Observable } from '@komore/reactive';
-import { isFileAccessible } from '@komore/runtime/node';
 import { join } from 'path';
-import { PackageManagerNotFoundError } from './package-manager-not-found-error';
+
+import { isFileAccessible } from '@komore/node';
+import { concatMap, filter, fromArray, mapTo, take, throwIfEmpty, type Observable } from '@komore/reactive';
+
 import { type PackageManagerType } from './package-manager-type';
+import { schematicsError } from '../../schematics.error';
 
 /**
  * Detects the type of package managed in use
@@ -18,7 +20,7 @@ export function detectPackageManagerType(basePath: string): Observable<PackageMa
     take(1),
     throwIfEmpty(() => {
       const lockFilePaths = packageManagerLockFileTypes.map(({ fileName }) => fileName).join(', ');
-      new PackageManagerNotFoundError(`no package manager could be detected (looked for: ${lockFilePaths})`);
+      return schematicsError('package.manager.not-found', { lockFilePaths });
     })
   );
 }

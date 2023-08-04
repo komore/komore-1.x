@@ -1,4 +1,5 @@
-import { type ArrayValueType } from '@komore/array';
+import { type ArrayValueType } from '@komore/collection';
+
 import { concat } from '../creation/concat';
 import { fromArray } from '../creation/from-array';
 import { type OperatorFunction } from '../operator-function';
@@ -6,6 +7,7 @@ import { type OperatorFunction } from '../operator-function';
 /**
  * Synchronously emits all values upon subscription, then subscribes to the source observable and mirrors all of its
  * emissions
+ *
  * @param values Values
  * @template T Value type
  * @template A Starting value types

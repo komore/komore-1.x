@@ -1,5 +1,8 @@
-import { arrayToFlattenedArray } from '@komore/array';
+import { join } from 'path';
+
+import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
+import { readPackageJson } from '@komore/node';
 import {
   cache,
   combineLatest,
@@ -11,15 +14,14 @@ import {
   type Observable,
 } from '@komore/reactive';
 import { assert } from '@komore/runtime';
-import { readPackageJson } from '@komore/runtime/node';
-import { join } from 'path';
+
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
 import { type LocalPackage } from '../package/local-package';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { createPackageManager } from '../package/manager/create-package-manager';
 import { packageManagerToPackageList } from '../package/manager/package-manager-to-package-list';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { packageToPackageWithJson } from '../package/package-to-package-with-json';
 import { tsConfigToLocalPackages } from '../package/tsconfig-to-local-packages';
 import { type TsConfigJson } from '../typescript/tsconfig-json';
@@ -54,8 +56,8 @@ export function buildWorkspaceContextPackage(
     byName,
     byNameWithPackageJson,
     json,
-    manager,
     list,
+    manager,
   };
 }
 

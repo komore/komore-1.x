@@ -1,4 +1,4 @@
-import { arrayToFlattenedArray } from '@komore/array';
+import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
 import {
   cache,
@@ -13,13 +13,14 @@ import {
   type Observable,
 } from '@komore/reactive';
 import { assert } from '@komore/runtime';
+
 import { type GeneratorReferenceString } from '../generator/generator-reference-string';
 import { generatorReferenceStringToGeneratorReference } from '../generator/generator-reference-string-to-generator-reference';
 import { isPackageWithGenerators } from '../generator/is-package-with-generators';
 import { packageJsonToWorkspaceGeneratorDescriptors } from '../generator/package-json-to-workspace-generator-descriptors';
 import { type WorkspaceGeneratorDescriptor } from '../generator/workspace-generator-descriptor';
 import { workspaceGeneratorDescriptorByGeneratorName } from '../generator/workspace-generator-descriptor-by-generator-name';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { type PackageWithPackageJsonAndSchematics } from '../package/package-with-package-json-and-schematics';
 import { type WorkspaceContextSchematics } from './workspace-context-schematics';
 

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/collection",
+  "description": "Collection helper functions",
+  "keywords": [
+    "collection",
+    "array",
+    "map",
+    "set"
+  ]
+}

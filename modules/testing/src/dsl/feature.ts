@@ -1,5 +1,8 @@
 import { objectToEntries } from '@komore/functional';
-import { type Observable } from '@komore/reactive';
+
+import { type ScenarioBlock } from './scenario-block';
+import { type FeatureBlock } from './feature-block';
+
 //import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
 
 /**
@@ -11,9 +14,12 @@ import { type Observable } from '@komore/reactive';
  * @param featureBlock Feature block
  */
 export function feature(featureTitle: string, featureBlock: FeatureBlock): void;
-export function feature(featureTitle: string, scenarios: ScenarioRecord): void;
+export function feature(featureTitle: string, scenarios: { readonly [scenarioName: string]: ScenarioBlock }): void;
 
-export function feature(featureTitle: string, featureBlockOrScenarios: FeatureBlock | ScenarioRecord): void {
+export function feature(
+  featureTitle: string,
+  featureBlockOrScenarios: FeatureBlock | { readonly [scenarioName: string]: ScenarioBlock } | () =>
+): void {
   // TODO:post-jest throw new SpecificationNotPreprocessedError('feature');
   if (typeof featureBlockOrScenarios === 'function') {
     const featureBlock = featureBlockOrScenarios;
@@ -21,15 +27,9 @@ export function feature(featureTitle: string, featureBlockOrScenarios: FeatureBl
   } else {
     const scenarios = featureBlockOrScenarios;
     return describe(featureTitle, () => {
-      // TODO: detect when name starts with TODO:
       objectToEntries(scenarios).forEach(([scenarioTitle, scenario]) => {
         it(scenarioTitle, scenario as () => void);
       });
     });
   }
-}
-
-type FeatureBlock = () => void | Promise<void> | Observable<void>;
-interface ScenarioRecord {
-  [scenarioName: string]: () => void | Promise<void> | Observable<void>;
 }

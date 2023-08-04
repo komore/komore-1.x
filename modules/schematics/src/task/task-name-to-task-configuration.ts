@@ -1,7 +1,6 @@
-import { ProjectConfiguration } from '../project/project-configuration';
-import { InvalidTaskConfigurationError } from './invalid-task-configuration-error';
-import { TaskConfiguration } from './task-configuration';
-import { TaskName } from './task-name';
+import { type ProjectConfiguration } from '../project/project-configuration';
+import { type TaskConfiguration } from './task-configuration';
+import { type TaskName } from './name/task-name';
 
 export function taskNameToTaskConfiguration(
   projectConfiguration: ProjectConfiguration
@@ -10,7 +9,7 @@ export function taskNameToTaskConfiguration(
   return taskName => {
     const task = tasks[taskName];
     if (task === undefined) {
-      throw new InvalidTaskConfigurationError
+      // TODO: proper error
       throw new Error(`TODO (typed + project name) no task "${taskName}" found`);
     }
 

@@ -1,11 +1,12 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/documentation",
   "description": "TODO",
   "keywords": [
     "documentation"
   ],
   "komore": {
-    "executors": "./schematics/executors.json",
-    "generators": "./schematics/generators.json"
+    "executors": "./schematics/documentation-executors.json",
+    "generators": "./schematics/documentation-generators.json"
   }
 }

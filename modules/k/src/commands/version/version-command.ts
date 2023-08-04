@@ -1,4 +1,4 @@
-import { createCliCommand } from '@komore/application-cli';
+import { createCliCommand } from '@komore/cli';
 import { map, mapTo, mergeMap, mergeMapTo, take, tapNext } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 
@@ -7,7 +7,8 @@ import { createWorkspaceContext } from '@komore/schematics';
  */
 export const versionCommand = createCliCommand(
   'version',
-  $ => {
+  'Displays version information',
+  ($, { logger: _ }) => {
     return $.pipe(
       mergeMapTo(createWorkspaceContext(process.cwd())),
       mergeMap(

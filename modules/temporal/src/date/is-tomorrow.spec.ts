@@ -1,4 +1,4 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '../temporal';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
 import { isTomorrow } from './is-tomorrow';
 

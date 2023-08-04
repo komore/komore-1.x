@@ -1,8 +1,9 @@
 import { map, type Observable } from '@komore/reactive';
-import { jsonProjectConfigurationToProjectConfiguration } from './json/json-project-configuration-to-project-configuration';
-import { loadJsonProjectConfiguration } from './json/load-json-project-configuration';
+
+import { loadProjectConfigurationJson } from './json/load-project-configuration-json';
+import { projectConfigurationJsonToProjectConfiguration } from './json/project-configuration-json-to-project-configuration';
+import { type ProjectName } from './name/project-name';
 import { type ProjectConfiguration } from './project-configuration';
-import { type ProjectName } from './project-name';
 
 /**
  * Loads a project configuration
@@ -17,7 +18,7 @@ export function loadProjectConfiguration(
   projectPath: string,
   projectConfigurationPath: string
 ): Observable<ProjectConfiguration> {
-  return loadJsonProjectConfiguration(projectConfigurationPath).pipe(
-    map(jsonProjectConfigurationToProjectConfiguration(projectName, projectPath))
+  return loadProjectConfigurationJson(projectConfigurationPath).pipe(
+    map(projectConfigurationJsonToProjectConfiguration(projectName, projectPath))
   );
 }

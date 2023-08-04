@@ -1,4 +1,5 @@
-import { type Temporal } from '@js-temporal/polyfill';
+import { type Temporal } from '@komore/temporal';
+
 import { type CliParameterTypeName } from './cli-parameter-type-name';
 import { type CliParameterValueTypeName } from './cli-parameter-value-type-name';
 

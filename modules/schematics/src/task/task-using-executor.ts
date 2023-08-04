@@ -1,4 +1,4 @@
-import { type ExecutorReferenceString } from '../executor/executor-reference-string';
+import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type TaskConfiguration } from './task-configuration';
 
 /**

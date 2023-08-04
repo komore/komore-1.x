@@ -1,7 +1,9 @@
 import { map, of, type Observable } from '@komore/reactive';
+
 import { detectPackageManagerType } from '../../package/manager/detect-package-manager-type';
-import { type WorkspaceConfiguration } from '../workspace-configuration';
-import { type JsonWorkspaceConfiguration } from './json-workspace-configuration';
+import { validatePackageManagerType } from '../../package/manager/validate-package-manager-type';
+import { type WorkspacePackageConfiguration } from '../workspace-package-configuration';
+import { type WorkspacePackageConfigurationJson } from './workspace-package-configuration-json';
 
 /**
  * Normalizes a workspace's package configuration
@@ -11,28 +13,27 @@ import { type JsonWorkspaceConfiguration } from './json-workspace-configuration'
  * @returns Normalized package configuration
  */
 export function normalizeWorkspacePackageConfiguration(
-  packageConfiguration: JsonWorkspaceConfiguration['package'],
+  packageConfiguration: WorkspacePackageConfigurationJson | undefined,
   basePath: string
-): Observable<WorkspaceConfiguration['package']> {
+): Observable<WorkspacePackageConfiguration> {
   const manager = packageConfiguration?.manager;
+  const scope = packageConfiguration?.scope ?? basePath.substring(basePath.lastIndexOf('/') + 1);
+
+  if (manager !== undefined) {
+    validatePackageManagerType(manager);
+  }
 
   if (manager !== undefined) {
     return of({
-      ...packageConfiguration,
       manager,
-      options: {
-        parallel: 1, // TODO
-      },
+      scope,
     });
   }
 
   return detectPackageManagerType(basePath).pipe(
     map(packageManagerType => ({
-      ...packageConfiguration,
       manager: packageManagerType,
-      options: {
-        parallel: 1, // TODO
-      },
+      scope,
     }))
   );
 }

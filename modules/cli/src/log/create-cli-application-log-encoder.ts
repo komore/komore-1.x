@@ -1,9 +1,16 @@
-import { LogEventSeverities, type LogEncoder } from '@komore/observability/logging';
 import * as chalk from 'chalk';
 
+import { LogEventSeverities, type LogEncoder } from '@komore/logging';
+
+/**
+ * Creates a CLI application log encoder
+ *
+ * @returns CLI application log encoder
+ */
 export function createCliApplicationLogEncoder(): LogEncoder {
   return ({ logEvent, message }) => {
-    switch (logEvent.severity) {
+    const { severity } = logEvent;
+    switch (severity) {
       case LogEventSeverities.NOTICE:
         return blackOnYellow(' NOTICE ') + ' ' + chalk.yellowBright(message);
       case LogEventSeverities.WARNING:
@@ -17,7 +24,7 @@ export function createCliApplicationLogEncoder(): LogEncoder {
       case LogEventSeverities.EMERGENCY:
         return blackOnDarkRed(' EMERGENCY ') + ' ' + chalk.red(message);
       default:
-        return message;
+        return blackOnRed(` ${severity} `) + ' ' + chalk.redBright(message);
     }
   };
 }

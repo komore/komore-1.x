@@ -1,3 +1,8 @@
 {
-  "name": "@komore/color"
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/color",
+  "description": "TODO",
+  "keywords": [
+    "color"
+  ]
 }

@@ -1,10 +1,22 @@
-import { DynamoDBClient, type DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient as AwsDynamoDBClient } from '@aws-sdk/client-dynamodb';
+
+import { of } from '@komore/reactive';
+
+import { type DynamoDBClient } from './dynamodb-client';
+import { type DynamoDBClientOptions } from './dynamodb-client-options';
 
 /**
  * Creates a DynamoDB client
+ *
  * @param configuration Configuration
  * @returns DynamoDB client
  */
-export function createDynamoDBClient(configuration?: DynamoDBClientConfig): DynamoDBClient {
-  return new DynamoDBClient(configuration ?? {});
+export function createDynamoDBClient(options: DynamoDBClientOptions): DynamoDBClient {
+  const { logger: _ } = options;
+  const client = new AwsDynamoDBClient({});
+  client;
+  return command => {
+    console.log('hm', command);
+    return of(void 0);
+  };
 }

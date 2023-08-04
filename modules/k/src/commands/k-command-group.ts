@@ -1,2 +1,1 @@
-
-export const kCommandGroup = createCommandGroup
+export const kCommandGroup = defineCommandGroup;

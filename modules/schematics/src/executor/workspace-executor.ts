@@ -1,5 +1,8 @@
 import { type Observable } from '@komore/reactive';
 
+import { type GenericWorkspaceExecutorEvent } from './event/generic-workspace-executor-event';
+import { type WorkspaceExecutorTaskOptions } from './workspace-executor-task-options';
+
 /**
  * Workspace executor
  *
@@ -10,7 +13,7 @@ export interface WorkspaceExecutor<OptionsType = unknown> {
    * Workspace executor function
    *
    * @param options$ Observable options
-   * @returns Observable that can optionally emit a completion percentage before completing
+   * @returns Observable that emits workspace executor events until completion
    */
-  (options$: Observable<OptionsType>): Observable<number>;
+  (options$: Observable<OptionsType & WorkspaceExecutorTaskOptions>): Observable<GenericWorkspaceExecutorEvent>;
 }

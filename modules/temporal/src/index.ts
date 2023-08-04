@@ -43,6 +43,7 @@ export { durationToSeconds } from './duration/duration-to-seconds';
 export { durationToWeeks } from './duration/duration-to-weeks';
 export { durationToYears } from './duration/duration-to-years';
 export { type DurationUnit } from './duration/duration-unit';
+export { friday } from './week-day/friday';
 export { getElapsedDaysThisMonth } from './month/get-elapsed-days-this-month';
 export { getElapsedDaysThisWeek } from './week/get-elapsed-days-this-week';
 export { getElapsedDaysThisYear } from './year/get-elapsed-days-this-year';
@@ -135,11 +136,13 @@ export { isWeekEnd } from './week-end/is-week-end';
 export { isYearAfter } from './year/is-year-after';
 export { isYearBefore } from './year/is-year-before';
 export { isYesterday } from './date/is-yesterday';
+export { monday } from './week-day/monday';
 export { Month } from './month/month';
 export { MONTHS } from './month/months';
 export { type RepeatingInterval } from './interval/repeating-interval';
 export { type RepeatingIntervalDirection } from './interval/repeating-interval-direction';
 export { type RepeatingIntervalOptions } from './interval/repeating-interval-options';
+export { saturday } from './week-day/saturday';
 export { subtractDays } from './day/subtract-days';
 export { subtractHours } from './hour/subtract-hours';
 export { subtractMicroseconds } from './microsecond/subtract-microseconds';
@@ -150,6 +153,7 @@ export { subtractNanoseconds } from './nanosecond/subtract-nanoseconds';
 export { subtractSeconds } from './second/subtract-seconds';
 export { subtractWeeks } from './week/subtract-weeks';
 export { subtractYears } from './year/subtract-years';
+export { sunday } from './week-day/sunday';
 export { temporalToDurationSince } from './duration/temporal-to-duration-since';
 export { temporalToDurationUntil } from './duration/temporal-to-duration-until';
 export { temporalToTimeZone } from './time-zone/temporal-to-time-zone';
@@ -170,10 +174,11 @@ export { timeToSecond } from './second/time-to-second';
 export { timeToStartOfHour } from './hour/time-to-start-of-hour';
 export { timeZoneToTimeZoneId } from './time-zone/time-zone-to-time-zone-id';
 export { timeZoneToTimeZoneOffsetAt } from './time-zone/time-zone-to-time-zone-offset-at';
+export { thursday } from './week-day/thursday';
+export { tuesday } from './week-day/tuesday';
+export { wednesday } from './week-day/wednesday';
 export { WeekDay } from './week-day/week-day';
-export { WEEK_DAYS } from './week-day/week-days';
-
-
+export { weekDays } from './week-day/week-days';
 
 /*
 export { isEarlierDayThan } from './day/is-earlier-day-than';
@@ -219,3 +224,16 @@ export { toStartOfFollowingDay } from './day/to-start-of-following-day';
 export { toStartOfFollowingHour } from './hour/to-start-of-following-hour';
 export { toStartOfFollowingMonth } from './month/to-start-of-following-month';
 */
+
+// TODO(temporal-polyfill)
+export { Intl } from './intl';
+export { Temporal } from './temporal';
+import { toTemporalInstant } from '@js-temporal/polyfill';
+
+Date.prototype.toTemporalInstant = toTemporalInstant;
+
+declare global {
+  interface Date {
+    toTemporalInstant: typeof toTemporalInstant;
+  }
+}

@@ -1,11 +1,12 @@
 import { isDefined } from '@komore/functional';
 import { cache, defaultIfEmpty, forkJoin, mapEach, mergeMap, switchMap, type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
+
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
 import { type LocalPackage } from '../package/local-package';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { type WorkspaceContextPackage } from './workspace-context-package';
 
 /**

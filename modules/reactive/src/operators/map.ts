@@ -1,7 +1,9 @@
-import { isArray } from '@komore/array';
+import { map as rxjsMap } from 'rxjs';
+
+import { isArray } from '@komore/collection';
 import { objectToEntries } from '@komore/functional';
 import { type Expand, type ReadonlyRecord } from '@komore/typescript';
-import { map as rxjsMap } from 'rxjs';
+
 import { type OperatorFunction } from '../operator-function';
 
 /**

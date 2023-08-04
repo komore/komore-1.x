@@ -1,6 +1,7 @@
 import { jsonToObject } from '@komore/json';
+import { readFileContent } from '@komore/node';
 import { map, type Observable } from '@komore/reactive';
-import { readFileContent } from '@komore/runtime/node';
+
 import { type TsConfigJson } from './tsconfig-json';
 
 /**

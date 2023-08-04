@@ -1,14 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "lib": ["ES2021", "DOM"]
-  },
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./crypto.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./crypto.tsconfig.specifications.json"
     }
   ]
 }

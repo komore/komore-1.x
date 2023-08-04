@@ -1,15 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "lib": ["ES2019", "DOM"],
-    "types": ["jest", "node"]
-  },
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./reactive.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./reactive.tsconfig.specifications.json"
     }
   ]
 }

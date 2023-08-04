@@ -1,5 +1,7 @@
-import { deferPromise, type Observable } from '@komore/reactive';
 import { build } from 'esbuild';
+
+import { deferPromise, type Observable } from '@komore/reactive';
+
 import { type BuildModuleOptions } from './build-module-options';
 
 /**
@@ -10,13 +12,14 @@ import { type BuildModuleOptions } from './build-module-options';
  */
 export function buildModule(options: BuildModuleOptions): Observable<unknown> {
   const { paths } = options;
+  const { entryPoint, output: outdir, tsConfig: tsconfig } = paths;
   return deferPromise(() => {
     return build({
-      entryPoints: [paths.entryPoint],
-      format: 'cjs',
-      outdir: paths.output,
-      target: ['es2020', 'node16'],
-      tsconfig: paths.tsConfig,
+      entryPoints: [entryPoint],
+      format: 'esm',
+      outdir,
+      target: ['es2021', 'node20'],
+      tsconfig,
     });
   });
 }

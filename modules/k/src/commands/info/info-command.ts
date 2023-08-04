@@ -1,4 +1,4 @@
-import { createCliCommand } from '@komore/application-cli';
+import { createCliCommand } from '@komore/cli';
 import { mapTo, tapNext } from '@komore/reactive';
 
 /**
