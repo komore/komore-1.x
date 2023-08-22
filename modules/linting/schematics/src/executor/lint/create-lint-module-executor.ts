@@ -10,7 +10,7 @@ import { type LintModuleExecutorOptions } from './lint-module-executor-options';
 export const createLintModuleExecutor = createWorkspaceExecutorFactory<LintModuleExecutorOptions>(({ logger: _ }) =>
   createWorkspaceExecutor(options$ =>
     options$.pipe(
-      mergeMap(({ eslintConfig, filesPattern, taskId, tsConfig }) =>
+      mergeMap(({ eslintConfig, filesPattern, taskId, tsConfig, watch }) =>
         lintModule({
           paths: {
             eslintConfig,
@@ -18,6 +18,7 @@ export const createLintModuleExecutor = createWorkspaceExecutorFactory<LintModul
             tsConfig,
           },
           taskId,
+          watch,
         })
       )
     )

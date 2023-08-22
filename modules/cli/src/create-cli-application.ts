@@ -1,13 +1,24 @@
 import { bgRedBright, redBright } from 'chalk';
 
 import { isInstanceOf } from '@komore/functional';
-import { catchError, catchErrorIf, defaultIfEmpty, deferPromise, map, mergeMap, of } from '@komore/reactive';
+import {
+  catchError,
+  catchErrorIf,
+  defaultIfEmpty,
+  deferPromise,
+  map,
+  mergeMap,
+  of,
+  tapNext,
+  toArray,
+} from '@komore/reactive';
 import { type WorkspaceExecutorTaskId } from '@komore/schematics';
 
 import { type CliApplication } from './cli-application';
 import { CliError } from './cli-error';
 import { type CliOptions } from './cli-options';
 import { cliCommandByName } from './command/cli-command-by-name';
+import { workspaceExecutorEventToCliOutput } from './event/workspace-executor-event-to-cli-output';
 import { unknownCliCommand } from './log/cli-logs';
 
 /**
@@ -52,6 +63,8 @@ export function createCliApplication(options: CliOptions): CliApplication {
           });
           return workspaceExecutor(options$);
         }),
+        tapNext(workspaceExecutorEventToCliOutput(console)),
+        toArray(),
         map(() => 0)
       );
     }

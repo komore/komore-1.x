@@ -10,10 +10,7 @@ TODO.
   - where:
   - issue: https://github.com/x/y/issues/###
 
-- jest replacement using code generation for given/when/then/etc?
-
-  - maintain jest compatibility?
-
+- jest replacement using code generation for given/when/then/etc
 - unit tests: the main goal is to validate and document the behavior of the code
 - acceptance tests: the goal is to validate it matches the requirements
 
@@ -22,16 +19,24 @@ TODO.
 ### Supported syntax
 
 ```ts
-a; // expectTruthy(a)         expect(a).toBeTruthy()
-!a; // expectFalsy(a)          expect(a).toBeFalsy()
-a === undefined; // expectUndefined(a)      expect(a).toBeUndefined()
-a !== undefined; // expectDefined(a)        expect(a).toBeDefined()
-a === null; // expectNull(a)           expect(a).toBeNull()
-a === b; // expectEqual(a)(b)       expect(a).toBe(b)
-a !== b; // expectNotEqual(a)(b)    expect(a).not.toBe(b)
-a !== null; // expectNotNull(a)        expect(a).not.toBeNull()
-a instanceof b; // expectInstanceOf(a, b)  expect(a).toBeInstanceOf(b)
-typeof a === 'b'; // expectTypeOf(a, 'b')
+a; // expectTruthy(a)
+!a; // expectFalsy(a)
+a === undefined; // expectUndefined(a)
+a !== undefined; // expectDefined(a)
+a === null; // expectNull(a)
+a !== null; // expectNotNull(a)
+a === b; // expectEqualTo(b)(a)
+a !== b; // expectNotEqualTo(b)(a)
+a instanceof b; // expectInstanceOf(b)(a)
+typeof a === 'b'; // expectTypeOf('b')(a)
+a > b; // expectGreaterThan(b)(a)
+a >= b; // expectedGreaterThanOrEqualTo(b)(a)
+a < b; // expectLessThan(b)(a)
+a <= b; // expectedLessThanOrEqualTo(b)(a)
+[].includes() // TODO: special display?
+[].some() // TODO: special display?
+[].every() // TODO: special display?
+new Map().has() // TODO: special display?
 ```
 
 ### Generated code
@@ -39,8 +44,10 @@ typeof a === 'b'; // expectTypeOf(a, 'b')
 ```ts
 feature('x', () => {
   scenario('y', () => {
-    // vars here
-    given: then: a.b !== undefined;
+    given: const a = { b: { c: 4 } };
+    const x = { y: { z: 5 } };
+
+    then: a.b !== undefined;
     a.b.c === x.y.z;
   });
 });
@@ -61,7 +68,7 @@ const τx = x;
 const τx_y = τx.y;
 const τx_y_z = τx_y.z;
 try {
-  expectEqual(τa_b_c, τx_y_z);
+  expectEqualTo(τx_y_z)(τa_b_c);
 } catch (e) {
   return reportSpecificationException(e, [τa, τa_b, τa_b_c], [τx, τx_y, τx_y_z]);
 }

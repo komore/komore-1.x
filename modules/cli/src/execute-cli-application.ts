@@ -29,8 +29,13 @@ export async function executeCliApplication(
 
   addLogEventMapping(createLogEventMapping('console'));
 
-  const exitCode$ = cliApplication(argv ?? process.argv);
-  const exitCode = await firstValueFrom(exitCode$);
+  try {
+    const exitCode$ = cliApplication(argv ?? process.argv);
+    const exitCode = await firstValueFrom(exitCode$);
 
-  process.exit(exitCode);
+    process.exit(exitCode);
+  } catch (e) {
+    console.error('unhandled exception', e);
+    process.exit(255);
+  }
 }

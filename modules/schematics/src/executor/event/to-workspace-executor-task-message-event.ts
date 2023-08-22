@@ -1,8 +1,9 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type WorkspaceExecutorEvent } from './workspace-executor-event';
+import { type WorkspaceExecutorTaskId } from '../task/workspace-executor-task-id';
 import { createWorkspaceExecutorEvent } from './create-workspace-executor-event';
-import { WorkspaceExecutorTaskId } from '../task/workspace-executor-task-id';
+import { type WorkspaceExecutorEvent } from './workspace-executor-event';
+import { WorkspaceExecutorTaskMessageEventDataMessageType } from './data/workspace-executor-task-message-event-data-message-type';
 
 export function toWorkspaceExecutorTaskMessageEvent<T>(
   taskId: WorkspaceExecutorTaskId,
@@ -25,6 +26,7 @@ export function toWorkspaceExecutorTaskMessageEvent<T>(
       createWorkspaceExecutorEvent('task.message', {
         messageId,
         ...(messageParameters !== undefined ? { messageParameters } : {}),
+        messageType: 'normal',
         taskId,
       });
   }
@@ -32,10 +34,12 @@ export function toWorkspaceExecutorTaskMessageEvent<T>(
   const project = messageIdOrProject;
   return value => {
     const result = project(value);
-    const [messageId, messageParameters] = typeof result === 'string' ? [result, undefined] : result;
+    const [messageId, messageParameters, messageType = 'normal'] =
+      typeof result === 'string' ? [result, undefined, undefined] : result;
     return createWorkspaceExecutorEvent('task.message', {
       messageId,
       ...(messageParameters !== undefined ? { messageParameters } : {}),
+      messageType,
       taskId,
     });
   };
@@ -43,4 +47,10 @@ export function toWorkspaceExecutorTaskMessageEvent<T>(
 
 type ProjectionFunction<T> = (
   value: T
-) => string | readonly [messageId: string, messageParameters: ReadonlyRecord<string, string> | undefined];
+) =>
+  | string
+  | readonly [
+      messageId: string,
+      messageParameters: ReadonlyRecord<string, string> | undefined,
+      messageType: WorkspaceExecutorTaskMessageEventDataMessageType | undefined
+    ];

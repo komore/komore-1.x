@@ -9,13 +9,14 @@ import { type LintingMessage } from './linting-message';
 export function lintingMessageToWorkspaceExecutorEvent(
   taskId: WorkspaceExecutorTaskId
 ): (lintingMessage: LintingMessage) => WorkspaceExecutorEvent<'task.message'> {
-  return toWorkspaceExecutorTaskMessageEvent(taskId, ({ column, filePath, message, row }) => [
-    'blah',
+  return toWorkspaceExecutorTaskMessageEvent(taskId, ({ columns, filePath, message, rows, ruleId }) => [
+    'linting.error',
     {
-      column: `${column}`,
+      column: `${columns}`,
       filePath,
       message,
-      row: `${row}`,
+      row: `${rows}`,
+      ruleId: ruleId ?? '',
     },
   ]);
 }

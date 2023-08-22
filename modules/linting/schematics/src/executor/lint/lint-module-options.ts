@@ -25,4 +25,8 @@ export interface LintModuleOptions {
    * Task identifier
    */
   readonly taskId: WorkspaceExecutorTaskId;
+  /**
+   * Whether to watch for file changes
+   */
+  readonly watch: boolean;
 }

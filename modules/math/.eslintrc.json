@@ -1,5 +1,5 @@
 {
-  "extends": "../../.eslintrc",
+  "extends": "../../conf/.eslintrc.base.json",
   "rules": {},
   "ignorePatterns": ["!**/*"]
 }

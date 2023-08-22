@@ -39,5 +39,9 @@ export { type WorkspaceExecutorEventDataByType } from './executor/event/workspac
 export { type WorkspaceExecutorFactory } from './executor/factory/workspace-executor-factory';
 export { type WorkspaceExecutorFactoryOptions } from './executor/factory/workspace-executor-factory-options';
 export { type WorkspaceExecutorOptionsProcessor } from './executor/workspace-executor-options-processor';
+export { type WorkspaceExecutorTaskBeginEventData } from './executor/event/data/workspace-executor-task-begin-event-data';
+export { type WorkspaceExecutorTaskEndEventData } from './executor/event/data/workspace-executor-task-end-event-data';
+export { type WorkspaceExecutorTaskErrorEventData } from './executor/event/data/workspace-executor-task-error-event-data';
+export { type WorkspaceExecutorTaskMessageEventData } from './executor/event/data/workspace-executor-task-message-event-data';
 export { type WorkspaceExecutorTaskId } from './executor/task/workspace-executor-task-id';
 export { type WorkspaceGenerator } from './generator/workspace-generator';

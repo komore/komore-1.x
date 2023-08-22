@@ -12,6 +12,7 @@ export function createNodeConsoleLogAppender(options: NodeConsoleLogAppenderOpti
   const { encoder, target = console } = options;
 
   return logEventRecord => {
+    console.log('ahem ahem', logEventRecord);
     const encodedLogEventRecord = encoder(logEventRecord);
     target.log(encodedLogEventRecord);
   };

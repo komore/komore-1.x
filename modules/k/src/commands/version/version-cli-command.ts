@@ -7,7 +7,6 @@ import { createWorkspaceContext } from '@komore/schematics';
  */
 export const versionCommand = createCliCommand(
   'version',
-  'Displays version information',
   ($, { logger: _ }) => {
     return $.pipe(
       mergeMapTo(createWorkspaceContext(process.cwd())),
@@ -18,7 +17,7 @@ export const versionCommand = createCliCommand(
           },
         }) => installed.pipe(take(1))
       ),
-      map(packages => packages.filter(({ name }) => name.startsWith('@komore/') || name.startsWith('@cdktf/'))),
+      map(packages => packages.filter(({ name }) => name.startsWith('@komore/'))),
       tapNext(packages => {
         console.log('komore v?.?.?', packages);
       }),

@@ -237,6 +237,8 @@
       "@komore/observability-aws": ["modules/observability/aws/src/index.ts"],
       "@komore/observability-azure": ["modules/observability/azure/src/index.ts"],
       "@komore/observability-gcloud": ["modules/observability/gcloud/src/index.ts"],
+      "@komore/openapi": ["modules/openapi/src/index.ts"],
+      "@komore/oracle": ["modules/oracle/src/index.ts"],
       "@komore/paypal": ["modules/paypal/src/index.ts"],
       "@komore/payment": ["modules/payment/src/index.ts"],
       "@komore/process": ["modules/process/src/index.ts"],
@@ -335,7 +337,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "ES2022",
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["../node_modules/@types"],
     "useUnknownInCatchVariables": true
   },
   "exclude": ["node_modules", "tmp"],
