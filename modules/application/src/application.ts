@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Application
  *
@@ -7,5 +5,5 @@ import { type Observable } from '@komore/reactive';
  * @template ResultType Result type
  */
 export interface Application<ParametersType, ResultType> {
-  (parameters: ParametersType): Observable<ResultType>;
+  (parameters: ParametersType): Promise<ResultType>;
 }

@@ -1,4 +1,4 @@
-import { createCliApplication, createCliApplicationLogEncoder, executeCliApplication } from '@komore/cli';
+import { cliRoute, createCliApplication, createCliApplicationLogEncoder, createCliRouter } from '@komore/cli';
 import { createLogger } from '@komore/logging';
 import { createNodeConsoleLogAppender } from '@komore/logging/node';
 
@@ -10,7 +10,7 @@ import { createNodeConsoleLogAppender } from '@komore/logging/node';
 //import { listProjectsCommand } from './commands/list/list-projects-command';
 //import { reportCommand } from './commands/report/report-command';
 //import { runCommand } from './commands/run/run-command';
-//import { validateCommand } from './commands/validate/validate-command';
+import { validateCommand } from './commands/validate/validate-command';
 import { versionCommand } from './commands/version/version-command';
 
 /*const root = Node.create();
@@ -20,7 +20,9 @@ root.setHeight(300);
 root.setJustifyContent(JUSTIFY_CENTER);
 */
 
-const cli = createCliApplication({
+const router = createCliRouter(cliRoute('validate', validateCommand), cliRoute('version', versionCommand));
+
+const k = createCliApplication({
   commands: [
     //fetchAffectedBaseCommand,
     //generateCommand,
@@ -42,4 +44,4 @@ const cli = createCliApplication({
   }),
 });
 
-executeCliApplication(cli, process.argv);
+await k(process.argv);

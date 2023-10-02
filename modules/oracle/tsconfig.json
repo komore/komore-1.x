@@ -3,10 +3,10 @@
   "extends": "../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./node.tsconfig.library.json"
+      "path": "./oracle.tsconfig.library.json"
     },
     {
-      "path": "./node.tsconfig.specifications.json"
+      "path": "./oracle.tsconfig.specifications.json"
     }
   ]
 }
