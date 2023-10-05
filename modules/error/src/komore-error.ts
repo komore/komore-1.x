@@ -12,13 +12,13 @@ import { type ErrorType } from './error-type';
  */
 export class KomoreError<
     ErrorCategoryType extends GenericErrorCategory,
-    ErrorCode extends keyof ErrorCategoryDefinitions<ErrorCategoryType>
+    ErrorCode extends keyof ErrorCategoryDefinitions<ErrorCategoryType>,
   >
   extends Error
   implements ErrorType<ErrorCategoryType, ErrorCode>
 {
   override readonly name = 'KomoreError';
-  readonly category: ErrorCategoryType;
+  readonly group: ErrorCategoryType;
   readonly code: ErrorCode;
   readonly context: ErrorDefinitionProperties<ErrorCategoryDefinitions<ErrorCategoryType>[ErrorCode]>;
 
@@ -37,7 +37,7 @@ export class KomoreError<
     errorContext: ErrorDefinitionProperties<ErrorCategoryDefinitions<ErrorCategoryType>[ErrorCode]>
   ) {
     super(message);
-    this.category = errorCategory;
+    this.group = errorCategory;
     this.code = errorCode;
     this.context = errorContext;
   }

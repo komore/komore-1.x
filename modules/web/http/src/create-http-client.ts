@@ -1,4 +1,5 @@
 import { Observable } from '@komore/reactive';
+
 import { type HttpClient } from './http-client';
 import { type HttpClientOptions } from './http-client-options';
 import { type HttpClientRequestOptions } from './http-client-request-options';
@@ -24,7 +25,7 @@ export function createHttpClient<DefaultContextType = undefined>(
       const requestInit: RequestInit = {
         ...options,
         ...requestOptions,
-        signal
+        signal,
       };
       let emitted = false;
 

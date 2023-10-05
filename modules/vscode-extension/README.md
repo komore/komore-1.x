@@ -8,18 +8,22 @@
 
 - indicate whether a type or function is a public API (exported via main) + color indicating type or value
 
+## TODO
+
+[Pre-releease](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prerelease-extensions)
+
 ## Elements
 
-- applies to *.element.ts
+- applies to \*.element.ts
 - auto-completion inside the HTML parts of the template
-  - .* shows properties for the element
-  - <* shows known custom elements (and auto imports)
-  - class="* shows known available matching classes
+  - .\* shows properties for the element
+  - <\* shows known custom elements (and auto imports)
+  - class="\* shows known available matching classes
   - etc.
 - hovering over an element shows its documentation
 - extra icon on the side showing CSS information
 - ctrl+click an element goes to its .ts
-- ability to run storybooks directly from an *.element.ts
+- ability to run storybooks directly from an \*.element.ts
 
 ## Reactive
 
@@ -29,7 +33,7 @@
 
 ## Unit tests
 
-- applies to *.spec.ts with at least one of given/when/and/then/expect/where
+- applies to \*.spec.ts with at least one of given/when/and/then/expect/where
 - Highlight for given:, when:, and:, then:, expect:
 - handle thrown() blocks turning the test block into a try { } catch { }
 - Hover over test first line => show the BDD-style documentation
@@ -40,7 +44,7 @@ it('$id1 + $id2 + $id3 = $result', (id1, id2, id3, result) => {
   expect: 'math';
   expect(id1 + id2 + id3).toBe(result);
   where: 'description';
-  id1  | id2  | id3  || result;
+  id1 | id2 | id3 || result;
   val1 | val2 | val3 || val4;
 });
 ```

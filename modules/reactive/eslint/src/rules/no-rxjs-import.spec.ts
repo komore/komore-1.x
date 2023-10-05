@@ -1,13 +1,13 @@
-import { createRuleTester } from '@komore/eslint/testing';
+import { createRuleTester } from '@komore/linting/testing';
+import { feature } from '@komore/testing';
+
 import { noRxJSImport } from './no-rxjs-import';
 
-describe('No RxJS import rule', () => {
+feature('No RxJS import rule', () => {
   const tester = createRuleTester({
     fileName: 'lala',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   });
-
-  it('works', ruleTester.run(() => {
-      tester();
-  });
+  noRxJSImport;
+  tester;
 });

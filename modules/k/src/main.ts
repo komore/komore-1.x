@@ -2,14 +2,14 @@ import { cliRoute, createCliApplication, createCliApplicationLogEncoder, createC
 import { createLogger } from '@komore/logging';
 import { createNodeConsoleLogAppender } from '@komore/logging/node';
 
-//import { fetchAffectedBaseCommand } from './commands/fetch-affected-base/fetch-affected-base-command';
-//import { generateCommand } from './commands/generate/generate-command';
-//import { infoCommand } from './commands/info/info-command';
-//import { listCommand } from './commands/list/list-command';
-//import { listExecutorsCommand } from './commands/list/list-executors-command';
-//import { listProjectsCommand } from './commands/list/list-projects-command';
-//import { reportCommand } from './commands/report/report-command';
-//import { runCommand } from './commands/run/run-command';
+import { fetchAffectedBaseCommand } from './commands/fetch-affected-base/fetch-affected-base.command';
+import { generateCommand } from './commands/generate/generate-command';
+import { infoCommand } from './commands/info/info-command';
+import { listCommand } from './commands/list/list-command';
+import { listExecutorsCommand } from './commands/list/list-executors-command';
+import { listProjectsCommand } from './commands/list/list-projects-command';
+import { reportCommand } from './commands/report/report-command';
+import { runCommand } from './commands/run/run-command';
 import { validateCommand } from './commands/validate/validate-command';
 import { versionCommand } from './commands/version/version-command';
 

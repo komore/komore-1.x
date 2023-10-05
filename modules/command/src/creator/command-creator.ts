@@ -1,3 +1,5 @@
+import { type GenericDomain } from '@komore/domain';
+
 import { type Command } from '../command';
 
 /**
@@ -11,13 +13,14 @@ export type CommandCreatorFunctionType<CommandType extends string, P extends obj
   : () => Command<T, void>;
 
 /**
- * Function capable of creating a specific Command
+ * Function capable of creating a specific command
+ *
  * @template T Command type
  * @template P Command properties type
  * @template C Creator type
  */
 export type CommandCreator<
-  DomainType extends Domain<string>,
+  DomainType extends GenericDomain,
   CommandType extends string,
   P extends object | void
 > = CommandCreatorFunctionType<T, P> & Readonly<{ type: T }>;

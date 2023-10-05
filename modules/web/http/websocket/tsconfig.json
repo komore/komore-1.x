@@ -1,11 +1,11 @@
 {
-  "extends": "../../../../tsconfig.dom.json",
+  "extends": "../../../conf/tsconfig.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./http-websocket.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./http-websocket.tsconfig.specifications.json"
     }
   ]
 }

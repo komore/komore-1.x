@@ -8,19 +8,18 @@ Before going into details, defining the terms
 
 ### Stream
 
-A stream is an active process that moves and transforms elements, from upstream to downstream.
+A stream is an active process that moves and transforms messages, from upstream to downstream.
 
 ### Message
 
-An element is the processing unit of a stream.
-
+A message is the processing unit of a stream.
 
 ## Defining streams
 
 komore defines a representation of a stream using the following abstractions:
 
-- A **source** is an operator with *exactly one output*, emitting elements towards downstream operators
-- A **sink** is an operator with *exactly one input*, accepting elements from upstream operators
+- A **source** is an operator with *exactly one output*, emitting messages towards downstream operators
+- A **sink** is an operator with *exactly one input*, accepting messages from upstream operators
 - A **flow** is an operator with *exactly one input and output*, transforming elements that flow through it
 
 These abstractions can appear similar to their lower-level RxJS counterparts:
@@ -32,8 +31,6 @@ These abstractions can appear similar to their lower-level RxJS counterparts:
 It should be noted, however, that those higher-level abstractions come with more specific requirements.
 
 In practice, the graph nomenclature should be used for higher-level graphs and the RxJS nomenclature for lower-level pipelines.
-
-## Message
 
 ## Source
 

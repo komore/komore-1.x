@@ -1,8 +1,10 @@
 import { firstValueFrom as rxjsFirstValueFrom } from 'rxjs';
+
 import { type Observable } from '../observable';
 
 /**
  * Converts an observable to a promise by resolving the promise as soon as a value is emitted by the observable
+ *
  * @param source Source observable
  * @returns Promise that resolves to the first value emitted by the observable
  */

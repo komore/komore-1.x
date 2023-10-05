@@ -1,7 +1,7 @@
 import { type Domain } from '@komore/domain';
 
 import { type Command } from '../command';
-import { CommandMatcher } from './command-matcher';
+import { type CommandMatcher } from './command-matcher';
 
 /**
  * Matches a command, branching based on the command type

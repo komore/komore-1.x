@@ -1,1 +1,3 @@
-export const kCommandGroup = defineCommandGroup;
+import { createCommandGroup } from '@komore/command';
+
+export const kCommandGroup = createCommandGroup();

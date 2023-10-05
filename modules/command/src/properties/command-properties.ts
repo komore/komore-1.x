@@ -1,4 +1,6 @@
-import { typeSchema, type TypeSchema } from '@komore/typescript';
+import { typeSchema } from '@komore/typescript';
+
+import { type CommandPropertiesSchema } from './command-properties-schema';
 
 /**
  * Defines a command properties schema
@@ -6,9 +8,6 @@ import { typeSchema, type TypeSchema } from '@komore/typescript';
  * @returns Command properties schema
  * @template T Properties type
  */
-export function commandProperties<T>(): TypeSchema<<T> {
-  return {
-    _schema: 'command',
-    _type: void 0 as T,
-  };
+export function commandProperties<T>(): CommandPropertiesSchema<T> {
+  return typeSchema('command');
 }

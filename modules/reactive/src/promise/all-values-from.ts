@@ -4,6 +4,7 @@ import { firstValueFrom } from './first-value-from';
 
 /**
  * Converts an observable to a promise that resolves to all the values emitted by the observable before it completed
+ *
  * @param source Source observable
  * @returns Promise that resolves to all values emitted by the observable before completion
  */

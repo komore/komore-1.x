@@ -1,28 +1,30 @@
-import { type ErrorCategoryDefinitions } from './category/error-category-definitions';
-import { type GenericErrorCategory } from './category/generic-error-category';
 import { type ErrorType } from './error-type';
+import { type ErrorGroupDefinitions } from './group/error-group-definitions';
+import { type GenericErrorGroup } from './group/generic-error-group';
 import { isKomoreError } from './is-komore-error';
 
 /**
  * Creates a function that tests whether an error is of a certain type
  *
- * @param errorCategory Error category
+ * @param errorGroup Error group
  * @param errorCode Error code
  * @returns Function that tests whether an error is of a certain type
+ * @template ErrorGroupType
+ * @template ErrorCode
  */
 export function isErrorOfType<
-  ErrorCategoryType extends GenericErrorCategory,
-  ErrorCode extends keyof ErrorCategoryDefinitions<ErrorCategoryType> = keyof ErrorCategoryDefinitions<ErrorCategoryType>
+  ErrorGroupType extends GenericErrorGroup,
+  ErrorCode extends keyof ErrorGroupDefinitions<ErrorGroupType> = keyof ErrorGroupDefinitions<ErrorGroupType>,
 >(
-  errorCategory: ErrorCategoryType,
+  errorGroup: ErrorGroupType,
   errorCode?: ErrorCode
-): (error: unknown) => error is ErrorType<ErrorCategoryType, ErrorCode> {
-  return (error): error is ErrorType<ErrorCategoryType, ErrorCode> => {
+): (error: unknown) => error is ErrorType<ErrorGroupType, ErrorCode> {
+  return (error): error is ErrorType<ErrorGroupType, ErrorCode> => {
     if (!isKomoreError(error)) {
       return false;
     }
 
-    const { category, code } = error;
-    return category === errorCategory && (errorCode === undefined || code === errorCode);
+    const { group: category, code } = error;
+    return category === errorGroup && (errorCode === undefined || code === errorCode);
   };
 }

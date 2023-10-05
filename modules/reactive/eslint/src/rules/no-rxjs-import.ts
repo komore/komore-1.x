@@ -1,5 +1,7 @@
-import { nodeToReportDescriptorWithMessageId, reportUsing, withRuleFix } from '@komore/eslint';
 import { type TSESTree } from '@typescript-eslint/experimental-utils';
+
+import { nodeToReportDescriptorWithMessageId, reportUsing, withRuleFix } from '@komore/linting';
+
 import { createRule } from '../utils/create-rule';
 
 /**
@@ -8,14 +10,14 @@ import { createRule } from '../utils/create-rule';
 export const noRxJSImport = createRule({
   meta: {
     docs: {
-      description: 'forbids importing directly from the rxjs package',
-      recommended: 'error'
+      description: 'forbids importing directly from the RxJS package',
+      recommended: 'error',
     },
     messages: {
-      forbidden: 'direct rxjs package imports are forbidden.'
+      forbidden: 'direct RxJS package imports are forbidden.',
     },
     schema: [],
-    type: 'problem'
+    type: 'problem',
   },
   name: 'no-rxjs-import',
   defaultOptions: [],
@@ -30,7 +32,7 @@ export const noRxJSImport = createRule({
           .filter(isRxJSImport)
           .map(nodeToReportDescriptorWithMessageId('forbidden'))
           .map(withRuleFix((fixer, { node }) => fixer.replaceText(node, '@komore/reactive')))
-          .forEach(reportUsing(context))
+          .forEach(reportUsing(context)),
     };
-  }
+  },
 });

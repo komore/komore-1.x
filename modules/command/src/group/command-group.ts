@@ -1,6 +1,6 @@
 import { type Domain } from '@komore/domain';
 
-import { type CommandCreator } from './command-creator';
+import { type CommandCreator } from '../creator/command-creator';
 import { type CommandPropertiesSchema } from './command-properties-schema';
 
 /**

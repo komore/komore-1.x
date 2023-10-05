@@ -12,6 +12,7 @@ export { type InstalledPackage } from './package/installed-package';
 export { type InstalledPackageWithPackageJson } from './package/installed-package-with-package-json';
 export { isPackageReferenceName } from './package/reference/is-package-reference-name';
 export { isTaskName } from './task/name/is-task-name';
+export { loadWorkspaceConfiguration } from './workspace/load-workspace-configuration';
 export { type PackageDependencyType } from './package/manager/package-dependency-type';
 export { packageDependencyTypes } from './package/manager/package-dependency-types';
 export { type PackageManager } from './package/manager/package-manager';
