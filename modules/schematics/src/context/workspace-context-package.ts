@@ -29,7 +29,7 @@ export interface WorkspaceContextPackage {
   readonly json: Observable<Partial<PackageJson>>;
   readonly list: {
     /**
-     * Lisdt of installed packages
+     * List of installed packages
      */
     readonly installed: Observable<ReadonlyArray<InstalledPackage>>;
     /**

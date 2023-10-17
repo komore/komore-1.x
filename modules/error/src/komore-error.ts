@@ -1,44 +1,45 @@
-import { type GenericErrorCategory } from './category/generic-error-category';
-import { type ErrorCategoryDefinitions } from './category/error-category-definitions';
-import { type ErrorDefinitionProperties } from './definition/error-definition-properties';
+import { type TypeSchemaType } from '@komore/typescript';
+
 import { type ErrorType } from './error-type';
+import { type GenericErrorGroup } from './group/generic-error-group';
+import { type ErrorGroupDefinitions } from './group/error-group-definitions';
 
 /**
  * Komore error
  *
- * @template ErrorCategoryType Error category type
+ * @template ErrorGroupType Error group type
  * @template ErrorCode Error code
  * @private
  */
 export class KomoreError<
-    ErrorCategoryType extends GenericErrorCategory,
-    ErrorCode extends keyof ErrorCategoryDefinitions<ErrorCategoryType>,
+    ErrorGroupType extends GenericErrorGroup,
+    ErrorCode extends keyof ErrorGroupDefinitions<ErrorGroupType>,
   >
   extends Error
-  implements ErrorType<ErrorCategoryType, ErrorCode>
+  implements ErrorType<ErrorGroupType, ErrorCode>
 {
   override readonly name = 'KomoreError';
-  readonly group: ErrorCategoryType;
   readonly code: ErrorCode;
-  readonly context: ErrorDefinitionProperties<ErrorCategoryDefinitions<ErrorCategoryType>[ErrorCode]>;
+  readonly context: TypeSchemaType<ErrorGroupDefinitions<ErrorGroupType>[ErrorCode]>;
+  readonly group: ErrorGroupType;
 
   /**
    * Class constructor
    *
    * @param message Message
-   * @param errorCategory Error category
+   * @param errorGroup Error group
    * @param errorCode Error code
    * @param errorContext Error context
    */
   constructor(
     message: string,
-    errorCategory: ErrorCategoryType,
+    errorGroup: ErrorGroupType,
     errorCode: ErrorCode,
-    errorContext: ErrorDefinitionProperties<ErrorCategoryDefinitions<ErrorCategoryType>[ErrorCode]>
+    errorContext: TypeSchemaType<ErrorGroupDefinitions<ErrorGroupType>[ErrorCode]>
   ) {
     super(message);
-    this.group = errorCategory;
     this.code = errorCode;
     this.context = errorContext;
+    this.group = errorGroup;
   }
 }

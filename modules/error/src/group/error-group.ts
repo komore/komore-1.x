@@ -1,5 +1,5 @@
 import { type GenericDomain } from '@komore/domain';
-import { type ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
 
 import { type ErrorType } from '../error-type';
 import { type ErrorPropertiesSchema } from '../properties/error-properties-schema';
@@ -29,8 +29,8 @@ export interface ErrorGroup<
    * @param errorContext Error context
    * @returns Error
    */
-  <ErrorCode extends keyof Definitions>(
+  <ErrorCode extends keyof Definitions & string>(
     errorCode: ErrorCode,
-    errorContext: Definitions[ErrorCode]
+    errorContext: TypeSchemaType<Definitions[ErrorCode]>
   ): ErrorType<this, ErrorCode>;
 }

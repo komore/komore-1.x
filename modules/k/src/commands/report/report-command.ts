@@ -1,6 +1,6 @@
-import { createCliCommand, createCliFlag as flag } from '@komore/application-cli';
-import { forkJoin, map, mapErrorTo, mapTo, mergeMap, mergeMapTo, of, tapNext, type Observable } from '@komore/reactive';
-import { getNodeVersion, getOSArchitecture, getOSVersion } from '@komore/runtime/node';
+import { createCliCommand, createCliFlag as flag } from '@komore/cli';
+import { getNodeVersion, getOSArchitecture, getOSVersion } from '@komore/node';
+import { forkJoin, map, mapTo, mergeMap, mergeMapTo, of, tapNext, type Observable } from '@komore/reactive';
 import { detectPackageManagerType, getPackageManagerVersion, type PackageManagerType } from '@komore/schematics';
 
 // TODO: make dynamic + discovery
@@ -30,14 +30,14 @@ export const reportCommand = createCliCommand(
 
     return $.pipe(
       mergeMapTo(versions),
-      tapNext(({ node, os, packageManager, /*aws, azureVersion, azureProfiles, gcloud*/ }) => {
+      tapNext(({ node, os, packageManager /*aws, azureVersion, azureProfiles, gcloud*/ }) => {
         console.log('Versions');
         console.log('');
         console.log(`  Node   : ${node}`);
         console.log(`  OS     : ${os.version} (${os.architecture})`);
         console.log(`  ${packageManager.type.padEnd(6, ' ')} : ${packageManager.version}`);
         console.log('');
-/*        console.log(`  aws    : ${aws}`);
+        /*        console.log(`  aws    : ${aws}`);
         console.log(`  azure  : ${azureVersion}`);
         console.log(`  gcloud : ${gcloud}`);
         console.log('');
@@ -71,8 +71,7 @@ export const reportCommand = createCliCommand(
  */
 function getPackageManagerInfo(basePath: string): Observable<PackageManagerInfo> {
   return detectPackageManagerType(basePath).pipe(
-    mergeMap(type => getPackageManagerVersion(basePath, type).pipe(map(version => ({ type, version })))),
-    mapErrorTo({ type: '????', version: 'no package manager found' })
+    mergeMap(type => getPackageManagerVersion(basePath, type).pipe(map(version => ({ type, version }))))
   );
 }
 
@@ -80,6 +79,6 @@ function getPackageManagerInfo(basePath: string): Observable<PackageManagerInfo>
  * Package manager information
  */
 interface PackageManagerInfo {
-  readonly type: PackageManagerType | string;
+  readonly type: PackageManagerType;
   readonly version: string;
 }

@@ -1,12 +1,14 @@
 import { join } from 'path';
 
+import { each } from '@komore/collection';
 import { type PackageJson } from '@komore/node';
-import { mapEach, of, type Observable } from '@komore/reactive';
+import { map, of, type Observable } from '@komore/reactive';
 
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { type PackageName } from '../package/name/package-name';
 import { readWorkspaceExecutorDescriptors } from './read-workspace-executor-descriptors';
 import { type WorkspaceExecutorDescriptor } from './workspace-executor-descriptor';
+import { validatePackageName } from '../package/name/validate-package-name';
 
 /**
  * Creates a function that returns a list of workspace executor descriptors from a package.json
@@ -27,17 +29,26 @@ export function packageJsonToWorkspaceExecutorDescriptors(
     }
 
     const descriptorsPath = join(basePath, path, descriptorsRelativePath);
+    const { name } = packageJsonWithPotentialExecutors;
+    validatePackageName(name);
 
     return readWorkspaceExecutorDescriptors(descriptorsPath).pipe(
-      mapEach(descriptor => ({
-        ...descriptor,
-        package: {
-          name: packageJsonWithPotentialExecutors.name as PackageName,
-          path,
-        },
-      }))
+      map(each(workspaceExecutorDescriptorWithPackage(name, path)))
     );
   };
+}
+
+function workspaceExecutorDescriptorWithPackage(
+  name: PackageName,
+  path: string
+): (descriptor: Omit<WorkspaceExecutorDescriptor, 'package'>) => WorkspaceExecutorDescriptor {
+  return descriptor => ({
+    ...descriptor,
+    package: {
+      name,
+      path,
+    },
+  });
 }
 
 /**

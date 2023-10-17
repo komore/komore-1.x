@@ -1,9 +1,7 @@
-import { type Domain } from '@komore/domain';
-import { type ReadonlyRecord } from '@komore/typescript';
+import { type TypeSchemaType } from '@komore/typescript';
 
-import { type ErrorGroup } from './group/error-group';
 import { type ErrorGroupDefinitions } from './group/error-group-definitions';
-import { type ErrorPropertiesSchema } from './properties/error-properties-schema';
+import { type GenericErrorGroup } from './group/generic-error-group';
 
 /**
  * Error type
@@ -12,10 +10,7 @@ import { type ErrorPropertiesSchema } from './properties/error-properties-schema
  * @template ErrorCode Error code
  */
 export interface ErrorType<
-  ErrorGroupType extends ErrorGroup<
-    Domain<string>,
-    ReadonlyRecord<string, ErrorPropertiesSchema<ReadonlyRecord<string, unknown>>>
-  >,
+  ErrorGroupType extends GenericErrorGroup,
   ErrorCode extends keyof ErrorGroupDefinitions<ErrorGroupType>,
 > extends Error {
   /**
@@ -25,7 +20,7 @@ export interface ErrorType<
   /**
    * Error context
    */
-  readonly context: ErrorGroupDefinitions<ErrorGroupType>[ErrorCode];
+  readonly context: TypeSchemaType<ErrorGroupDefinitions<ErrorGroupType>[ErrorCode]>;
   /**
    * Error group
    */

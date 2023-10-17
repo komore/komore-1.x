@@ -1,9 +1,11 @@
 import { deferPromise, type Observable } from '@komore/reactive';
+
 import { type PathLike } from 'fs';
-import { type FileHandle, open } from 'fs/promises';
+import { open, type FileHandle } from 'fs/promises';
 
 /**
  * Opens a file
+ *
  * @param path File path
  * @param flags Flags used when opening the file; defaults to `'r'` (read)
  * @param mode Mode used when creating the file; defaults to `0666` (readable and writable)

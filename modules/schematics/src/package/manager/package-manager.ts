@@ -1,5 +1,7 @@
 import { type Observable } from '@komore/reactive';
+
 import { type InstalledPackage } from '../installed-package';
+import { type PackageName } from '../name/package-name';
 import { type PackageDependencyType } from './package-dependency-type';
 
 /**
@@ -24,14 +26,14 @@ export interface PackageManager {
    * @param type Package dependency type
    * @returns Observable that emits upon completion
    */
-  addPackage(packageName: string, packageVersion: string, type: PackageDependencyType): Observable<void>;
+  addPackage(packageName: PackageName, packageVersion: string, type: PackageDependencyType): Observable<void>;
   /**
    * Removes a package
    *
    * @param packageName Package name
    * @returns Observable that emits upon completion
    */
-  removePackage(packageName: string): Observable<void>;
+  removePackage(packageName: PackageName): Observable<void>;
   /**
    * Returns the list of installed packages
    *

@@ -1,9 +1,8 @@
-import { type Domain } from '@komore/domain';
-
-import { type ErrorCategory } from './category/error-category';
 import { type ErrorType } from './error-type';
+import { type ErrorGroupDefinitions } from './group/error-group-definitions';
+import { type GenericErrorGroup } from './group/generic-error-group';
 
 /**
  * Generic error type
  */
-export type GenericErrorType = ErrorType<ErrorCategory<Domain<string>, string>, string>;
+export type GenericErrorType = ErrorType<GenericErrorGroup, keyof ErrorGroupDefinitions<GenericErrorGroup>>;

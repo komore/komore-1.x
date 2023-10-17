@@ -1,9 +1,11 @@
 import { deferPromise, type Observable } from '@komore/reactive';
+
 import { type Dirent, type ObjectEncodingOptions, type PathLike } from 'fs';
 import { readdir } from 'fs/promises';
 
 /**
  * Reads a directory
+ *
  * @param directoryPath Directory path
  * @param options Options
  * @returns List of file paths
@@ -15,6 +17,7 @@ export function readDirectory(
 
 /**
  * Reads a directory
+ *
  * @param directoryPath Directory path
  * @param options Options with file types enabled
  * @returns List of directory entries

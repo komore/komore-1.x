@@ -1,5 +1,6 @@
+import { each } from '@komore/collection';
 import { asLanguageCode, type LanguageCode } from '@komore/i18n';
-import { cache, defer, mapEach, of, type Observable } from '@komore/reactive';
+import { cache, defer, map, of, type Observable } from '@komore/reactive';
 import { stringToSubstring } from '@komore/string';
 
 /**
@@ -8,7 +9,7 @@ import { stringToSubstring } from '@komore/string';
  * Emits the detected navigator languages as ISO 639-1 language codes
  */
 export const browserLanguageCodes: Observable<ReadonlyArray<LanguageCode>> = defer(() => of(navigator.languages)).pipe(
-  mapEach(stringToSubstring({ end: 2 })),
-  mapEach(asLanguageCode),
+  map(each(stringToSubstring({ end: 2 }))),
+  map(each(asLanguageCode)),
   cache()
 );

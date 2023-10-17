@@ -1,5 +1,7 @@
 import { type Observable } from '@komore/reactive';
+
 import { type PathLike } from 'fs';
+
 import { readFileContent } from './read-file-content';
 
 /**
@@ -18,9 +20,7 @@ export function pathToFileContent(encoding: BufferEncoding): (filePath: PathLike
 export function pathToFileContent(
   encoding?: BufferEncoding
 ): ((filePath: PathLike) => Observable<Buffer>) | ((filePath: PathLike) => Observable<string>) {
-  if (encoding !== undefined) {
-    return filePath => readFileContent(filePath, encoding);
-  } else {
-    return filePath => readFileContent(filePath);
-  }
+  return encoding !== undefined
+    ? filePath => readFileContent(filePath, encoding)
+    : filePath => readFileContent(filePath);
 }

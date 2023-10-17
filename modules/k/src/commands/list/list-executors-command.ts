@@ -1,4 +1,4 @@
-import { createCliCommand } from '@komore/application-cli';
+import { createCliCommand } from '@komore/cli';
 import { map, mapEach, mapTo, mergeMap, take, tapNext } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 import chalk = require('chalk');

@@ -1,4 +1,4 @@
-import { ReadonlyRecord } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
 
 export function mapToValue<K, V>(map: ReadonlyMap<K, V>, key: K): V | undefined;
 export function mapToValue<K, V>(map: Map<K, V>, key: K, factory: (key: K) => V): V;

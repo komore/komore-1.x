@@ -2,6 +2,7 @@ import { type NodeHostOptions } from './node-host-options';
 
 /**
  * Builds Node host options with default values when necessary
+ *
  * @param hostOptions Host options
  * @returns Host options with default values when necessary
  */

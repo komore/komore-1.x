@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/url",
-  "description": "URL functions",
-  "keywords": [
-    "url"
-  ]
-}

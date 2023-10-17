@@ -23,6 +23,7 @@
       "@komore/ai/text": ["modules/ai/text/src/index.ts"],
       "@komore/android": ["modules/android/src/index.ts"],
       "@komore/android/schematics": ["modules/android/schematics/src/index.ts"],
+      "@komore/angular": ["modules/angular/src/index.ts"],
       "@komore/api": ["modules/api/src/index.ts"],
       "@komore/api/graphql": ["modules/api/graphql/src/index.ts"],
       "@komore/api/http": ["modules/api/http/src/index.ts"],
@@ -65,16 +66,6 @@
       "@komore/aws/x-ray": ["modules/aws/x-ray/src/index.ts"],
       "@komore/azure": ["modules/azure/src/index.ts"],
       "@komore/azure/cognitive-services": ["modules/azure/cognitive-services/src/index.ts"],
-      "@komore/azure/cognitive-services/computer-vision": [
-        "modules/azure/cognitive-services/computer-vision/src/index.ts"
-      ],
-      "@komore/azure/cognitive-services/content-moderator": [
-        "modules/azure/cognitive-services/content-moderator/src/index.ts"
-      ],
-      "@komore/azure/cognitive-services/face": ["modules/azure/cognitive-services/face/src/index.ts"],
-      "@komore/azure/cognitive-services/form-recognizer": [
-        "modules/azure/cognitive-services/form-recognizer/src/index.ts"
-      ],
       "@komore/azure/cosmos-db": ["modules/azure/cosmos-db/src/index.ts"],
       "@komore/azure/dns": ["modules/azure/dns/src/index.ts"],
       "@komore/azure/monitor": ["modules/azure/monitor/src/index.ts"],
@@ -228,6 +219,7 @@
       "@komore/message/schematics": ["modules/message/schematics/src/index.ts"],
       "@komore/message/testing": ["modules/message/testing/src/index.ts"],
       "@komore/monetary": ["modules/monetary/src/index.ts"],
+      "@komore/neo4j": ["modules/neo4j/src/index.ts"],
       "@komore/node": ["modules/node/src/index.ts"],
       "@komore/observability": ["modules/observability/src/index.ts"],
       "@komore/observability/metrics": ["modules/observability/metrics/src/index.ts"],
@@ -253,6 +245,7 @@
       "@komore/regexp": ["modules/regexp/src/index.ts"],
       "@komore/runtime": ["modules/runtime/src/index.ts"],
       "@komore/runtime/testing": ["modules/runtime/testing/src/index.ts"],
+      "@komore/rust": ["modules/rust/src/index.ts"],
       "@komore/schematics": ["modules/schematics/src/index.ts"],
       "@komore/schematics/build": ["modules/schematics/build/src/index.ts"],
       "@komore/schematics/event": ["modules/schematics/event/src/index.ts"],
@@ -260,7 +253,6 @@
       "@komore/schematics/publish": ["modules/schematics/publish/src/index.ts"],
       "@komore/schematics/runner": ["modules/schematics/runner/src/index.ts"],
       "@komore/schematics/worker": ["modules/schematics/worker/src/index.ts"],
-      "@komore/schematics-rust": ["modules/schematics/rust/src/index.ts"],
       "@komore/sendgrid": ["modules/sendgrid/src/index.ts"],
       "@komore/slack": ["modules/slack/src/index.ts"],
       "@komore/square": ["modules/square/src/index.ts"],

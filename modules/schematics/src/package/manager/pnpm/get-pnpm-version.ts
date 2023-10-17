@@ -2,13 +2,12 @@ import { executeChildProcess } from '@komore/node';
 import { map, type Observable } from '@komore/reactive';
 
 /**
- * Returns the pnpm version
+ * Creates a function that returns the pnpm version
  *
  * @param basePath Base path
- * @returns pnpm version
+ * @returns Function that returns the pnpm version
  */
-export function getPnpmVersion(basePath: string): Observable<string> {
-  return executeChildProcess('pnpm --version', {
-    cwd: basePath,
-  }).pipe(map(({ stdout }) => stdout.trim()));
+export function getPnpmVersion(basePath: string): () => Observable<string> {
+  const execute = executeChildProcess('pnpm --version', { cwd: basePath });
+  return () => execute.pipe(map(({ stdout }) => stdout.trim()));
 }

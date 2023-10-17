@@ -9,6 +9,7 @@ export { arrayToSlice } from './array/array-to-slice';
 export { arrayToSlices } from './array/array-to-slices';
 export { arrayToString } from './array/array-to-string';
 export { type ArrayValueType } from './array/array-value-type';
+export { each } from './each';
 export { isArray } from './array/is-array';
 export { isArrayEmpty } from './array/is-array-empty';
 export { isArrayLengthBetween } from './array/is-array-length-between';

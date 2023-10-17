@@ -1,5 +1,5 @@
-import { type Domain } from '@komore/domain';
-import { type ReadonlyRecord } from '@komore/typescript';
+import { type GenericDomain } from '@komore/domain';
+import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
 
 import { KomoreError } from '../komore-error';
 import { type ErrorPropertiesSchema } from '../properties/error-properties-schema';
@@ -12,31 +12,25 @@ import { type ErrorGroup } from './error-group';
  * large as a full domain.
  *
  * @param domain Domain
- * @param errorDefinitions Error definitions
+ * @param definitions Error definitions
  * @returns Error group
  * @template DomainType Domain type
  * @template Definitions Error definitions
  */
 export function createErrorGroup<
-  DomainType extends Domain<string>,
+  DomainType extends GenericDomain,
   Definitions extends ReadonlyRecord<string, ErrorPropertiesSchema<ReadonlyRecord<string, unknown>>>,
 >(domain: DomainType, definitions: Definitions): ErrorGroup<DomainType, Definitions> {
   const errorGroup = <ErrorCode extends keyof Definitions & string>(
     errorCode: ErrorCode,
-    errorContext: Definitions[ErrorCode]
-  ) => {
-    const definition = definitions[errorCode];
-    if (definition === undefined) {
-      throw new Error(`error code "${errorCode}" not defined in domain "${domain.name}" error group`);
-    }
-    const message = `${domain.name}.${errorCode}`;
-    return new KomoreError<ErrorGroup<DomainType, Definitions>, ErrorCode>(
-      message,
+    errorContext: TypeSchemaType<Definitions[ErrorCode]>
+  ) =>
+    new KomoreError<ErrorGroup<DomainType, Definitions>, ErrorCode>(
+      `${domain.name}.${errorCode}`,
       errorGroup as unknown as ErrorGroup<DomainType, Definitions>,
       errorCode,
       errorContext
     );
-  };
 
   Object.defineProperties(errorGroup, {
     definitions: { enumerable: false, value: definitions, writable: false },

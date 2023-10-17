@@ -1,0 +1,11 @@
+{
+  "extends": "../../conf/tsconfig.node.json",
+  "references": [
+    {
+      "path": "./rust.tsconfig.library.json"
+    },
+    {
+      "path": "./rust.tsconfig.specifications.json"
+    }
+  ]
+}

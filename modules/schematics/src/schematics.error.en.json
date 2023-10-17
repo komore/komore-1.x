@@ -1,0 +1,12 @@
+{
+  "package.manager.not-found": "no package manager could be detected (looked for: ${lockFilePaths})",
+  "package.manager.type.invalid": "package manager type \"${type}\" is not valid",
+  "package.name.invalid": "package name \"${packageName}\" is not valid",
+  "project.name.invalid": "project name \"${projectName}\" is not valid",
+  "task.dependency.invalid": "task \"${taskName}\" configuration uses invalid dependency reference \"${dependency}\"",
+  "task.executor.invalid": "task \"${taskName}\" configuration uses invalid executor reference \"${executor}\"",
+  "task.name.invalid": "task name \"${value}\" is not valid",
+  "task.not-found": "task ${taskName} not found in project ${projectName}",
+  "task.reference.invalid.string": "invalid task reference string \"${taskReferenceString}\"",
+  "workspace.configuration.invalid.json": "invalid value for JSON workspace property ${propertyPath}: ${message}"
+}

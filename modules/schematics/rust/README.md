@@ -1,3 +1,0 @@
-# @komore/schematics-rust
-
-TODO.

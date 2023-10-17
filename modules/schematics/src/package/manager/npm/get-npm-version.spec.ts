@@ -1,6 +1,6 @@
+import { executeChildProcess } from '@komore/node';
 import { firstValueFrom, of, throwError } from '@komore/reactive';
-jest.mock('@komore/runtime/node');
-import { executeChildProcess } from '@komore/runtime/node';
+
 import { getNpmVersion } from './get-npm-version';
 
 describe('Get npm version', () => {

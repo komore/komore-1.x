@@ -1,5 +1,6 @@
+import { each } from '@komore/collection';
 import { isDefined } from '@komore/functional';
-import { cache, defaultIfEmpty, forkJoin, mapEach, mergeMap, switchMap, type Observable } from '@komore/reactive';
+import { cache, defaultIfEmpty, forkJoin, map, mergeMap, switchMap, type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
 
 import { type InstalledPackage } from '../package/installed-package';
@@ -8,6 +9,7 @@ import { type LocalPackage } from '../package/local-package';
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { type PackageName } from '../package/name/package-name';
 import { type WorkspaceContextPackage } from './workspace-context-package';
+import { localPackageToPackageName } from '../package/local-package-to-package-name';
 
 /**
  * Builds a workspace context package list
@@ -29,19 +31,19 @@ export function buildWorkspaceContextPackageList(
 ): WorkspaceContextPackage['list'] {
   // TODO: this is bad, should be done through the existing maps
   const allWithPackageJson = all.pipe(
-    mapEach(({ name }) => name),
-    mapEach(packageNameToPackageWithPackageJson(byNameWithPackageJson)),
+    map(each(localPackageToPackageName)),
+    map(each(packageNameToPackageWithPackageJson(byNameWithPackageJson))),
     switchMap(packageJsons => forkJoin(packageJsons).pipe(defaultIfEmpty([])))
   );
   const installedWithPackageJson = installed.pipe(
-    mapEach(({ name }) => name),
-    mapEach(packageNameToPackageWithPackageJson<InstalledPackageWithPackageJson>(byNameWithPackageJson)),
+    map(each(localPackageToPackageName)),
+    map(each(packageNameToPackageWithPackageJson<InstalledPackageWithPackageJson>(byNameWithPackageJson))),
     mergeMap(packageJsons => forkJoin(packageJsons).pipe(defaultIfEmpty([]))),
     cache()
   );
   const localWithPackageJson = local.pipe(
-    mapEach(({ name }) => name),
-    mapEach(packageNameToPackageWithPackageJson<LocalPackageWithPackageJson>(byNameWithPackageJson)),
+    map(each(localPackageToPackageName)),
+    map(each(packageNameToPackageWithPackageJson<LocalPackageWithPackageJson>(byNameWithPackageJson))),
     mergeMap(packageJsons => forkJoin(packageJsons).pipe(defaultIfEmpty([])))
   );
 
@@ -58,7 +60,7 @@ export function buildWorkspaceContextPackageList(
 function packageNameToPackageWithPackageJson<
   T extends InstalledPackageWithPackageJson | LocalPackageWithPackageJson =
     | InstalledPackageWithPackageJson
-    | LocalPackageWithPackageJson
+    | LocalPackageWithPackageJson,
 >(
   byNameWithPackageJson: ReadonlyMap<
     PackageName,

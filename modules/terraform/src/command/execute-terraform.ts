@@ -1,7 +1,8 @@
+import { each } from '@komore/collection';
 import { not } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
 import { streamChildProcess } from '@komore/node';
-import { concatMap, fromArray, map, mapEach, type Observable } from '@komore/reactive';
+import { concatMap, fromArray, map, type Observable } from '@komore/reactive';
 import { isEmptyString, stringToLines } from '@komore/string';
 
 import { type GenericTerraformLog } from '../log/generic-terraform-log';
@@ -22,7 +23,7 @@ export function executeTerraform(
     }).pipe(
       map(stringToLines()),
       map(lines => lines.filter(not(isEmptyString))),
-      mapEach(jsonToObject<GenericTerraformLog>()),
+      map(each(jsonToObject<GenericTerraformLog>())),
       concatMap(logs => fromArray(logs))
     );
 }

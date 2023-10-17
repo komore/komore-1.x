@@ -1,8 +1,10 @@
 import { Observable } from '@komore/reactive';
-import { type PathLike, watch } from 'fs';
+
+import { watch, type PathLike } from 'fs';
 
 /**
  * Observes a file
+ *
  * @param filePath File path
  * @returns Observable that emits the file path whenever the file changes
  */
