@@ -1,8 +1,10 @@
-export { createS3Client } from './create-s3-client';
-export { deleteObject } from './delete-object';
-export { deleteObjects } from './delete-objects';
-export { getObject } from './get-object';
-export { listObjects } from './list-objects';
-export { preSignS3Request } from './pre-sign-s3-request';
-export { putObject } from './put-object';
-export { toPreSignedS3Request } from './to-pre-signed-s3-request';
+export { createS3Client } from './client/create-s3-client';
+export { createS3CommandHandler } from './command/create-s3-command-handler';
+export { createS3QueryHandler } from './query/create-s3-query-handler';
+export { type S3Client } from './client/s3-client';
+export { type S3ClientOptions } from './client/s3-client-options';
+export { s3Command } from './command/s3.command';
+export { type S3CommandHandler } from './command/s3-command-handler';
+export { s3Error } from './s3.error';
+export { s3Event } from './event/s3.event';
+export { s3Query } from './query/s3.query';

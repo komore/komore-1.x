@@ -71,14 +71,14 @@ Common flags:
 # /komore.json
  (with later domain metadata in json, from ddd?)
 # todo: default domain
-nx g @komore/nx:domain my-domain
+k g domain my-domain
 # creates a function
-nx g @komore/nx:function my-function --domain
+k g function my-function --domain
 
 # creates stacks/my-stack
-nx g @komore/nx:stack my-stack
+k g stack my-stack
 
 # creates shells/my-shell
 # base shell front-end application
-nx g @komore/nx:shell my-shell
+k g shell my-shell
 ```

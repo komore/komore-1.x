@@ -2,6 +2,7 @@ import { type NodeFactory } from 'typescript';
 
 /**
  * Creates an import declaration
+ *
  * @param factory TypeScript node factory
  * @param isTypeOnly true for a type import
  * @param names List of names with optional aliases

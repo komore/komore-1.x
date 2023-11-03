@@ -9,8 +9,13 @@ import { errorPropertiesSchemaTypeName } from './error-properties-schema-type-na
  *
  * @returns Error properties schema
  */
+export function errorProperties(): ErrorPropertiesSchema<void>;
 export function errorProperties<
-  SchemaType extends ReadonlyRecord<string, unknown>
+  SchemaType extends ReadonlyRecord<string, unknown>,
+>(): ErrorPropertiesSchema<SchemaType>;
+
+export function errorProperties<
+  SchemaType extends ReadonlyRecord<string, unknown>,
 >(): ErrorPropertiesSchema<SchemaType> {
   return typeSchema<typeof errorPropertiesSchemaTypeName, SchemaType>(errorPropertiesSchemaTypeName);
 }

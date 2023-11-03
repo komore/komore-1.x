@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/opentofu",
+  "description": "OpenTofu functions",
+  "keywords": ["iac", "infrastructure", "opentofu"]
+}

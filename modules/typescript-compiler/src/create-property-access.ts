@@ -2,9 +2,11 @@ import { type Expression, type NodeFactory, type PropertyAccessExpression } from
 
 /**
  * Creates a property access
+ *
  * ```ts
  * expression.propertyName.x.y.z
  * ```
+ *
  * @param factory TypeScript node factory
  * @param expression Expression
  * @param propertyName Property name
@@ -18,12 +20,15 @@ export function createPropertyAccess(
   ...additionalPropertyNames: ReadonlyArray<string>
 ): PropertyAccessExpression {
   const baseExpression = typeof expression === 'string' ? factory.createIdentifier(expression) : expression;
-  let propertyAccess = factory.createPropertyAccessExpression(baseExpression, propertyName);
+  const firstPropertyAccess = factory.createPropertyAccessExpression(baseExpression, propertyName);
+  return additionalPropertyNames.reduce(propertyNamesToPropertyAccess(factory), firstPropertyAccess);
+}
 
-  for (const additionalPropertyName of additionalPropertyNames) {
-    const propertyId = factory.createIdentifier(additionalPropertyName);
-    propertyAccess = factory.createPropertyAccessExpression(propertyAccess, propertyId);
-  }
-
-  return propertyAccess;
+function propertyNamesToPropertyAccess(
+  factory: NodeFactory
+): (propertyAccess: PropertyAccessExpression, propertyName: string) => PropertyAccessExpression {
+  return (propertyAccess, propertyName) => {
+    const propertyId = factory.createIdentifier(propertyName);
+    return factory.createPropertyAccessExpression(propertyAccess, propertyId);
+  };
 }

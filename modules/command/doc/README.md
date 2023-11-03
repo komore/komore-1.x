@@ -1,9 +1,11 @@
-[//]: #title 'Command'
-[//]: #description 'komore command module overview'
-[//]: #keyword 'command'
-[//]: #keyword 'overview'
-[//]: #keyword '@komore/command'
-[//]: #path-alias 'modules/command/overview'
+---
+[//]:#title 'Command'
+[//]:#description 'komore command module overview'
+[//]:#keyword 'command'
+[//]:#keyword 'overview'
+[//]:#keyword '@komore/command'
+[//]:#path-alias 'modules/command/overview'
+---
 
 # @komore/command
 

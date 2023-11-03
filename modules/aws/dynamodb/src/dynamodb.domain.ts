@@ -1,6 +1,6 @@
-import { defineDomain } from '@komore/domain';
+import { createDomain } from '@komore/domain';
 
 /**
  * DynamoDB domain
  */
-export const dynamoDBDomain = defineDomain('@komore/aws/dynamodb');
+export const dynamoDBDomain = createDomain('@komore/aws/dynamodb');

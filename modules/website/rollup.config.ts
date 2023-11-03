@@ -16,7 +16,7 @@ interface TsConfig {
 
 const projectDir = resolve(__dirname);
 const projectRootDir = resolve(projectDir, '..', '..');
-const tsConfigPath = resolve(projectDir, 'tsconfig.app.json');
+//const tsConfigPath = resolve(projectDir, 'website.tsconfig.application.json');
 
 type PathAliasMap = ReadonlyMap<string, ReadonlyArray<string>>;
 
@@ -51,8 +51,8 @@ function tsPathAliases(pathAliases: PathAliasMap) {
   return alias({
     entries: Array.from(pathAliases.entries()).map(([alias, value]) => ({
       find: new RegExp(`^${alias}$`),
-      replacement: resolve(projectRootDir, value[0])
-    }))
+      replacement: resolve(projectRootDir, value[0]),
+    })),
   });
 }
 
@@ -60,8 +60,8 @@ function tsBuild(tsConfigPath: string) {
   return esbuild({
     tsconfig: tsConfigPath,
     sourceMap: true,
-    minify: process.env.NODE_ENV === 'production'
-  })
+    minify: process.env.NODE_ENV === 'production',
+  });
 }
 
 const [websiteTsConfig, websitePaths] = getTsConfigPathAndAliases(projectDir, 'app');
@@ -75,19 +75,15 @@ export default [
     input: 'modules/website/search/worker/src/search-worker.ts',
     output: {
       file: 'dist/search-worker.js',
-      format: 'es'
+      format: 'es',
     },
-    plugins: [
-      tsPathAliases(searchWorkerPaths),
-      tsBuild(searchWorkerTsConfig),
-      nodeResolve({})
-    ]
+    plugins: [tsPathAliases(searchWorkerPaths), tsBuild(searchWorkerTsConfig), nodeResolve({})],
   },
   {
     input: 'modules/website/src/main.ts',
     output: {
       file: 'dist/komore-website.js',
-      format: 'es'
+      format: 'es',
     },
     plugins: [
       tsPathAliases(websitePaths),
@@ -96,14 +92,14 @@ export default [
       scss({
         output: 'dist/komore-website.css',
         sourceMap: true,
-        include: ['modules/website/src/*.scss']
+        include: ['modules/website/src/*.scss'],
       }),
       serve({
-        contentBase: ['modules/website/src', 'dist']
+        contentBase: ['modules/website/src', 'dist'],
       }),
       livereload({
-        watch: ['modules/website/src/index.html', 'dist/*.js', 'dist/*.css']
-      })
-    ]
-  }
+        watch: ['modules/website/src/index.html', 'dist/*.js', 'dist/*.css'],
+      }),
+    ],
+  },
 ];

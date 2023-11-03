@@ -1,3 +1,2 @@
-export { createApiGatewayClient } from './create-api-gateway-client';
-export { withApiGatewayClient } from './operators/with-api-gateway-client';
-
+export { createApiGatewayClient } from './client/create-api-gateway-client';
+export { apiGatewayDomain } from './api-gateway.domain';

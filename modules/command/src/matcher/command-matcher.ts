@@ -1,14 +1,14 @@
-import { type Domain } from '@komore/domain';
-
-import { type Command } from '../command';
-import { type CommandType } from '../command-type';
+import { type GenericCommand } from '../generic-command';
 
 /**
  * Command matcher
  *
- * @template T Possible command types
- * @template Result Result type
+ * @template CommandType Possible command types
+ * @template ResultType Result type
  */
-export type CommandMatcher<Commands extends ReadonlyArray<Command<Domain<string>, string, any>>, Result> = {
-  [C in CommandType<Commands[number]>]: (command: C) => Result;
+export type CommandMatcher<CommandType extends GenericCommand, ResultType = void> = {
+  [CommandName in CommandType['name']]: (
+    parameters: ReturnType<CommandType[CommandName]>['parameters'],
+    command: ReturnType<CommandType[CommandName]>
+  ) => ResultType;
 };

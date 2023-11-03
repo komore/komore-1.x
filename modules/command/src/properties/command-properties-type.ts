@@ -1,17 +1,18 @@
-import { type Domain } from '@komore/domain';
+import { type GenericDomain } from '@komore/domain';
+import { type TypeSchemaType } from '@komore/typescript';
 
 import { type Command } from '../command';
 import { type GenericCommand } from '../generic-command';
 
 /**
- * Command properties type from a command type
+ * Command properties type
  *
  * @template CommandType Command type
  */
 export type CommandPropertiesType<CommandType extends GenericCommand> = CommandType extends Command<
-  Domain<string>,
+  GenericDomain,
   string,
-  infer CommandProperties
+  infer SchemaType
 >
-  ? CommandProperties
+  ? TypeSchemaType<SchemaType>
   : never;

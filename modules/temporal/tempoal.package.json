@@ -2,11 +2,5 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/temporal",
   "description": "Temporal functions",
-  "keywords": [
-    "temporal",
-    "date",
-    "time",
-    "datetime",
-    "timezone"
-  ]
+  "keywords": ["temporal", "date", "time", "datetime", "timezone"]
 }

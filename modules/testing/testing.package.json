@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/testing",
+  "description": "",
+  "keywords": ["testing"],
+  "komore": {
+    "executors": "./schematics/testing-schematics.executors.json",
+    "generators": "./schematics/testing-schematics.generators.json",
+    "lint-rules": "./linting/rules.json"
+  }
+}

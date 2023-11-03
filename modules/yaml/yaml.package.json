@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/yaml",
+  "description": "YAML functions",
+  "keywords": ["yaml"]
+}

@@ -3,5 +3,5 @@
   "domain": "aws",
   "type": "library",
   "tags": [],
-  "tasks": ["build", "document", "lint", "publish", "test"]
+  "tasks": ["build", "document", "lint", "test"]
 }

@@ -1,39 +1,43 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { type EventDomain } from './event-domain';
+import { type GenericDomain } from '@komore/domain';
+import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
+
+import { type EventPropertiesSchema } from './properties/event-properties-schema';
+import { type EventType as EventDictionaryType } from './type/event-type';
 
 /**
  * Event
  *
- * @template EventDomainType Event domain type
+ * @template DomainType Domain type
  * @template EventType Event type
- * @template EventProperties Event properties type
+ * @template EventName Event name
+ * @template SchemaType Event properties shema type
  */
 export interface Event<
-  EventDomainType extends EventDomain<string>,
-  EventType extends string,
-  EventProperties extends ReadonlyRecord<string, unknown> | undefined = undefined
+  DomainType extends GenericDomain,
+  EventType extends EventDictionaryType<DomainType, ReadonlyRecord<string, EventPropertiesSchema<unknown>>>,
+  EventName extends string,
+  SchemaType extends EventPropertiesSchema<unknown>,
 > {
-  readonly domain: EventDomainType;
+  /**
+   * Domain
+   */
+  readonly domain: DomainType;
+  /**
+   * Event name
+   */
+  readonly name: EventName;
+  /**
+   * Event parameters
+   */
+  readonly parameters: TypeSchemaType<SchemaType>;
+  /**
+   * Event type
+   */
   readonly type: EventType;
-  readonly properties: EventProperties extends Record<string, unknown> ? EventProperties : never;
-  readonly aggregateKey: string;
-  readonly sequenceNumber: number;
 }
 
 /**
- * Event domain type
- *
- * @template EventType Event type
- */
-export type EventDomainType<
-  EventType extends Event<EventDomain<string>, string, ReadonlyRecord<string, unknown> | undefined>
-> = EventType extends Event<infer DomainType, string, ReadonlyRecord<string, unknown> | undefined> ? DomainType : never;
-
-/**
- * Event properties schema
- *
- * @template EventType Event type
- */
-export type EventPropertiesSchemaType<
-  EventType extends Event<EventDomain<string>, string, ReadonlyRecord<string, unknown> | undefined>
-> = EventType extends Event<EventDomain<string>, string, infer EventPropertiesSchema> ? EventPropertiesSchema : never;
+   * TODO
+  readonly aggregateKey: string;
+  readonly sequenceNumber: number;
+   */

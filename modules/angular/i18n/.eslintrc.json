@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "extends": "../../../conf/eslintrc.browser.json",
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["src/**/*.ts"],
+      "parserOptions": {
+        "project": "modules/angular/i18n/angular-i18n.tsconfig.*?.json"
+      }
+    }
+  ]
+}

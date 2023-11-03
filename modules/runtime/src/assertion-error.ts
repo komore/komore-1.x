@@ -2,7 +2,7 @@
  * Assertion error
  */
 export class AssertionError extends Error {
-  readonly name = 'AssertionError';
+  override readonly name = 'AssertionError';
 
   /**
    * Class constructor

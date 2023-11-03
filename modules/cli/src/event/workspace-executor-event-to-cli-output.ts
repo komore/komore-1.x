@@ -1,8 +1,8 @@
 import {
-  WorkspaceExecutorTaskMessageEventData,
   type GenericWorkspaceExecutorEvent,
   type WorkspaceExecutorTaskBeginEventData,
   type WorkspaceExecutorTaskEndEventData,
+  type WorkspaceExecutorTaskMessageEventData,
 } from '@komore/schematics';
 
 /**

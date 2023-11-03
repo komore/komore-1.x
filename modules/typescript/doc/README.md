@@ -1,13 +1,15 @@
-[//]: #title 'TypeScript'
-[//]: #description 'komore TypeScript module overview'
-[//]: #keyword 'typescript'
-[//]: #keyword 'overview'
-[//]: #keyword '@komore/typescript'
-[//]: #path-alias 'modules/typescript/overview'
+---
+title: TypeScript
+description: komore TypeScript module overview
+keyword: typescript
+keyword: overview
+keyword: @komore/typescript
+path-alias: modules/typescript/overview
+---
 
 # @komore/typescript
 
-The [@komore/typescript] module contains [TypeScript] helpers.
+The [@komore/typescript] module contains type helpers for the [TypeScript] language.
 
 ## Key concepts
 

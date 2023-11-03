@@ -1,10 +1,10 @@
-import { createErrorGroup, errorProperties } from '@komore/error';
+import { createErrorType, errorProperties } from '@komore/error';
 
 import { uuidDomain } from './uuid.domain';
 
 /**
- * UUID error category
+ * UUID error
  */
-export const uuidError = createErrorGroup(uuidDomain, {
+export const uuidError = createErrorType(uuidDomain, {
   'uuid.invalid': errorProperties<{ value: unknown }>(),
 });

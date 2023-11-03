@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '@komore/temporal';
 
 /**
  * Parses a date-time CLI parameter
+ *
  * @param value Value
  * @returns Plain date-time value
  */

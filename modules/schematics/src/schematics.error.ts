@@ -1,4 +1,4 @@
-import { createErrorGroup, errorProperties } from '@komore/error';
+import { createErrorType, errorProperties } from '@komore/error';
 
 import { type ProjectName } from './project/name/project-name';
 import { schematicsDomain } from './schematics.domain';
@@ -7,7 +7,7 @@ import { type TaskName } from './task/name/task-name';
 /**
  * Schematics error group
  */
-export const schematicsError = createErrorGroup(schematicsDomain, {
+export const schematicsError = createErrorType(schematicsDomain, {
   'package.manager.not-found': errorProperties<{ lockFilePaths: string }>(),
   'package.manager.type.invalid': errorProperties<{ type: string }>(),
   'package.name.invalid': errorProperties<{ packageName: string }>(),

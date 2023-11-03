@@ -1,3 +1,8 @@
-export { createTranscribeClient } from './create-transcribe-client';
-export { deleteTranscriptionJob } from './delete-transcription-job';
-export { startTranscriptionJob } from './start-transcription-job';
+export { createTranscribeClient } from './client/create-transcribe-client';
+export { type TranscribeClient } from './client/transcribe-client';
+export { type TranscribeClientOptions } from './client/transcribe-client-options';
+export { transcribeCommand } from './transcribe.command';
+export { transcribeDomain } from './transcribe.domain';
+export { transcribeError } from './transcribe.error';
+export { transcribeEvent } from './transcribe.event';
+export { transcribeQuery } from './transcribe.query';

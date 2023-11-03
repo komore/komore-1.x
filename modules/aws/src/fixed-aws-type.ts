@@ -5,11 +5,12 @@ import { type Expand } from '@komore/typescript';
  *
  * @template T AWS type
  * @template K Non-optional keys
- * @deprecated This should be removed once https://github.com/aws/aws-sdk-js-v3/issues/1613 is fixed
+ * @note This could be removed if https://github.com/aws/aws-sdk-js-v3/issues/1613 gets fixed
+ * @private
  */
-export type FixedAwsType<T, K extends keyof T> = Expand<
+export type FixedAwsType<T, K extends keyof T = keyof T> = Expand<
   Omit<T, K> &
     Required<{
-      [P in K]: NonNullable<T[P]>;
+      readonly [P in K]: NonNullable<T[P]>;
     }>
 >;

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/kbot",
+  "description": "Discord bot for the komore project"
+}

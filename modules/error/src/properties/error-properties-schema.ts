@@ -1,5 +1,4 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { type TypeSchema } from '@komore/typescript';
+import { type ReadonlyRecord, type TypeSchema } from '@komore/typescript';
 
 import { type errorPropertiesSchemaTypeName } from './error-properties-schema-type-name';
 
@@ -9,7 +8,7 @@ import { type errorPropertiesSchemaTypeName } from './error-properties-schema-ty
  * @template SchemaType Schema type
  * @private
  */
-export type ErrorPropertiesSchema<SchemaType extends ReadonlyRecord<string, unknown>> = TypeSchema<
+export type ErrorPropertiesSchema<SchemaType extends ReadonlyRecord<string, unknown> | void> = TypeSchema<
   typeof errorPropertiesSchemaTypeName,
   SchemaType
 >;

@@ -2,9 +2,11 @@ import { SyntaxKind, type NodeFactory, type TypeNode, type TypeOperatorNode } fr
 
 /**
  * Creates a keyof T type operator
+ *
  * ```ts
  * keyof type
  * ```
+ *
  * @param factory TypeScript node factory
  * @param type Type
  * @returns Type operator node

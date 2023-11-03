@@ -1,5 +1,6 @@
 {
-  "extends": "../../../conf/tsconfig.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../conf/tsconfig.base.json",
   "references": [
     {
       "path": "./http-client-websocket.tsconfig.library.json"

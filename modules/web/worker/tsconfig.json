@@ -1,14 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../../tsconfig.dom.json",
   "compilerOptions": {
-    "lib": ["DOM", "ES2019", "WebWorker"]
+    "lib": ["ES2021", "ES2021.intl", "DOM", "WebWorker"]
   },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./web-worker.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./web-worker.tsconfig.specifications.json"
     }
   ]
 }

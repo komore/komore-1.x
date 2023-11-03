@@ -1,2 +1,2 @@
 export { CONNECTION } from './connection';
-export { ONLINE } from './online';
+export { online } from './online';

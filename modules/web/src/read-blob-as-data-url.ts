@@ -2,9 +2,10 @@ import { defer, fromEvent, map, type Observable } from '@komore/reactive';
 
 /**
  * TODO
- * @param blob 
- * @param fileReader 
- * @returns 
+ *
+ * @param blob
+ * @param fileReader
+ * @returns
  */
 export function readBlobAsDataUrl(blob: Blob, fileReader?: FileReader): Observable<URL> {
   return defer(() => {

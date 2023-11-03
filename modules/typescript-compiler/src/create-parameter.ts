@@ -1,24 +1,26 @@
 import {
+  SyntaxKind,
   type BindingName,
   type Expression,
   type Identifier,
   type NodeFactory,
   type ParameterDeclaration,
-  SyntaxKind,
-  type TypeNode
+  type TypeNode,
 } from 'typescript';
 
 /**
  * Creates a parameter
+ *
  * ```ts
  * name?: type
  * ```
+ *
  * @param factory TypeScript node factory
  * @param name Parameter name
  * @param type Parameter type, or types of a union
  * @param optional Whether the parameter is optional
  * @param initializer Optional initializer expression
- * @returns Parameter declaration
+ * @returns Parameter declaration and identifier
  */
 export function createParameter(
   factory: NodeFactory,
@@ -26,13 +28,15 @@ export function createParameter(
   type?: TypeNode | ReadonlyArray<TypeNode>,
   optional?: boolean,
   initializer?: Expression
-): [ParameterDeclaration, Identifier];
+): readonly [parameterDeclaration: ParameterDeclaration, identifier: Identifier];
 
 /**
  * Creates a parameter using a binding name
+ *
  * ```ts
  * { }?: type
  * ```
+ *
  * @param factory TypeScript node factory
  * @param name Parameter name
  * @param type Parameter type, or types of a union
@@ -46,7 +50,7 @@ export function createParameter(
   type?: TypeNode | ReadonlyArray<TypeNode>,
   optional?: boolean,
   initializer?: Expression
-): [ParameterDeclaration, BindingName];
+): readonly [parameterDeclaration: ParameterDeclaration, bindingName: BindingName];
 
 export function createParameter(
   factory: NodeFactory,
@@ -54,12 +58,11 @@ export function createParameter(
   type?: TypeNode | ReadonlyArray<TypeNode>,
   optional?: boolean,
   initializer?: Expression
-): [ParameterDeclaration, BindingName] {
+): readonly [ParameterDeclaration, BindingName] {
   const nameId = typeof name === 'string' ? factory.createIdentifier(name) : name;
   const questionToken = optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined;
   const parameterType = type instanceof Array ? factory.createUnionTypeNode(type) : type;
   const declaration = factory.createParameterDeclaration(
-    undefined,
     undefined,
     undefined,
     nameId,

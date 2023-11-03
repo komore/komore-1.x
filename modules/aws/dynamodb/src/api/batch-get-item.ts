@@ -4,7 +4,10 @@ import {
   type BatchGetItemCommandOutput,
   type DynamoDBClient,
 } from '@aws-sdk/client-dynamodb';
-import { sendBatchAwsCommand, type FixedAwsType } from '@komore/integration-aws';
+
+import { sendBatchAwsCommand, type FixedAwsType } from '@komore/aws';
+
+// TODO: move to command handler
 
 /**
  * Gets the attributes of one or more items from one or more tables

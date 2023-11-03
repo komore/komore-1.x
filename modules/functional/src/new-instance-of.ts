@@ -5,8 +5,8 @@
  * @returns Function that tests whether a value is an instance of the given class
  * @param T Instance type
  */
-export function newInstanceOf<T, ConstructorType extends new (...args: any[]) => T>(
+export function newInstanceOf<ConstructorType extends new (...args: any[]) => any>(
   instanceClass: ConstructorType
-): (...constructorParameters: ConstructorParameters<ConstructorType>) => T {
+): (...constructorParameters: ConstructorParameters<ConstructorType>) => InstanceType<ConstructorType> {
   return (...constructorParameters) => new instanceClass(...constructorParameters);
 }

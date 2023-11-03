@@ -1,6 +1,7 @@
 {
-  "domain": "api-rest",
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "api",
   "type": "library",
   "tags": [],
-  "tasks": ["build", "document", "lint", "package", "publish"]
+  "tasks": ["build", "document", "lint", "package"]
 }

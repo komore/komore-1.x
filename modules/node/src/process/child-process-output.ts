@@ -2,6 +2,12 @@
  * Child process output
  */
 export interface ChildProcessOutput {
-  readonly stdout: string;
+  /**
+   * Standard error
+   */
   readonly stderr: string;
+  /**
+   * Standard output
+   */
+  readonly stdout: string;
 }

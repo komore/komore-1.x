@@ -10,3 +10,5 @@ import { formatUrl } from '@aws-sdk/util-format-url';
 export function getRequestUrl(httpRequest: HttpRequest): string {
   return formatUrl(httpRequest);
 }
+
+// TODO: move to @komore/aws

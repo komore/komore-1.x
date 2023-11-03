@@ -1,9 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/monetary",
   "description": "Monetary features",
-  "keywords": [
-    "monetary",
-    "currency",
-    "amount"
-  ]
+  "keywords": ["monetary", "currency", "amount"]
 }

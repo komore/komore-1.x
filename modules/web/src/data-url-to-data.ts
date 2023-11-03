@@ -1,10 +1,10 @@
 /**
- * 
- * @param string 
- * @returns 
+ *
+ * @param string
+ * @returns
  */
-export function dataUrlToData(dataUrl: URL | string): string {
-  const dataUrlString = typeof dataUrl === 'string' ? dataUrl : dataUrl.toString();
+export function dataUrlToData(dataUrl: URL): string {
+  const dataUrlString = dataUrl.toString();
   // TODO
   return dataUrlString;
 }

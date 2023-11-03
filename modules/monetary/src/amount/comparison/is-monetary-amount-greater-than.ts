@@ -14,7 +14,7 @@ export function isMonetaryAmountGreaterThan(
     typeof amount === 'number' ? [amount, undefined] : [Number(amount.amount), amount.currencyCode];
   return ({ amount, currencyCode: rhsCurrencyCode }) => {
     if (lhsCurrencyCode !== undefined && lhsCurrencyCode !== rhsCurrencyCode) {
-      throw monetaryError('currency.code.mismatch', { lhsCurrencyCode, rhsCurrencyCode });
+      throw monetaryError.currencyCodeMismatch({ lhsCurrencyCode, rhsCurrencyCode });
     }
 
     const rhsAmount = Number(amount);

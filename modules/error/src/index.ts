@@ -1,7 +1,10 @@
-export { createErrorGroup } from './group/create-error-group';
-export { type ErrorGroup } from './group/error-group';
+export { createErrorType } from './type/create-error-type';
+export { type ErrorInstance } from './error-instance';
 export { errorProperties } from './properties/error-properties';
-export { type GenericErrorType } from './generic-error-type';
+export { type ErrorType } from './type/error-type';
+export { type ErrorTypeDefinitions } from './type/error-type-definitions';
+export { type GenericErrorInstance } from './generic-error-instance';
+export { type GenericErrorType } from './type/generic-error-type';
 export { isError } from './is-error';
 export { isErrorOfType } from './is-error-of-type';
 export { KomoreError } from './komore-error';

@@ -2,8 +2,5 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/string",
   "description": "String functions",
-  "keywords": [
-    "functional",
-    "string"
-  ]
+  "keywords": ["functional", "string"]
 }

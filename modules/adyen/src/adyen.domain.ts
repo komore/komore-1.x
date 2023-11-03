@@ -1,6 +1,6 @@
-import { defineDomain } from '@komore/domain';
+import { createDomain } from '@komore/domain';
 
 /**
  * Adyen domain
  */
-export const adyenDomain = defineDomain('@komore/adyen');
+export const adyenDomain = createDomain('@komore/adyen');

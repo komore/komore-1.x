@@ -1,6 +1,8 @@
-export { changeResourceRecordSets } from './api/change-resource-record-sets';
-export { createHostedZone } from './api/create-hosted-zone';
-export { createRoute53Client } from './create-route-53-client';
-export { deleteHostedZone } from './api/delete-hosted-zone';
-export { listHostedZones } from './api/list-hosted-zones';
-export { withRoute53Client } from './operators/with-route-53-client';
+export { createRoute53Client } from './client/create-route-53-client';
+export { type Route53Client } from './client/route-53-client';
+export { type Route53ClientOptions } from './client/route-53-client-options';
+export { route53Command } from './route-53.command';
+export { route53Domain } from './route-53.domain';
+export { route53Error } from './route-53.error';
+export { route53Event } from './route-53.event';
+export { route53Query } from './route-53.query';

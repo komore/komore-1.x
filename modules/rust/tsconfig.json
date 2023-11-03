@@ -1,5 +1,6 @@
 {
-  "extends": "../../conf/tsconfig.node.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
       "path": "./rust.tsconfig.library.json"

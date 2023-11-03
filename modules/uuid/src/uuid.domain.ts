@@ -1,6 +1,6 @@
-import { defineDomain } from '@komore/domain';
+import { createDomain } from '@komore/domain';
 
 /**
  * UUID domain
  */
-export const uuidDomain = defineDomain('@komore/uuid');
+export const uuidDomain = createDomain('@komore/uuid');

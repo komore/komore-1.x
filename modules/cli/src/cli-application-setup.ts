@@ -5,6 +5,11 @@ import { cache, defer, of } from '@komore/reactive';
 
 import { createCliApplicationLogEncoder } from './log/create-cli-application-log-encoder';
 
+/**
+ *
+ *
+ * @private
+ */
 export const cliApplicationSetup = defer(() => {
   const nodeHost = createNodeHost();
   nodeHost; // TODO

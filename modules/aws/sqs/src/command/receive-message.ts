@@ -2,9 +2,10 @@ import {
   ReceiveMessageCommand,
   type ReceiveMessageCommandInput,
   type ReceiveMessageCommandOutput,
-  type SQSClient
+  type SQSClient,
 } from '@aws-sdk/client-sqs';
-import { sendCommand } from '@komore/integration-amazon';
+
+import { sendAwsCommand } from '@komore/aws';
 import { type Observable } from '@komore/reactive';
 
 /**
@@ -18,5 +19,5 @@ export function receiveMessage(
   sqsClient: SQSClient,
   commandInput: ReceiveMessageCommandInput
 ): Observable<ReceiveMessageCommandOutput> {
-  return sendCommand(sqsClient, new ReceiveMessageCommand(commandInput));
+  return sendAwsCommand(sqsClient, new ReceiveMessageCommand(commandInput));
 }

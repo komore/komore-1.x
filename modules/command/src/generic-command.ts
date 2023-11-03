@@ -1,7 +1,9 @@
+import { type GenericDomain } from '@komore/domain';
+
 import { type Command } from './command';
-import { type GenericCommandGroup } from './group/generic-command-group';
+import { type CommandPropertiesSchema } from './properties/command-properties-schema';
 
 /**
  * Generic command
  */
-export type GenericCommand = Command<GenericCommandGroup, keyof GenericCommandGroup>;
+export type GenericCommand = Command<GenericDomain, string, CommandPropertiesSchema<unknown>>;

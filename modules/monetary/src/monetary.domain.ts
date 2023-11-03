@@ -1,6 +1,6 @@
-import { defineDomain } from '@komore/domain';
+import { createDomain } from '@komore/domain';
 
 /**
  * Monetary domain
  */
-export const monetaryDomain = defineDomain('@komore/monetary');
+export const monetaryDomain = createDomain('@komore/monetary');

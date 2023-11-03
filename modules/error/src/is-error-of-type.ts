@@ -1,4 +1,4 @@
-import { type ErrorType } from './error-type';
+import { GenericErrorInstanceType } from './generic-error-instance-type';
 import { type ErrorGroupDefinitions } from './group/error-group-definitions';
 import { type GenericErrorGroup } from './group/generic-error-group';
 import { isKomoreError } from './is-komore-error';
@@ -13,13 +13,13 @@ import { isKomoreError } from './is-komore-error';
  * @template ErrorCode
  */
 export function isErrorOfType<
-  ErrorGroupType extends GenericErrorGroup,
-  ErrorCode extends keyof ErrorGroupDefinitions<ErrorGroupType> = keyof ErrorGroupDefinitions<ErrorGroupType>,
+  ErrorType extends GenericErrorInstanceType,
+  ErrorCode extends keyof ErrorGroupDefinitions<ErrorType['group']> = keyof ErrorGroupDefinitions<ErrorType['group']>,
 >(
-  errorGroup: ErrorGroupType,
+  errorType: ErrorType,
   errorCode?: ErrorCode
-): (error: unknown) => error is ErrorType<ErrorGroupType, ErrorCode> {
-  return (error): error is ErrorType<ErrorGroupType, ErrorCode> => {
+): (error: unknown) => error is ErrorInstanceType<ErrorGroupType, ErrorCode> {
+  return (error): error is ErrorType => {
     if (!isKomoreError(error)) {
       return false;
     }

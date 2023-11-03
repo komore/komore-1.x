@@ -1,23 +1,26 @@
-import { type TypeSchemaType } from '@komore/typescript';
+import { type GenericDomain } from '@komore/domain';
+import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
 
-import { type CommandGroupDefinitions } from './group/command-group-definitions';
-import { type GenericCommandGroup } from './group/generic-command-group';
+import { type CommandPropertiesSchema } from './properties/command-properties-schema';
+import { type CommandType as CommandDictionaryType } from './type/command-type';
 
 /**
  * Command
  *
- * @template DomainType Domain name
+ * @template DomainType Domain type
  * @template CommandName Command name
- * @template CommandProperties Command properties type
+ * @template SchemaType Command properties schema type
  */
-export interface Command<
-  CommandGroupType extends GenericCommandGroup,
-  CommandName extends keyof CommandGroupDefinitions<CommandGroupType>,
-> {
+export type Command<
+  DomainType extends GenericDomain,
+  CommandType extends CommandDictionaryType<DomainType, ReadonlyRecord<string, CommandPropertiesSchema<unknown>>>,
+  CommandName extends string,
+  SchemaType extends CommandPropertiesSchema<unknown>,
+> = {
   /**
-   * Command group
+   * Domain
    */
-  readonly group: CommandGroupType;
+  readonly domain: DomainType;
   /**
    * Command name
    */
@@ -25,5 +28,9 @@ export interface Command<
   /**
    * Command parameters
    */
-  readonly parameters: TypeSchemaType<CommandGroupDefinitions<CommandGroupType>[CommandName]>;
-}
+  readonly parameters: TypeSchemaType<SchemaType>;
+  /**
+   * Command type
+   */
+  readonly type: CommandType;
+};

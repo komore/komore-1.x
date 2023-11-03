@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/regexp",
+  "description": "Regular expression features",
+  "keywords": ["functional", "regular", "expression", "regex", "regexp"]
+}

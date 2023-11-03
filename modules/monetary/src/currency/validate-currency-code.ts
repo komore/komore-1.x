@@ -9,6 +9,6 @@ import { isCurrencyCode } from './is-currency-code';
  */
 export function validateCurrencyCode(currencyCode: string): asserts currencyCode is CurrencyCode {
   if (!isCurrencyCode(currencyCode)) {
-    throw monetaryError('currency.code.invalid', { currencyCode });
+    throw monetaryError.invalidCurrencyCode({ currencyCode });
   }
 }

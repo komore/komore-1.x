@@ -1,9 +1,0 @@
-{
-  "name": "@komore/runtime",
-  "description": "Base features from browser and Node environments",
-  "keywords": [
-    "runtime",
-    "browser",
-    "node"
-  ]
-}

@@ -1,6 +1,4 @@
-import { type Domain } from '@komore/domain';
-
-import { type Command } from '../command';
+import { type GenericCommand } from '../generic-command';
 import { type CommandMatcher } from './command-matcher';
 
 /**
@@ -9,12 +7,16 @@ import { type CommandMatcher } from './command-matcher';
  * @param command Command
  * @param matcher Matcher
  * @returns Matcher result
+ * @template CommandType Command type
+ * @template Result Result type
  */
-export function matchCommand<T extends ReadonlyArray<Command<Domain<string>, string, any>>, Result>(
-  command: T[number],
-  matcher: CommandMatcher<T, Result>
+export function matchCommand<CommandType extends GenericCommand, Result>(
+  command: CommandType,
+  matcher: CommandMatcher<CommandType, Result>
 ): Result {
-  const { commandName: commandType } = command;
-  const handler = matcher[commandType];
-  return handler(command);
+  type CommandName = CommandType['name'];
+  const name = command.name as CommandName;
+  const parameters = command.parameters as Parameters<(typeof matcher)[CommandName]>[0];
+  const handler = matcher[name];
+  return handler(parameters, command);
 }

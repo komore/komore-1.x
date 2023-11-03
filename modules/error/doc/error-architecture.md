@@ -13,9 +13,9 @@ TODO.
 TODO.
 
 ```ts
-import { defineErrorGroup } from '@komore/error';
+import { createErrorType } from '@komore/error';
 
-const exampleError = createErrorGroup(domain, {
+const exampleError = createErrorType(domain, {
   'some.case': errorProperties<{ some: boolean; info: string }>()
   'other.case': errorProperties()
 });

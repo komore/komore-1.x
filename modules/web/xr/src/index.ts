@@ -1,1 +1,1 @@
-export { isXrSupported } from './is-xr-supported';
+export { isWebXrSupported } from './is-webxr-supported';

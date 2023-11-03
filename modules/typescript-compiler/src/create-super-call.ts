@@ -2,9 +2,11 @@ import { type Expression, type ExpressionStatement, type NodeFactory } from 'typ
 
 /**
  * Creates a super() call expression
+ *
  * ```ts
  * super(parameters);
  * ```
+ *
  * @param factory TypeScript node factory
  * @param parameters Super call parameters
  * @returns Expression statement

@@ -1,45 +1,42 @@
 import { type TypeSchemaType } from '@komore/typescript';
 
-import { type ErrorType } from './error-type';
-import { type GenericErrorGroup } from './group/generic-error-group';
-import { type ErrorGroupDefinitions } from './group/error-group-definitions';
+import { type ErrorInstance } from './error-instance';
+import { type ErrorTypeDefinitions } from './type/error-type-definitions';
+import { type GenericErrorType } from './type/generic-error-type';
 
 /**
  * Komore error
  *
- * @template ErrorGroupType Error group type
+ * @template ErrorType Error type
  * @template ErrorCode Error code
  * @private
  */
-export class KomoreError<
-    ErrorGroupType extends GenericErrorGroup,
-    ErrorCode extends keyof ErrorGroupDefinitions<ErrorGroupType>,
-  >
+export class KomoreError<ErrorType extends GenericErrorType, ErrorCode extends keyof ErrorTypeDefinitions<ErrorType>>
   extends Error
-  implements ErrorType<ErrorGroupType, ErrorCode>
+  implements ErrorInstance<ErrorType, ErrorCode>
 {
   override readonly name = 'KomoreError';
   readonly code: ErrorCode;
-  readonly context: TypeSchemaType<ErrorGroupDefinitions<ErrorGroupType>[ErrorCode]>;
-  readonly group: ErrorGroupType;
+  readonly context: TypeSchemaType<ErrorTypeDefinitions<ErrorType>[ErrorCode]>;
+  readonly type: ErrorType;
 
   /**
    * Class constructor
    *
    * @param message Message
-   * @param errorGroup Error group
+   * @param errorType Error group
    * @param errorCode Error code
    * @param errorContext Error context
    */
   constructor(
     message: string,
-    errorGroup: ErrorGroupType,
+    errorType: ErrorType,
     errorCode: ErrorCode,
-    errorContext: TypeSchemaType<ErrorGroupDefinitions<ErrorGroupType>[ErrorCode]>
+    errorContext: TypeSchemaType<ErrorTypeDefinitions<ErrorType>[ErrorCode]>
   ) {
     super(message);
     this.code = errorCode;
     this.context = errorContext;
-    this.group = errorGroup;
+    this.type = errorType;
   }
 }

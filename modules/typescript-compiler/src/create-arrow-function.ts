@@ -1,7 +1,15 @@
-import { type ArrowFunction, type ConciseBody, type NodeFactory, type ParameterDeclaration, SyntaxKind, type TypeNode } from 'typescript';
+import {
+  SyntaxKind,
+  type ArrowFunction,
+  type ConciseBody,
+  type NodeFactory,
+  type ParameterDeclaration,
+  type TypeNode,
+} from 'typescript';
 
 /**
  * Creates an arrow function
+ *
  * @param factory TypeScript node factory
  * @param parameters Parameters
  * @param functionBody Function body

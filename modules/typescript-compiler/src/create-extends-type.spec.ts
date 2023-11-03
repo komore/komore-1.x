@@ -1,22 +1,24 @@
 import { factory } from 'typescript';
+
+import { feature } from '@komore/testing';
+
 import { createExtendsType } from './create-extends-type';
 
-describe('Create element heritage clause', () => {
-  it('creates an heritage clause that extends the specified base type name', () => {
+feature('Create element heritage clause', {
+  'creates an heritage clause that extends the specified base type name': () => {
     given: 'a base type name';
     const baseType = 'BaseType';
     when: 'creating an element heritage clause';
     const heritageClause = createExtendsType(factory, baseType);
     expect: 'a clause extending the base class to have been created';
     expect(heritageClause).toBeInlineSource(`extends ${baseType}`);
-  });
-
-  it('creates an heritage clause that extends the specified base type identifier', () => {
+  },
+  'creates an heritage clause that extends the specified base type identifier': () => {
     given: 'a base type name';
     const baseType = factory.createIdentifier('BaseType');
     when: 'creating an element heritage clause';
     const heritageClause = createExtendsType(factory, baseType);
     expect: 'a clause extending the base class to have been created';
     expect(heritageClause).toBeInlineSource(`extends ${baseType.text}`);
-  });
+  },
 });

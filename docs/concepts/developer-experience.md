@@ -2,6 +2,15 @@
 
 ## Intuitive naming conventions
 
+| Element   | Definition             | Usage                                            |
+| :-------- | :--------------------- | :----------------------------------------------- |
+| Command   | `createCommandType()`  | `const command = commandType.name(parameters)`   |
+| Error     | `createErrorType()`    | `const error = errorType.name(parameters)`       |
+| Event     | `createEventType()`    | `const event = eventType.name(parameters)`       |
+| Log event | `createLogEventType()` | `const logEvent = logEventType.name(parameters)` |
+| Metric    | `createMetricType()`   | `const metric = metricType.name(parameters)`     |
+| Query     | `createQueryType()`    | `const query = queryType.name(parameters)`       |
+
 ### Domain
 
 ```ts
@@ -13,32 +22,41 @@ const domain = createDomain('domain-name');
 ### Command
 
 ```ts
-import { commandProps, createCommandGroup } from '@komore/command';
+import { commandProperties, createCommandType } from '@komore/command';
 
-const commandGroup = createCommandGroup(domain, {
-  'command.id': commandProps<{ param: type }>(),
+const commandType = createCommandType(domain, {
+  someCommand: commandPropserties<{ param: type }>(),
 });
 
-const command = commandGroup('command.id', { param });
-
-send(command);
+const command = commandType.someCommand({ param });
 ```
 
 ### Error
 
 ### Event
 
-### Log Record
+### Log event
 
 ### Metric
 
 ```ts
-import { createMetricGroup } from '@komore/metrics';
+import { createMetricType } from '@komore/metrics';
 ```
 
-| Element    | Definition            | Usage                                           |
-| :--------- | :-------------------- | :---------------------------------------------- |
-| Error      | `createErrorGroup()`  | `const error = errorGroup('id', parameters)`    |
-| Event      | `createEventGroup()`  | `const event = eventGroup('id', parameters)`    |
-| Log record | `createLogGroup()`    | `const logEntry = logGroup('id', parameters)`   |
-| Measure?   | `createMetricGroup()` | `const measure = metricGroup('id', parameters)` |
+## Application
+
+### Command-line application
+
+#### Router
+
+```ts
+import { createCliRouter } from '@komore/cli/router';
+
+const router = createCliRouter({
+  'some-command --flag=:flagValue': {
+    command: ({ flagValue }) => xyzCommand.someCommand({ flagValue }),
+  },
+});
+
+router(['some-command', '--flag=hello']).pipe(tap(command => console.log('command', command)));
+```

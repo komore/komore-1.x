@@ -1,4 +1,5 @@
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type Event } from './event';
 import { type EventCreator } from './event-creator';
 import { type EventDomain } from './event-domain';
@@ -31,7 +32,7 @@ export function createEvent<EventDomainType extends EventDomain<string>, EventTy
 export function createEvent<
   EventDomainType extends EventDomain<string>,
   EventTypeName extends string,
-  EventProperties extends ReadonlyRecord<string, unknown>
+  EventProperties extends ReadonlyRecord<string, unknown>,
 >(
   eventDomain: EventDomainType,
   eventType: EventTypeName,
@@ -52,7 +53,7 @@ export function createEvent<
 export function createEvent<
   EventDomainType extends EventDomain<string>,
   EventTypeName extends string,
-  EventProperties extends ReadonlyRecord<string, unknown>
+  EventProperties extends ReadonlyRecord<string, unknown>,
 >(
   eventDomain: EventDomainType,
   eventType: EventTypeName,

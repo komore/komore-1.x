@@ -2,6 +2,6 @@
   "$schema": "../../schematics/project-configuration.schema.json",
   "domain": "cli",
   "type": "library",
-  "tags": ["trait:base"],
+  "tags": ["trait:schematics"],
   "tasks": ["build", "document", "lint", "test"]
 }

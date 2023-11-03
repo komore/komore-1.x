@@ -1,27 +1,14 @@
 import { bgRedBright, redBright } from 'chalk';
 
-import { isInstanceOf } from '@komore/functional';
-import {
-  catchError,
-  catchErrorIf,
-  defaultIfEmpty,
-  deferPromise,
-  map,
-  mergeMap,
-  of,
-  tapNext,
-  toArray,
-} from '@komore/reactive';
-import { type WorkspaceExecutorTaskId } from '@komore/schematics';
+import { type GenericCommand } from '@komore/command';
+import { isErrorOfType } from '@komore/error';
+import { catchError, catchErrorIf, defaultIfEmpty, map, mapTo, mergeMap, of, toArray } from '@komore/reactive';
 
+import { argvToCommandLineArguments } from './argument/argv-to-command-line-arguments';
 import { type CliApplication } from './cli-application';
-import { CliError } from './cli-error';
-import { type CliOptions } from './cli-options';
-import { cliCommandByName } from './command/cli-command-by-name';
-import { workspaceExecutorEventToCliOutput } from './event/workspace-executor-event-to-cli-output';
-import { unknownCliCommand } from './log/cli-logs';
+import { type CliApplicationOptions } from './cli-application-options';
 import { cliApplicationSetup } from './cli-application-setup';
-import { argvToCommandLineArguments } from './argv-to-command-line-arguments';
+import { cliError } from './cli.error';
 
 /**
  * Creates a CLI application
@@ -29,54 +16,20 @@ import { argvToCommandLineArguments } from './argv-to-command-line-arguments';
  * @param options CLI options
  * @returns CLI application
  */
-export function createCliApplication(options: CliOptions): CliApplication {
-  const { logger } = options;
+export function createCliApplication<CommandType extends GenericCommand>(
+  options: CliApplicationOptions<CommandType>
+): CliApplication {
+  const { commandHandler, parameters, logger: _ } = options;
 
   return argv =>
     cliApplicationSetup.pipe(
-      map(() => argv),
+      mapTo(argv),
       map(argvToCommandLineArguments),
-      mergeMap(commandLineArguments => {
-        const [_bin, commandName] = commandLineArguments;
-        if (commandName === undefined) {
-          throw new Error('TODO: no command name in executeCli');
-        }
-
-        const command = options.commands.find(cliCommandByName(commandName)) ?? 'build';
-        if (command === undefined) {
-          logger(unknownCliCommand({ commandName }));
-          return of(1);
-        }
-
-        if (command === 'build') {
-          return deferPromise(() => import('@komore/linting/schematics')).pipe(
-            mergeMap(({ createLintModuleExecutor }) => createLintModuleExecutor({ logger })),
-            mergeMap(workspaceExecutor => {
-              /*const options$ = of({
-              entryPoint: 'modules/collection/src/index.ts',
-              outputPath: './tmp-test-esbuild/collection',
-              tsConfig: 'modules/collection/collection.tsconfig.library.json',
-              sourceMap: false,
-              watch: false,
-            }); <= build*/
-              const options$ = of({
-                eslintConfig: 'modules/collection/.eslintrc.json',
-                filesPattern: 'src/**/*.ts',
-                tsConfig: 'modules/collection/tsconfig.json',
-                taskId: 'test' as WorkspaceExecutorTaskId,
-                watch: false,
-              });
-              return workspaceExecutor(options$);
-            }),
-            tapNext(workspaceExecutorEventToCliOutput(console)),
-            toArray(),
-            map(() => 0)
-          );
-        }
-
-        const result$ = command(commandLineArguments.slice(2)).pipe(
+      mergeMap(parameters),
+      mergeMap(command =>
+        commandHandler(command).pipe(
           defaultIfEmpty(0),
-          catchErrorIf(isInstanceOf(CliError), error => {
+          catchErrorIf(isErrorOfType(cliError), error => {
             console.log(`Error: ${error}`, error);
             return of(error.exitCode);
           }),
@@ -86,9 +39,29 @@ export function createCliApplication(options: CliOptions): CliApplication {
             console.log(message);
             return of(1);
           })
-        );
-
-        return result$;
-      })
+        )
+      ),
+      toArray(),
+      mapTo(0)
     );
 }
+
+/*          return deferPromise(() => import('@komore/linting/schematics')).pipe(
+            mergeMap(({ createLintModuleExecutor }) => createLintModuleExecutor({ logger })),
+            mergeMap(workspaceExecutor => {
+              /*const options$ = of({
+              entryPoint: 'modules/collection/src/index.ts',
+              outputPath: './tmp-test-esbuild/collection',
+              tsConfig: 'modules/collection/collection.tsconfig.library.json',
+              sourceMap: false,
+              watch: false,
+            }); <= build
+              const options$ = of({
+                eslintConfig: 'modules/collection/.eslintrc.json',
+                filesPattern: 'src/**/ /**.ts',
+                tsConfig: 'modules/collection/tsconfig.json',
+                taskId: 'test' as WorkspaceExecutorTaskId,
+                watch: false,
+              });
+              return workspaceExecutor(options$);
+            }),*/

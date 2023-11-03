@@ -1,6 +1,8 @@
+import { join } from 'path';
+
 import { mapTo, mergeMap, tapNext } from '@komore/reactive';
 import { createWorkspaceExecutor, createWorkspaceExecutorFactory } from '@komore/schematics';
-import { join } from 'path';
+
 import { packageModule } from './package-module';
 import { type PackageModuleExecutorOptions } from './package-module-executor-options';
 

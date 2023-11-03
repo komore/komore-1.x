@@ -1,6 +1,8 @@
-import { deferPromise, type Observable } from '@komore/reactive';
 import { type ChatPostMessageArguments, type ChatPostMessageResponse } from '@slack/web-api';
-import { type SlackClient } from './slack-client';
+
+import { deferPromise, type Observable } from '@komore/reactive';
+
+import { type SlackClient } from './client/slack-client';
 
 export function toMessageInChannel(
   slackClient: SlackClient,
@@ -10,7 +12,7 @@ export function toMessageInChannel(
   return deferPromise(() =>
     slackClient.chat.postMessage({
       ...options,
-      channel
+      channel,
     })
   );
 }

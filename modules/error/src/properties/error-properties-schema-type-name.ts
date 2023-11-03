@@ -1,4 +1,4 @@
 /**
  * Error properties schema type name
  */
-export const errorPropertiesSchemaTypeName = 'error-properties';
+export const errorPropertiesSchemaTypeName = '@komore/error:properties';

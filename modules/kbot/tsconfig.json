@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.node.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./kbot.tsconfig.application.json"
+    },
+    {
+      "path": "./kbot.tsconfig.specifications.json"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 /**
- * Gets a message event's data
+ * Returns a message event's data
+ *
  * @param messageEvent Message event
  * @returns Message event data
  * @template T Message event data type

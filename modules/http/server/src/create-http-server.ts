@@ -1,5 +1,5 @@
-import { HttpServer } from './http-server';
-import { HttpServerOptions } from './http-server-options';
+import { type HttpServer } from './http-server';
+import { type HttpServerOptions } from './http-server-options';
 
 /**
  * Creates an HTTP server

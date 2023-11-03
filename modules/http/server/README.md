@@ -1,3 +1,3 @@
-# @komore/http/client
+# @komore/http/server
 
 TODO

@@ -2,6 +2,7 @@ import { defer, fromEvent, type Observable } from '@komore/reactive';
 
 /**
  * Observes a media query
+ *
  * @param query Query
  * @returns Observable media query
  */

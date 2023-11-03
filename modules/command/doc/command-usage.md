@@ -1,21 +1,24 @@
-[//]: #title 'Array'
-[//]: #description 'komore array module overview'
-[//]: #keyword 'array'
-[//]: #keyword 'overview'
-[//]: #keyword '@komore/array'
-[//]: #path-alias 'modules/array/overview'
+---
+title: Command
+description: komore command module overview
+keyword: command
+keyword: overview
+keyword: @komore/command
+path-alias: modules/command/usage
+---
 
 TODO: remove code
 
 ```typescript
-import { createCommandGroup } from '@komore/command';
-import { defineDomain } from '@komore/domain';
+import { commandProperties, createCommandType } from '@komore/command';
+import { createDomain } from '@komore/domain';
 import { createFunction } from '@komore/function';
 import { properties } from '@komore/typescript';
 
 const domain = createDomain('example');
-const commandGroup = createCommandGroup(domain, 'example group');
-const exampleCommand = commandGroup('example command', properties<{}>());
+const commandType = createCommandType(domain, {
+  'example.command': commandProperties<{}>(),
+});
 
 export const exampleCommandHandler = createFunction(functionConfiguration, $ =>
   $.pipe(

@@ -2,5 +2,5 @@
   "domain": "website",
   "type": "application",
   "tags": ["trait:base"],
-  "tasks": ["build", "lint", "serve", "test"]
+  "tasks": ["build", "deploy", "lint", "serve", "test"]
 }

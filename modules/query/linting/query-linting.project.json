@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "query",
+  "type": "library",
+  "tags": ["trait:linting"],
+  "tasks": ["build", "document", "lint", "test"]
+}

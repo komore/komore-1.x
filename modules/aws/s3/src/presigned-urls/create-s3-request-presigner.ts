@@ -2,6 +2,7 @@ import { S3RequestPresigner, type S3RequestPresignerOptions } from '@aws-sdk/s3-
 
 /**
  * Creates an S3 request pre-signer
+ *
  * @param s3ClientOrRequestPresignerOptions S3 request pre-signer options, or S3 client holding the options
  * @returns S3 request pre-signer
  */

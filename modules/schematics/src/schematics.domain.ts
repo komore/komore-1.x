@@ -1,6 +1,6 @@
-import { defineDomain } from '@komore/domain';
+import { createDomain } from '@komore/domain';
 
 /**
  * Schematics domain
  */
-export const schematicsDomain = defineDomain('@komore/schematics');
+export const schematicsDomain = createDomain('@komore/schematics');

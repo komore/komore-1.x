@@ -18,13 +18,12 @@ export interface TypeSchema<SchemaTypeName extends string, SchemaType> {
  * @returns Type schema
  * @template SchemaTypeName Schema type name
  * @template SchemaType Schema type
- * @private
  */
 export function typeSchema<SchemaTypeName extends string, SchemaType>(
   schemaTypeName: SchemaTypeName
 ): TypeSchema<SchemaTypeName, SchemaType> {
   return {
     [typeSchemaTypeName]: schemaTypeName,
-    [typeSchemaType]: undefined as unknown as SchemaType,
+    [typeSchemaType]: void 0 as unknown as SchemaType,
   };
 }

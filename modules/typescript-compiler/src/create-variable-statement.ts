@@ -1,17 +1,19 @@
 import {
+  NodeFlags,
   type Expression,
   type Identifier,
   type NodeFactory,
-  NodeFlags,
   type TypeNode,
-  type VariableStatement
+  type VariableStatement,
 } from 'typescript';
 
 /**
  * Creates a variable statement
+ *
  * ```ts
  * const name: type = initializer;
  * ```
+ *
  * @param factory TypeScript node factory
  * @param name Variable name
  * @param initializer Initializer expression
@@ -23,7 +25,7 @@ export function createVariableStatement(
   name: string | Identifier,
   initializer: Expression,
   type?: TypeNode
-): [VariableStatement, Identifier] {
+): readonly [variableStatement: VariableStatement, identifier: Identifier] {
   const nameId = typeof name === 'string' ? factory.createIdentifier(name) : name;
   const variableDeclaration = factory.createVariableDeclaration(nameId, undefined, type, initializer);
   const variableDeclarationList = factory.createVariableDeclarationList([variableDeclaration], NodeFlags.Const);

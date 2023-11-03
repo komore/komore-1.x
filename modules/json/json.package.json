@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/json",
+  "description": "JSON and JSON schema features",
+  "keywords": ["json", "schema", "serialization"]
+}

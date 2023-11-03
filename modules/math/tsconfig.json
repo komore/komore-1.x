@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./math.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./math.tsconfig.specifications.json"
     }
   ]
 }

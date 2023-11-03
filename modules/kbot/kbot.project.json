@@ -1,0 +1,7 @@
+{
+  "$schema": "../schematics/project-configuration.schema.json",
+  "domain": "kbot",
+  "type": "application",
+  "tags": ["trait:base"],
+  "tasks": ["build", "deploy", "document", "lint", "publish", "test"]
+}
