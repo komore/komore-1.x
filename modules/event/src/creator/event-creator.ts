@@ -1,14 +1,15 @@
-import { type GenericEvent } from '../generic-event';
-import { type EventPropertiesType } from '../properties/event-properties-type';
+import { type TypeCreator } from '@komore/typescript';
 
 /**
  * Event creator
  *
- * @template EventType Event type
+ * @template EventName Event name
+ * @template TypeCreatorType Type creator type
  * @private
  */
-export type EventCreator<EventType extends GenericEvent> = {
-  readonly type: EventType;
-} & EventPropertiesType<EventType> extends void
-  ? () => EventType
-  : (parameters: EventPropertiesType<EventType>) => EventType;
+export type EventCreator<EventName extends string, TypeCreatorType extends TypeCreator<any, any>> = {
+  /**
+   * Event name
+   */
+  readonly name: EventName;
+} & TypeCreatorType;

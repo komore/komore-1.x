@@ -13,7 +13,7 @@ import { type TaskReferenceString } from './task-reference-string';
 export function taskReferenceStringToTaskReference(taskReferenceString: TaskReferenceString): TaskReference {
   const split = taskReferenceString.split(':');
   if (split.length !== 2) {
-    throw schematicsError('task.reference.invalid.string', { taskReferenceString });
+    throw schematicsError.invalidTaskReferenceString({ taskReferenceString });
   }
   const [projectName, taskName] = split as unknown as readonly [ProjectName, TaskName];
   return { projectName, taskName };

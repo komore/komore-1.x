@@ -1,13 +1,12 @@
 import { type Observable } from '@komore/reactive';
 
-import { type CommandFromType } from '../type/command-from-type';
-import { type GenericCommandType } from '../type/generic-command-type';
+import { type GenericCommand } from '../generic-command';
 
 /**
  * Command handler
  *
  * @template CommandType Command type
  */
-export interface CommandHandler<CommandType extends GenericCommandType> {
-  (command: CommandFromType<CommandType>): Observable<void>;
+export interface CommandHandler<CommandType extends GenericCommand> {
+  (command: CommandType): Observable<void>;
 }

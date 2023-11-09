@@ -1,1 +1,1 @@
-# @komore/oracle
+# @komore/paddle

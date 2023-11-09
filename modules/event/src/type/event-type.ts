@@ -1,19 +1,18 @@
 import { type GenericDomain } from '@komore/domain';
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type EventCreator } from '../creator/event-creator';
 import { type Event } from '../event';
-import { type EventPropertiesSchema } from '../properties/event-properties-schema';
+import { type EventCreator } from '../creator/event-creator';
 
 /**
  * Event type
  *
  * @template DomainType Domain type
- * @template Definitions Event definitions
+ * @template EventParametersByEventName Event parameters by event name
  */
 export type EventType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, EventPropertiesSchema<unknown>>,
+  EventParametersByEventName extends ReadonlyRecord<string, any>,
 > = {
   /**
    * Creates a new event
@@ -21,7 +20,12 @@ export type EventType<
    * @param parameters Event parameters
    * @returns Event
    */
-  readonly [EventName in keyof Definitions & string]: EventCreator<
-    Event<DomainType, EventName, Definitions[EventName]>
+  readonly [EventName in keyof EventParametersByEventName & string]: EventCreator<
+    EventName,
+    EventParametersByEventName[EventName] extends void
+      ? () => Event<DomainType, EventName, EventParametersByEventName[EventName]>
+      : (
+          parameters: EventParametersByEventName[EventName]
+        ) => Event<DomainType, EventName, EventParametersByEventName[EventName]>
   >;
 };

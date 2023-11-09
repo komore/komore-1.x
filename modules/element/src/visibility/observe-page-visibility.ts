@@ -1,10 +1,11 @@
-import { fromEvent, map, type Observable, startWith } from '@komore/reactive';
+import { fromEvent, map, startWith, type Observable } from '@komore/reactive';
 
 /**
- * Creates an observable that emits the page visibility state when it changes
+ * Returns an observable that emits the page visibility state when it changes
+ *
  * @returns Observable that emits the page visibility state
  */
-export function observePageVisibility(): Observable<VisibilityState> {
+export function observePageVisibility(): Observable<DocumentVisibilityState> {
   return fromEvent(document, 'visibilitychange').pipe(
     map(() => document.visibilityState),
     startWith(document.visibilityState)

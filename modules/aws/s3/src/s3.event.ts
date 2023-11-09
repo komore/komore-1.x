@@ -4,6 +4,8 @@ import {
   type DeleteBucketCommandOutput,
   type DeleteObjectCommandOutput,
   type DeleteObjectsCommandOutput,
+  type PutObjectCommandOutput,
+  type RestoreObjectCommandOutput,
 } from '@aws-sdk/client-s3';
 
 import { createAwsEventType } from '@komore/aws';
@@ -32,13 +34,25 @@ export const s3Event = createAwsEventType(s3Domain, {
    *
    * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html CopyObject}
    */
-  copyObject: eventProperties<CopyObjectCommandOutput>(),
+  objectCopied: eventProperties<CopyObjectCommandOutput>(),
   /**
    * An S3 object has been deleted
    *
    * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html DeleteObject}
    */
   objectDeleted: eventProperties<DeleteObjectCommandOutput>(),
+  /**
+   * An S3 object has been put
+   *
+   * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject}
+   */
+  objectPut: eventProperties<PutObjectCommandOutput>(),
+  /**
+   * An archived copy of an S3 object has been restored
+   *
+   * @note {@link https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject}
+   */
+  objectRestored: eventProperties<RestoreObjectCommandOutput>(),
   /**
    * A set of S3 objects have been deleted
    *

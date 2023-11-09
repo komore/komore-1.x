@@ -1,7 +1,7 @@
 import { join } from 'path';
 
 import { createJsonSchemaValidator, jsonToObject, type JsonSchemaDefinition } from '@komore/json';
-import { readFileContent } from '@komore/node';
+import { readFileContent } from '@komore/node/file-system';
 import { forkJoin, map, switchMap, type Observable } from '@komore/reactive';
 import { validateWith } from '@komore/validation';
 

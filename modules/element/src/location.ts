@@ -1,10 +1,11 @@
-import { defer, distinctUntilChanged, fromEvent, map, type Observable, shareReplay, startWith } from '@komore/reactive';
+import { defer, distinctUntilChanged, fromEvent, map, shareReplay, startWith, type Observable } from '@komore/reactive';
 
 /**
  * Location observable
  */
-export const LOCATION: Observable<Location> = defer(() => fromEvent<PopStateEvent>(window, 'popstate')).pipe(
+export const location: Observable<Location> = defer(() => fromEvent<PopStateEvent>(window, 'popstate')).pipe(
   map(popState => {
+    // TODO: remove log
     console.log('popstate', popState);
     return window.location;
   }),

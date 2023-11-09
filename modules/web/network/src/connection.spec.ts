@@ -1,7 +1,10 @@
-import { mock, type MockProxy } from 'jest-mock-extended';
-import { CONNECTION } from './connection';
+import { feature } from '@komore/testing';
 
-describe('Connection', () => {
+import { mock, type MockProxy } from 'jest-mock-extended';
+
+import { connection } from './connection';
+
+feature('Connection', () => {
   let mockConnection: MockProxy<typeof globalThis.navigator.connection> & typeof globalThis.navigator.connection;
 
   beforeEach(() => {
@@ -10,6 +13,6 @@ describe('Connection', () => {
   });
 
   it('works', () => {
-    CONNECTION.subscribe(x => console.log('x', x));
+    connection.subscribe(x => console.log('x', x));
   });
 });

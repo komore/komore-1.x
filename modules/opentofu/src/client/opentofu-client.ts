@@ -1,8 +1,10 @@
+import { type CommandFromType } from '@komore/command';
 import { type Observable } from '@komore/reactive';
 
-import { type OpenTofuCommand } from '../command/opentofu.command';
-import { type OpenTofuEvent } from '../event/opentofu.event';
+import { openTofuCommand } from '../opentofu.command';
+import { type OpenTofuEvent } from '../opentofu.event';
 import { type OpenTofuVersion } from '../version/opentofu-version';
+import { openTofuQuery } from '../opentofu.query';
 
 /**
  * OpenTofu client
@@ -21,8 +23,8 @@ export interface OpenTofuClient {
    *
    * @param command OpenTofu command
    */
-  execute(command: OpenTofuCommand): Observable<void>;
+  execute(command: CommandFromType<typeof openTofuCommand>): Observable<void>;
   // TODO
-  query(query: unknown): Observable<unknown>;
-  (command: OpenTofuCommand): Observable<unknown>;
+  query(query: QueryFromType<typeof openTofuQuery>): Observable<unknown>;
+  (command: CommandFromType<typeof openTofuCommand>): Observable<unknown>;
 }

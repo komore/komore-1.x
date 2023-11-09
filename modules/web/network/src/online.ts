@@ -1,7 +1,7 @@
 import { defer, fromEvent, mapTo, merge, shareReplay, startWith } from '@komore/reactive';
 
 /**
- * Online status
+ * Observable online status
  */
 export const online = defer(() => {
   const wentOffline = fromEvent(window, 'offline').pipe(mapTo(false));

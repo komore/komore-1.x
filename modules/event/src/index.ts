@@ -1,10 +1,12 @@
-export { createEvent } from './create-event';
 export { createEventType } from './type/create-event-type';
 export { type Event } from './event';
 export { type EventFromType } from './type/event-from-type';
+export { type EventMatcher } from './matcher/event-matcher';
 export { type EventName } from './event-name';
 export { eventProperties } from './properties/event-properties';
 export { type EventPropertiesSchema } from './properties/event-properties-schema';
 export { type EventType } from './type/event-type';
+export { type GenericEvent } from './generic-event';
 export { type GenericEventType } from './type/generic-event-type';
 export { isEventOfType } from './is-event-of-type';
+export { matchEvent } from './matcher/match-event';

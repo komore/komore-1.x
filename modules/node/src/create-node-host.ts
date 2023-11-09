@@ -1,6 +1,7 @@
 import { fromEvent, map, Subject, Subscription, tapNext } from '@komore/reactive';
 import { type HostLifecycleEvent, type HostState } from '@komore/runtime';
 import { HostError } from '@komore/runtime';
+
 import { buildNodeHostOptions } from './build-node-host-options';
 import { type NodeHost } from './node-host';
 import { type NodeHostOptions } from './node-host-options';
@@ -37,6 +38,6 @@ export function createNodeHost(hostOptions?: Partial<NodeHostOptions>): NodeHost
     errors,
     lifecycle,
     options,
-    state
+    state,
   };
 }

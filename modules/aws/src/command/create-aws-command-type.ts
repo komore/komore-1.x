@@ -1,4 +1,9 @@
-import { createCommandType, type CommandPropertiesSchema, type CommandType } from '@komore/command';
+import {
+  createCommandType,
+  type CommandPropertiesSchema,
+  type CommandType,
+  type CommandPropertiesFromCommandDefinitions,
+} from '@komore/command';
 import { type GenericDomain } from '@komore/domain';
 import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
 
@@ -11,13 +16,19 @@ import { type FixedAwsType } from '../fixed-aws-type';
  * @param definitions Command definitions
  * @returns AWS command type
  * @template DomainType Domain type
- * @template Definitions Command definitions
+ * @template CommandDefinitions Command definitions
  */
 export function createAwsCommandType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, CommandPropertiesSchema<unknown>>,
->(domain: DomainType, definitions: Definitions): CommandType<DomainType, AwsCommandDefinitions<Definitions>> {
-  return createCommandType(domain, definitions) as CommandType<DomainType, AwsCommandDefinitions<Definitions>>;
+  CommandDefinitions extends ReadonlyRecord<string, CommandPropertiesSchema<unknown>>,
+>(
+  domain: DomainType,
+  definitions: CommandDefinitions
+): CommandType<DomainType, CommandPropertiesFromCommandDefinitions<AwsCommandDefinitions<CommandDefinitions>>> {
+  return createCommandType(domain, definitions) as CommandType<
+    DomainType,
+    CommandPropertiesFromCommandDefinitions<AwsCommandDefinitions<CommandDefinitions>>
+  >;
 }
 
 /**

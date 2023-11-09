@@ -2,10 +2,11 @@ import { type GenericDomain } from '@komore/domain';
 import { objectToEntries } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type CommandCreator } from '../creator/command-creator';
-import { type GenericCommand } from '../generic-command';
+import { type CommandPropertiesFromCommandDefinitions } from '../properties/command-properties-from-command-definitions';
 import { type CommandPropertiesSchema } from '../properties/command-properties-schema';
+import { commandPropertiesSchemaEntryToCommandCreatorEntry } from './command-properties-schema-entry-to-command-creator-entry';
 import { type CommandType } from './command-type';
+import { commandCreatorEntryToPropertyDescriptorMap } from './command-creator-entry-to-property-descriptor-map';
 
 /**
  * Creates a command type
@@ -14,45 +15,20 @@ import { type CommandType } from './command-type';
  * @param definitions Command definitions
  * @returns Command type
  * @template DomainType Domain type
- * @template Definitions Command definitions
+ * @template CommandDefinitions Command definitions
  */
 export function createCommandType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, CommandPropertiesSchema<unknown>>,
->(domain: DomainType, definitions: Definitions): CommandType<DomainType, Definitions> {
-  const meta = Object.defineProperties(
-    {},
-    {
-      definitions: { enumerable: false, value: definitions, writable: false },
-      domain: { enumerable: false, value: domain, writable: false },
-    }
-  );
-
+  CommandDefinitions extends ReadonlyRecord<string, CommandPropertiesSchema<any>>,
+>(
+  domain: DomainType,
+  definitions: CommandDefinitions
+): CommandType<DomainType, CommandPropertiesFromCommandDefinitions<CommandDefinitions>> {
   const propertyDescriptors = objectToEntries(definitions)
-    .map(entryToCommandTypeCreatorEntry)
-    .reduce(commandTypeCreatorEntryToPropertyDescriptors, {
-      _: { enumerable: false, value: meta, writable: false },
-    } as PropertyDescriptorMap);
-
-  return Object.defineProperties({}, propertyDescriptors) as CommandType<DomainType, Definitions>;
-}
-
-function entryToCommandTypeCreatorEntry(
-  entry: readonly [name: string, schema: CommandPropertiesSchema<unknown>]
-): readonly [name: string, creator: CommandCreator<GenericCommand>] {
-  const [name] = entry;
-  const creator = (parameters: unknown) => ({
-    name,
-    ...(parameters !== undefined ? { parameters } : {}),
-  });
-  return [name, creator as CommandCreator<GenericCommand>];
-}
-
-function commandTypeCreatorEntryToPropertyDescriptors(
-  propertyDescriptors: PropertyDescriptorMap,
-  entry: readonly [name: string, creator: CommandCreator<GenericCommand>]
-): PropertyDescriptorMap {
-  const [name, value] = entry;
-  propertyDescriptors[name] = { enumerable: false, value, writable: false };
-  return propertyDescriptors;
+    .map(commandPropertiesSchemaEntryToCommandCreatorEntry(domain))
+    .reduce(commandCreatorEntryToPropertyDescriptorMap, {} as PropertyDescriptorMap);
+  return Object.defineProperties({}, propertyDescriptors) as CommandType<
+    DomainType,
+    CommandPropertiesFromCommandDefinitions<CommandDefinitions>
+  >;
 }

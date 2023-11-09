@@ -1,5 +1,6 @@
-import { type OperatorFunction } from '../operator-function';
 import { ignoreElements } from 'rxjs';
+
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Ignores any emitted value from the source observable, but forwards errors and completion

@@ -9,6 +9,6 @@ import { type TaskName } from './task-name';
  */
 export function validateTaskName(value: unknown): asserts value is TaskName {
   if (!isTaskName(value)) {
-    throw schematicsError('task.name.invalid', { value });
+    throw schematicsError.invalidTaskName({ value });
   }
 }

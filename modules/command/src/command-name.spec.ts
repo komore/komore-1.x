@@ -6,10 +6,13 @@ import { type CommandName } from './command-name';
 import { type CommandPropertiesSchema } from './properties/command-properties-schema';
 
 feature('Command name', {
-  'TODO: basic usage'() {
+  'TODO: basic usage with a command type'() {
     type ExpectedCommandName = 'test';
     type CommandType = Command<GenericDomain, ExpectedCommandName, CommandPropertiesSchema<unknown>>;
     type Name = CommandName<CommandType>;
     Name === ExpectedCommandName;
+  },
+  'TODO: basic usage with a command'() {
+    // TODO
   },
 });

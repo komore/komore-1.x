@@ -1,4 +1,3 @@
-import { type ReadonlyRecord } from '@komore/typescript';
 import { typeSchema } from '@komore/typescript';
 
 import { type ErrorPropertiesSchema } from './error-properties-schema';
@@ -10,12 +9,8 @@ import { errorPropertiesSchemaTypeName } from './error-properties-schema-type-na
  * @returns Error properties schema
  */
 export function errorProperties(): ErrorPropertiesSchema<void>;
-export function errorProperties<
-  SchemaType extends ReadonlyRecord<string, unknown>,
->(): ErrorPropertiesSchema<SchemaType>;
+export function errorProperties<SchemaType>(): ErrorPropertiesSchema<SchemaType>;
 
-export function errorProperties<
-  SchemaType extends ReadonlyRecord<string, unknown>,
->(): ErrorPropertiesSchema<SchemaType> {
+export function errorProperties<SchemaType>(): ErrorPropertiesSchema<SchemaType> {
   return typeSchema<typeof errorPropertiesSchemaTypeName, SchemaType>(errorPropertiesSchemaTypeName);
 }

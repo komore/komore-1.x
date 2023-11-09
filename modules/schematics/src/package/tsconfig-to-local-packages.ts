@@ -1,13 +1,14 @@
 import { dirname, join, relative } from 'path';
 
 import { isDefined, objectToEntries } from '@komore/functional';
-import { readPackageJson } from '@komore/node';
+import { readPackageJson } from '@komore/node/package';
 import { defaultIfEmpty, forkJoin, map, of, type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type TsConfigJson } from '../typescript/tsconfig-json';
 import { type LocalPackage } from './local-package';
 import { type PackageName } from './name/package-name';
+import { projectNameToPackageJsonFileName } from './project-name-to-package-json-file-name';
 
 export function tsConfigToLocalPackages(
   basePath: string
@@ -33,14 +34,20 @@ function pathAliasToLocalPackage(
       return of(undefined);
     }
 
-    // TODO: should look for the package.json via the workspace projects and not the tsconfig alias itself?
     const fileFullPath = join(basePath, filePath);
     const directoryPath = dirname(fileFullPath);
     const fullPath = join(directoryPath, '..');
-    const packageJsonPath = join(fullPath, 'package.json');
+    // TODO: should look for the package.json/project name via the workspace projects and not the tsconfig alias itself
+    const projectName = fullPath
+      .split('\\')
+      .slice(5)
+      .map(s => s.replaceAll('-', ''))
+      .join('-');
+    const packageJsonFileName = projectNameToPackageJsonFileName(projectName);
+    const packageJsonPath = join(fullPath, packageJsonFileName);
     const path = relative(basePath, fullPath);
 
-    // TODO: avoid I/O operation?
+    // TODO: avoid I/O operation since it should already be available in the workspace context?
     return readPackageJson(packageJsonPath).pipe(
       map(packageJson => packageJson.name),
       map(packageJsonName =>

@@ -1,7 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../conf/tsconfig.node.json",
-  "files": [],
   "references": [
     {
       "path": "./neo4j.tsconfig.library.json"

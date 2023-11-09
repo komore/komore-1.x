@@ -1,4 +1,4 @@
-import { executeChildProcess } from '@komore/node';
+import { executeChildProcess } from '@komore/node/process';
 import { redactValue, type Observable } from '@komore/reactive';
 
 import { type PackageName } from '../../name/package-name';

@@ -6,6 +6,7 @@ export { type IterableValueType } from './iterable-value-type';
 export { type KeysFromUnion } from './keys-from-union';
 export { type ReadonlyRecord } from './readonly-record';
 export { type TruthyTypesOf } from './truthy-types-of';
+export { type TypeCreator } from './schema/type-creator';
 export { type TypeNames } from './type-names';
 export { type TypeSchema } from './schema/type-schema';
 export { typeSchema } from './schema/type-schema';

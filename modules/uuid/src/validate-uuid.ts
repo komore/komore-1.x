@@ -9,6 +9,6 @@ import { uuidError } from './uuid.error';
  */
 export function validateUUID(value: unknown): asserts value is UUID {
   if (!isUUID(value)) {
-    throw uuidError('uuid.invalid', { value });
+    throw uuidError.invalidUuid({ value });
   }
 }

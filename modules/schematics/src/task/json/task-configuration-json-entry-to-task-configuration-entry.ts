@@ -21,10 +21,11 @@ export function taskConfigurationJsonEntryToTaskConfigurationEntry(
 ) => readonly [taskName: TaskName, configuration: TaskConfiguration] {
   return ([taskName, taskReferenceOrConfigurationJson]) => {
     if (!isTaskName(taskName)) {
-      throw schematicsError('task.name.invalid', { value: taskName });
+      throw schematicsError.invalidTaskName({ value: taskName });
     }
 
     if (typeof taskReferenceOrConfigurationJson === 'string') {
+      // TODO: proper error
       throw new Error(`task reference not supported here with "${taskReferenceOrConfigurationJson}"`);
     }
 
@@ -33,7 +34,7 @@ export function taskConfigurationJsonEntryToTaskConfigurationEntry(
     validateDependencies(taskName, dependencies);
 
     if (!isExecutorReferenceString(executor)) {
-      throw schematicsError('task.executor.invalid', { executor, taskName });
+      throw schematicsError.invalidTaskExecutor({ executor, taskName });
     }
 
     return [
@@ -55,7 +56,7 @@ function validateDependencies(
 ): asserts dependencies is ReadonlyArray<TaskReferenceString> {
   for (const dependency of dependencies) {
     if (!isTaskReferenceString(dependency)) {
-      throw schematicsError('task.dependency.invalid', { dependency, taskName });
+      throw schematicsError.invalidTaskDependency({ dependency, taskName });
     }
   }
 }

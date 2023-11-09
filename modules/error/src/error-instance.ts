@@ -1,18 +1,14 @@
-import { type TypeSchemaType } from '@komore/typescript';
-
-import { type ErrorTypeDefinitions } from './type/error-type-definitions';
-import { type GenericErrorType } from './type/generic-error-type';
+import { type GenericDomain } from '@komore/domain';
 
 /**
  * Error instance
  *
- * @template ErrorType Error type
+ * @template DomainType Domain type
  * @template ErrorCode Error code
+ * @template ErrorParameters Error parameters
  */
-export interface ErrorInstance<
-  ErrorType extends GenericErrorType,
-  ErrorCode extends keyof ErrorTypeDefinitions<ErrorType>,
-> extends Error {
+export interface ErrorInstance<DomainType extends GenericDomain, ErrorCode extends string, ErrorParameters>
+  extends Error {
   /**
    * Error code
    */
@@ -20,13 +16,13 @@ export interface ErrorInstance<
   /**
    * Error context
    */
-  readonly context: TypeSchemaType<ErrorTypeDefinitions<ErrorType>[ErrorCode]>;
+  readonly context: ErrorParameters;
+  /**
+   * Domain type
+   */
+  readonly domain: DomainType;
   /**
    * Error name
    */
   readonly name: 'KomoreError';
-  /**
-   * Error type
-   */
-  readonly type: ErrorType;
 }

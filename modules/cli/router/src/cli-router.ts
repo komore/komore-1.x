@@ -4,7 +4,6 @@ import { type Observable } from '@komore/reactive';
 /**
  * Command-line interface router
  */
-export interface CliRouter {
-  // TODO: properly typed based on possible command types
-  (parameters: ReadonlyArray<string>): Observable<GenericCommand>;
+export interface CliRouter<CommandType extends GenericCommand> {
+  (parameters: ReadonlyArray<string>): Observable<CommandType>;
 }

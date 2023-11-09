@@ -1,7 +1,7 @@
 import { type ElementPropertySubjectMap } from './element-property-subject-map';
 
 /**
- * Upgrades an element properties, moving them from the object to their matching behavior subject
+ * Upgrades an element's properties, moving them from the object to their matching behavior subject
  *
  * This operation is necessary because tools and frameworks may set properties on a custom element before the custom
  * element has been upgraded.
@@ -14,7 +14,7 @@ import { type ElementPropertySubjectMap } from './element-property-subject-map';
  */
 export function upgradeElementProperties<
   PropertyTypes extends Record<string, unknown>,
-  ElementType extends PropertyTypes
+  ElementType extends PropertyTypes,
 >(
   element: ElementType,
   propertyNames: ReadonlyArray<keyof PropertyTypes>,

@@ -1,7 +1,9 @@
+import { feature } from '@komore/testing';
+
 import { mock, type MockProxy } from 'jest-mock-extended';
 import { createEventDispatcher } from './create-event-dispatcher';
 
-describe('Create event dispatcher', () => {
+feature('Create event dispatcher', () => {
   let mockEventTarget: MockProxy<EventTarget> & EventTarget;
 
   beforeEach(() => {

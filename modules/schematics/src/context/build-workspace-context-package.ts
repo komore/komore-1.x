@@ -2,7 +2,7 @@ import { join } from 'path';
 
 import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
-import { readPackageJson } from '@komore/node';
+import { readPackageJson } from '@komore/node/package';
 import {
   cache,
   combineLatest,

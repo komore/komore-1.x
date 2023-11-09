@@ -1,10 +1,12 @@
 import { TSESLint } from '@typescript-eslint/experimental-utils';
 import { resolve } from 'path';
+
 import { type RuleTester } from './rule-tester';
 import { type RuleTesterOptions } from './rule-tester-options';
 
 /**
  * Creates a rule tester
+ *
  * @param options Rule tester options
  * @returns Rule tester
  */

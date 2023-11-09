@@ -2,7 +2,5 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/functional",
   "description": "Functional programming helper functions",
-  "keywords": [
-    "functional"
-  ]
+  "keywords": ["functional"]
 }

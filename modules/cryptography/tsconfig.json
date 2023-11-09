@@ -3,10 +3,10 @@
   "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./crypto.tsconfig.library.json"
+      "path": "./cryptography.tsconfig.library.json"
     },
     {
-      "path": "./crypto.tsconfig.specifications.json"
+      "path": "./cryptography.tsconfig.specifications.json"
     }
   ]
 }

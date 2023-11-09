@@ -1,8 +1,11 @@
 import { type GenericDomain } from '@komore/domain';
-import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
+import { objectToEntries } from '@komore/functional';
+import { type ReadonlyRecord } from '@komore/typescript';
 
-import { KomoreError } from '../komore-error';
+import { type ErrorPropertiesFromErrorDefinitions } from '../properties/error-properties-from-error-definitions';
 import { type ErrorPropertiesSchema } from '../properties/error-properties-schema';
+import { errorCreatorEntryToPropertyDescriptorMap } from './error-creator-entry-to-property-descriptor-map';
+import { errorPropertiesSchemaEntryToErrorCreatorEntry } from './error-properties-schema-entry-to-error-creator-entry';
 import { type ErrorType } from './error-type';
 
 /**
@@ -14,27 +17,20 @@ import { type ErrorType } from './error-type';
  * @param definitions Error definitions
  * @returns Error type
  * @template DomainType Domain type
- * @template Definitions Error definitions
+ * @template ErrorDefinitions Error definitions
  */
 export function createErrorType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, ErrorPropertiesSchema<ReadonlyRecord<string, unknown> | void>>,
->(domain: DomainType, definitions: Definitions): ErrorType<DomainType, Definitions> {
-  const errorType = <ErrorCode extends keyof Definitions & string>(
-    errorCode: ErrorCode,
-    errorContext: TypeSchemaType<Definitions[ErrorCode]>
-  ) =>
-    new KomoreError<ErrorType<DomainType, Definitions>, ErrorCode>(
-      `${domain.name}.${errorCode}`,
-      errorType as unknown as ErrorType<DomainType, Definitions>,
-      errorCode,
-      errorContext
-    );
-
-  Object.defineProperties(errorType, {
-    definitions: { enumerable: false, value: definitions, writable: false },
-    domain: { enumerable: false, value: domain, writable: false },
-  });
-
-  return errorType as ErrorType<DomainType, Definitions>;
+  ErrorDefinitions extends ReadonlyRecord<string, ErrorPropertiesSchema<any>>,
+>(
+  domain: DomainType,
+  definitions: ErrorDefinitions
+): ErrorType<DomainType, ErrorPropertiesFromErrorDefinitions<ErrorDefinitions>> {
+  const propertyDescriptors = objectToEntries(definitions)
+    .map(errorPropertiesSchemaEntryToErrorCreatorEntry(domain))
+    .reduce(errorCreatorEntryToPropertyDescriptorMap, {} as PropertyDescriptorMap);
+  return Object.defineProperties({}, propertyDescriptors) as ErrorType<
+    DomainType,
+    ErrorPropertiesFromErrorDefinitions<ErrorDefinitions>
+  >;
 }

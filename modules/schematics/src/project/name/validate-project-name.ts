@@ -4,6 +4,6 @@ import { type ProjectName } from './project-name';
 
 export function validateProjectName(projectName: string): asserts projectName is ProjectName {
   if (!isProjectName(projectName)) {
-    throw schematicsError('project.name.invalid', { projectName });
+    throw schematicsError.invalidProjectName({ projectName });
   }
 }

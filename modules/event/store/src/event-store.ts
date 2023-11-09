@@ -1,5 +1,6 @@
-import { type Event, type EventReducer } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 
+import { type EventReducer } from './reducer/event-reducer';
 import { type EventStoreSnapshotStrategy } from './snapshot/strategy/event-store-snapshot-strategy';
 
 /**
@@ -8,22 +9,19 @@ import { type EventStoreSnapshotStrategy } from './snapshot/strategy/event-store
  * @template AggregateType Aggregate type
  * @template EventTypes Event types
  */
-export type EventStore<
-  AggregateType,
-  EventTypes extends Event<string, Record<string, unknown> | undefined>[],
-> = Readonly<{
+export interface EventStore<AggregateType, EventTypes extends ReadonlyArray<GenericEvent>> {
   /**
    * Initial value or initial value creator for new aggregates
    */
-  initialValue: AggregateType | (() => AggregateType);
+  readonly initialValue: AggregateType | (() => AggregateType);
   /**
    * Event reducer
    */
-  reducer: EventReducer<AggregateType, EventTypes>;
+  readonly reducer: EventReducer<AggregateType, EventTypes>;
   /**
    * Snapshot strategy or strategies
    */
-  snapshotStrategy:
+  readonly snapshotStrategy:
     | EventStoreSnapshotStrategy<AggregateType, EventTypes>
     | ReadonlyArray<EventStoreSnapshotStrategy<AggregateType, EventTypes>>;
-}>;
+}

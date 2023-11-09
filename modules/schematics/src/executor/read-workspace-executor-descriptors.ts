@@ -1,6 +1,6 @@
 import { objectToEntries } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
-import { readFileContent } from '@komore/node';
+import { readFileContent } from '@komore/node/file-system';
 import { map, mapEach, tapError, type Observable } from '@komore/reactive';
 
 import { workspaceExecutorDescriptorJsonEntryToWorkspaceExecutorDescriptor } from './json/workspace-executor-descriptor-json-entry-to-workspace-executor-descriptor';

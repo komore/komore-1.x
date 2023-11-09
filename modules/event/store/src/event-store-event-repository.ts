@@ -1,12 +1,12 @@
-import { type Event } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 import { type Observable } from '@komore/reactive';
 
 /**
- * Event repository
+ * Event store event repository
  *
  * @template EventTypes Event types
  */
-export interface EventRepository<EventTypes extends Event<string, Record<string, unknown> | undefined>[]> {
+export interface EventStoreEventRepository<EventTypes extends ReadonlyArray<GenericEvent>> {
   /**
    * Loads events from the repository
    *

@@ -1,6 +1,6 @@
 {
   "$schema": "../schematics/project-configuration.schema.json",
-  "domain": "oracle",
+  "domain": "paddle",
   "type": "library",
   "tags": ["trait:base"],
   "tasks": ["build", "document", "lint", "publish", "test"]

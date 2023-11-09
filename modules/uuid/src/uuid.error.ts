@@ -6,5 +6,5 @@ import { uuidDomain } from './uuid.domain';
  * UUID error
  */
 export const uuidError = createErrorType(uuidDomain, {
-  'uuid.invalid': errorProperties<{ value: unknown }>(),
+  invalidUuid: errorProperties<{ value: unknown }>(),
 });

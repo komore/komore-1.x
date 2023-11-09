@@ -1,9 +1,12 @@
 import { type GenericDomain } from '@komore/domain';
-import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
+import { objectToEntries } from '@komore/functional';
+import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type Event } from '../event';
+import { type EventPropertiesFromEventDefinitions } from '../properties/event-properties-from-event-definitions';
 import { type EventPropertiesSchema } from '../properties/event-properties-schema';
 import { type EventType } from './event-type';
+import { eventPropertiesSchemaEntryToEventCreatorEntry } from './event-properties-schema-entry-to-event-creator-entry';
+import { eventCreatorEntryToPropertyDescriptorMap } from './event-creator-entry-to-property-descriptor-map';
 
 /**
  * Creates a event type
@@ -12,28 +15,20 @@ import { type EventType } from './event-type';
  * @param definitions Event definitions
  * @returns Event group
  * @template DomainType Domain type
- * @template Definitions Event definitions
+ * @template EventDefinitions Event definitions
  */
 export function createEventType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, EventPropertiesSchema<unknown>>,
->(domain: DomainType, definitions: Definitions): EventType<DomainType, Definitions> {
-  const eventType: Omit<EventType<DomainType, Definitions>, 'definitions' | 'domain'> = <
-    EventName extends keyof Definitions & string,
-  >(
-    name: EventName,
-    parameters: TypeSchemaType<Definitions[EventName]>
-  ) =>
-    ({
-      type: eventType as EventType<DomainType, Definitions>,
-      name,
-      parameters,
-    }) satisfies Event<EventType<DomainType, Definitions>, EventName>;
-
-  Object.defineProperties(eventType, {
-    definitions: { enumerable: false, value: definitions, writable: false },
-    domain: { enumerable: false, value: domain, writable: false },
-  });
-
-  return eventType as EventType<DomainType, Definitions>;
+  EventDefinitions extends ReadonlyRecord<string, EventPropertiesSchema<any>>,
+>(
+  domain: DomainType,
+  definitions: EventDefinitions
+): EventType<DomainType, EventPropertiesFromEventDefinitions<EventDefinitions>> {
+  const propertyDescriptors = objectToEntries(definitions)
+    .map(eventPropertiesSchemaEntryToEventCreatorEntry(domain))
+    .reduce(eventCreatorEntryToPropertyDescriptorMap, {} as PropertyDescriptorMap);
+  return Object.defineProperties({}, propertyDescriptors) as EventType<
+    DomainType,
+    EventPropertiesFromEventDefinitions<EventDefinitions>
+  >;
 }

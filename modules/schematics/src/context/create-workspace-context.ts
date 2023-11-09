@@ -16,7 +16,8 @@ import { type WorkspaceContext } from './workspace-context';
 export function createWorkspaceContext(basePath: string): Observable<WorkspaceContext> {
   return loadWorkspaceConfiguration(basePath).pipe(
     map(configuration => {
-      const tsConfigBasePath = join(basePath, 'tsconfig.base.json');
+      // TODO: avoid hardcoded tsconfig.base.json path
+      const tsConfigBasePath = join(basePath, 'conf/tsconfig.base.json');
       const tsConfigBase = readTsConfigJson(tsConfigBasePath).pipe(cache());
       const contextPackage = buildWorkspaceContextPackage(basePath, tsConfigBase, configuration);
       const project = buildWorkspaceContextProject(configuration, basePath);
@@ -30,7 +31,7 @@ export function createWorkspaceContext(basePath: string): Observable<WorkspaceCo
         ts: {
           tsConfigBase,
         },
-        watch: false
+        watch: false,
       };
       return workspaceContext;
     })

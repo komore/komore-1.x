@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.node.json",
+  "references": [
+    {
+      "path": "./error-testing.tsconfig.library.json"
+    },
+    {
+      "path": "./error-testing.tsconfig.specification.json"
+    }
+  ]
+}

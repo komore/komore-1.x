@@ -1,42 +1,34 @@
-import { type TypeSchemaType } from '@komore/typescript';
+import { type GenericDomain } from '@komore/domain';
 
 import { type ErrorInstance } from './error-instance';
-import { type ErrorTypeDefinitions } from './type/error-type-definitions';
-import { type GenericErrorType } from './type/generic-error-type';
 
 /**
  * Komore error
  *
- * @template ErrorType Error type
+ * @template DomainType Domain type
  * @template ErrorCode Error code
  * @private
  */
-export class KomoreError<ErrorType extends GenericErrorType, ErrorCode extends keyof ErrorTypeDefinitions<ErrorType>>
+export class KomoreError<DomainType extends GenericDomain, ErrorCode extends string, ErrorParameters>
   extends Error
-  implements ErrorInstance<ErrorType, ErrorCode>
+  implements ErrorInstance<DomainType, ErrorCode, ErrorParameters>
 {
   override readonly name = 'KomoreError';
   readonly code: ErrorCode;
-  readonly context: TypeSchemaType<ErrorTypeDefinitions<ErrorType>[ErrorCode]>;
-  readonly type: ErrorType;
+  readonly context: ErrorParameters;
+  readonly domain: DomainType;
 
   /**
    * Class constructor
    *
-   * @param message Message
-   * @param errorType Error group
+   * @param domain Domain
    * @param errorCode Error code
    * @param errorContext Error context
    */
-  constructor(
-    message: string,
-    errorType: ErrorType,
-    errorCode: ErrorCode,
-    errorContext: TypeSchemaType<ErrorTypeDefinitions<ErrorType>[ErrorCode]>
-  ) {
-    super(message);
+  constructor(domain: DomainType, errorCode: ErrorCode, errorContext: ErrorParameters) {
+    super(`${domain.name}:error:${errorCode}`);
     this.code = errorCode;
     this.context = errorContext;
-    this.type = errorType;
+    this.domain = domain;
   }
 }

@@ -1,20 +1,22 @@
+import { type ApplicationOptions } from '@komore/application';
 import { type GenericCommand } from '@komore/command';
 import { type Logger } from '@komore/logging';
-import { type Observable } from '@komore/reactive';
+import { type NodeHost } from '@komore/node';
+import { type Observable, type Subject } from '@komore/reactive';
 
-import { type CliEvent } from './event/cli.event';
+import { type CliEvent } from './cli.event';
 
 /**
  * Command-line interface application options
  */
-export interface CliApplicationOptions<CommandType extends GenericCommand> {
+export interface CliApplicationOptions<CommandType extends GenericCommand> extends ApplicationOptions<NodeHost> {
   /**
-   * Command handler
+   * Command handler factory
    *
-   * @param command Command
-   * @returns Stream of command-line interface events
+   * @param events Events subject
+   * @returns Command handler factory
    */
-  readonly commandHandler: (command: CommandType) => Observable<CliEvent>;
+  readonly commandHandler: (events: Subject<CliEvent>) => (command: CommandType) => Observable<void>;
   /**
    * Logger
    */
@@ -25,5 +27,5 @@ export interface CliApplicationOptions<CommandType extends GenericCommand> {
    * @param commandLineParameters Command-line parameters
    * @returns Command
    */
-  readonly parameters: (commandLineParameters: ReadonlyArray<string>) => Observable<CommandType>;
+  readonly parametersToCommand: (commandLineParameters: ReadonlyArray<string>) => Observable<CommandType>;
 }

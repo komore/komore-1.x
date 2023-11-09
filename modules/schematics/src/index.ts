@@ -35,6 +35,7 @@ export { validateTaskName } from './task/name/validate-task-name';
 export { type WorkspaceContext } from './context/workspace-context';
 export { type WorkspaceExecutor } from './executor/workspace-executor';
 export { type WorkspaceExecutorDefaultTaskGenerator } from './executor/workspace-executor-default-task-generator';
+export { type WorkspaceExecutorDescriptor } from './executor/workspace-executor-descriptor';
 export { type WorkspaceExecutorEvent } from './executor/event/workspace-executor-event';
 export { type WorkspaceExecutorEventDataByType } from './executor/event/workspace-executor-event-data-by-type';
 export { type WorkspaceExecutorFactory } from './executor/factory/workspace-executor-factory';

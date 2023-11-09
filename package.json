@@ -23,8 +23,8 @@
   "scripts": {
     "build": "k build --affected",
     "build:all": "k build --project=*",
-    "k": "ts-node --swc -r tsconfig-paths/register --project ./modules/k/k.tsconfig.application.json ./modules/k/src/main.ts",
-    "k:ts": "ts-node -r tsconfig-paths/register --project ./modules/k/k.tsconfig.application.json ./modules/k/src/main.ts",
+    "k": "ts-node --swc --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/main.ts",
+    "k:ts": "ts-node --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/main.ts",
     "lint": "k lint --affected",
     "lint:all": "k lint --project=*",
     "lint:repository": "k lint --repository",
@@ -112,6 +112,7 @@
     "@slack/web-api": "6.9.0",
     "@smithy/smithy-client": "2.1.9",
     "@smithy/types": "2.3.4",
+    "@swc/core": "1.3.95",
     "@types/aws-lambda": "8.10.125",
     "@types/dom-mediacapture-record": "1.0.17",
     "@types/dom-screen-wake-lock": "1.0.1",

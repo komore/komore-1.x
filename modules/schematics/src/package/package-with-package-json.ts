@@ -1,4 +1,4 @@
-import { type PackageJson } from '@komore/node';
+import { type PackageJson } from '@komore/node/package';
 
 /**
  * Package with package.json

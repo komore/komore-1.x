@@ -2,6 +2,7 @@ export { arrayFilledWith } from './array/array-filled-with';
 export { arrayFromRange } from './array/array-from-range';
 export { arrayFromRepeatedValue } from './array/array-from-repeated-value';
 export { type ArrayRange } from './array/array-range';
+export { arrayToArraySorted } from './array/array-to-array-sorted';
 export { arrayToElementAt } from './array/array-to-element-at';
 export { arrayToFlattenedArray } from './array/array-to-flattened-array';
 export { arrayToMap } from './array/array-to-map';

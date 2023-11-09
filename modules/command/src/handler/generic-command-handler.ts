@@ -1,7 +1,7 @@
-import { type GenericCommandType } from '../type/generic-command-type';
+import { type GenericCommand } from '../generic-command';
 import { type CommandHandler } from './command-handler';
 
 /**
  * Generic command handler
  */
-export type GenericCommandHandler = CommandHandler<GenericCommandType>;
+export type GenericCommandHandler = CommandHandler<GenericCommand>;

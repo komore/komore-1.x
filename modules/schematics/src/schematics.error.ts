@@ -8,14 +8,14 @@ import { type TaskName } from './task/name/task-name';
  * Schematics error group
  */
 export const schematicsError = createErrorType(schematicsDomain, {
-  'package.manager.not-found': errorProperties<{ lockFilePaths: string }>(),
-  'package.manager.type.invalid': errorProperties<{ type: string }>(),
-  'package.name.invalid': errorProperties<{ packageName: string }>(),
-  'project.name.invalid': errorProperties<{ projectName: string }>(),
-  'task.dependency.invalid': errorProperties<{ dependency: string; taskName: TaskName }>(),
-  'task.executor.invalid': errorProperties<{ executor: string; taskName: TaskName }>(),
-  'task.name.invalid': errorProperties<{ value: unknown }>(),
-  'task.not-found': errorProperties<{ projectName: ProjectName; taskName: TaskName }>(),
-  'task.reference.invalid.string': errorProperties<{ taskReferenceString: string }>(),
-  'workspace.configuration.invalid.json': errorProperties<{ propertyPath: string; message: string }>(),
+  invalidPackageManagerType: errorProperties<{ type: string }>(),
+  invalidPackageName: errorProperties<{ packageName: string }>(),
+  invalidProjectName: errorProperties<{ projectName: string }>(),
+  invalidTaskDependency: errorProperties<{ dependency: string; taskName: TaskName }>(),
+  invalidTaskExecutor: errorProperties<{ executor: string; taskName: TaskName }>(),
+  invalidTaskName: errorProperties<{ value: unknown }>(),
+  invalidTaskReferenceString: errorProperties<{ taskReferenceString: string }>(),
+  invalidWorkspaceConfigurationJson: errorProperties<{ propertyPath: string; message: string }>(),
+  packageManagerNotFound: errorProperties<{ lockFilePaths: string }>(),
+  taskNotFound: errorProperties<{ projectName: ProjectName; taskName: TaskName }>(),
 });

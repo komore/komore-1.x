@@ -1,5 +1,7 @@
+import { type CommandName } from '../command-name';
 import { type GenericCommand } from '../generic-command';
 import { type CommandMatcher } from './command-matcher';
+import { type CommandMatcherCase } from './command-matcher-case';
 
 /**
  * Matches a command, branching based on the command type
@@ -8,15 +10,13 @@ import { type CommandMatcher } from './command-matcher';
  * @param matcher Matcher
  * @returns Matcher result
  * @template CommandType Command type
- * @template Result Result type
+ * @template ResultType Result type
  */
-export function matchCommand<CommandType extends GenericCommand, Result>(
+export function matchCommand<CommandType extends GenericCommand, ResultType>(
   command: CommandType,
-  matcher: CommandMatcher<CommandType, Result>
-): Result {
-  type CommandName = CommandType['name'];
-  const name = command.name as CommandName;
-  const parameters = command.parameters as Parameters<(typeof matcher)[CommandName]>[0];
-  const handler = matcher[name];
+  matcher: CommandMatcher<CommandType, ResultType>
+): ResultType {
+  const { name, parameters } = command;
+  const handler = matcher[name as CommandName<CommandType>] as CommandMatcherCase<CommandType, ResultType>;
   return handler(parameters, command);
 }

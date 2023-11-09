@@ -1,12 +1,12 @@
-import { cliEvent, type CliEventType } from '@komore/cli';
-import { defineCommand } from '@komore/command';
+import { cliEvent, type CliEvent } from '@komore/cli';
 
-import { Observable, of, tapNext } from '@komore/reactive';
+import { of, type Observable } from '@komore/reactive';
 
 /**
- * Fetch affected base command
+ * Fetches an affected base
  */
-export function fetchAffectedBase(branchName: string, depth: number, includeTags: boolean): Observable<CliEventType> {
+export function fetchAffectedBase(branchName: string, depth: number, includeTags: boolean): Observable<CliEvent> {
+  // TODO: split into 2
   return of(
     cliEvent.messageDisplayed({ message: `git fetch --no-tags(${includeTags}) --depth=${depth} origin ${branchName}` })
   );

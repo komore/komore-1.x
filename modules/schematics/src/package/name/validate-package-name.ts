@@ -9,6 +9,6 @@ import { isPackageName } from './is-package-name';
  */
 export function validatePackageName(packageName: string): asserts packageName is PackageName {
   if (!isPackageName(packageName)) {
-    throw schematicsError('package.name.invalid', { packageName });
+    throw schematicsError.invalidPackageName({ packageName });
   }
 }

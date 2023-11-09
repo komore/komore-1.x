@@ -1,11 +1,11 @@
 export { type Command } from './command';
 export { type CommandCreator } from './creator/command-creator';
-export { type CommandFromCreator } from './creator/command-from-creator';
 export { type CommandFromType } from './type/command-from-type';
 export { type CommandHandler } from './handler/command-handler';
 export { type CommandMatcher } from './matcher/command-matcher';
 export { type CommandName } from './command-name';
 export { commandProperties } from './properties/command-properties';
+export { type CommandPropertiesFromCommandDefinitions } from './properties/command-properties-from-command-definitions';
 export { type CommandPropertiesSchema } from './properties/command-properties-schema';
 export { type CommandType } from './type/command-type';
 export { createCommandType } from './type/create-command-type';

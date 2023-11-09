@@ -1,14 +1,15 @@
-import { type GenericCommand } from '../generic-command';
-import { type CommandPropertiesType } from '../properties/command-properties-type';
+import { type TypeCreator } from '@komore/typescript';
 
 /**
  * Command creator
  *
- * @template CommandType Command type
+ * @template CommandName Command name
+ * @template TypeCreatorType Type creator type
  * @private
  */
-export type CommandCreator<CommandType extends GenericCommand> = {
-  readonly type: CommandType;
-} & CommandPropertiesType<CommandType> extends void
-  ? () => CommandType
-  : (parameters: CommandPropertiesType<CommandType>) => CommandType;
+export type CommandCreator<CommandName extends string, TypeCreatorType extends TypeCreator<any, any>> = {
+  /**
+   * Command name
+   */
+  readonly name: CommandName;
+} & TypeCreatorType;

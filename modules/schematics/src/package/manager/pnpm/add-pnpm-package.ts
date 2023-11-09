@@ -1,4 +1,4 @@
-import { executeChildProcess } from '@komore/node';
+import { executeChildProcess } from '@komore/node/process';
 import { redactValue, type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -16,6 +16,7 @@ export function addPnpmPackage(
     production: 'prod',
   };
 
+  // TODO: @komore/pnpm client
   return (packageName, packageVersion, type) => {
     const pnpmDependencyType = pnpmDependencyTypes[type];
     const pnpnDependencyTypeFlag = `--save-${pnpmDependencyType}`;
