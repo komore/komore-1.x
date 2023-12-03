@@ -1,8 +1,10 @@
-import { type ReadonlyRecord } from '@komore/typescript';
+import { type ObservableMap } from '@komore/reactive';
 
+import { type TaskName } from '../task/name/task-name';
 import { type TaskConfiguration } from '../task/task-configuration';
 import { type ProjectName } from './name/project-name';
-import { type ProjectType } from './project-type';
+import { type ProjectTag } from './tag/project-tag';
+import { type ProjectType } from './type/project-type';
 
 /**
  * Project configuration
@@ -23,11 +25,11 @@ export interface ProjectConfiguration {
   /**
    * Tasks
    */
-  readonly tasks: ReadonlyRecord<string, TaskConfiguration>;
+  readonly tasks: ObservableMap<TaskName, TaskConfiguration>;
   /**
    * List of tags
    */
-  readonly tags: ReadonlyArray<string>;
+  readonly tags: ReadonlyArray<ProjectTag>;
   /**
    * Project type
    */

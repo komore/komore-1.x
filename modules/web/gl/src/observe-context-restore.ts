@@ -2,6 +2,7 @@ import { defer, fromEvent, type Observable } from '@komore/reactive';
 
 /**
  * Observes a WebGL context restoration
+ *
  * @param canvas Canvas
  * @returns Observable that emits when the WebGL context is restored
  */

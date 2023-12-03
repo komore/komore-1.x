@@ -2,6 +2,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
  * Creates a function that returns a list exports from a WebAssembly instance
+ *
  * @param exportNames Export names
  * @returns Function that returns the list of exports from a WebAssembly instance
  */

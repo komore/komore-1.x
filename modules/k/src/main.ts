@@ -1,6 +1,4 @@
-import { createCliApplication, createCliApplicationLogEncoder } from '@komore/cli';
-import { createLogger } from '@komore/logging';
-import { createNodeConsoleLogAppender } from '@komore/logging/node';
+import { createCliApplication } from '@komore/cli';
 import { createNodeHost } from '@komore/node';
 import { firstValueFrom } from '@komore/reactive';
 
@@ -16,20 +14,19 @@ root.setJustifyContent(JUSTIFY_CENTER);
 
 async function main() {
   const host = createNodeHost();
-  const logger = createLogger({
+  /*  const logger = createLogger({
     appenders: [
       createNodeConsoleLogAppender({
         encoder: createCliApplicationLogEncoder(),
       }),
     ],
-  });
+  });*/
 
   const k = createCliApplication({
     // TODO: pass logger
     commandHandler: events => createKCommandHandler(events),
-    logger,
     host,
-    parametersToCommand: createKRouter({ logger }),
+    parametersToCommand: createKRouter(),
   });
 
   const result$ = k(process.argv);

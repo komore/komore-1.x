@@ -4,7 +4,6 @@
   "description": "Schematics for komore-based repositories",
   "keywords": ["schematics"],
   "komore": {
-    "executors": "./schematics.executors.json",
-    "generators": "./schematics.generators.json"
+    "generators": "./init/schematics-init.generators.json"
   }
 }

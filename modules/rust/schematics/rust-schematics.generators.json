@@ -1,19 +1,14 @@
 {
-  "$schema": "http://json-schema.org/schema",
-  "name": "rust",
-  "version": "0.0.1",
-  "generators": {
-    "init": {
-      "description": "Initialize the @pcxone/nx-rust plugin",
-      "factory": "./src/generators/init/init-generator",
-      "schema": "./src/generators/init/init-schema.json",
-      "hidden": true
-    },
-    "library": {
-      "aliases": ["lib"],
-      "description": "Create a Rust WebAssembly library",
-      "factory": "./src/generators/library/library-generator",
-      "schema": "./src/generators/library/library-schema.json"
-    }
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "__init__": {
+    "description": "Initializes a repository for the @komore/rust schematics",
+    "factory": "./src/generators/init/init-generator",
+    "schema": "./src/generators/init/init-schema.json",
+    "hidden": true
+  },
+  "library": {
+    "description": "Create a Rust WebAssembly library",
+    "factory": "./src/generators/library/library-generator",
+    "schema": "./src/generators/library/library-schema.json"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "azure",
+  "type": "library",
+  "tags": ["trait:stack"],
+  "tasks": ["build", "document", "lint", "test"]
+}

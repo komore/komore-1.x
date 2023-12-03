@@ -1,15 +1,23 @@
 {
-  "$schema": "https://komore.dev/json-schemas/schematics/executors",
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
   "lint": {
-    "description": "Lints a project",
+    "defaultTask": "@komore/linting/schematics#createLintModuleDefaultTask",
+    "description": "Lints a module",
     "documentation": "https://komore.dev/modules/linting/schematics/executors/lint",
-    "main": "@komore/linting/schematics#createLintModuleExecutor",
-    "schema": "./src/executor/lint/lint-module-executor.schema.json"
+    "factory": "@komore/linting/schematics#createLintModuleExecutor",
+    "options": {
+      "processor": "@komore/linting/schematics#createLintModuleExecutorOptionsProcessor",
+      "schema": "./src/executor/lint/lint-module-executor-options.schema.json"
+    }
   },
   "lint-workspace": {
+    "defaultTask": "@komore/linting/schematics#createLintWorkspaceDefaultTask",
     "description": "Lints a workspace",
     "documentation": "https://komore.dev/modules/linting/schematics/executors/lint-workspace",
-    "main": "@komore/linting/schematics#createLintWorkspaceExecutor",
-    "schema": "./src/executor/lint-workspace/lint-workspace-executor.schema.json"
+    "factory": "@komore/linting/schematics#createLintWorkspaceExecutor",
+    "options": {
+      "processor": "@komore/linting/schematics#createLintWorkspaceExecutorOptionsProcessor",
+      "schema": "./src/executor/lint-workspace/lint-workspace-executor-options.schema.json"
+    }
   }
 }

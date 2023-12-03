@@ -1,1 +1,0 @@
-# @komore/identity-provider-facebook

@@ -10,7 +10,9 @@ TODO:
 TODO:
 
 4 colors ===
-Design     => Build     => Run      => Observe
-- DDD       - code       - stack     - observability
-- events    - quality    - CD        - design feedback loop
-            - CI                     - data/analytics
+Design => Build => Run => Observe
+
+- DDD - code - stack - observability
+- events - quality - CD - design feedback loop - CI - data/analytics
+
+TODO: animation based on https://enso.org/

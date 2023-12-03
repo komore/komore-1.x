@@ -2,7 +2,7 @@ import { createCliCommand, createCliArgument as arg, createCliFlag as flag } fro
 import { createTypeScriptApiDescription } from '@komore/documentation';
 import { objectToValues } from '@komore/functional';
 import { ignoreErrors, ignoreValues, map, mergeMap, tapError, tapNext } from '@komore/reactive';
-import { loadWorkspaceConfiguration, projectToTargetsUsingExecutor } from '@komore/schematics';
+import { loadWorkspaceConfiguration } from '@komore/schematics';
 
 // TODO: move implementation to an executor via @komore/documentation:api
 

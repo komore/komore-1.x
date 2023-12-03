@@ -1,8 +1,4 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "types": ["node"]
-  }
+  "extends": "./tsconfig.node.json"
 }

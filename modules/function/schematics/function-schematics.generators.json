@@ -1,0 +1,13 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "__init__": {
+    "description": "Initializes the @komore/function schematics",
+    "factory": "./src/generators/init/function-init-generator",
+    "schema": "./src/generators/init/function-init-generator-schema.json"
+  },
+  "function": {
+    "description": "Generates a function",
+    "factory": "./src/generators/function/function-generator",
+    "schema": "./src/generators/function/function-generator-schema.json"
+  }
+}

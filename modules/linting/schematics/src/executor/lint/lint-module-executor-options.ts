@@ -1,6 +1,5 @@
 /**
  * Lint module executor options
- * TODO: generate from schema json
  */
 export interface LintModuleExecutorOptions {
   /**

@@ -1,8 +1,10 @@
 import { dirname, join, relative } from 'path';
 
+import { isErrorOfType } from '@komore/error';
 import { isDefined, objectToEntries } from '@komore/functional';
+import { nodeFileSystemError } from '@komore/node/file-system';
 import { readPackageJson } from '@komore/node/package';
-import { defaultIfEmpty, forkJoin, map, of, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, forkJoin, map, of, throwIfError, type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type TsConfigJson } from '../typescript/tsconfig-json';
@@ -48,12 +50,18 @@ function pathAliasToLocalPackage(
     const path = relative(basePath, fullPath);
 
     // TODO: avoid I/O operation since it should already be available in the workspace context?
+    // NOTE: but why would it be available unless loaded because of the path here 🤔
     return readPackageJson(packageJsonPath).pipe(
+      throwIfError(
+        isErrorOfType(nodeFileSystemError.fileNotFound),
+        () => new Error(`project ${projectName} has no package.json file (looking for ${packageJsonFileName})`)
+      ),
       map(packageJson => packageJson.name),
       map(packageJsonName =>
         packageJsonName !== undefined
           ? {
               name: packageJsonName as PackageName,
+              packageJsonPath,
               path,
             }
           : undefined

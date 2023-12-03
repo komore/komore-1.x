@@ -2,8 +2,8 @@ import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type WorkspaceExecutorTaskId } from '../task/workspace-executor-task-id';
 import { createWorkspaceExecutorEvent } from './create-workspace-executor-event';
+import { type WorkspaceExecutorTaskMessageEventDataMessageType } from './data/workspace-executor-task-message-event-data-message-type';
 import { type WorkspaceExecutorEvent } from './workspace-executor-event';
-import { WorkspaceExecutorTaskMessageEventDataMessageType } from './data/workspace-executor-task-message-event-data-message-type';
 
 export function toWorkspaceExecutorTaskMessageEvent<T>(
   taskId: WorkspaceExecutorTaskId,
@@ -51,6 +51,6 @@ type ProjectionFunction<T> = (
   | string
   | readonly [
       messageId: string,
-      messageParameters: ReadonlyRecord<string, string> | undefined,
-      messageType: WorkspaceExecutorTaskMessageEventDataMessageType | undefined
+      messageParameters?: ReadonlyRecord<string, string> | undefined,
+      messageType?: WorkspaceExecutorTaskMessageEventDataMessageType | undefined,
     ];

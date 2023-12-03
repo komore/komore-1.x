@@ -2,6 +2,7 @@ import { deferPromise, type Observable } from '@komore/reactive';
 
 /**
  * Returns a function that creates a GPU compute pipeline asynchronously
+ *
  * @param descriptor GPU compute pipeline descriptor
  * @returns GPU compute pipeline
  */

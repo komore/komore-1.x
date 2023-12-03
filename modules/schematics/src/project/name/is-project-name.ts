@@ -1,4 +1,4 @@
-import { ProjectName } from './project-name';
+import { type ProjectName } from './project-name';
 
 /**
  * Tests whether a value is a project name

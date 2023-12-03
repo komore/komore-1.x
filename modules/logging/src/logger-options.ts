@@ -1,4 +1,4 @@
-import { LogAppender } from './appender/log-appender';
+import { type LogAppender } from './appender/log-appender';
 
 /**
  * Logger options

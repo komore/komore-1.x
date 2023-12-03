@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "i18n",
+  "type": "library",
+  "tags": ["trait:schematics"],
+  "tasks": ["build", "document", "lint", "test"]
+}

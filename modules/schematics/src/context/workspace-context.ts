@@ -1,6 +1,7 @@
-import { type Observable } from '@komore/reactive';
+import { type Observable, type ObservableMap } from '@komore/reactive';
+
+import { type ProjectName } from '../project/name/project-name';
 import { type ProjectConfiguration } from '../project/project-configuration';
-import { type ProjectName } from '../project/project-name';
 import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
 import { type WorkspaceContextPackage } from './workspace-context-package';
 import { type WorkspaceContextSchematics } from './workspace-context-schematics';
@@ -28,7 +29,7 @@ export interface WorkspaceContext {
     /**
      * Map of projects
      */
-    readonly byName: ReadonlyMap<ProjectName, Observable<ProjectConfiguration>>;
+    readonly byName: ObservableMap<ProjectName, ProjectConfiguration>;
     /**
      * List of projects
      */

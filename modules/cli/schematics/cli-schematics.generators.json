@@ -1,1 +1,8 @@
-{}
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "application": {
+    "description": "Generates a command-line interface application",
+    "factory": "./src/generators/application/build-cli-application-generator#buildCliApplicationGenerator",
+    "schema": "./src/generators/application/cli-application-generator-schema.json"
+  }
+}

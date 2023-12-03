@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/vm",
+  "description": "Virtual machine functions",
+  "keywords": ["vm", "node"]
+}

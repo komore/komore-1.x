@@ -7,29 +7,23 @@ import { type ClassParameters } from './class-parameters';
  * Class directive
  */
 export const kClass = createDirectiveFactory<Element, boolean>(() => {
-  return ({ element, parameters }) => combineLatest({
-    element,
-    initialClasses: element.pipe(
-      map(({ classList }) => mapTokenList(classList))
-    ),
-    classes: parameters.pipe(
-      map(params => {
-        return prepareClassList(params);
-      }),
-      //pairwise()
-    )
-  }).pipe(
-    tap(({ element, classes: [previous, current] }) => {
-
-    })
-  );
+  return ({ element, parameters }) =>
+    combineLatest({
+      element,
+      initialClasses: element.pipe(map(({ classList }) => mapTokenList(classList))),
+      classes: parameters.pipe(
+        map(params => {
+          return prepareClassList(params);
+        })
+        //pairwise()
+      ),
+    }).pipe(tap(({ element, classes: [previous, current] }) => {}));
 });
 
 const dir = kClass();
 if (typeof dir === 'function') {
-  dir()
+  dir();
 }
-
 
 /**
  * Prepares a map of classes
@@ -49,5 +43,5 @@ function prepareClassList(parameters: ClassParameters): Record<string, boolean> 
 }
 
 function classesFromTokenList(tokenList: DOMTokenList): ReadonlyArray<string> {
-  return Array.from(tokenList.entries());
+  return [...tokenList.entries()];
 }

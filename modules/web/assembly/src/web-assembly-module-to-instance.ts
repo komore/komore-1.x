@@ -3,6 +3,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
  * Creates a function that instantiates a WebAssembly source from a buffer or from a module
+ *
  * @param moduleImports Module imports
  * @returns Function that instantiates a WebAssembly source from a buffer or from a module
  */

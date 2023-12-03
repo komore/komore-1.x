@@ -1,15 +1,9 @@
-import { type Logger } from '@komore/logging';
-
 /**
  * Cloudflare client options
  */
 export interface CloudflareClientOptions {
   /**
-   * API endpoint URL
+   * Endpoint URL
    */
-  readonly apiEndpointUrl: URL;
-  /**
-   * Logger
-   */
-  readonly logger: Logger;
+  readonly endpointUrl: URL;
 }

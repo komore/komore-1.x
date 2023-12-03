@@ -1,4 +1,4 @@
-import { type PackageJson } from '@komore/node';
+import { type PackageJson } from '@komore/node/package';
 import { type Observable } from '@komore/reactive';
 
 import { type InstalledPackage } from '../package/installed-package';

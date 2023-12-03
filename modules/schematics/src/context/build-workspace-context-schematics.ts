@@ -13,35 +13,38 @@ import { type WorkspaceContextPackage } from './workspace-context-package';
 import { type WorkspaceContextSchematics } from './workspace-context-schematics';
 
 /**
- * Builds a workspace context schematics
+ * Retrrns a function that builds a workspace context schematics
  *
  * @param basePath Base path
- * @param contextPackage Context package
- * @returns Workspace context schematics
+ * @returns Function that builds a workspace context schematics
  */
 export function buildWorkspaceContextSchematics(
-  basePath: string,
-  contextPackage: WorkspaceContextPackage
-): WorkspaceContextSchematics {
-  const {
-    byNameWithPackageJson,
-    list: { allWithPackageJson },
-  } = contextPackage;
-  const withSchematics = allWithPackageJson.pipe(
-    map(packagesWithJson => packagesWithJson.filter(isPackageWithSchematics)),
-    cache()
-  );
-  const withSchematicsByName = new ObservableMap(packageNameToPackageWithSchematics(byNameWithPackageJson));
-  const executor = buildWorkspaceContextSchematicsExecutor(basePath, withSchematicsByName, withSchematics);
-  const generator = buildWorkspaceContextSchematicsGenerator(basePath, withSchematicsByName, withSchematics);
+  basePath: string
+): (contextPackage: WorkspaceContextPackage) => WorkspaceContextSchematics {
+  const buildSchematicsExecutor = buildWorkspaceContextSchematicsExecutor(basePath);
+  const buildSchematicsGenerator = buildWorkspaceContextSchematicsGenerator(basePath);
 
-  return {
-    executor,
-    generator,
-    package: {
-      withSchematics,
-      withSchematicsByName,
-    },
+  return contextPackage => {
+    const {
+      byNameWithPackageJson,
+      list: { allWithPackageJson },
+    } = contextPackage;
+    const withSchematics = allWithPackageJson.pipe(
+      map(packagesWithJson => packagesWithJson.filter(isPackageWithSchematics)),
+      cache()
+    );
+    const withSchematicsByName = new ObservableMap(packageNameToPackageWithSchematics(byNameWithPackageJson));
+    const executor = buildSchematicsExecutor(withSchematicsByName, withSchematics);
+    const generator = buildSchematicsGenerator(withSchematicsByName, withSchematics);
+
+    return {
+      executor,
+      generator,
+      package: {
+        withSchematics,
+        withSchematicsByName,
+      },
+    };
   };
 }
 

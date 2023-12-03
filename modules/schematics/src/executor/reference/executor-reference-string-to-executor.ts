@@ -4,11 +4,12 @@ import { assert } from '@komore/runtime';
 
 import { type WorkspaceContextSchematicsExecutor } from '../../context/workspace-context-schematics-executor';
 import { type PackageName } from '../../package/name/package-name';
+import { schematicsError } from '../../schematics.error';
 import { packageReferenceNameToPackageReference } from '../../package/reference/package-reference-name-to-package-reference';
 import { packageReferenceToExportedEntry } from '../../package/reference/package-reference-to-exported-entry';
 import { type WorkspaceExecutorFactory } from '../factory/workspace-executor-factory';
 import { type WorkspaceExecutorDescriptor } from '../workspace-executor-descriptor';
-import { type WorkspaceExecutorDefaultTaskGenerator } from '../workspace-executor-default-task-generator';
+import { type WorkspaceExecutorDefaultTaskGeneratorFactory } from '../workspace-executor-default-task-generator-factory';
 import { type WorkspaceExecutorOptionsProcessor } from '../workspace-executor-options-processor';
 import { workspaceExecutorDescriptorByExecutorName } from '../workspace-executor-descriptor-by-executor-name';
 import { type ExecutorReferenceString } from './executor-reference-string';
@@ -27,9 +28,9 @@ export function executorReferenceStringToExecutor(
     packageReferenceNameToPackageReference,
     packageReferenceToExportedEntry<WorkspaceExecutorFactory<unknown>>()
   );
-  const packageReferenceNameToDefaultTaskGenerator = pipe(
+  const packageReferenceNameToDefaultTaskGeneratorFactory = pipe(
     packageReferenceNameToPackageReference,
-    packageReferenceToExportedEntry<WorkspaceExecutorDefaultTaskGenerator<unknown>>()
+    packageReferenceToExportedEntry<WorkspaceExecutorDefaultTaskGeneratorFactory<unknown>>()
   );
   const packageReferenceNameToOptionsProcessor = pipe(
     packageReferenceNameToPackageReference,
@@ -41,22 +42,18 @@ export function executorReferenceStringToExecutor(
     assert(isDefined(packageWithExecutorDescriptors$));
     return packageWithExecutorDescriptors$.pipe(
       map(executorDescriptors => executorDescriptors.find(workspaceExecutorDescriptorByExecutorName(executorName))),
-      throwUnless(
-        isDefined,
-        // TODO: proper error
-        () => new Error(`TODO typed: executor "${executorName}" not found in package "${packageName}"`)
-      ),
+      throwUnless(isDefined, () => schematicsError.executorNotFound({ executorName, packageName })),
       map(descriptor => {
         const factory = packageReferenceNameToFactory(descriptor.factory);
         const {
           defaultTask,
           options: { processor },
         } = descriptor;
-        console.log('descr', JSON.stringify(descriptor, undefined, 2));
         const defaultTaskGenerator =
           defaultTask !== undefined
-            ? packageReferenceNameToDefaultTaskGenerator(defaultTask)
-            : throwError(() => new Error(`TODO typed: executor "${executorName}" cannot create a default task`));
+            ? packageReferenceNameToDefaultTaskGeneratorFactory(defaultTask)
+            : // TODO: properly typed
+              throwError(() => new Error(`executor "${executorName}" cannot create a default task`));
         const optionsProcessor =
           processor !== undefined
             ? packageReferenceNameToOptionsProcessor(processor)

@@ -10,7 +10,7 @@ export function createCliRouter<RouteDefinitions extends ReadonlyRecord<string, 
   routeDefinitions: RouteDefinitions,
   options: CliRouterOptions
 ): CliRouter<ReturnType<NonNullable<RouteDefinitions[keyof RouteDefinitions]['command']>>> {
-  const { logger: _ } = options;
+  const {} = options;
   return parameters => {
     console.log('woohoo', parameters, 'route def', routeDefinitions);
     const routeDefinitionEntry = objectToEntries(routeDefinitions).find(([path]) => path === parameters[0]);

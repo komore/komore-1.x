@@ -1,8 +1,10 @@
-import { defer, type Observable, redactValue } from '@komore/reactive';
+import { defer, redactValue, type Observable } from '@komore/reactive';
+
 import { fromIDBRequest } from './from-idb-request';
 
 /**
  * Deletes an IndexedDB database
+ *
  * @param name Database name
  * @returns Observable that emits when the database has been deleted
  */

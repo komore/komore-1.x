@@ -1,13 +1,13 @@
 import { type PackageName } from '../package/name/package-name';
 import { type PackageReferenceName } from '../package/reference/package-reference-name';
-import { type ExecutorName } from './executor-name';
+import { type ExecutorName } from './name/executor-name';
 
 /**
  * Workspace executor descriptor
  */
 export interface WorkspaceExecutorDescriptor {
   /**
-   * Default task factory
+   * Default task
    */
   readonly defaultTask?: PackageReferenceName;
   /**

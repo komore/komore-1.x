@@ -1,11 +1,12 @@
 {
-  "extends": "../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./element-accessibility.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./element-accessibility.tsconfig.specifications.json"
     }
   ]
 }

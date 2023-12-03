@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["css-custom-properties"]
+  },
+  "references": [
+    {
+      "path": "./elementcompiler-processor.tsconfig.library.json"
+    },
+    {
+      "path": "./elementcompiler-processor.tsconfig.specifications.json"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../../../conf/tsconfig.node.json",
+  "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
       "path": "./event-schematics.tsconfig.library.json"

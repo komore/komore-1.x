@@ -1,4 +1,4 @@
-import { type GeneratorName } from './generator-name';
+import { type GeneratorName } from './name/generator-name';
 import { type WorkspaceGeneratorDescriptor } from './workspace-generator-descriptor';
 
 /**

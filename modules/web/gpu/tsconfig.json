@@ -1,14 +1,15 @@
 {
-  "extends": "../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
   "compilerOptions": {
-    "types": ["jest", "@webgpu/types"]
+    "types": ["@webgpu/types"]
   },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./web-gpu.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./web-gpu.tsconfig.specifications.json"
     }
   ]
 }

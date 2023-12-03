@@ -8,13 +8,5 @@
 export function and<Parameters extends ReadonlyArray<unknown>>(
   ...fns: ReadonlyArray<(...parameters: Parameters) => boolean>
 ): (...parameters: Parameters) => boolean {
-  return (...parameters) => {
-    for (const fn of fns) {
-      if (!fn(...parameters)) {
-        return false;
-      }
-    }
-
-    return true;
-  };
+  return (...parameters) => fns.every(fn => fn(...parameters));
 }

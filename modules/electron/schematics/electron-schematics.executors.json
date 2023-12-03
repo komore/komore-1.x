@@ -1,18 +1,19 @@
 {
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
   "build": {
     "description": "Builds an Electron application",
-    "main": "./src/executor/build/build-android-application-executor#buildElectronApplicationExecutor"
+    "factory": "./src/executor/build/build-electron-application-executor#buildElectronApplicationExecutor"
   },
   "publish": {
     "description": "Publishes an Electron application",
-    "main": "./src/executor/publish/publish-android-application-executor#signElectronApplicationExecutor"
+    "factory": "./src/executor/publish/publish-electron-application-executor#signElectronApplicationExecutor"
   },
   "serve": {
     "description": "Serves an Electron application",
-    "main": "./src/executor/serve/serve-android-application-executor#serveElectronApplicationExecutor"
+    "factory": "./src/executor/serve/serve-electron-application-executor#serveElectronApplicationExecutor"
   },
   "sign": {
     "description": "Signs an Electron application",
-    "main": "./src/executor/sign/sign-android-application-executor#signElectronApplicationExecutor"
+    "factory": "./src/executor/sign/sign-electron-application-executor#signElectronApplicationExecutor"
   }
 }

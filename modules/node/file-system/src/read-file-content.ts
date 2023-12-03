@@ -1,7 +1,11 @@
 import { type PathLike } from 'fs';
 import { readFile } from 'fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import {} from '@komore/error';
+import { deferPromise, throwIfError, type Observable } from '@komore/reactive';
+import { isErrnoException } from '@komore/node';
+
+import { nodeFileSystemError } from './node-file-system.error';
 
 /**
  * Reads an entire file's content into memory
@@ -25,5 +29,10 @@ export function readFileContent(
   bufferEncoding?: BufferEncoding
 ): Observable<Buffer> | Observable<string> {
   const encoding = bufferEncoding ?? null;
-  return deferPromise(() => readFile(filePath, { encoding })) as Observable<Buffer> | Observable<string>;
+  return deferPromise(() => readFile(filePath, { encoding })).pipe(
+    throwIfError(
+      error => isErrnoException(error) && error.code === 'ENOENT',
+      () => nodeFileSystemError.fileNotFound({ filePath })
+    )
+  ) as Observable<Buffer> | Observable<string>;
 }

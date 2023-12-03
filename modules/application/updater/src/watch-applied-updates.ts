@@ -1,10 +1,12 @@
 import { NEVER, type Observable } from '@komore/reactive';
+
 import { type Update } from './update';
 
 /**
  * Watches for applied updates
- * @template DataType Update data type
+ *
  * @returns Stream of applied updates
+ * @template DataType Update data type
  */
 export function watchAppliedUpdates<DataType = undefined>(): Observable<Update<DataType>> {
   return NEVER;
@@ -31,9 +33,9 @@ reloadAfterUpdate$ = watchEvents().pipe(
   tap()
 watchInstalledUpdates().pipe(
   switchMap(update => showUpdateDialog(update).pipe(
-    switchMap(shouldUpdate ? )    
+    switchMap(shouldUpdate ? )
   ))
     subscribe(() => location.reload());
-  
+
       window.location.reload();
 */

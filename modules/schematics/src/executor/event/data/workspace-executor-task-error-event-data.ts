@@ -1,4 +1,4 @@
-import { type GenericErrorType } from '@komore/error';
+import { type GenericErrorInstance } from '@komore/error';
 
 import { type WorkspaceExecutorTaskEventData } from './workspace-executor-task-event-data';
 
@@ -9,5 +9,5 @@ export interface WorkspaceExecutorTaskErrorEventData extends WorkspaceExecutorTa
   /**
    * Error
    */
-  readonly error: GenericErrorType;
+  readonly error: GenericErrorInstance;
 }

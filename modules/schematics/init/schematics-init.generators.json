@@ -1,0 +1,9 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "__init__": {
+    "description": "Initializes a komore workspace",
+    "factory": "./src/generators/init/init-workspace-generator",
+    "hidden": true,
+    "schema": "./src/generators/init/init-workspace-generator-schema.json"
+  }
+}

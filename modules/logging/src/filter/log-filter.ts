@@ -1,11 +1,9 @@
-import { type UntypedLogEventRecord } from '../event-record/log-event-record';
+import { type LogEventRecord } from '../event-record/log-event-record';
 import { type LogFilterResult } from './log-filter-result';
 
 /**
  * Log filter
- *
- * @template LogEventRecordType Log event record type
  */
-export interface LogFilter<LogEventRecordType extends UntypedLogEventRecord = UntypedLogEventRecord> {
-  (logEventRecord: LogEventRecordType): LogFilterResult;
+export interface LogFilter {
+  (logEventRecord: LogEventRecord): LogFilterResult;
 }

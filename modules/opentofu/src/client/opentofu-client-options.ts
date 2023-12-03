@@ -5,10 +5,6 @@ import { type Logger } from '@komore/logging';
  */
 export interface OpenTofuClientOptions {
   /**
-   * Logger
-   */
-  readonly logger: Logger;
-  /**
    * Working directory
    */
   readonly workingDirectory: string;

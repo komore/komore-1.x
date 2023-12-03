@@ -12,10 +12,8 @@ import { type S3CommandHandlerOptions } from './s3-command-handler-options';
  * @return S3 command handler
  */
 export function createS3CommandHandler(options: S3CommandHandlerOptions): S3CommandHandler {
-  const { client, logger } = options;
+  const { client } = options;
   const match = matchAwsCommand(client);
-
-  logger;
 
   return command =>
     match(command, {

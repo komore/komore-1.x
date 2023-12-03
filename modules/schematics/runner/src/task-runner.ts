@@ -1,5 +1,5 @@
 import { type Observable } from '@komore/reactive';
-import { type TaskReference } from '@komore/schematics';
+import { type GenericWorkspaceExecutorEvent, type TaskReference } from '@komore/schematics';
 
 /**
  * Task runner
@@ -9,7 +9,7 @@ export interface TaskRunner {
    * Runs a task
    *
    * @param taskReference Project task reference observable
-   * @returns Result
+   * @returns Stream of workspace executor events
    */
-  (taskReference: Observable<TaskReference>): Observable<number>;
+  (taskReference: Observable<TaskReference>): Observable<GenericWorkspaceExecutorEvent>;
 }

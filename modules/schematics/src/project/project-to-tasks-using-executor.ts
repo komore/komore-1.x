@@ -1,18 +1,23 @@
-import { objectToValues } from '@komore/functional';
+import { defaultIfEmpty, first, forkJoin, map, type Observable } from '@komore/reactive';
 
 import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
+import { taskByExecutor } from '../task/task-by-executor';
 import { type TaskConfiguration } from '../task/task-configuration';
-import { taskUsingExecutor } from '../task/task-using-executor';
 import { type ProjectConfiguration } from './project-configuration';
 
 /**
- * Creates a function that returns a list of task configuration matching an executor name
+ * Creates a function that returns a list of task configurations matching an executor reference string
  *
- * @param executorName Executor name
- * @returns Function that returns a list of task configuration matching the executor name
+ * @param executorReferenceString Executor reference string
+ * @returns Function that returns a list of task configurations matching the executor reference string
  */
 export function projectToTasksUsingExecutor(
-  executorName: ExecutorReferenceString
-): (projectConfiguration: ProjectConfiguration) => ReadonlyArray<TaskConfiguration> {
-  return ({ tasks }) => (tasks === undefined ? [] : objectToValues(tasks).filter(taskUsingExecutor(executorName)));
+  executorReferenceString: ExecutorReferenceString
+): (projectConfiguration: ProjectConfiguration) => Observable<ReadonlyArray<TaskConfiguration>> {
+  const usingExecutor = taskByExecutor(executorReferenceString);
+  return ({ tasks }) =>
+    forkJoin([...tasks.values()].map(configuration => configuration.pipe(first()))).pipe(
+      defaultIfEmpty([]),
+      map(taskConfigurations => taskConfigurations.filter(usingExecutor))
+    );
 }

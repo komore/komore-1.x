@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/tauri",
+  "komore": {
+    "executors": "./schematics/tauri-schematics.executors.json",
+    "generators": "./schematics/tauri-schematics.generators.json"
+  }
+}

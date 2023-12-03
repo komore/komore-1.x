@@ -3,10 +3,10 @@
   "extends": "../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./vscode-extension.tsconfig.library.json"
+      "path": "./vscodeextension.tsconfig.library.json"
     },
     {
-      "path": "./vscode-extension.tsconfig.specifications.json"
+      "path": "./vscodeextension.tsconfig.specifications.json"
     }
   ]
 }

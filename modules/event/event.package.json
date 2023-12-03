@@ -1,4 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/event"
+  "name": "@komore/event",
+  "komore": {
+    "generators": "./schematics/event-schematics.generators.json"
+  }
 }

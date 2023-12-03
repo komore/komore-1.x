@@ -1,9 +1,10 @@
 import { type Observable } from '@komore/reactive';
-import { type ExecutorReferenceString } from '../executor/executor-reference-string';
+
+import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';
-import { type GeneratorReferenceString } from '../generator/generator-reference-string';
+import { type GeneratorReferenceString } from '../generator/reference/generator-reference-string';
 import { type WorkspaceGeneratorDescriptor } from '../generator/workspace-generator-descriptor';
-import { type PackageName } from '../package/package-name';
+import { type PackageName } from '../package/name/package-name';
 import { type PackageWithPackageJsonAndSchematics } from '../package/package-with-package-json-and-schematics';
 import { type WorkspaceContextSchematicsExecutor } from './workspace-context-schematics-executor';
 

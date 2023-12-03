@@ -1,4 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/node"
+  "name": "@komore/node",
+  "komore": {
+    "executors": "./schematics/node-schematics.executors.json",
+    "generators": "./schematics/node-schematics.generators.json"
+  }
 }

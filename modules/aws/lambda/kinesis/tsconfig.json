@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./aws-lambda-kinesis.tsconfig.library.json"
+    },
+    {
+      "path": "./aws-lambda-kinesis.tsconfig.specifications.json"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { colorError } from '../color.error';
 import { type HexColorString } from '../hex/hex-color-string';
 import { type RGBColor } from '../rgb/rgb-color';
 import { HEX_COLOR_STRING_REGEXP, HEX_COLOR_STRING_REGEXP_SHORT } from './hex-color-string-regexp';
@@ -14,7 +15,7 @@ export function hexColorStringToRgbColor(hexColorString: HexColorString): RGBCol
     | readonly [matched: string, red: string, green: string, blue: string]
     | null;
   if (matches === null) {
-    throw new Error(`invalid hexadecimal color string "${hexColorString}`);
+    throw colorError.invalidHexColorString({ hexColorString });
   }
 
   const [, redString, greenString, blueString] = matches;

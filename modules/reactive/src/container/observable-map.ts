@@ -15,8 +15,7 @@ export class ObservableMap<K, V> extends Map<K, Observable<V>> {
    * @param resolver Resolver
    * @param entries Entries
    */
-  constructor(resolver: (key: K) => Observable<V>, entries?: readonly (readonly [K, Observable<V>])[] | null) {
-    // TODO: TS 4.7: entries?: ConstructorParameters<typeof Map<K, V>>[0]
+  constructor(resolver: (key: K) => Observable<V>, entries?: readonly (readonly [key: K, value: Observable<V>])[]) {
     super(entries);
     this.resolver = resolver;
   }

@@ -66,7 +66,7 @@ const project = new Project({
 const mainSourceFile = project.getSourceFileOrThrow(main);
 const exportedDeclarations = mainSourceFile.getExportedDeclarations();
 // NOTE: multiple declarations due to multiple overloads
-Array.from(exportedDeclarations.entries()).forEach(([identifier, declarations]) => {
+[...exportedDeclarations.entries()].forEach(([identifier, declarations]) => {
   console.log(identifier);
   declarations.forEach(declaration => {
     console.log('kind: ', declaration.getKind(), declaration.getKindName());

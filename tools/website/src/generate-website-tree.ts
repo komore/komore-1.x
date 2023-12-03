@@ -1,4 +1,4 @@
-import { readDirectory } from '@komore/node';
+import { readDirectory } from '@komore/node/file-system';
 
 //import { marked } from 'marked';
 

@@ -1,6 +1,6 @@
 import { jsonToObject } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
-import { forkJoin, map, switchMap, take, type Observable } from '@komore/reactive';
+import { first, forkJoin, map, switchMap, type Observable } from '@komore/reactive';
 import { validateWith } from '@komore/validation';
 
 import { type ProjectConfigurationJson } from './project-configuration-json';
@@ -16,8 +16,8 @@ export function loadProjectConfigurationJson(configurationPath: string): Observa
   return forkJoin([
     readFileContent(configurationPath, 'utf-8').pipe(map(jsonToObject())),
     projectConfigurationJsonSchemaValidator$.pipe(
-      take(1),
+      first(),
       map(schemaValidator => validateWith(schemaValidator))
     ),
-  ]).pipe(switchMap(([json, validateWith]) => validateWith(json)));
+  ]).pipe(switchMap(([json, validate]) => validate(json)));
 }

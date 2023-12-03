@@ -1,5 +1,0 @@
-{
-  "extends": "../../../../conf/.eslintrc",
-  "rules": {},
-  "ignorePatterns": ["!**/*"]
-}

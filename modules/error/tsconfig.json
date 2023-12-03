@@ -6,7 +6,7 @@
       "path": "./error.tsconfig.library.json"
     },
     {
-      "path": "./error.tsconfig.specification.json"
+      "path": "./error.tsconfig.specifications.json"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../conf/tsconfig.browser.json",
-  "files": [],
   "references": [
     {
       "path": "./website.tsconfig.application.json"

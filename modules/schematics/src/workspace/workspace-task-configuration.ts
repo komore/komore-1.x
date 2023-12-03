@@ -1,13 +1,14 @@
 import { type PackageReferenceName } from '../package/reference/package-reference-name';
+import { type WorkspaceTaskConfigurationOptions } from './workspace-task-configuration-options';
 
 /**
  * Workspace task configuration
  */
 export interface WorkspaceTaskConfiguration {
   /**
-   * Options (TODO)
+   * Options
    */
-  readonly options?: unknown;
+  readonly options: WorkspaceTaskConfigurationOptions;
   /**
    * Task runner
    */

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../../../tsconfig.dom.json",
+  "extends": "../../conf/tsconfig.browser.json",
   "compilerOptions": {
     "lib": ["ES2021", "ES2021.intl", "DOM", "WebWorker"]
   },

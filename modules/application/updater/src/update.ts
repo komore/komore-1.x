@@ -1,8 +1,9 @@
 /**
  * Update
+ *
  * @template DataType
  */
-export type Update<DataType = undefined> = Readonly<{
-  hash: string;
-  data: DataType;
-}>;
+export interface Update<DataType = undefined> {
+  readonly hash: string;
+  readonly data: DataType;
+}

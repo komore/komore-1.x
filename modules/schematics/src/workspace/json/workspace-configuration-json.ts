@@ -1,12 +1,11 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type ProjectName } from '../../project/name/project-name';
 import { type TaskConfigurationJson } from '../../task/json/task-configuration-json';
-import { type TaskWorkspaceConfigurationJson } from './task-workspace-configuration-json';
 import { type workspaceConfigurationJson100SchemaVersionString } from './workspace-configuration-json-schema-version-string';
 import { type WorkspaceLayoutConfigurationJson } from './workspace-layout-configuration-json';
 import { type WorkspaceDefaultsConfigurationJson } from './workspace-defaults-configuration-json';
 import { type WorkspacePackageConfigurationJson } from './workspace-package-configuration-json';
+import { type WorkspaceTaskConfigurationJson } from './workspace-task-configuration-json';
 
 /**
  * Workspace configuration JSON
@@ -27,15 +26,15 @@ export interface WorkspaceConfigurationJson {
   /**
    * Workspace project configuration paths
    */
-  readonly projects?: ReadonlyRecord<ProjectName, string>;
+  readonly projects?: ReadonlyRecord<string, string>;
   /**
    * Schematics configuration
    */
   readonly schematics?: ReadonlyRecord<string, unknown>;
   /**
-   * Task workspace configuration
+   * Task configuration
    */
-  readonly task?: TaskWorkspaceConfigurationJson;
+  readonly task?: WorkspaceTaskConfigurationJson;
   /**
    * Workspace tasks
    */

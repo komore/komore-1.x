@@ -1,11 +1,12 @@
 {
-  "extends": "../../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./web-payment-testing.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./web-payment-testing.tsconfig.specifications.json"
     }
   ]
 }

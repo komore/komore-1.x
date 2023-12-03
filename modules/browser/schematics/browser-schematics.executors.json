@@ -1,0 +1,12 @@
+{
+  "build": {
+    "description": "Builds a browser application",
+    "documentation": "https://komore.dev/modules/browser/schematics/build",
+    "factory": "./src/executor/build/build-browser-application-executor#buildBrowserApplicationExecutor"
+  },
+  "serve": {
+    "description": "Serves a browser application",
+    "documentation": "https://komore.dev/modules/browser/schematics/serve",
+    "factory": "./src/executor/serve/serve-browser-application-executor#serveBrowserApplicationExecutor"
+  }
+}

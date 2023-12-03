@@ -1,5 +1,5 @@
-import { type LogAppender } from '@komore/observability/logging';
-import { type LogEventSeverity } from '@komore/observability/logging';
+import { type LogAppender } from '@komore/logging';
+import { type LogEventSeverity } from '@komore/logging';
 
 import { type BrowserConsoleSeverityRange } from '../severity/browser-console-severity-range';
 import { type BrowserConsoleAppenderOptions } from './browser-console-appender-options';

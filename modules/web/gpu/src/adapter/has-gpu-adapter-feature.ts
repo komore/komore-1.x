@@ -1,5 +1,6 @@
 /**
  * Returns a function that tests whether a GPU adapter has specific features
+ *
  * @param featureNames List of features
  * @returns Function that tests whether a GPU adapter has the specified features
  * @template FeatureNames Feature names

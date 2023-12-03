@@ -3,6 +3,7 @@ import { map, switchMap, throwUnless, type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
 
 import { type LocalPackageWithPackageJson } from '../../package/local-package-with-package-json';
+import { schematicsError } from '../../schematics.error';
 import { packageJsonToWorkspaceExecutorDescriptors } from '../package-json-to-workspace-executor-descriptors';
 import { type WorkspaceExecutorDescriptor } from '../workspace-executor-descriptor';
 import { workspaceExecutorDescriptorByExecutorName } from '../workspace-executor-descriptor-by-executor-name';
@@ -26,10 +27,7 @@ export function executorReferenceToExecutorDescriptor(
       // TODO: cache workspace executor descriptors
       switchMap(packageJsonToWorkspaceExecutorDescriptors(basePath)),
       map(descriptors => descriptors.find(workspaceExecutorDescriptorByExecutorName(executorName))),
-      throwUnless(
-        isDefined,
-        () => new Error(`TODO: can't find an executor "${executorName}" in package "${packageName}" bro`)
-      )
+      throwUnless(isDefined, () => schematicsError.executorNotFound({ executorName, packageName }))
     );
   };
 }

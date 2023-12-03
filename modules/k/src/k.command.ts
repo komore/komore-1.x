@@ -1,4 +1,5 @@
 import { commandProperties, createCommandType } from '@komore/command';
+import { type ProjectName, type TaskName } from '@komore/schematics';
 
 import { kDomain } from './k.domain';
 
@@ -15,7 +16,7 @@ export const kCommand = createCommandType(kDomain, {
   listGenerators: commandProperties(),
   listPackages: commandProperties(),
   listProjects: commandProperties(),
-  runExecutor: commandProperties<{}>(),
+  runExecutor: commandProperties<{ taskName: TaskName } & ({ projectName: ProjectName } | { all: true })>(),
   runGenerator: commandProperties<{}>(),
   // TODO: move to linting/schematics
   validateWorkspace: commandProperties(),

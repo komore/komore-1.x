@@ -17,11 +17,7 @@ export function normalizeHttpClientHeaders(...headersToCombine: ReadonlyArray<He
 }
 
 function headersInitToHeaderEntries(headers: HeadersInit): ReadonlyArray<readonly [name: string, value: string]> {
-  return headers instanceof Headers
-    ? Array.from(headers.entries())
-    : isArray(headers)
-    ? headers
-    : objectToEntries(headers);
+  return headers instanceof Headers ? [...headers.entries()] : isArray(headers) ? headers : objectToEntries(headers);
 }
 
 function headerEntriesToHeaders(headers: Headers, entry: readonly [name: string, value: string]): Headers {

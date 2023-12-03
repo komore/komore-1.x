@@ -93,6 +93,7 @@ export { tapError } from './operators/tap-error';
 export { tapErrorIf } from './operators/tap-error-if';
 export { tapNext } from './operators/tap-next';
 export { tapNextIf } from './operators/tap-next-if';
+export { tapSubscription } from './operators/tap-subscription';
 export { throwError } from './creation/throw-error';
 export { throwIf } from './operators/throw-if';
 export { throwIfEmpty } from './operators/throw-if-empty';

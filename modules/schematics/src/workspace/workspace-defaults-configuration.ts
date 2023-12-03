@@ -1,6 +1,8 @@
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type ProjectName } from '../project/project-name';
-import { type TaskConfiguration } from '../task/task-configuration';
+
+import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
+import { type ProjectName } from '../project/name/project-name';
+import { type TaskName } from '../task/name/task-name';
 
 /**
  * Workspace defaults configuration
@@ -17,5 +19,5 @@ export interface WorkspaceDefaultsConfiguration {
   /**
    * Default tasks
    */
-  readonly tasks: ReadonlyRecord<string, string | TaskConfiguration>;
+  readonly tasks: ReadonlyRecord<TaskName, ExecutorReferenceString>;
 }

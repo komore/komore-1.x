@@ -2,7 +2,8 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/command",
   "description": "Command definition and interfaces",
-  "keywords": [
-    "command"
-  ]
+  "keywords": ["command"],
+  "komore": {
+    "generators": "./schematics/command-schematics.generators.json"
+  }
 }

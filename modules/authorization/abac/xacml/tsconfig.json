@@ -1,11 +1,12 @@
 {
-  "extends": "../../../../tsconfig.base.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./authorization-abac-xacml.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./authorization-abac-xacml.tsconfig.specifications.json"
     }
   ]
 }

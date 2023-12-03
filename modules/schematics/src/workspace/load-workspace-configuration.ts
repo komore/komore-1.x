@@ -1,7 +1,7 @@
 import { mergeMap, type Observable } from '@komore/reactive';
 
 import { loadWorkspaceConfigurationJson } from './json/load-workspace-configuration-json';
-import { workspaceConfigurationJsonToWorkspaceConfiguration } from './json/workspace-configuration-json-to-workspace-configuration';
+import { workspaceConfigurationJsonToWorkspaceConfiguration } from './json/mapping/workspace-configuration-json-to-workspace-configuration';
 import { type WorkspaceConfiguration } from './workspace-configuration';
 
 /**

@@ -1,15 +1,12 @@
-import { isArray } from '@komore/collection';
-import { entriesToObject, objectToEntries } from '@komore/functional';
-import { type ReadonlyRecord } from '@komore/typescript';
+import { ObservableMap } from '@komore/reactive';
 
-import { type TaskConfigurationJson } from '../../task/json/task-configuration-json';
-import { taskConfigurationJsonEntryToTaskConfigurationEntry } from '../../task/json/task-configuration-json-entry-to-task-configuration-entry';
-import { type TaskConfiguration } from '../../task/task-configuration';
+import { type WorkspaceContext } from '../../context/workspace-context';
+import { taskNameToResolvedTaskConfiguration } from '../../task/resolution/task-name-to-resolved-task-configuration';
 import { type ProjectName } from '../name/project-name';
 import { type ProjectConfiguration } from '../project-configuration';
-import { type ProjectType } from '../project-type';
+import { asProjectTag } from '../tag/as-project-tag';
+import { validateProjectType } from '../type/validate-project-type';
 import { type ProjectConfigurationJson } from './project-configuration-json';
-import { type ProjectTaskConfigurationsJson } from './project-task-configurations-json';
 
 /**
  * Creates a function that returns a project configuration, given a project configuration JSON
@@ -18,50 +15,27 @@ import { type ProjectTaskConfigurationsJson } from './project-task-configuration
  * @returns Function that returns a project configuration, given a project configuration JSON
  */
 export function projectConfigurationJsonToProjectConfiguration(
+  workspaceContext: WorkspaceContext
+): (
   projectName: ProjectName,
   projectPath: string
-): (projectConfigurationJson: ProjectConfigurationJson) => ProjectConfiguration {
-  return ({ domain, tags = [], tasks = {}, type }) => {
-    if (domain === undefined) {
-      throw new Error('TODO: no domain specified');
-    }
+) => (projectConfigurationJson: ProjectConfigurationJson) => ProjectConfiguration {
+  const toTaskConfiguration = taskNameToResolvedTaskConfiguration(workspaceContext);
+  return (name, path) => projectConfigurationJson => {
+    const { domain, type } = projectConfigurationJson;
 
-    if (type === undefined) {
-      throw new Error('TODO: no project type specified');
-    }
+    const tags = projectConfigurationJson.tags?.map(asProjectTag) ?? [];
+    validateProjectType(type);
 
-    // TODO: validate project type
-
-    return {
+    const projectConfiguration: ProjectConfiguration = {
       domain,
-      name: projectName,
-      path: projectPath,
+      name,
+      path,
       tags,
-      tasks: normalizeProjectTaskConfigurations(projectName, tasks),
-      type: type as ProjectType,
+      tasks: new ObservableMap(taskName => toTaskConfiguration(taskName, projectConfiguration)),
+      type,
     };
-  };
-}
 
-/**
- * Normalizes a project's task configurations
- *
- * @param projectName Project name
- * @param taskConfigurations Task configurations
- * @returns Normalized project task configurations
- */
-function normalizeProjectTaskConfigurations(
-  projectName: ProjectName,
-  taskConfigurations: ProjectTaskConfigurationsJson
-): ReadonlyRecord<string, TaskConfiguration> {
-  // TODO: own .ts
-  const entries = (
-    isArray(taskConfigurations)
-      ? taskConfigurations.map(taskNameOrEntry =>
-          typeof taskNameOrEntry === 'string' ? ([taskNameOrEntry, undefined] as const) : taskNameOrEntry
-        )
-      : objectToEntries(taskConfigurations)
-  ) as ReadonlyArray<readonly [name: string, referenceOrConfiguration: string | TaskConfigurationJson]>;
-  const normalizedEntries = entries.map(taskConfigurationJsonEntryToTaskConfigurationEntry(projectName));
-  return entriesToObject(normalizedEntries);
+    return projectConfiguration;
+  };
 }

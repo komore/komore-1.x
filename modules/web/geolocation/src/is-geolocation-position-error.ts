@@ -1,5 +1,6 @@
 /**
  * Returns true if an object is a geolocation position error
+ *
  * @param obj Object
  * @returns true if the object is a geolocation position error
  */

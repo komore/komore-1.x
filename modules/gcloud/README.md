@@ -1,3 +1,3 @@
-# @komore/integration-gcloud
+# @komore/gcloud
 
 TODO.

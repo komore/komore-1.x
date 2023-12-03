@@ -1,7 +1,0 @@
-{
-  "name": "@komore/stack/schematics",
-  "description": "Schematics for the @komore/stack package",
-  "keywords": [
-    "schematics"
-  ]
-}

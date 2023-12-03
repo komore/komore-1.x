@@ -15,5 +15,5 @@ export function createSeverityLogFilter(
 ): LogFilter {
   const onMatch = options?.onMatch ?? 'accept';
   const onMismatch = options?.onMismatch ?? 'reject';
-  return ({ logEvent: { severity } }) => (severity === logEventSeverity ? onMatch : onMismatch);
+  return ({ event: { severity } }) => (severity === logEventSeverity ? onMatch : onMismatch);
 }

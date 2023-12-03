@@ -1,12 +1,13 @@
 import { isDefined } from '@komore/functional';
-import { concatMap, forkJoin, map, mergeMap, of, take, tapNext, type Observable } from '@komore/reactive';
+import { first, map, mergeMap, of, tapNext, type Observable } from '@komore/reactive';
 import { assert } from '@komore/runtime';
 import {
+  generateWorkspaceExecutorTaskId,
   projectNameToProjectConfiguration,
-  taskNameToTaskConfiguration,
   type WorkspaceContext,
 } from '@komore/schematics';
-import { isExecutorReferenceString } from 'modules/schematics/src/executor/is-executor-reference-string';
+import { isExecutorReferenceString } from '@komore/schematics';
+
 import { type TaskRunner } from './task-runner';
 
 /**
@@ -19,53 +20,56 @@ import { type TaskRunner } from './task-runner';
 export function createTaskRunner(_options: unknown, workspaceContext: WorkspaceContext): Observable<TaskRunner> {
   // TODO: dispatch among workers
   const toProjectConfiguration = projectNameToProjectConfiguration(workspaceContext);
+  const { byReferenceString } = workspaceContext.schematics.executor;
+  const parallelism = 1;
 
   const taskRunner: TaskRunner = $ =>
     $.pipe(
-      tapNext(({ projectName, taskName }) => `attempting to run task ${taskName} of ${projectName}`),
-      concatMap(({ projectName, taskName }) =>
-        toProjectConfiguration(projectName).pipe(
-          take(1),
-          map(projectConfiguration => {
-            const taskConfiguration = taskNameToTaskConfiguration(projectConfiguration)(taskName);
-            console.log(taskName, taskConfiguration);
-            return {
-              projectName,
-              projectConfiguration,
-              taskName,
-              taskConfiguration,
-            };
-          })
-        )
+      tapNext(({ projectName, taskName }) => `attempting to run task "${taskName}" on project "${projectName}"...`),
+      mergeMap(
+        ({ projectName, taskName }) =>
+          toProjectConfiguration(projectName).pipe(
+            first(),
+            mergeMap(projectConfiguration =>
+              projectConfiguration.tasks.get(taskName).pipe(
+                map(taskConfiguration => ({
+                  projectName,
+                  projectConfiguration,
+                  taskName,
+                  taskConfiguration,
+                }))
+              )
+            )
+          ),
+        parallelism
       ),
-      mergeMap(({ projectName, projectConfiguration, taskName, taskConfiguration }) => {
+      mergeMap(({ projectName, projectConfiguration: _, taskName, taskConfiguration }) => {
         const { executor: executorReferenceString } = taskConfiguration;
-        console.log('executor', executorReferenceString, taskConfiguration);
+
         if (!isExecutorReferenceString(executorReferenceString)) {
+          console.log('not implemented', executorReferenceString);
           throw new Error(`composite executors not implemented (todo: typed)`);
         }
 
-        const workspaceContextExecutor$ =
-          workspaceContext.schematics.executor.byReferenceString.get(executorReferenceString);
+        const workspaceContextExecutor$ = byReferenceString.get(executorReferenceString);
         assert(isDefined(workspaceContextExecutor$));
 
-        console.log(`running task ${taskName} of ${projectName}`, taskConfiguration, executorReferenceString);
+        console.log(`running task "${taskName}" (${executorReferenceString}) on project "${projectName}"...`);
 
         return workspaceContextExecutor$.pipe(
-          take(1),
-          mergeMap(workspaceContextExecutor => {
-            const taskConfiguration$ = workspaceContextExecutor.defaultTaskGenerator.pipe(
-              take(1),
-              mergeMap(defaultTaskGenerator => defaultTaskGenerator(projectConfiguration, workspaceContext))
-            );
-            const executor$ = workspaceContextExecutor.factory.pipe(
-              take(1),
-              mergeMap(createExecutor => createExecutor())
-            );
-            return forkJoin([taskConfiguration$, executor$]);
-          }),
-          tapNext(([taskConfiguration, executor]) => console.log('and got x', taskConfiguration, executor)),
-          mergeMap(([taskConfiguration, executor]) => executor(of(taskConfiguration.options)))
+          first(),
+          mergeMap(workspaceContextExecutor =>
+            workspaceContextExecutor.factory.pipe(
+              first(),
+              mergeMap(createExecutor => createExecutor({}))
+            )
+          ),
+          mergeMap(executor => {
+            const taskId = generateWorkspaceExecutorTaskId();
+            const options = taskConfiguration.options ?? {};
+            const opts = { taskId, ...options };
+            return executor(of(opts));
+          })
         );
       })
     );

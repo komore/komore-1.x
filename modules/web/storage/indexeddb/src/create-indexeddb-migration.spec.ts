@@ -1,15 +1,19 @@
-import { type Observable, of } from '@komore/reactive';
+import { of } from '@komore/reactive';
+import { feature } from '@komore/testing';
+
 import { createIDBMigration } from './create-indexeddb-migration';
 
-describe('Create IndexedDB migration', () => {
-  it('creates an IndexedDB migration object', () => {
-    given: 'a version and script'
+feature('Create IndexedDB migration', {
+  'creates an IndexedDB migration object'() {
+    given: 'a version and script';
     const version = 1;
-    const script = (_: IDBDatabase): Observable<void> => of(undefined);
-    when: 'creating an IndexedDB migration'
+    const script: Parameters<typeof createIDBMigration>[1] = () => of(undefined);
+
+    when: 'creating an IndexedDB migration';
     const idbMigration = createIDBMigration(version, script);
-    then: 'an IndexedDB migration object is properly created'
-    expect(idbMigration.version).toBe(version);
-    expect(idbMigration.script).toBe(script);
-  });
+
+    then: 'an IndexedDB migration object is properly created';
+    idbMigration.version === version;
+    idbMigration.script === script;
+  },
 });

@@ -1,4 +1,3 @@
-export { todo } from './dsl/todo';
 export { example } from './dsl/example';
 export { expectCalled } from './expect/expect-called';
 export { expectDefined } from './expect/expect-defined';
@@ -22,3 +21,4 @@ export { rule } from './dsl/rule';
 export { scenario } from './dsl/scenario';
 export { type MockFunction } from './mock/mock-function';
 export { thrown } from './expect/thrown';
+export { todo } from './dsl/todo';

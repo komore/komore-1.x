@@ -1,6 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type ProjectName } from '../project/name/project-name';
+import { type TaskName } from '../task/name/task-name';
 import { type TaskConfiguration } from '../task/task-configuration';
 import { type WorkspaceConfigurationSchemaVersionString } from './schema/workspace-configuration-schema-version-string';
 import { type WorkspaceDefaultsConfiguration } from './workspace-defaults-configuration';
@@ -39,7 +40,7 @@ export interface WorkspaceConfiguration {
   /**
    * Workspace tasks configuration
    */
-  readonly tasks: ReadonlyRecord<string, TaskConfiguration>;
+  readonly tasks: ReadonlyRecord<TaskName, TaskConfiguration>;
   /**
    * Workspace configuration schema version
    */

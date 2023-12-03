@@ -3,10 +3,10 @@
   "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./typescript-compiler.tsconfig.library.json"
+      "path": "./typescriptcompiler.tsconfig.library.json"
     },
     {
-      "path": "./typescript-compiler.tsconfig.specifications.json"
+      "path": "./typescriptcompiler.tsconfig.specifications.json"
     }
   ]
 }

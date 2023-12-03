@@ -1,0 +1,18 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
+  "build": {
+    "description": "Builds a function",
+    "documentation": "https://komore.dev/modules/function/schematics/executors/build",
+    "factory": "./src/executor/build/build-function-executor#buildFunctionExecutor"
+  },
+  "package": {
+    "description": "Packages a function",
+    "documentation": "https://komore.dev/modules/function/schematics/executors/package",
+    "factory": "./src/executor/serve/serve-function-executor#serveFunctionExecutor"
+  },
+  "serve": {
+    "description": "Serves a function",
+    "documentation": "https://komore.dev/modules/function/schematics/executors/serve",
+    "factory": "./src/executor/serve/serve-function-executor#serveFunctionExecutor"
+  }
+}

@@ -1,4 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/browser"
+  "name": "@komore/browser",
+  "komore": {
+    "executors": "./schematics/browser-schematics.executors.json",
+    "generators": "./schematics/browser-schematics.generators.json"
+  }
 }

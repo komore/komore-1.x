@@ -30,34 +30,33 @@ import { buildWorkspaceContextPackageList } from './build-workspace-context-pack
 import { type WorkspaceContextPackage } from './workspace-context-package';
 
 /**
- * Builds a workspace context package
+ * Returns a function that builds a workspace context package
  *
  * @param basePath Base path
- * @param tsConfigBase TypeScript base configuration
- * @param workspaceConfiguration Workspace configuration
- * @returns Workspace context package
+ * @returns Function that builds a workspace context package
  */
 export function buildWorkspaceContextPackage(
-  basePath: string,
-  tsConfigBase: Observable<TsConfigJson>,
-  workspaceConfiguration: WorkspaceConfiguration
-): WorkspaceContextPackage {
+  basePath: string
+): (tsConfigBase: Observable<TsConfigJson>, workspaceConfiguration: WorkspaceConfiguration) => WorkspaceContextPackage {
   const packageJsonPath = join(basePath, 'package.json');
   const json = readPackageJson(packageJsonPath).pipe(cache());
-  const manager = createPackageManager(basePath, workspaceConfiguration.package.manager).pipe(cache());
-  const installed = manager.pipe(mergeMap(packageManagerToPackageList), cache());
-  const local = tsConfigBase.pipe(mergeMap(tsConfigToLocalPackages(basePath)), cache());
-  const all = combineLatest([installed, local]).pipe(map(arrayToFlattenedArray()), cache());
-  const byName = new ObservableMap(packageByName(all));
-  const byNameWithPackageJson = new ObservableMap(packageWithPackageJsonByName(byName));
-  const list = buildWorkspaceContextPackageList(all, installed, local, byNameWithPackageJson);
 
-  return {
-    byName,
-    byNameWithPackageJson,
-    json,
-    list,
-    manager,
+  return (tsConfigBase, workspaceConfiguration) => {
+    const manager = createPackageManager(basePath, workspaceConfiguration.package.manager).pipe(cache());
+    const installed = manager.pipe(mergeMap(packageManagerToPackageList), cache());
+    const local = tsConfigBase.pipe(mergeMap(tsConfigToLocalPackages(basePath)), cache());
+    const all = combineLatest([installed, local]).pipe(map(arrayToFlattenedArray()), cache());
+    const byName = new ObservableMap(packageByName(all));
+    const byNameWithPackageJson = new ObservableMap(packageWithPackageJsonByName(byName));
+    const list = buildWorkspaceContextPackageList(all, installed, local, byNameWithPackageJson);
+
+    return {
+      byName,
+      byNameWithPackageJson,
+      json,
+      list,
+      manager,
+    };
   };
 }
 

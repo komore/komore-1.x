@@ -1,5 +1,5 @@
-import { type ProjectName } from '../project/project-name';
-import { type TaskName } from './task-name';
+import { type ProjectName } from '../../project/name/project-name';
+import { type TaskName } from '../name/task-name';
 
 /**
  * Task reference

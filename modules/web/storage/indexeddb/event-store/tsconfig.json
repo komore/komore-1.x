@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../../conf/tsconfig.browser.json",
+  "references": [
+    {
+      "path": "./web-storage-indexeddb-eventstore.tsconfig.library.json"
+    },
+    {
+      "path": "./web-storage-indexeddb-eventstore.tsconfig.specifications.json"
+    }
+  ]
+}

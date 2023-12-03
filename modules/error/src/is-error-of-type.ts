@@ -1,4 +1,6 @@
-import { type ErrorFromCreator } from './creator/error-from-creator';
+import { type TypeCreator } from '@komore/typescript';
+
+import { type ErrorCreator } from './creator/error-creator';
 import { isKomoreError } from './is-komore-error';
 import { type ErrorFromType } from './type/error-from-type';
 import { type GenericErrorType } from './type/generic-error-type';
@@ -15,34 +17,37 @@ export function isErrorOfType<ErrorType extends GenericErrorType>(
 ): (error: unknown) => error is ErrorFromType<ErrorType>;
 
 /**
- * Creates a function that tests whether an error is of a specific type and name
+ * Creates a function that tests whether an error is of a specific type and code
  *
  * @param errorType Error type
- * @param errorCode Error code
- * @returns Function that tests whether an error is of a specific type and name
- * @template ErrorType Error type
- * @template ErrorCode Error code
+ * @returns Function that tests whether an error is of a specific type and code
+ * @template ErrorCreatorType Error creator type
  */
-export function isErrorOfType<ErrorType extends GenericErrorType, ErrorCode extends keyof ErrorType & string>(
-  errorType: ErrorType,
-  errorCode: ErrorCode
-): (error: unknown) => error is ErrorFromCreator<ErrorType[ErrorCode]>;
+export function isErrorOfType<ErrorCreatorType extends ErrorCreator<string, TypeCreator<any, any>>>(
+  errorType: ErrorCreatorType
+): (error: unknown) => error is ReturnType<ErrorCreatorType>;
 
 export function isErrorOfType<
-  ErrorType extends GenericErrorType,
-  ErrorCode extends keyof ErrorType & string = keyof ErrorType & string,
->(errorType: ErrorType, errorCode?: ErrorCode): (error: unknown) => error is ErrorFromCreator<ErrorType[ErrorCode]> {
-  return (error): error is ErrorFromCreator<ErrorType[ErrorCode]> => {
-    if (!isKomoreError(error)) {
-      return false;
-    }
+  ErrorTypeOrCreatorType extends GenericErrorType | ErrorCreator<string, TypeCreator<any, any>>,
+>(errorType: ErrorTypeOrCreatorType): (error: unknown) => boolean {
+  if ('code' in errorType) {
+    const { code } = errorType;
+    // TODO: include domain
+    return error => isKomoreError(error) && error.code === code;
+  } else {
+    return error => {
+      if (!isKomoreError(error)) {
+        return false;
+      }
 
-    // TODO:
-    // this doesn't check for collisions with similar error codes across types/domains
-    // keep the domain as an internal symbol in the error type?
-    // keep the type as an internal symbol in the error instance?
-    // (keeping the type directly on the error instance can cause cyclic issues)
-    const { code } = error;
-    return code in errorType && (errorCode === undefined || code === errorCode);
-  };
+      // TODO:
+      // this doesn't check for collisions with similar error codes across types/domains
+      // keep the domain as an internal symbol in the error type?
+      // keep the type as an internal symbol in the error instance?
+      // (keeping the type directly on the error instance can cause cyclic issues)
+      // support expected code(s) as an optional param?
+      const { code } = error;
+      return code in errorType;
+    };
+  }
 }

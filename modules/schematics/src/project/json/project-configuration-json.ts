@@ -7,17 +7,17 @@ export interface ProjectConfigurationJson {
   /**
    * Domain
    */
-  readonly domain?: string;
-  /**
-   * Tasks
-   */
-  readonly tasks?: ProjectTaskConfigurationsJson;
+  readonly domain: string;
   /**
    * List of tags
    */
   readonly tags?: ReadonlyArray<string>;
   /**
+   * Tasks
+   */
+  readonly tasks?: ProjectTaskConfigurationsJson;
+  /**
    * Project type
    */
-  readonly type?: string;
+  readonly type: string;
 }

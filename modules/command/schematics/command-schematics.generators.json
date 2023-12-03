@@ -1,0 +1,8 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "command": {
+    "description": "Generates a command type",
+    "factory": "./src/generators/command/command-generator",
+    "schema": "./src/generators/command/command-generator-schema.json"
+  }
+}

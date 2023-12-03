@@ -3,7 +3,7 @@
  *
  * @template OptionsType Options type
  */
-export interface TaskConfigurationJson<OptionsType = undefined> {
+export interface TaskConfigurationJson<OptionsType = unknown> {
   /**
    * Explicit list of task names or task reference strings
    */

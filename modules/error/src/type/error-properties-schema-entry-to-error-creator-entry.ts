@@ -22,6 +22,7 @@ export function errorPropertiesSchemaEntryToErrorCreatorEntry<DomainType extends
       typeof code,
       TypeCreator<any, any>
     >;
+    Object.defineProperty(creator, 'code', { enumerable: true, value: code, writable: false });
     return [code, creator];
   };
 }

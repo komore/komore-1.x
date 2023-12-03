@@ -1,0 +1,10 @@
+{
+  "build": {
+    "description": "Builds an element",
+    "factory": "./src/executor/build/build-element-executor#buildElementExecutor"
+  },
+  "serve": {
+    "description": "Serves an element",
+    "factory": "./src/executor/serve/serve-element-executor#serveElementExecutor"
+  }
+}

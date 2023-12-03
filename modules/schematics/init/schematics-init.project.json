@@ -1,0 +1,6 @@
+{
+  "domain": "schematics",
+  "type": "library",
+  "tags": ["trait:schematics"],
+  "tasks": ["build", "documentation", "lint", "test"]
+}

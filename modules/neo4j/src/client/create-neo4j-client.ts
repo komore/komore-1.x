@@ -10,14 +10,13 @@ import { type Neo4jClientOptions } from './neo4j-client-options';
  * @returns Neo4j client
  */
 export function createNeo4JClient(options: Neo4jClientOptions): Neo4jClient {
-  const { apiEndpointUrl, credentials, databaseName, logger } = options;
+  const { credentials, databaseName, endpointUrl } = options;
   const { userName, password } = credentials;
-  const url = apiEndpointUrl.toString();
+  const url = endpointUrl.toString();
   const authToken = auth.basic(userName, password);
   const driver = createNeo4JDriver(url, authToken);
   return {
     databaseName,
     driver,
-    logger,
   };
 }

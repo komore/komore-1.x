@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 import { arrayToElementAt, arrayToFlattenedArray, each } from '@komore/collection';
 import { isDefined, objectToEntries } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
@@ -36,12 +38,17 @@ function pnpmDependencyGroupToInstalledPackages(dependencyGroup: PnpmDependencyG
 function pnpmDependencyJsonToInstalledPackage(
   dependencyType: PackageDependencyType
 ): (entry: readonly [name: PackageName, dependencyJson: PnpmDependencyJson]) => InstalledPackage {
-  return ([name, { from, version }]) => ({
-    dependencyType,
-    name,
-    path: `node_modules/${from}`,
-    version,
-  });
+  return ([name, { from, version }]) => {
+    const path = join('node_modules', from);
+    const packageJsonPath = join(path, 'package.json');
+    return {
+      dependencyType,
+      name,
+      packageJsonPath,
+      path,
+      version,
+    };
+  };
 }
 
 /**

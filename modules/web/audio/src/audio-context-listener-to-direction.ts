@@ -2,6 +2,7 @@ import { type AudioVector } from './audio-vector';
 
 /**
  * Creates a function that mutates an audio context's listener forward and up vectors to a set of coordinates
+ *
  * @param forward Forward vector
  * @param up Up vector
  * @returns Function that mutates an audio context's listener forward and up vector to the set of coordinates

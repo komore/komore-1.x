@@ -1,24 +1,13 @@
-import { type Temporal } from '@js-temporal/polyfill';
-import { type LogEvent } from '../event/log-event';
-import { type LogGroup } from '../group/log-group';
+import { type Temporal } from '@komore/temporal';
+
+import { type GenericLogEvent } from '../event/generic-log-event';
 
 /**
  * Log event record
- *
- * @template LogEventType Log event type
  */
-export interface LogEventRecord<
-  LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>
-> {
-  readonly logContext: Record<string, unknown>;
-  readonly logEvent: LogEventType;
+export interface LogEventRecord {
+  readonly context: Record<string, unknown>;
+  readonly event: GenericLogEvent;
   readonly message: string;
   readonly timestamp: Temporal.PlainDateTime;
 }
-
-/**
- * Untyped log event record
- */
-export type UntypedLogEventRecord = LogEventRecord<
-  LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>
->;

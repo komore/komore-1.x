@@ -1,3 +1,1 @@
-# komore Integration - Sendgrid
-
-TODO.
+# @komore/sendgrid

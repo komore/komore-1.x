@@ -1,62 +1,32 @@
-import { isExecutorReferenceString } from '../../executor/reference/is-executor-reference-string';
-import { type ProjectName } from '../../project/name/project-name';
+import { map, type Observable } from '@komore/reactive';
+
+import { type WorkspaceContext } from '../../context/workspace-context';
 import { schematicsError } from '../../schematics.error';
 import { isTaskName } from '../name/is-task-name';
-import { type TaskName } from '../name/task-name';
-import { isTaskReferenceString } from '../reference/is-task-reference-string';
-import { type TaskReferenceString } from '../reference/task-reference-string';
-import { type TaskConfiguration } from '../task-configuration';
-import { type TaskConfigurationJson } from './task-configuration-json';
+import { type TaskConfigurationEntry } from '../task-configuration-entry';
+import { type TaskConfigurationJsonEntry } from './task-configuration-json-entry';
+import { taskConfigurationJsonEntryToResolvedTaskConfiguration } from './task-configuration-json-entry-to-resolved-task-configuration';
 
 /**
  * Creates a function that returns a valid task configuration entry, given a task configuration JSON entry
  *
- * @param projectName Project name
+ * @param workspaceContext Workspace context
  * @returns Function that returns a valid task configuration entry, given a task configuration JSON entry
  */
 export function taskConfigurationJsonEntryToTaskConfigurationEntry(
-  _projectName: ProjectName | undefined
-): (
-  entry: readonly [taskName: string, taskReferenceOrConfigurationJson: string | TaskConfigurationJson]
-) => readonly [taskName: TaskName, configuration: TaskConfiguration] {
-  return ([taskName, taskReferenceOrConfigurationJson]) => {
+  workspaceContext: WorkspaceContext
+): (entry: TaskConfigurationJsonEntry) => Observable<TaskConfigurationEntry> {
+  const toResolvedTaskConfigurationJson = taskConfigurationJsonEntryToResolvedTaskConfiguration(workspaceContext);
+
+  return ([taskName, projectConfiguration, executorReferenceStringOrTaskConfigurationJson]) => {
     if (!isTaskName(taskName)) {
       throw schematicsError.invalidTaskName({ value: taskName });
     }
 
-    if (typeof taskReferenceOrConfigurationJson === 'string') {
-      // TODO: proper error
-      throw new Error(`task reference not supported here with "${taskReferenceOrConfigurationJson}"`);
-    }
-
-    const { dependencies = [], executor, inputs = [], outputs = [], options } = taskReferenceOrConfigurationJson;
-
-    validateDependencies(taskName, dependencies);
-
-    if (!isExecutorReferenceString(executor)) {
-      throw schematicsError.invalidTaskExecutor({ executor, taskName });
-    }
-
-    return [
+    return toResolvedTaskConfigurationJson(
       taskName,
-      {
-        dependencies,
-        executor,
-        inputs,
-        outputs,
-        options,
-      },
-    ];
+      projectConfiguration,
+      executorReferenceStringOrTaskConfigurationJson
+    ).pipe(map(taskConfiguration => [taskName, taskConfiguration]));
   };
-}
-
-function validateDependencies(
-  taskName: TaskName,
-  dependencies: ReadonlyArray<string>
-): asserts dependencies is ReadonlyArray<TaskReferenceString> {
-  for (const dependency of dependencies) {
-    if (!isTaskReferenceString(dependency)) {
-      throw schematicsError.invalidTaskDependency({ dependency, taskName });
-    }
-  }
 }

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
+  "build": {
+    "description": "Builds a project's documentation",
+    "factory": "./src/executor/build/build-documentation-executor#buildDocumentationExecutor"
+  },
+  "serve": {
+    "description": "Serves a project's documentation",
+    "factory": "./src/executor/serve/serve-documentation-executor#serveDocumentationExecutor"
+  }
+}

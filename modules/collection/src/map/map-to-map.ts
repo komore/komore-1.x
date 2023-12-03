@@ -9,7 +9,7 @@ export function mapToMap<KS, VS, K, V>(
   map: ReadonlyMap<KS, VS>,
   mapper: (entry: readonly [key: KS, value: VS]) => readonly [key: K, value: V]
 ): Map<K, V> {
-  const originalEntries = Array.from(map.entries());
+  const originalEntries = [...map.entries()];
   const newEntries = originalEntries.map(mapper);
   return new Map(newEntries);
 }

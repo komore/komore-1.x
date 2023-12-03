@@ -2,5 +2,8 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/error",
   "description": "Error functions",
-  "keywords": ["error"]
+  "keywords": ["error"],
+  "komore": {
+    "generators": "./schematics/error-schematics.generators.json"
+  }
 }

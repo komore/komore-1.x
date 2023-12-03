@@ -7,7 +7,7 @@ import { type LintModuleExecutorOptions } from './lint-module-executor-options';
 /**
  * Lint module executor factory
  */
-export const createLintModuleExecutor = createWorkspaceExecutorFactory<LintModuleExecutorOptions>(({ logger: _ }) =>
+export const createLintModuleExecutor = createWorkspaceExecutorFactory<LintModuleExecutorOptions>(() =>
   createWorkspaceExecutor(options$ =>
     options$.pipe(
       mergeMap(({ eslintConfig, filesPattern, taskId, tsConfig, watch }) =>

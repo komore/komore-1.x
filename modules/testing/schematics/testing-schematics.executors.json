@@ -1,14 +1,14 @@
 {
   "merge": {
     "description": "Merges test results",
-    "main": "./src/executor/merge/merge-test-executor#mergeTestExecutor"
+    "factory": "./src/executor/merge/merge-test-executor#mergeTestExecutor"
   },
   "publish": {
     "description": "Publishes test results",
-    "main": "./src/executor/publish/publish-test-executor#publishTestExecutor"
+    "factory": "./src/executor/publish/publish-test-executor#publishTestExecutor"
   },
   "test": {
     "description": "Tests a project",
-    "main": "./src/executor/test/test-executor#testExecutor"
+    "factory": "./src/executor/test/test-executor#testExecutor"
   }
 }

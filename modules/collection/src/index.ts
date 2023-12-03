@@ -14,6 +14,7 @@ export { each } from './each';
 export { isArray } from './array/is-array';
 export { isArrayEmpty } from './array/is-array-empty';
 export { isArrayLengthBetween } from './array/is-array-length-between';
+export { isArrayOfLength } from './array/is-array-of-length';
 export { mapToMap } from './map/map-to-map';
 export { mapToValue } from './map/map-to-value';
 // TODO: find a better name/place

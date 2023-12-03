@@ -1,8 +1,8 @@
 import { ESLint, type Linter } from 'eslint';
-import { resolve } from 'path';
+import { dirname } from 'path';
 
 import { jsonToObject } from '@komore/json';
-import { readFileContent } from '@komore/node';
+import { readFileContent } from '@komore/node/file-system';
 import { endWith, fromArray, fromPromise, map, mergeMap, startWith, type Observable } from '@komore/reactive';
 import { createWorkspaceExecutorEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
 
@@ -20,13 +20,14 @@ import { eslintResultWithIssues } from './result/eslint-result-with-issues';
  */
 export function lintModule(options: LintModuleOptions): Observable<GenericWorkspaceExecutorEvent> {
   const { paths, taskId, watch } = options;
-  const { eslintConfig, filesPattern, tsConfig: _tsconfig } = paths;
-  const basePath = resolve('modules/collection'); // TODO: come from input
+  const { eslintConfig, filesPattern, tsConfig } = paths;
+  const basePath = dirname(eslintConfig);
+  console.log('bout to lint a module', options);
   // TODO: watchFileContent + run ESLint in watch mode
   const fileContent$ = watch ? readFileContent(eslintConfig, 'utf-8') : readFileContent(eslintConfig, 'utf-8');
   return fileContent$.pipe(
     map(jsonToObject<Linter.Config>()),
-    map(linterConfigToPreparedLinterConfig(basePath)),
+    map(linterConfigToPreparedLinterConfig(tsConfig)),
     map(overrideConfig => new ESLint({ cwd: basePath, overrideConfig })),
     mergeMap(eslint => fromPromise(eslint.lintFiles(filesPattern))),
     map(results => results.filter(eslintResultWithIssues)),

@@ -1,5 +1,7 @@
 export { closeFile } from './close-file';
 export { isFileAccessible } from './is-file-accessible';
+export { nodeFileSystemDomain } from './node-file-system.domain';
+export { nodeFileSystemError } from './node-file-system.error';
 export { observeDirectory } from './observe-directory';
 export { observeFile } from './observe-file';
 export { observeFileContent } from './observe-file-content';

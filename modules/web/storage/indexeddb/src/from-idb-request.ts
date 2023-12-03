@@ -24,19 +24,20 @@ function assertIDBRequestEvent<T>(event: Event): asserts event is IDBRequestEven
 
 /**
  * Builds an observable IndexedDB request
+ *
  * @param idbRequest IndexedDB request
  * @returns Observable IndexedDB request
  */
 export function fromIDBRequest<T>(idbRequest: IDBRequest<T>): Observable<T> {
-  return new Observable<T>(observer => {
+  return new Observable<T>(subscriber => {
     idbRequest.onsuccess = event => {
       assertIDBRequestEvent<T>(event);
-      observer.next(event.target.result);
-      observer.complete();
+      subscriber.next(event.target.result);
+      subscriber.complete();
     };
 
-    idbRequest.onerror = error => observer.error(error);
+    idbRequest.onerror = error => subscriber.error(error);
 
-    // TODO: return () => remove handlers
+    // TODO: subscriber.add(() => remove handlers);
   });
 }

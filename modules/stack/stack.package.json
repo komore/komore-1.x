@@ -1,0 +1,10 @@
+{
+  "name": "@komore/stack",
+  "description": "Infrastructure provisioning and deployment using OpenTofu",
+  "keywords": ["stack", "opentofu"],
+  "komore": {
+    "commands": "./schematics/stack-schematics.commands.json",
+    "executors": "./schematics/stack-schematics.executors.json",
+    "generators": "./schematics/stack-schematics.generators.json"
+  }
+}

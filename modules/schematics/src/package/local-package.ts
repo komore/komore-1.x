@@ -9,6 +9,10 @@ export interface LocalPackage {
    */
   readonly name: PackageName;
   /**
+   * package.json file path
+   */
+  readonly packageJsonPath: string;
+  /**
    * Package path
    */
   readonly path: string;

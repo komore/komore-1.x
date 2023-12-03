@@ -10,7 +10,7 @@ import { type TimestampSeverityLogEncoderOptions } from './timestamp-severity-lo
  */
 export function createTimestampSeverityEncoder(options?: TimestampSeverityLogEncoderOptions): LogEncoder {
   const severityNames = options?.severityNames ?? getDefaultLogSeverityNames();
-  return ({ message, logEvent: { severity }, timestamp }) => {
+  return ({ message, event: { severity }, timestamp }) => {
     const date = timestamp.toString();
     const severityName = severityNames.get(severity) ?? severity;
     return `${date} ${severityName} ${message}`;

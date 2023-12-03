@@ -1,10 +1,12 @@
-import { cache, map, type Observable } from '@komore/reactive';
 import { join } from 'path';
+
+import { cache, map, type Observable } from '@komore/reactive';
+
 import { readTsConfigJson } from '../typescript/read-tsconfig-json';
 import { loadWorkspaceConfiguration } from '../workspace/load-workspace-configuration';
 import { buildWorkspaceContextPackage } from './build-workspace-context-package';
-import { buildWorkspaceContextProject } from './build-workspace-context-project';
 import { buildWorkspaceContextSchematics } from './build-workspace-context-schematics';
+import { workspaceConfigurationToWorkspaceContextProject } from './workspace-configuration-to-workspace-context-project';
 import { type WorkspaceContext } from './workspace-context';
 
 /**
@@ -14,25 +16,31 @@ import { type WorkspaceContext } from './workspace-context';
  * @returns Workspace context
  */
 export function createWorkspaceContext(basePath: string): Observable<WorkspaceContext> {
+  const buildContextPackage = buildWorkspaceContextPackage(basePath);
+  const buildContextSchematics = buildWorkspaceContextSchematics(basePath);
+  // TODO: avoid hardcoded tsconfig.base.json path
+  const tsConfigBasePath = join(basePath, 'conf/tsconfig.base.json');
+  const tsConfigBase = readTsConfigJson(tsConfigBasePath).pipe(cache());
+  const buildWorkspaceContextProject = workspaceConfigurationToWorkspaceContextProject(basePath);
+
+  // TODO: shouldn't be the one responsible for loading the workspace configuration
   return loadWorkspaceConfiguration(basePath).pipe(
     map(configuration => {
-      // TODO: avoid hardcoded tsconfig.base.json path
-      const tsConfigBasePath = join(basePath, 'conf/tsconfig.base.json');
-      const tsConfigBase = readTsConfigJson(tsConfigBasePath).pipe(cache());
-      const contextPackage = buildWorkspaceContextPackage(basePath, tsConfigBase, configuration);
-      const project = buildWorkspaceContextProject(configuration, basePath);
-      const schematics = buildWorkspaceContextSchematics(basePath, contextPackage);
+      const contextPackage = buildContextPackage(tsConfigBase, configuration);
+      const schematics = buildContextSchematics(contextPackage);
+      const watch = false;
       const workspaceContext: WorkspaceContext = {
         basePath,
         configuration,
         package: contextPackage,
-        project,
+        project: buildWorkspaceContextProject(configuration, () => workspaceContext),
         schematics,
         ts: {
           tsConfigBase,
         },
-        watch: false,
+        watch,
       };
+
       return workspaceContext;
     })
   );

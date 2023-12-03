@@ -1,7 +1,5 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type TaskConfigurationJson } from '../../task/json/task-configuration-json';
-
 /**
  * Workspace defaults configuration JSON
  */
@@ -17,5 +15,5 @@ export interface WorkspaceDefaultsConfigurationJson {
   /**
    * Default tasks
    */
-  readonly tasks?: ReadonlyArray<string> | ReadonlyRecord<string, string | TaskConfigurationJson>;
+  readonly tasks?: ReadonlyRecord<string, string>;
 }

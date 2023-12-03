@@ -1,6 +1,6 @@
-import { type PackageName } from '../package/package-name';
-import { PackageReferenceName } from '../package/package-reference-name';
-import { type GeneratorName } from './generator-name';
+import { type PackageName } from '../package/name/package-name';
+import { type PackageReferenceName } from '../package/reference/package-reference-name';
+import { type GeneratorName } from './name/generator-name';
 
 /**
  * Workspace generator descriptor
@@ -9,7 +9,11 @@ export interface WorkspaceGeneratorDescriptor {
   /**
    * Description
    */
-  readonly description: string;
+  readonly description?: string;
+  /**
+   * Documentation
+   */
+  readonly documentation?: string;
   /**
    * Entry-point
    */
@@ -34,7 +38,7 @@ export interface WorkspaceGeneratorDescriptor {
   /**
    * Parameters options
    */
-  readonly parameters: {
+  readonly options: {
     /**
      * Defaults factory
      */

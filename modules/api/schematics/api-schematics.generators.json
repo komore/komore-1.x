@@ -1,0 +1,8 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "api": {
+    "description": "Generates an API",
+    "factory": "./src/generators/api/api-generator",
+    "schema": "./src/generators/api/api-generator-schema.json"
+  }
+}

@@ -7,7 +7,7 @@ import { stylePropertyValueToCustomPropertyDefinitions } from './style-property-
  */
 export function cssStyleRuleToPropertyDefinitions(cssStyleRule: CSSStyleRule): ReadonlyArray<PropertyDefinition> {
   const cssStyleDeclaration = cssStyleRule.style;
-  return Array.from(cssStyleDeclaration)
+  return [...cssStyleDeclaration]
     .map(propertyNameToPropertyValueOf(cssStyleDeclaration))
     .flatMap(stylePropertyValueToCustomPropertyDefinitions);
 }

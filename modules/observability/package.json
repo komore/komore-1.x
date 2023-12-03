@@ -1,6 +1,0 @@
-{
-  "name": "@komore/observability",
-  "komore": {
-    "generators": "./schematics/observability-generators.json"
-  }
-}

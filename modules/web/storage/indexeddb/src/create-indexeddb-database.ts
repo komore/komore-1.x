@@ -1,10 +1,12 @@
 import { type Observable } from '@komore/reactive';
 import { concat, concatMap, defer, EMPTY, fromEvent, ignoreValues, map, of, race, shareReplay } from '@komore/reactive';
+
 import { type IndexedDBDatabaseOptions } from './indexeddb-database-options';
 import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
 
 /**
  * Creates an IndexedDB database
+ *
  * @param name Database name
  * @param version Database version
  * @param upgradeHandler Upgrade handler
@@ -24,7 +26,7 @@ export function createIndexedDBDatabase(options: IndexedDBDatabaseOptions): Obse
               idbDatabase,
               // TODO: verify newVersion is not null as this would mean the DB is deleted
               newVersion: newVersion as number,
-              oldVersion
+              oldVersion,
             })),
             concatMap(databaseUpgrade => upgradeHandler(of(databaseUpgrade)).pipe(ignoreValues()))
           )

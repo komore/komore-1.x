@@ -32,7 +32,7 @@ export function documentFragmentToParsedSource(
   const toStyleElements = eligibleStyleElementsToStyleElements(styleResourceLoader);
   return documentFragment =>
     defer(() => {
-      const childNodes = Array.from(documentFragment.childNodes.values());
+      const childNodes = [...documentFragment.childNodes.values()];
       const childElements = childNodes.filter(isHtmlElementNode);
       const scriptElements = childElements.filter(isEligibleScriptElement);
       const eligibleStyleElements = childElements.filter(isEligibleStyleElement);
@@ -41,14 +41,14 @@ export function documentFragmentToParsedSource(
       return forkJoin({
         scriptElements: parseScriptElements(scriptElements, scriptResourceLoader),
         styleElements: toStyleElements(eligibleStyleElements),
-        parsedElementTemplate: parseTemplateElements(remainingElements, scriptElements)
+        parsedElementTemplate: parseTemplateElements(remainingElements, scriptElements),
       }).pipe(
         map(parsedSource => {
           const definedStyleSheets = filterDefinedStyleSheets(parsedSource.styleElements);
           const parsedCustomPropertyDefinitions = definedStyleSheets.flatMap(cssStyleSheetToPropertyDefinitions);
           return {
             ...parsedSource,
-            parsedCustomPropertyDefinitions
+            parsedCustomPropertyDefinitions,
           };
         })
       );

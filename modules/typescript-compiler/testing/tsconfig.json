@@ -3,10 +3,10 @@
   "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./typescript-compiler-testing.tsconfig.library.json"
+      "path": "./typescriptcompiler-testing.tsconfig.library.json"
     },
     {
-      "path": "./typescript-compiler-testing.tsconfig.specifications.json"
+      "path": "./typescriptcompiler-testing.tsconfig.specifications.json"
     }
   ]
 }

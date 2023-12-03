@@ -1,0 +1,27 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
+  "deploy": {
+    "description": "Deploys a stack",
+    "documentation": "https://komore.dev/modules/stack/schematics/executors/deploy",
+    "factory": "@komore/stack/schematics#deployStackExecutor",
+    "schema": "./src/executor/deploy/deploy-stack-executor.schema.json"
+  },
+  "destroy": {
+    "description": "Destroys a stack",
+    "documentation": "https://komore.dev/modules/stack/schematics/executors/destroy",
+    "factory": "@komore/stack/schematics#destroyStackExecutor",
+    "schema": "./src/executor/destroy/destory-stack-executor.schema.json"
+  },
+  "init": {
+    "description": "Initializes a stack",
+    "documentation": "https://komore.dev/modules/stack/schematics/executors/init",
+    "factory": "@komore/stack/schematics#initStackExecutor",
+    "schema": "./src/executor/init/init-stack-executor.schema.json"
+  },
+  "plan": {
+    "description": "Plans a stack deployment",
+    "documentation": "https://komore.dev/modules/stack/schematics/executors/plan",
+    "factory": "@komore/stack/schematics#planStackExecutor",
+    "schema": "./src/executor/plan/plan-stack-executor.schema.json"
+  }
+}

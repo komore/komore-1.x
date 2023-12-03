@@ -1,15 +1,9 @@
-import { type Logger } from '@komore/logging';
-
 import { type Neo4jClientCredentials } from './neo4j-client-credentials';
 
 /**
  * Neo4j client options
  */
 export interface Neo4jClientOptions {
-  /**
-   * API endpoint URL
-   */
-  readonly apiEndpointUrl: URL;
   /**
    * Credentials
    */
@@ -19,7 +13,7 @@ export interface Neo4jClientOptions {
    */
   readonly databaseName: string;
   /**
-   * Logger
+   * Endpoint URL
    */
-  readonly logger: Logger;
+  readonly endpointUrl: URL;
 }

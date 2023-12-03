@@ -1,0 +1,8 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "application": {
+    "description": "Generates a Node application",
+    "factory": "./src/generators/application/application-generator",
+    "schema": "./src/generators/application/application-generator-schema.json"
+  }
+}

@@ -1,7 +1,8 @@
 import { type Observable } from '@komore/reactive';
-import { type WorkspaceExecutorDefaultTaskGenerator } from '../executor/workspace-executor-default-task-generator';
+
+import { type WorkspaceExecutorFactory } from '../executor/factory/workspace-executor-factory';
+import { type WorkspaceExecutorDefaultTaskGeneratorFactory } from '../executor/workspace-executor-default-task-generator-factory';
 import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';
-import { type WorkspaceExecutorFactory } from '../executor/workspace-executor-factory';
 import { type WorkspaceExecutorOptionsProcessor } from '../executor/workspace-executor-options-processor';
 
 /**
@@ -13,7 +14,7 @@ export interface WorkspaceContextSchematicsExecutor<OptionsType = unknown> {
   /**
    * Default task generator
    */
-  readonly defaultTaskGenerator: Observable<WorkspaceExecutorDefaultTaskGenerator>;
+  readonly defaultTaskGenerator: Observable<WorkspaceExecutorDefaultTaskGeneratorFactory>;
   /**
    * Descriptor
    */

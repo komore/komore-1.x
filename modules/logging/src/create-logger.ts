@@ -1,9 +1,7 @@
 import { shareReplay, Subject, tapNext } from '@komore/reactive';
 
-import { UntypedLogEvent, type LogEvent } from './event/log-event';
-import { buildLogEventRecord } from './event-record/build-log-event-record';
 import { type LogEventRecord } from './event-record/log-event-record';
-import { type LogGroup } from './group/log-group';
+import { logEventToLogEventRecord } from './event-record/log-event-to-log-event-record';
 import { type Logger } from './logger';
 import { type LoggerOptions } from './logger-options';
 
@@ -15,15 +13,14 @@ import { type LoggerOptions } from './logger-options';
  */
 export function createLogger(options: LoggerOptions): Logger {
   const appenders = options.appenders ?? [];
-  const logEventRecordsSubject = new Subject<LogEventRecord<UntypedLogEvent>>();
+  const toRecord = logEventToLogEventRecord();
+  const logEventRecordsSubject = new Subject<LogEventRecord>();
   const logEventRecords$ = logEventRecordsSubject
     .asObservable()
     .pipe(shareReplay({ bufferSize: 100, refCount: false }));
   logEventRecords$.pipe(tapNext(eventRecord => appenders.forEach(appender => appender(eventRecord)))).subscribe();
-  return <LogEventType extends LogEvent<LogGroup<string>, number, string, Record<string, unknown> | undefined>>(
-    logEvent: LogEventType
-  ) => {
-    const logEventRecord = buildLogEventRecord(logEvent);
+  return logEvent => {
+    const logEventRecord = toRecord(logEvent);
     logEventRecordsSubject.next(logEventRecord);
   };
 }

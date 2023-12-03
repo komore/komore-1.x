@@ -9,7 +9,7 @@ feature('Execute regular expression', {
     const string = 'no-match';
 
     when: 'executing the regular expression';
-    const results = Array.from(executeRegExp(regExp, string));
+    const results = [...executeRegExp(regExp, string)];
 
     expect: 'an empty list to be returned';
     results.length === 0;
@@ -20,7 +20,7 @@ feature('Execute regular expression', {
     const string = 'single-test';
 
     when: 'executing the regular expression';
-    const results = Array.from(executeRegExp(regExp, string));
+    const results = [...executeRegExp(regExp, string)];
 
     expect: 'the match to be returned';
     results.length === 1;
@@ -32,7 +32,7 @@ feature('Execute regular expression', {
     const string = 'longer a123btest witha42b multiple matches';
 
     when: 'executing the regular expression';
-    const results = Array.from(executeRegExp(regExp, string));
+    const results = [...executeRegExp(regExp, string)];
 
     expect: 'each match to be returned';
     results.length === 2;

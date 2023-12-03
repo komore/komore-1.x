@@ -1,0 +1,26 @@
+import { cliEvent, type CliEvent } from '@komore/cli';
+import { arrayToArraySorted, each } from '@komore/collection';
+import { first, map, tapNext, type Observable } from '@komore/reactive';
+import { type WorkspaceContext } from '@komore/schematics';
+
+import { byName } from './by-name';
+import { elementsToDisplayedElementGroups } from './elements-to-displayed-element-groups';
+import { displayedElementGroupToDisplayedElementGroupWithSortedElements } from './displayed-element-group-to-displayed-element-group-with-sorted-elements';
+import { displayedWorkspaceGroupsToConsole } from './displayed-workspace-groups-to-console';
+
+/**
+ * Displays the list of komore generators available to the workspace
+ *
+ * @param workspaceContext Workspace context
+ * @returns Stream of command-line interface events
+ */
+export function displayKomoreWorkspaceGenerators(workspaceContext: WorkspaceContext): Observable<CliEvent> {
+  return workspaceContext.schematics.generator.list.pipe(
+    first(),
+    map(elementsToDisplayedElementGroups),
+    map(arrayToArraySorted(byName)),
+    map(each(displayedElementGroupToDisplayedElementGroupWithSortedElements())),
+    tapNext(displayedWorkspaceGroupsToConsole(console)),
+    map(() => cliEvent.messageDisplayed({ message: 'wooo generators done' }))
+  );
+}

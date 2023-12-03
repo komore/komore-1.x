@@ -5,5 +5,5 @@
  * @returns Function that returns an array's element at the specified index
  */
 export function arrayToElementAt(index: number): <T>(array: ReadonlyArray<T>) => T | undefined {
-  return array => (index < array.length ? array[index] : undefined);
+  return array => array[index];
 }

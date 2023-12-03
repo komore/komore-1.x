@@ -1,8 +1,10 @@
 import { mapTo, merge, type Observable } from '@komore/reactive';
+
 import { observeContextLoss } from './observe-context-loss';
 
 /**
  * Observes a WebGL context' availability
+ *
  * @param canvas Canvas
  * @returns Observable that emits true when the context is available or false otherwise
  */

@@ -1,12 +1,12 @@
 {
   "build": {
-    "description": "Builds a CLI application",
-    "documentation": "https://komore.dev/modules/application-cli/schematics/build",
-    "main": "./src/executor/build/build-cli-application-executor#buildCliApplicationExecutor"
+    "description": "Builds a command-line interface application",
+    "documentation": "https://komore.dev/modules/cli/schematics/build",
+    "factory": "./src/executor/build/build-cli-application-executor#buildCliApplicationExecutor"
   },
   "serve": {
-    "description": "Serves a CLI application",
-    "documentation": "https://komore.dev/modules/application-cli/schematics/serve",
-    "main": "./src/executor/serve/serve-cli-application-executor#serveCliApplicationExecutor"
+    "description": "Serves a command-line interface application",
+    "documentation": "https://komore.dev/modules/cli/schematics/serve",
+    "factory": "./src/executor/serve/serve-cli-application-executor#serveCliApplicationExecutor"
   }
 }

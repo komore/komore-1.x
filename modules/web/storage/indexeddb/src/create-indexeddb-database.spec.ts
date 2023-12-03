@@ -1,21 +1,21 @@
+import { feature } from '@komore/testing';
+
 import { createIndexedDBDatabase } from './create-indexeddb-database';
 
-describe('Create database', () => {
-  it.skip('creates a cold observable', () => {
+feature('Create database', {
+  'SKIP: creates a cold observable'() {
     createIndexedDBDatabase({
-      name: 'lala'
+      name: 'lala',
     });
-  });
-
-  it.skip('creates a database upon subscription', () => {
+  },
+  'SKIP: creates a database upon subscription'() {
     createIndexedDBDatabase({
-      name: 'lala'
+      name: 'lala',
     });
-  });
-
-  it.skip('closes the database when the last subscription closes', () => {
+  },
+  'SKIP: closes the database when the last subscription closes'() {
     createIndexedDBDatabase({
-      name: 'lala'
+      name: 'lala',
     });
-  });
+  },
 });

@@ -22,38 +22,40 @@ import { type PackageWithPackageJsonAndSchematics } from '../package/package-wit
 import { type WorkspaceContextSchematics } from './workspace-context-schematics';
 
 /**
- * Builds a workspace context schematics executor
+ * Creates a function that builds a workspace context schematics executor
  *
  * @param basePath Base path
- * @param packageWithJsonAndSchematicsByName$ Map of packages with package.json and schematics by name
- * @param packagesWithJsonAndSchematics$ List of packages with package.json and schematics
- * @returns Workspace context schematics
+ * @returns Function that builds a workspace context schematics
+ * @private
  */
 export function buildWorkspaceContextSchematicsExecutor(
-  basePath: string,
+  basePath: string
+): (
   packageWithJsonAndSchematicsByName$: ReadonlyMap<PackageName, Observable<PackageWithPackageJsonAndSchematics>>,
   packagesWithJsonAndSchematics$: Observable<ReadonlyArray<PackageWithPackageJsonAndSchematics>>
-): WorkspaceContextSchematics['executor'] {
-  const packagesWithJsonAndExecutors$ = packagesWithJsonAndSchematics$.pipe(
-    map(packagesWithJsonAndSchematics => packagesWithJsonAndSchematics.filter(isPackageWithExecutors)),
-    cache()
-  );
-  const byPackage = new ObservableMap(packageNameToExecutors(basePath, packageWithJsonAndSchematicsByName$));
-  const byReferenceString = new ObservableMap(executorReferenceStringToExecutor(byPackage));
-  const list = packagesWithJsonAndExecutors$.pipe(
-    mapEach(packageWithExecutors => {
-      const packageExecutors$ = byPackage.get(packageWithExecutors.packageJson.name as PackageName);
-      assert(isDefined(packageExecutors$));
-      return packageExecutors$;
-    }),
-    mergeMap(descriptors => combineLatest(descriptors).pipe(map(arrayToFlattenedArray()), defaultIfEmpty([]))),
-    cache()
-  );
+) => WorkspaceContextSchematics['executor'] {
+  return (packageWithJsonAndSchematicsByName$, packagesWithJsonAndSchematics$) => {
+    const packagesWithJsonAndExecutors$ = packagesWithJsonAndSchematics$.pipe(
+      map(packagesWithJsonAndSchematics => packagesWithJsonAndSchematics.filter(isPackageWithExecutors)),
+      cache()
+    );
+    const byPackage = new ObservableMap(packageNameToExecutors(basePath, packageWithJsonAndSchematicsByName$));
+    const byReferenceString = new ObservableMap(executorReferenceStringToExecutor(byPackage));
+    const list = packagesWithJsonAndExecutors$.pipe(
+      mapEach(packageWithExecutors => {
+        const packageExecutors$ = byPackage.get(packageWithExecutors.packageJson.name as PackageName);
+        assert(isDefined(packageExecutors$));
+        return packageExecutors$;
+      }),
+      mergeMap(descriptors => combineLatest(descriptors).pipe(map(arrayToFlattenedArray()), defaultIfEmpty([]))),
+      cache()
+    );
 
-  return {
-    byReferenceString,
-    byPackage,
-    list,
+    return {
+      byReferenceString,
+      byPackage,
+      list,
+    };
   };
 }
 
@@ -71,6 +73,6 @@ function packageNameToExecutors(
   return packageName => {
     const packageWithJsonAndSchematics$ = packageByName.get(packageName);
     assert(isDefined(packageWithJsonAndSchematics$));
-    return packageWithJsonAndSchematics$.pipe(switchMap(packageJsonToWorkspaceExecutorDescriptors(basePath)));
+    return packageWithJsonAndSchematics$.pipe(switchMap(packageJsonToWorkspaceExecutorDescriptors(basePath)), cache());
   };
 }

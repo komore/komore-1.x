@@ -1,13 +1,12 @@
 import { createCliRouter } from '@komore/cli/router';
-import { type Logger } from '@komore/logging';
+import { asProjectName, asTaskName } from '@komore/schematics';
 
 import { kCommand } from './k.command';
 
 /**
  * k router
  */
-export function createKRouter(options: { readonly logger: Logger }) {
-  const { logger } = options;
+export function createKRouter() {
   return createCliRouter(
     {
       'fetch-affected-base --branch-name=:branchName --depth=:depth --include-tags=:inludeTags': {
@@ -31,6 +30,9 @@ export function createKRouter(options: { readonly logger: Logger }) {
           },
         },
       },
+      generate: {
+        command: () => kCommand.runGenerator({}),
+      },
       'list executors': {
         command: () => kCommand.listExecutors(),
       },
@@ -43,6 +45,9 @@ export function createKRouter(options: { readonly logger: Logger }) {
       list: {
         command: () => kCommand.list(),
       },
+      run: {
+        command: () => kCommand.runExecutor({ taskName: asTaskName('lint'), projectName: asProjectName('reactive') }),
+      },
       validate: {
         command: () => kCommand.validateWorkspace(),
       },
@@ -50,8 +55,6 @@ export function createKRouter(options: { readonly logger: Logger }) {
         command: () => kCommand.displayVersion(),
       },
     },
-    {
-      logger,
-    }
+    {}
   );
 }

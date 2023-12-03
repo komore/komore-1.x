@@ -8,7 +8,6 @@ import { type LocalPackageWithPackageJson } from '../package/local-package-with-
 import { type PackageName } from '../package/name/package-name';
 import { readWorkspaceExecutorDescriptors } from './read-workspace-executor-descriptors';
 import { type WorkspaceExecutorDescriptor } from './workspace-executor-descriptor';
-import { validatePackageName } from '../package/name/validate-package-name';
 
 /**
  * Creates a function that returns a list of workspace executor descriptors from a package.json
@@ -20,9 +19,7 @@ export function packageJsonToWorkspaceExecutorDescriptors(
   basePath: string
 ): (packageJson: LocalPackageWithPackageJson) => Observable<ReadonlyArray<WorkspaceExecutorDescriptor>> {
   return ({ path, packageJson }) => {
-    const packageJsonWithPotentialExecutors = packageJson as PackageJsonWithPotentialExecutors & {
-      readonly name: string;
-    };
+    const packageJsonWithPotentialExecutors = packageJson as PackageJsonWithPotentialExecutors;
     const descriptorsRelativePath = packageJsonWithPotentialExecutors.komore?.executors;
     if (descriptorsRelativePath === undefined) {
       return of([]);
@@ -30,7 +27,6 @@ export function packageJsonToWorkspaceExecutorDescriptors(
 
     const descriptorsPath = join(basePath, path, descriptorsRelativePath);
     const { name } = packageJsonWithPotentialExecutors;
-    validatePackageName(name);
 
     return readWorkspaceExecutorDescriptors(descriptorsPath).pipe(
       map(each(workspaceExecutorDescriptorWithPackage(name, path)))
@@ -58,4 +54,5 @@ interface PackageJsonWithPotentialExecutors extends Partial<PackageJson> {
   readonly komore?: {
     readonly executors?: string;
   };
+  readonly name: PackageName;
 }

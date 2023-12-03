@@ -7,5 +7,5 @@ import { isStyleRule } from './is-style-rule';
  * @returns List of custom property definitions
  */
 export function cssStyleSheetToPropertyDefinitions(cssStyleSheet: CSSStyleSheet): ReadonlyArray<PropertyDefinition> {
-  return Array.from(cssStyleSheet.cssRules).filter(isStyleRule).flatMap(cssStyleRuleToPropertyDefinitions);
+  return [...cssStyleSheet.cssRules].filter(isStyleRule).flatMap(cssStyleRuleToPropertyDefinitions);
 }

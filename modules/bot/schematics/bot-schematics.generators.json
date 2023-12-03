@@ -1,3 +1,8 @@
 {
-  "$schema": "https://komore.dev/json-schemas/schematics/generators"
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "bot": {
+    "description": "Generates a bot",
+    "factory": "./src/generators/bot/bot-generator",
+    "schema": "./src/generators/bot/bot-generator-schema.json"
+  }
 }

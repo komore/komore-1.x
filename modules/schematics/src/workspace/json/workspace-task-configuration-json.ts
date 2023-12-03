@@ -1,11 +1,13 @@
+import { type WorkspaceTaskConfigurationOptionsJson } from './workspace-task-configuration-options-json';
+
 /**
  * Workspace task configuration JSON
  */
 export interface WorkspaceTaskConfigurationJson {
   /**
-   * Options (TODO)
+   * Options
    */
-  readonly options?: unknown;
+  readonly options?: WorkspaceTaskConfigurationOptionsJson;
   /**
    * Task runner
    */

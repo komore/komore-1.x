@@ -1,11 +1,9 @@
-import { type Observable } from 'rxjs';
+import { type Observable } from '@komore/reactive';
 
 import { type HttpClientRequest } from './request/http-client-request';
 
 /**
  * HTTP client
- *
- * @deprecated Use HttpClient from @komore/http/client
  */
 export interface HttpClient {
   /**

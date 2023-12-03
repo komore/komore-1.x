@@ -1,5 +1,4 @@
 import { type EventFromType, type GenericEventType } from '@komore/event';
-import { type Logger } from '@komore/logging';
 import { type Subject } from '@komore/reactive';
 
 import { type GenericAwsSdkClient } from '../client/generic-aws-sdk-client';
@@ -18,10 +17,6 @@ export interface AwsCommandHandlerOptions<
    * Events
    */
   readonly events: Subject<EventFromType<EventType>>;
-  /**
-   * Logger
-   */
-  readonly logger: Logger;
   /**
    * AWS client
    */

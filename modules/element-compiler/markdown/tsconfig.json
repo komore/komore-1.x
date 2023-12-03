@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "references": [
+    {
+      "path": "./elementcompiler-markdown.tsconfig.library.json"
+    },
+    {
+      "path": "./elementcompiler-markdown.tsconfig.specifications.json"
+    }
+  ]
+}

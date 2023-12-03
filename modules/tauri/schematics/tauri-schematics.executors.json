@@ -1,0 +1,12 @@
+{
+  "build": {
+    "description": "Builds a Tauri application",
+    "documentation": "https://komore.dev/modules/tauri/schematics/build",
+    "factory": "./src/executor/build/build-tauri-application-executor#buildTauriApplicationExecutor"
+  },
+  "serve": {
+    "description": "Serves a Tauri application",
+    "documentation": "https://komore.dev/modules/tauri/schematics/serve",
+    "factory": "./src/executor/serve/serve-tauri-application-executor#serveTauriApplicationExecutor"
+  }
+}

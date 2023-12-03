@@ -1,5 +1,6 @@
 /**
  * Returns a function that parses a JSON string
+ *
  * @param reviver Reviver (cf. JSON.parse)
  * @returns Function that parses a JSON string
  */

@@ -1,6 +1,6 @@
 import * as chalk from 'chalk';
 
-import { LogEventSeverities, type LogEncoder } from '@komore/logging';
+import { defaultLogEventSeverities as severities, type LogEncoder } from '@komore/logging';
 
 /**
  * Creates a CLI application log encoder
@@ -8,25 +8,33 @@ import { LogEventSeverities, type LogEncoder } from '@komore/logging';
  * @returns CLI application log encoder
  */
 export function createCliApplicationLogEncoder(): LogEncoder {
-  return ({ logEvent, message }) => {
-    const { severity } = logEvent;
+  return ({ event, message }) => {
+    const { severity } = event;
     switch (severity) {
-      case LogEventSeverities.NOTICE:
+      case severities.TRACE:
+        return blackOnGray(' TRACE ') + ' ' + chalk.gray(message);
+      case severities.DEBUG:
+        return blackOnGray(' DEBUG ') + ' ' + chalk.white(message);
+      case severities.NOTICE:
         return blackOnYellow(' NOTICE ') + ' ' + chalk.yellowBright(message);
-      case LogEventSeverities.WARNING:
+      case severities.WARNING:
         return blackOnYellow(' WARNING ') + ' ' + chalk.yellowBright(message);
-      case LogEventSeverities.ERROR:
-        return blackOnRed(' ERROR ') + ' ' + chalk.redBright(message);
-      case LogEventSeverities.ALERT:
+      case severities.ERROR:
+        return blackOnRed(' !ERROR! ') + ' ' + chalk.redBright(message);
+      case severities.ALERT:
         return blackOnRed(' ALERT ') + ' ' + chalk.redBright(message);
-      case LogEventSeverities.CRITICAL:
+      case severities.CRITICAL:
         return blackOnDarkRed(' CRITICAL ') + ' ' + chalk.red(message);
-      case LogEventSeverities.EMERGENCY:
+      case severities.EMERGENCY:
         return blackOnDarkRed(' EMERGENCY ') + ' ' + chalk.red(message);
       default:
-        return blackOnRed(` ${severity} `) + ' ' + chalk.redBright(message);
+        return blackOnRed(` !!${severity}!! `) + ' ' + chalk.redBright(message);
     }
   };
+}
+
+function blackOnGray(message: string): string {
+  return chalk.bgGray(chalk.black(message));
 }
 
 function blackOnYellow(message: string): string {

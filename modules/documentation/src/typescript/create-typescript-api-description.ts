@@ -54,7 +54,7 @@ function getExportedDeclarationsEntries(
 ): ReadonlyArray<ExportedDeclarationEntry<ExportedSyntaxKind>> {
   type DeclarationType = KindToNodeMappings[ExportedSyntaxKind];
   const map = sourceFile.getExportedDeclarations() as ReadonlyMap<string, ReadonlyArray<DeclarationType>>;
-  return Array.from(map.entries());
+  return [...map.entries()];
 }
 
 function isExportedEntryOfKind<Kind extends ExportedSyntaxKind>(
@@ -75,5 +75,5 @@ type ExportedSyntaxKind =
 
 type ExportedDeclarationEntry<Kind extends ExportedSyntaxKind = ExportedSyntaxKind> = readonly [
   identifier: string,
-  exportedDeclaration: ReadonlyArray<KindToNodeMappings[Kind]>
+  exportedDeclaration: ReadonlyArray<KindToNodeMappings[Kind]>,
 ];

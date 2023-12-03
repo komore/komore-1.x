@@ -1,5 +1,6 @@
 /**
  * Creates a function that filters a permission state
+ *
  * @param permissionStates List of permission states to keep
  * @returns Funtion that filters a permission state
  * @template T Permission state types

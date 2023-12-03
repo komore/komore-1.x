@@ -1,4 +1,8 @@
+import { type PackageName } from '../../package/name/package-name';
+
 /**
  * Executor reference string
  */
-export type ExecutorReferenceString = `${string}:${string}` & { readonly __tag_executorReferenceString: unique symbol };
+export type ExecutorReferenceString = `${PackageName}:${string}` & {
+  readonly __tag_executorReferenceString: unique symbol;
+};

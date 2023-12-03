@@ -1,5 +1,3 @@
-import { type Logger } from '@komore/logging';
-
 import { type HttpClientRequestOptions } from './request/http-client-request-options';
 
 /**
@@ -14,8 +12,4 @@ export interface HttpClientOptions {
    * Driver
    */
   readonly driver?: typeof fetch;
-  /**
-   * Logger
-   */
-  readonly logger: Logger;
 }

@@ -1,18 +1,18 @@
 {
   "build": {
     "description": "Builds an Android application",
-    "main": "./src/executor/build/build-android-application-executor#buildAndroidApplicationExecutor"
+    "factory": "./src/executor/build/build-android-application-executor#buildAndroidApplicationExecutor"
   },
   "publish": {
     "description": "Publishes an Android application",
-    "main": "./src/executor/publish/publish-android-application-executor#signAndroidApplicationExecutor"
+    "factory": "./src/executor/publish/publish-android-application-executor#signAndroidApplicationExecutor"
   },
   "serve": {
     "description": "Serves an Android application",
-    "main": "./src/executor/serve/serve-android-application-executor#serveAndroidApplicationExecutor"
+    "factory": "./src/executor/serve/serve-android-application-executor#serveAndroidApplicationExecutor"
   },
   "sign": {
     "description": "Signs an Android application",
-    "main": "./src/executor/sign/sign-android-application-executor#signAndroidApplicationExecutor"
+    "factory": "./src/executor/sign/sign-android-application-executor#signAndroidApplicationExecutor"
   }
 }

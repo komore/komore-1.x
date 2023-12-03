@@ -1,7 +1,9 @@
+import { feature } from '@komore/testing';
+
 //import { createIDBUpgradeHandler } from './create-idb-upgrade-handler';
 
-describe('Lala', () => {
-  it.skip('works', () => {
+feature('Lala', {
+  'it works'() {
     // TODO
-  });
+  },
 });

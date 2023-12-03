@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./event-linting.tsconfig.library.json"
+    },
+    {
+      "path": "./event-linting.tsconfig.specifications.json"
+    }
+  ]
+}

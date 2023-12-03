@@ -1,6 +1,9 @@
-import { type ProjectName } from '../../project/name/project-name';
+import { isArrayOfLength } from '@komore/collection';
+import { assert } from '@komore/runtime';
+
+import { validateProjectName } from '../../project/name/validate-project-name';
 import { schematicsError } from '../../schematics.error';
-import { type TaskName } from '../name/task-name';
+import { validateTaskName } from '../name/validate-task-name';
 import { type TaskReference } from './task-reference';
 import { type TaskReferenceString } from './task-reference-string';
 
@@ -12,9 +15,10 @@ import { type TaskReferenceString } from './task-reference-string';
  */
 export function taskReferenceStringToTaskReference(taskReferenceString: TaskReferenceString): TaskReference {
   const split = taskReferenceString.split(':');
-  if (split.length !== 2) {
-    throw schematicsError.invalidTaskReferenceString({ taskReferenceString });
-  }
-  const [projectName, taskName] = split as unknown as readonly [ProjectName, TaskName];
+  const hasTwoElements = isArrayOfLength(2);
+  assert(hasTwoElements(split), () => schematicsError.invalidTaskReferenceString({ taskReferenceString }));
+  const [projectName, taskName] = split;
+  validateProjectName(projectName);
+  validateTaskName(taskName);
   return { projectName, taskName };
 }

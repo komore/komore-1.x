@@ -49,7 +49,7 @@ function readTsConfig(path: string): Partial<TsConfig> {
 
 function tsPathAliases(pathAliases: PathAliasMap) {
   return alias({
-    entries: Array.from(pathAliases.entries()).map(([alias, value]) => ({
+    entries: [...pathAliases.entries()].map(([alias, value]) => ({
       find: new RegExp(`^${alias}$`),
       replacement: resolve(projectRootDir, value[0]),
     })),
