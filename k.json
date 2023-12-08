@@ -251,6 +251,8 @@
     "paddle": "modules/paddle",
     "payment": "modules/payment",
     "paypal": "modules/paypal",
+    "python": "modules/python",
+    "python-schematics": "modules/python/schematics",
     "query": "modules/query",
     "query-linting": "modules/query/linting",
     "query-schematics": "modules/query/schematics",
