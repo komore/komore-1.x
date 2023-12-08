@@ -4,13 +4,21 @@ on:
   - push
   - pull_request
 
+env:
+  VERSION_CACHE: v2
+  VERSION_CHECKOUT: v2
+  VERSION_NODE: 20
+  VERSION_NODE_SETUP: v1
+  VERSION_PNPM: 8.11.0
+  VERSION_PNPM_SETUP: v2.4.0
+
 jobs:
   lint:
     name: Lint
     runs-on: self-hosted
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@${{ env.VERSION_CHECKOUT }}
         with:
           fetch-depth: 0
 
@@ -18,12 +26,12 @@ jobs:
         uses: nrwl/nx-set-shas@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@${{ env.VERSION_NODE_SETUP }}
         with:
-          node-version: '20'
+          node-version: ${{ env.VERSION_NODE }}
 
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@${{ env.VERSION_CACHE }}
         env:
           cache-name: cache-pnpm-modules
         with:
@@ -32,11 +40,11 @@ jobs:
           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@${{ env.VERSION_PNPM_SETUP }}
         env:
           cache-name: cache-pnpm-modules
         with:
-          version: 8.11.0
+          version: ${{ env.VERSION_PNPM }}
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
