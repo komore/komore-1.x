@@ -23,7 +23,7 @@ export const schematicsError = createErrorType(schematicsDomain, {
   invalidGeneratorReferenceString: errorProperties<{ generatorReferenceString: string }>(),
   invalidPackageManagerType: errorProperties<{ type: string }>(),
   invalidPackageName: errorProperties<{ packageName: string }>(),
-  invalidProjectName: errorProperties<{ projectName: string }>(),
+  invalidProjectName: errorProperties<{ value: unknown }>(),
   invalidProjectTag: errorProperties<{ projectTag: string }>(),
   invalidProjectType: errorProperties<{ projectType: string }>(),
   invalidTaskDependency: errorProperties<{ dependency: string; taskName: TaskName }>(),

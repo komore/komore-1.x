@@ -37,6 +37,7 @@ export { type TaskReferenceString } from './task/reference/task-reference-string
 export { taskReferenceStringToTaskReference } from './task/reference/task-reference-string-to-task-reference';
 export { toWorkspaceExecutorTaskMessageEvent } from './executor/event/to-workspace-executor-task-message-event';
 export { validatePackageReferenceName } from './package/reference/validate-package-reference-name';
+export { validateProjectName } from './project/name/validate-project-name';
 export { validateTaskName } from './task/name/validate-task-name';
 export { type WorkspaceContext } from './context/workspace-context';
 export { type WorkspaceExecutor } from './executor/workspace-executor';

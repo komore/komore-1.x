@@ -1,5 +1,5 @@
-import { createCliRouter } from '@komore/cli/router';
-import { asProjectName, asTaskName } from '@komore/schematics';
+import { cliRoute, createCliRouter } from '@komore/cli/router';
+import { validateProjectName, validateTaskName } from '@komore/schematics';
 
 import { kCommand } from './k.command';
 
@@ -7,9 +7,8 @@ import { kCommand } from './k.command';
  * k router
  */
 export function createKRouter() {
-  return createCliRouter(
-    {
-      'fetch-affected-base --branch-name=:branchName --depth=:depth --include-tags=:inludeTags': {
+  return createCliRouter([
+      cliRoute('fetch-affected-base', {
         command: (/*{ branchName, depth, includeTags }*/) =>
           kCommand.fetchAffectedBase({ branchName: 'test', depth: 42, includeTags: true }),
         flags: {
@@ -29,32 +28,52 @@ export function createKRouter() {
             parse: Boolean,
           },
         },
-      },
-      generate: {
+      }),
+      cliRoute('generate', {
         command: () => kCommand.runGenerator({}),
-      },
-      'list executors': {
-        command: () => kCommand.listExecutors(),
-      },
-      'list generators': {
-        command: () => kCommand.listGenerators(),
-      },
-      'list packages': {
-        command: () => kCommand.listPackages(),
-      },
-      list: {
+      }),
+      cliRoute('list', {
         command: () => kCommand.list(),
-      },
-      run: {
-        command: () => kCommand.runExecutor({ taskName: asTaskName('lint'), projectName: asProjectName('reactive') }),
-      },
-      validate: {
+        children: [
+          cliRoute('executors', {
+            command: () => kCommand.listExecutors(),
+          }),
+          cliRoute('generators', {
+            command: () => kCommand.listGenerators(),
+            description: 'List generators',
+          }),
+          cliRoute('packages', {
+            command: () => kCommand.listPackages()
+            description: 'List packages',
+          })
+        ]
+      }),
+      cliRoute('run :taskName :projectName?', {
+        command: ({ parameters }) => {
+          const { taskName, projectName } = parameters as { taskName: string; projectName: string };
+          validateTaskName(taskName);
+          validateProjectName(projectName);
+          return kCommand.runExecutor({ taskName, projectName });
+        },
+        flags: {
+          all: {
+            defaultValue: false,
+            description: 'Whether to run the task on all projects that feature it',
+            parse: Boolean
+          },
+          parallel: {
+            description: 'The maximum number of tasks to run in parallel',
+            optional: true,
+          }
+        }
+      }),
+      cliRoute('validate', {
         command: () => kCommand.validateWorkspace(),
-      },
-      version: {
+      }),
+      cliRoute('version', {
         command: () => kCommand.displayVersion(),
-      },
-    },
+      })
+  ],
     {}
   );
 }

@@ -7,8 +7,8 @@ import { type ProjectName } from './project-name';
  *
  * @param projectName Project name
  */
-export function validateProjectName(projectName: string): asserts projectName is ProjectName {
+export function validateProjectName(projectName: unknown): asserts projectName is ProjectName {
   if (!isProjectName(projectName)) {
-    throw schematicsError.invalidProjectName({ projectName });
+    throw schematicsError.invalidProjectName({ value: projectName });
   }
 }
