@@ -1,6 +1,7 @@
 export { type AwsClient } from './client/aws-client';
 export { type AwsClientOptions } from './client/aws-client-options';
 export { type AwsCommandHandlerOptions } from './command/aws-command-handler-options';
+export { type AwsQueryHandler } from './query/aws-query-handler';
 export { awsQueryProperties } from './query/aws-query-properties';
 export { createAwsClient } from './client/create-aws-client';
 export { createAwsCommandType } from './command/create-aws-command-type';

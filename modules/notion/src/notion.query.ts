@@ -1,8 +1,8 @@
 import { createQueryType } from '@komore/query';
 
-import { notionDomain } from './notion.domain';
+import { squareDomain } from './square.domain';
 
 /**
- * Notion query
+ * Square query
  */
-export const notionQuery = createQueryType(notionDomain, {});
+export const squareQuery = createQueryType(squareDomain, {});

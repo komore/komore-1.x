@@ -115,6 +115,7 @@
       "@komore/cli": ["modules/cli/src/index.ts"],
       "@komore/cli/router": ["modules/cli/router/src/index.ts"],
       "@komore/cli/schematics": ["modules/cli/schematics/src/index.ts"],
+      "@komore/client": ["modules/client/src/index.ts"],
       "@komore/cloudflare": ["modules/cloudflare/src/index.ts"],
       "@komore/cloudflare/testing": ["modules/cloudflare/testing/src/index.ts"],
       "@komore/collection": ["modules/collection/src/index.ts"],

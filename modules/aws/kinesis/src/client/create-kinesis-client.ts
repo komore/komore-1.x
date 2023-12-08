@@ -17,13 +17,13 @@ import { kinesisCommandEventMapping } from './kinesis-command-event-mapping';
  * @returns Kinesis client
  */
 export function createKinesisClient(clientOptions: KinesisClientOptions): KinesisClient {
+  const client = new AwsSdkKinesisClient(clientOptions);
   return createAwsClient({
-    clientClass: AwsSdkKinesisClient,
-    clientOptions,
-    commandEventMapping: kinesisCommandEventMapping,
-    commandType: kinesisCommand,
-    errorType: kinesisError,
-    eventType: kinesisEvent,
-    queryType: kinesisQuery,
+    client,
+    command: kinesisCommand,
+    commandEventMap: kinesisCommandEventMapping,
+    error: kinesisError,
+    event: kinesisEvent,
+    query: kinesisQuery,
   });
 }

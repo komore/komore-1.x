@@ -1,6 +1,8 @@
 import { type GenericQueryType } from './type/generic-query-type';
 
 /**
- * Query from query type
+ * Query result from query type
+ *
+ * @template QueryType Query type
  */
-export type QueryFromType<QueryType extends GenericQueryType> = ReturnType<QueryType>;
+export type QueryResultFromType<QueryType extends GenericQueryType> = ReturnType<QueryType>;

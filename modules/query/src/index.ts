@@ -1,3 +1,12 @@
 export { createQueryType } from './type/create-query-type';
+export { type GenericQuery } from './generic-query';
+export { type GenericQueryType } from './type/generic-query-type';
+export { matchQuery } from './matcher/match-query';
+export { type QueryFromType } from './query-from-type';
+export { type QueryHandler } from './query-handler';
+export { type QueryMatcher } from './matcher/query-matcher';
+export { type QueryMatcherCase } from './matcher/query-matcher-case';
 export { type QueryName } from './query-name';
 export { queryProperties } from './properties/query-properties';
+export { type QueryPropertiesFromType } from './query-properties-from-type';
+export { type QueryResultFromType } from './query-result-from-type';

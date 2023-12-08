@@ -14,11 +14,11 @@ export interface AwsCommandHandlerOptions<
   EventType extends GenericEventType,
 > {
   /**
-   * Events
-   */
-  readonly events: Subject<EventFromType<EventType>>;
-  /**
    * AWS client
    */
   readonly client: AwsSdkClientType;
+  /**
+   * Events
+   */
+  readonly events: Subject<EventFromType<EventType>>;
 }

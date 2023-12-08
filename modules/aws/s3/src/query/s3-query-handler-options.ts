@@ -7,5 +7,5 @@ export interface S3QueryHandlerOptions {
   /**
    * S3 client
    */
-  readonly s3Client: S3Client;
+  readonly client: S3Client;
 }

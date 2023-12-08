@@ -9,6 +9,7 @@ import { route53Query } from '../route-53.query';
 import { type Route53Client } from './route-53-client';
 import { type Route53ClientOptions } from './route-53-client-options';
 import { route53CommandEventMapping } from './route-53-command-event-mapping';
+import { createRoute53CommandHandler } from '../command/create-route-53-command-handler';
 
 /**
  * Creates a Route 53 client
@@ -17,13 +18,15 @@ import { route53CommandEventMapping } from './route-53-command-event-mapping';
  * @returns Route 53 client
  */
 export function createRoute53Client(clientOptions: Route53ClientOptions): Route53Client {
+  const client = new AwsSdkRoute53Client(clientOptions);
   return createAwsClient({
-    clientClass: AwsSdkRoute53Client,
-    clientOptions,
+    client,
+    commandHandler: events => createRoute53CommandHandler({ client, events }),
     commandEventMapping: route53CommandEventMapping,
     commandType: route53Command,
     eventType: route53Event,
     errorType: route53Error,
+    queryHandler: () => createRoute53QueryHandler({ client }),
     queryType: route53Query,
   });
 }

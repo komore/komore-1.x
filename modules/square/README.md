@@ -1,3 +1,3 @@
-# @komore/integration-square
+# @komore/square
 
 TODO.

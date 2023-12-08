@@ -1,3 +1,4 @@
 {
-  "name": "@komore/integration-square"
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/square"
 }
