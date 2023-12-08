@@ -1,5 +1,8 @@
 {
   "$schema": "./modules/schematics/workspace-configuration.schema.json",
+  "cicd": {
+    "manager": "github"
+  },
   "defaults": {
     "outputPath": "build",
     "project": "website",

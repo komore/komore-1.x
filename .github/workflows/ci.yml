@@ -36,7 +36,7 @@ jobs:
         env:
           cache-name: cache-pnpm-modules
         with:
-          version: 6.28.0
+          version: 8.11.0
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
@@ -81,7 +81,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.28.0
+          version: 8.11.0
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
@@ -122,7 +122,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.28.0
+          version: 8.11.0
           run_install: |
             - args: [--frozen-lockfile, --strict-peer-dependencies]
 
