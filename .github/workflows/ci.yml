@@ -68,25 +68,30 @@ jobs:
         uses: nrwl/nx-set-shas@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Cache pnpm modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-pnpm-modules
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
-          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.4.0
         with:
           version: 8.11.0
-          run_install: |
-            - args: [--frozen-lockfile, --strict-peer-dependencies]
+          run_install: false
+
+      - name: Get the pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-build-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - name: Test (affected)
         run: pnpm test:affected
@@ -113,21 +118,26 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-pnpm-modules
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
-          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
-
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v2.4.0
         with:
           version: 8.11.0
-          run_install: |
-            - args: [--frozen-lockfile, --strict-peer-dependencies]
+          run_install: false
+
+      - name: Get the pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-build-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
       - name: Buid (affected)
         run: pnpm build:affected
