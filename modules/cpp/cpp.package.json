@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/cpp",
+  "description": "C++ functions",
+  "keywords": ["c++", "msvc", "clang", "gcc"]
+}

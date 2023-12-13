@@ -1,0 +1,14 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "__init__": {
+    "description": "Initializes a repository for the @komore/python schematics",
+    "factory": "./src/generators/init/init-generator",
+    "schema": "./src/generators/init/init-schema.json",
+    "hidden": true
+  },
+  "library": {
+    "description": "Create a Python library",
+    "factory": "./src/generators/library/library-generator",
+    "schema": "./src/generators/library/library-schema.json"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "../schematics/project-configuration.schema.json",
+  "domain": "cmake",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": ["build", "document", "lint", "package", "publish", "test"]
+}

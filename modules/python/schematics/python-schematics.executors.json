@@ -1,0 +1,13 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
+  "build": {
+    "defaultTask": "@komore/rust/schematics#createPythonPackageBuildDefaultTask",
+    "description": "Builds a Python package",
+    "documentation": "https://komore.dev/modules/python/schematics/executors/build",
+    "factory": "@komore/python/schematics#buildPythonPackageExecutor",
+    "options": {
+      "processor": "@komore/python/schematics#createBuildPythonPackageExecutorOptionsProcessor",
+      "schema": "@komore/python/schematics##./src/executor/build/build-rust-module-executor-options.schema.json"
+    }
+  }
+}

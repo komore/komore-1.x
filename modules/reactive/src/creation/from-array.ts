@@ -19,9 +19,7 @@ export function fromArray(array: readonly []): Observable<never>;
  * @returns Observable that emits all values from an array then completes
  * @template ArrayType Array type
  */
-export function fromArray<ArrayType extends ReadonlyArray<unknown>>(
-  array: ArrayType
-): Observable<ArrayValueType<ArrayType>>;
+export function fromArray<T>(array: ArrayLike<T>): Observable<T>;
 
 export function fromArray<ArrayType extends ReadonlyArray<unknown>>(
   array: ArrayType

@@ -1,6 +1,6 @@
 import { createQueryType, queryProperties } from '@komore/query';
 
-import { openTofuDomain } from '../opentofu.domain';
+import { openTofuDomain } from './opentofu.domain';
 
 /**
  * OpenTofu query

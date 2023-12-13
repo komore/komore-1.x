@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/cargo",
+  "description": "Cargo functions",
+  "keywords": ["cargo", "rust"]
+}

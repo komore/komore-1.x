@@ -16,8 +16,10 @@ export const kCommand = createCommandType(kDomain, {
   listGenerators: commandProperties(),
   listPackages: commandProperties(),
   listProjects: commandProperties(),
-  runExecutor: commandProperties<{ taskName: TaskName } & ({ projectName: ProjectName } | { all: true })>(),
-  runGenerator: commandProperties<{}>(),
+  runExecutor: commandProperties<
+    { taskName: TaskName; parallel: number | undefined } & ({ projectName: ProjectName } | { all: true })
+  >(),
+  runGenerator: commandProperties<{ schematicName: string }>(),
   // TODO: move to linting/schematics
   validateWorkspace: commandProperties(),
 });

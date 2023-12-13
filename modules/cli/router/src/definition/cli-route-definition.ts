@@ -1,27 +1,37 @@
-import { type GenericCommand } from '@komore/command';
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type CliRouteParameters } from '../parameter/cli-route-parameters';
+import { type CliParameterDefinition } from './parameter/cli-parameter-definition';
+import { type CliPathParameterDefinitionsFromCliRoutePath } from './parameter/cli-path-parameter-definitions-from-cli-route-path';
 import { type GenericCliRouteDefinition } from './generic-cli-route-definition';
 
 /**
  * Command-line interface route definition
+ *
+ * @template Path Path
+ * @template PathDefinitions Flag definitions
+ * @template FlagDefinitions Flag definitions
+ * @template ChildDefinitions Child definitions
  */
 export interface CliRouteDefinition<
   Path extends string,
-  ChildDefinitions extends ReadonlyRecord<string, GenericCliRouteDefinition> = {},
-  CommandType extends GenericCommand = GenericCommand,
+  PathDefinitions extends CliPathParameterDefinitionsFromCliRoutePath<Path>,
+  FlagDefinitions extends ReadonlyRecord<string, CliParameterDefinition<unknown, boolean>>,
+  ChildDefinitions extends ReadonlyArray<GenericCliRouteDefinition>,
 > {
   /**
-   * Child routes
+   * Child definitions
    */
   readonly children?: ChildDefinitions;
   /**
-   * Command factory
+   * Flag definitions
    */
-  readonly command: (parameters: CliRouteParameters<ReadonlyRecord<string, unknown>>) => CommandType;
+  readonly flag?: FlagDefinitions;
   /**
-   * Path
+   * Path definitions
    */
-  readonly path: Path;
+  readonly path: PathDefinitions;
+  /**
+   * Path pattern
+   */
+  readonly pathPattern: Path;
 }

@@ -1,9 +1,12 @@
 import { createCliApplication } from '@komore/cli';
+import { type CliRouter } from '@komore/cli/router';
+import { type CommandFromType } from '@komore/command';
 import { createNodeHost } from '@komore/node';
 import { firstValueFrom } from '@komore/reactive';
 
 import { createKCommandHandler } from './command/create-k-command-handler';
 import { createKRouter } from './create-k-router';
+import { type kCommand } from './k.command';
 
 /*const root = Node.create();
 
@@ -22,11 +25,12 @@ async function main() {
     ],
   });*/
 
+  // TODO: avoid cast
+  const router = createKRouter() as CliRouter<CommandFromType<typeof kCommand>>;
   const k = createCliApplication({
-    // TODO: pass logger
     commandHandler: events => createKCommandHandler(events),
     host,
-    parametersToCommand: createKRouter(),
+    parametersToCommand: router,
   });
 
   const result$ = k(process.argv);

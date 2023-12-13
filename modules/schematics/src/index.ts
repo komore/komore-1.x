@@ -26,6 +26,7 @@ export { type PackageManagerType } from './package/manager/package-manager-type'
 export { type PackageReference } from './package/reference/package-reference';
 export { packageReferenceNameToPackageReference } from './package/reference/package-reference-name-to-package-reference';
 export { packageReferenceToExportedEntry } from './package/reference/package-reference-to-exported-entry';
+export { type ProjectConfiguration } from './project/project-configuration';
 export { type ProjectName } from './project/name/project-name';
 export { projectNameToProjectConfiguration } from './project/project-name-to-project-configuration';
 export { projectToTasksUsingExecutor } from './project/project-to-tasks-using-executor';
@@ -39,6 +40,7 @@ export { toWorkspaceExecutorTaskMessageEvent } from './executor/event/to-workspa
 export { validatePackageReferenceName } from './package/reference/validate-package-reference-name';
 export { validateProjectName } from './project/name/validate-project-name';
 export { validateTaskName } from './task/name/validate-task-name';
+export { type WorkspaceConfiguration } from './workspace/workspace-configuration';
 export { type WorkspaceContext } from './context/workspace-context';
 export { type WorkspaceExecutor } from './executor/workspace-executor';
 export { type WorkspaceExecutorDefaultTaskGenerator } from './executor/workspace-executor-default-task-generator';

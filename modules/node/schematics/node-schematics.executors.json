@@ -1,10 +1,10 @@
 {
   "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
   "build": {
-    "defaultTask": "@komore/node/schematics#createNodeModuleBuildDefaultTask",
+    "defaultTask": "@komore/node/schematics#createBuildNodeModuleDefaultTask",
     "description": "Builds a Node module",
     "documentation": "https://komore.dev/modules/node/schematics/executors/build",
-    "factory": "./src/executor/build/build-node-module-executor#buildNodeModuleExecutor",
+    "factory": "@komore/node/schematics#createBuildNodeModuleExecutor",
     "options": {
       "processor": "@komore/node/schematics#createBuildNodeModuleExecutorOptionsProcessor",
       "schema": "./src/executor/package/package-module-executor-options.schema.json"
@@ -21,30 +21,30 @@
     }
   },
   "publish": {
-    "defaultTask": "@komore/node/schematics#createNodeModulePublishDefaultTask",
+    "defaultTask": "@komore/node/schematics#createPublishNodeModuleDefaultTask",
     "description": "Publishes a Node module",
     "documentation": "https://komore.dev/modules/schematics/executors/publish",
-    "factory": "@komore/schematics#createPublishNodeModuleExecutor",
+    "factory": "@komore/node/schematics#createPublishNodeModuleExecutor",
     "options": {
       "processor": "@komore/schematics#publishModuleExecutorOptionsProcessor",
       "schema": "./src/executor/publish-node-module-executor-options.schema.json"
     }
   },
   "serve": {
-    "defaultTask": "@komore/node/schematics#createNodeModuleServeDefaultTask",
+    "defaultTask": "@komore/node/schematics#createServeNodeModuleDefaultTask",
     "description": "Serves a Node module",
     "documentation": "https://komore.dev/modules/node/schematics/serve",
-    "factory": "./src/executor/serve/serve-node-module-executor#serveNodeModuleExecutor",
+    "factory": "@komore/node/schematics#createServeNodeModuleExecutor",
     "options": {
       "processor": "@komore/node/schematics#createBuildNodeModuleExecutorOptionsProcessor",
       "schema": "./src/executor/serve-node-module-executor-options.schema.json"
     }
   },
   "sign": {
-    "defaultTask": "@komore/node/schematics#createNodeModuleSignDefaultTask",
+    "defaultTask": "@komore/node/schematics#createSignNodeModuleDefaultTask",
     "description": "Signs a Node module",
     "documentation": "https://komore.dev/modules/node/schematics/sign",
-    "factory": "./src/executor/sign/sign-node-module-executor#signNodeModuleExecutor",
+    "factory": "@komore/node/schematics#createSignNodeModuleExecutor",
     "options": {
       "processor": "@komore/node/schematics#createBuildNodeModuleExecutorOptionsProcessor",
       "schema": "./src/executor/sign-node-module-executor-options.schema.json"

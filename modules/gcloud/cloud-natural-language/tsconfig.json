@@ -1,11 +1,12 @@
 {
-  "extends": "../../../../tsconfig.base.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./gcloud-cloudnaturallanguage.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./gcloud-cloudnaturallanguage.tsconfig.specifications.json"
     }
   ]
 }
