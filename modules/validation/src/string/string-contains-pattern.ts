@@ -1,5 +1,6 @@
 import { type MonoTypeOperatorFunction } from '@komore/reactive';
 import { stringContainsPattern as stringContainsPatternTest } from '@komore/regexp';
+
 import { createConstraintValidator } from '../create-constraint-validator';
 
 /**

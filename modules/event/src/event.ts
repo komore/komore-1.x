@@ -5,9 +5,9 @@ import { type GenericDomain } from '@komore/domain';
  *
  * @template DomainType Domain type
  * @template EventName Event name
- * @template EventParameters Event parameters
+ * @template EventProperties Event properties
  */
-export interface Event<DomainType extends GenericDomain, EventName extends string, EventParameters> {
+export interface Event<DomainType extends GenericDomain, EventName extends string, EventProperties> {
   /**
    * Domain
    */
@@ -17,9 +17,9 @@ export interface Event<DomainType extends GenericDomain, EventName extends strin
    */
   readonly name: EventName;
   /**
-   * Event parameters
+   * Event properties
    */
-  readonly parameters: EventParameters;
+  readonly properties: EventProperties;
 }
 
 /**

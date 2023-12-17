@@ -8,7 +8,7 @@ import { type queryPropertiesSchemaTypeName } from './query-properties-schema-ty
  * @template SchemaType Schema type
  * @private
  */
-export type QueryPropertiesSchema<SchemaType extends readonly [result: unknown, parameters: unknown]> = TypeSchema<
+export type QueryPropertiesSchema<SchemaType extends readonly [resultType: any, parametersType: any]> = TypeSchema<
   typeof queryPropertiesSchemaTypeName,
   SchemaType
 >;

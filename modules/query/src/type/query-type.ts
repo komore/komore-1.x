@@ -1,37 +1,31 @@
 import { type GenericDomain } from '@komore/domain';
-import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
+import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type QueryPropertiesSchema } from '../properties/query-properties-schema';
+import { type QueryCreator } from '../creator/query-creator';
 import { type Query } from '../query';
 
 /**
- * Query type
+ * Event type
  *
  * @template DomainType Domain type
- * @template Definitions Query definitions
+ * @template QueryParametersResultByQueryName Query parameters and result by query name
  */
-export interface QueryType<
+export type QueryType<
   DomainType extends GenericDomain,
-  Definitions extends ReadonlyRecord<string, QueryPropertiesSchema<readonly [unknown, unknown]>>,
-> {
-  /**
-   * Definitions
-   */
-  readonly definitions: Definitions;
-  /**
-   * Domain
-   */
-  readonly domain: DomainType;
+  QueryPropertiesResultByByQueryName extends ReadonlyRecord<string, readonly [resultType: any, parametersType: any]>,
+> = {
   /**
    * Creates a new query
    *
-   * @param queryName Query name
-   * @param queryParameters Query parameters
+   * @param parameters Query parameters
    * @returns Query
-   * @template QueryName Query name
    */
-  <QueryName extends keyof Definitions & string>(
-    queryName: QueryName,
-    queryParameters: TypeSchemaType<Definitions[QueryName]>
-  ): Query<this, QueryName>;
-}
+  readonly [QueryName in keyof QueryPropertiesResultByByQueryName & string]: QueryCreator<
+    QueryName,
+    QueryPropertiesResultByByQueryName[QueryName][1] extends void
+      ? () => Query<DomainType, QueryName, QueryPropertiesResultByByQueryName[QueryName]>
+      : (
+          properties: QueryPropertiesResultByByQueryName[QueryName][1]
+        ) => Query<DomainType, QueryName, QueryPropertiesResultByByQueryName[QueryName]>
+  >;
+};

@@ -1,7 +1,0 @@
-{
-  "$schema": "../schematics/project-configuration.schema.json",
-  "domain": "oracle",
-  "type": "library",
-  "tags": ["trait:base"],
-  "tasks": ["build", "document", "lint", "publish", "test"]
-}

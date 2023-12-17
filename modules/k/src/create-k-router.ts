@@ -48,22 +48,11 @@ export function createKRouter() {
         },
         kCommand.runGenerator
       ),
-      /*cliRoute('list', {
-        command: () => kCommand.list(),
-        children: [
-          cliRoute('executors', {
-            command: () => kCommand.listExecutors(),
-          }),
-          cliRoute('generators', {
-            command: () => kCommand.listGenerators(),
-            description: 'List generators',
-          }),
-          cliRoute('packages', {
-            command: () => kCommand.listPackages(),
-            description: 'List packages',
-          }),
-        ],
-      }),*/
+      cliRoute('list', 'Lists workspace information', kCommand.list),
+      cliRoute('list executors', 'Lists workspace executors', kCommand.listExecutors),
+      cliRoute('list generators', 'Lists workspace generators', kCommand.listGenerators),
+      cliRoute('list packages', 'Lists workspace packages', kCommand.listPackages),
+      cliRoute('list projects', 'Lists workspace projects', kCommand.listProjects),
       cliRoute(
         'run :taskName :projectName',
         'Run a task',

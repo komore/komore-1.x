@@ -1,5 +1,4 @@
-
-export interface BatchCommandBuilder {
+/*export interface BatchCommandBuilder {
     (
         input: InputType
       ) => Command<
@@ -9,4 +8,5 @@ export interface BatchCommandBuilder {
         OutputType,
         SmithyResolvedConfiguration<AwsClientHandlerOptions>
       >
-}
+}*/
+export {};

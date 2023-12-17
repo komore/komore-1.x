@@ -1,4 +1,4 @@
-import { isEventOfType, matchEvent } from '@komore/event';
+import { eventToProperties, isEventOfType, matchEvent } from '@komore/event';
 import { tapNext, filter, map, type Observable } from '@komore/reactive';
 
 import { cliEvent, type CliEvent } from '../cli.event';
@@ -24,6 +24,7 @@ export function cliEventToConsole(): (events: Observable<CliEvent>) => Observabl
         })
       ),
       filter(isEventOfType(cliEvent.applicationEnded)),
-      map(event => event.parameters.exitCode)
+      map(eventToProperties),
+      map(properties => properties.exitCode)
     );
 }

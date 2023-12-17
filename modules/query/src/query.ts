@@ -1,15 +1,21 @@
-import { type TypeSchemaType } from '@komore/typescript';
-
-import { type QueryTypeDefinitions } from './type/query-type-definitions';
-import { type GenericQueryType } from './type/generic-query-type';
+import { type GenericDomain } from '@komore/domain';
 
 /**
  * Query
  *
- * @template QueryType Query type
+ * @template DomainType Domain type
  * @template QueryName Query name
+ * @template QueryPropertiesResult Query properties and result types
  */
-export interface Query<QueryType extends GenericQueryType, QueryName extends keyof QueryTypeDefinitions<QueryType>> {
+export interface Query<
+  DomainType extends GenericDomain,
+  QueryName extends string,
+  QueryPropertiesResult extends readonly [resultType: unknown, parametersType: unknown],
+> {
+  /**
+   * Domain
+   */
+  readonly domain: DomainType;
   /**
    * Query name
    */
@@ -17,9 +23,7 @@ export interface Query<QueryType extends GenericQueryType, QueryName extends key
   /**
    * Query parameters
    */
-  readonly parameters: TypeSchemaType<QueryTypeDefinitions<QueryType>[QueryName]>;
-  /**
-   * Query type
-   */
-  readonly type: QueryType;
+  readonly parameters: QueryPropertiesResult[1];
+  // TODO: change model
+  (result: QueryPropertiesResult[0]): QueryPropertiesResult[0];
 }

@@ -15,10 +15,10 @@ export function eventPropertiesSchemaEntryToEventCreatorEntry<DomainType extends
   domain: DomainType
 ): (entry: readonly [name: string, schema: EventPropertiesSchema<unknown>]) => EventCreatorEntry {
   return ([name]) => {
-    const creator = (parameters: unknown) => ({
+    const creator = (properties: unknown) => ({
       domain,
       name,
-      ...(parameters !== undefined ? { parameters } : {}),
+      ...(properties !== undefined ? { properties } : {}),
     });
     return [name, creator];
   };

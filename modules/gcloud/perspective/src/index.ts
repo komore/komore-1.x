@@ -1,1 +1,1 @@
-export {};
+export { perspectiveDomain } from './perspective.domain';

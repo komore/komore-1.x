@@ -1,10 +1,27 @@
-import { ESLint, type Linter } from 'eslint';
+import { type Linter } from 'eslint';
 import { dirname } from 'path';
 
+import { createEsLintClient, esLintCommand } from '@komore/eslint';
+import { eventToProperties } from '@komore/event';
 import { jsonToObject } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
-import { endWith, fromArray, fromPromise, map, mergeMap, startWith, type Observable } from '@komore/reactive';
-import { createWorkspaceExecutorEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
+import {
+  endWith,
+  fromArray,
+  map,
+  mergeMap,
+  startWith,
+  switchMap,
+  type Observable,
+  catchError,
+  of,
+  throwError,
+} from '@komore/reactive';
+import {
+  createWorkspaceExecutorEvent,
+  toWorkspaceExecutorTaskMessageEvent,
+  type GenericWorkspaceExecutorEvent,
+} from '@komore/schematics';
 
 import { linterConfigToPreparedLinterConfig } from './linter-config-to-prepared-linter-config';
 import { type LintModuleOptions } from './lint-module-options';
@@ -28,15 +45,27 @@ export function lintModule(options: LintModuleOptions): Observable<GenericWorksp
   return fileContent$.pipe(
     map(jsonToObject<Linter.Config>()),
     map(linterConfigToPreparedLinterConfig(tsConfig)),
-    map(overrideConfig => new ESLint({ cwd: basePath, overrideConfig })),
-    mergeMap(eslint => fromPromise(eslint.lintFiles(filesPattern))),
-    map(results => results.filter(eslintResultWithIssues)),
-    mergeMap(results =>
-      fromArray(results.flatMap(eslintResultToLintResultMessages)).pipe(
-        map(lintingMessageToWorkspaceExecutorEvent(taskId))
+    map(overrideConfig => createEsLintClient({ basePath, overrideConfig })),
+    switchMap(esLintClient =>
+      esLintClient(esLintCommand.lintFiles({ filePatterns: [filesPattern] })).pipe(
+        map(eventToProperties),
+        map(({ results }) => results.filter(eslintResultWithIssues)),
+        mergeMap(results =>
+          fromArray(results.flatMap(eslintResultToLintResultMessages)).pipe(
+            map(lintingMessageToWorkspaceExecutorEvent(taskId))
+          )
+        ),
+        catchError(e => {
+          console.log('hmpf', e);
+          return of(toWorkspaceExecutorTaskMessageEvent(taskId, 'lint.failed', { eslintConfig })(e));
+        }),
+        startWith(createWorkspaceExecutorEvent('task.begin', { taskId })),
+        endWith(createWorkspaceExecutorEvent('task.end', { taskId }))
       )
     ),
-    startWith(createWorkspaceExecutorEvent('task.begin', { taskId })),
-    endWith(createWorkspaceExecutorEvent('task.end', { taskId }))
+    catchError(e => {
+      console.log('OMG NO NO NO', Object.getPrototypeOf(e), e, JSON.stringify(e), (e as any).name);
+      return throwError(() => e);
+    })
   );
 }

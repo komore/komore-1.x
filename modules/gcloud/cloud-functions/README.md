@@ -21,3 +21,5 @@ TODO:
 - HTTP functions = Lambda Function URL
 
 TODO: https://itnext.io/gcp-cloud-functions-gen-2nd-pub-sub-development-testing-2c498fa4464e
+
+TODO: remove

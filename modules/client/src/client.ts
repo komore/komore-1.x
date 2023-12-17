@@ -1,7 +1,7 @@
 import { type CommandFromType, type GenericCommandType } from '@komore/command';
 import { type ErrorFromType, type GenericErrorType } from '@komore/error';
 import { type EventFromType, type GenericEventType } from '@komore/event';
-import { type GenericQueryType, type QueryResultFromType } from '@komore/query';
+import { type GenericQueryType, type QueryResultFromQuery } from '@komore/query';
 import { type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -45,7 +45,7 @@ export interface Client<
    */
   query<QueryName extends keyof QueryType>(
     query: ReturnType<QueryType[QueryName]>
-  ): Observable<QueryResultFromType<QueryType[QueryName]>>;
+  ): Observable<QueryResultFromQuery<ReturnType<QueryType[QueryName]>>>;
   /**
    * Executes a command and waits for a single event to occur
    *
@@ -53,9 +53,9 @@ export interface Client<
    * @returns Event caused by the command
    * @template CommandType Command type
    */
-  <CommandName extends keyof CommandType>(
-    command: CommandType[CommandName]
-  ): Observable<EventType[CommandEventMapType[CommandName]]>;
+  <CommandName extends keyof CommandEventMapType & keyof CommandType>(
+    command: ReturnType<CommandType[CommandName]>
+  ): Observable<ReturnType<EventType[CommandEventMapType[CommandName]]>>;
   /**
    * Executes a command and waits for a single specific event to occur
    *
@@ -66,7 +66,7 @@ export interface Client<
    * @template EventName Event name
    */
   <CommandName extends keyof CommandType, EventName extends keyof EventType>(
-    command: CommandType[CommandName],
+    command: ReturnType<CommandType[CommandName]>,
     eventName: EventName
   ): Observable<EventFromType<Pick<EventType, EventName>>>;
 }

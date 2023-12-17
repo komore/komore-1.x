@@ -16,7 +16,7 @@ export function matchEvent<EventType extends GenericEvent, ResultType>(
   event: EventType,
   matcher: EventMatcher<EventType, ResultType>
 ): ResultType {
-  const { name, parameters } = event;
+  const { name, properties: parameters } = event;
   const handler = matcher[name as EventName<EventType>] as EventMatcherCase<EventType, ResultType>;
   return handler(parameters, event);
 }

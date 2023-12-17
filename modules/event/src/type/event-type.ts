@@ -8,24 +8,24 @@ import { type EventCreator } from '../creator/event-creator';
  * Event type
  *
  * @template DomainType Domain type
- * @template EventParametersByEventName Event parameters by event name
+ * @template EventPropertiesByEventName Event properties by event name
  */
 export type EventType<
   DomainType extends GenericDomain,
-  EventParametersByEventName extends ReadonlyRecord<string, any>,
+  EventPropertiesByEventName extends ReadonlyRecord<string, any>,
 > = {
   /**
    * Creates a new event
    *
-   * @param parameters Event parameters
+   * @param properties Event properties
    * @returns Event
    */
-  readonly [EventName in keyof EventParametersByEventName & string]: EventCreator<
+  readonly [EventName in keyof EventPropertiesByEventName & string]: EventCreator<
     EventName,
-    EventParametersByEventName[EventName] extends void
-      ? () => Event<DomainType, EventName, EventParametersByEventName[EventName]>
+    EventPropertiesByEventName[EventName] extends void
+      ? () => Event<DomainType, EventName, EventPropertiesByEventName[EventName]>
       : (
-          parameters: EventParametersByEventName[EventName]
-        ) => Event<DomainType, EventName, EventParametersByEventName[EventName]>
+          properties: EventPropertiesByEventName[EventName]
+        ) => Event<DomainType, EventName, EventPropertiesByEventName[EventName]>
   >;
 };

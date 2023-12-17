@@ -1,5 +1,5 @@
 {
-  "extends": "../../conf/.eslintrc.node.json",
-  "rules": {},
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "extends": "../../conf/eslintrc.node.json",
   "ignorePatterns": ["!**/*"]
 }
