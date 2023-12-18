@@ -1,6 +1,6 @@
 import { generateWorkspaceExecutorEventId } from './generate-workspace-executor-event-id';
-import { WorkspaceExecutorEvent } from './workspace-executor-event';
-import { WorkspaceExecutorEventDataByType } from './workspace-executor-event-data-by-type';
+import { type WorkspaceExecutorEvent } from './workspace-executor-event';
+import { type WorkspaceExecutorEventDataByType } from './workspace-executor-event-data-by-type';
 
 /**
  * Creates a workspace executor event

@@ -1,14 +1,20 @@
-import { CommandFromType, matchCommand } from '@komore/command';
+import { matchCommand } from '@komore/command';
 
-import { openTofuCommand } from '../opentofu.command';
 import { executeOpenTofuCommand } from './execute-opentofu-command';
 import { type OpenTofuCommandHandlerOptions } from './opentofu-command-handler-options';
+import { type OpenTofuCommandHandler } from './opentofu-command-handler';
 
-export function createOpenTofuCommandHandler(options: OpenTofuCommandHandlerOptions): unknown {
+/**
+ * Creates an OpenTofu command handler
+ *
+ * @param options OpenTofu command handler options
+ * @returns OpenTofu command handler
+ */
+export function createOpenTofuCommandHandler(options: OpenTofuCommandHandlerOptions): OpenTofuCommandHandler {
   const { workingDirectory } = options;
   const execute = executeOpenTofuCommand(workingDirectory);
 
-  return (command: CommandFromType<typeof openTofuCommand>) =>
+  return command =>
     matchCommand(command, {
       apply: () => execute('apply', []),
       destroy: () => execute('destroy', []),

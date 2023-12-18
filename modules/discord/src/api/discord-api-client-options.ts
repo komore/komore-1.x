@@ -1,13 +1,11 @@
 import { type HttpClient } from '@komore/http/client';
 
+import { type DiscordApiTokenType } from './discord-api-token-type';
+
 /**
  * Discord API client options
  */
 export interface DiscordApiClientOptions {
-  /**
-   * API endpoint URL
-   */
-  readonly apiEndpointUrl: URL;
   /**
    * API token
    */
@@ -15,11 +13,15 @@ export interface DiscordApiClientOptions {
   /**
    * API token type
    */
-  readonly apiTokenType: 'Bearer' | 'Bot';
+  readonly apiTokenType: DiscordApiTokenType;
   /**
    * API version
    */
   readonly apiVersion: '10';
+  /**
+   * Endpoint URL
+   */
+  readonly endpointUrl: URL;
   /**
    * HTTP client
    */

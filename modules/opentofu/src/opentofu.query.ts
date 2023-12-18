@@ -18,4 +18,8 @@ export const openTofuQuery = createQueryType(openTofuDomain, {
    * @see {@link https://opentofu.org/docs/cli/commands/show tofu show}
    */
   show: queryProperties<unknown, unknown>(),
+  /**
+   * Returns the OpenTofu version
+   */
+  version: queryProperties<string>(),
 });

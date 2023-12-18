@@ -1,6 +1,8 @@
-export { type DiscordEvent } from './discord-event';
-export { fromDiscordEvents } from './from-discord-events';
-export { isDiscordEventName } from './is-discord-event-name';
-export { sendDiscordWebhookMessage } from './send-discord-webhook-message';
-export { toDiscordEventArguments } from './to-discord-event-arguments';
-export { toDiscordEventName } from './to-discord-event-name';
+export { createDiscordClient } from './client/create-discord-client';
+export { type DiscordClient } from './client/discord-client';
+export { type DiscordClientOptions } from './client/discord-client-options';
+export { discordCommand } from './discord.command';
+export { discordDomain } from './discord.domain';
+export { discordError } from './discord.error';
+export { discordEvent } from './discord.event';
+export { discordQuery } from './discord.query';

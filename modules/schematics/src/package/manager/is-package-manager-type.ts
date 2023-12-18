@@ -1,6 +1,12 @@
-import { PackageManagerType } from './package-manager-type';
+import { type PackageManagerType } from './package-manager-type';
 import { packageManagerTypes } from './package-manager-types';
 
+/**
+ * Tests whether a value is a valid package manager type
+ *
+ * @param value Value
+ * @returns true if the value is a valid package manager type
+ */
 export function isPackageManagerType(value: unknown): value is PackageManagerType {
   return typeof value === 'string' && set.has(value);
 }

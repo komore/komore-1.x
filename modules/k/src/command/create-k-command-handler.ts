@@ -1,7 +1,6 @@
-import { cwd } from 'process';
-
 import { cliEvent, type CliEvent } from '@komore/cli';
 import { matchCommand, type CommandFromType, type CommandHandler } from '@komore/command';
+import { getCurrentWorkingDirectory } from '@komore/node/process';
 import { first, map, mapTo, mergeMap, of, tapNext, toArray, type Observable, type Subject } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 
@@ -21,7 +20,8 @@ import { displayKomoreWorkspaceProjects } from './workspace/display-komore-works
  * @returns komore command-line interface command handler
  */
 export function createKCommandHandler(events: Subject<CliEvent>): CommandHandler<CommandFromType<typeof kCommand>> {
-  const workspaceContext$ = createWorkspaceContext(cwd());
+  const cwd = getCurrentWorkingDirectory();
+  const workspaceContext$ = createWorkspaceContext(cwd);
 
   return command =>
     // TODO: avoid having to specify types
