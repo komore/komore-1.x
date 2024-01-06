@@ -1,10 +1,10 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
-import { isFileAccessible } from '@komore/node/file-system';
+import { isPathAccessible } from '@komore/node/file-system';
 import { concatMap, filter, first, fromArray, mapTo, throwIfEmpty, type Observable } from '@komore/reactive';
 
-import { type PackageManagerType } from './package-manager-type';
 import { schematicsError } from '../../schematics.error';
+import { type PackageManagerType } from './package-manager-type';
 
 /**
  * Detects the type of package managed in use
@@ -15,7 +15,7 @@ import { schematicsError } from '../../schematics.error';
 export function detectPackageManagerType(basePath: string): Observable<PackageManagerType> {
   const packageManagerLockFileTypes = getPackageManagerLockFileTypes();
   const packageManagerLockFileFullPaths = packageManagerLockFileTypes.map(lockFileTypeWithFullPath(basePath));
-  const isAccessible = isFileAccessible();
+  const isAccessible = isPathAccessible();
   return fromArray(packageManagerLockFileFullPaths).pipe(
     concatMap(({ fileName, type }) => isAccessible(fileName).pipe(filter(Boolean), mapTo(type))),
     first(),

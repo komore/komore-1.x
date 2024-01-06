@@ -19,7 +19,7 @@ export function cargoErrorStringToCargoError(errorString: string): ErrorFromType
   const [regExp, creator] = errorMapper;
 
   const matches = errorString.match(regExp);
-  assert(isNotNull(matches));
+  assert(isNotNull(matches), `error string "${errorString}" does not match the expected regular expression`);
 
   return creator(...matches.slice(1));
 }

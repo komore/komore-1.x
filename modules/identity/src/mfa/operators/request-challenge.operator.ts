@@ -1,21 +1,22 @@
 import { type OperatorFunction } from '@komore/reactive';
-import { type ChallengeType } from '../challenge-type';
+
+import { type MfaChallengeType } from '../mfa-challenge-type';
 
 /**
  * Request challenge parameters
  */
-type RequestChallengeParameters = Readonly<{
-  challengeType: ChallengeType;
-}>;
+interface RequestChallengeParameters {
+  readonly challengeType: MfaChallengeType;
+}
 
-type RequestChallengeResult = Readonly<{
-  challengeType: ChallengeType;
-  bindingMethod?: any; // ?
-}>;
+interface RequestChallengeResult {
+  readonly challengeType: MfaChallengeType;
+  readonly bindingMethod?: unknown; // TODO: ?
+}
 
 /**
  * Request challenge operator
  */
 export const requestChallenge: OperatorFunction<RequestChallengeParameters, RequestChallengeResult> = source => {
-    return source;
+  return source;
 };

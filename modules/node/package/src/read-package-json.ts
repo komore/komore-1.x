@@ -1,4 +1,4 @@
-import { type PathLike } from 'fs';
+import { type PathLike } from 'node:fs';
 
 import { jsonToObject } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
@@ -13,5 +13,5 @@ import { type PackageJson } from './package-json';
  * @returns Package information
  */
 export function readPackageJson(path: PathLike): Observable<Partial<PackageJson>> {
-  return readFileContent(path, 'utf-8').pipe(map(jsonToObject<Partial<PackageJson>>()));
+  return readFileContent(path, { encoding: 'utf-8' }).pipe(map(jsonToObject<Partial<PackageJson>>()));
 }

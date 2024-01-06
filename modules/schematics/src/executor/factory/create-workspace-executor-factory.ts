@@ -1,4 +1,4 @@
-import { defer, isObservable, of, type Observable } from '@komore/reactive';
+import { asObservable, defer, type Observable } from '@komore/reactive';
 
 import { type WorkspaceExecutor } from '../workspace-executor';
 import { type WorkspaceExecutorFactory } from './workspace-executor-factory';
@@ -19,6 +19,6 @@ export function createWorkspaceExecutorFactory<OptionsType = unknown>(
   return options =>
     defer(() => {
       const workspaceExecutor = factory(options);
-      return isObservable(workspaceExecutor) ? workspaceExecutor : of(workspaceExecutor);
+      return asObservable(workspaceExecutor);
     });
 }

@@ -1,10 +1,13 @@
+import { feature } from '@komore/testing';
+
 import { buildNodeHostOptions } from './build-node-host-options';
 
-describe('Build Node host options', () => {
-  it('returns an options object with default values', () => {
+feature('Build Node host options', {
+  'returns an options object with default values'() {
     when: 'building a Node host options';
     const options = buildNodeHostOptions();
+
     expect: 'the correct default values to have been set';
-    expect(options.exitTimeout).toBe(0);
-  })
+    options.exitTimeout === 0;
+  },
 });

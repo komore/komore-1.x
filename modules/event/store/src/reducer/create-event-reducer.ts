@@ -46,7 +46,7 @@ function buildEventReducerMap<S, O extends On<S, any>[]>(
   for (const on of ons) {
     const reducers = map.get(on.type) || [];
     // TODO: proper typing to avoid the cast
-    const reducer = on.eventReducer as any as EventReducer<S, OnEventType<O[number]>>;
+    const reducer = on.eventReducer as unknown as EventReducer<S, OnEventType<O[number]>>;
 
     if (reducers.length === 0) {
       map.set(on.type, reducers);

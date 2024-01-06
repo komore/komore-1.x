@@ -20,4 +20,8 @@ export interface WorkspaceDefaultsConfiguration {
    * Default tasks
    */
   readonly tasks: ReadonlyRecord<TaskName, ExecutorReferenceString>;
+  /**
+   * Default temporary path
+   */
+  readonly tempPath: string;
 }

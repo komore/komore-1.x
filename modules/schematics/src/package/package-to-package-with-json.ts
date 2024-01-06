@@ -1,5 +1,5 @@
-import { readPackageJson, type PackageJson } from '@komore/node/package'; // TODO: @komore/npm/package?
-import { defer, map, type Observable } from '@komore/reactive';
+import { readPackageJson, type PackageJson } from '@komore/node/package';
+import { map, type Observable } from '@komore/reactive';
 
 import { type LocalPackage } from './local-package';
 
@@ -12,12 +12,10 @@ import { type LocalPackage } from './local-package';
 export function packageToPackageWithJson<T extends LocalPackage>(
   pkg: T
 ): Observable<T & { readonly packageJson: Partial<PackageJson> }> {
-  return defer(() => {
-    return readPackageJson(pkg.packageJsonPath).pipe(
-      map(packageJson => ({
-        ...pkg,
-        packageJson,
-      }))
-    );
-  });
+  return readPackageJson(pkg.packageJsonPath).pipe(
+    map(packageJson => ({
+      ...pkg,
+      packageJson,
+    }))
+  );
 }

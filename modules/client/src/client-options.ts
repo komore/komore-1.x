@@ -2,8 +2,9 @@ import { type CommandFromType, type CommandHandler, type GenericCommandType } fr
 import { type GenericErrorType } from '@komore/error';
 import { type EventFromType, type GenericEventType } from '@komore/event';
 import { type GenericQueryType, type QueryFromType, type QueryHandler } from '@komore/query';
-import { type Subject } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
+
+import { type CommandEventPair } from './command-event-map/command-event-pair';
 
 /**
  * Client options
@@ -56,7 +57,9 @@ export interface ClientOptions<
  * Command handler factory
  */
 interface CommandHandlerFactory<CommandType extends GenericCommandType, EventType extends GenericEventType> {
-  (events: Subject<EventFromType<EventType>>): CommandHandler<CommandFromType<CommandType>>;
+  (
+    events: (pair: CommandEventPair<CommandFromType<CommandType>, EventFromType<EventType>>) => void
+  ): CommandHandler<CommandFromType<CommandType>>;
 }
 
 /**

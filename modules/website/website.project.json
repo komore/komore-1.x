@@ -1,6 +1,7 @@
 {
+  "$schema": "../schematics/project-configuration.schema.json",
   "domain": "website",
   "type": "application",
   "tags": ["trait:base"],
-  "tasks": ["build", "deploy", "lint", "serve", "test"]
+  "tasks": ["build", "deploy", "lint", ["serve", "@komore/browser:serve-browser-application"], "test"]
 }

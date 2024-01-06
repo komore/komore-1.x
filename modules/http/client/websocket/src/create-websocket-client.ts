@@ -14,7 +14,7 @@ export function createWebSocketClient(
   url: string,
   emitter?: Observable<EmittableType>,
   protocols?: string | string[]
-): Observable<MessageEvent> {
+): Observable<MessageEvent<string>> {
   return new Observable(subscriber => {
     const socket = new WebSocket(url, protocols);
     const subscription = emitter?.subscribe(message => socket.send(message));
@@ -27,9 +27,7 @@ export function createWebSocketClient(
       subscriber.complete();
     });
 
-    return () => {
-      subscription?.unsubscribe();
-      socket.close();
-    };
+    subscriber.add(() => subscription?.unsubscribe());
+    subscriber.add(() => socket.close());
   });
 }

@@ -1,8 +1,8 @@
-import { join } from 'path';
+import { resolve } from 'node:path';
 
 import { cache, map, type Observable } from '@komore/reactive';
+import { loadTypeScriptConfiguration } from '@komore/typescript-compiler';
 
-import { readTsConfigJson } from '../typescript/read-tsconfig-json';
 import { loadWorkspaceConfiguration } from '../workspace/load-workspace-configuration';
 import { buildWorkspaceContextPackage } from './build-workspace-context-package';
 import { buildWorkspaceContextSchematics } from './build-workspace-context-schematics';
@@ -19,8 +19,8 @@ export function createWorkspaceContext(basePath: string): Observable<WorkspaceCo
   const buildContextPackage = buildWorkspaceContextPackage(basePath);
   const buildContextSchematics = buildWorkspaceContextSchematics(basePath);
   // TODO: avoid hardcoded tsconfig.base.json path
-  const tsConfigBasePath = join(basePath, 'conf/tsconfig.base.json');
-  const tsConfigBase = readTsConfigJson(tsConfigBasePath).pipe(cache());
+  const tsConfigBasePath = resolve(basePath, 'conf', 'tsconfig.base.json');
+  const tsConfigBase = loadTypeScriptConfiguration(tsConfigBasePath).pipe(cache());
   const buildWorkspaceContextProject = workspaceConfigurationToWorkspaceContextProject(basePath);
 
   // TODO: shouldn't be the one responsible for loading the workspace configuration

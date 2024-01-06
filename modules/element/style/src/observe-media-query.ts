@@ -1,4 +1,4 @@
-import { defer, fromEvent, type Observable } from '@komore/reactive';
+import { defer, fromEvent, map, type Observable } from '@komore/reactive';
 
 /**
  * Observes a media query
@@ -9,6 +9,6 @@ import { defer, fromEvent, type Observable } from '@komore/reactive';
 export function observeMediaQuery(query: string): Observable<MediaQueryListEvent> {
   return defer(() => {
     const mediaQueryList = window.matchMedia(query);
-    return fromEvent<MediaQueryListEvent>(mediaQueryList, 'change');
-  });
+    return fromEvent(mediaQueryList, 'change');
+  }).pipe(map(event => event as MediaQueryListEvent));
 }

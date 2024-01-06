@@ -1,7 +1,9 @@
+import { join } from 'node:path';
+
+import { readPackageJson } from '@komore/node/package';
 import { map, take } from '@komore/reactive';
-import { readPackageJson } from '@komore/runtime/node';
 import { type WorkspaceExecutorOptionsProcessor } from '@komore/schematics';
-import { join } from 'path';
+
 import { type PackageModuleExecutorOptions } from './package-module-executor-options';
 import { type PackageModuleExecutorOptionsSchema } from './package-module-executor-options-schema';
 

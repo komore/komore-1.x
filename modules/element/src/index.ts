@@ -18,7 +18,6 @@ export { isPageVisible } from './visibility/is-page-visible';
 export { isTrustedHTML } from './security/is-trusted-html';
 export { isTrustedScript } from './security/is-trusted-script';
 export { isTrustedScriptURL } from './security/is-trusted-script-url';
-export { location } from './location';
 export { observeFullscreenChanges } from './fullscreen/observe-fullscreen-changes';
 export { observePageVisibility } from './visibility/observe-page-visibility';
 export { observeSlotElements } from './slot/observe-slot-elements';

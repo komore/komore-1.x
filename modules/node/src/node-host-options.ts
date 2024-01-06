@@ -1,8 +1,6 @@
-import { type HostOptions } from '@komore/runtime';
-
 /**
  * Node host options
  */
-export interface NodeHostOptions extends HostOptions {
+export interface NodeHostOptions {
   readonly exitTimeout: number;
 }

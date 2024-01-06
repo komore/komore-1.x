@@ -1,4 +1,6 @@
 export { createErrorType } from './type/create-error-type';
+export { type ErrorCreator } from './creator/error-creator';
+export { type ErrorFromCreator } from './creator/error-from-creator';
 export { type ErrorFromType } from './type/error-from-type';
 export { type ErrorInstance } from './error-instance';
 export { errorProperties } from './properties/error-properties';

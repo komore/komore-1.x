@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./browser-router.tsconfig.library.json"
+    },
+    {
+      "path": "./browser-router.tsconfig.specifications.json"
+    }
+  ]
+}

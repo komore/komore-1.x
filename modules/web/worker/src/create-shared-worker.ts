@@ -1,10 +1,12 @@
 import { type Observable, type Observer } from '@komore/reactive';
+
 import { type CreateWorkerOptions } from './create-worker-options';
 import { fromWorker } from './from-worker';
 import { toWorker } from './to-worker';
 
 /**
  * Creates a shared worker
+ *
  * @param scriptUrl Shared worker script URL
  * @param options Shared worker options
  * @returns An observer that sends messages to the shared worker and an observable that emits messages received from it

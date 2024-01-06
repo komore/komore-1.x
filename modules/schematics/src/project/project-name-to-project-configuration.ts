@@ -1,6 +1,4 @@
-import { isDefined } from '@komore/functional';
 import { type Observable } from '@komore/reactive';
-import { assert } from '@komore/runtime';
 
 import { WorkspaceContext } from '../context/workspace-context';
 import { ProjectName } from './name/project-name';
@@ -16,9 +14,5 @@ export function projectNameToProjectConfiguration(
   workspaceContext: WorkspaceContext
 ): (projectName: ProjectName) => Observable<ProjectConfiguration> {
   const byName = workspaceContext.project.byName;
-  return projectName => {
-    const projectConfiguration$ = byName.get(projectName);
-    assert(isDefined(projectConfiguration$));
-    return projectConfiguration$;
-  };
+  return projectName => byName.get(projectName);
 }

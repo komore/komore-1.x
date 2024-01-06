@@ -1,5 +1,3 @@
-import { type Logger } from '@komore/logging';
-
 /**
  * OpenTofu client options
  */

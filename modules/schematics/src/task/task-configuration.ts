@@ -1,5 +1,5 @@
+import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type TaskReferenceString } from './reference/task-reference-string';
-import { type TaskExecutorConfiguration } from './task-executor-configuration';
 import { type TaskInput } from './task-input';
 import { type TaskOutput } from './task-output';
 
@@ -16,7 +16,7 @@ export interface TaskConfiguration<OptionsType = unknown> {
   /**
    * Executor used to implement the task
    */
-  readonly executor: TaskExecutorConfiguration;
+  readonly executor: ExecutorReferenceString;
   /**
    * Explicit list of task inputs
    */

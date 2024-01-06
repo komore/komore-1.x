@@ -10,8 +10,3 @@ export const cliEvent = createEventType(cliDomain, {
   applicationEnded: eventProperties<{ exitCode: number }>(),
   messageDisplayed: eventProperties<DisplayedCliMessage>(),
 });
-
-/**
- * Command-line interface event
- */
-export type CliEvent = EventFromType<typeof cliEvent>;

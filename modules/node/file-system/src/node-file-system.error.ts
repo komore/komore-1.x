@@ -1,4 +1,4 @@
-import { type PathLike } from 'fs';
+import { type PathLike } from 'node:fs';
 
 import { createErrorType, errorProperties } from '@komore/error';
 

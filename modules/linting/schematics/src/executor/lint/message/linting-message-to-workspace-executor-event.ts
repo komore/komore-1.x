@@ -18,5 +18,6 @@ export function lintingMessageToWorkspaceExecutorEvent(
       row: `${rows}`,
       ruleId: ruleId ?? '',
     },
+    'failure',
   ]);
 }

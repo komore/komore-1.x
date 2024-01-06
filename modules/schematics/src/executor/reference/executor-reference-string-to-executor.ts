@@ -1,6 +1,5 @@
 import { identity, isDefined, pipe } from '@komore/functional';
-import { map, throwUnless, type Observable, throwError, of } from '@komore/reactive';
-import { assert } from '@komore/runtime';
+import { map, of, ObservableMap, throwError, throwUnless, type Observable } from '@komore/reactive';
 
 import { type WorkspaceContextSchematicsExecutor } from '../../context/workspace-context-schematics-executor';
 import { type PackageName } from '../../package/name/package-name';
@@ -22,7 +21,7 @@ import { executorReferenceStringToExecutorReference } from './executor-reference
  * @returns Function that returns a workspace executor descriptor, given an executor reference string
  */
 export function executorReferenceStringToExecutor(
-  byPackage: ReadonlyMap<PackageName, Observable<ReadonlyArray<WorkspaceExecutorDescriptor>>>
+  byPackage: ObservableMap<PackageName, ReadonlyArray<WorkspaceExecutorDescriptor>>
 ): (executorReferenceString: ExecutorReferenceString) => Observable<WorkspaceContextSchematicsExecutor> {
   const packageReferenceNameToFactory = pipe(
     packageReferenceNameToPackageReference,
@@ -39,7 +38,6 @@ export function executorReferenceStringToExecutor(
   return executorReferenceString => {
     const { executorName, packageName } = executorReferenceStringToExecutorReference(executorReferenceString);
     const packageWithExecutorDescriptors$ = byPackage.get(packageName);
-    assert(isDefined(packageWithExecutorDescriptors$));
     return packageWithExecutorDescriptors$.pipe(
       map(executorDescriptors => executorDescriptors.find(workspaceExecutorDescriptorByExecutorName(executorName))),
       throwUnless(isDefined, () => schematicsError.executorNotFound({ executorName, packageName })),
@@ -52,8 +50,7 @@ export function executorReferenceStringToExecutor(
         const defaultTaskGenerator =
           defaultTask !== undefined
             ? packageReferenceNameToDefaultTaskGeneratorFactory(defaultTask)
-            : // TODO: properly typed
-              throwError(() => new Error(`executor "${executorName}" cannot create a default task`));
+            : throwError(() => schematicsError.executorDefaultTaskGeneratorNotFound({ executorName }));
         const optionsProcessor =
           processor !== undefined
             ? packageReferenceNameToOptionsProcessor(processor)

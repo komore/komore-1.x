@@ -19,6 +19,7 @@ export { not } from './not';
 export { objectToEntries } from './object-to-entries';
 export { objectToKeys } from './object-to-keys';
 export { objectToValues } from './object-to-values';
+export { objectWithProperties } from './object-with-properties';
 export { or } from './or';
 export { pipe } from './pipe';
 export { type UnaryAssertionFunction } from './unary-assertion-function';

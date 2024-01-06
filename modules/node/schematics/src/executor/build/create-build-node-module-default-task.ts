@@ -1,7 +1,5 @@
-import { join } from 'path';
-
-import { defer, of } from '@komore/reactive';
-import { createWorkspaceExecutorDefaultTaskGeneratorFactory, type TaskConfiguration } from '@komore/schematics';
+import { of } from '@komore/reactive';
+import { createWorkspaceExecutorDefaultTaskGeneratorFactory } from '@komore/schematics';
 
 import { type BuildNodeModuleExecutorOptions } from './build-node-module-executor-options';
 import { projectConfigurationToBuildNodeModuleExecutorOptions } from './project-configuration-to-build-node-module-executor-options';

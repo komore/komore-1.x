@@ -1,6 +1,7 @@
 import { type TypeCreator } from '@komore/typescript';
 
 import { type ErrorCreator } from './creator/error-creator';
+import { type ErrorFromCreator } from './creator/error-from-creator';
 import { isKomoreError } from './is-komore-error';
 import { type ErrorFromType } from './type/error-from-type';
 import { type GenericErrorType } from './type/generic-error-type';
@@ -25,7 +26,7 @@ export function isErrorOfType<ErrorType extends GenericErrorType>(
  */
 export function isErrorOfType<ErrorCreatorType extends ErrorCreator<string, TypeCreator<any, any>>>(
   errorType: ErrorCreatorType
-): (error: unknown) => error is ReturnType<ErrorCreatorType>;
+): (error: unknown) => error is ErrorFromCreator<ErrorCreatorType>;
 
 export function isErrorOfType<
   ErrorTypeOrCreatorType extends GenericErrorType | ErrorCreator<string, TypeCreator<any, any>>,

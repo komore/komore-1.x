@@ -1,6 +1,4 @@
-import { isDefined } from '@komore/functional';
 import { first, map, mergeMap, of, tapNext, type Observable } from '@komore/reactive';
-import { assert } from '@komore/runtime';
 import {
   generateWorkspaceExecutorTaskId,
   projectNameToProjectConfiguration,
@@ -52,7 +50,6 @@ export function createTaskRunner(_options: unknown, workspaceContext: WorkspaceC
         }
 
         const workspaceContextExecutor$ = byReferenceString.get(executorReferenceString);
-        assert(isDefined(workspaceContextExecutor$));
 
         console.log(`running task "${taskName}" (${executorReferenceString}) on project "${projectName}"...`);
 

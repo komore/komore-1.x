@@ -1,9 +1,6 @@
-import { type Host } from '@komore/runtime';
-import { type NodeHostOptions } from './node-host-options';
+import { type Host } from '@komore/runtime/host';
 
 /**
  * Node host
  */
-export interface NodeHost extends Host {
-  readonly options: NodeHostOptions;
-}
+export interface NodeHost extends Host {}

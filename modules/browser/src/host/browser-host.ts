@@ -1,13 +1,6 @@
-import { type Host } from '@komore/runtime';
-
-import { type BrowserHostOptions } from './browser-host-options';
+import { type Host } from '@komore/runtime/host';
 
 /**
  * Browser host
  */
-export interface BrowserHost extends Host {
-  /**
-   * Options
-   */
-  readonly options: BrowserHostOptions;
-}
+export interface BrowserHost extends Host {}

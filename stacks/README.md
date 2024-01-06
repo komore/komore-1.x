@@ -2,10 +2,12 @@
 
 | Name        | Description                                                                 |
 | ----------- | --------------------------------------------------------------------------- |
+| [`bot`]     | Bot resources                                                               |
 | [`ci`]      | CI resources: service accounts, cloud resource provisioning for tests, etc. |
-| [`org`]     | Organizational resources: service accounts, DNS, etc.                       |
+| [`init`]    | Organizational resources: service accounts, DNS, etc.                       |
 | [`website`] | Website resources: file hosting, CDN, domain names, certificates, etc.      |
 
+[`bot`]: ./bot
 [`ci`]: ./ci
-[`org`]: ./org
+[`init`]: ./init
 [`website`]: ./website

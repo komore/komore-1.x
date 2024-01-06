@@ -1,5 +1,7 @@
-import { map, type Observable } from '@komore/reactive';
 import MessageFormat, { type MessageFormatOptions } from '@messageformat/core';
+
+import { map, type Observable } from '@komore/reactive';
+
 import { asObservableLanguages } from './as-observable-languages';
 import { type I18nMessage } from './i18n-message';
 import { type Languages } from './languages';

@@ -3,6 +3,7 @@ export { characterToZwjSequence } from './character-to-zwj-sequence';
 export { codePointToString } from './code-point-to-string';
 export { isBlankString } from './is-blank-string';
 export { isEmptyString } from './is-empty-string';
+export { isString } from './is-string';
 export { snakeCaseToCamelCase } from './case/snake-case-to-camel-case';
 export { stringEndsWith } from './string-ends-with';
 export { type StringNormalizationForm } from './string-normalization-form';

@@ -10,4 +10,8 @@ export { createPropertyAccess } from './create-property-access';
 export { createSuperCall } from './create-super-call';
 export { createTypeMappingInterface } from './create-type-mapping-interface';
 export { createVariableStatement } from './create-variable-statement';
+export { loadTypeScriptConfiguration } from './configuration/load-typescript-configuration';
 export { type TypeMapping } from './type-mapping';
+export { type TypeScriptConfiguration } from './configuration/typescript-configuration';
+export { typeScriptConfigurationToPaths } from './configuration/typescript-configuration-to-paths';
+export { type TypeScriptProjectReferenceConfiguration } from './configuration/typescript-project-reference-configuration';

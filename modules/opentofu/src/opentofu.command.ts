@@ -1,9 +1,9 @@
 import { commandProperties, createCommandType } from '@komore/command';
 
-import { type OpenTofuApplyParameters } from './command/opentofu-apply-parameters';
-import { type OpenTofuDestroyParameters } from './command/opentofu-destroy-parameters';
-import { type OpenTofuInitParameters } from './command/opentofu-init-parameters';
-import { type OpenTofuPlanParameters } from './command/opentofu-plan-parameters';
+import { type OpenTofuApplyParameters } from './apply/opentofu-apply-parameters';
+import { type OpenTofuDestroyParameters } from './destroy/opentofu-destroy-parameters';
+import { type OpenTofuInitParameters } from './init/opentofu-init-parameters';
+import { type OpenTofuPlanParameters } from './plan/opentofu-plan-parameters';
 import { openTofuDomain } from './opentofu.domain';
 
 /**
@@ -11,7 +11,7 @@ import { openTofuDomain } from './opentofu.domain';
  */
 export const openTofuCommand = createCommandType(openTofuDomain, {
   /**
-   * Executes an execution plan
+   * Applies an execution plan
    *
    * @see {@link https://opentofu.org/docs/cli/commands/apply tofu apply}
    */
@@ -27,7 +27,7 @@ export const openTofuCommand = createCommandType(openTofuDomain, {
    *
    * @see {@link https://opentofu.org/docs/cli/commands/init tofu init}
    */
-  init: commandProperties<OpenTofuInitParameters>(),
+  initialize: commandProperties<OpenTofuInitParameters>(),
   /**
    * Creates an execution plan
    *

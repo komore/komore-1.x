@@ -17,7 +17,6 @@ export function fromPromise<T>(promise: Promise<T>): Observable<T> {
         }
       })
       .catch(error => {
-        console.log('what in the name of the fuck');
         subscriber.error(error);
         subscriber.complete();
       });

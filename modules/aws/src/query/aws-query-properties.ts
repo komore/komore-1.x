@@ -12,9 +12,7 @@ import { type AwsCommandInputTypeFromAwsCommand } from '../aws-command-input-typ
  * @returns AWS query properties schema
  * @template CommandType AWS command type
  */
-export function awsQueryProperties<
-  CommandType extends Command<object, object, MetadataBearer, MetadataBearer, unknown>,
->() {
+export function awsQueryProperties<CommandType extends Command<object, object, MetadataBearer, MetadataBearer, any>>() {
   return queryProperties<
     AwsCommandOutputTypeFromAwsCommand<CommandType>,
     AwsCommandInputTypeFromAwsCommand<CommandType>

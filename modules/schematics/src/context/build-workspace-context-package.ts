@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
 import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
@@ -13,7 +13,7 @@ import {
   throwUnless,
   type Observable,
 } from '@komore/reactive';
-import { assert } from '@komore/runtime';
+import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
@@ -23,8 +23,8 @@ import { createPackageManager } from '../package/manager/create-package-manager'
 import { packageManagerToPackageList } from '../package/manager/package-manager-to-package-list';
 import { type PackageName } from '../package/name/package-name';
 import { packageToPackageWithJson } from '../package/package-to-package-with-json';
-import { tsConfigToLocalPackages } from '../package/tsconfig-to-local-packages';
-import { type TsConfigJson } from '../typescript/tsconfig-json';
+import { typeScriptConfigurationToLocalPackages } from '../package/typescript-configuration-to-local-packages';
+import { schematicsError } from '../schematics.error';
 import { type WorkspaceConfiguration } from '../workspace/workspace-configuration';
 import { buildWorkspaceContextPackageList } from './build-workspace-context-package-list';
 import { type WorkspaceContextPackage } from './workspace-context-package';
@@ -37,14 +37,17 @@ import { type WorkspaceContextPackage } from './workspace-context-package';
  */
 export function buildWorkspaceContextPackage(
   basePath: string
-): (tsConfigBase: Observable<TsConfigJson>, workspaceConfiguration: WorkspaceConfiguration) => WorkspaceContextPackage {
+): (
+  tsConfigBase: Observable<TypeScriptConfiguration>,
+  workspaceConfiguration: WorkspaceConfiguration
+) => WorkspaceContextPackage {
   const packageJsonPath = join(basePath, 'package.json');
   const json = readPackageJson(packageJsonPath).pipe(cache());
 
   return (tsConfigBase, workspaceConfiguration) => {
     const manager = createPackageManager(basePath, workspaceConfiguration.package.manager).pipe(cache());
     const installed = manager.pipe(mergeMap(packageManagerToPackageList), cache());
-    const local = tsConfigBase.pipe(mergeMap(tsConfigToLocalPackages(basePath)), cache());
+    const local = tsConfigBase.pipe(mergeMap(typeScriptConfigurationToLocalPackages(basePath)), cache());
     const all = combineLatest([installed, local]).pipe(map(arrayToFlattenedArray()), cache());
     const byName = new ObservableMap(packageByName(all));
     const byNameWithPackageJson = new ObservableMap(packageWithPackageJsonByName(byName));
@@ -71,7 +74,7 @@ function packageByName(
   return packageName =>
     all$.pipe(
       map(all => all.find(({ name }) => name === packageName)),
-      throwUnless(isDefined, () => new Error(`TODO: typed; package "${packageName}" not found`)),
+      throwUnless(isDefined, () => schematicsError.packageNotFound({ packageName })),
       mergeMap(packageToPackageWithJson)
     );
 }
@@ -83,11 +86,7 @@ function packageByName(
  * @returns Function that resolves a package name to a package with its package.json
  */
 function packageWithPackageJsonByName(
-  byName: ReadonlyMap<PackageName, Observable<InstalledPackage | LocalPackage>>
+  byName: ObservableMap<PackageName, InstalledPackage | LocalPackage>
 ): (packageName: PackageName) => Observable<InstalledPackageWithPackageJson | LocalPackageWithPackageJson> {
-  return packageName => {
-    const package$ = byName.get(packageName);
-    assert(isDefined(package$));
-    return package$.pipe(switchMap(packageToPackageWithJson));
-  };
+  return packageName => byName.get(packageName).pipe(switchMap(packageToPackageWithJson));
 }

@@ -1,11 +1,12 @@
 {
-  "extends": "../../tsconfig.stack.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../conf/tsconfig.stack.json",
   "references": [
     {
-      "path": "./tsconfig.stack.json"
+      "path": "./bot-stack.tsconfig.stack.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./bot-stack.tsconfig.specifications.json"
     }
   ]
 }

@@ -1,17 +1,14 @@
 import { of, type Observable } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
+import { isExecutorReferenceString } from '../../executor/reference/is-executor-reference-string';
 import { type ProjectConfiguration } from '../../project/project-configuration';
 import { schematicsError } from '../../schematics.error';
 import { type TaskName } from '../name/task-name';
-import { isTaskReferenceString } from '../reference/is-task-reference-string';
-import { taskReferenceStringToTaskReference } from '../reference/task-reference-string-to-task-reference';
 import { executorReferenceStringToResolvedTaskConfiguration } from '../resolution/executor-reference-string-to-resolved-task-configuration';
-import { taskNameToResolvedTaskConfiguration } from '../resolution/task-name-to-resolved-task-configuration';
 import { type TaskConfiguration } from '../task-configuration';
 import { type TaskConfigurationJson } from './task-configuration-json';
 import { taskConfigurationJsonToTaskConfiguration } from './task-configuration-json-to-task-configuration';
-import { isExecutorReferenceString } from '../../executor/reference/is-executor-reference-string';
 
 /**
  * Creates a function that returns a valid task configuration, given a task configuration JSON entry
@@ -27,7 +24,6 @@ export function taskConfigurationJsonEntryToResolvedTaskConfiguration(
   projectConfiguration: ProjectConfiguration,
   executorReferenceStringOrTaskConfigurationJson?: string | TaskConfigurationJson
 ) => Observable<TaskConfiguration> {
-  const resolveTaskName = taskNameToResolvedTaskConfiguration(workspaceContext);
   const resolveExecutorReferenceString = executorReferenceStringToResolvedTaskConfiguration(workspaceContext);
   return (taskName, projectConfiguration, executorReferenceStringOrTaskConfigurationJson) => {
     if (typeof executorReferenceStringOrTaskConfigurationJson === 'object') {
@@ -38,7 +34,7 @@ export function taskConfigurationJsonEntryToResolvedTaskConfiguration(
 
     const executorReferenceString = executorReferenceStringOrTaskConfigurationJson;
     if (executorReferenceString === undefined) {
-      return resolveTaskName(taskName, projectConfiguration);
+      return projectConfiguration.tasks.get(taskName);
     } else if (isExecutorReferenceString(executorReferenceString)) {
       return resolveExecutorReferenceString(executorReferenceString, projectConfiguration);
     } else {

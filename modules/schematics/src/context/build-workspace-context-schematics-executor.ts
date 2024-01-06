@@ -1,5 +1,4 @@
 import { arrayToFlattenedArray } from '@komore/collection';
-import { isDefined } from '@komore/functional';
 import {
   cache,
   combineLatest,
@@ -11,7 +10,6 @@ import {
   switchMap,
   type Observable,
 } from '@komore/reactive';
-import { assert } from '@komore/runtime';
 
 import { isPackageWithExecutors } from '../executor/is-package-with-executors';
 import { packageJsonToWorkspaceExecutorDescriptors } from '../executor/package-json-to-workspace-executor-descriptors';
@@ -31,7 +29,7 @@ import { type WorkspaceContextSchematics } from './workspace-context-schematics'
 export function buildWorkspaceContextSchematicsExecutor(
   basePath: string
 ): (
-  packageWithJsonAndSchematicsByName$: ReadonlyMap<PackageName, Observable<PackageWithPackageJsonAndSchematics>>,
+  packageWithJsonAndSchematicsByName$: ObservableMap<PackageName, PackageWithPackageJsonAndSchematics>,
   packagesWithJsonAndSchematics$: Observable<ReadonlyArray<PackageWithPackageJsonAndSchematics>>
 ) => WorkspaceContextSchematics['executor'] {
   return (packageWithJsonAndSchematicsByName$, packagesWithJsonAndSchematics$) => {
@@ -42,11 +40,8 @@ export function buildWorkspaceContextSchematicsExecutor(
     const byPackage = new ObservableMap(packageNameToExecutors(basePath, packageWithJsonAndSchematicsByName$));
     const byReferenceString = new ObservableMap(executorReferenceStringToExecutor(byPackage));
     const list = packagesWithJsonAndExecutors$.pipe(
-      mapEach(packageWithExecutors => {
-        const packageExecutors$ = byPackage.get(packageWithExecutors.packageJson.name as PackageName);
-        assert(isDefined(packageExecutors$));
-        return packageExecutors$;
-      }),
+      mapEach(packageWithExecutors => packageWithExecutors.packageJson.name as PackageName),
+      mapEach(packageName => byPackage.get(packageName)),
       mergeMap(descriptors => combineLatest(descriptors).pipe(map(arrayToFlattenedArray()), defaultIfEmpty([]))),
       cache()
     );
@@ -68,11 +63,8 @@ export function buildWorkspaceContextSchematicsExecutor(
  */
 function packageNameToExecutors(
   basePath: string,
-  packageByName: ReadonlyMap<PackageName, Observable<PackageWithPackageJsonAndSchematics>>
+  packageByName: ObservableMap<PackageName, PackageWithPackageJsonAndSchematics>
 ): (packageName: PackageName) => Observable<ReadonlyArray<WorkspaceExecutorDescriptor>> {
-  return packageName => {
-    const packageWithJsonAndSchematics$ = packageByName.get(packageName);
-    assert(isDefined(packageWithJsonAndSchematics$));
-    return packageWithJsonAndSchematics$.pipe(switchMap(packageJsonToWorkspaceExecutorDescriptors(basePath)), cache());
-  };
+  const toWorkspaceExecutorDescriptors = packageJsonToWorkspaceExecutorDescriptors(basePath);
+  return packageName => packageByName.get(packageName).pipe(switchMap(toWorkspaceExecutorDescriptors), cache());
 }

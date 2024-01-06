@@ -1,6 +1,7 @@
 import { type Observable } from '@komore/reactive';
 
 import { type HttpClientRequest } from './request/http-client-request';
+import { type HttpClientResponse } from './response/http-client-response';
 
 /**
  * HTTP client
@@ -12,5 +13,5 @@ export interface HttpClient {
    * @param request Request
    * @returns Observable response
    */
-  (request: HttpClientRequest): Observable<Response>;
+  (request: HttpClientRequest): Observable<HttpClientResponse>;
 }

@@ -1,3 +1,4 @@
+import { isString } from '@komore/string';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type WorkspaceExecutorTaskId } from '../task/workspace-executor-task-id';
@@ -20,7 +21,7 @@ export function toWorkspaceExecutorTaskMessageEvent<T>(
   messageIdOrProject: string | ProjectionFunction<T>,
   messageParameters?: ReadonlyRecord<string, string>
 ): (value: T) => WorkspaceExecutorEvent<'task.message'> {
-  if (typeof messageIdOrProject === 'string') {
+  if (isString(messageIdOrProject)) {
     const messageId = messageIdOrProject;
     return _value =>
       createWorkspaceExecutorEvent('task.message', {
@@ -34,8 +35,9 @@ export function toWorkspaceExecutorTaskMessageEvent<T>(
   const project = messageIdOrProject;
   return value => {
     const result = project(value);
-    const [messageId, messageParameters, messageType = 'normal'] =
-      typeof result === 'string' ? [result, undefined, undefined] : result;
+    const [messageId, messageParameters, messageType = 'normal'] = isString(result)
+      ? [result, undefined, undefined]
+      : result;
     return createWorkspaceExecutorEvent('task.message', {
       messageId,
       ...(messageParameters !== undefined ? { messageParameters } : {}),

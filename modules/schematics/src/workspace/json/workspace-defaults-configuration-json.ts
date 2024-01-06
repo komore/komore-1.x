@@ -16,4 +16,8 @@ export interface WorkspaceDefaultsConfigurationJson {
    * Default tasks
    */
   readonly tasks?: ReadonlyRecord<string, string>;
+  /**
+   * Default temporary path
+   */
+  readonly tempPath?: string;
 }

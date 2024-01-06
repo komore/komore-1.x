@@ -6,6 +6,7 @@ import { type SpecificationProcessingOptions } from './specification-processing-
 
 /**
  * Process specifications
+ *
  * @param inputs Specification inputs
  * @param options Specification processing options
  * @returns List of specification
@@ -14,8 +15,5 @@ export function processSpecifications(
   inputs: ReadonlyArray<SpecificationInput>,
   options?: SpecificationProcessingOptions
 ): Observable<ReadonlyArray<Specification>> {
-  return defer(() => fromArray(inputs)).pipe(
-    processSpecification(options),
-    toArray()
-  );
+  return defer(() => fromArray(inputs)).pipe(processSpecification(options), toArray());
 }

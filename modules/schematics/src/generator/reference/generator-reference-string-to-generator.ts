@@ -1,6 +1,5 @@
 import { isDefined } from '@komore/functional';
-import { throwUnless, type Observable, map } from '@komore/reactive';
-import { assert } from '@komore/runtime';
+import { map, throwUnless, type Observable, type ObservableMap } from '@komore/reactive';
 
 import { type PackageName } from '../../package/name/package-name';
 import { schematicsError } from '../../schematics.error';
@@ -17,13 +16,11 @@ import { generatorReferenceStringToGeneratorReference } from './generator-refere
  * @private
  */
 export function generatorReferenceStringToGenerator(
-  byPackage: ReadonlyMap<PackageName, Observable<ReadonlyArray<WorkspaceGeneratorDescriptor>>>
+  byPackage: ObservableMap<PackageName, ReadonlyArray<WorkspaceGeneratorDescriptor>>
 ): (generatorReferenceString: GeneratorReferenceString) => Observable<WorkspaceGeneratorDescriptor> {
   return generatorReferenceString => {
     const { generatorName, packageName } = generatorReferenceStringToGeneratorReference(generatorReferenceString);
-    const packageWithGeneratorDescriptors$ = byPackage.get(packageName);
-    assert(isDefined(packageWithGeneratorDescriptors$));
-    return packageWithGeneratorDescriptors$.pipe(
+    return byPackage.get(packageName).pipe(
       map(generators => generators.find(workspaceGeneratorDescriptorByGeneratorName(generatorName))),
       throwUnless(isDefined, () => schematicsError.generatorNotFound({ generatorName, packageName }))
     );

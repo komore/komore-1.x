@@ -1,3 +1,5 @@
+import { isString } from '@komore/string';
+
 import { type TaskName } from './task-name';
 import { taskNameRegExp } from './task-name-reg-exp';
 
@@ -8,5 +10,5 @@ import { taskNameRegExp } from './task-name-reg-exp';
  * @returns true if the value is a task name
  */
 export function isTaskName(value: unknown): value is TaskName {
-  return typeof value === 'string' && taskNameRegExp.test(value);
+  return isString(value) && taskNameRegExp.test(value);
 }

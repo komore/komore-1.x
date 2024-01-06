@@ -1,13 +1,14 @@
-import { defer, fromPromise, type Observable } from '@komore/reactive';
+import { deferPromise, type Observable } from '@komore/reactive';
 
 /**
  * Loads a font face
+ *
  * @param fontFace Font face
  * @returns Font face once it has been loaded
  */
 export function loadFontFace(fontFace: FontFace): Observable<FontFace> {
-  return defer(() => {
+  return deferPromise(() => {
     fontFace.load();
-    return fromPromise(fontFace.loaded);
+    return fontFace.loaded;
   });
 }

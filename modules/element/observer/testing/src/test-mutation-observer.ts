@@ -1,5 +1,6 @@
 import { isDefined } from '@komore/functional';
 import { type FunctionMock } from '@komore/testing';
+
 import { testMutationObserverRegistry } from './test-mutation-observer-registry';
 
 /**
@@ -20,7 +21,7 @@ export class TestMutationObserver implements MutationObserver {
   }> = {
     disconnect: jest.fn(),
     observe: jest.fn(),
-    takeRecords: jest.fn()
+    takeRecords: jest.fn(),
   };
 
   /**
@@ -70,11 +71,7 @@ export class TestMutationObserver implements MutationObserver {
    */
   next(...mutationRecords: ReadonlyArray<MutationRecord>): void {
     // TODO: check target against this.targets?
-    const records = mutationRecords
-      .map(filterMutationRecords(this.targets))
-      .filter(isDefined)
-    ;
-
+    const records = mutationRecords.map(filterMutationRecords(this.targets)).filter(isDefined);
     if (records.length > 0) {
       this.mutationRecords.push(...records);
       this.callback(records, this);

@@ -5,6 +5,7 @@ import { catchError } from './catch-error';
 
 /**
  * Catches errors on the observable when a condition is met, returning a new observable or throwing a new error
+ *
  * @param predicate Predicate condition that determines whether the error should be caught
  * @param selector Selector function
  * @template InputType Input type
@@ -18,6 +19,7 @@ export function catchErrorIf<InputType, OutputType, ErrorType>(
 
 /**
  * Catches errors on the observable when a condition is met, returning a new observable or throwing a new error
+ *
  * @param predicate Predicate condition that determines whether the error should be caught
  * @param selector Selector function
  * @template InputType Input type

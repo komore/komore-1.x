@@ -2,6 +2,7 @@ import { type Observable } from '@komore/reactive';
 
 /**
  * Function that returns an observable attribute
+ *
  * @param attributeName Attribute name
  * @returns Observable attribute
  * @template AttributeName Attribute name

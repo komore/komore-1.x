@@ -12,6 +12,7 @@ import { type TaskName } from './task/name/task-name';
  */
 export const schematicsError = createErrorType(schematicsDomain, {
   defaultTaskNameNotFound: errorProperties<{ taskName: TaskName }>(),
+  executorDefaultTaskGeneratorNotFound: errorProperties<{ executorName: ExecutorName }>(),
   executorDescriptorsNotFound: errorProperties<{ path: string }>(),
   executorFactoryNotFound: errorProperties<{ executorName: ExecutorName; path: string }>(),
   executorNotFound: errorProperties<{ executorName: ExecutorName; packageName: PackageName }>(),
@@ -34,6 +35,9 @@ export const schematicsError = createErrorType(schematicsDomain, {
   moduleExportNotFound: errorProperties<{ moduleName: string; entryName: string }>(),
   moduleNotFound: errorProperties<{ moduleName: string }>(),
   packageManagerNotFound: errorProperties<{ lockFilePaths: string }>(),
+  packageNotFound: errorProperties<{ packageName: PackageName }>(),
+  packageWithoutSchematics: errorProperties<{ packageName: PackageName }>(),
   projectFileNotFound: errorProperties<{ projectName: ProjectName; path: string }>(),
   projectNotFound: errorProperties<{ projectName: ProjectName }>(),
+  projectTaskNotFound: errorProperties<{ projectName: ProjectName; taskName: TaskName }>(),
 });

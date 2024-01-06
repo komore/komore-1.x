@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 import { Uri, type ExtensionContext } from 'vscode';
 
 /**

@@ -10,4 +10,4 @@ import { type s3CommandEventMapping } from './s3-command-event-mapping';
  * S3 client
  */
 export interface S3Client
-  extends AwsClient<typeof s3Command, typeof s3CommandEventMapping, typeof s3Event, typeof s3Query, typeof s3Error> {}
+  extends AwsClient<typeof s3Command, typeof s3Event, typeof s3Query, typeof s3Error, typeof s3CommandEventMapping> {}

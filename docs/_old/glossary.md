@@ -7,6 +7,8 @@ This glossary attempts to cover all of them with a concise description.
 
 More in-depth information about each term is also provided via links to third-party sources.
 
+## TODO
+
 ### Aggregate
 
 TODO.
@@ -52,8 +54,6 @@ the meaning of each term.
 
 - [Developing the ubiquitous language] <i>thedomaindrivendesign.io</i>
 - [Martin Fowler: Ubiquitous Language] <i>martinfowler.com</i>
-
-
 
 [bounded context]: #Bounded-Context
 [bounded contexts]: #Bounded-Context

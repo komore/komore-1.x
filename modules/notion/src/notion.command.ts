@@ -1,8 +1,15 @@
-import { createCommandType } from '@komore/command';
+import { commandProperties, createCommandType } from '@komore/command';
 
 import { notionDomain } from './notion.domain';
 
 /**
  * Notion command
  */
-export const notionCommand = createCommandType(notionDomain, {});
+export const notionCommand = createCommandType(notionDomain, {
+  /**
+   * Creates a page
+   *
+   * @see {@link https://developers.notion.com/reference/post-page Create a page}
+   */
+  createPage: commandProperties<unknown>(),
+});

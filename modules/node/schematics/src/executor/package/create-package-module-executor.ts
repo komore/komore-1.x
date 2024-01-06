@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
 import { mapTo, mergeMap, tapNext } from '@komore/reactive';
 import { createWorkspaceExecutor, createWorkspaceExecutorFactory } from '@komore/schematics';

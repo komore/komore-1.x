@@ -5,6 +5,7 @@ import { type GenericCommandType } from '@komore/command';
 import { type GenericErrorType } from '@komore/error';
 import { type GenericEventType } from '@komore/event';
 import { type GenericQueryType } from '@komore/query';
+import { type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 /**
@@ -32,5 +33,5 @@ export interface AwsClientOptions<
   /**
    * AWS client
    */
-  readonly client: AwsClientType;
+  readonly client: () => Observable<AwsClientType>;
 }

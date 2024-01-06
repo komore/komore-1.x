@@ -1,9 +1,11 @@
 import { type Observer } from '@komore/reactive';
+
 import { terminateWorker } from './terminate-worker';
 import { type WorkerObserverOptions } from './worker-observer-options';
 
 /**
  * Creates a worker observer that posts emitted messages to a worker
+ *
  * @param worker Dedicated or shared worker
  * @param options Worker observer options
  * @returns Worker observer
@@ -44,6 +46,6 @@ export function toWorker<OutgoingType = unknown>(
   return {
     next,
     error,
-    complete
+    complete,
   };
 }

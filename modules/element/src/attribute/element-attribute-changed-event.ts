@@ -1,5 +1,6 @@
 /**
  * Element attribute changed event
+ *
  * @param AttributeName Attribute name
  */
 export interface ElementAttributeChangedEvent<AttributeName extends string> {

@@ -1,8 +1,8 @@
-import { AuthenticatorType } from '../authenticator-type';
+import { type MfaAuthenticatorType } from '../mfa-authenticator-type';
 
 /**
  * Add authenticator parameters
  */
-type AddAuthenticatorParameters = Readonly<{
-  authenticatorTypes: ReadonlyArray<AuthenticatorType>;
-}>;
+export interface AddAuthenticatorParameters {
+  readonly authenticatorTypes: ReadonlyArray<MfaAuthenticatorType>;
+}

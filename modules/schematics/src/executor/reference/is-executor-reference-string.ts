@@ -1,3 +1,5 @@
+import { isString } from '@komore/string';
+
 import { type ExecutorReferenceString } from './executor-reference-string';
 import { executorReferenceStringRegExp } from './executor-reference-string-reg-exp';
 
@@ -8,5 +10,5 @@ import { executorReferenceStringRegExp } from './executor-reference-string-reg-e
  * @returns true if the string is a valid executor reference string
  */
 export function isExecutorReferenceString(str: unknown): str is ExecutorReferenceString {
-  return typeof str === 'string' && executorReferenceStringRegExp.test(str);
+  return isString(str) && executorReferenceStringRegExp.test(str);
 }

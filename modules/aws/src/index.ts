@@ -1,3 +1,5 @@
+export { type AuthorizationHttpHeaderAwsSignatureSchemeCredential } from './http/authorization-http-header-aws-signature-scheme-credential';
+export { type AuthorizationHttpHeaderAwsSignatureSchemeProperties } from './http/authorization-http-header-aws-signature-scheme-properties';
 export { type AwsClient } from './client/aws-client';
 export { type AwsClientOptions } from './client/aws-client-options';
 export { type AwsCommandHandlerOptions } from './command/aws-command-handler-options';
@@ -9,5 +11,7 @@ export { createAwsEventType } from './event/create-aws-event-type';
 export { createAwsQueryType } from './query/create-aws-query-type';
 export { createAwsRequest } from './create-aws-request';
 export { type FixedAwsType } from './fixed-aws-type';
+export { matchAwsCommand } from './command/match-aws-command';
 export { sendAwsCommand } from './command/send-aws-command';
 export { sendBatchAwsCommand } from './command/send-batch-aws-command';
+export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-signature-authorization-http-header';

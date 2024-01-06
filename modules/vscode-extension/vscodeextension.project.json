@@ -9,7 +9,7 @@
         "assets": ["./assets", "./package.nls.json"]
       }
     },
-    "lint": "@komore/lint:lint",
+    "lint": "@komore/linting:lint",
     "publish": "@komore/schematics:publish",
     "test": "@komore/testing:test"
   }

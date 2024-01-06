@@ -22,20 +22,22 @@ export function projectConfigurationJsonToProjectConfiguration(
 ) => (projectConfigurationJson: ProjectConfigurationJson) => ProjectConfiguration {
   const toTaskConfiguration = taskNameToResolvedTaskConfiguration(workspaceContext);
   return (name, path) => projectConfigurationJson => {
-    const { domain, type } = projectConfigurationJson;
+    const { domain, tasks = [], type } = projectConfigurationJson;
 
     const tags = projectConfigurationJson.tags?.map(asProjectTag) ?? [];
     validateProjectType(type);
 
-    const projectConfiguration: ProjectConfiguration = {
+    const projectConfiguration: Omit<ProjectConfiguration, 'tasks'> = {
       domain,
       name,
       path,
       tags,
-      tasks: new ObservableMap(taskName => toTaskConfiguration(taskName, projectConfiguration)),
       type,
     };
 
-    return projectConfiguration;
+    return {
+      ...projectConfiguration,
+      tasks: new ObservableMap(taskName => toTaskConfiguration(taskName, projectConfiguration, tasks)),
+    };
   };
 }

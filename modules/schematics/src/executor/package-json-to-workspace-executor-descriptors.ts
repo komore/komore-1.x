@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
 import { each } from '@komore/collection';
 import { type PackageJson } from '@komore/node/package';

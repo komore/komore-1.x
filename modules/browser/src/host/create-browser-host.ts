@@ -1,9 +1,10 @@
-import { fromEvent, map, Subject } from '@komore/reactive';
-import { HostError, type HostLifecycleEvent, type HostState } from '@komore/runtime';
+import { EMPTY, takeWhile, tapNext } from '@komore/reactive';
+import { createHost } from '@komore/runtime/host';
 
 import { type BrowserHost } from './browser-host';
 import { type BrowserHostOptions } from './browser-host-options';
-import { buildBrowserHostOptions } from './build-browser-host-options';
+import { createBrowserHostErrorObservable } from './create-browser-host-error-observable';
+import { createBrowserHostStateObservable } from './create-browser-host-state-observable';
 
 /**
  * Creates a browser host
@@ -11,26 +12,21 @@ import { buildBrowserHostOptions } from './build-browser-host-options';
  * @param hostOptions Browser host options
  * @returns Browser host
  */
-export function createBrowserHost(hostOptions?: BrowserHostOptions): BrowserHost {
-  // TODO: remove once ErrorEvent can be inferred
-  const options = buildBrowserHostOptions(hostOptions);
-  const errors = fromEvent<ErrorEvent>(window, 'error').pipe(
-    map(({ colno, error, filename, lineno, message }) => new HostError(message, filename, lineno, colno, error))
-  );
+export function createBrowserHost(_hostOptions: BrowserHostOptions): BrowserHost {
+  const error = createBrowserHostErrorObservable();
+  const lifecycle = EMPTY; // TODO
+  const state = createBrowserHostStateObservable();
 
-  // TODO: https://developers.google.com/web/updates/2018/07/page-lifecycle-api
-  fromEvent(window, 'beforeunload').pipe(
-    // TODO
-    map(x => x)
-  );
-  fromEvent(window, 'unload');
-  const lifecycle = new Subject<HostLifecycleEvent>();
-  const state = new Subject<HostState>();
+  state
+    .pipe(
+      tapNext(hostState => console.log('host state is now', hostState)),
+      takeWhile(hostState => hostState !== 'stopped')
+    )
+    .subscribe();
 
-  return {
-    errors,
+  return createHost({
+    error,
     lifecycle,
-    options,
     state,
-  };
+  });
 }

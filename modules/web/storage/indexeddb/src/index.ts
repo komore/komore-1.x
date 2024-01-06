@@ -1,4 +1,4 @@
-export { createIndexedDBDatabase } from './create-indexeddb-database';
+export { createIndexedDbDatabase } from './create-indexeddb-database';
 export { createIndexedDBUpgradeHandler } from './create-indexeddb-upgrade-handler';
 export { deleteIndexedDBDatabase } from './delete-indexeddb-database';
 export { fromIDBRequest } from './from-idb-request';
@@ -7,5 +7,5 @@ export { getIndexedDBItem } from './get-indexeddb-item';
 export { type IndexedDBDatabaseOptions } from './indexeddb-database-options';
 export { type IndexedDBUpgrade } from './indexeddb-upgrade';
 export { type IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
-export { putIndexedDBItem } from './put-indexeddb-item';
-export { putIndexedDBTransactionItem } from './put-indexeddb-transaction-item';
+export { putIndexedDbItem } from './put-indexeddb-item';
+export { putIndexedDbTransactionItem } from './put-indexeddb-transaction-item';

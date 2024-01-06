@@ -6,4 +6,7 @@ import { type GenericEventType } from './generic-event-type';
  *
  * @template EventType Event type
  */
-export type EventFromType<EventType extends GenericEventType> = EventFromCreator<EventType[keyof EventType & string]>;
+export type EventFromType<
+  EventType extends GenericEventType,
+  EventName extends keyof EventType & string = keyof EventType & string,
+> = EventFromCreator<EventType[EventName]>;

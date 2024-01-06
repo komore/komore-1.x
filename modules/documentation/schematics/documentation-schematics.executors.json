@@ -1,11 +1,33 @@
 {
   "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
-  "build": {
-    "description": "Builds a project's documentation",
-    "factory": "./src/executor/build/build-documentation-executor#buildDocumentationExecutor"
+  "build-documentation": {
+    "defaultTask": "@komore/documentation/schematics#createBuildDocumentationDefaultTask",
+    "description": "Builds a workspace's documentation",
+    "documentation": "https://komore.dev/modules/documentation/schematics/executors/build-documentation",
+    "factory": "@komore/documentation/schematics#createBuildDocumentationExecutor",
+    "options": {
+      "processor": "@komore/documentation/schematics#createBuildDocumentationExecutorOptionsProcessor",
+      "schema": "./src/executor/build-documentation/document-workspace-executor-options.schema.json"
+    }
   },
-  "serve": {
-    "description": "Serves a project's documentation",
-    "factory": "./src/executor/serve/serve-documentation-executor#serveDocumentationExecutor"
+  "document": {
+    "defaultTask": "@komore/documentation/schematics#createDocumentModuleDefaultTask",
+    "description": "Documents a module",
+    "documentation": "https://komore.dev/modules/documentation/schematics/executors/document",
+    "factory": "@komore/documentation/schematics#createDocumentModuleExecutor",
+    "options": {
+      "processor": "@komore/documentation/schematics#createDocumentModuleExecutorOptionsProcessor",
+      "schema": "./src/executor/document/document-module-executor-options.schema.json"
+    }
+  },
+  "serve-documentation": {
+    "defaultTask": "@komore/documentation/schematics#createDocumentWorkspaceDefaultTask",
+    "description": "Serves a workspace's documentation",
+    "documentation": "https://komore.dev/modules/documentation/schematics/executors/serve-documentation",
+    "factory": "@komore/documentation/schematics#createServeDocumentationExecutor",
+    "options": {
+      "processor": "@komore/documentation/schematics#createServeDocumentationExecutorOptionsProcessor",
+      "schema": "./src/executor/serve-documentation/document-workspace-executor-options.schema.json"
+    }
   }
 }

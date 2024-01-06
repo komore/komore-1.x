@@ -23,6 +23,7 @@ export function workspaceDefaultsConfigurationJsonToWorkspaceDefaultsConfigurati
   const project = defaults?.project ?? defaultProjectName(projects);
   const toTasks = mapObjectEntries(defaultTaskMappingJsonEntryToDefaultTaskMappingEntry);
   const tasks = toTasks(defaults?.tasks ?? {});
+  const tempPath = defaults?.tempPath ?? 'tmp';
 
   if (project !== undefined) {
     validateProjectName(project);
@@ -32,6 +33,7 @@ export function workspaceDefaultsConfigurationJsonToWorkspaceDefaultsConfigurati
     outputPath,
     project,
     tasks,
+    tempPath,
   };
 }
 

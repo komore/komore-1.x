@@ -1,8 +1,10 @@
 import { fromEvent, type Observable, type Observer } from '@komore/reactive';
+
 import { type DefineWorkerOptions } from './define-worker-options';
 
 /**
  * Defines a worker
+ *
  * @param options Worker options
  * @returns Observable that receives messages posted to the worker, and observer that post messages from the worker
  * @template IncomingType Incoming type
@@ -22,7 +24,7 @@ export function defineWorker<IncomingType = unknown, OutgoingType = unknown>(
   const observer = {
     next,
     error,
-    complete
+    complete,
   };
 
   return [observable, observer];

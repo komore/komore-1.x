@@ -1,12 +1,12 @@
 import { build } from 'esbuild';
 
-import { deferPromise, tapNext, type Observable, map } from '@komore/reactive';
+import { deferPromise, map, tapNext, type Observable } from '@komore/reactive';
 import { toWorkspaceExecutorTaskMessageEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
 
 import { type BuildNodeModuleOptions } from './build-node-module-options';
 
 /**
- * Builds a module
+ * Builds a Node module
  *
  * @param options Build module options
  * @returns

@@ -1,5 +1,5 @@
 import { TSESLint } from '@typescript-eslint/experimental-utils';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 import { type RuleTester } from './rule-tester';
 import { type RuleTesterOptions } from './rule-tester-options';

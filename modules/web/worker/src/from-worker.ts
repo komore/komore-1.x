@@ -2,6 +2,7 @@ import { fromEvent, mapToError, merge, type Observable } from '@komore/reactive'
 
 /**
  * Creates an observable from a worker
+ *
  * @param worker Worker
  * @returns Observable that emits whenever a message is received from the worker
  * @template IncomingType Incoming type
@@ -13,6 +14,6 @@ export function fromWorker<IncomingType = unknown>(
   return merge([
     fromEvent<MessageEvent<IncomingType>>(eventTarget, 'message'),
     // TODO: infer event type once fromEvent is fixed
-    fromEvent<ErrorEvent>(eventTarget, 'error').pipe(mapToError())
+    fromEvent<ErrorEvent>(eventTarget, 'error').pipe(mapToError()),
   ]);
 }

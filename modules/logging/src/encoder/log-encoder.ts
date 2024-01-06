@@ -5,7 +5,7 @@ import { type LogEventRecord } from '../event-record/log-event-record';
  */
 export interface LogEncoder {
   /**
-   * Encodes a log event record into a string
+   * Encodes a log event record
    *
    * @param record Log event record
    * @returns Encoded log event record

@@ -1,19 +1,31 @@
-import { lastValueFrom } from '@komore/reactive';
+import { lastValueFrom, map } from '@komore/reactive';
+import { feature } from '@komore/testing';
+
 import { fromEventSource } from './from-event-source';
 
-describe('From event source', () => {
-  it.skip('works with an URL', async () => {
-    const message$ = fromEventSource(new URL('https://example.org'));
-    const message = await lastValueFrom(message$);
-    expect(message).toBe('test');
-  });
-  // TODO: passes init options
+feature('From event source', {
+  async 'works with an URL'() {
+    given: 'TODO';
+    const url = new URL('https://example.org');
 
-  it.skip('works with an existing source', async () => {
+    when: 'TODO';
+    const eventData$ = fromEventSource(url).pipe(map(({ data }) => data as string));
+    const eventData = await lastValueFrom(eventData$);
+
+    then: 'TODO';
+    eventData === 'test';
+  },
+  // TODO: passes init options
+  async 'works with an existing source'() {
+    given: 'TODO';
     const eventSource = new EventSource('https://example.org');
-    const message$ = fromEventSource(eventSource);
-    const message = await lastValueFrom(message$);
-    expect(message).toBe('test');
-  });
+
+    when: 'TODO';
+    const eventData$ = fromEventSource(eventSource).pipe(map(({ data }) => data as string));
+    const eventData = await lastValueFrom(eventData$);
+
+    then: 'TODO';
+    eventData === 'test';
+  },
   // TODO: doesn't close when transferOwnership is not set
 });

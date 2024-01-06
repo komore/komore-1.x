@@ -3,7 +3,7 @@ import { type OperatorFunction } from '../operator-function';
 import { catchError } from './catch-error';
 
 /**
- * Emits a project value whenever the source observable emits an error
+ * Emits a projected value whenever the source observable emits an error
  *
  * @param project Projection function
  * @template InputType Input type

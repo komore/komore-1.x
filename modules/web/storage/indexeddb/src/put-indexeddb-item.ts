@@ -13,7 +13,7 @@ import { fromIDBRequest } from './from-idb-request';
  * @param key Key
  * @returns Observable that emits the key when the operation completes
  */
-export function putIndexedDBItem<T>(
+export function putIndexedDbItem<T>(
   idbDatabase: IDBDatabase,
   storeName: string,
   value: T,

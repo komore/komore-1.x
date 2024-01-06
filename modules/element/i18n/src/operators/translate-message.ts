@@ -1,5 +1,8 @@
-import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
 import MessageFormat, { type MessageFormatOptions } from '@messageformat/core';
+
+import { pipe } from '@komore/functional';
+import { map, withLatestFrom, type Observable, type OperatorFunction } from '@komore/reactive';
+
 import { asObservableLanguages } from '../as-observable-languages';
 import { type I18nMessage } from '../i18n-message';
 import { type Languages } from '../languages';
@@ -7,6 +10,7 @@ import { type ParameterizedI18nMessage } from '../parameterized-i18n-message';
 
 /**
  * Translates a message
+ *
  * @param options Message format options
  * @param languages Languages
  * @returns Operator function
@@ -26,7 +30,7 @@ export function translateMessage(
   messageOrOptions?: string | MessageFormatOptions,
   optionsOrLanguages?: MessageFormatOptions | Languages | Observable<Languages>,
   languages?: Languages | Observable<Languages>
-): OperatorFunction<I18nMessage | ParameterizedI18nMessage['parameters'], string>  {
+): OperatorFunction<I18nMessage | ParameterizedI18nMessage['parameters'], string> {
   const messageFormat$ = asObservableLanguages(languages).pipe(
     map(selectedLanguages => new MessageFormat([...selectedLanguages], options))
   );

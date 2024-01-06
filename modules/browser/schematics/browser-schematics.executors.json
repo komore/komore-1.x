@@ -1,12 +1,23 @@
 {
-  "build": {
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
+  "build-browser-application": {
+    "defaultTask": "@komore/browser/schematics#createBuildBrowserApplicationDefaultTask",
     "description": "Builds a browser application",
-    "documentation": "https://komore.dev/modules/browser/schematics/build",
-    "factory": "./src/executor/build/build-browser-application-executor#buildBrowserApplicationExecutor"
+    "documentation": "https://komore.dev/modules/browser/schematics/executors/build-browser-application",
+    "factory": "@komore/browser/schematics#createBuildBrowserApplicationExecutor",
+    "options": {
+      "processor": "@komore/browser/schematics#createBuildBrowserApplicationExecutorOptionsProcessor",
+      "schema": "./src/executor/build/build-browser-application-executor-options.schema.json"
+    }
   },
-  "serve": {
+  "serve-browser-application": {
+    "defaultTask": "@komore/browser/schematics#createServeBrowserApplicationDefaultTask",
     "description": "Serves a browser application",
-    "documentation": "https://komore.dev/modules/browser/schematics/serve",
-    "factory": "./src/executor/serve/serve-browser-application-executor#serveBrowserApplicationExecutor"
+    "documentation": "https://komore.dev/modules/browser/schematics/executors/serve-browser-application",
+    "factory": "@komore/browser/schematics#createServeBrowserApplicationExecutor",
+    "options": {
+      "processor": "@komore/browser/schematics#createServeBrowserApplicationExecutorOptionsProcessor",
+      "schema": "./src/executor/serve/serve-browser-application-executor-options.schema.json"
+    }
   }
 }

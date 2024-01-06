@@ -4,15 +4,15 @@ import {
   fromEvent,
   map,
   merge,
-  type Observable,
   of,
   Subject,
   switchMap,
   takeUntil,
   tap,
-  tapNext
+  tapNext,
+  type Observable,
 } from '@komore/reactive';
-import { toMessageEventData } from '@komore/web';
+import { messageEventToData } from '@komore/web';
 import { createWorker } from '@komore/web/worker';
 import { type SearchWorkerInput, type SearchWorkerOutput } from '@komore/website/search/worker';
 
@@ -73,16 +73,18 @@ templateElement.innerHTML = `
 interface SearchInputElementInput {
   readonly fromChild: FromChild;
 }
-/**
- *
- */
 
+/**
+ * Search input element
+ */
 function searchInputElement({ fromChild }: SearchInputElementInput): Observable<unknown> {
   const [observer, observable] = createWorker<SearchWorkerInput, SearchWorkerOutput>(
-    new URL(location.origin + '/search-worker.js')
+    // TODO: normal URL
+    new URL('/__komore_browser_server__/modules/@komore/website/search/worker?bundle=true', location.origin),
+    { type: 'module' }
   );
 
-  const queryChanged = fromChild<HTMLInputElement>(':scope > input').pipe(
+  const queryChanged = fromChild<HTMLInputElement>(':host > input').pipe(
     switchMap(inputElement => fromEvent(inputElement, 'input').pipe(map(() => inputElement.value))),
     distinctUntilChanged()
   );
@@ -90,8 +92,8 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
   function toSearchWorkerInput(query: string): SearchWorkerInput {
     return {
       query: {
-        query
-      }
+        query,
+      },
     };
   }
 
@@ -102,7 +104,7 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
   );
 
   const searchResults = observable.pipe(
-    map(toMessageEventData),
+    map(messageEventToData),
     tapNext(results => console.log('[Search] results changed', results))
   );
 
@@ -113,6 +115,7 @@ function searchInputElement({ fromChild }: SearchInputElementInput): Observable<
  * Search input element
  */
 export class SearchInputElement extends HTMLElement {
+  private readonly created = new Subject<void>();
   private readonly destroyed = new Subject<void>();
 
   /**
@@ -124,16 +127,19 @@ export class SearchInputElement extends HTMLElement {
     const templateContent = templateElement.content.cloneNode(true);
     shadowRoot.append(templateContent);
 
-    searchInputElement({
-      fromChild: <ElementType extends Element>(selectors: string) =>
-        of(shadowRoot.querySelector<ElementType>(selectors)!)
-    })
-      .pipe(takeUntil(this.destroyed))
+    const fromChild = <ElementType extends Element>(selectors: string) =>
+      of(shadowRoot.querySelector<ElementType>(selectors)!);
+
+    const element$ = searchInputElement({ fromChild });
+
+    this.created
+      .asObservable()
+      .pipe(switchMap(() => element$.pipe(takeUntil(this.destroyed))))
       .subscribe();
   }
 
   connectedCallback(): void {
-    console.log('kw-search-input connected');
+    this.created.next();
   }
 
   disconnectedCallback(): void {

@@ -1,7 +1,14 @@
 import { each } from '@komore/collection';
-import { isDefined } from '@komore/functional';
-import { cache, defaultIfEmpty, forkJoin, map, mergeMap, switchMap, type Observable } from '@komore/reactive';
-import { assert } from '@komore/runtime';
+import {
+  cache,
+  defaultIfEmpty,
+  forkJoin,
+  map,
+  mergeMap,
+  ObservableMap,
+  switchMap,
+  type Observable,
+} from '@komore/reactive';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
@@ -24,10 +31,7 @@ export function buildWorkspaceContextPackageList(
   all: Observable<ReadonlyArray<InstalledPackage | LocalPackage>>,
   installed: Observable<ReadonlyArray<InstalledPackage>>,
   local: Observable<ReadonlyArray<LocalPackage>>,
-  byNameWithPackageJson: ReadonlyMap<
-    PackageName,
-    Observable<InstalledPackageWithPackageJson | LocalPackageWithPackageJson>
-  >
+  byNameWithPackageJson: ObservableMap<PackageName, InstalledPackageWithPackageJson | LocalPackageWithPackageJson>
 ): WorkspaceContextPackage['list'] {
   // TODO: this is bad, should be done through the existing maps
   const allWithPackageJson = all.pipe(
@@ -62,14 +66,11 @@ function packageNameToPackageWithPackageJson<
     | InstalledPackageWithPackageJson
     | LocalPackageWithPackageJson,
 >(
-  byNameWithPackageJson: ReadonlyMap<
-    PackageName,
-    Observable<InstalledPackageWithPackageJson | LocalPackageWithPackageJson>
-  >
+  byNameWithPackageJson: ObservableMap<PackageName, InstalledPackageWithPackageJson | LocalPackageWithPackageJson>
 ): (packageName: PackageName) => Observable<T> {
   return packageName => {
+    // TODO: ObservableMap, also gets rid of the assert
     const package$ = byNameWithPackageJson.get(packageName);
-    assert(isDefined(package$));
     return package$ as Observable<T>;
   };
 }

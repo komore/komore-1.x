@@ -6,10 +6,10 @@ import { esLintError } from '../eslint.error';
 import { esLintEvent } from '../eslint.event';
 import { esLintQuery } from '../eslint.query';
 import { createEsLintQueryHandler } from '../query/create-eslint-query-handler';
+import { createDeferredEsLint } from './create-deferred-eslint';
 import { type EsLintClient } from './eslint-client';
 import { type EsLintClientOptions } from './eslint-client-options';
 import { esLintCommandEventMap } from './eslint-command-event-map';
-import { createDeferredEsLint } from './create-deferred-eslint';
 
 /**
  * Creates an ESLint client
@@ -23,7 +23,7 @@ export function createEsLintClient(clientOptions: EsLintClientOptions): EsLintCl
   return createClient({
     command: esLintCommand,
     commandEventMap: esLintCommandEventMap,
-    commandHandler: events => createEsLintCommandHandler({ esLint$, events }),
+    commandHandler: toEvents => createEsLintCommandHandler({ esLint$, toEvents }),
     error: esLintError,
     event: esLintEvent,
     query: esLintQuery,

@@ -1,6 +1,7 @@
 import { isArray } from '@komore/collection';
 import { entriesToObject, objectToEntries } from '@komore/functional';
 import { defaultIfEmpty, forkJoin, map, type Observable } from '@komore/reactive';
+import { isString } from '@komore/string';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
@@ -31,5 +32,5 @@ export function projectTaskConfigurationsJsonToResolvedProjectTaskConfigurations
 }
 
 function taskNameOrEntryToEntry(taskNameOrEntry: string | TaskConfigurationJsonEntry): TaskConfigurationJsonEntry {
-  return typeof taskNameOrEntry === 'string' ? [taskNameOrEntry, ''] : taskNameOrEntry;
+  return isString(taskNameOrEntry) ? [taskNameOrEntry, ''] : taskNameOrEntry;
 }

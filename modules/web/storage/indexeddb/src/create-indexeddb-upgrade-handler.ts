@@ -25,7 +25,8 @@ export function createIndexedDBUpgradeHandler(
         }
 
         const nextVersionIndex = oldVersionIndex + 1;
-        const [nextMigrationVersion, nextMigration] = sortedMigrations[nextVersionIndex];
+        const nextVersion = sortedMigrations[nextVersionIndex];
+        const [nextMigrationVersion, nextMigration] = nextVersion;
         const nextUpgrade: IndexedDBUpgrade = {
           idbDatabase,
           oldVersion: nextMigrationVersion,

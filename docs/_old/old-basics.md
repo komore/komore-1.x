@@ -20,7 +20,7 @@ Use a compiler to analyze the AST and generate a representation of the infrastru
 Sounds overkill... then generate Terraform scripts out of it.
 
 ```typescript
-import { apiGatewayRequest, apiGatewayResponse } from '@komore/function-aws';
+import { apiGatewayRequest, apiGatewayResponse } from '@komore/aws/function';
 
 export const myFunction = createFunction('myFunction').pipe(
   from(awsApiGatewayRequest()),

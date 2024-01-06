@@ -1,15 +1,32 @@
-import './font.scss';
-import './styles.scss';
-console.log('hello world');
 import '@komore/website/layout/header';
+import '@komore/website/layout/footer';
 import '@komore/website/layout/navigation';
 import '@komore/website/search/input';
 //import './website-root.element';
 
+import { createBrowserHost } from '@komore/browser';
+import { createBrowserApplication } from '@komore/browser/application';
+import { EMPTY, firstValueFrom } from '@komore/reactive';
+//import { createRouter, toRouterEventDebugLog } from '@komore/element/router';
+//import { tapNext } from '@komore/reactive';
 
-import { createRouter, toRouterEventDebugLog } from '@komore/element/router';
+async function main() {
+  const host = createBrowserHost({});
+  const browserApplication = createBrowserApplication({
+    host,
+    parametersToCommands: parameters => {
+      console.log('parameters', parameters);
+      return EMPTY;
+    },
+  });
 
-export function initializeWebsite(): void {
+  const result$ = browserApplication(new URL(window.location.href));
+  await firstValueFrom(result$);
+}
+
+main();
+
+/*export function initializeWebsite(): void {
   console.log('initialize');
 
   document.querySelectorAll<HTMLLIElement>('li.with-children').forEach(element => {
@@ -35,8 +52,11 @@ export function initializeWebsite(): void {
     });
   });
 
-  createRouter(events => events.pipe(tap(toRouterEventDebugLog)), {
-    insertionPoint: document.body.querySelector<HTMLElement>(':host > main') as HTMLElement,
-    insertionType: 'firstChild'
+  createRouter(events => events.pipe(tapNext(toRouterEventDebugLog)), {
+    injectionOptions: {
+      injectionPoint: document.body.querySelector<HTMLElement>(':host > main') as HTMLElement,
+      injectionType: 'prepend',
+    },
   }).subscribe(router => console.log('router', router));
 }
+*/

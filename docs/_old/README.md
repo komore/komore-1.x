@@ -21,12 +21,12 @@ Logo with 4 layers (bottom to top):
 8. [Functional]
 9. [Reactive]
 
-[CQRS]: ./concepts/cqrs.md
-[Declarative]: ./concepts/declarative.md
-[Domain-Driven Design]: ./concepts/domain-driven-design.md
-[Event Sourcing]: ./concepts/event-sourcing.md
-[Function-as-a-Service]: ./concepts/function-as-a-service.md
-[Funcitonal]: ./concepts/functional.md
-[Microservice]: ./concepts/microservice.md
-[Reactive]: ./concepts/reactive.md
-[Saga]: ./concepts/saga.md
+[cqrs]: ./concepts/cqrs.md
+[declarative]: ./concepts/declarative.md
+[domain-driven design]: ./concepts/domain-driven-design.md
+[event sourcing]: ./concepts/event-sourcing.md
+[function-as-a-service]: ./concepts/function-as-a-service.md
+[functional]: ./concepts/functional.md
+[microservice]: ./concepts/microservice.md
+[reactive]: ./concepts/reactive.md
+[saga]: ./concepts/saga.md

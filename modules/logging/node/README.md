@@ -1,3 +1,0 @@
-# @komore/logging/node
-
-TODO

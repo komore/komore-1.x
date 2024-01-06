@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
 import { createJsonSchemaValidator, jsonToObject, type JsonSchemaDefinition } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
@@ -22,7 +22,10 @@ export function loadWorkspaceConfigurationJson(workspacePath: string): Observabl
     cache()
   );
 
-  return forkJoin([readFileContent(workspaceConfigurationPath, 'utf-8').pipe(map(jsonToObject())), validateWith$]).pipe(
+  const workspaceConfigurationJson$ = readFileContent(workspaceConfigurationPath, { encoding: 'utf-8' }).pipe(
+    map(jsonToObject())
+  );
+  return forkJoin([workspaceConfigurationJson$, validateWith$]).pipe(
     switchMap(([json, validateWith]) => validateWith(json))
   );
 }

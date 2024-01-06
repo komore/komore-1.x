@@ -1,4 +1,4 @@
-import { createLogEventType, defaultLogEventSeverities as severities, logEventProperties } from '@komore/logging';
+import { createLogEventType, logEventSeverities as severities, logEventProperties } from '@komore/logging';
 
 import { schematicsDomain } from './schematics.domain';
 
@@ -9,9 +9,9 @@ export const schematicsLog = createLogEventType(schematicsDomain, {
   /**
    * Workspace load started
    */
-  workspaceLoadStarted: logEventProperties<{ workspacePath: string }>(severities.TRACE),
+  workspaceLoadStarted: logEventProperties<{ readonly workspacePath: string }>(severities.trace),
   /**
    * Workspace load succeeded
    */
-  workspaceLoadSucceeded: logEventProperties<{ workspacePath: string }>(severities.TRACE),
+  workspaceLoadSucceeded: logEventProperties<{ readonly workspacePath: string }>(severities.trace),
 });

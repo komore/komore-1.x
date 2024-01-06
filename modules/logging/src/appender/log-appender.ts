@@ -1,4 +1,4 @@
-import { type UntypedLogEventRecord } from '../event-record/log-event-record';
+import { type LogEventRecord } from '../event-record/log-event-record';
 
 /**
  * Log appender
@@ -7,6 +7,6 @@ import { type UntypedLogEventRecord } from '../event-record/log-event-record';
  *
  * @template LogEventRecordType Log event record type
  */
-export interface LogAppender<LogEventRecordType extends UntypedLogEventRecord = UntypedLogEventRecord> {
-  (logEventRecord: LogEventRecordType): void;
+export interface LogAppender {
+  (logEventRecord: LogEventRecord): void;
 }

@@ -14,7 +14,8 @@ export interface AuthorizationParameters {
    * PKCE code challenge method
    */
   readonly code_challenge_method?: 'S256' | 'plain';
-  readonly display?: ;
+  // TODO
+  readonly display?: unknown;
   /**
    * Redirect URI where authentication responses can be sent
    */

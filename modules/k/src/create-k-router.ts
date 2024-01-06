@@ -81,13 +81,8 @@ export function createKRouter() {
             },
           },
         },
-        ({ taskName, projectName, all, parallel }) => {
-          console.log('hmhmhm', taskName, projectName, all, parallel);
-          return kCommand.runExecutor(
-            // TODO: proper boolean flag parsing
-            (all as unknown) === undefined ? { taskName, all: true, parallel } : { taskName, projectName, parallel }
-          );
-        }
+        ({ taskName, projectName, all, parallel }) =>
+          kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel })
       ),
       cliRoute('validate', 'Validate the workspace', kCommand.validateWorkspace),
       cliRoute('version', 'Display workspace version information', kCommand.displayVersion),

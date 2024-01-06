@@ -1,11 +1,14 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 import { timer as rxjsTimer } from 'rxjs';
+
+import { Temporal } from '@komore/temporal';
+import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
+
 import { type SchedulerLike } from '../scheduler/scheduler-like';
 import { type Observable } from '../observable';
 
 /**
  * Creates an observable that will wait for a number of milliseconds, then emit the number 0
+ *
  * @param millisecondsFromNow Milliseconds to wait for
  * @param scheduler Scheduler
  * @returns Observable that waits for the specified number of milliseconds then emits 0
@@ -14,6 +17,7 @@ export function timer(millisecondsFromNow: number, scheduler?: SchedulerLike): O
 
 /**
  * Creates an observable that will wait until a specific time, then emit the number 0
+ *
  * @param temporal Temporal
  * @param scheduler Scheduler
  * @returns Observable that waits until the specified time then emits 0
@@ -23,6 +27,7 @@ export function timer(temporal: Temporal.PlainDateTime, scheduler?: SchedulerLik
 /**
  * Creates an observable that will wait for a number of milliseconds, then emit a sequence of numbers that starts with 0
  * with an interval between each emitted value
+ *
  * @param millisecondsFromNow Milliseconds to wait for before emitting the sequence
  * @param intervalDuration Interval between each emitted value, as a number of milliseconds or a duration
  * @param scheduler Scheduler
@@ -37,6 +42,7 @@ export function timer(
 /**
  * Creates an observable that will wait until a specific time, then emit a sequence of numbers that starts with 0 with
  * interval between each emitted value
+ *
  * @param millisecondsFromNow Milliseconds to wait for before emitting the sequence
  * @param intervalDuration Interval between each emitted value, as a number of milliseconds or a duration
  * @param scheduler Scheduler

@@ -1,4 +1,4 @@
-import { type Observable, of } from '@komore/reactive';
+import { of, type Observable } from '@komore/reactive';
 import { type SearchQuery, type SearchResult } from '@komore/website/search';
 
 /**
@@ -13,7 +13,7 @@ export function executeSearch(query: SearchQuery): Observable<ReadonlyArray<Sear
       path: '/hello/world',
       score: 4.5,
       snippet: 'heeellooo',
-      title: 'Hello World'
-    }
+      title: 'Hello World',
+    },
   ]);
 }

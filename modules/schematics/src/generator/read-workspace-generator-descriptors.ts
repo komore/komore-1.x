@@ -18,7 +18,7 @@ import { type WorkspaceGeneratorDescriptor } from './workspace-generator-descrip
 export function readWorkspaceGeneratorDescriptors(
   filePath: string
 ): Observable<ReadonlyArray<Omit<WorkspaceGeneratorDescriptor, 'package'>>> {
-  return readFileContent(filePath, 'utf-8').pipe(
+  return readFileContent(filePath, { encoding: 'utf-8' }).pipe(
     throwIfError(isErrorOfType(nodeFileSystemError.fileNotFound), () =>
       schematicsError.generatorDescriptorsNotFound({ path: filePath })
     ),

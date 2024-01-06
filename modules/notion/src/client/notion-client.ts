@@ -1,4 +1,18 @@
+import { type Client } from '@komore/client';
+
+import { type notionCommand } from '../notion.command';
+import { type notionError } from '../notion.error';
+import { type notionEvent } from '../notion.event';
+import { type notionQuery } from '../notion.query';
+import { type notionCommandEventMap } from './notion-command-event-map';
+
 /**
  * Notion client
  */
-export interface NotionClient {}
+export type NotionClient = Client<
+  typeof notionCommand,
+  typeof notionEvent,
+  typeof notionQuery,
+  typeof notionError,
+  typeof notionCommandEventMap
+>;

@@ -1,5 +1,5 @@
+import { awsProvider, s3Bucket } from '@komore/aws/stack';
 import { defineStack, variable } from '@komore/stack';
-import { awsProvider, s3Bucket } from '@komore/stack-amazon';
 
 console.log('Web stack');
 

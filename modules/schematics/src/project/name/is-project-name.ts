@@ -1,3 +1,5 @@
+import { isString } from '@komore/string';
+
 import { type ProjectName } from './project-name';
 
 /**
@@ -8,5 +10,5 @@ import { type ProjectName } from './project-name';
  */
 export function isProjectName(value: unknown): value is ProjectName {
   // TODO: regular expression
-  return typeof value === 'string' && value.length > 0;
+  return isString(value) && value.length > 0;
 }

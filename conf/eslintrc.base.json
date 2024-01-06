@@ -3,18 +3,70 @@
   "root": true,
   "ignorePatterns": ["**/*"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@stylistic/eslint-plugin-ts", "@typescript-eslint"],
   "overrides": [
     {
       "files": ["*.ts"],
       "extends": [],
       "rules": {
+        "no-param-reassign": ["error", { "props": true }],
         "no-unused-labels": ["off"],
+        "one-var": [
+          "error",
+          {
+            "const": "always",
+            "let": "never",
+            "var": "never"
+          }
+        ],
+        "@stylistic/ts/block-spacing": ["error", "always"],
+        "@stylistic/ts/brace-style": ["error", "1tbs"],
+        "@stylistic/ts/comma-spacing": ["error", "after"],
+        "@stylistic/ts/function-call-spacing": ["error", "never"],
+        "@stylistic/ts/key-spacing": [
+          "error",
+          {
+            "afterColon": true,
+            "beforeColon": false
+          }
+        ],
+        "@stylistic/ts/keyword-spacing": [
+          "error",
+          {
+            "before": true,
+            "after": true,
+            "mode": "strict"
+          }
+        ],
+
+        "@styleistic/ts/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "comma",
+              "requireLast": false
+            }
+          }
+        ],
+        "@typescript-eslint/adjacent-overload-signatures": ["error"],
+        "@typescript-eslint/array-type": [
+          "error",
+          {
+            "default": "generic"
+          }
+        ],
+        "@typescript-eslint/await-thenable": ["error"],
+        "@typescript-eslint/ban-ts-comment": ["error"],
+        "@typescript-eslint/ban-types": ["error"],
         "@typescript-eslint/consistent-type-imports": [
           "error",
           {
-            "prefer": "type-imports",
-            "disallowTypeAnnotations": true
+            "disallowTypeAnnotations": true,
+            "prefer": "type-imports"
           }
         ],
         "@typescript-eslint/no-unused-vars": [
@@ -23,7 +75,8 @@
             "argsIgnorePattern": "^_",
             "varsIgnorePattern": "^_"
           }
-        ]
+        ],
+        "@typescript-eslint/prefer-readonly-parameter-types": ["error"]
       }
     }
   ]

@@ -1,4 +1,4 @@
-import { type Observable } from '@komore/reactive';
+import { type Observable, type ObservableMap } from '@komore/reactive';
 
 import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';
@@ -19,11 +19,11 @@ export interface WorkspaceContextSchematics {
     /**
      * Map of executors by package
      */
-    readonly byPackage: ReadonlyMap<PackageName, Observable<ReadonlyArray<WorkspaceExecutorDescriptor>>>;
+    readonly byPackage: ObservableMap<PackageName, ReadonlyArray<WorkspaceExecutorDescriptor>>;
     /**
      * Map of executors
      */
-    readonly byReferenceString: ReadonlyMap<ExecutorReferenceString, Observable<WorkspaceContextSchematicsExecutor>>;
+    readonly byReferenceString: ObservableMap<ExecutorReferenceString, WorkspaceContextSchematicsExecutor>;
     /**
      * List of installed executors
      */

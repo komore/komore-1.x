@@ -14,7 +14,7 @@ import { projectConfigurationJsonSchemaValidator$ } from './project-configuratio
  */
 export function loadProjectConfigurationJson(configurationPath: string): Observable<ProjectConfigurationJson> {
   return forkJoin([
-    readFileContent(configurationPath, 'utf-8').pipe(map(jsonToObject())),
+    readFileContent(configurationPath, { encoding: 'utf-8' }).pipe(map(jsonToObject())),
     projectConfigurationJsonSchemaValidator$.pipe(
       first(),
       map(schemaValidator => validateWith(schemaValidator))

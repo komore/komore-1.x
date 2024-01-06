@@ -12,7 +12,7 @@ import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
  * @param upgradeHandler Upgrade handler
  * @returns IndexedDB database
  */
-export function createIndexedDBDatabase(options: IndexedDBDatabaseOptions): Observable<IDBDatabase> {
+export function createIndexedDbDatabase(options: IndexedDBDatabaseOptions): Observable<IDBDatabase> {
   const { name, version, upgradeHandler } = options;
 
   return defer(() => {

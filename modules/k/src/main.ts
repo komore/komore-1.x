@@ -1,4 +1,4 @@
-import { createCliApplication } from '@komore/cli';
+import { runCliApplication } from '@komore/cli/application';
 import { type CliRouter } from '@komore/cli/router';
 import { type CommandFromType } from '@komore/command';
 import { createNodeHost } from '@komore/node';
@@ -37,4 +37,7 @@ async function main() {
   await firstValueFrom(result$);
 }
 
-main();
+runCliApplication({
+  commandHandler
+})
+runCli main();

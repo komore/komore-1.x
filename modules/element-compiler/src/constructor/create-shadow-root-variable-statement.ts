@@ -1,11 +1,14 @@
-import { createPropertyAccess, createVariableStatement } from '@komore/typescript/compiler';
 import { type Identifier, type NodeFactory, type VariableStatement } from 'typescript';
+
+import { createPropertyAccess, createVariableStatement } from '@komore/typescript-compiler';
 
 /**
  * Creates a shadow root variable statement
+ *
  * ```ts
  * const variableName = this.attachShadow({ mode: 'mode' });
  * ```
+ *
  * @param factory TypeScript node factory
  * @param variableName Variable name
  * @param mode Mode

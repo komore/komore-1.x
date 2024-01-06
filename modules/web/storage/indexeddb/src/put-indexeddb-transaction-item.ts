@@ -5,7 +5,7 @@
  * @param value Value
  * @param key Key
  */
-export function putIndexedDBTransactionItem<T>(
+export function putIndexedDbTransactionItem<T>(
   idbTransaction: IDBTransaction,
   storeName: string,
   value: T,
@@ -18,9 +18,9 @@ export function putIndexedDBTransactionItem<T>(
  * @param value Value
  * @param key Key
  */
-export function putIndexedDBTransactionItem<T>(idbObjectStore: IDBObjectStore, value: T, key?: IDBValidKey): void;
+export function putIndexedDbTransactionItem<T>(idbObjectStore: IDBObjectStore, value: T, key?: IDBValidKey): void;
 
-export function putIndexedDBTransactionItem<T>(
+export function putIndexedDbTransactionItem<T>(
   idbTransactionOrObjectStore: IDBTransaction | IDBObjectStore,
   storeNameOrValue: string | T,
   valueOrKey?: T | IDBValidKey,

@@ -6,8 +6,40 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.svg">
-    <link rel="stylesheet" href="komore-website.css" type="text/css" />
-    <script type="module" src="komore-website.js"></script>
+    <link rel="stylesheet" href="fonts.css" type="text/css" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <!-- TODO: generate the importmap -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@komore/application": "/__komore_browser_server__/modules/@komore/application",
+          "@komore/browser": "/__komore_browser_server__/modules/@komore/browser",
+          "@komore/browser/application": "/__komore_browser_server__/modules/@komore/browser/application",
+          "@komore/collection": "/__komore_browser_server__/modules/@komore/collection",
+          "@komore/domain": "/__komore_browser_server__/modules/@komore/domain",
+          "@komore/element": "/__komore_browser_server__/modules/@komore/element",
+          "@komore/element/router": "/__komore_browser_server__/modules/@komore/element/router",
+          "@komore/error": "/__komore_browser_server__/modules/@komore/error",
+          "@komore/functional": "/__komore_browser_server__/modules/@komore/functional",
+          "@komore/i18n": "/__komore_browser_server__/modules/@komore/i18n",
+          "@komore/reactive": "/__komore_browser_server__/modules/@komore/reactive",
+          "@komore/runtime": "/__komore_browser_server__/modules/@komore/runtime",
+          "@komore/runtime/host": "/__komore_browser_server__/modules/@komore/runtime/host",
+          "@komore/string": "/__komore_browser_server__/modules/@komore/string",
+          "@komore/temporal": "/__komore_browser_server__/modules/@komore/temporal",
+          "@komore/temporal/compatibility": "/__komore_browser_server__/modules/@komore/temporal/compatibility",
+          "@komore/typescript": "/__komore_browser_server__/modules/@komore/typescript",
+          "@komore/web": "/__komore_browser_server__/modules/@komore/web",
+          "@komore/web/worker": "/__komore_browser_server__/modules/@komore/web/worker",
+          "@komore/website/layout/footer": "/__komore_browser_server__/modules/@komore/website/layout/footer",
+          "@komore/website/layout/header": "/__komore_browser_server__/modules/@komore/website/layout/header",
+          "@komore/website/layout/navigation": "/__komore_browser_server__/modules/@komore/website/layout/navigation",
+          "@komore/website/search": "/__komore_browser_server__/modules/@komore/website/search/input",
+          "@komore/website/search/input": "/__komore_browser_server__/modules/@komore/website/search/input"
+        }
+      }
+    </script>
+    <script type="module" src="main.ts"></script>
   </head>
   <body>
     <header><kw-header></kw-header></header>
@@ -667,40 +699,7 @@ response$.pipe(
         <h2>Response progress</h2>
         <p>TODO.</p>
       </article>
-      <footer>
-        <small> &copy; 2021 komore </small>
-        <div class="documentation">
-          <h3>Documentation</h3>
-          <ul>
-            <li><a href="/guides">Guides</a></li>
-            <li><a href="/modules">Modules</a></li>
-            <li><a href="/reference">Reference</a></li>
-          </ul>
-        </div>
-        <div class="help">
-          <h3>Help</h3>
-          <ul>
-            <li><a href="https://github.com/komore/komore/issues/new" rel="noreferrer noopener" target="_blank">Report an Issue</a></li>
-            <li><a href="TODO" rel="noreferrer noopener" target="_blank">Discord</a></li>
-          </ul>
-        </div>
-        <div class="community">
-          <h3>Community</h3>
-          <ul>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="https://github.com/komore/komore/blob/main/CONTRIBUTING.md" rel="noreferrer noopener" target="_blank">Contributing</a></li>
-            <li><a href="https://github.com/komore/komore/blob/main/CODE_OF_CONDUCT.md" rel="noreferrer noopener" target="_blank">Code of Conduct</a></li>
-          </ul>
-        </div>
-        <div class="more">
-          <h3>More</h3>
-          <ul>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-          </ul>
-        </div>
-      </footer>
+      <footer><kw-footer></kw-footer></footer>
     </main>
   </body>
 </html>

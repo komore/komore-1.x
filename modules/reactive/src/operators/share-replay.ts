@@ -4,6 +4,7 @@ import { type SchedulerLike } from '../scheduler/scheduler-like';
 
 /**
  * Shares the source and replays a specified number of emissions upon subscription
+ *
  * @param config Share replay configuration
  * @returns Observable that replays a number of emitted values upon subscription
  */

@@ -1,5 +1,7 @@
 import { type Expression, type NodeFactory, type PropertyAccessExpression } from 'typescript';
 
+import { isString } from '@komore/string';
+
 /**
  * Creates a property access
  *
@@ -19,7 +21,7 @@ export function createPropertyAccess(
   propertyName: string,
   ...additionalPropertyNames: ReadonlyArray<string>
 ): PropertyAccessExpression {
-  const baseExpression = typeof expression === 'string' ? factory.createIdentifier(expression) : expression;
+  const baseExpression = isString(expression) ? factory.createIdentifier(expression) : expression;
   const firstPropertyAccess = factory.createPropertyAccessExpression(baseExpression, propertyName);
   return additionalPropertyNames.reduce(propertyNamesToPropertyAccess(factory), firstPropertyAccess);
 }

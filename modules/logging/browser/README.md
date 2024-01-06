@@ -1,3 +1,0 @@
-# @komore/logging/browser
-
-TODO

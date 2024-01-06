@@ -2,7 +2,6 @@
 
 The [Event Sourcing pattern] TODO
 
-
 ## Event
 
 An event is something that has happened already. When following [Domain-Driven Design] approach, events should use verbs
@@ -10,9 +9,7 @@ in the past tense, as they are part of the [Ubiquitous Language].
 
 In most traditional applications...
 
-
 ## Command
-
 
 ## TODO
 
@@ -21,9 +18,6 @@ In most traditional applications...
 - Event: something that happens to a domain entity
 - Projection: data built from a set of events, asynchronously, to help with queries
 
-
-
 [Domain-Driven Design]
 [Event Sourcing pattern]: https://martinfowler.com/eaaDev/EventSourcing.html
 [Ubiquitous Language]: TODO
-

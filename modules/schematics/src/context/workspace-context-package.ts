@@ -1,5 +1,5 @@
 import { type PackageJson } from '@komore/node/package';
-import { type Observable } from '@komore/reactive';
+import { type Observable, type ObservableMap } from '@komore/reactive';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
@@ -19,9 +19,9 @@ export interface WorkspaceContextPackage {
   /**
    * Package with package.json by name
    */
-  readonly byNameWithPackageJson: ReadonlyMap<
+  readonly byNameWithPackageJson: ObservableMap<
     PackageName,
-    Observable<InstalledPackageWithPackageJson | LocalPackageWithPackageJson>
+    InstalledPackageWithPackageJson | LocalPackageWithPackageJson
   >;
   /**
    * Workspace package.json

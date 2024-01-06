@@ -1,5 +1,4 @@
 export { asObservableLanguages } from './as-observable-languages';
-export { BROWSER_LANGUAGES } from './browser-languages';
 export { type I18nMessage } from './i18n-message';
 // export { kTranslate } from './translate.directive';
 export { type Languages } from './languages';

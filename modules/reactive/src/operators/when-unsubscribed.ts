@@ -1,6 +1,12 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { Observable } from '../observable';
 
+/**
+ * Executes code whenever an observable is unsubscribed from
+ *
+ * @param project Function executed when the observable is unsubscribed from
+ * @returns Operator function that executes code whenever the observable is unsubscribed from
+ */
 export function whenUnsubscribed<T>(project: () => void): MonoTypeOperatorFunction<T> {
   return source$ =>
     new Observable<T>(subscriber => {
@@ -14,7 +20,7 @@ export function whenUnsubscribed<T>(project: () => void): MonoTypeOperatorFuncti
         complete: () => {
           wasClosed = true;
           subscriber.complete();
-        }
+        },
       });
 
       subscriber.add(() => {

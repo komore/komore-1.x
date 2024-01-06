@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 import { type ProjectConfiguration, type WorkspaceContext } from '@komore/schematics';
 

@@ -1,8 +1,11 @@
 import { type ESLint } from 'eslint';
 
+import { type CommandEventPair } from '@komore/client';
+import { CommandFromType } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { type Observable, type Subject } from '@komore/reactive';
+import { type Observable } from '@komore/reactive';
 
+import { type esLintCommand } from '../eslint.command';
 import { type esLintEvent } from '../eslint.event';
 
 /**
@@ -14,7 +17,9 @@ export interface EsLintCommandHandlerOptions {
    */
   readonly esLint$: Observable<ESLint>;
   /**
-   * ESLint events subject
+   * ESLint events recorded
    */
-  readonly events: Subject<EventFromType<typeof esLintEvent>>;
+  readonly toEvents: (
+    pair: CommandEventPair<CommandFromType<typeof esLintCommand>, EventFromType<typeof esLintEvent>>
+  ) => void;
 }

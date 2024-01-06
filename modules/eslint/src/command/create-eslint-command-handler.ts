@@ -1,5 +1,6 @@
+import { toEventCausedByCommand } from '@komore/client';
 import { matchCommand } from '@komore/command';
-import { first, fromPromise, map, mergeMap, redactValue, tap, throwIfError } from '@komore/reactive';
+import { first, fromPromise, map, mergeMap, redactValue, tapNext, throwIfError } from '@komore/reactive';
 
 import { internalEsLintErrorToEsLintError } from '../error/internal-eslint-error-to-eslint-error';
 import { isInternalEsLintError } from '../error/is-internal-eslint-error';
@@ -14,7 +15,7 @@ import { type EsLintCommandHandlerOptions } from './eslint-command-handler-optio
  * @returns ESLint command handler
  */
 export function createEsLintCommandHandler(options: EsLintCommandHandlerOptions): EsLintCommandHandler {
-  const { esLint$, events } = options;
+  const { esLint$, toEvents } = options;
 
   return command =>
     matchCommand(command, {
@@ -23,9 +24,7 @@ export function createEsLintCommandHandler(options: EsLintCommandHandlerOptions)
           first(),
           mergeMap(esLint => fromPromise(esLint.lintFiles([...filePatterns]))),
           throwIfError(isInternalEsLintError, internalEsLintErrorToEsLintError()),
-          map(results => esLintEvent.filesLinted({ results })),
-          tap(events),
-          redactValue()
+          map(results => esLintEvent.filesLinted({ results }))
         ),
-    });
+    }).pipe(map(toEventCausedByCommand(command)), tapNext(toEvents), redactValue());
 }

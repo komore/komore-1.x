@@ -1,14 +1,15 @@
 {
-  "extends": "../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
   "compilerOptions": {
-    "types": ["css-custom-properties", "jest"]
+    "types": ["css-custom-properties"]
   },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./element-parser.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./element-parser.tsconfig.specifications.json"
     }
   ]
 }

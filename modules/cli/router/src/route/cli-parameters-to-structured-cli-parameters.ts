@@ -1,7 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { isCliFlagParameter } from './is-cli-flag-parameters';
-import { cliParametersToFlagParameters } from './cli-parameters-to-flag-parameters';
+import { cliParametersToCliFlagParameters } from './cli-parameters-to-cli-flag-parameters';
 
 /**
  * Returns structed command-line interface parameters, given a list of command-line tokens
@@ -17,9 +17,6 @@ export function cliParametersToStructuredCliParameters(
     firstFlagIndex !== -1
       ? ([commandLine.slice(0, firstFlagIndex), commandLine.slice(firstFlagIndex)] as const)
       : ([commandLine, [] as ReadonlyArray<string>] as const);
-  const flagParameters = commandLineFlagParameters.reduce(cliParametersToFlagParameters, {});
-  console.log('commandline', commandLine);
-  console.log('commands', pathParameters);
-  console.log('params', flagParameters);
+  const flagParameters = commandLineFlagParameters.reduce(cliParametersToCliFlagParameters, {});
   return [pathParameters, flagParameters];
 }

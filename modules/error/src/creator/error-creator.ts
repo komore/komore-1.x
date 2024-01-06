@@ -5,7 +5,6 @@ import { type TypeCreator } from '@komore/typescript';
  *
  * @template ErrorCode Error code
  * @template TypeCreatorType Type creator type
- * @private
  */
 export type ErrorCreator<ErrorCode extends string, TypeCreatorType extends TypeCreator<any, any>> = {
   /**

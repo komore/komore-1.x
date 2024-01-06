@@ -1,9 +1,5 @@
-import { objectToEntries } from '@komore/functional';
-
-import { type ScenarioBlock } from './scenario-block';
 import { type FeatureBlock } from './feature-block';
-
-//import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
+import { type ScenarioBlock } from './scenario-block';
 
 /**
  * Defines a feature
@@ -18,18 +14,15 @@ export function feature(featureTitle: string, scenarios: { readonly [scenarioNam
 
 export function feature(
   featureTitle: string,
-  featureBlockOrScenarios: FeatureBlock | { readonly [scenarioName: string]: ScenarioBlock } | () =>
+  featureBlockOrScenarios: FeatureBlock | { readonly [scenarioName: string]: ScenarioBlock }
 ): void {
-  // TODO:post-jest throw new SpecificationNotPreprocessedError('feature');
   if (typeof featureBlockOrScenarios === 'function') {
     const featureBlock = featureBlockOrScenarios;
-    return describe(featureTitle, featureBlock);
+    featureBlock;
+    throw new Error(`not implemented: feature("${featureTitle}") with a function feature block`);
   } else {
     const scenarios = featureBlockOrScenarios;
-    return describe(featureTitle, () => {
-      objectToEntries(scenarios).forEach(([scenarioTitle, scenario]) => {
-        it(scenarioTitle, scenario as () => void);
-      });
-    });
+    scenarios;
+    throw new Error(`not implemented: feature("${featureTitle}") with a set of scenarios`);
   }
 }

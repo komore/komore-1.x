@@ -27,8 +27,6 @@ Some of the disadvantages of CQRS are:
 - It implies eventual consistency due to its asynchronous aspect
 - It is a different way of thinking about application design and there is a learning curve
 
-
-
 [CQRS pattern]: https://martinfowler.com/bliki/CQRS.html
 [Domain-Driven Design]: https://domainlanguage.com/ddd/
 [Event Sourcing]: ./event-sourcing.md

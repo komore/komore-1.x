@@ -1,7 +1,8 @@
-import { defer } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
-const azureModule$ = defer(() => import('@komore/integration-azure/storage/blob').then(({ createBlobClient }) => ({})));
-const awsModule$ = defer(() => import('@komore/integration-amazon/s3').then(({ })));
-
+const azureModule$ = deferPromise(() =>
+  import('@komore/azure/blob-storage').then(({ createBlobStorageClient: _ }) => ({}))
+);
+const awsModule$ = deferPromise(() => import('@komore/aws/s3').then(({ createS3Client: _ }) => ({})));
 
 export {};

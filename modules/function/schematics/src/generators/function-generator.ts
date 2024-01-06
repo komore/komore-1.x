@@ -1,6 +1,8 @@
+import * as path from 'node:path';
+
 import { type Tree } from '@nrwl/devkit';
 import { addProjectConfiguration, formatFiles, generateFiles, names, offsetFromRoot } from '@nrwl/devkit';
-import * as path from 'path';
+
 import { createLintTarget } from '../create-lint-target';
 import { createPublishTarget } from '../create-publish-target';
 import { createTestTarget } from '../create-test-target';
@@ -58,8 +60,8 @@ function generateFunctionProjectConfiguration(host: Tree, normalizedOptions: Nor
       publish: createPublishTarget(normalizedOptions),
       build: createBuildFunctionTarget(normalizedOptions),
       serve: createServeFunctionTarget(normalizedOptions),
-      deploy: createDeployFunctionTarget(normalizedOptions)
-    }
+      deploy: createDeployFunctionTarget(normalizedOptions),
+    },
   });
 }
 
@@ -73,7 +75,7 @@ function generateFunctionProjectFiles(host: Tree, normalizedOptions: NormalizedF
   const templateOptions = {
     ...normalizedOptions,
     names: names(name),
-    offsetFromRoot: offsetFromRoot(projectRoot)
+    offsetFromRoot: offsetFromRoot(projectRoot),
   };
 
   generateFiles(host, path.join(__dirname, 'templates'), normalizedOptions.projectRoot, templateOptions);

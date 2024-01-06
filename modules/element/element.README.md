@@ -113,37 +113,19 @@ Reactive, observable [custom elements].
 ><!-- alias for subject$.next(event) -->
 <element-name @event-name="onX(event)"></element-name>
 <element-name @${dynamic-event-name-expression}="onX(event)"></element-name>
-<element-name @event-name.stop="x"
-  ><!-- stopPropagation() -->
-  <element-name @event-name.prevent="x"
-    ><!-- preventDefault() -->
-    <element-name @event-name.capture="x"
-      ><!-- addEventListener capture -->
-      <element-name @event-name.passive="x"
-        ><!-- addEventListener passive -->
-        <element-name @event-name.self="x"
-          ><!-- event.target must be event source -->
-          <element-name @event-name.once="x"
-            ><!-- events will be ignored after the first one -->
-            <element-name @event-name
-              ><!-- the expression is optional, e.g. to ignore click/etc, but pointer-events could make more sense -->
-
-              <!-- directive -->
-              <element-name ^directive>
-                <element-name ^directive="expression">
-                  <element-name ^${dynamicDirective}="expression">
-                    <!-- bind element -->
-                    <element-name #bind-id><!-- can be retrieved with child('bind-id') --></element-name></element-name
-                  ></element-name
-                ></element-name
-              ></element-name
-            ></element-name
-          ></element-name
-        ></element-name
-      ></element-name
-    ></element-name
-  ></element-name
->
+<element-name @event-name.stop="x"><!-- stopPropagation() --></element-name>
+<element-name @event-name.prevent="x"/><!-- preventDefault() --></element-name>
+<element-name @event-name.capture="x"><!-- addEventListener capture --></element-name>
+<element-name @event-name.passive="x"><!-- addEventListener passive --></element-name>
+<element-name @event-name.self="x"><!-- event.target must be event source --></element-name>
+<element-name @event-name.once="x"><!-- events will be ignored after the first one --></element-name>
+<element-name @event-name><!-- the expression is optional, e.g. to ignore click/etc, but pointer-events could make more sense --></element-name>
+<!-- directive -->
+<element-name ^directive/></element-name>
+<element-name ^directive="expression"></element-name>
+<element-name ^${dynamicDirective}="expression"></element-name>
+<!-- bind element -->
+<element-name #bind-id><!-- can be retrieved with child('bind-id') --></element-name>
 ```
 
 ## Directives
@@ -190,7 +172,7 @@ Reactive, observable [custom elements].
 ## Provided elements
 
 ```html
-<k-router> </k-router>
+<k-router></k-router>
 ```
 
 [custom elements]: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements

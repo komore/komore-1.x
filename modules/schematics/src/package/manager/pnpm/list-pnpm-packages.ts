@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 
 import { arrayToElementAt, arrayToFlattenedArray, each } from '@komore/collection';
 import { isDefined, objectToEntries } from '@komore/functional';
@@ -9,7 +9,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type InstalledPackage } from '../../installed-package';
 import { type PackageName } from '../../name/package-name';
-import { PackageDependencyType } from '../package-dependency-type';
+import { type PackageDependencyType } from '../package-dependency-type';
 
 export function listPnpmPackages(basePath: string): () => Observable<ReadonlyArray<InstalledPackage>> {
   const list = executeChildProcess(`pnpm list --json`, { cwd: basePath });

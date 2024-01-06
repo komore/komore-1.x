@@ -1,3 +1,5 @@
+import { isString } from '@komore/string';
+
 import { type GeneratorReferenceString } from './generator-reference-string';
 import { generatorReferenceStringRegExp } from './generator-reference-string-reg-exp';
 
@@ -8,5 +10,5 @@ import { generatorReferenceStringRegExp } from './generator-reference-string-reg
  * @returns true if the string is a valid generator reference string
  */
 export function isGeneratorReferenceString(str: unknown): str is GeneratorReferenceString {
-  return typeof str === 'string' && generatorReferenceStringRegExp.test(str);
+  return isString(str) && generatorReferenceStringRegExp.test(str);
 }

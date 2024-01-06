@@ -10,7 +10,7 @@
     "description": "Destroys a stack",
     "documentation": "https://komore.dev/modules/stack/schematics/executors/destroy",
     "factory": "@komore/stack/schematics#destroyStackExecutor",
-    "schema": "./src/executor/destroy/destory-stack-executor.schema.json"
+    "schema": "./src/executor/destroy/destroy-stack-executor.schema.json"
   },
   "init": {
     "description": "Initializes a stack",
