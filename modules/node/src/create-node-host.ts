@@ -1,10 +1,11 @@
-import { fromEvent, map, Subject, Subscription, tapNext } from '@komore/reactive';
-import { createHost, runtimeHostError, type HostLifecycleEvent, type HostState } from '@komore/runtime/host';
+import { Subject } from '@komore/reactive';
+import { createHost, type HostLifecycleEvent } from '@komore/runtime/host';
 
 import { buildNodeHostOptions } from './build-node-host-options';
+import { createNodeHostErrorObservable } from './create-node-host-error-observable';
+import { createNodeHostStateObservable } from './create-node-host-state-observable';
 import { type NodeHost } from './node-host';
 import { type NodeHostOptions } from './node-host-options';
-import { createNodeHostStateObservable } from './create-node-host-state-observable';
 
 /**
  * Creates a Node host
@@ -17,19 +18,8 @@ export function createNodeHost(hostOptions?: Partial<NodeHostOptions>): NodeHost
   options;
   const lifecycle = new Subject<HostLifecycleEvent>();
 
+  const error = createNodeHostErrorObservable();
   const state = createNodeHostStateObservable();
-
-  const error = fromEvent(process, 'uncaughtException').pipe(
-    tapNext(() => (process.exitCode = 1)),
-    map(error => error as Error),
-    map(thrownError =>
-      runtimeHostError.unhandled({
-        message: thrownError.message,
-        source: { column: 0, line: 0, name: '?' },
-        thrownError,
-      })
-    )
-  );
 
   return createHost({
     error,

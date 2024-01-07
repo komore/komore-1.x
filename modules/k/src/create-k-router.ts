@@ -1,4 +1,5 @@
-import { cliRoute, createCliRouter } from '@komore/cli/router';
+import { cliRoute, createCliRouter, type CliRouter } from '@komore/cli/router';
+import { type CommandFromType } from '@komore/command';
 import { asProjectName, asTaskName } from '@komore/schematics';
 
 import { kCommand } from './k.command';
@@ -6,7 +7,7 @@ import { kCommand } from './k.command';
 /**
  * k router
  */
-export function createKRouter() {
+export function createKRouter(): CliRouter<CommandFromType<typeof kCommand>> {
   return createCliRouter(
     [
       cliRoute(
@@ -81,8 +82,10 @@ export function createKRouter() {
             },
           },
         },
-        ({ taskName, projectName, all, parallel }) =>
-          kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel })
+        ({ taskName, projectName, all, parallel }) => {
+          console.log('pft');
+          return kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel });
+        }
       ),
       cliRoute('validate', 'Validate the workspace', kCommand.validateWorkspace),
       cliRoute('version', 'Display workspace version information', kCommand.displayVersion),

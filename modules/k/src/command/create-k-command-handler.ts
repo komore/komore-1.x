@@ -1,5 +1,6 @@
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
 import { matchCommand, type CommandFromType, type CommandHandler } from '@komore/command';
+import { type EventFromType } from '@komore/event';
 import { getCurrentWorkingDirectory } from '@komore/node/process';
 import { first, map, mapTo, mergeMap, of, tapNext, toArray, type Observable, type Subject } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
@@ -19,20 +20,21 @@ import { displayKomoreWorkspaceProjects } from './workspace/display-komore-works
  * @param events Command-line interface events subject
  * @returns komore command-line interface command handler
  */
-export function createKCommandHandler(events: Subject<CliEvent>): CommandHandler<CommandFromType<typeof kCommand>> {
+export function createKCommandHandler(
+  events: Subject<EventFromType<typeof cliEvent>>
+): CommandHandler<CommandFromType<typeof kCommand>> {
   const cwd = getCurrentWorkingDirectory();
   const workspaceContext$ = createWorkspaceContext(cwd);
 
   return command =>
-    // TODO: avoid having to specify types
-    matchCommand<CommandFromType<typeof kCommand>, Observable<CliEvent>>(command, {
+    matchCommand(command, {
       displayVersion: () => displayKomoreVersion(),
       fetchAffectedBase: ({ branchName, depth, includeTags }) => fetchAffectedBase(branchName, depth, includeTags),
-      generateReport: () => of(cliEvent.messageDisplayed({ message: 'generateReport' })),
+      generateReport: unimplementedCommand('generateReport'),
       list: () => workspaceContext$.pipe(mergeMap(/*displayKomoreWorkspaceElements*/ displayKomoreWorkspaceProjects)),
       listExecutors: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceExecutors)),
       listGenerators: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceGenerators)),
-      listPackages: () => of(cliEvent.messageDisplayed({ message: 'listPackages' })),
+      listPackages: unimplementedCommand('listPackages'),
       listProjects: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceProjects)),
       runExecutor: ({ taskName, ...command }) => {
         console.log('task', taskName, command);
@@ -54,11 +56,16 @@ export function createKCommandHandler(events: Subject<CliEvent>): CommandHandler
         ))
       )*/ workspaceContext$.pipe(mergeMap(workspaceContextToTaskExecution(taskName, [command.projectName])));
       },
-      runGenerator: () => of(cliEvent.messageDisplayed({ message: 'runGenerator' })),
-      validateWorkspace: () => of(cliEvent.messageDisplayed({ message: 'validateWorkspace' })),
+      runGenerator: unimplementedCommand('runGenerator'),
+      validateWorkspace: unimplementedCommand('validateWorkspace'),
     }).pipe(
       tapNext(event => events.next(event)),
       toArray(),
       mapTo(void 0)
     );
+}
+
+function unimplementedCommand(message: string): () => Observable<EventFromType<typeof cliEvent>> {
+  const event = cliEvent.messageDisplayed({ message });
+  return () => of(event);
 }

@@ -1,4 +1,5 @@
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
+import { type EventFromType } from '@komore/event';
 import { concat, startWith, type Observable } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 
@@ -11,7 +12,9 @@ import { displayKomoreWorkspaceGenerators } from './display-komore-workspace-gen
  * @param workspaceContext Workspace context
  * @returns Stream of command-line interface events
  */
-export function displayKomoreWorkspaceElements(workspaceContext: WorkspaceContext): Observable<CliEvent> {
+export function displayKomoreWorkspaceElements(
+  workspaceContext: WorkspaceContext
+): Observable<EventFromType<typeof cliEvent>> {
   return concat([
     displayKomoreWorkspaceExecutors(workspaceContext).pipe(
       startWith(cliEvent.messageDisplayed({ message: 'Executors' }))

@@ -1,4 +1,5 @@
-import { cliEvent, type CliEvent, type DisplayedCliMessageType } from '@komore/cli';
+import { cliEvent, type DisplayedCliMessageType } from '@komore/cli';
+import { type EventFromType } from '@komore/event';
 import { type GenericWorkspaceExecutorEvent, type WorkspaceExecutorEvent } from '@komore/schematics';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -8,7 +9,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
  * @param event Workspace executor event
  * @returns Command-line interface event
  */
-export function workspaceExecutorEventToCliEvent(event: GenericWorkspaceExecutorEvent): CliEvent {
+export function workspaceExecutorEventToCliEvent(event: GenericWorkspaceExecutorEvent): EventFromType<typeof cliEvent> {
   switch (event.type) {
     case 'task.begin': {
       const { data } = event as WorkspaceExecutorEvent<'task.begin'>;

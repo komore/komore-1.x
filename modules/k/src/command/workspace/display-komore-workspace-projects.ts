@@ -1,9 +1,10 @@
 // TODO: remove
 import chalk = require('chalk');
 
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
 import { first, map, tapNext, type Observable } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
+import { EventFromType } from '@komore/event';
 
 /**
  * Displays the list of komore generators available to the workspace
@@ -11,7 +12,9 @@ import { type WorkspaceContext } from '@komore/schematics';
  * @param workspaceContext Workspace context
  * @returns Stream of command-line interface events
  */
-export function displayKomoreWorkspaceProjects(workspaceContext: WorkspaceContext): Observable<CliEvent> {
+export function displayKomoreWorkspaceProjects(
+  workspaceContext: WorkspaceContext
+): Observable<EventFromType<typeof cliEvent>> {
   return workspaceContext.project.list.pipe(
     first(),
     tapNext(projects => {

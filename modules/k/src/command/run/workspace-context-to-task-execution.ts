@@ -1,4 +1,5 @@
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
+import { type EventFromType } from '@komore/event';
 import { endWith, fromArray, map, mergeMap, type Observable } from '@komore/reactive';
 import {
   packageReferenceNameToPackageReference,
@@ -21,7 +22,7 @@ import { workspaceExecutorEventToCliEvent } from './workspace-executor-event-to-
 export function workspaceContextToTaskExecution(
   taskName: TaskName,
   projectNames: ReadonlyArray<ProjectName>
-): (workspaceContext: WorkspaceContext) => Observable<CliEvent> {
+): (workspaceContext: WorkspaceContext) => Observable<EventFromType<typeof cliEvent>> {
   const taskReferences$ = fromArray(projectNames).pipe(map(projectName => ({ projectName, taskName })));
   console.log('dafuq now', taskName, projectNames);
   return workspaceContext => {

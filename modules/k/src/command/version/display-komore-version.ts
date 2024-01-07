@@ -1,11 +1,12 @@
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
+import { type EventFromType } from '@komore/event';
 import { first, map, mergeMap, tapNext, type Observable } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 
 /**
  * Displays the komore version
  */
-export function displayKomoreVersion(): Observable<CliEvent> {
+export function displayKomoreVersion(): Observable<EventFromType<typeof cliEvent>> {
   return createWorkspaceContext(process.cwd()).pipe(
     mergeMap(context => context.package.list.installed),
     first(),

@@ -5,5 +5,5 @@ import { type Observable } from '@komore/reactive';
  * Command-line interface router
  */
 export interface CliRouter<CommandType extends GenericCommand> {
-  (parameters: ReadonlyArray<string>): Observable<CommandType>;
+  (parameters$: Observable<ReadonlyArray<string>>): Observable<CommandType>;
 }

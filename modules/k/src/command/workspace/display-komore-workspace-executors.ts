@@ -1,5 +1,6 @@
-import { cliEvent, type CliEvent } from '@komore/cli';
+import { cliEvent } from '@komore/cli';
 import { arrayToArraySorted, each } from '@komore/collection';
+import { type EventFromType } from '@komore/event';
 import { first, map, tapNext, type Observable } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 
@@ -14,7 +15,9 @@ import { elementsToDisplayedElementGroups } from './elements-to-displayed-elemen
  * @param workspaceContext Workspace context
  * @returns Stream of command-line interface events
  */
-export function displayKomoreWorkspaceExecutors(workspaceContext: WorkspaceContext): Observable<CliEvent> {
+export function displayKomoreWorkspaceExecutors(
+  workspaceContext: WorkspaceContext
+): Observable<EventFromType<typeof cliEvent>> {
   return workspaceContext.schematics.executor.list.pipe(
     first(),
     map(elementsToDisplayedElementGroups),

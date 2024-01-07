@@ -1,5 +1,5 @@
 import { isDefined } from '@komore/functional';
-import { filter, first, fromArray, map } from '@komore/reactive';
+import { concatMap, filter, first, fromArray, map } from '@komore/reactive';
 
 import { type CliRouter } from './cli-router';
 import { type CliRouterOptions } from './cli-router-options';
@@ -19,17 +19,20 @@ export function createCliRouter<RouteMatchers extends ReadonlyArray<GenericCliRo
   options: CliRouterOptions
 ): CliRouter<ReturnType<RouteMatchers[number]['parametersToCommand']>> {
   const {} = options;
-  return commandLine => {
-    const [pathParameters, flagParameters] = cliParametersToStructuredCliParameters(commandLine);
-    console.log('commandline', commandLine);
-    console.log('commands', pathParameters);
-    console.log('flag parameters', flagParameters);
-    return fromArray(routeMatchers).pipe(
-      map(routeMatcherToRouteMatcherWithParameters(pathParameters, flagParameters)),
-      filter(isDefined),
-      first(),
-      map(([routeMatcher, routeParameters]) => routeMatcher.parametersToCommand(routeParameters, commandLine)),
-      map(command => command as ReturnType<RouteMatchers[number]['parametersToCommand']>)
+  return commandLine$ => {
+    console.log('yay?');
+    return commandLine$.pipe(
+      map(cliParametersToStructuredCliParameters),
+      concatMap(([pathParameters, flagParameters, commandLine]) => {
+        console.log('yay', pathParameters, flagParameters, commandLine);
+        return fromArray(routeMatchers).pipe(
+          map(routeMatcherToRouteMatcherWithParameters(pathParameters, flagParameters)),
+          filter(isDefined),
+          first(),
+          map(([routeMatcher, routeParameters]) => routeMatcher.parametersToCommand(routeParameters, commandLine)),
+          map(command => command as ReturnType<RouteMatchers[number]['parametersToCommand']>)
+        );
+      })
     );
   };
 }
