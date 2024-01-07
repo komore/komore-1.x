@@ -1,0 +1,15 @@
+export { type CloudSpeechToTextClient } from './client/cloud-speech-to-text-client';
+export { type CloudSpeechToTextClientOptions } from './client/cloud-speech-to-text-client-options';
+export { cloudSpeechToTextCommand } from './cloud-speech-to-text.command';
+export { type CloudSpeechToTextCommandHandler } from './command/cloud-speech-to-text-command-handler';
+export { type CloudSpeechToTextCommandHandlerOptions } from './command/cloud-speech-to-text-command-handler-options';
+export { cloudSpeechToTextDomain } from './cloud-speech-to-text.domain';
+export { cloudSpeechToTextError } from './cloud-speech-to-text.error';
+export { cloudSpeechToTextEvent } from './cloud-speech-to-text.event';
+export { cloudSpeechToTextQuery } from './cloud-speech-to-text.query';
+export { type CloudSpeechToTextQueryHandler } from './query/cloud-speech-to-text-query-handler';
+export { type CloudSpeechToTextQueryHandlerOptions } from './query/cloud-speech-to-text-query-handler-options';
+export { createCloudSpeechToTextClient } from './client/create-cloud-speech-to-text-client';
+export { createCloudSpeechToTextCommandHandler } from './command/create-cloud-speech-to-text-command-handler';
+export { createCloudSpeechToTextQueryHandler } from './query/create-cloud-speech-to-text-query-handler';
+export { getCloudSpeechToTextClientEndpointUrl } from './client/get-cloud-speech-to-text-client-endpoint-url';

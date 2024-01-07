@@ -1,4 +1,5 @@
-import type * as marked from 'marked';
+import { type Tokenizer } from 'marked';
+
 import { DocumentationMetadataKind } from '../metadata/documentation-metadata-kind';
 import { type DocumentationMetadataRecorder } from '../metadata/documentation-metadata-recorder';
 import { isMetadataDefinition } from '../metadata/is-metadata-definition';
@@ -7,12 +8,11 @@ import { toMetadataSeeAlso } from '../metadata/to-metadata-seealso';
 
 /**
  * Creates a documentation tokenizer
+ *
  * @param metadataRecorder Metadata recorder
  * @returns Documentation tokenizer
  */
-export function createDocumentationTokenizer(
-  metadataRecorder: DocumentationMetadataRecorder
-): Partial<marked.Tokenizer<false>> {
+export function createDocumentationTokenizer(metadataRecorder: DocumentationMetadataRecorder): Partial<Tokenizer> {
   const metadataHandlers = new Map<string, (value: string, name: string) => void>([
     [DocumentationMetadataKind.DESCRIPTION, description => metadataRecorder.setDescription(description)],
     [
@@ -20,9 +20,9 @@ export function createDocumentationTokenizer(
       value => {
         const [url, title] = toMetadataSeeAlso(value);
         metadataRecorder.addSeeAlso(url, title);
-      }
+      },
     ],
-    [DocumentationMetadataKind.TITLE, title => metadataRecorder.setTitle(title)]
+    [DocumentationMetadataKind.TITLE, title => metadataRecorder.setTitle(title)],
   ]);
   return {
     def: definitionString => {
@@ -36,6 +36,6 @@ export function createDocumentationTokenizer(
         }
       }
       return false;
-    }
+    },
   };
 }

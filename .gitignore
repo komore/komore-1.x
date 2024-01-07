@@ -3,11 +3,12 @@
 /dist
 /node_modules
 /tmp
+.DS_Store
+.pnpm-debug.log
+.terraform/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.pnpm-debug.log
-.DS_Store
 Thumbs.db

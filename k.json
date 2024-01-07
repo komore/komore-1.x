@@ -216,7 +216,7 @@
     "gcloud-cloudmetrics": "modules/gcloud/cloud-metrics",
     "gcloud-cloudnaturallanguage": "modules/gcloud/cloud-natural-language",
     "gcloud-cloudpubsub": "modules/gcloud/cloud-pub-sub",
-    "gcloud-speechtotext": "modules/gcloud/speech-to-text",
+    "gcloud-cloudspeechtotext": "modules/gcloud/cloud-speech-to-text",
     "gcloud-perspective": "modules/gcloud/perspective",
     "git": "modules/git",
     "github": "modules/github",
