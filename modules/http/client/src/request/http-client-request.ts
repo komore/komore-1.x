@@ -19,7 +19,7 @@ export interface HttpClientRequest {
   /**
    * Request options
    */
-  readonly options?: HttpClientRequestOptions;
+  readonly options?: Partial<HttpClientRequestOptions>;
   /**
    * URL
    */

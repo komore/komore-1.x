@@ -187,6 +187,7 @@
       "@komore/element/store/monitor/redux": ["modules/element/store/monitor/redux/src/index.ts"],
       "@komore/element/style": ["modules/element/style/src/index.ts"],
       "@komore/element/testing": ["modules/element/testing/src/index.ts"],
+      "@komore/email": ["modules/email/src/index.ts"],
       "@komore/error": ["modules/error/src/index.ts"],
       "@komore/error/linting": ["modules/error/linting/src/index.ts"],
       "@komore/error/schematics": ["modules/error/schematics/src/index.ts"],

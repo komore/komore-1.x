@@ -1,8 +1,15 @@
-import { Client } from '@sendgrid/client';
-import { type SendGridClient } from './sendgrid-client';
+import { createClient } from '@komore/client';
 
-import { defer } from '@komore/reactive';
-import { assert } from '@komore/runtime';
+import { createSendGridApiClient } from '../api/create-sendgrid-api-client';
+import { createSendGridCommandHandler } from '../command/create-sendgrid-command-handler';
+import { createSendGridQueryHandler } from '../query/create-sendgrid-query-handler';
+import { sendGridCommand } from '../sendgrid.command';
+import { sendGridError } from '../sendgrid.error';
+import { sendGridEvent } from '../sendgrid.event';
+import { sendGridQuery } from '../sendgrid.query';
+import { type SendGridClient } from './sendgrid-client';
+import { type SendGridClientOptions } from './sendgrid-client-options';
+import { sendGridCommandEventMap } from './sendgrid-command-event-map';
 
 /**
  * Creates a SendGrid client
@@ -11,31 +18,16 @@ import { assert } from '@komore/runtime';
  * @param endpointUrl Endpoint URL
  * @returns SendGrid client
  */
-export function createSendGridClient(apiKey?: string, endpointUrl?: string): SendGridClient {
-  const sendGridClient = new Client();
-  const baseUrl = endpointUrl ?? process.env.KMR_INTEGRATION_SENDGRID_ENDPOINTURL;
-  const selectedApiKey = apiKey ?? process.env.KMR_INTEGRATION_SENDGRID_APIKEY ?? process.env.SENDGRID_API_KEY;
-  assert(selectedApiKey !== undefined, 'a Sendgrid client cannot be instantiated without an API key');
-
-  sendGridClient.setApiKey(selectedApiKey);
-
-  if (baseUrl !== undefined) {
-    sendGridClient.setDefaultRequest('baseUrl', baseUrl);
-  }
-
-  return (method, url, body) =>
-    defer(async () => {
-      const [clientResponse, responseBody] = await sendGridClient.request({
-        method,
-        url,
-        body,
-      });
-
-      if (clientResponse.statusCode >= 400) {
-        const errorInfo = `${clientResponse.statusCode}: ${clientResponse.body ?? '<empty>'})`;
-        throw new Error(`request ${method} ${url} failed (${errorInfo})`);
-      }
-
-      return responseBody;
-    });
+export function createSendGridClient(clientOptions: SendGridClientOptions): SendGridClient {
+  const { apiKey, endpointUrl = new URL('https://api.sendgrid.com/v3/'), httpClient } = clientOptions;
+  const apiClient = createSendGridApiClient({ apiKey, endpointUrl, httpClient });
+  return createClient({
+    command: sendGridCommand,
+    commandEventMap: sendGridCommandEventMap,
+    commandHandler: toEvents => createSendGridCommandHandler({ apiClient, toEvents }),
+    error: sendGridError,
+    event: sendGridEvent,
+    query: sendGridQuery,
+    queryHandler: () => createSendGridQueryHandler({ apiClient }),
+  });
 }

@@ -1,8 +1,9 @@
-import { type Client } from '@sendgrid/client';
-
+import { type CommandEventPair } from '@komore/client';
+import { type CommandFromType } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { type Subject } from '@komore/reactive';
 
+import { type SendGridApiClient } from '../api/sendgrid-api-client';
+import { type sendGridCommand } from '../sendgrid.command';
 import { type sendGridEvent } from '../sendgrid.event';
 
 /**
@@ -10,11 +11,13 @@ import { type sendGridEvent } from '../sendgrid.event';
  */
 export interface SendGridCommandHandlerOptions {
   /**
-   * SendGrid client
+   * SendGrid API client
    */
-  readonly client: Client;
+  readonly apiClient: SendGridApiClient;
   /**
-   * Stream of events
+   * SendGrid events recorder
    */
-  readonly events: Subject<EventFromType<typeof sendGridEvent>>;
+  readonly toEvents: (
+    pair: CommandEventPair<CommandFromType<typeof sendGridCommand>, EventFromType<typeof sendGridEvent>>
+  ) => void;
 }

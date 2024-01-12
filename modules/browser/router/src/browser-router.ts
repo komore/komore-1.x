@@ -1,5 +1,9 @@
+import { ErrorFromType } from '@komore/error';
+import { EventFromType } from '@komore/event';
 import { type Observable } from '@komore/reactive';
 
+import { browserRouterError } from './browser-router.error';
+import { browserRouterEvent } from './browser-router.event';
 import { type BrowserRouterNavigationOptions } from './navigate/browser-router-navigation-options';
 
 /**
@@ -9,6 +13,8 @@ export interface BrowserRouter {
   readonly canNavigateBackward$: Observable<boolean>;
   readonly canNavigateForward$: Observable<boolean>;
   readonly currentUrl$: Observable<URL>;
+  readonly errors$: Observable<ErrorFromType<typeof browserRouterError>>;
+  readonly events$: Observable<EventFromType<typeof browserRouterEvent>>;
 
   /**
    * Navigates to a specific path

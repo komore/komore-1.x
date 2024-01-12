@@ -1,4 +1,4 @@
-import { mapObjectValues } from '@komore/functional';
+import { objectValues } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type TypeScriptConfiguration } from './typescript-configuration';
@@ -7,7 +7,7 @@ export function typeScriptConfigurationToPaths(
   typeScriptConfiguration: TypeScriptConfiguration
 ): ReadonlyRecord<string, string> {
   const { paths = {} } = typeScriptConfiguration.compilerOptions;
-  const toFirstPaths = mapObjectValues(typeScriptAliasPathListToPath);
+  const toFirstPaths = objectValues(typeScriptAliasPathListToPath);
   return toFirstPaths(paths);
 }
 

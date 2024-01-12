@@ -1,8 +1,8 @@
 import { runCliApplication } from '@komore/cli/application';
+import { firstValueFrom } from '@komore/reactive';
 
 import { createKCommandHandler } from './command/create-k-command-handler';
 import { createKRouter } from './create-k-router';
-import { firstValueFrom } from '@komore/reactive';
 
 /*
 TODO:
@@ -17,13 +17,7 @@ async function main() {
     createCommandHandler: events => createKCommandHandler(events),
     parametersToCommands: createKRouter(),
   });
-  console.log('seriously');
-  try {
-    await firstValueFrom(run$);
-  } catch (e) {
-    console.log('pdfowpgowepgw', e);
-  }
-  console.log('dafuq');
+  await firstValueFrom(run$);
 }
 
 main();

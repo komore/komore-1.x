@@ -115,7 +115,6 @@
     "@opentelemetry/sdk-trace-web": "1.17.0",
     "@opentelemetry/semantic-conventions": "1.17.0",
     "@opentelemetry/tracing": "0.24.0",
-    "@sendgrid/client": "7.7.0",
     "@slack/web-api": "6.10.0",
     "@smithy/smithy-client": "2.1.18",
     "@smithy/types": "2.7.0",

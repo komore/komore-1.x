@@ -14,7 +14,7 @@ import { type OperatorFunction } from '../operator-function';
  * @template InputType Input type
  * @template ProjectTypes Projection types
  */
-export function map<InputType extends ReadonlyArray<unknown>, ProjectTypes extends TupleProjectType<InputType>>(
+export function map<InputType extends ReadonlyArray<any>, ProjectTypes extends TupleProjectType<InputType>>(
   project: ProjectTypes
 ): OperatorFunction<InputType, TupleOutputType<InputType, ProjectTypes>>;
 
@@ -28,7 +28,7 @@ export function map<InputType extends ReadonlyArray<unknown>, ProjectTypes exten
  */
 export function map<
   InputType extends ReadonlyRecord<string, unknown>,
-  ProjectTypes extends Partial<RecordProjectType<InputType>>
+  ProjectTypes extends Partial<RecordProjectType<InputType>>,
 >(project: ProjectTypes): OperatorFunction<InputType, Expand<RecordOutputType<InputType, ProjectTypes>>>;
 
 /**
@@ -77,7 +77,7 @@ function mapTuple<InputType extends ReadonlyArray<unknown>, ProjectTypes extends
  */
 function mapRecord<
   InputType extends ReadonlyRecord<string, unknown>,
-  ProjectTypes extends Partial<RecordProjectType<InputType>>
+  ProjectTypes extends Partial<RecordProjectType<InputType>>,
 >(recordProjections: ProjectTypes): OperatorFunction<InputType, Expand<RecordOutputType<InputType, ProjectTypes>>> {
   const projectionEntries = objectToEntries(recordProjections);
   return rxjsMap((value, index) => {
@@ -121,7 +121,7 @@ type TupleOutputType<InputType extends ReadonlyArray<unknown>, ProjectType exten
 type TupleOutputPropertyType<
   InputType extends ReadonlyArray<unknown>,
   ProjectType extends TupleProjectType<InputType>,
-  K extends keyof InputType
+  K extends keyof InputType,
 > = ProjectType[K] extends (...arg: never[]) => unknown ? ReturnType<ProjectType[K]> : InputType[K];
 
 /**
@@ -144,7 +144,7 @@ type RecordProjectType<InputType> = {
  */
 type RecordOutputType<
   InputType extends ReadonlyRecord<string, unknown>,
-  ProjectType extends Partial<RecordProjectType<InputType>>
+  ProjectType extends Partial<RecordProjectType<InputType>>,
 > = {
   [K in keyof InputType]: RecordOutputPropertyType<InputType, ProjectType, K>;
 };
@@ -159,5 +159,5 @@ type RecordOutputType<
 type RecordOutputPropertyType<
   InputType extends ReadonlyRecord<string, unknown>,
   ProjectType extends Partial<RecordProjectType<InputType>>,
-  K extends keyof InputType
+  K extends keyof InputType,
 > = ProjectType[K] extends (...arg: never[]) => unknown ? ReturnType<ProjectType[K]> : InputType[K];

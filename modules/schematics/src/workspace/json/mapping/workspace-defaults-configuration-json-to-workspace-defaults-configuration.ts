@@ -1,4 +1,5 @@
-import { mapObjectEntries, objectToKeys } from '@komore/functional';
+import { objectEntries, objectToKeys } from '@komore/functional';
+import { isExecutorReferenceString, isTaskName, type ExecutorReferenceString, type TaskName } from '@komore/schematics';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type ProjectName } from '../../../project/name/project-name';
@@ -6,7 +7,6 @@ import { validateProjectName } from '../../../project/name/validate-project-name
 import { schematicsError } from '../../../schematics.error';
 import { type WorkspaceDefaultsConfiguration } from '../../workspace-defaults-configuration';
 import { type WorkspaceDefaultsConfigurationJson } from '../workspace-defaults-configuration-json';
-import { isExecutorReferenceString, isTaskName, type ExecutorReferenceString, type TaskName } from '@komore/schematics';
 
 /**
  * Returns a workspace's defaults configuration, given a JSON workspace default configuration
@@ -21,7 +21,7 @@ export function workspaceDefaultsConfigurationJsonToWorkspaceDefaultsConfigurati
 ): WorkspaceDefaultsConfiguration {
   const outputPath = defaults?.outputPath ?? 'build';
   const project = defaults?.project ?? defaultProjectName(projects);
-  const toTasks = mapObjectEntries(defaultTaskMappingJsonEntryToDefaultTaskMappingEntry);
+  const toTasks = objectEntries(defaultTaskMappingJsonEntryToDefaultTaskMappingEntry);
   const tasks = toTasks(defaults?.tasks ?? {});
   const tempPath = defaults?.tempPath ?? 'tmp';
 

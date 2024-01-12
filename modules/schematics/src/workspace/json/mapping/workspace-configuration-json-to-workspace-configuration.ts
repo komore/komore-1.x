@@ -1,4 +1,4 @@
-import { mapObjectKeys, mapObjectValues } from '@komore/functional';
+import { objectKeys, objectValues } from '@komore/functional';
 import { map, type Observable } from '@komore/reactive';
 
 import { type ProjectName } from '../../../project/name/project-name';
@@ -25,13 +25,15 @@ export function workspaceConfigurationJsonToWorkspaceConfiguration(
   basePath: string
 ): (workspaceConfigurationJson: WorkspaceConfigurationJson) => Observable<WorkspaceConfiguration> {
   const toWorkspacePackageConfiguration = workspacePackageConfigurationJsonToWorkspacePackageConfiguration(basePath);
+  const normalizeProjects = objectKeys(asValidProjectName);
+  const normalizeTasks = objectValues(taskToTask);
   return json => {
     const { schematics = {} } = json;
-    const projects = mapObjectKeys(asValidProjectName)(json.projects ?? {});
+    const projects = normalizeProjects(json.projects ?? {});
     const defaults = workspaceDefaultsConfigurationJsonToWorkspaceDefaultsConfiguration(json.defaults, projects);
     const layout = workspaceLayoutConfigurationJsonToWorkspaceLayoutConfiguration(json.layout ?? {});
     const task = workspaceTaskConfigurationJsonToWorkspaceTaskConfiguration(json.task ?? {});
-    const tasks = mapObjectValues(taskToTask)(json.tasks ?? {});
+    const tasks = normalizeTasks(json.tasks ?? {});
     const version = json.version ?? workspaceConfigurationJson100SchemaVersionString;
     return toWorkspacePackageConfiguration(json.package ?? {}).pipe(
       map(workspacePackageConfiguration => ({

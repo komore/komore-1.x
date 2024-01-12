@@ -4,24 +4,14 @@ import '@komore/website/layout/navigation';
 import '@komore/website/search/input';
 //import './website-root.element';
 
-import { createBrowserHost } from '@komore/browser';
-import { createBrowserApplication } from '@komore/browser/application';
-import { EMPTY, firstValueFrom } from '@komore/reactive';
+import { runBrowserApplication } from '@komore/browser/application';
+import { firstValueFrom } from '@komore/reactive';
 //import { createRouter, toRouterEventDebugLog } from '@komore/element/router';
 //import { tapNext } from '@komore/reactive';
 
 async function main() {
-  const host = createBrowserHost({});
-  const browserApplication = createBrowserApplication({
-    host,
-    parametersToCommands: parameters => {
-      console.log('parameters', parameters);
-      return EMPTY;
-    },
-  });
-
-  const result$ = browserApplication(new URL(window.location.href));
-  await firstValueFrom(result$);
+  const run$ = runBrowserApplication({});
+  await firstValueFrom(run$);
 }
 
 main();
