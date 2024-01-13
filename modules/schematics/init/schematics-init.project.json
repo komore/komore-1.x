@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schematics/project-configuration.schema.json",
   "domain": "schematics",
   "type": "library",
   "tags": ["trait:schematics"],

@@ -13,3 +13,4 @@ export { type GenericCommand } from './generic-command';
 export { type GenericCommandHandler } from './handler/generic-command-handler';
 export { type GenericCommandType } from './type/generic-command-type';
 export { matchCommand } from './matcher/match-command';
+export { mergeCompositeCommandType } from './type/merge-composite-command-type';

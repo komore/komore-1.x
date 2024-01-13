@@ -1,9 +1,11 @@
 import { type Observable } from '@komore/reactive';
+
 import { createImmediateFunction } from './create-immediate-function';
 import { createProjectedFunction } from './create-projected-function';
 
 /**
  * Creates a function
+ *
  * @param functionName Function name
  * @returns Function
  * @template FunctionName Function name
@@ -17,6 +19,7 @@ export function createFunction<FunctionName extends string, FunctionParameterTyp
 
 /**
  * Creates a function with a projection that defines its implementation
+ *
  * @param functionName Function name
  * @param project Projection function that returns an observable function result
  * @returns Function
@@ -27,7 +30,7 @@ export function createFunction<FunctionName extends string, FunctionParameterTyp
 export function createFunction<
   FunctionName extends string,
   FunctionParameterTypes extends ReadonlyArray<unknown> = [],
-  FunctionReturnType = void
+  FunctionReturnType = void,
 >(
   functionName: FunctionName,
   project: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
@@ -47,7 +50,7 @@ export function createFunction<
 export function createFunction<
   FunctionName extends string,
   FunctionParameterTypes extends ReadonlyArray<unknown>,
-  FunctionReturnType
+  FunctionReturnType,
 >(
   functionName: FunctionName,
   project?: (

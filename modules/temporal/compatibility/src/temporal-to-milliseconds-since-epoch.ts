@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 /**
- * Gets the number of milliseconds since the Epoch, from a temporal
+ * Returns the number of milliseconds since the Epoch, from a temporal
  *
  * @param temporal Temporal
  * @return Number of milliseconds since the 1st of January 1970

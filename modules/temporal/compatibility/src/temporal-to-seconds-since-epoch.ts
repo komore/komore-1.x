@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 
 /**
- * Gets the number of seconds since the Epoch, from a temporal
+ * Returns the number of seconds since the Epoch, from a temporal
  *
  * @param temporal Temporal
  * @return Number of seconds since the 1st of January 1970

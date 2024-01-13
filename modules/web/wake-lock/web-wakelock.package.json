@@ -1,3 +1,4 @@
 {
-  "name": "@komore/web/screen-wake-lock"
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/web/wake-lock"
 }

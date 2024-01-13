@@ -1,5 +1,6 @@
 /**
  * Creates a document fragment
+ *
  * @param sourceHtml Source HTML
  * @param sourceDocument Source document
  * @returns Document fragment

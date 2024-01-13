@@ -1,7 +1,0 @@
-{
-  "$schema": "../../schematics/project-configuration.schema.json",
-  "domain": "graph",
-  "type": "library",
-  "tags": ["trait:base"],
-  "tasks": ["build", "document", "lint", "test"]
-}

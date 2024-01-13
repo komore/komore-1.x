@@ -1,11 +1,15 @@
 {
-  "extends": "../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
+  "compilerOptions": {
+    "types": ["dom-speech-recognition"]
+  },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./web-speech.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./web-speech.tsconfig.specifications.json"
     }
   ]
 }

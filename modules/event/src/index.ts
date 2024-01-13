@@ -11,3 +11,4 @@ export { type GenericEvent } from './generic-event';
 export { type GenericEventType } from './type/generic-event-type';
 export { isEventOfType } from './is-event-of-type';
 export { matchEvent } from './matcher/match-event';
+export { mergeCompositeEventType } from './type/merge-composite-event-type';

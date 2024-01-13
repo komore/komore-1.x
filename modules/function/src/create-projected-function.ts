@@ -1,9 +1,11 @@
 import { catchError, defaultIfEmpty, map, mergeMap, type Observable, of, Subject } from '@komore/reactive';
+
 import { type FunctionCallInformation } from './observer/function-call-information';
 import { FunctionObserver } from './observer/function-observer';
 
 /**
  * Creates a function
+ *
  * @param functionName Function name
  * @param functionTriggerTypes Function trigger types
  * @param project Projection function describing the implementation as a pipeline
@@ -16,7 +18,7 @@ import { FunctionObserver } from './observer/function-observer';
 export function createProjectedFunction<
   FunctionName extends string,
   FunctionParameterTypes extends ReadonlyArray<unknown>,
-  FunctionReturnType
+  FunctionReturnType,
 >(
   functionName: FunctionName,
   project: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
@@ -32,11 +34,11 @@ export function createProjectedFunction<
           map((result, index) => ({
             ...functionCall,
             ...result,
-            index
+            index,
           })),
           defaultIfEmpty({
             ...functionCall,
-            index: 0
+            index: 0,
           })
         )
       )
@@ -55,10 +57,10 @@ export function createProjectedFunction<
         subject.next({
           functionParameters,
           resolve,
-          reject
+          reject,
         });
       });
-    }
+    },
   };
 
   return wrapper[functionName];

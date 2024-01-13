@@ -1,14 +1,15 @@
 {
-  "extends": "../../../tsconfig.dom.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
   "compilerOptions": {
-    "types": ["dom-screen-wake-lock", "jest"]
+    "types": ["dom-screen-wake-lock"]
   },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./web-wakelock.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./web-wakelock.tsconfig.specifications.json"
     }
   ]
 }

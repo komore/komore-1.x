@@ -1,8 +1,10 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '@komore/temporal';
 import { mockCurrentTimeZone } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { temporalToSecondsSinceEpoch } from './temporal-to-seconds-since-epoch';
 
-describe('Temporal to seconds since Epoch', () => {
+feature('Temporal to seconds since Epoch', () => {
   const currentTimeZone = Temporal.TimeZone.from('Europe/Paris') as Temporal.TimeZone; // TODO: why!?
   let mockedTimeZone: ReturnType<typeof mockCurrentTimeZone>;
 

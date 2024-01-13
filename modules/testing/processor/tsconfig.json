@@ -1,11 +1,12 @@
 {
-  "extends": "../../../tsconfig.node.json",
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./testing-processor.tsconfig.library.json"
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./testing-processor.tsconfig.specifications.json"
     }
   ]
 }

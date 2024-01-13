@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.browser.json",
+  "references": [
+    {
+      "path": "./element-linting.tsconfig.library.json"
+    },
+    {
+      "path": "./element-linting.tsconfig.specifications.json"
+    }
+  ]
+}

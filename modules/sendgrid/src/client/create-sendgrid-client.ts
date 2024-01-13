@@ -1,8 +1,8 @@
 import { createClient } from '@komore/client';
 
 import { createSendGridApiClient } from '../api/create-sendgrid-api-client';
-import { createSendGridCommandHandler } from '../command/create-sendgrid-command-handler';
-import { createSendGridQueryHandler } from '../query/create-sendgrid-query-handler';
+import { createSendGridCommandHandler } from '../handler/create-sendgrid-command-handler';
+import { createSendGridQueryHandler } from '../handler/create-sendgrid-query-handler';
 import { sendGridCommand } from '../sendgrid.command';
 import { sendGridError } from '../sendgrid.error';
 import { sendGridEvent } from '../sendgrid.event';

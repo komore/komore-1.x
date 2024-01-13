@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/testing",
-  "description": "",
+  "description": "Test features",
   "keywords": ["testing"],
   "komore": {
     "executors": "./schematics/testing-schematics.executors.json",

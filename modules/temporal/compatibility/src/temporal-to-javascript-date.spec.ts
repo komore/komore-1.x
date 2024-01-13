@@ -1,7 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from '@komore/temporal';
+import { feature } from '@komore/testing';
+
 import { temporalToJavaScriptDate } from './temporal-to-javascript-date';
 
-describe('Temporal to JavaScript Date', () => {
+feature('Temporal to JavaScript Date', () => {
   it.each([
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', new Date('2020-01-01T12:34:56.789+0100')],
     [
