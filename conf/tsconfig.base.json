@@ -46,6 +46,7 @@
       "@komore/authorization/jwt": ["modules/authorization/jwt/src/index.ts"],
       "@komore/authorization/rbac": ["modules/authorization/rbac/src/index.ts"],
       "@komore/authorization/testing": ["modules/authorization/testing/src/index.ts"],
+      "@komore/avro": ["modules/avro/src/index.ts"],
       "@komore/aws": ["modules/aws/src/index.ts"],
       "@komore/aws/api-gateway": ["modules/aws/api-gateway/src/index.ts"],
       "@komore/aws/app-sync": ["modules/aws/app-sync/src/index.ts"],

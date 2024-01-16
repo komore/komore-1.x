@@ -59,6 +59,7 @@
     "authorization-jwt": "modules/authorization/jwt",
     "authorization-rbac": "modules/authorization/rbac",
     "authorization-testing": "modules/authorization/testing",
+    "avro": "modules/avro",
     "aws": "modules/aws",
     "aws-apigateway": "modules/aws/api-gateway",
     "aws-appsync": "modules/aws/app-sync",
