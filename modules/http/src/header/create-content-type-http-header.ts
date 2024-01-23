@@ -1,3 +1,4 @@
+import { type MediaType } from '../media/media-type';
 import { type HttpHeader } from './http-header';
 
 /**
@@ -9,7 +10,7 @@ import { type HttpHeader } from './http-header';
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type Content-Type}
  */
 export function createContentTypeHttpHeader(
-  mediaType: string,
+  mediaType: MediaType,
   // TODO: typed character set
   options?: { readonly charset?: string; readonly boundary?: string }
 ): HttpHeader {

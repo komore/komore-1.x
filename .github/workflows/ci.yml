@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: Derivate SHAs for base and head for affected commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -60,7 +60,7 @@ jobs:
           fetch-depth: 0
 
       - name: Derivate SHAs for base and head for affected commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -101,10 +101,10 @@ jobs:
           fetch-depth: 0
 
       - name: Derivate SHAs for base and head for affected commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
@@ -118,7 +118,7 @@ jobs:
           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v2.4.0
         with:
           version: 8.11.0
           run_install: |

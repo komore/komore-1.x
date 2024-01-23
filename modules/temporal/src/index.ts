@@ -14,6 +14,7 @@ export { datesToEarliestDate } from './date/dates-to-earliest-date';
 export { datesToEarliestDateIndex } from './date/dates-to-earliest-date-index';
 export { datesToLatestDate } from './date/dates-to-latest-date';
 export { datesToLatestDateIndex } from './date/dates-to-latest-date-index';
+export { type DateTimeString } from './date-time/date-time-string';
 export { dateToCentury } from './century/date-to-century';
 export { dateToDay } from './day/date-to-day';
 export { dateToDayOfWeek } from './week-day/date-to-day-of-week';

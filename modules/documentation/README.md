@@ -1,3 +1,0 @@
-# @komore/documentation
-
-TODO

@@ -1,0 +1,7 @@
+{
+  "$schema": "../../modules/schematics/project-configuration.schema.json",
+  "domain": "etoro",
+  "type": "library",
+  "tags": ["trait:base"],
+  "tasks": ["build", "document", "lint", "package", "publish", "test"]
+}

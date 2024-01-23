@@ -10,7 +10,7 @@ import { type GenericDomain } from '@komore/domain';
 export interface Query<
   DomainType extends GenericDomain,
   QueryName extends string,
-  QueryPropertiesResult extends readonly [resultType: unknown, parametersType: unknown],
+  QueryPropertiesResult extends readonly [resultType: any, parametersType: any],
 > {
   /**
    * Domain

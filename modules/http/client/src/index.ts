@@ -3,7 +3,6 @@ export { type HttpClient } from './http-client';
 export { type HttpClientOptions } from './http-client-options';
 export { type HttpClientRequest } from './request/http-client-request';
 export { type HttpClientRequestOptions } from './request/http-client-request-options';
-export { httpClientRequestOptionsWithHeaders } from './request/http-client-request-options-with-headers';
 export { type HttpClientResponse } from './response/http-client-response';
 export { httpClientResponseStatusBetween } from './response/http-client-response-status-between';
 export { httpClientResponseStatusIn } from './response/http-client-response-status-in';

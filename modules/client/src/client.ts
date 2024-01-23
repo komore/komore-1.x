@@ -19,7 +19,7 @@ export interface Client<
   EventType extends GenericEventType,
   QueryType extends GenericQueryType,
   ErrorType extends GenericErrorType,
-  // TODO: better constraints
+  // TODO: better constraints + allow partial for commands that don't cause an event?
   CommandEventMapType extends ReadonlyRecord<keyof CommandType, keyof EventType | ReadonlyArray<keyof EventType>>,
 > {
   /**

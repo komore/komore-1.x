@@ -4,14 +4,14 @@ Support [komore] integration with [Discord] servers.
 
 ## Install
 
-The `@komore/integration-discord` module can be installed via Npm or Yarn:
+The `@komore/discord` module can be installed via Npm or Yarn:
 
 ```shell
-npm install @komore/integration-discord --save
+npm install @komore/discord --save
 ```
 
 ```shell
-yarn add @komore/integration-discord
+yarn add @komore/discord
 ```
 
 ## Configure

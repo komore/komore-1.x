@@ -1,4 +1,7 @@
 import { parse, type Type } from 'avsc';
+
+import { deferValue } from '@komore/reactive';
+
 import { AvroSchema } from './avro-schema';
 
 /**
@@ -12,6 +15,6 @@ export function parseAvroSchema<T>(schema: string): AvroSchema<T> {
   const avroSchema = parse(schema) as Type;
 
   return {
-    valueToBuffer: value => avroSchema.toBuffer(value),
+    valueToBuffer: value => deferValue(() => avroSchema.toBuffer(value)),
   };
 }

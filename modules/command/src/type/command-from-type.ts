@@ -6,6 +6,7 @@ import { type GenericCommandType } from './generic-command-type';
  *
  * @template CommandType Command type
  */
-export type CommandFromType<CommandType extends GenericCommandType> = CommandFromCreator<
-  CommandType[keyof CommandType & string]
->;
+export type CommandFromType<
+  CommandType extends GenericCommandType,
+  K extends keyof CommandType & string = keyof CommandType & string,
+> = CommandFromCreator<CommandType[K]>;

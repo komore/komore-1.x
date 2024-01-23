@@ -1,3 +1,4 @@
+import { fetchHeaderToHttpHeader } from '../header/fetch-header-to-http-header';
 import { fetchResponseSymbol } from './fetch-response-symbol';
 import { type HttpClientResponse } from './http-client-response';
 
@@ -9,7 +10,7 @@ import { type HttpClientResponse } from './http-client-response';
  */
 export function responseToHttpClientResponse(response: Response): HttpClientResponse {
   const { status } = response;
-  const headers = Array.from(response.headers.entries());
+  const headers = Array.from(response.headers.entries(), fetchHeaderToHttpHeader);
   return {
     headers,
     status,

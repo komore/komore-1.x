@@ -2,6 +2,7 @@ export { asObservable } from './creation/as-observable';
 export { AsyncSubject } from './subject/async-subject';
 export { allValuesFrom } from './promise/all-values-from';
 export { BehaviorSubject } from './subject/behavior-subject';
+export { bufferUntil } from './operators/buffer-until';
 export { cache } from './operators/cache';
 export { catchError } from './operators/catch-error';
 export { catchErrorIf } from './operators/catch-error-if';

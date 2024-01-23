@@ -1,4 +1,4 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { getLocalTimeZone, Temporal } from '@komore/temporal';
 
 /**
  * Returns a JavaScript Date object from a temporal
@@ -6,9 +6,14 @@ import { Temporal } from '@js-temporal/polyfill';
  * @param temporal Temporal
  * @returns JavaScript Date object
  */
-export function temporalToJavaScriptDate(temporal: Temporal.PlainDateTime | Temporal.ZonedDateTime): Date {
-  const zonedDateTime =
-    temporal instanceof Temporal.ZonedDateTime ? temporal : temporal.toZonedDateTime(Temporal.Now.timeZoneId());
-  const instant = zonedDateTime.toInstant();
+export function temporalToJavaScriptDate(
+  temporal: Temporal.PlainDateTime | Temporal.ZonedDateTime | Temporal.Instant
+): Date {
+  const instant =
+    temporal instanceof Temporal.Instant
+      ? temporal
+      : temporal instanceof Temporal.ZonedDateTime
+        ? temporal.toInstant()
+        : temporal.toZonedDateTime(getLocalTimeZone()).toInstant();
   return new Date(instant.epochMilliseconds);
 }
