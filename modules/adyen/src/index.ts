@@ -1,10 +1,8 @@
-export { type AdyenClient } from './client/adyen-client';
-export { type AdyenClientApiOptions } from './client/adyen-client-api-options';
-export { type AdyenClientApiVersions } from './client/adyen-client-api-versions';
-export { type AdyenClientOptions } from './client/adyen-client-options';
-export { adyenCommand } from './adyen.command';
+export { type AdyenApiClient } from './adyen-api-client';
+export { type AdyenApiClientApiOptions } from './adyen-api-client-api-options';
+export { type AdyenApiClientApiVersions } from './adyen-api-client-api-versions';
+export { type AdyenApiClientOptions } from './adyen-api-client-options';
+export { adyenApiError } from './adyen-api.error';
 export { adyenDomain } from './adyen.domain';
-export { adyenError } from './adyen.error';
-export { adyenEvent } from './adyen.event';
-export { adyenQuery } from './adyen.query';
-export { createAdyenClient } from './client/create-adyen-client';
+export { adyenTypeError } from './adyen-type.error';
+export { createAdyenApiClient } from './create-adyen-api-client';

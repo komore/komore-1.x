@@ -1,20 +1,20 @@
 import { type HttpClient } from '@komore/http/client';
 
-import { type AdyenClientApiVersions } from './adyen-client-api-versions';
+import { type AdyenApiClientApisOptions } from './adyen-api-client-apis-options';
 
 /**
- * Adyen client options
+ * Adyen API client options
  */
-export interface AdyenClientOptions {
+export interface AdyenApiClientOptions {
   /**
-   * APIs endpoint URL
+   * APIs options
    *
    * Adyen API endpoint URLs are based on company accounts:
    *
-   * - Test:
+   * - Test: TODO
    * - Live: https://[prefix]-pal-live.adyenpayments.com/pal/servlet/Payment/
    */
-  readonly apis: AdyenClientApiVersions;
+  readonly apis: Partial<AdyenApiClientApisOptions>;
   /**
    * HTTP client
    */

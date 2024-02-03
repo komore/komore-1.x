@@ -1,6 +1,5 @@
+import { adyenDomain } from '@komore/adyen';
 import { createErrorType } from '@komore/error';
-
-import { adyenDomain } from './adyen.domain';
 
 /**
  * Adyen error

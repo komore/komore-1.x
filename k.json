@@ -33,6 +33,7 @@
   },
   "projects": {
     "adyen": "modules/adyen",
+    "adyen-client": "modules/adyen/client",
     "ai": "modules/ai",
     "ai-text": "modules/ai/text",
     "android": "modules/android",

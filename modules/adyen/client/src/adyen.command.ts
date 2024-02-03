@@ -1,6 +1,5 @@
-import { commandProperties, createCommandType, type CommandFromType } from '@komore/command';
-
-import { adyenDomain } from './adyen.domain';
+import { adyenDomain } from '@komore/adyen';
+import { commandProperties, createCommandType } from '@komore/command';
 
 /**
  * Adyen command
