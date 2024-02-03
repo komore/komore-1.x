@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Creates a function that subtracts years from a temporal
+ *
  * @param years Number of years to subtract
  * @returns Function that subtracts `years` years from a temporal
  */

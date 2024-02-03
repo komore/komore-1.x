@@ -1,9 +1,9 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 import { withTemporalWithDate } from '../with-temporal-with-date';
 
 /**
  * Creates a function that subtracts days from a temporal
+ *
  * @param days Number of days to subtract
  * @returns Function that subtracts days from a temporal
  */

@@ -1,8 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithTime } from './temporal-with-time';
 
 /**
  * Converts a temporal with time, converting the type of a temporal with date if necessary
+ *
  * @param temporal Temporal with time
  * @returns Plain time
  * @private

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { subtractSeconds } from './subtract-seconds';
 
-describe('Subtract seconds', () => {
+feature('Subtract seconds', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', 4, 52],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456', 4, 52],
@@ -19,12 +20,12 @@ describe('Subtract seconds', () => {
 
       expect: 'the correct number of seconds to have been subtracted';
       const { hour, minute, second, millisecond, microsecond, nanosecond } = result;
-      expect(hour).toBe(temporal.hour);
-      expect(minute).toBe(temporal.minute);
-      expect(second).toBe(expectedSecond);
-      expect(millisecond).toBe(temporal.millisecond);
-      expect(microsecond).toBe(temporal.microsecond);
-      expect(nanosecond).toBe(temporal.nanosecond);
+      hour === temporal.hour;
+      minute === temporal.minute;
+      second === expectedSecond;
+      millisecond === temporal.millisecond;
+      microsecond === temporal.microsecond;
+      nanosecond === temporal.nanosecond;
     }
   );
 });

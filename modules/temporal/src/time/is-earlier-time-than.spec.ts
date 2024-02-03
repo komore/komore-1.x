@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isEarlierTimeThan } from './is-earlier-time-than';
 
-describe('Is earlier time than', () => {
+feature('Is earlier time than', () => {
   const pt1 = Temporal.PlainTime.from('12:34:56.789');
   const pt2 = Temporal.PlainTime.from('23:45:56.789');
   const pdt1 = Temporal.PlainDateTime.from('2020-01-02T12:34:56.789');
@@ -21,7 +22,7 @@ describe('Is earlier time than', () => {
     [zdt2, zdt1, false],
     [pt1, pdt1, false],
     [pt1, pdt2, true],
-    [pdt2, pt1, false]
+    [pdt2, pt1, false],
   ])(
     'can create a function that tests whether a temporal occurs at an earlier time than a reference temporal',
     (temporal, referenceTemporal, expectedResult) => {

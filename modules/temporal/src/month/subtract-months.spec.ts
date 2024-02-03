@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { subtractMonths } from './subtract-months';
 
-describe('Subtract months', () => {
+feature('Subtract months', () => {
   it('can subtract months from a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-05-01');
@@ -12,12 +13,12 @@ describe('Subtract months', () => {
     const result = func(plainDate);
 
     expect: 'the result to be a plain date';
-    expect(result).toBeInstanceOf(Temporal.PlainDate);
+    result instanceof Temporal.PlainDate;
     and: 'the correct number of months to have been subtracted';
     const { year, month, day } = result;
-    expect(year).toBe(2020);
-    expect(month).toBe(1);
-    expect(day).toBe(1);
+    year === 2020;
+    month === 1;
+    day === 1;
   });
 
   it('can subtract months from a plain date time', () => {

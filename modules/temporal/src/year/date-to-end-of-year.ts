@@ -1,8 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns a temporal that occurs on the last day of another temporal's year
+ *
  * @param temporal Temporal
  * @returns Temporal that occurs on the last day the other temporal's year
  */

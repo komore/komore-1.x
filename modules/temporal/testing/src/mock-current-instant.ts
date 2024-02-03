@@ -1,8 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { type MockTemporal } from './mock-temporal';
 
 /**
- * Mocks the current instant
+ * Mocks the current instant and returns a mocke temporal
+ *
  * @param instant Instant
  * @returns Mock temporal
  */

@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from './temporal-with-date';
 import { type TemporalWithPartialDate } from './temporal-with-partial-date';
 
@@ -14,6 +13,7 @@ export function asPlainDate(temporal: TemporalWithDate | TemporalWithPartialDate
   } else if (temporal instanceof Temporal.PlainYearMonth) {
     return temporal.toPlainDate({ day: 1 });
   } else if (temporal instanceof Temporal.PlainMonthDay) {
+    // TODO: nope.
     return temporal.toPlainDate({ year: 2021 }); // non-leap year
   } else {
     return temporal.toPlainDate();

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { durationToISO8601WeekDuration } from './duration-to-iso-8601-week-duration';
 
-describe('Duration to ISO 8601 week duration', () => {
+feature('Duration to ISO 8601 week duration', () => {
   it.each([
     [Temporal.Duration.from({ weeks: 2 }), 'P2W'],
     [Temporal.Duration.from({ weeks: -5 }), 'P-5W'],

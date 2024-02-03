@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { timeZoneToTimeZoneOffsetAt } from './time-zone-to-time-zone-offset-at';
 
-describe('Time zone to time zone offset at', () => {
+feature('Time zone to time zone offset at', () => {
   it.each([
     ['2020-03-28T12:34:56.789[Europe/Paris]', 'Europe/Paris', 3600000000000],
     ['2020-03-29T12:34:56.789[Europe/Paris]', 'Europe/Paris', 7200000000000],

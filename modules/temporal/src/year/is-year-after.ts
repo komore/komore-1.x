@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Creates a function that tests whether a temporal occurs the year after a specific year
+ *
  * @param referenceYear Reference year
  * @returns Function that tests whether a temporal occurs the year after the specific year
  */

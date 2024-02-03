@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns the number of elapsed days in a given month
+ *
  * @param temporal Temporal
  * @returns Number of elapsed days
  */

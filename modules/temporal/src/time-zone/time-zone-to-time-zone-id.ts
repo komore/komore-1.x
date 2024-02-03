@@ -1,7 +1,6 @@
-import { type Temporal } from '@js-temporal/polyfill';
-
 /**
  * Returns the time zone identifier used by the given time zone
+ *
  * @param timeZone Time zone
  * @returns Time zone identifier
  */

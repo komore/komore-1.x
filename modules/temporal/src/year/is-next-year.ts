@@ -1,13 +1,13 @@
-import { type Temporal } from '@js-temporal/polyfill';
-import { getNowFor } from '../get-now-for';
+import { nowFor } from '../now-for';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal with date occurs next year
+ *
  * @param temporal Temporal with date
  * @returns true if the temporal occurs next year
  */
 export function isNextYear(temporal: TemporalWithDate | Temporal.PlainYearMonth): boolean {
-  const now = getNowFor(temporal);
-  return now.year === temporal.year - 1;
+  const now = nowFor(temporal);
+  return temporal.year === now.year + 1;
 }

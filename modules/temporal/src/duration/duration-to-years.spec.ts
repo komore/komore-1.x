@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { durationToYears } from './duration-to-years';
 
-describe('Duration to years', () => {
+feature('Duration to years', () => {
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T00:00:00');
   let mockedCurrentPlainDateTime: ReturnType<typeof mockCurrentPlainDateTime>;
 

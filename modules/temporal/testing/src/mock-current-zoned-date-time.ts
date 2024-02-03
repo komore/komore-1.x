@@ -1,9 +1,7 @@
-import { Temporal } from '@komore/temporal';
-
 import { type MockTemporal } from './mock-temporal';
 
 /**
- * Mocks the current zoned date time
+ * Mocks the current zoned date time and returns a mock temporal
  *
  * @param zonedDateTime Zoned date time
  * @returns Mock temporal

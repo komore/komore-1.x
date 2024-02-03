@@ -1,5 +1,4 @@
-import { Temporal } from '@komore/temporal';
-import { mockCurrentTimeZone } from '@komore/temporal/testing';
+import { mockCurrentTimeZoneId } from '@komore/temporal/testing';
 import { feature } from '@komore/testing';
 
 import { temporalToMillisecondsSinceEpoch } from './temporal-to-milliseconds-since-epoch';

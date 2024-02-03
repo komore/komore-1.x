@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { createInterval } from './create-interval';
 import { intervalToISO8601Interval } from './interval-to-iso-8601-interval';
 
-describe('Interval to ISO 8601 interval', () => {
+feature('Interval to ISO 8601 interval', () => {
   const pd = Temporal.PlainDate;
   const pdt = Temporal.PlainDateTime;
   const zdt = Temporal.ZonedDateTime;

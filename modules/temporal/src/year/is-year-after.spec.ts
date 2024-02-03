@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isYearAfter } from './is-year-after';
 
-describe('Is year after', () => {
+feature('Is year after', () => {
   const pd1 = Temporal.PlainDate.from('2021-02-01');
   const pd2 = Temporal.PlainDate.from('2021-01-01');
   const pd3 = Temporal.PlainDate.from('2020-06-01');
@@ -21,7 +22,7 @@ describe('Is year after', () => {
     ['plain date time', pdt1, pdt3, true],
     ['zoned date time', zdt1, zdt2, false],
     ['zoned date time', zdt1, zdt2, false],
-    ['zoned date time', zdt1, zdt3, true]
+    ['zoned date time', zdt1, zdt3, true],
   ])(
     'can test whether a %s occurs the year after another temporal',
     (_, temporal, referenceTemporal, expectedResult) => {
@@ -43,7 +44,7 @@ describe('Is year after', () => {
     ['plain date time', pdt1, 2021, false],
     ['plain date time', pdt1, 2020, true],
     ['zoned date time', zdt1, 2021, false],
-    ['zoned date time', zdt1, 2020, true]
+    ['zoned date time', zdt1, 2020, true],
   ])('can test whether a %s occurs the year after a specific year', (_, temporal, referenceYear, expectedResult) => {
     given: 'two temporals';
 

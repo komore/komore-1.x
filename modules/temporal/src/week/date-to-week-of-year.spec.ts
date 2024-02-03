@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToWeekOfYear } from './date-to-week-of-year';
 
-describe('Date to week of year', () => {
+feature('Date to week of year', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', 1],
     ['plain date', Temporal.PlainDate, '2021-01-01', 53],

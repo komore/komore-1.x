@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToEndOfWeek } from './date-to-end-of-week';
 
-describe('Date to end of week', () => {
+feature('Date to end of week', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', 2020, 1, 5],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', 2020, 1, 5],

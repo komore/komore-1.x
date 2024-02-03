@@ -1,4 +1,3 @@
-import { Temporal } from '@komore/temporal';
 import { mockCurrentTimeZone } from '@komore/temporal/testing';
 import { feature } from '@komore/testing';
 

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isLaterYearThan } from './is-later-year-than';
 
-describe('Is later year than', () => {
+feature('Is later year than', () => {
   const pd = Temporal.PlainDate.from('2020-01-01');
   const pdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const zdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');

@@ -1,13 +1,14 @@
-import { Temporal } from '@js-temporal/polyfill';
 import {
   mockCurrentPlainDate,
   mockCurrentPlainDateTime,
   mockCurrentPlainTime,
   mockCurrentZonedDateTime,
 } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { isPast } from './is-past';
 
-describe('Is past', () => {
+feature('Is past', () => {
   const currentPlainDate = Temporal.PlainDate.from('2020-01-02');
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-02T12:34:56.789');
   const currentZonedDateTime = Temporal.ZonedDateTime.from('2020-01-02T12:34:56.789[Europe/Paris]');

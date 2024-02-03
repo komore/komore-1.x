@@ -1,9 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from '../as-plain-date';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal with date occurs during the last week
+ *
  * @param temporal Temporal with date
  * @returns true if the temporal occurs during the last week
  */

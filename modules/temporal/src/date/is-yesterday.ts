@@ -1,9 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from '../as-plain-date';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal occurs yesterday
+ *
  * @param temporal Temporal
  * @returns true if the temporal occurs yesterday
  */

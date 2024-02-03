@@ -1,7 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
-
 /**
  * Creates a function that returns a time zone offset for a specific time zone, given a temporal or instant
+ *
  * @param timeZone Time zone
  * @returns Function that returns a time zone offset for the specified time zone, given a temporal or instant
  */

@@ -1,8 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { toFollowingMonth } from './to-following-month';
-import { Month } from './month';
+import { feature } from '@komore/testing';
 
-describe('To following month', () => {
+import { toFollowingMonth } from './to-following-month';
+
+feature('To following month', () => {
   it('can return the following month for a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-01-01');
@@ -53,7 +53,7 @@ describe('To following month', () => {
 
   it.each([
     ['2020-01', 2, 2020],
-    ['2020-12', 1, 2021]
+    ['2020-12', 1, 2021],
   ])('can return the following month for a plain year month', (yearMonthString, expectedMonth, expectedYear) => {
     given: 'a plain year month';
     const plainYearMonth = Temporal.PlainYearMonth.from(yearMonthString);
@@ -69,7 +69,7 @@ describe('To following month', () => {
   it.each([
     ['01-01', 2, 1],
     ['01-15', 2, 15],
-    ['12-01', 1, 1]
+    ['12-01', 1, 1],
   ])('can return the following month for a plain month day', (monthDayString, expectedMonth, expectedDay) => {
     given: 'a plain month day';
     const plainMonthDay = Temporal.PlainMonthDay.from(monthDayString);
@@ -93,7 +93,7 @@ describe('To following month', () => {
     [Month.SEPTEMBER, Month.OCTOBER],
     [Month.OCTOBER, Month.NOVEMBER],
     [Month.NOVEMBER, Month.DECEMBER],
-    [Month.DECEMBER, Month.JANUARY]
+    [Month.DECEMBER, Month.JANUARY],
   ])('can return the following month for a month', (month, expectedMonth) => {
     given: 'a month';
     when: 'getting the following month';

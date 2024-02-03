@@ -1,9 +1,9 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from '../as-plain-date';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Creates a function that tests whether a temporal occurs on a different, earlier day than another temporal
+ *
  * @param referenceTemporal Temporal reference point
  * @returns Function that returns true if `earlierTemporal` occurs on a different, earlier day than `referenceTemporal`
  */

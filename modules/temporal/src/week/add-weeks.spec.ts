@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { addWeeks } from './add-weeks';
 
-describe('Add weeks', () => {
+feature('Add weeks', () => {
   it('can add weeks to a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-01-01');

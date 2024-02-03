@@ -1,5 +1,3 @@
-import { type Temporal } from '@js-temporal/polyfill';
-
 /**
  * Temporal with time
  */

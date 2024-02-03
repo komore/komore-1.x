@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { subtractYears } from './subtract-years';
 
-describe('Subtract years', () => {
+feature('Subtract years', () => {
   it('can subtract years from a plain date', () => {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-01-01');

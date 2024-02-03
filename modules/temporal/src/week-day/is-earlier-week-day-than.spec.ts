@@ -1,13 +1,15 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { isEarlierWeekDayThan } from './is-earlier-week-day-than';
-import { WeekDay } from './week-day';
+import { feature } from '@komore/testing';
 
-describe('Is earlier week day than', () => {
+import { isEarlierWeekDayThan } from './is-earlier-week-day-than';
+import { tuesday } from './tuesday';
+import { wednesday } from './wednesday';
+
+feature('Is earlier week day than', () => {
   const pd = Temporal.PlainDate;
   const pdt = Temporal.PlainDateTime;
   const zdt = Temporal.ZonedDateTime;
-  const tue = WeekDay.TUESDAY;
-  const wed = WeekDay.WEDNESDAY;
+  const tue = tuesday;
+  const wed = wednesday;
 
   it.each([
     [pd.from('2020-01-01'), pd.from('2020-01-01'), false],

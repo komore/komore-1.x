@@ -1,5 +1,4 @@
 import { InvalidDateStringError } from '../error/invalid-date-string-error';
-import { Temporal } from '../temporal';
 import { type DateString } from './date-string';
 
 /**

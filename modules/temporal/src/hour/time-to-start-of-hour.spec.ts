@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { timeToStartOfHour } from './time-to-start-of-hour';
 
-describe('Time to start of hour', () => {
+feature('Time to start of hour', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456'],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456'],

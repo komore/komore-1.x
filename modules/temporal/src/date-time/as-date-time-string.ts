@@ -1,5 +1,4 @@
 import { InvalidDateTimeStringError } from '../error/invalid-date-time-string-error';
-import { Temporal } from '../temporal';
 import { type DateTimeString } from './date-time-string';
 import { dateTimeStringToInstant } from './date-time-string-to-instant';
 
@@ -17,10 +16,10 @@ export function asDateTimeString(
       typeof dateTime === 'string'
         ? dateTimeStringToInstant(dateTime)
         : dateTime instanceof Temporal.ZonedDateTime
-        ? dateTime.toInstant()
-        : dateTime instanceof Temporal.PlainDateTime
-        ? dateTime.toZonedDateTime(Temporal.Now.timeZoneId()).toInstant()
-        : dateTime;
+          ? dateTime.toInstant()
+          : dateTime instanceof Temporal.PlainDateTime
+            ? dateTime.toZonedDateTime(Temporal.Now.timeZoneId()).toInstant()
+            : dateTime;
     return (temporal.toString().substring(0, 19) + 'Z') as DateTimeString;
   } catch (e) {
     throw new InvalidDateTimeStringError(`invalid date time string value "${dateTime}"`, dateTime);

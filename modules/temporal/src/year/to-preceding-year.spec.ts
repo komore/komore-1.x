@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { toPrecedingYear } from './to-preceding-year';
 
-describe('To preceding year', () => {
+feature('To preceding year', () => {
   it('can return a plain date that occurs the year before the passed temporal', () => {
     given: 'a temporal';
     const temporal = Temporal.PlainDate.from('2020-01-01');
@@ -18,7 +19,7 @@ describe('To preceding year', () => {
 
   it.each([
     ['plain date time', Temporal.PlainDateTime.from('2020-01-01T12:34:56.789'), 2019],
-    ['zoned date time', Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]'), 2019]
+    ['zoned date time', Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]'), 2019],
   ])('can return a %s that occurs the year before the passed temporal', (_, temporal, expectedYear) => {
     given: 'a temporal';
 

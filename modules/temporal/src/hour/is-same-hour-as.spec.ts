@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isSameHourAs } from './is-same-hour-as';
 
-describe('Is same hour as', () => {
+feature('Is same hour as', () => {
   const pt1 = Temporal.PlainTime.from('12:34:56.789123456');
   const pt2 = Temporal.PlainTime.from('11:45:56.678912345');
   const pt3 = Temporal.PlainTime.from('12:23:45.678912345');
@@ -21,7 +22,7 @@ describe('Is same hour as', () => {
     ['plain date time', pdt2, pdt3, false],
     ['zoned date time', zdt1, zdt2, false],
     ['zoned date time', zdt1, zdt3, true],
-    ['zoned date time', zdt2, zdt3, false]
+    ['zoned date time', zdt2, zdt3, false],
   ])(
     'can test whether a %s occurs during the same hour as another temporal',
     (_, referenceTemporal, temporal, expectedResult) => {

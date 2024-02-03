@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { isThisWeek } from './is-this-week';
 
-describe('Is this week', () => {
+feature('Is this week', () => {
   const currentPlainDate = Temporal.PlainDate.from('2020-01-01');
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const currentZonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');

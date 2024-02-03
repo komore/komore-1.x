@@ -1,21 +1,36 @@
-import { Month } from './month';
-import { MONTHS } from './months';
+import { feature } from '@komore/testing';
 
-describe('Months', () => {
+import {
+  april,
+  august,
+  december,
+  february,
+  january,
+  july,
+  june,
+  march,
+  may,
+  months,
+  november,
+  october,
+  september,
+} from './months';
+
+feature('Months', () => {
   it('includes all months in order', () => {
-    expect(MONTHS).toStrictEqual([
-      Month.JANUARY,
-      Month.FEBRUARY,
-      Month.MARCH,
-      Month.APRIL,
-      Month.MAY,
-      Month.JUNE,
-      Month.JULY,
-      Month.AUGUST,
-      Month.SEPTEMBER,
-      Month.OCTOBER,
-      Month.NOVEMBER,
-      Month.DECEMBER
+    expect(months).toStrictEqual([
+      january,
+      february,
+      march,
+      april,
+      may,
+      june,
+      july,
+      august,
+      september,
+      october,
+      november,
+      december,
     ]);
   });
 });

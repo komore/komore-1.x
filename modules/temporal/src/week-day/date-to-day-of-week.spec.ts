@@ -1,9 +1,9 @@
-import { Temporal } from '@komore/temporal';
+import { feature } from '@komore/testing';
 
 import { dateToDayOfWeek } from './date-to-day-of-week';
 import { wednesday } from './wednesday';
 
-describe('Date to day of week', () => {
+feature('Date to day of week', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', wednesday],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', wednesday],

@@ -1,7 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { dateToDay } from './date-to-day';
 
-describe('Date to day', () => {
+feature('Date to day', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', 1],
     ['plain date', Temporal.PlainDate, '2020-01-15', 15],

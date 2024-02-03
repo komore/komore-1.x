@@ -1,7 +1,8 @@
-import { Temporal } from '../temporal';
+import { feature } from '@komore/testing';
+
 import { asDateTimeString } from './as-date-time-string';
 
-describe('As date time string', () => {
+feature('As date time string', () => {
   const previousTimeZone = Temporal.Now.timeZone;
   const mockTimeZone = Temporal.TimeZone.from('Europe/Paris') as Temporal.TimeZone;
 

@@ -38,7 +38,10 @@
     "tools:documentation": "ts-node -r tsconfig-paths/register --project ./tools/documentation/tsconfig.json ./tools/documentation/src/index.ts",
     "tools:website:generate-tree": "ts-node -r tsconfig-paths/register --project ./tools/website/tsconfig.json ./tools/website/src/generate-website-tree.ts ./docs/modules",
     "x:discord": "ts-node --project ./tools/discord/tsconfig.json -r tsconfig-paths/register ./tools/discord/src/discord.ts",
-    "x:etoro": "ts-node --project ./tools/etoro/tsconfig.json -r tsconfig-paths/register ./tools/etoro/src/etoro.ts"
+    "x:etoro": "ts-node --project ./tools/etoro/tsconfig.json -r tsconfig-paths/register ./tools/etoro/src/etoro.ts",
+    "x:notion": "ts-node --project ./tools/notion/tsconfig.json -r tsconfig-paths/register ./tools/notion/src/notion.ts",
+    "x:slack": "ts-node --project ./tools/slack/tsconfig.json -r tsconfig-paths/register ./tools/slack/src/slack.ts",
+    "x:teams": "ts-node --project ./tools/teams/tsconfig.json -r tsconfig-paths/register ./tools/teams/src/teams.ts"
   },
   "devDependencies": {
     "@angular/core": "17.0.9",

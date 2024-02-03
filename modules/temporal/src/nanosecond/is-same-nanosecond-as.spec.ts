@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isSameNanosecondAs } from './is-same-nanosecond-as';
 
-describe('Is same nanosecond as', () => {
+feature('Is same nanosecond as', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', '12:34:56.789123456', true],
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', '12:34:56.789123455', false],

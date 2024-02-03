@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns the century from a temporal with a date
+ *
  * @param temporal Temporal
  * @returns Century
  */

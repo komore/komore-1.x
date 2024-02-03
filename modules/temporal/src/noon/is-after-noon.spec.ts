@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isAfterNoon } from './is-after-noon';
 
-describe('Is after noon', () => {
+feature('Is after noon', () => {
   it.each([
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:00:00.000000001', true],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:00:00.000000000', false],
@@ -11,7 +12,7 @@ describe('Is after noon', () => {
     ['zoned date time', Temporal.ZonedDateTime, '2020-01-01T11:59:59.999999999[Europe/Paris]', false],
     ['plain time', Temporal.PlainTime, '12:00:00.000000001', true],
     ['plain time', Temporal.PlainTime, '12:00:00.000000000', false],
-    ['plain time', Temporal.PlainTime, '11:59:59.999999999', false]
+    ['plain time', Temporal.PlainTime, '11:59:59.999999999', false],
   ])('can test whether a %s occurs after noon', (_, temporalClass, value, expectedResult) => {
     given: 'a temporal';
     const temporal = temporalClass.from(value);

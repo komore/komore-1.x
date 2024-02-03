@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToStartOfYear } from './date-to-start-of-year';
 
-describe('Date to start of year', () => {
+feature('Date to start of year', () => {
   it.each([
     [Temporal.PlainDate, '2020-02-15', '2020-01-01'],
     [Temporal.PlainDateTime, '2020-02-15T12:34:56.789', '2020-01-01T12:34:56.789'],

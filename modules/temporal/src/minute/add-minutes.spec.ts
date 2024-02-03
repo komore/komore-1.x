@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { addMinutes } from './add-minutes';
 
-describe('Add minutes', () => {
+feature('Add minutes', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', 4, 38],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456', 4, 38],

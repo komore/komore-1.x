@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { getNowFor } from '../get-now-for';
 import { type TemporalWithDate } from '../temporal-with-date';
 import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
@@ -6,6 +5,7 @@ import { type TemporalWithTime } from '../temporal-with-time';
 
 /**
  * Tests whether a temporal with date and time occurs in the future
+ *
  * @param temporal Temporal
  * @returns true if the temporal occurs in the future
  */

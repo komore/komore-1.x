@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Tests whether a temporal occurs on the first day of the month
+ *
  * @param temporal Temporal
  * @returns true if the temporal occurs on the first day of the month
  */

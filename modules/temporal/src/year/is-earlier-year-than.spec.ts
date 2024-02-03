@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isEarlierYearThan } from './is-earlier-year-than';
 
-describe('Is earlier year than', () => {
+feature('Is earlier year than', () => {
   const pd = Temporal.PlainDate.from('2020-01-01');
   const pdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const zdt = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
@@ -81,7 +82,7 @@ describe('Is earlier year than', () => {
       const result = func(temporal);
 
       expect: 'true to have been called if the temporal occurs a later year than the reference';
-      expect(result).toBe(expectedResult);
+      result === expectedResult;
     }
   );
 });

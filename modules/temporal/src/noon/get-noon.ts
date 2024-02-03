@@ -1,7 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
-
 /**
- * Gets noon as a plain time
+ * Returns noon as a plain time
+ *
  * @returns Noon
  */
 export function getNoon(): Temporal.PlainTime {

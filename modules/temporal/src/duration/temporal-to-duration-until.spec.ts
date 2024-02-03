@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { temporalToDurationUntil } from './temporal-to-duration-until';
 
-describe('Temporal to duration until', () => {
+feature('Temporal to duration until', () => {
   it.each([
     [Temporal.PlainDateTime, '2020-01-01T12:34:56.789012345', '2020-01-02T00:34:56.789012345', '-PT12H'],
     [Temporal.PlainDateTime, '2020-01-01T12:34:56.789012345', '2020-01-01T00:34:56.789012345', 'PT12H'],

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { temporalWithTimeZone } from './temporal-with-time-zone';
 
-describe('Temporal with time zone', () => {
+feature('Temporal with time zone', () => {
   it('can create a function that converts a zoned date time to a different time zone', () => {
     given: 'a zoned date time';
     const zonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');

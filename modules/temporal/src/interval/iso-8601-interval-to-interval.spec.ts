@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { iso8601IntervalToInterval } from './iso-8601-interval-to-interval';
 
-describe('ISO 8601 interval to interval', () => {
+feature('ISO 8601 interval to interval', () => {
   const pd = Temporal.PlainDate;
   const pdt = Temporal.PlainDateTime;
 

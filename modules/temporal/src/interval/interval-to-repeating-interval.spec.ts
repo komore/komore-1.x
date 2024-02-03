@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { createInterval } from './create-interval';
 import { intervalToRepeatingInterval } from './interval-to-repeating-interval';
 
-describe('Interval to repeating interval', () => {
+feature('Interval to repeating interval', () => {
   const pd = Temporal.PlainDate;
 
   it.each([

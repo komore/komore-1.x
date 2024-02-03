@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Creates a function that tests whether a temporal occurs the year before a specific year
+ *
  * @param referenceYear Reference year
  * @returns Function that tests whether a temporal occurs the year before the specific year
  */
@@ -10,6 +10,7 @@ export function isYearBefore(referenceYear: number): (temporal: TemporalWithDate
 
 /**
  * Creates a function that tests whether a temporal occurs the year before a reference temporal with date
+ *
  * @param referenceTemporal Reference temporal with date
  * @returns Function that tests whether a temporal occurs the year before the reference temporal with date
  */

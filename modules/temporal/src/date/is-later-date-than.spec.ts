@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { isLaterDateThan } from './is-later-date-than';
 
 describe('Is later date than', () => {
@@ -18,7 +17,7 @@ describe('Is later date than', () => {
     ['plain date time', 'plain date time', pdt2, pdt1, true],
     ['zoned date time', 'zoned date time', zdt1, zdt1, false],
     ['zoned date time', 'zoned date time', zdt1, zdt2, false],
-    ['zoned date time', 'zoned date time', zdt2, zdt1, true]
+    ['zoned date time', 'zoned date time', zdt2, zdt1, true],
   ])('can test whether a %s occurs later than another %s', (_1, _2, lhs, rhs, expectedResult) => {
     given: 'two temporals';
     when: 'creating a function that tests whether a temporal occurs at a later date than a reference temporal';

@@ -3,6 +3,7 @@ import { type TemporalWithDate } from '../temporal-with-date';
 
 /**
  * Returns a function that tests whether a temporal occurs the week before a reference temporal
+ *
  * @param referenceTemporal Reference temporal
  * @returns Function that tests whether a temporal occurs the week before the reference temporal
  */

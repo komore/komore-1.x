@@ -1,8 +1,9 @@
-import { Temporal } from '../temporal';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { isTomorrow } from './is-tomorrow';
 
-describe('Is tomorrow', () => {
+feature('Is tomorrow', () => {
   const currentPlainDate = Temporal.PlainDate.from('2020-01-01');
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const currentZonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');

@@ -1,7 +1,12 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type TemporalWithDate } from './temporal-with-date';
 import { type TemporalWithTime } from './temporal-with-time';
 
+/**
+ * TODO
+ * @param referenceTemporal
+ * @param orEqual
+ * @returns
+ */
 export function isTemporalEarlierThan<T extends TemporalWithDate | TemporalWithTime>(
   referenceTemporal: T,
   orEqual?: boolean

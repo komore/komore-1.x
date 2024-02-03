@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { durationToIntervalSince } from './duration-to-interval-since';
 
-describe('Duration to interval since', () => {
+feature('Duration to interval since', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-01', 'P1D', '2020-01-02'],
     [Temporal.PlainDate, '2020-01-01', '-P1D', '2019-12-31'],

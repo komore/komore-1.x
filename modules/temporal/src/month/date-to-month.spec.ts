@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToMonth } from './date-to-month';
 import { Month } from './month';
 
-describe('Date to month', () => {
+feature('Date to month', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', Month.JANUARY],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', Month.JANUARY],

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToCentury } from './date-to-century';
 
-describe('Date to century', () => {
+feature('Date to century', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', 21],
     ['plain date', Temporal.PlainDate, '2000-12-31', 20],

@@ -1,5 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
-
 /**
  * Returns the number of seconds since the Epoch, from a temporal
  *

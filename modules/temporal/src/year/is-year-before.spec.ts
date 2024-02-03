@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isYearBefore } from './is-year-before';
 
-describe('Is year before', () => {
+feature('Is year before', () => {
   const pd1 = Temporal.PlainDate.from('2020-02-01');
   const pd2 = Temporal.PlainDate.from('2020-06-01');
   const pd3 = Temporal.PlainDate.from('2021-01-01');
@@ -21,7 +22,7 @@ describe('Is year before', () => {
     ['plain date time', pdt1, pdt3, true],
     ['zoned date time', zdt1, zdt2, false],
     ['zoned date time', zdt1, zdt2, false],
-    ['zoned date time', zdt1, zdt3, true]
+    ['zoned date time', zdt1, zdt3, true],
   ])(
     'can test whether a %s occurs the year before another temporal',
     (_, temporal, referenceTemporal, expectedResult) => {
@@ -41,7 +42,7 @@ describe('Is year before', () => {
     ['plain date time', pdt1, 2020, false],
     ['plain date time', pdt1, 2021, true],
     ['zoned date time', zdt1, 2020, false],
-    ['zoned date time', zdt1, 2021, true]
+    ['zoned date time', zdt1, 2021, true],
   ])('can test whether a %s occurs the year before a specific year', (_, temporal, referenceYear, expectedResult) => {
     given: 'two temporals';
     when: 'creating a function that tests whether a temporal occurs the year before the reference year';

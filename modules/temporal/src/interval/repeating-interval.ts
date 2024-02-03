@@ -1,8 +1,8 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type IntervalTemporal } from './interval-temporal';
 
 /**
  * Repeating interval
+ *
  * @template T Temporal type
  */
 export interface RepeatingInterval<T extends IntervalTemporal> {

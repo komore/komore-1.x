@@ -1,4 +1,5 @@
 export { and } from './and';
+export { callIfDefined } from './call-if-defined';
 export { type BinaryFunction } from './binary-function';
 export { entriesToObject } from './entries-to-object';
 export { enumToEntries } from './enum-to-entries';

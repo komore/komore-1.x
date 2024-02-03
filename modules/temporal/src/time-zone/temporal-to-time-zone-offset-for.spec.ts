@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { temporalToTimeZoneOffsetFor } from './temporal-to-time-zone-offset-for';
 
-describe('Temporal to time zone offset for', () => {
+feature('Temporal to time zone offset for', () => {
   it.each([
     ['2020-01-01T12:34:56.789[Europe/Paris]', 'Europe/Paris', 3600000000000],
     ['2020-01-01T12:34:56.789[Europe/Paris]', 'Europe/London', 0],

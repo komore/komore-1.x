@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isWeekBefore } from './is-week-before';
 
-describe('Is week before', () => {
+feature('Is week before', () => {
   const referencePd = Temporal.PlainDate.from('2020-01-08');
   const referencePdt = Temporal.PlainDateTime.from('2020-01-08T12:34:56.789');
   const referenceZdt = Temporal.ZonedDateTime.from('2020-01-08T12:34:56.789[Europe/Paris]');

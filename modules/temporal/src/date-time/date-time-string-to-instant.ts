@@ -1,5 +1,3 @@
-import { Temporal } from '../temporal';
-
 /**
  * Returns an instant, given a date time string
  *

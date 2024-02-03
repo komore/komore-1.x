@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isWednesday } from './is-wednesday';
 
-describe('Is Wednesday', () => {
+feature('Is Wednesday', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-08', true],
     ['plain date', Temporal.PlainDate, '2020-01-07', false],
@@ -17,6 +18,6 @@ describe('Is Wednesday', () => {
     const result = isWednesday(temporal);
 
     expect: 'the correct result to have been returned';
-    expect(result).toBe(expectedResult);
+    result === expectedResult;
   });
 });

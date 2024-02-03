@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToEndOfYear } from './date-to-end-of-year';
 
-describe('Date to end of year', () => {
+feature('Date to end of year', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-01', '2020-12-31'],
     [Temporal.PlainDateTime, '2020-01-01T12:34:56.789', '2020-12-31T12:34:56.789'],
@@ -22,7 +23,7 @@ describe('Date to end of year', () => {
       const result = dateToEndOfYear(temporal);
 
       expect: 'a temporal occuring on the last day of the same year to have been returned';
-      expect(result.toString()).toBe(expectedResult);
+      result.toString() === expectedResult;
     }
   );
 });

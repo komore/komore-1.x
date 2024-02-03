@@ -1,7 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
-
 /**
  * Returns an ISO 8601 week duration, given a duration
+ *
  * @param duration Duration
  * @returns ISO 8601 week duration
  */

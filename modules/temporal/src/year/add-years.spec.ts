@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { addYears } from './add-years';
 
-describe('Add years', () => {
-  it('can add years to a plain date', () => {
+feature('Add years', {
+  'can add years to a plain date'() {
     given: 'a plain date';
     const plainDate = Temporal.PlainDate.from('2020-01-01');
 
@@ -17,9 +18,9 @@ describe('Add years', () => {
     expect(year).toBe(2024);
     expect(month).toBe(1);
     expect(day).toBe(1);
-  });
+  },
 
-  it('can add years to a plain date time', () => {
+  'can add years to a plain date time'() {
     given: 'a plain date time';
     const plainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
 
@@ -38,9 +39,8 @@ describe('Add years', () => {
     expect(minute).toBe(34);
     expect(second).toBe(56);
     expect(millisecond).toBe(789);
-  });
-
-  it('can add years to a zoned date time', () => {
+  },
+  'can add years to a zoned date time'() {
     given: 'a zoned date time';
     const zonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
 
@@ -60,12 +60,8 @@ describe('Add years', () => {
     expect(second).toBe(56);
     expect(millisecond).toBe(789);
     expect(timeZone.id).toBe('Europe/Paris');
-  });
-
-  it.each([
-    ['2020-01', 0, 2020, 1],
-    ['2020-01', 4, 2024, 1],
-  ])('can add years to a year month', (yearMonthString, addedYears, expectedYear, expectedMonth) => {
+  },
+  'can add years to a year month'(yearMonthString, addedYears, expectedYear, expectedMonth) {
     given: 'a year month';
     const yearMonth = Temporal.PlainYearMonth.from(yearMonthString);
 
@@ -79,5 +75,11 @@ describe('Add years', () => {
     const { year, month } = result.toPlainDate({ day: 1 });
     expect(year).toBe(expectedYear);
     expect(month).toBe(expectedMonth);
-  });
+
+    where: 'TODO';
+    [
+      ['2020-01', 0, 2020, 1],
+      ['2020-01', 4, 2024, 1],
+    ] as const;
+  },
 });

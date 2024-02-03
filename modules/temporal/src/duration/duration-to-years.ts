@@ -1,5 +1,4 @@
-import { type Temporal } from '@js-temporal/polyfill';
-import { type TemporalWithDateTime } from '@komore/temporal';
+import { type TemporalWithDateTime } from '../temporal-with-date-time';
 import { buildDurationTotalOfRelativeToReference } from './build-duration-total-of-relative-to-reference';
 
 /**

@@ -1,10 +1,10 @@
-import { Temporal } from '@js-temporal/polyfill';
 import {
   mockCurrentPlainDate,
   mockCurrentPlainDateTime,
   mockCurrentPlainTime,
   mockCurrentZonedDateTime,
 } from '@komore/temporal/testing';
+
 import { isFuture } from './is-future';
 
 describe('Is future', () => {

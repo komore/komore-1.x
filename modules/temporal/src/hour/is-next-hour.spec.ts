@@ -1,5 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { isNextHour } from './is-next-hour';
 
 describe('Is next hour', () => {

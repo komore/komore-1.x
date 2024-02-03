@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isLeapYear } from './is-leap-year';
 
-describe('Is leap year', () => {
+feature('Is leap year', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', true],
     ['plain date', Temporal.PlainDate, '2021-01-01', false],
@@ -19,6 +20,6 @@ describe('Is leap year', () => {
     const result = isLeapYear(temporal);
 
     expect: 'the leap year to have been properly detected';
-    expect(result).toBe(expectedResult);
+    result === expectedResult;
   });
 });

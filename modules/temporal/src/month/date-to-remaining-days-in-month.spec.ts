@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { dateToRemainingDaysInMonth } from './date-to-remaining-days-in-month';
 
-describe('Date to remaining days in month', () => {
+feature('Date to remaining days in month', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-15', 16],
     [Temporal.PlainDateTime, '2020-01-15T12:34:56.789', 16],

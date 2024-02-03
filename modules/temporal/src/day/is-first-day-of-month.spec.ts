@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isFirstDayOfMonth } from './is-first-day-of-month';
 
-describe('Is first day of month', () => {
+feature('Is first day of month', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-01', true],
     [Temporal.PlainDate, '2020-01-02', false],

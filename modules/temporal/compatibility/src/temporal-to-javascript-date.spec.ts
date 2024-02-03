@@ -1,4 +1,3 @@
-import { Temporal } from '@komore/temporal';
 import { feature } from '@komore/testing';
 
 import { temporalToJavaScriptDate } from './temporal-to-javascript-date';

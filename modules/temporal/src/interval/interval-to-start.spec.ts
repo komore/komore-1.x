@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { createInterval } from './create-interval';
 import { intervalToStart } from './interval-to-start';
 
-describe('Interval to start', () => {
+feature('Interval to start', () => {
   it('returns the start of an interval', () => {
     given: 'an interval';
     const start = Temporal.PlainDate.from('2020-01-01');

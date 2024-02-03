@@ -1,9 +1,10 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { createInterval } from './create-interval';
 import { intervalToEnd } from './interval-to-end';
 
-describe('Interval to end', () => {
-  it('returns the end of an interval', () => {
+feature('Interval to end', {
+  'returns the end of an interval'() {
     given: 'an interval';
     const start = Temporal.PlainDate.from('2020-01-01');
     const end = Temporal.PlainDate.from('2020-01-02');
@@ -13,6 +14,6 @@ describe('Interval to end', () => {
     const returnedEnd = intervalToEnd(interval);
 
     expect: 'the end of the interval to have been returned';
-    expect(returnedEnd).toBe(end);
-  });
+    returnedEnd === end;
+  },
 });

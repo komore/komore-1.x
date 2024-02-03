@@ -1,7 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { timeToEndOfDay } from './time-to-end-of-day';
 
-describe('Time to end of day', () => {
+feature('Time to end of day', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789'],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789'],

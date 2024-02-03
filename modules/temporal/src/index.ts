@@ -59,10 +59,12 @@ export { getNoon } from './noon/get-noon';
 export { getRemainingDaysThisMonth } from './month/get-remaining-days-this-month';
 export { getRemainingDaysThisWeek } from './week/get-remaining-days-this-week';
 export { getRemainingDaysThisYear } from './year/get-remaining-days-this-year';
-export { getThisCentury } from './century/get-this-century';
-export { getThisMonth } from './month/get-this-month';
-export { getThisYear } from './year/get-this-year';
-export { getToday } from './date/get-today';
+
+export { thisCentury } from './century/this-century';
+export { thisMonth } from './month/this-month';
+export { thisYear } from './year/this-year';
+export { today } from './date/today';
+
 export { getTomorrow } from './date/get-tomorrow';
 export { getYesterday } from './date/get-yesterday';
 export { type Interval } from './interval/interval';
@@ -225,16 +227,3 @@ export { toStartOfFollowingDay } from './day/to-start-of-following-day';
 export { toStartOfFollowingHour } from './hour/to-start-of-following-hour';
 export { toStartOfFollowingMonth } from './month/to-start-of-following-month';
 */
-
-// TODO(temporal-polyfill)
-export { Intl } from './intl';
-export { Temporal } from './temporal';
-import { toTemporalInstant } from '@js-temporal/polyfill';
-
-Date.prototype.toTemporalInstant = toTemporalInstant;
-
-declare global {
-  interface Date {
-    toTemporalInstant: typeof toTemporalInstant;
-  }
-}

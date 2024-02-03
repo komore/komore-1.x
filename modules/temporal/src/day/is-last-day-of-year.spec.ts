@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isLastDayOfYear } from './is-last-day-of-year';
 
-describe('Is last day of year', () => {
+feature('Is last day of year', () => {
   it.each([
     [Temporal.PlainDate, '2020-12-31', true],
     [Temporal.PlainDate, '2020-11-30', false],

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { createRepeatingInterval } from './create-repeating-interval';
 
-describe('Create repeating interval', () => {
+feature('Create repeating interval', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-01', 'P1D', 2],
     [Temporal.PlainDateTime, '2020-01-01T12:34:56.789', 'PT1H', 2],

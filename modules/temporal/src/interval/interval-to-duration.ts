@@ -1,4 +1,3 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from '../as-plain-date';
 import { type Interval } from './interval';
 import { type IntervalTemporal } from './interval-temporal';
@@ -6,6 +5,7 @@ import { isIntervalWithPartialDates } from './is-interval-with-partial-dates';
 
 /**
  * Creates a duration from an interval
+ *
  * @param interval Interval
  * @returns Duration
  */

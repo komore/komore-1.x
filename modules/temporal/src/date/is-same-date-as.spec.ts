@@ -1,10 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { isSameDateAs } from './is-same-date-as';
 
 describe('Is same date as', () => {
   it.each([
     ['2020-01-01', '2020-01-01', true],
-    ['2020-01-01', '2020-01-02', false]
+    ['2020-01-01', '2020-01-02', false],
   ])('can compare plain dates', (lhsString, rhsString, expectedResult) => {
     given: 'plain dates';
     const lhs = Temporal.PlainDate.from(lhsString);
@@ -21,7 +20,7 @@ describe('Is same date as', () => {
     ['2020-01-01T12:34:56', '2020-01-01T12:34:56', true],
     ['2020-01-01T12:34:56', '2020-01-01T01:23:45', true],
     ['2020-01-01T12:34:56', '2020-01-02T12:34:56', false],
-    ['2020-01-01T23:59:59', '2020-01-02T00:00:00', false]
+    ['2020-01-01T23:59:59', '2020-01-02T00:00:00', false],
   ])('can compare plain date times', (lhsString, rhsString, expectedResult) => {
     given: 'plain date times';
     const lhs = Temporal.PlainDateTime.from(lhsString);
@@ -40,7 +39,7 @@ describe('Is same date as', () => {
     ['2020-01-01T12:34:56[Europe/Paris]', '2020-01-02T12:34:56[Europe/Paris]', false],
     ['2020-01-01T23:59:59[Europe/Paris]', '2020-01-02T00:00:00[Europe/Paris]', false],
     ['2020-01-01T12:34:56[Europe/Paris]', '2020-01-02T01:23:45[Asia/Tokyo]', false],
-    ['2020-01-02T00:00:00[Europe/Paris]', '2020-01-02T00:00:00[Asia/Tokyo]', true]
+    ['2020-01-02T00:00:00[Europe/Paris]', '2020-01-02T00:00:00[Asia/Tokyo]', true],
   ])('can compare zoned date times', (lhsString, rhsString, expectedResult) => {
     given: 'zoned date times';
     const lhs = Temporal.ZonedDateTime.from(lhsString);

@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { subtractMilliseconds } from './subtract-milliseconds';
 
-describe('Subtract milliseconds', () => {
+feature('Subtract milliseconds', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', 4, 785],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456', 4, 785],

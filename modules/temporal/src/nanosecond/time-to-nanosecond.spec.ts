@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { timeToNanosecond } from './time-to-nanosecond';
 
-describe('Time to nanosecond', () => {
+feature('Time to nanosecond', () => {
   it.each([
     ['plain time', Temporal.PlainTime, '12:34:56.789123456', 456],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456', 456],

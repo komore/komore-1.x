@@ -1,10 +1,10 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { asPlainDate } from '../as-plain-date';
 import { type Interval } from './interval';
 import { type IntervalTemporal } from './interval-temporal';
 
 /**
  * Creates a function that returns an interval from a start computed as a duration until a reference end temporal
+ *
  * @param end End
  * @returns Function that returns an interval from a start computed as a duration until the reference end temporal
  */

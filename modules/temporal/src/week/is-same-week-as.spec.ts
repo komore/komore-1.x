@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isSameWeekAs } from './is-same-week-as';
 
-describe('Is same week as', () => {
+feature('Is same week as', () => {
   it.each([
     [Temporal.PlainDate, '2020-01-01', '2020-01-02', true],
     [Temporal.PlainDate, '2020-01-01', '2020-01-06', false],

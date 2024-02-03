@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDate, mockCurrentPlainDateTime, mockCurrentZonedDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { toSameDateNextYear } from './to-same-date-next-year';
 
-describe('To same date next year', () => {
+feature('To same date next year', () => {
   const currentPlainDate = Temporal.PlainDate.from('2020-01-01');
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const currentZonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789[Europe/Paris]');
@@ -25,7 +26,7 @@ describe('To same date next year', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-01', 2021],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789', 2021],
-    ['zoned date time', Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', 2021]
+    ['zoned date time', Temporal.ZonedDateTime, '2020-01-01T12:34:56.789[Europe/Paris]', 2021],
   ])('can return a %s that occurs next year at the same date and time', (_, temporalClass, value, expectedYear) => {
     given: 'a temporal';
     const temporal = temporalClass.from(value);

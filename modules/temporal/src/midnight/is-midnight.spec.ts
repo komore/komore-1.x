@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isMidnight } from './is-midnight';
 
-describe('Is midnight', () => {
+feature('Is midnight', () => {
   it.each([
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456', false],
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T00:00:00.000000001', false],

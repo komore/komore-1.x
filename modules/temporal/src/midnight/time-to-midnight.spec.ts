@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { timeToMidnight } from './time-to-midnight';
 
-describe('Time to midnight', () => {
+feature('Time to midnight', () => {
   it.each([
     ['plain date time', Temporal.PlainDateTime, '2020-01-01T12:34:56.789123456'],
     ['zoned date time', Temporal.ZonedDateTime, '2020-01-01T12:34:56.789123456[Europe/Paris]'],

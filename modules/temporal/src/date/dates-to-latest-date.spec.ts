@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { datesToLatestDate } from './dates-to-latest-date';
 
 describe('Dates to latest date', () => {

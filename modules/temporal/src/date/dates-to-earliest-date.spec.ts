@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { datesToEarliestDate } from './dates-to-earliest-date';
 
-describe('Dates to earliest date', () => {
+feature('Dates to earliest date', () => {
   it.each([
     [Temporal.PlainDate, ['2020-01-02', '2020-01-01', '2020-01-03'], '2020-01-01'],
     [

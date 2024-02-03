@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isWeekEnd } from './is-week-end';
 
-describe('Is week-end', () => {
+feature('Is week-end', () => {
   it.each([
     ['plain date', Temporal.PlainDate, '2020-01-04', true],
     ['plain date', Temporal.PlainDate, '2020-01-03', false],
@@ -17,6 +18,6 @@ describe('Is week-end', () => {
     const result = isWeekEnd(temporal);
 
     expect: 'true to have been returned if the temporal occurs on the week-end';
-    expect(result).toBe(expectedResult);
+    result === expectedResult;
   });
 });

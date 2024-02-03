@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { InvalidISO8601WeekDurationError } from './invalid-iso-8601-week-duration-error';
 
 /**

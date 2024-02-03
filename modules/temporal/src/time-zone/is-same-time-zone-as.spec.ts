@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { isSameTimeZoneAs } from './is-same-time-zone-as';
 
-describe('Is same time zone as', () => {
+feature('Is same time zone as', () => {
   // NOTE: should not return TimeZone | TimeZoneProtocol?
   const tz1 = Temporal.TimeZone.from('Europe/Paris') as Temporal.TimeZone;
   const tz2 = Temporal.TimeZone.from('Europe/London') as Temporal.TimeZone;
@@ -10,7 +11,7 @@ describe('Is same time zone as', () => {
   it.each([
     [tz1, tz1, true],
     [tz1, tz2, false],
-    [tz1, tz3, true]
+    [tz1, tz3, true],
   ])(
     'can create a function that tests whether a time zone is the same as a reference time zone',
     (timeZone, referenceTimeZone, expectedResult) => {

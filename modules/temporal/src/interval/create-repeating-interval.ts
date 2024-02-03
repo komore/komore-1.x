@@ -1,9 +1,9 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type IntervalTemporal } from './interval-temporal';
 import { type RepeatingInterval } from './repeating-interval';
 
 /**
  * Creates a repeating interval
+ *
  * @param start Start temporal
  * @param duration Duration
  * @param repetitions Repetitions
