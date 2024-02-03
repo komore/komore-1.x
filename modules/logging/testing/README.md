@@ -1,3 +1,0 @@
-# @komore/logging/testing
-
-TODO

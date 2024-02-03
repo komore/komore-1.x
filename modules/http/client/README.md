@@ -1,3 +1,0 @@
-# @komore/http/client
-
-TODO
