@@ -1,4 +1,3 @@
-import { Temporal } from '@komore/temporal';
 import { expectEqual, feature } from '@komore/testing';
 
 import { createLogEvent } from '../event/create-log-event';

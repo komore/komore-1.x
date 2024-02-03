@@ -1,8 +1,9 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { mockCurrentPlainDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
+
 import { createDefaultNowProvider } from './create-default-now-provider';
 
-describe('Default now provider', () => {
+feature('Default now provider', () => {
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   let mockedCurrentPlainDateTime: ReturnType<typeof mockCurrentPlainDateTime>;
 

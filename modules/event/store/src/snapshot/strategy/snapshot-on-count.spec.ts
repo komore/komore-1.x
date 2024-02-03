@@ -1,5 +1,4 @@
 import { createEvent, type EventWithMetadata } from '@komore/event';
-import { Temporal } from '@komore/temporal';
 import { feature } from '@komore/testing';
 
 import { snapshotOnCount } from './snapshot-on-count';

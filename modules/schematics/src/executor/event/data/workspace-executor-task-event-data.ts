@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 import { type WorkspaceExecutorTaskId } from '../../task/workspace-executor-task-id';
 
 /**

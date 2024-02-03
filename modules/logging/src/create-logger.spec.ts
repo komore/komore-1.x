@@ -1,6 +1,7 @@
 jest.mock('./definition/log-event-records');
-import { Temporal } from '@komore/temporal';
+
 import { mockCurrentPlainDateTime } from '@komore/temporal/testing';
+import { feature } from '@komore/testing';
 
 import { createLogEvent } from './event/create-log-event';
 import { type LogEventRecord } from './event-record/log-event-record';
@@ -8,7 +9,7 @@ import { logEventRecordsSubject } from './event-record/log-event-records';
 import { createLogGroup } from './group/create-log-group';
 import { recordLogEvent } from './record-log-event';
 
-describe('Record log event', () => {
+feature('Record log event', () => {
   const testLogGroupName = 'test-group';
   const testLogGroup = createLogGroup(testLogGroupName);
   const mockLogEventRecordsSubject = logEventRecordsSubject as jest.Mocked<typeof logEventRecordsSubject>;

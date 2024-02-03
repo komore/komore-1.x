@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 import { type HttpCookieSameSiteOption } from './http-cookie-same-site-option';
 
 /**

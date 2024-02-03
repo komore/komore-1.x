@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 import { type CliParameterTypeName } from './cli-parameter-type-name';
 import { type CliParameterValueTypeName } from './cli-parameter-value-type-name';
 
@@ -12,12 +10,12 @@ export type CliParameterTypeNameMapping<TypeName extends CliParameterTypeName> =
       ? ReadonlyArray<CliParameterValueTypeNameMapping[ValueTypeName]>
       : never
     : TypeName extends `set<${infer ValueTypeName}>`
-    ? ValueTypeName extends CliParameterValueTypeName
-      ? ReadonlySet<CliParameterValueTypeNameMapping[ValueTypeName]>
-      : never
-    : TypeName extends CliParameterValueTypeName
-    ? CliParameterValueTypeNameMapping[TypeName]
-    : never;
+      ? ValueTypeName extends CliParameterValueTypeName
+        ? ReadonlySet<CliParameterValueTypeNameMapping[ValueTypeName]>
+        : never
+      : TypeName extends CliParameterValueTypeName
+        ? CliParameterValueTypeNameMapping[TypeName]
+        : never;
 
 /**
  * CLI parameter value type name mapping

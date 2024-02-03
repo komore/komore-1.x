@@ -1,4 +1,5 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { interval as rxjsInterval, timer as rxjsTimer } from 'rxjs';
+
 import {
   durationToMilliseconds,
   intervalToRepeatingInterval,
@@ -9,12 +10,13 @@ import {
   type TemporalWithTime,
 } from '@komore/temporal';
 import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
-import { interval as rxjsInterval, timer as rxjsTimer } from 'rxjs';
+
 import { type Observable } from '../observable';
 import { type SchedulerLike } from '../scheduler/scheduler-like';
 
 /**
  * Creates an observable that emits an infinite sequence of incrementing numbers, with a delay between each emission
+ *
  * @param period Period as a number of milliseconds or a duration
  * @param scheduler Scheduler
  * @returns Observable that emits an infinite sequence of incrementing numbers
@@ -23,6 +25,7 @@ export function interval(period: number | Temporal.Duration, scheduler?: Schedul
 
 /**
  * Creates an observable that will emit 0 at the start of the interval and 1 at the end of the interval
+ *
  * @param interval Interval
  * @param scheduler Scheduler
  * @returns Observable that emits 0 at the start of the interval and 1 at the end of the interval
@@ -35,6 +38,7 @@ export function interval(
 /**
  * Creates an observable that will emit 0 at the start of the interval then an incrementing number each time the
  * interval repeats
+ *
  * @param interval Repeating interval
  * @param scheduler Scheduler
  * @returns Observable that emits 0 at the start of the interval then an incrementing number on each repetition
@@ -67,8 +71,8 @@ export function interval(
       start instanceof Temporal.PlainDateTime || start instanceof Temporal.ZonedDateTime
         ? start
         : start instanceof Temporal.PlainTime
-        ? start.toPlainDateTime(Temporal.Now.plainDateISO())
-        : start.toPlainDateTime(Temporal.Now.plainTimeISO());
+          ? start.toPlainDateTime(Temporal.Now.plainDateISO())
+          : start.toPlainDateTime(Temporal.Now.plainTimeISO());
     const due = temporalToJavaScriptDate(startDateTime);
     const duration = durationToMilliseconds(startDateTime)(repeatingInterval.duration);
     if (duration < 0) {

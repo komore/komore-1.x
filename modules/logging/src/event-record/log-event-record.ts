@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 import { type GenericLogEvent } from '../event/generic-log-event';
 
 /**

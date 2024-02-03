@@ -1,5 +1,4 @@
 import { assert } from '@komore/runtime';
-import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 
 import { type LogEncoder } from './log-encoder';
 import { type PatternLogEncoderOptions } from './pattern-log-encoder-options';

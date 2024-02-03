@@ -1,6 +1,5 @@
 import { timer as rxjsTimer } from 'rxjs';
 
-import { Temporal } from '@komore/temporal';
 import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 
 import { type SchedulerLike } from '../scheduler/scheduler-like';

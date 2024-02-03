@@ -1,5 +1,4 @@
 import { commandProperties, createCommandType } from '@komore/command';
-import { type Temporal } from '@komore/temporal';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type CloudStorageBucketName } from './api/bucket/name/cloud-storage-bucket-name';

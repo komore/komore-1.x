@@ -1,5 +1,3 @@
-import { Temporal } from '@komore/temporal';
-
 /**
  * Parses a date-time CLI parameter
  *

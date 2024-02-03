@@ -4,6 +4,7 @@ import { map } from './map';
 
 /**
  * Throws an error unless a condition is met
+ *
  * @param condition Condition
  * @param errorFactory Error factory
  * @template T Value type
@@ -15,6 +16,7 @@ export function throwUnless<T, U extends T>(
 
 /**
  * Throws an error unless a condition is met
+ *
  * @param condition Condition
  * @param errorFactory Error factory
  * @template T Value type

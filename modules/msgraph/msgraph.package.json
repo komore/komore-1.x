@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/neo4j",
+  "description": "TODO",
+  "keywords": ["neo4j", "graph", "database"]
+}

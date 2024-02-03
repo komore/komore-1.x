@@ -1,7 +1,8 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { feature } from '@komore/testing';
+
 import { laterThan } from './later-than';
 
-describe('Must be later than constraint validator', () => {
+feature('Must be later than constraint validator', () => {
   it('does not throw an error when an emitted date is after the specified date', () => {
     // TODO
     const referenceTemporal = Temporal.PlainDate.from('2020-01-01');

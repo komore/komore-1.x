@@ -1,4 +1,3 @@
-import { Temporal } from '@komore/temporal';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type GenericLogEvent } from '../event/generic-log-event';

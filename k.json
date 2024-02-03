@@ -349,6 +349,7 @@
     "web-worker-testing": "modules/web/worker/testing",
     "web-xr": "modules/web/xr",
     "website": "modules/website",
+    "xml": "modules/xml",
     "yaml": "modules/yaml"
   },
   "schematics": {

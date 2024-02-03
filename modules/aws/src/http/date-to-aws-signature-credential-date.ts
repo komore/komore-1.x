@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 /**
  * Returns a date formatted for an AWS signature credential, given a plain date
  *

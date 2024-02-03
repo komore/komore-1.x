@@ -1,14 +1,11 @@
-import { Temporal } from '@komore/temporal';
+import { feature } from '@komore/testing';
 
 import { createEvent } from './create-event';
 import { type EventMetadata } from './event-metadata';
 import { schema } from './event-schema';
 import { onEvent } from './on-event';
 
-/**
- * Event reducer on specification
- */
-describe('Event reducer on', () => {
+feature('Event reducer on', () => {
   const eventType = 'test-event-type';
   const eventCreator = createEvent(eventType);
   const eventWithSchemaCreator = createEvent(eventType, schema<{ t: number }>());

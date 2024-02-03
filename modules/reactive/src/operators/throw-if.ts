@@ -4,6 +4,19 @@ import { type ThrowIfOptions } from './throw-if-options';
 
 /**
  * Throws an error if a condition is met
+ *
+ * @param condition Condition
+ * @param errorFactory Error factory
+ * @template T Value type
+ */
+export function throwIf<T, U extends T>(
+  condition: (value: T, index: number) => value is U,
+  errorFactory: (value: U) => unknown
+): MonoTypeOperatorFunction<T>;
+
+/**
+ * Throws an error if a condition is met
+ *
  * @param condition Condition
  * @param errorFactory Error factory
  * @template T Value type
@@ -15,6 +28,7 @@ export function throwIf<T>(
 
 /**
  * Throws an error if a condition is met
+ *
  * @param condition Condition
  * @param errorFactory Error factory
  * @template T Value type

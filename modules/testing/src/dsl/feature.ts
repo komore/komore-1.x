@@ -1,5 +1,5 @@
 import { type FeatureBlock } from './feature-block';
-import { type ScenarioBlock } from './scenario-block';
+import { type ScenarioBlockByName } from './scenario-block-by-name';
 
 /**
  * Defines a feature
@@ -10,12 +10,9 @@ import { type ScenarioBlock } from './scenario-block';
  * @param featureBlock Feature block
  */
 export function feature(featureTitle: string, featureBlock: FeatureBlock): void;
-export function feature(featureTitle: string, scenarios: { readonly [scenarioName: string]: ScenarioBlock }): void;
+export function feature(featureTitle: string, scenarios: ScenarioBlockByName): void;
 
-export function feature(
-  featureTitle: string,
-  featureBlockOrScenarios: FeatureBlock | { readonly [scenarioName: string]: ScenarioBlock }
-): void {
+export function feature(featureTitle: string, featureBlockOrScenarios: FeatureBlock | ScenarioBlockByName): void {
   if (typeof featureBlockOrScenarios === 'function') {
     const featureBlock = featureBlockOrScenarios;
     featureBlock;

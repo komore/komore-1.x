@@ -1,6 +1,6 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { type EventWithMetadata } from '@komore/event';
 import { createEvent } from '@komore/event';
+
 import { snapshotOnSize } from './snapshot-on-size';
 import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
@@ -16,8 +16,8 @@ describe('Snapshot on size strategy', () => {
         aggregateKey: 'test-aggregate-key',
         sequenceNumber: n,
         size: 1,
-        timestamp: Temporal.Now.plainDateTimeISO()
-      }
+        timestamp: Temporal.Now.plainDateTimeISO(),
+      },
     };
   }
 
@@ -28,14 +28,14 @@ describe('Snapshot on size strategy', () => {
   }
 
   const testNewState: SnapshotStrategyTestState = {
-    value: 0
+    value: 0,
   };
 
   const AFTER: SnapshotStrategySelectionType = 'after';
   const AT: SnapshotStrategySelectionType = 'at';
   const BEFORE: SnapshotStrategySelectionType = 'before';
   const FIRST: SnapshotStrategySelectionType = 'first';
-  const LAST: SnapshotStrategySelectionType = 'last'
+  const LAST: SnapshotStrategySelectionType = 'last';
 
   it.each([
     [2, AFTER, 3],
@@ -49,7 +49,7 @@ describe('Snapshot on size strategy', () => {
     [5, AT, false],
     [5, BEFORE, false],
     [5, FIRST, false],
-    [5, LAST, false]
+    [5, LAST, false],
   ])('properly selects the sequence number (bytes = %s, selection = %s)', (bytes, selectionType, expectedResult) => {
     given: 'a snapshot on size strategy';
     const snapshotStrategy = snapshotOnSize(bytes, selectionType);

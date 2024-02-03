@@ -1,4 +1,4 @@
-import { Temporal } from '@komore/temporal';
+import { feature } from '@komore/testing';
 
 import { createLogEvent } from '../event/create-log-event';
 import { logEventProps } from '../event/log-event-props';
@@ -6,7 +6,7 @@ import { type UntypedLogEventRecord } from '../event-record/log-event-record';
 import { createLogGroup } from '../group/create-log-group';
 import { createPatternLogEncoder } from './create-pattern-log-encoder';
 
-describe('Create pattern log encoder', () => {
+feature('Create pattern log encoder', () => {
   const timestamp = Temporal.PlainDateTime.from('2021-01-23T01:02:03.123');
   const logGroupName = 'test-group';
   const logGroup = createLogGroup(logGroupName);

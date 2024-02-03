@@ -1,4 +1,3 @@
-import { type Temporal } from '@js-temporal/polyfill';
 import { type Event } from './event';
 
 /**

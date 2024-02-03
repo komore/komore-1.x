@@ -1,5 +1,3 @@
-import { type Temporal } from '@komore/temporal';
-
 /**
  * Authorization HTTP header AWS signature scheme credential
  */

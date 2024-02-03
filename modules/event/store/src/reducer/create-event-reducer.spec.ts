@@ -1,4 +1,3 @@
-import { Temporal } from '@js-temporal/polyfill';
 import { createEvent } from './create-event';
 import { createEventReducer } from './create-event-reducer';
 import { type EventMetadata } from './event-metadata';
@@ -16,7 +15,7 @@ describe('Create event reducer', () => {
 
   const testInitialState: TestState = {
     stringValue: 'test',
-    numberValue: 42
+    numberValue: 42,
   };
 
   const testEvent = createEvent('test-type', schema<{ additionalNumber: number }>());
@@ -25,7 +24,7 @@ describe('Create event reducer', () => {
     aggregateKey: 'test',
     sequenceNumber: 1,
     size: 0,
-    timestamp: Temporal.Now.plainDateTimeISO()
+    timestamp: Temporal.Now.plainDateTimeISO(),
   };
 
   it('can be created with an initial state', () => {
@@ -43,7 +42,7 @@ describe('Create event reducer', () => {
       testInitialState,
       on(testEvent, (state: typeof testInitialState, { additionalNumber }) => ({
         ...state,
-        numberValue: state.numberValue + additionalNumber
+        numberValue: state.numberValue + additionalNumber,
       }))
     );
     // when: calling the reducer with an event

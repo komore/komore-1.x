@@ -1,3 +1,6 @@
+import '@komore/reactive/polyfill';
+import '@komore/temporal/polyfill';
+
 import {
   createDiscordApiClient,
   createDiscordConnection,
@@ -14,7 +17,7 @@ import { filter, firstValueFrom, lastValueFrom, map, merge, mergeMap, of, tapNex
 async function main() {
   const httpClient = createHttpClient({});
   const apiToken = 'MTE0NzA1MjkxMzU1NDg5NDk0Mg.GI13_q.P9fGXiC7MhahvBBlocfUMeCao386-UWwho_N-U';
-  const apiTokenType = 'Bearer';
+  const apiTokenType = 'Bot';
   const apiVersion = '10';
   const parallelism = 1;
   const apiClient = createDiscordApiClient({ apiToken, apiTokenType, apiVersion, httpClient });

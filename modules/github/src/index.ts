@@ -1,8 +1,6 @@
-export { createGitHubClient } from './client/create-github-client';
-export { type GitHubClient } from './client/github-client';
-export { type GitHubClientOptions } from './client/github-client-options';
-export { gitHubCommand } from './github.command';
+export { createGitHubApiClient } from './create-github-api-client';
+export { type GitHubApiClient } from './github-api-client';
+export { type GitHubApiClientOptions } from './github-api-client-options';
+export { gitHubApiError } from './github-api.error';
 export { gitHubDomain } from './github.domain';
-export { gitHubError } from './github.error';
-export { gitHubEvent } from './github.event';
-export { gitHubQuery } from './github.query';
+export { gitHubTypeError } from './github-type.error';

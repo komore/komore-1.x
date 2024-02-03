@@ -1,7 +1,8 @@
-export { createStripeClient } from './create-stripe-client';
-export { type StripeClientOptions } from './stripe-client-options';
-export { createPrice } from './price/create-price';
-export { createSubscription } from './subscription/create-subscription';
-export { getPrice } from './price/get-price';
-export { getPrices } from './price/get-prices';
-export { updatePrice } from './price/update-price';
+export { createStripeApiClient } from './create-stripe-api-client';
+export { createStripePrice } from './price/create-stripe-price';
+export { createStripeSubscription } from './subscription/create-stripe-subscription';
+export { getStripePrice } from './price/get-stripe-price';
+export { getStripePrices } from './price/get-stripe-prices';
+export { type StripeApiClientOptions } from './stripe-api-client-options';
+export { stripeDomain } from './stripe.domain';
+export { updateStripePrice } from './price/update-price';
