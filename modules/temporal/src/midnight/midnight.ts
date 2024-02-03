@@ -3,6 +3,6 @@
  *
  * @returns Midnight
  */
-export function getMidnight(): Temporal.PlainTime {
+export function midnight(): Temporal.PlainTime {
   return Temporal.PlainTime.from('00:00');
 }

@@ -1,4 +1,4 @@
-import { getNowFor } from '../get-now-for';
+import { nowFor } from '../now-for';
 import { type TemporalWithDate } from '../temporal-with-date';
 import { type TemporalWithPartialDate } from '../temporal-with-partial-date';
 import { type TemporalWithTime } from '../temporal-with-time';
@@ -18,7 +18,7 @@ export function isFuture(temporal: TemporalWithDate | TemporalWithTime | Tempora
         : temporal.toPlainDate({ day: now.day });
     return now.until(temporalAsPlainDate).sign > 0;
   } else {
-    const now = getNowFor(temporal);
+    const now = nowFor(temporal);
     return (now as Temporal.PlainDateTime).until(temporal).sign > 0;
   }
 }

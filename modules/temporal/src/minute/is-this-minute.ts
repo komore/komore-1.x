@@ -1,4 +1,4 @@
-import { getNowFor } from '../get-now-for';
+import { nowFor } from '../now-for';
 import { type TemporalWithDateTime } from '../temporal-with-date-time';
 
 /**
@@ -7,7 +7,7 @@ import { type TemporalWithDateTime } from '../temporal-with-date-time';
  * @returns true if the temporal occurs this minute
  */
 export function isThisMinute(temporal: TemporalWithDateTime): boolean {
-  const now = getNowFor(temporal);
+  const now = nowFor(temporal);
   return (
     temporal.year === now.year &&
     temporal.dayOfYear === now.dayOfYear &&

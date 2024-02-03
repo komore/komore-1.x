@@ -3,6 +3,6 @@
  *
  * @returns Noon
  */
-export function getNoon(): Temporal.PlainTime {
+export function noon(): Temporal.PlainTime {
   return Temporal.PlainTime.from('12:00');
 }

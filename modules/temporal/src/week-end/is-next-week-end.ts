@@ -1,4 +1,4 @@
-import { getNowFor } from '../get-now-for';
+import { nowFor } from '../now-for';
 import { type TemporalWithDate } from '../temporal-with-date';
 import { isNextWeek } from '../week/is-next-week';
 import { isThisWeek } from '../week/is-this-week';
@@ -14,7 +14,7 @@ export function isNextWeekEnd(temporal: TemporalWithDate): boolean {
     return false;
   }
 
-  const now = getNowFor(temporal);
+  const now = nowFor(temporal);
 
   return isWeekEnd(now) ? isNextWeek(temporal) : isThisWeek(temporal);
 }

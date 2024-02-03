@@ -1,4 +1,4 @@
-import { getLocalTimeZone, Temporal } from '@komore/temporal';
+import { localTimeZone } from '@komore/temporal';
 
 /**
  * Returns a JavaScript Date object from a temporal
@@ -14,6 +14,6 @@ export function temporalToJavaScriptDate(
       ? temporal
       : temporal instanceof Temporal.ZonedDateTime
         ? temporal.toInstant()
-        : temporal.toZonedDateTime(getLocalTimeZone()).toInstant();
+        : temporal.toZonedDateTime(localTimeZone()).toInstant();
   return new Date(instant.epochMilliseconds);
 }

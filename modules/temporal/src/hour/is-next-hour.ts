@@ -1,4 +1,4 @@
-import { getNowFor } from '../get-now-for';
+import { nowFor } from '../now-for';
 import { type TemporalWithDateTime } from '../temporal-with-date-time';
 
 /**
@@ -7,7 +7,7 @@ import { type TemporalWithDateTime } from '../temporal-with-date-time';
  * @returns true if the instant occurs during the next hour
  */
 export function isNextHour(temporal: TemporalWithDateTime): boolean {
-  const now = getNowFor(temporal);
+  const now = nowFor(temporal);
   const startOfNextHour = now
     .add({ hours: 1 })
     .with({ minute: 0, second: 0, millisecond: 0, microsecond: 0, nanosecond: 0 });

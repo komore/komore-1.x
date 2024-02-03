@@ -8,5 +8,5 @@ import { type Month } from './month';
 export function lastMonth(): Month {
   const now = Temporal.Now.plainDateISO();
   const lastMonth = now.subtract({ months: 1 });
-  return lastMonth.month;
+  return lastMonth.month as Month;
 }

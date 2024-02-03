@@ -10,10 +10,6 @@ import { type Month } from './month';
  * @returns Month
  */
 export function dateToMonth(temporal: TemporalWithDate | TemporalWithPartialDate): Month {
-  if (temporal instanceof Temporal.PlainMonthDay) {
-    const plainDate = asPlainDate(temporal);
-    return plainDate.month;
-  }
-
-  return temporal.month;
+  const temporalWithDate = temporal instanceof Temporal.PlainMonthDay ? asPlainDate(temporal) : temporal;
+  return temporalWithDate.month as Month;
 }

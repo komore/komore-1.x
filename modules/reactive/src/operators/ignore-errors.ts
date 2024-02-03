@@ -1,4 +1,4 @@
-import { EMPTY } from '../creation/empty';
+import { empty } from '../creation/empty';
 import { throwError } from '../creation/throw-error';
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { catchError } from './catch-error';
@@ -18,7 +18,7 @@ export function ignoreErrors<T>(
         --maxErrors;
       }
 
-      return EMPTY;
+      return empty;
     }
 
     return throwError(() => (errorFactory !== undefined ? errorFactory(error) : error));
