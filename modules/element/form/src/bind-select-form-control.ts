@@ -1,4 +1,5 @@
-import { fromEvent, map, type Observable } from '@komore/reactive';
+import { fromEvent, map } from '@komore/reactive';
+
 import { bindFormControl } from './bind-form-control';
 import { type FormControl } from './form-control';
 

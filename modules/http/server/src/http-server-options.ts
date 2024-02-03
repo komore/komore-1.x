@@ -1,5 +1,4 @@
 import { type HttpHeader } from '@komore/http';
-import { type Observable } from '@komore/reactive';
 
 import { type HttpServerRequest } from './request/http-server-request';
 import { type HttpServerResponse } from './response/http-server-response';

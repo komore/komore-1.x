@@ -1,6 +1,5 @@
 import { merge as rxjsMerge } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type ObservableInputTuple } from '../observable-input-tuple';
 
 /**

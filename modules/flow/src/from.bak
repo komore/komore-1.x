@@ -1,4 +1,4 @@
-import { Observable, Observer, OperatorFunction, PartialObserver, race, Subscriber, Subscription, throwError } from 'rxjs';
+import { Observer, OperatorFunction, PartialObserver, race, Subscriber, Subscription, throwError } from 'rxjs';
 import { catchError, first, mergeMap, tap } from 'rxjs/operators';
 import { Message } from '../message';
 import { Source, SourceOutputMessageType } from './source';
@@ -27,7 +27,7 @@ function raceEmit<ObservableTypes extends ReadonlyArray<Observable<any>>>(...obs
         }
         subscriber.next(value);
       },
-      complete: 
+      complete:
     }
 
     for (let i = 0; subscriptions && !subscriber.closed && i < observableSources.length; ++i) {

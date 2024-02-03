@@ -1,9 +1,10 @@
 import { expectTypeOf } from 'expect-type';
 import { mock } from 'jest-mock-extended';
-import { type Observable } from '../observable';
+import { feature } from '@komore/testing';
+
 import { fromEvent } from './from-event';
 
-describe('From event', () => {
+feature('From event', () => {
   it('works with a DOM event target', async () => {
     given: 'an event target with addEventListener and removeEventListener methods';
     const eventTarget = mock<EventTarget>();

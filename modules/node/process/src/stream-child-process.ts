@@ -1,6 +1,4 @@
-import { spawn } from 'child_process';
-
-import { Observable } from '@komore/reactive';
+import { spawn } from 'node:child_process';
 
 import { type StreamChildProcessOptions } from './stream-child-process-options';
 

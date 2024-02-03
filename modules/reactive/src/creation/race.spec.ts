@@ -1,8 +1,9 @@
 import { expectTypeOf } from 'expect-type';
-import { type Observable } from '../observable';
+import { feature } from '@komore/testing';
+
 import { race } from './race';
 
-describe('Race', () => {
+feature('Race', () => {
   it('todo', () => {
     race([]);
   });

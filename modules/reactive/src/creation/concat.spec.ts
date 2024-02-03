@@ -1,8 +1,10 @@
 import { expectTypeOf } from 'expect-type';
-import { type Observable } from '../observable';
+
+import { feature } from '@komore/testing';
+
 import { concat } from './concat';
 
-describe('Concat', () => {
+feature('Concat', () => {
   it('todo', () => {
     concat([]);
   });

@@ -6,7 +6,6 @@ import {
 } from '@aws-sdk/client-sqs';
 
 import { sendAwsCommand } from '@komore/aws';
-import { type Observable } from '@komore/reactive';
 
 /**
  * Receives up to 10 messages

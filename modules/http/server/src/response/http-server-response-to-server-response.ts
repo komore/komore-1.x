@@ -4,7 +4,7 @@ import { isErrorOfType } from '@komore/error';
 import { entriesToObject } from '@komore/functional';
 import { httpStatuses } from '@komore/http';
 import { nodeFileSystemError } from '@komore/node/file-system';
-import { catchErrorIf, mergeMap, of, type Observable, tapNext } from '@komore/reactive';
+import { catchErrorIf, mergeMap, of, tapNext } from '@komore/reactive';
 
 import { type HttpServerOptions } from '../http-server-options';
 import { readStreamToServerResponse } from './file/read-stream-to-server-response';

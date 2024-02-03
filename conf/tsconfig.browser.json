@@ -4,6 +4,6 @@
   "compilerOptions": {
     "lib": ["ES2021", "ES2021.intl", "DOM"],
     "skipLibCheck": true,
-    "types": ["temporal"]
+    "types": ["reactive", "temporal"]
   }
 }

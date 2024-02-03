@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type GenericWorkspaceExecutorEvent } from './event/generic-workspace-executor-event';
 import { type WorkspaceExecutorTaskOptions } from './workspace-executor-task-options';
 

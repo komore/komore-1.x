@@ -1,4 +1,5 @@
-import { throwError, type Observable } from '@komore/reactive';
+import { throwError } from '@komore/reactive';
+
 import { createNpmPackageManager } from './npm/create-npm-package-manager';
 import { type PackageManager } from './package-manager';
 import { type PackageManagerType } from './package-manager-type';

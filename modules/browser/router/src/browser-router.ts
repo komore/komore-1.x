@@ -1,6 +1,5 @@
 import { ErrorFromType } from '@komore/error';
 import { EventFromType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 import { browserRouterError } from './browser-router.error';
 import { browserRouterEvent } from './browser-router.event';

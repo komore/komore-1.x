@@ -1,4 +1,4 @@
-import { defer, fromEvent, type Observable } from '@komore/reactive';
+import { defer, fromEvent } from '@komore/reactive';
 
 /**
  * Observes a WebGL context loss
@@ -6,6 +6,6 @@ import { defer, fromEvent, type Observable } from '@komore/reactive';
  * @param canvas Canvas
  * @returns Observable that emits when the WebGL context is lost
  */
-export function observeContextLoss(canvas: HTMLCanvasElement): Observable<WebGLContextEvent> {
+export function observeWebGLContextLoss(canvas: HTMLCanvasElement): Observable<WebGLContextEvent> {
   return defer(() => fromEvent<WebGLContextEvent>(canvas, 'webglcontextlost'));
 }

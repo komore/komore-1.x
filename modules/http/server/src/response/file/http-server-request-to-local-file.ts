@@ -1,5 +1,5 @@
 import { httpStatuses } from '@komore/http';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type HttpServerRequest } from '../../request/http-server-request';
 import { type HttpServerResponse } from '../http-server-response';

@@ -1,4 +1,4 @@
-import { startWith, switchMap, type Observable } from '@komore/reactive';
+import { startWith, switchMap } from '@komore/reactive';
 
 import { screenDetails } from './screen-details';
 import { screenDetailsToScreens } from './screen-details-to-screens';

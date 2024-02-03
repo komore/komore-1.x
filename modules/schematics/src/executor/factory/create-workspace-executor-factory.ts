@@ -1,4 +1,4 @@
-import { asObservable, defer, type Observable } from '@komore/reactive';
+import { asObservable, defer } from '@komore/reactive';
 
 import { type WorkspaceExecutor } from '../workspace-executor';
 import { type WorkspaceExecutorFactory } from './workspace-executor-factory';

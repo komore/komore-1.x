@@ -1,9 +1,12 @@
-import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { pipe } from '@komore/functional';
+import { map, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 import { type DateTimeLocalizationOptions, type Locales } from '@komore/web/l10n';
+
 import { asObservableLocales } from './as-observable-locales';
 
 /**
  * Localizes a date and time
+ *
  * @param options Date time localization options
  * @param locales Locales
  * @returns Operator function that transforms emitted date values into localized date time strings
@@ -13,7 +16,7 @@ export function localizeDateTime(
   locales?: Observable<Locales> | Locales
 ): OperatorFunction<Date, string> {
   const dateTimeFormatOptions: Intl.DateTimeFormatOptions = {
-    ...options?.format
+    ...options?.format,
   };
   const dateTimeFormat$ = asObservableLocales(locales).pipe(
     map(locales => new Intl.DateTimeFormat([...locales], dateTimeFormatOptions))

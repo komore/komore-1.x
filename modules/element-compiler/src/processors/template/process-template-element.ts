@@ -1,9 +1,9 @@
-import { type Observable } from '@komore/reactive';
 import { createProcessor } from '../create-processor';
 import { templateProcessorFactories } from './template-processor-factories';
 
 /**
  * Processes a template element
+ *
  * @param htmlElement HTML element
  * @returns Processed template element
  */

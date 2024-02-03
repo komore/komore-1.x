@@ -1,4 +1,4 @@
-import { defer, fromEvent, map, type Observable } from '@komore/reactive';
+import { defer, fromEvent, map } from '@komore/reactive';
 
 export function readBlobAsText(blob: Blob, encoding?: string, fileReader?: FileReader): Observable<string> {
   return defer(() => {

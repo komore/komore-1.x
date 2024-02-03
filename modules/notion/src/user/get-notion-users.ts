@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type NotionApiClient } from '../notion-api-client';
 import { type NotionPaginationParameters } from '../pagination/notion-pagination-parameters';
 import { notionPaginationParametersToUrlSearchParams } from '../pagination/notion-pagination-parameters-to-url-search-params';

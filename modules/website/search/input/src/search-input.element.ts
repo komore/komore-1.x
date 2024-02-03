@@ -10,7 +10,6 @@ import {
   takeUntil,
   tap,
   tapNext,
-  type Observable,
 } from '@komore/reactive';
 import { messageEventToData } from '@komore/web';
 import { createWorker } from '@komore/web/worker';

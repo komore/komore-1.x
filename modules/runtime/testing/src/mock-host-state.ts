@@ -1,4 +1,4 @@
-import { Observable, shareReplay, type Subject } from '@komore/reactive';
+import { shareReplay, type Subject } from '@komore/reactive';
 import { type HostState } from '@komore/runtime';
 
 /**
@@ -13,7 +13,5 @@ export function mockHostState(_hostState: Subject<HostState>): Observable<void> 
     subscriber.add(() => {
       // TODO: unmock
     });
-  }).pipe(
-    shareReplay({ bufferSize: 1, refCount: true })
-  );
+  }).pipe(shareReplay({ bufferSize: 1, refCount: true }));
 }

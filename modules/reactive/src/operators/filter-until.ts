@@ -1,6 +1,5 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { type OperatorFunction } from '../operator-function';
-import { Observable } from '../observable';
 
 /**
  * Filters values until a condition is met, asserting the type of the emitted values

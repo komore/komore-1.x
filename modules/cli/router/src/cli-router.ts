@@ -1,5 +1,4 @@
 import { type GenericCommand } from '@komore/command';
-import { type Observable } from '@komore/reactive';
 
 /**
  * Command-line interface router

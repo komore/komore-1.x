@@ -1,7 +1,6 @@
 import { type CommandEventPair } from '@komore/client';
 import { type CommandFromType, type GenericCommandType } from '@komore/command';
 import { type EventFromType, type GenericEventType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 import { type GenericAwsSdkClient } from '../client/generic-aws-sdk-client';
 

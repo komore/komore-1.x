@@ -1,7 +1,5 @@
 import { type PathLike } from 'node:fs';
 
-import { type Observable } from '@komore/reactive';
-
 import { readFileContent } from './read-file-content';
 import { type ReadFileContentOptions } from './read-file-content-options';
 

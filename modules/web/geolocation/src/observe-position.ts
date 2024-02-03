@@ -1,4 +1,5 @@
-import { Observable, throwError } from '@komore/reactive';
+import { throwError } from '@komore/reactive';
+
 import { webGeolocationError } from './web-geolocation.error';
 
 /**

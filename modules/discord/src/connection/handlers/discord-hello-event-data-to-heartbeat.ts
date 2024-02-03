@@ -1,5 +1,5 @@
 import { randomNumberBetween } from '@komore/random';
-import { ignoreValues, map, tapNext, timer, type Observable } from '@komore/reactive';
+import { ignoreValues, map, tapNext, timer } from '@komore/reactive';
 
 import { discordHeartbeatOpcode } from '../data/discord-heartbeat-event-data';
 import { type DiscordHelloEventData } from '../data/discord-hello-event-data';

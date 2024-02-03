@@ -1,5 +1,5 @@
 import { observeMutations } from '@komore/element/observer';
-import { distinctUntilChanged, map, shareReplay, type Observable } from '@komore/reactive';
+import { distinctUntilChanged, map, shareReplay } from '@komore/reactive';
 
 /**
  * Observes a title element's node value mutations

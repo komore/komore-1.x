@@ -1,6 +1,6 @@
 import { type PubSub, type TopicMetadata } from '@google-cloud/pubsub';
 
-import { deferPromise, map, type Observable } from '@komore/reactive';
+import { deferPromise, map } from '@komore/reactive';
 
 import { type CloudPubSubTopicName } from './name/cloud-pub-sub-topic-name';
 

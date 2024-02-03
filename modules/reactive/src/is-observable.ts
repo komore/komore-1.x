@@ -1,7 +1,6 @@
-import { Observable } from './observable';
-
 /**
  * Tests whether an object is an observable
+ *
  * @param obj Object to test
  * @returns true if the object is an observable
  * @template T Value type

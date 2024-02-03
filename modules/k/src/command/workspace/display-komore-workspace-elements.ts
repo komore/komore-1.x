@@ -1,6 +1,6 @@
 import { cliEvent } from '@komore/cli';
 import { type EventFromType } from '@komore/event';
-import { concat, startWith, type Observable } from '@komore/reactive';
+import { concat, startWith } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 
 import { displayKomoreWorkspaceExecutors } from './display-komore-workspace-executors';

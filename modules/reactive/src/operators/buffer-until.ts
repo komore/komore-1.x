@@ -1,6 +1,5 @@
 import { buffer } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 
 export function bufferUntil<T>(closingNotifier: Observable<never>): OperatorFunction<T, never>;

@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type FunctionTrigger } from './function-trigger';
 
 export function createFunctionTrigger<InputType, OutputType>(
@@ -7,6 +6,6 @@ export function createFunctionTrigger<InputType, OutputType>(
 ): FunctionTrigger<InputType, OutputType> {
   return {
     handle,
-    test
+    test,
   };
 }

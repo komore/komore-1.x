@@ -1,5 +1,4 @@
 import { type GenericEvent } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 /**
  * Event store event repository

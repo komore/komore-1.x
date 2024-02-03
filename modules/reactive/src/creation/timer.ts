@@ -3,7 +3,6 @@ import { timer as rxjsTimer } from 'rxjs';
 import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 
 import { type SchedulerLike } from '../scheduler/scheduler-like';
-import { type Observable } from '../observable';
 
 /**
  * Creates an observable that will wait for a number of milliseconds, then emit the number 0

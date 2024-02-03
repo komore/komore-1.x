@@ -1,7 +1,5 @@
 import { type PluginBuild } from 'esbuild';
 
-import { type Observable } from '@komore/reactive';
-
 /**
  * esbuild plugin options
  */

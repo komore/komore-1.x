@@ -1,5 +1,3 @@
-import { Observable } from '../observable';
-
 /**
  * Creates an observable that delegates the creation of a new observable to a factory
  *

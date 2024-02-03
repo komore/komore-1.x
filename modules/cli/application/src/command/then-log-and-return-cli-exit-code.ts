@@ -3,7 +3,7 @@ import { bgRedBright, red, redBright } from 'chalk';
 import { cliError } from '@komore/cli';
 import { isErrorOfType, isKomoreError } from '@komore/error';
 import { objectToEntries, objectToKeys } from '@komore/functional';
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 
 export function thenLogAndReturnCliExitCode(console: Console): (error: unknown) => Observable<number> {
   const isCliError = isErrorOfType(cliError);

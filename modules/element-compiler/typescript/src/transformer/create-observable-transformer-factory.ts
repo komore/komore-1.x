@@ -1,5 +1,7 @@
-import { type Observable, Subject } from '@komore/reactive';
 import { visitEachChild, type Node, type SourceFile, type TransformerFactory, type Visitor } from 'typescript';
+
+import { Subject } from '@komore/reactive';
+
 import { type ObservableTransformerFactory } from './observable-transformer-factory';
 
 /**

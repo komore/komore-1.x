@@ -1,5 +1,3 @@
-import { type Observable } from 'rxjs';
-
 import { type DiscordApiClient } from '../discord-api-client';
 import { type DiscordGateway } from './discord-gateway';
 

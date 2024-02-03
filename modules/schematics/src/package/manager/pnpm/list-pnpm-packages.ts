@@ -4,7 +4,7 @@ import { arrayToElementAt, arrayToFlattenedArray, each } from '@komore/collectio
 import { isDefined, objectToEntries } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
 import { executeChildProcess } from '@komore/node/process';
-import { map, throwUnless, type Observable } from '@komore/reactive';
+import { map, throwUnless } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type InstalledPackage } from '../../installed-package';

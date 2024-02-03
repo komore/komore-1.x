@@ -1,6 +1,6 @@
 import { type FileHandle } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Closes a file

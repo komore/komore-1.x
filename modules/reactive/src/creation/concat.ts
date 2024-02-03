@@ -1,6 +1,5 @@
 import { concat as rxjsConcat } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type ObservableTuple } from '../observable-tuple';
 
 /**

@@ -2,7 +2,7 @@ import { type HttpRequest, type MetadataBearer } from '@aws-sdk/types';
 import { createRequest as awsSdkCreateRequest } from '@aws-sdk/util-create-request';
 import { type Client, type Command, type SmithyResolvedConfiguration } from '@smithy/smithy-client';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Creates an AWS HTTP request from an AWS client command

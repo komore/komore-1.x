@@ -1,5 +1,7 @@
-import { filter, mergeMapTo, redactValue, type Observable } from '@komore/reactive';
 import { type ConfigurationChangeEvent } from 'vscode';
+
+import { filter, mergeMapTo, redactValue } from '@komore/reactive';
+
 import { executionOfCommand } from '../command/execution-of-command';
 import { informationMessage } from '../ui/message/information-message';
 

@@ -1,5 +1,5 @@
 import { isDefined } from '@komore/functional';
-import { map, throwUnless, type Observable, type ObservableMap } from '@komore/reactive';
+import { map, throwUnless, type ObservableMap } from '@komore/reactive';
 
 import { type PackageName } from '../../package/name/package-name';
 import { schematicsError } from '../../schematics.error';

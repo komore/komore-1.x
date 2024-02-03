@@ -1,5 +1,5 @@
 import { readPackageJson, type PackageJson } from '@komore/node/package';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type LocalPackage } from './local-package';
 

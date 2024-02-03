@@ -1,4 +1,5 @@
-import { switchMap, throwIf, mapTo, type MonoTypeOperatorFunction, type Observable } from '@komore/reactive';
+import { switchMap, throwIf, mapTo, type MonoTypeOperatorFunction } from '@komore/reactive';
+
 import { ConstraintViolationError } from './error/constraint-violation-error';
 
 /**

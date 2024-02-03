@@ -1,4 +1,4 @@
-import { fromEvent, map, startWith, type Observable } from '@komore/reactive';
+import { fromEvent, map, startWith } from '@komore/reactive';
 
 /**
  * Returns an observable that emits the page visibility state when it changes

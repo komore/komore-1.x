@@ -3,7 +3,7 @@ import { Project, SyntaxKind, type KindToNodeMappings, type SourceFile } from 't
 import { type TypeScriptApiDescription } from '@komore/documentation';
 import { isDefined } from '@komore/functional';
 import { readPackageJson } from '@komore/node/package';
-import { forkJoin, map, mergeMap, throwUnless, type Observable } from '@komore/reactive';
+import { forkJoin, map, mergeMap, throwUnless } from '@komore/reactive';
 
 import { functionDeclarationEntryToTypeScriptApiFunctionDescription } from './function/function-declaration-entry-to-typescript-api-function-description';
 import { type TypeScriptApiDescriptionOptions } from './typescript-api-description-options';

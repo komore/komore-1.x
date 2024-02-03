@@ -1,6 +1,6 @@
 import { type PubSub, type Topic } from '@google-cloud/pubsub';
 
-import { deferPromise, map, type Observable } from '@komore/reactive';
+import { deferPromise, map } from '@komore/reactive';
 
 /**
  * Creates a function that returns the list of Cloud Pub/Sub topics

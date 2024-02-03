@@ -1,7 +1,5 @@
 import { createReadStream, type PathLike, type ReadStream } from 'node:fs';
 
-import { Observable } from '@komore/reactive';
-
 import { isNodeFileNotFoundError } from '../error/is-node-file-not-found-error';
 import { nodeFileSystemError } from '../node-file-system.error';
 

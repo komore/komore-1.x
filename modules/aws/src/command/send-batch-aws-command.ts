@@ -1,7 +1,7 @@
 import { type Command, type MetadataBearer } from '@aws-sdk/types';
 import { type Client, type SmithyResolvedConfiguration } from '@smithy/smithy-client';
 
-import { EMPTY, expand, reduce, type Observable } from '@komore/reactive';
+import { empty, expand, reduce } from '@komore/reactive';
 
 import { sendAwsCommand } from './send-aws-command';
 
@@ -46,7 +46,7 @@ export function sendBatchAwsCommand<
     expand(output => {
       const nextCommandInput = nextInput(output);
       if (nextCommandInput === undefined) {
-        return EMPTY;
+        return empty;
       }
 
       return sendAwsCommand(client, buildCommand(nextCommandInput), options);

@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type NotionApiClient } from '../notion-api-client';
 import { type NotionBotUser } from './notion-bot-user';
 

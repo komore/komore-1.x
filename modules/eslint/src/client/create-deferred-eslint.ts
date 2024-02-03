@@ -1,6 +1,6 @@
 import { ESLint } from 'eslint';
 
-import { cache, deferValue, type Observable } from '@komore/reactive';
+import { cache, deferValue } from '@komore/reactive';
 
 import { isInternalEsLintError } from '../error/is-internal-eslint-error';
 import { internalEsLintErrorToEsLintError } from '../error/internal-eslint-error-to-eslint-error';

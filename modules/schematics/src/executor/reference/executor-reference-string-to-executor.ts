@@ -1,5 +1,5 @@
 import { identity, isDefined, pipe } from '@komore/functional';
-import { map, of, ObservableMap, throwError, throwUnless, type Observable } from '@komore/reactive';
+import { map, of, ObservableMap, throwError, throwUnless } from '@komore/reactive';
 
 import { type WorkspaceContextSchematicsExecutor } from '../../context/workspace-context-schematics-executor';
 import { type PackageName } from '../../package/name/package-name';

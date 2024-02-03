@@ -2,7 +2,7 @@
 import chalk = require('chalk');
 
 import { cliEvent } from '@komore/cli';
-import { first, map, tapNext, type Observable } from '@komore/reactive';
+import { first, map, tapNext } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 import { EventFromType } from '@komore/event';
 

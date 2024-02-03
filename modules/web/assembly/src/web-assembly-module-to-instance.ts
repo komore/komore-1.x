@@ -1,4 +1,4 @@
-import { deferPromise, map, type Observable } from '@komore/reactive';
+import { deferPromise, map } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 /**

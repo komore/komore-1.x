@@ -1,4 +1,4 @@
-import { filter, switchMap, takeUntil, type Observable } from '@komore/reactive';
+import { filter, switchMap, takeUntil } from '@komore/reactive';
 import { hostStateIs, hostStateTransitionIs, type Host } from '@komore/runtime/host';
 
 import { type ApplicationOptions } from './application-options';

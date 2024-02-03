@@ -1,6 +1,6 @@
 import { matchCommand } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { deferPromise, map, redactValue, tapNext, type Observable } from '@komore/reactive';
+import { deferPromise, map, redactValue, tapNext } from '@komore/reactive';
 
 import { stripeEvent } from '../stripe.event';
 import { type StripeCommandHandler } from './stripe-command-handler';

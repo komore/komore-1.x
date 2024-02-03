@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type EventStoreSnapshot } from './snapshot/event-store-snapshot';
 
 /**

@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Define service worker options
  */

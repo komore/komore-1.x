@@ -1,4 +1,4 @@
-import { map, of, type Observable } from '@komore/reactive';
+import { map, of } from '@komore/reactive';
 
 import { type EToroLightStreamerSession } from './etoro-light-streamer-session';
 import { type EToroLightStreamerSessionOptions } from './etoro-light-streamer-session-options';

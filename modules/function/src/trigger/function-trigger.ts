@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Function trigger
  * @template InputType Input type

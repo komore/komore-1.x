@@ -2,7 +2,7 @@ import { isErrorOfType } from '@komore/error';
 import { objectToEntries } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
 import { nodeFileSystemError, readFileContent } from '@komore/node/file-system';
-import { map, mapEach, throwIfError, type Observable } from '@komore/reactive';
+import { map, mapEach, throwIfError } from '@komore/reactive';
 
 import { schematicsError } from '../schematics.error';
 import { workspaceGeneratorDescriptorJsonEntryToWorkspaceGeneratorDescriptor } from './json/workspace-generator-descriptor-json-entry-to-workspace-generator-descriptor';

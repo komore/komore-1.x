@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 import { type FromEventSourceOptions } from './from-event-source-options';
 
 /**

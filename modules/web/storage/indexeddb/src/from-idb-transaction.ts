@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 /**
  * Builds an observable IndexedDB transaction
  *

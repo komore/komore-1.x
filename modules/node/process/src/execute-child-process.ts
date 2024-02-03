@@ -1,6 +1,4 @@
-import { exec, type ExecOptions } from 'child_process';
-
-import { Observable } from '@komore/reactive';
+import { exec, type ExecOptions } from 'node:child_process';
 
 import { type ChildProcessOutput } from './child-process-output';
 

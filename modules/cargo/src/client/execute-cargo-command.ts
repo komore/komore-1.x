@@ -1,6 +1,6 @@
 import { not } from '@komore/functional';
 import { streamChildProcess } from '@komore/node/process';
-import { concatMap, fromArray, map, type Observable } from '@komore/reactive';
+import { concatMap, fromArray, map } from '@komore/reactive';
 import { isEmptyString, stringToLines } from '@komore/string';
 
 /**

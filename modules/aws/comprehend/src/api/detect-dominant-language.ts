@@ -3,8 +3,9 @@ import {
   type ComprehendClient,
   type DominantLanguage,
 } from '@aws-sdk/client-comprehend';
-import { sendAwsCommand } from '@komore/integration-aws';
-import { map, type Observable } from '@komore/reactive';
+
+import { sendAwsCommand } from '@komore/aws';
+import { map } from '@komore/reactive';
 
 /**
  * Determines the dominant languages used in a text

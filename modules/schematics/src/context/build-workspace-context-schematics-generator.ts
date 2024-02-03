@@ -8,7 +8,6 @@ import {
   mergeMap,
   ObservableMap,
   switchMap,
-  type Observable,
 } from '@komore/reactive';
 
 import { isPackageWithGenerators } from '../generator/is-package-with-generators';

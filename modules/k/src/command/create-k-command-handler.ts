@@ -2,7 +2,7 @@ import { cliEvent } from '@komore/cli';
 import { matchCommand, type CommandFromType, type CommandHandler } from '@komore/command';
 import { type EventFromType } from '@komore/event';
 import { getCurrentWorkingDirectory } from '@komore/node/process';
-import { first, map, mapTo, mergeMap, of, tapNext, toArray, type Observable, type Subject } from '@komore/reactive';
+import { first, map, mapTo, mergeMap, of, tapNext, toArray, type Subject } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 
 import { type kCommand } from '../k.command';

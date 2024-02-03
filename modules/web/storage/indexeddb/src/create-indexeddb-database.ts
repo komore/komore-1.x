@@ -1,5 +1,4 @@
-import { type Observable } from '@komore/reactive';
-import { concat, concatMap, defer, EMPTY, fromEvent, ignoreValues, map, of, race, shareReplay } from '@komore/reactive';
+import { concat, concatMap, defer, empty, fromEvent, ignoreValues, map, of, race, shareReplay } from '@komore/reactive';
 
 import { type IndexedDBDatabaseOptions } from './indexeddb-database-options';
 import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
@@ -30,7 +29,7 @@ export function createIndexedDbDatabase(options: IndexedDBDatabaseOptions): Obse
             })),
             concatMap(databaseUpgrade => upgradeHandler(of(databaseUpgrade)).pipe(ignoreValues()))
           )
-        : EMPTY;
+        : empty;
     return race([idbOpenDBRequest$, concat([databaseUpgraded$, idbOpenDBRequest$])]);
   }).pipe(shareReplay({ bufferSize: 1, refCount: true }));
 }

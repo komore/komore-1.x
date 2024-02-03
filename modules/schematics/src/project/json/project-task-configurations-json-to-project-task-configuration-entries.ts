@@ -1,6 +1,6 @@
 import { isArray } from '@komore/collection';
 import { entriesToObject, objectToEntries } from '@komore/functional';
-import { defaultIfEmpty, forkJoin, map, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, forkJoin, map } from '@komore/reactive';
 import { isString } from '@komore/string';
 import { type ReadonlyRecord } from '@komore/typescript';
 

@@ -1,4 +1,5 @@
-import { Observable, Subject } from '@komore/reactive';
+import { Subject } from '@komore/reactive';
+
 import { type StorageSubjectOptions } from './storage-subject-options';
 
 /**
@@ -42,7 +43,7 @@ export class StorageSubject<ValueType> extends Observable<ValueType | undefined>
     this.options = {
       deserialize: options?.deserialize ?? defaultDeserializer,
       serialize: options?.serialize ?? defaultSerializer,
-      watchExternalChanges: options?.watchExternalChanges ?? false
+      watchExternalChanges: options?.watchExternalChanges ?? false,
     };
   }
 

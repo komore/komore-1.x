@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type TeamsApiClient } from '../teams-api-client';
 import { type TeamsTeamId } from './id/teams-team-id';
 import { type TeamsTeam } from './teams-team';

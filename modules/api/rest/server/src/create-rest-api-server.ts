@@ -1,5 +1,5 @@
 import { createHttpServer } from '@komore/http/server';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type RestApiServer } from './rest-api-server';
 import { type RestApiServerOptions } from './rest-api-server-options';

@@ -2,7 +2,7 @@ import { each } from '@komore/collection';
 import { not } from '@komore/functional';
 import { jsonToObject } from '@komore/json';
 import { streamChildProcess } from '@komore/node/process';
-import { concatMap, fromArray, map, type Observable } from '@komore/reactive';
+import { concatMap, fromArray, map } from '@komore/reactive';
 import { isEmptyString, stringToLines } from '@komore/string';
 
 import { type GenericOpenTofuLog } from '../log/generic-opentofu-log';

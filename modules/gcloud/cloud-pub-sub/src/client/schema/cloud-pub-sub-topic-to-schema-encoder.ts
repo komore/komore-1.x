@@ -1,6 +1,6 @@
 import { type Topic } from '@google-cloud/pubsub';
 
-import { deferPromise, map, type Observable } from '@komore/reactive';
+import { deferPromise, map } from '@komore/reactive';
 
 import { type CloudPubSubTopicCache } from '../../handler/cloud-pub-sub-topic-cache';
 import { cloudPubSubSchemaSettingsToSchemaEncoder } from './cloud-pub-sub-schema-settings-to-schema-encoder';

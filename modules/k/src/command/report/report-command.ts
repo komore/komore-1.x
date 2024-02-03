@@ -1,6 +1,6 @@
 import { createCliCommand, createCliFlag as flag } from '@komore/cli';
 import { getNodeVersion, getOSArchitecture, getOSVersion } from '@komore/node';
-import { forkJoin, map, mapTo, mergeMap, mergeMapTo, of, tapNext, type Observable } from '@komore/reactive';
+import { forkJoin, map, mapTo, mergeMap, mergeMapTo, of, tapNext } from '@komore/reactive';
 import { detectPackageManagerType, getPackageManagerVersion, type PackageManagerType } from '@komore/schematics';
 
 // TODO: make dynamic + discovery

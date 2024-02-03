@@ -1,5 +1,4 @@
 import { type ErrorFromType } from '@komore/error';
-import { type Observable } from '@komore/reactive';
 
 import { type HostLifecycleEvent } from './lifecycle/host-lifecycle-event';
 import { runtimeHostError } from './runtime-host.error';

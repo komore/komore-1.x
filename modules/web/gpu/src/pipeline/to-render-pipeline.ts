@@ -1,4 +1,4 @@
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Returns a function that creates a GPU render pipeline asynchronously

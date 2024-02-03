@@ -1,5 +1,5 @@
 import { type FromChild } from '@komore/element';
-import { NEVER, of, Subject, switchMap, takeUntil, type Observable } from '@komore/reactive';
+import { of, Subject, switchMap, takeUntil } from '@komore/reactive';
 
 import './discord-icon.element';
 import './github-icon.element';

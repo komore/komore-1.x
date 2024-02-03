@@ -1,6 +1,6 @@
 import { isErrorOfType } from '@komore/error';
 import { nodeFileSystemError } from '@komore/node/file-system';
-import { map, throwIfError, type Observable } from '@komore/reactive';
+import { map, throwIfError } from '@komore/reactive';
 
 import { schematicsError } from '../schematics.error';
 import { type WorkspaceContext } from '../context/workspace-context';

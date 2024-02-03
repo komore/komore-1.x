@@ -1,4 +1,4 @@
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 import { createValidator, type Validator } from '@komore/validation';
 
 import { type JsonSchemaDefinition } from './schema/json-schema-definition';

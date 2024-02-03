@@ -1,7 +1,7 @@
 import { esbuildCommand, type EsbuildClient } from '@komore/esbuild';
 import { objectToKeys } from '@komore/functional';
 import { type HttpServerLocalFile } from '@komore/http/server';
-import { map, throwError, type Observable } from '@komore/reactive';
+import { map, throwError } from '@komore/reactive';
 import { typeScriptConfigurationToPaths, type TypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { esbuildBuiltEventToHttpServerLocalFile } from './esbuild-built-event-to-http-server-local-file';

@@ -1,8 +1,6 @@
 import { type ReadStream } from 'node:fs';
 import { type IncomingMessage, type ServerResponse } from 'node:http';
 
-import { Observable } from '@komore/reactive';
-
 export function readStreamToServerResponse(
   serverResponse: ServerResponse<IncomingMessage>
 ): (readStream: ReadStream) => Observable<ServerResponse<IncomingMessage>> {

@@ -1,7 +1,6 @@
 import { type CommandEventPair } from '@komore/client';
 import { type CommandFromType } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 import { type esbuildCommand } from '../esbuild.command';
 import { type esbuildEvent } from '../esbuild.event';

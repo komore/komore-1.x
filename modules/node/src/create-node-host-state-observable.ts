@@ -1,4 +1,4 @@
-import { fromEvent, mapTo, merge, tapNext, type Observable, startWith } from '@komore/reactive';
+import { fromEvent, mapTo, merge, tapNext, startWith } from '@komore/reactive';
 import { HostState } from '@komore/runtime/host';
 
 export function createNodeHostStateObservable(): Observable<HostState> {

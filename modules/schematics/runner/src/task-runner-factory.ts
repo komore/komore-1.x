@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 
 import { type TaskRunner } from './task-runner';

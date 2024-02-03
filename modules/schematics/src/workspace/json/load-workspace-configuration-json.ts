@@ -2,7 +2,7 @@ import { join } from 'node:path';
 
 import { createJsonSchemaValidator, jsonToObject, type JsonSchemaDefinition } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
-import { forkJoin, map, switchMap, type Observable, cache } from '@komore/reactive';
+import { cache, forkJoin, map, switchMap } from '@komore/reactive';
 import { validateWith } from '@komore/validation';
 
 import { type WorkspaceConfigurationJson } from './workspace-configuration-json';

@@ -1,6 +1,7 @@
 import { type ChimeClient, DeleteRoomCommand, type DeleteRoomCommandInput } from '@aws-sdk/client-chime';
-import { sendAwsCommand, type FixedAwsType } from '@komore/integration-aws';
-import { redactValue, type Observable } from '@komore/reactive';
+
+import { sendAwsCommand, type FixedAwsType } from '@komore/aws';
+import { redactValue } from '@komore/reactive';
 
 /**
  * Deletes a room

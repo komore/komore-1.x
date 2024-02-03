@@ -1,6 +1,6 @@
 import { v2 } from '@google-cloud/speech';
 
-import { deferPromise, fromPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { type CloudSpeechToTextClientOptions } from './cloud-speech-to-text-client-options';
 

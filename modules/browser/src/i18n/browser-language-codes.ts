@@ -1,6 +1,6 @@
 import { each } from '@komore/collection';
 import { asLanguageCode, type LanguageCode } from '@komore/i18n';
-import { cache, map, type Observable } from '@komore/reactive';
+import { cache, map } from '@komore/reactive';
 import { stringToSubstring } from '@komore/string';
 
 import { browserLanguages } from './browser-languages';

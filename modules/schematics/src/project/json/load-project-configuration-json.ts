@@ -1,6 +1,6 @@
 import { jsonToObject } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
-import { first, forkJoin, map, switchMap, type Observable } from '@komore/reactive';
+import { first, forkJoin, map, switchMap } from '@komore/reactive';
 import { validateWith } from '@komore/validation';
 
 import { type ProjectConfigurationJson } from './project-configuration-json';

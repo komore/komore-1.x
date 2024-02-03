@@ -1,5 +1,3 @@
-import { type Observable } from '../observable';
-
 /**
  * Observable map
  *

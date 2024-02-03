@@ -1,4 +1,4 @@
-import { type Observable, type ObservableMap } from '@komore/reactive';
+import { type ObservableMap } from '@komore/reactive';
 
 import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';

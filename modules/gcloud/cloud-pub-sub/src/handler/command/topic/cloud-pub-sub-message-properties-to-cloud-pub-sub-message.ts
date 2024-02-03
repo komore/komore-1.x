@@ -1,7 +1,7 @@
 import { type protos } from '@google-cloud/pubsub';
 
 import { type CommandFromType } from '@komore/command';
-import { of, type Observable, map } from '@komore/reactive';
+import { map, of } from '@komore/reactive';
 
 import { type cloudPubSubCommand } from '../../../cloud-pub-sub.command';
 import { type CloudPubSubTopicCache } from '../../cache/cloud-pub-sub-topic-cache';

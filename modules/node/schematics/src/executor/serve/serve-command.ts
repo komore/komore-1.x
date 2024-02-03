@@ -1,4 +1,4 @@
-import { type Observable, tapNext } from '@komore/reactive';
+import { tapNext } from '@komore/reactive';
 
 import { type ServeArguments } from './serve-arguments';
 import { type ServeFlags } from './serve-flags';

@@ -1,7 +1,7 @@
 import { type Command, type MetadataBearer } from '@aws-sdk/types';
 import { type Client, type SmithyResolvedConfiguration } from '@smithy/smithy-client';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Creates a function that sends an AWS command using an AWS client

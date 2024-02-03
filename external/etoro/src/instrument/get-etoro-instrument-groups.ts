@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type EToroApiClient } from '../etoro-api-client';
 import { type EToroInstrumentGroups } from './etoro-instrument-groups';
 

@@ -1,7 +1,7 @@
 import { type PathLike, type Stats } from 'node:fs';
 import { stat } from 'node:fs/promises';
 
-import { deferPromise, throwIfError, type Observable } from '@komore/reactive';
+import { deferPromise, throwIfError } from '@komore/reactive';
 
 import { isNodeFileNotFoundError } from '../error/is-node-file-not-found-error';
 import { nodeFileSystemError } from '../node-file-system.error';

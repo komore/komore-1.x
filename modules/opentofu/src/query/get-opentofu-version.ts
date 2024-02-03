@@ -1,6 +1,6 @@
 import { jsonToObject } from '@komore/json';
 import { childProcessOutputToStdout, executeChildProcess } from '@komore/node/process';
-import { map, throwOnError, type Observable } from '@komore/reactive';
+import { map, throwOnError } from '@komore/reactive';
 
 import { openTofuError } from '../opentofu.error';
 import { type OpenTofuVersion } from './opentofu-version';

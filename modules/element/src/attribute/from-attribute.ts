@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Function that returns an observable attribute
  *

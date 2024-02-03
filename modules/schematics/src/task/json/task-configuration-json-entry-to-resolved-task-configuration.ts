@@ -1,4 +1,4 @@
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
 import { isExecutorReferenceString } from '../../executor/reference/is-executor-reference-string';

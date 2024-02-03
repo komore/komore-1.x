@@ -1,6 +1,6 @@
-import { type Observable } from '../observable';
-import { type OperatorFunction } from '../operator-function';
 import { switchMap as rxjsSwitchMap } from 'rxjs';
+
+import { type OperatorFunction } from '../operator-function';
 
 /**
  * Projects each source value to an observable which is merged into the output observable

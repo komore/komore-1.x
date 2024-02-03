@@ -1,6 +1,6 @@
 import { createContentTypeHttpHeader } from '@komore/http';
 import { httpClientResponseToText } from '@komore/http/client';
-import { map, mergeMap, type Observable } from '@komore/reactive';
+import { map, mergeMap } from '@komore/reactive';
 
 import { type EToroLightStreamerSessionOptions } from './etoro-light-streamer-session-options';
 import { type EToroLightStreamerSessionParameters } from './etoro-light-streamer-session-parameters';

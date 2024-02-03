@@ -1,4 +1,4 @@
-import { defaultIfEmpty, first, forkJoin, map, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, first, forkJoin, map } from '@komore/reactive';
 
 import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
 import { taskByExecutor } from '../task/task-by-executor';

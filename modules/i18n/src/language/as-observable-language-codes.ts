@@ -1,4 +1,4 @@
-import { isObservable, of, type Observable } from '@komore/reactive';
+import { isObservable, of } from '@komore/reactive';
 
 import { type LanguageCode } from './language-code';
 

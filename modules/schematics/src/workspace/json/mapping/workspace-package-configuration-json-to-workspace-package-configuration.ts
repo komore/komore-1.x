@@ -1,4 +1,4 @@
-import { map, of, type Observable } from '@komore/reactive';
+import { map, of } from '@komore/reactive';
 
 import { detectPackageManagerType } from '../../../package/manager/detect-package-manager-type';
 import { validatePackageManagerType } from '../../../package/manager/validate-package-manager-type';

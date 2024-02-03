@@ -1,4 +1,5 @@
-import { fromEvent, map, type Observable } from '@komore/reactive';
+import { fromEvent, map } from '@komore/reactive';
+
 import { bindFormControl } from './bind-form-control';
 import { type FormControl } from './form-control';
 
@@ -11,8 +12,6 @@ import { type FormControl } from './form-control';
 export function bindInputFormControl<ValueType>(
   htmlTextAreaElement: HTMLTextAreaElement
 ): Observable<FormControl<ValueType, HTMLTextAreaElement>> {
-  const value$ = fromEvent(htmlTextAreaElement, 'input').pipe(
-    map(() => htmlTextAreaElement.value)
-  );
+  const value$ = fromEvent(htmlTextAreaElement, 'input').pipe(map(() => htmlTextAreaElement.value));
   return bindFormControl<ValueType, HTMLTextAreaElement>(htmlTextAreaElement);
 }

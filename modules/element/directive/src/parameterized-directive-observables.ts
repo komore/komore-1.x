@@ -1,8 +1,8 @@
-import { type Observable } from '@komore/reactive';
 import { type DirectiveObservables } from './directive-observables';
 
 /**
  * Parameterized directive observables
+ *
  * @template ElementType Element type
  * @template ParametersType Parameters type
  */

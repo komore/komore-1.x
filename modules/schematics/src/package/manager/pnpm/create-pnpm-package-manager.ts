@@ -1,4 +1,4 @@
-import { cache, of, type Observable } from '@komore/reactive';
+import { cache, of } from '@komore/reactive';
 
 import { type PackageManager } from '../package-manager';
 import { getPnpmVersion } from './get-pnpm-version';

@@ -1,5 +1,5 @@
 import { objectKeys, objectValues } from '@komore/functional';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type ProjectName } from '../../../project/name/project-name';
 import { taskConfigurationJsonToTaskConfiguration } from '../../../task/json/task-configuration-json-to-task-configuration';

@@ -1,6 +1,5 @@
 import { mergeMap as rxjsMergeMap } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 
 /**

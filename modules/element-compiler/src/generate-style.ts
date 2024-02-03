@@ -1,33 +1,39 @@
-import { createCssProcessor } from '@komore/element/compiler/css';
-import { type StyleProcessor, type StyleProcessorFactory } from '@komore/element/compiler/processor';
-import { createScssProcessor } from '@komore/element/compiler/scss';
-import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
+import { createCssProcessor } from '@komore/element-compiler/css';
+import {
+  type StyleProcessor,
+  type StyleProcessorFactory,
+  type StyleProcessorOptions,
+} from '@komore/element-compiler/processor';
+import { asObservable, defaultIfEmpty, forkJoin } from '@komore/reactive';
 
 /**
  * Style processor factories
  */
-const styleProcessorFactories: ReadonlyArray<StyleProcessorFactory> = [
+const styleProcessorFactories: ReadonlyArray<StyleProcessorFactory<StyleProcessorOptions>> = [
   {
-    regExp: /^text\/css$/,
-    factory: createCssProcessor
+    mediaTypeRegExp: /^text\/css$/,
+    pathRegExp: /\.css$/,
+    canProcess: () => true,
+    createProcessor: createCssProcessor,
   },
-  {
-    regExp: /^text\/scss$/,
-    factory: createScssProcessor
-  }
 ];
 
 /**
  * Creates a style processor
- * @param type Type
+ *
+ * @param mediaType Media typpe
  * @param options Options
  * @returns Style processor
  */
-function createStyleProcessor(type: string, options: unknown): StyleProcessor {
-  const styleProcessorFactory = styleProcessorFactories.find(({ regExp }) => regExp.test(type));
+function createStyleProcessor(mediaType: string, options: unknown): StyleProcessor {
+  const styleProcessorFactory = styleProcessorFactories.find(({ regExp }) => regExp.test(mediaType));
   if (styleProcessorFactory === undefined) {
-    throw new Error(`no style processor found for type '${type}'`);
+    throw new Error(`no style processor found for type '${mediaType}'`);
   }
+
+  const { canProcess, createProcessor } = styleProcessorFactory;
+
+  const canProcess$ = asObservable(canProcess());
 
   return styleProcessorFactory.factory(options);
 }
@@ -50,7 +56,5 @@ function processStyleElement(styleElement: HTMLStyleElement): Observable<unknown
  */
 export function generateStyle(styleElements: ReadonlyArray<HTMLStyleElement>): Observable<unknown> {
   const jobs = styleElements.map(processStyleElement);
-  return forkJoin(jobs).pipe(
-    defaultIfEmpty([])
-  );
+  return forkJoin(jobs).pipe(defaultIfEmpty([]));
 }

@@ -1,8 +1,10 @@
-import { type Observable, throwError } from '@komore/reactive';
+import { throwError } from '@komore/reactive';
+
 import { type StyleResourceLoader } from './style-resource-loader';
 
 /**
  * Returns a function that loads a style element from a link element
+ *
  * @param styleResourceLoader Style resource loader
  * @returns Function that loads a style element from a link element
  */

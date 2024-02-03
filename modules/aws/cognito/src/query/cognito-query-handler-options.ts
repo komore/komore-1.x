@@ -1,7 +1,5 @@
 import { type CognitoIdentityProviderClient } from '@aws-sdk/client-cognito-identity-provider';
 
-import { type Observable } from '@komore/reactive';
-
 /**
  * Cognito query handler options
  */

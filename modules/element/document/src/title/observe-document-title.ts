@@ -1,5 +1,5 @@
 import { isNotNull } from '@komore/functional';
-import { filter, fromEvent, map, switchMap, type Observable } from '@komore/reactive';
+import { filter, fromEvent, map, switchMap } from '@komore/reactive';
 
 import { observeTitleElementNodeValueMutations } from './observe-title-element-node-value-mutations';
 

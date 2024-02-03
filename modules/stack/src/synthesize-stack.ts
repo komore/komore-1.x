@@ -1,4 +1,5 @@
-import { first, type Observable } from '@komore/reactive';
+import { first } from '@komore/reactive';
+
 import { type Stack } from './stack';
 import { type StackSynthesisOptions } from './stack-synthesis-options';
 

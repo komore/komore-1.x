@@ -2,7 +2,7 @@ import { type PathLike } from 'node:fs';
 
 import { jsonToObject } from '@komore/json';
 import { readFileContent } from '@komore/node/file-system';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type PackageJson } from './package-json';
 

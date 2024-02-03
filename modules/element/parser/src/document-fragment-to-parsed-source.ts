@@ -1,5 +1,6 @@
 import { isNotNull } from '@komore/functional';
-import { defer, forkJoin, map, type Observable } from '@komore/reactive';
+import { defer, forkJoin, map } from '@komore/reactive';
+
 import { type ParsedSource } from './parsed-source';
 import { isEligibleScriptElement } from './script/is-script-element';
 import { parseScriptElements } from './script/parse-script-elements';

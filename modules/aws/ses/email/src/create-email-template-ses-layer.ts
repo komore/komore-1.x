@@ -1,8 +1,8 @@
 import { type CreateEmailTemplateCommandInput, type SESv2Client } from "@aws-sdk/client-sesv2";
 
-import { createEmailTemplate } from "@komore/aws/ses";
+import { createSesEmailTemplate } from "@komore/aws/ses";
 import { type EmailTemplate } from "@komore/email";
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 /**
  * createEmailTemplate SES layer
@@ -11,7 +11,7 @@ import { map, type Observable } from '@komore/reactive';
 export function createEmailTemplateSESLayer(sesClient: SESv2Client) {
   return (emailTemplate: Omit<EmailTemplate, 'id'>): Observable<EmailTemplate> => {
     const commandInput = buildCommandInput(emailTemplate);
-    return createEmailTemplate(sesClient, commandInput).pipe(
+    return createSesEmailTemplate(sesClient, commandInput).pipe(
       map(() => ({
         ...emailTemplate,
         id: emailTemplate.name

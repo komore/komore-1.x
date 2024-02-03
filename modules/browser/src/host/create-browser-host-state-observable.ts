@@ -1,13 +1,4 @@
-import {
-  cache,
-  distinctUntilChanged,
-  fromEvent,
-  map,
-  mapTo,
-  merge,
-  startWith,
-  type Observable,
-} from '@komore/reactive';
+import { cache, distinctUntilChanged, fromEvent, map, mapTo, merge, startWith } from '@komore/reactive';
 import { HostState } from '@komore/runtime/host';
 
 import { currentDocumentVisibilityStateToBrowserHostState } from './current-document-visibility-state-to-browser-host-state';

@@ -1,5 +1,6 @@
-import { redactValue, type Observable } from '@komore/reactive';
-import { type LambdaEventContext } from '@komore/function-lambda';
+import { type LambdaEventContext } from '@komore/aws/lambda';
+import { redactValue } from '@komore/reactive';
+
 import { type SqsEvent } from './event/sqs-event';
 
 export function sqsEvent(

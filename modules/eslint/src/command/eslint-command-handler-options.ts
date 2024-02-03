@@ -3,7 +3,6 @@ import { type ESLint } from 'eslint';
 import { type CommandEventPair } from '@komore/client';
 import { CommandFromType } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 import { type esLintCommand } from '../eslint.command';
 import { type esLintEvent } from '../eslint.event';

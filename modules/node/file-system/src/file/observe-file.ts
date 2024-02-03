@@ -1,7 +1,5 @@
 import { watch, type PathLike } from 'node:fs';
 
-import { Observable } from '@komore/reactive';
-
 /**
  * Observes a file
  *

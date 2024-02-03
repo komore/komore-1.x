@@ -1,6 +1,5 @@
 import { withLatestFrom as rxjsWithLatestFrom } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type ObservableTuple } from '../observable-tuple';
 import { type OperatorFunction } from '../operator-function';
 

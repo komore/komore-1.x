@@ -1,8 +1,10 @@
-import { mapTo, type Observable, redactValue } from '@komore/reactive';
+import { mapTo, redactValue } from '@komore/reactive';
+import {} from '@komore/testing';
+
 import { expectTypeOf } from 'expect-type';
 import { createFunction } from './create-function';
 
-describe('Create function', () => {
+feature('Create function', () => {
   it('returns a function with the correct function name', () => {
     when: 'creating a function';
     const functionName = 'test-function';

@@ -1,8 +1,8 @@
-import { map, mergeMap, type Observable, of } from '@komore/reactive';
 import { fromIDBRequest } from './from-idb-request';
 
 /**
- * Gets an IndexedDB item
+ * Creates a function that returns an IndexedDB item
+ *
  * @param idbDatabase IndexedDB database
  * @param storeName Store name
  * @param key Key
@@ -10,13 +10,13 @@ import { fromIDBRequest } from './from-idb-request';
  */
 export function getIndexedDBItem<T>(
   idbDatabase: IDBDatabase,
-  storeName: string,
-  key: IDBValidKey | IDBKeyRange
-): Observable<T | undefined> {
-  return of(idbDatabase).pipe(
-    map(database => database.transaction(storeName, 'readwrite')),
-    map(transaction => transaction.objectStore(storeName)),
-    map(objectStore => objectStore.get(key) as IDBRequest<T | undefined>),
-    mergeMap(fromIDBRequest)
-  );
+  storeName: string
+): (key: IDBValidKey | IDBKeyRange) => Observable<T | undefined> {
+  const transaction = idbDatabase.transaction(storeName, 'readonly');
+  const objectStore = transaction.objectStore(storeName);
+
+  return key => {
+    const idbRequest = objectStore.get(key);
+    return fromIDBRequest(idbRequest);
+  };
 }

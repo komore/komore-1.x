@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type DiscordChannelSnowflake } from '../channel/snowflake/discord-channel-snowflake';
 import { type DiscordApiClient } from '../discord-api-client';
 

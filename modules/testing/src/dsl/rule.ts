@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 //import { SpecificationNotPreprocessedError } from '../error/specification-not-preprocessed-error';
 
 /**

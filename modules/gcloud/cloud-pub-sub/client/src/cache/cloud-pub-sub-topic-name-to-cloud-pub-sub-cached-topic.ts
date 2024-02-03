@@ -2,7 +2,7 @@ import { type PubSub } from '@google-cloud/pubsub';
 
 import { parseAvroSchema } from '@komore/avro';
 import { type CloudPubSubTopicName } from '@komore/gcloud/cloud-pub-sub';
-import { defer, fromPromise, map, type Observable } from '@komore/reactive';
+import { defer, fromPromise, map } from '@komore/reactive';
 
 import { type CloudPubSubCachedTopic } from './cloud-pub-sub-cached-topic';
 

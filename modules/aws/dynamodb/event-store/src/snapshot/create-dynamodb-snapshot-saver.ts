@@ -1,11 +1,14 @@
 import { type BatchWriteItemCommandInput, type DynamoDBClient, type WriteRequest } from '@aws-sdk/client-dynamodb';
-import { type Snapshot } from '@komore/event/store';
-import { batchWriteItem } from '@komore/integration-amazon/dynamodb';
-import { type Observable, redactValue } from '@komore/reactive';
+
+import { batchWriteItem } from '@komore/aws/dynamodb';
+import { type EventStoreSnapshot } from '@komore/event/store';
+import { redactValue } from '@komore/reactive';
+
 import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 /**
  * Creates a DynamoDB snapshot saver function that stores snapshots in a DynamoDB table
+ *
  * @param dynamoDBClient DynamoDB client
  * @param tableName Table name
  * @param attributeNames Attribute names
@@ -16,7 +19,7 @@ export function createDynamoDBSnapshotSaver<StateType>(
   dynamoDBClient: DynamoDBClient,
   tableName: string,
   attributeNames: DynamoDBSnapshotAttributeNames
-): (snapshots: ReadonlyArray<Snapshot<StateType>>) => Observable<void> {
+): (snapshots: ReadonlyArray<EventStoreSnapshot<StateType>>) => Observable<void> {
   const fromSnapshot = createFromSnapshotMapper(attributeNames);
 
   return snapshots => {
@@ -31,12 +34,13 @@ export function createDynamoDBSnapshotSaver<StateType>(
 
 /**
  * Creates a mapper that maps snapshots to DynamoDB write requests
+ *
  * @param attributeNames Attribute names
  * @returns Mapper
  * @template StateType State type
  */
 function createFromSnapshotMapper<StateType>(attributeNames: DynamoDBSnapshotAttributeNames) {
-  return (snapshot: Snapshot<StateType>): WriteRequest => ({
+  return (snapshot: EventStoreSnapshot<StateType>): WriteRequest => ({
     PutRequest: {
       Item: {
         [attributeNames.aggregateKey]: {

@@ -1,7 +1,7 @@
 import { type FileHandle } from 'node:fs/promises';
 
 import { isString } from '@komore/string';
-import { mapTo, type Observable } from '@komore/reactive';
+import { mapTo } from '@komore/reactive';
 
 import { writeFileContent } from '../content/write-file-content';
 import { writeFile } from './write-file';

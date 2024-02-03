@@ -1,4 +1,5 @@
-import { type Observable, of } from '@komore/reactive';
+import { of } from '@komore/reactive';
+
 import { createProcessor } from '../create-processor';
 import { scriptProcessorFactories } from './script-processor-factories';
 import { type ScriptProcessorInput } from './script-processor-input';
@@ -17,7 +18,7 @@ export function processScriptElement(scriptElement: HTMLScriptElement): Observab
   const scriptProcessor = createProcessor(scriptProcessorFactories, type, {});
   const scriptProcessorInput: ScriptProcessorInput = {
     sourceFileName,
-    sourceContent
+    sourceContent,
   };
   return scriptProcessor(of(scriptProcessorInput));
 }

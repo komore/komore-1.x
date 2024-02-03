@@ -1,10 +1,10 @@
-import { EMPTY, type Observable } from '@komore/reactive';
+import { empty } from '@komore/reactive';
 
 /**
  * Checks whether updates are available
  */
 export function checkForUpdates(): Observable<never> {
-  return EMPTY;
+  return empty;
 }
 
 /*

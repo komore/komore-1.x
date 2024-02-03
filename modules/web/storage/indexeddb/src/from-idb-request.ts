@@ -1,7 +1,6 @@
-import { Observable } from '@komore/reactive';
-
 /**
  * IndexedDB request event
+ *
  * @template T Event value type
  */
 type IDBRequestEvent<T> = Event & {
@@ -12,6 +11,7 @@ type IDBRequestEvent<T> = Event & {
 
 /**
  * Tests whether an event is a database request event
+ *
  * @param event Event
  * @returns true if the event is a database request event
  * @template T Event value type

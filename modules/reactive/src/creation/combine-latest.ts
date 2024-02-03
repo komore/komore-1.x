@@ -1,6 +1,7 @@
-import { type ReadonlyRecord } from '@komore/typescript';
 import { combineLatest as rxjsCombineLatest } from 'rxjs';
-import { type Observable } from '../observable';
+
+import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type ObservableTuple } from '../observable-tuple';
 import { type ObservableType } from '../observable-type';
 

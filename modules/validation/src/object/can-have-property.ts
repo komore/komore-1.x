@@ -1,6 +1,7 @@
 import { identity } from '@komore/functional';
-import { mergeMap, of, type Observable, type OperatorFunction } from '@komore/reactive';
+import { mergeMap, of, type OperatorFunction } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type ValidationContext } from '../context/validation-context';
 
 /**
@@ -15,7 +16,7 @@ import { type ValidationContext } from '../context/validation-context';
 export function canHaveProperty<
   InputType extends ReadonlyRecord<string, unknown>,
   OutputType,
-  PropertyKey extends keyof InputType | string
+  PropertyKey extends keyof InputType | string,
 >(
   _propertyKey: PropertyKey,
   project?: (

@@ -1,4 +1,4 @@
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Returns a user's media stream, prompting the user to choose a media input from which the stream will be produced

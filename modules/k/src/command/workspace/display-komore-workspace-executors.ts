@@ -1,7 +1,7 @@
 import { cliEvent } from '@komore/cli';
 import { arrayToArraySorted, each } from '@komore/collection';
 import { type EventFromType } from '@komore/event';
-import { first, map, tapNext, type Observable } from '@komore/reactive';
+import { first, map, tapNext } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
 
 import { byName } from './by-name';

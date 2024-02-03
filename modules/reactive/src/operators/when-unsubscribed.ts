@@ -1,5 +1,4 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { Observable } from '../observable';
 
 /**
  * Executes code whenever an observable is unsubscribed from

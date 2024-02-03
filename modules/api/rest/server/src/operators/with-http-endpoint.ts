@@ -1,5 +1,5 @@
 import { type HttpContext } from '@komore/api/http';
-import { mergeMap, type MonoTypeOperatorFunction, type Observable, of } from '@komore/reactive';
+import { mergeMap, of, type MonoTypeOperatorFunction } from '@komore/reactive';
 
 /**
  * Adds an HTTP endpoint with deeper endpoints to an HTTP context pipeline
@@ -63,7 +63,7 @@ function withHttpEndpointProjection(
 function withHttpEndpointHandler<
   ResponseType,
   RequestType,
-  QueryParameterTypes extends Record<string, string> | undefined = undefined
+  QueryParameterTypes extends Record<string, string> | undefined = undefined,
 >(
   verb: string | ((verb: string) => boolean),
   path: string | ((path: string) => boolean),

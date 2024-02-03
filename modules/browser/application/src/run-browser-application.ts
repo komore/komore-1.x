@@ -1,7 +1,7 @@
 import { runApplication } from '@komore/application';
 import { createBrowserHost } from '@komore/browser';
 import { type GenericCommand } from '@komore/command';
-import { EMPTY, type Observable } from '@komore/reactive';
+import { empty } from '@komore/reactive';
 
 import { type BrowserApplicationOptions } from './browser-application-options';
 import { setupBrowserApplication } from './setup-browser-application';
@@ -20,7 +20,7 @@ export function runBrowserApplication<Options extends BrowserApplicationOptions<
     main: () => {
       setupBrowserApplication();
 
-      return EMPTY;
+      return empty;
     },
   });
 }

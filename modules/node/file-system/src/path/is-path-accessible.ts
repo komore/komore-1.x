@@ -1,7 +1,7 @@
 import { type PathLike } from 'node:fs';
 import { access } from 'node:fs/promises';
 
-import { deferPromise, mapErrorTo, mapTo, type Observable } from '@komore/reactive';
+import { deferPromise, mapErrorTo, mapTo } from '@komore/reactive';
 
 /**
  * Creates a function that tests whether a path is accessible

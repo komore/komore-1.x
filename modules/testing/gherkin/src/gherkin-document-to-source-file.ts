@@ -1,6 +1,7 @@
-import { EMPTY, type Observable } from '@komore/reactive';
-import { type SourceFile } from 'typescript';
 import { type GherkinDocument } from '@cucumber/messages';
+import { type SourceFile } from 'typescript';
+
+import { empty } from '@komore/reactive';
 
 /**
  * Creates a function that generates a TypeScript source file from a Gherkin document
@@ -8,6 +9,6 @@ import { type GherkinDocument } from '@cucumber/messages';
 export function gherkinDocumentToSourceFile(): (document: GherkinDocument) => Observable<SourceFile> {
   return document => {
     console.log('doc', document.comments);
-    return EMPTY;
-  }
+    return empty;
+  };
 }

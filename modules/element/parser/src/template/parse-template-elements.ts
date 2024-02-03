@@ -1,13 +1,15 @@
-import { type Observable, of } from '@komore/reactive';
-import { toLowerCaseString } from '@komore/string';
+import { of } from '@komore/reactive';
+import { stringToLowerCase } from '@komore/string';
+
 import { htmlElementToParsedElementAttributes } from '../attribute/html-element-to-parsed-element-attributes';
-import { templateElementToElementBaseClassInfo } from './template-element-to-element-base-class-info';
 import { getElementClassName } from './get-element-class-name';
 import { getElementTagName } from './get-element-tag-name';
 import { type ParsedElementTemplate } from './parsed-element-template';
+import { templateElementToElementBaseClassInfo } from './template-element-to-element-base-class-info';
 
 /**
  * Parses template elements
+ *
  * @param templateElements HTML template elements
  * @param scriptElements List of HTML script elements
  * @returns Parsed element
@@ -27,7 +29,7 @@ export function parseTemplateElements(
     className,
     tagName,
     parsedAttributes,
-    templateElement
+    templateElement,
   };
 
   return of(parsedElementTemplate);
@@ -49,6 +51,9 @@ function getTemplateElement(templateElements: ReadonlyArray<HTMLElement>): HTMLE
     throw new Error('an element template must have a root element');
   }
 
-  const tagNamesList = templateElements.map(({ tagName }) => tagName).map(toLowerCaseString).join(', ');
+  const tagNamesList = templateElements
+    .map(element => element.tagName)
+    .map(stringToLowerCase)
+    .join(', ');
   throw new Error(`an element template cannot have more than one root element (found: ${tagNamesList})`);
 }

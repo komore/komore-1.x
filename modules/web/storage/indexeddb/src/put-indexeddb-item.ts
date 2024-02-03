@@ -1,4 +1,5 @@
-import { defer, type Observable } from '@komore/reactive';
+import { defer } from '@komore/reactive';
+
 import { fromIDBRequest } from './from-idb-request';
 
 /**

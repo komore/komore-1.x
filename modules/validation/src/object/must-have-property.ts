@@ -1,4 +1,4 @@
-import { map, mergeMap, of, type Observable, type OperatorFunction } from '@komore/reactive';
+import { map, mergeMap, of, type OperatorFunction } from '@komore/reactive';
 import { type Expand, type ReadonlyRecord } from '@komore/typescript';
 
 import { type ValidationContext } from '../context/validation-context';
@@ -16,7 +16,7 @@ import { ConstraintViolationError } from '../error/constraint-violation-error';
 export function mustHaveProperty<
   InputType,
   PropertyKey extends keyof InputType | string,
-  OutputType = PropertyKey extends keyof InputType ? NonNullable<InputType[PropertyKey]> : unknown
+  OutputType = PropertyKey extends keyof InputType ? NonNullable<InputType[PropertyKey]> : unknown,
 >(
   propertyKey: PropertyKey,
   project?: (

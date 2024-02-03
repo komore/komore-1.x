@@ -1,7 +1,7 @@
 import { type HttpOperationResponse, type WebResourceLike } from '@azure/core-http';
 
 import { httpClientResponseToJson, type HttpClientResponse } from '@komore/http/client';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 /**
  * Creates a function that returns an Azure Core HTTP operation response, given an HTTP client response

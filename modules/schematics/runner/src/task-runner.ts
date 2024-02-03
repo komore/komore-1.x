@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type GenericWorkspaceExecutorEvent, type TaskReference } from '@komore/schematics';
 
 /**

@@ -1,8 +1,8 @@
 import { type UnaryFunction } from '@komore/functional';
-import { type Observable } from './observable';
 
 /**
  * Operator function
+ *
  * @template InputType Input type
  * @template OutputType Output type
  */

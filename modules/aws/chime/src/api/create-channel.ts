@@ -1,6 +1,8 @@
 import { type ChimeClient, CreateChannelCommand, type CreateChannelCommandInput } from '@aws-sdk/client-chime';
-import { sendAwsCommand } from '@komore/integration-aws';
-import { map, type Observable } from '@komore/reactive';
+
+import { sendAwsCommand } from '@komore/aws';
+
+import { map } from '@komore/reactive';
 
 /**
  * Creates a channel

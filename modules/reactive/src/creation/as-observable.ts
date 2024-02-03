@@ -1,5 +1,4 @@
 import { isObservable } from '../is-observable';
-import { type Observable } from '../observable';
 import { of } from './of';
 
 /**

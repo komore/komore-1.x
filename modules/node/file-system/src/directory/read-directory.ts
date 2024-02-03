@@ -1,7 +1,7 @@
 import { type Dirent, type ObjectEncodingOptions, type PathLike } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Reads a directory

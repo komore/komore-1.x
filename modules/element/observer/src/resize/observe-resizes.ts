@@ -1,4 +1,4 @@
-import { Observable, throwError } from '@komore/reactive';
+import { throwError } from '@komore/reactive';
 
 import { elementObserverError } from '../element-observer.error';
 

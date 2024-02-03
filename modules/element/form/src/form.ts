@@ -1,7 +1,6 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Form
+ *
  * @template T Form data type
  */
 export interface Form<T extends Record<string, unknown>> {

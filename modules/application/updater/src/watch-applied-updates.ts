@@ -1,5 +1,3 @@
-import { NEVER, type Observable } from '@komore/reactive';
-
 import { type Update } from './update';
 
 /**
@@ -9,7 +7,7 @@ import { type Update } from './update';
  * @template DataType Update data type
  */
 export function watchAppliedUpdates<DataType = undefined>(): Observable<Update<DataType>> {
-  return NEVER;
+  return new Observable<never>();
 }
 
 /*

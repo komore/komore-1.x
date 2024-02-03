@@ -1,6 +1,6 @@
 import { type WriteStream } from 'node:fs';
 
-import { mapTo, type Observable } from '@komore/reactive';
+import { mapTo } from '@komore/reactive';
 
 import { writeFileStream } from './write-file-stream';
 import { type WriteFileStreamOptions } from './write-file-stream-options';

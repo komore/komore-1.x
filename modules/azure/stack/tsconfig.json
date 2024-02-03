@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../../conf/tsconfig.base.json",
+  "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
       "path": "./azure-stack.tsconfig.library.json"

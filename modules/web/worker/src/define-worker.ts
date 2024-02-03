@@ -1,4 +1,4 @@
-import { fromEvent, type Observable, type Observer } from '@komore/reactive';
+import { fromEvent, type Observer } from '@komore/reactive';
 
 import { type DefineWorkerOptions } from './define-worker-options';
 

@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type Validator } from './validator';
 
 /**

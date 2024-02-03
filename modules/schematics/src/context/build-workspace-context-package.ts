@@ -3,16 +3,7 @@ import { join } from 'node:path';
 import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
 import { readPackageJson } from '@komore/node/package';
-import {
-  cache,
-  combineLatest,
-  map,
-  mergeMap,
-  ObservableMap,
-  switchMap,
-  throwUnless,
-  type Observable,
-} from '@komore/reactive';
+import { cache, combineLatest, map, mergeMap, ObservableMap, switchMap, throwUnless } from '@komore/reactive';
 import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { type InstalledPackage } from '../package/installed-package';

@@ -2,7 +2,7 @@ import { join } from 'node:path';
 
 import { each } from '@komore/collection';
 import { type PackageJson } from '@komore/node/package';
-import { map, of, type Observable } from '@komore/reactive';
+import { map, of } from '@komore/reactive';
 
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { type PackageName } from '../package/name/package-name';

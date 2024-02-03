@@ -1,6 +1,7 @@
-import { isObservable, type Observable, of } from '@komore/reactive';
+import { isObservable, of } from '@komore/reactive';
 import { type Locales } from '@komore/web/l10n';
-import { DEFAULT_LOCALES } from './default-locales';
+
+import { defaultLocales } from './default-locales';
 
 /**
  * Builds an observable list of locales
@@ -9,7 +10,7 @@ import { DEFAULT_LOCALES } from './default-locales';
  */
 export function asObservableLocales(locales: Observable<Locales> | Locales | undefined): Observable<Locales> {
   if (locales === undefined) {
-    return DEFAULT_LOCALES;
+    return defaultLocales;
   }
 
   if (isObservable(locales)) {

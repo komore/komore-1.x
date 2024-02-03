@@ -1,5 +1,5 @@
 import { type Event } from '@komore/event';
-import { type Observable } from '@komore/reactive';
+
 import { eventLoadRequestToDynamoDBEventQueryCommandInput } from './event-load-request-to-dynamodb-query-command-input';
 
 /**

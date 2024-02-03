@@ -1,4 +1,4 @@
-import { mergeMap, take, type Observable } from '@komore/reactive';
+import { mergeMap, take } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
 

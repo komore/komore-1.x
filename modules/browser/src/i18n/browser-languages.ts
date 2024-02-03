@@ -1,4 +1,4 @@
-import { cache, deferValue, type Observable } from '@komore/reactive';
+import { cache, deferValue } from '@komore/reactive';
 
 /**
  * Browser languages

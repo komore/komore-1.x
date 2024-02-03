@@ -1,5 +1,5 @@
 import { isNotNull } from '@komore/functional';
-import { deferPromise, throwUnless, type Observable } from '@komore/reactive';
+import { deferPromise, throwUnless } from '@komore/reactive';
 
 type PasswordCredentialOptions = Required<Pick<CredentialCreationOptions, 'password'>>;
 type PublicKeyCredentialOptions = Required<Pick<CredentialCreationOptions, 'publicKey'>>;

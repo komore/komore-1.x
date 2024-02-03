@@ -1,6 +1,6 @@
 import { cliEvent } from '@komore/cli';
 import { eventToProperties, isEventOfType, type EventFromType } from '@komore/event';
-import { filter, first, map, type Observable } from '@komore/reactive';
+import { filter, first, map } from '@komore/reactive';
 
 /**
  * Returns an observable command-line interface exit code, given a stream of command-line interface events

@@ -1,6 +1,6 @@
 import { cliEvent } from '@komore/cli';
 import { type EventFromType } from '@komore/event';
-import { first, map, mergeMap, tapNext, type Observable } from '@komore/reactive';
+import { first, map, mergeMap, tapNext } from '@komore/reactive';
 import { createWorkspaceContext } from '@komore/schematics';
 
 /**

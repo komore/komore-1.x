@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 /**
  * Returns the list of screens as an observable, given screen details
  *

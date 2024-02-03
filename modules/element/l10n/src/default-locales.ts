@@ -1,4 +1,4 @@
-import { cache, type Observable, ReplaySubject } from '@komore/reactive';
+import { cache, ReplaySubject } from '@komore/reactive';
 import { type Locales } from '@komore/web/l10n';
 
 /**
@@ -7,9 +7,9 @@ import { type Locales } from '@komore/web/l10n';
 const defaultLocales$ = new ReplaySubject<Locales>(1);
 
 /**
- * Default currency
+ * Default locales
  */
-export const DEFAULT_LOCALES: Observable<Locales> = defaultLocales$.asObservable().pipe(cache());
+export const defaultLocales: Observable<Locales> = defaultLocales$.asObservable().pipe(cache());
 
 /**
  * Sets the default locales

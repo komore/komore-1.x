@@ -1,5 +1,5 @@
 import { isNotNull } from '@komore/functional';
-import { map, ReplaySubject, scan, type Observable } from '@komore/reactive';
+import { map, ReplaySubject, scan } from '@komore/reactive';
 import { assert } from '@komore/runtime';
 
 import { controllerToResponseProgressChunks } from './controller-to-response-progress-chunks';

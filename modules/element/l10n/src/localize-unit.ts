@@ -1,20 +1,14 @@
+import { pipe } from '@komore/functional';
 import { type Locales } from '@komore/web/l10n';
+import { combineLatest, isObservable, map, of, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 // TODO: remove once available without custom definition
-import { type NumberFormatOptionsUnit, type UnitLocalizationOptions } from '@komore/web/l10n';
-import {
-  combineLatest,
-  isObservable,
-  map,
-  type Observable,
-  of,
-  type OperatorFunction,
-  pipe,
-  withLatestFrom
-} from '@komore/reactive';
+import { type UnitLocalizationOptions } from '@komore/web/l10n';
+
 import { asObservableLocales } from './as-observable-locales';
 
 /**
  * Localizes a unit
+ *
  * @param unit Unit or observable unit
  * @param options Unit localization options
  * @param locales List or observable list of locales
@@ -29,15 +23,15 @@ export function localizeUnit(
   const latestUnit = isObservable(unit) ? unit : of(unit);
   const numberFormat$ = combineLatest({
     latestLocales,
-    latestUnit
+    latestUnit,
   }).pipe(
     map(({ latestLocales, latestUnit }) => ({
       locales: [...latestLocales],
       options: {
         ...options,
         style: 'unit',
-        unit: latestUnit
-      }
+        unit: latestUnit,
+      },
     })),
     map(({ locales, options }) => new Intl.NumberFormat(locales, options))
   );

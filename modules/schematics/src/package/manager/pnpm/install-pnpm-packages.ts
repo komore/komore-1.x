@@ -1,5 +1,5 @@
 import { executeChildProcess } from '@komore/node/process';
-import { redactValue, type Observable } from '@komore/reactive';
+import { redactValue } from '@komore/reactive';
 
 /**
  * Creates a function that installs pnpm packages

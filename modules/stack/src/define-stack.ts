@@ -1,10 +1,13 @@
-import { catchError, defer, EMPTY, mapTo, of, switchMap, type Observable } from '@komore/reactive';
 import { App, type TerraformStack } from 'cdktf';
+
+import { catchError, defer, empty, mapTo, of, switchMap } from '@komore/reactive';
+
 import { type GenericScope } from './scope/generic-scope';
 import { Stack } from './stack';
 
 /**
  * Defines a stack
+ *
  * @param stackId Stack identifier
  * @param project Projection function
  * @returns Observable stack
@@ -22,7 +25,7 @@ export function defineStack<ScopeType extends GenericScope>(
         project(of(scope)).pipe(
           catchError(error => {
             console.log('Error while building the scope :(', error);
-            return EMPTY;
+            return empty;
           })
         )
       ),

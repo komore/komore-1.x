@@ -1,6 +1,6 @@
 import { type ISchema, type PubSub } from '@google-cloud/pubsub';
 
-import { fromIterable, toArray, type Observable } from '@komore/reactive';
+import { fromIterable, toArray } from '@komore/reactive';
 
 /**
  * Creates a function that returns the list of Cloud Pub/Sub schemas

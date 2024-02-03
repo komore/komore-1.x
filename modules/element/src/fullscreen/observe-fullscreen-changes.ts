@@ -1,4 +1,4 @@
-import { fromEvent, map, mapToError, merge, type Observable } from '@komore/reactive';
+import { fromEvent, map, mapToError, merge } from '@komore/reactive';
 
 import { elementError } from '../element.error';
 

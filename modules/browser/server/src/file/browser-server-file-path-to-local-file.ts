@@ -2,7 +2,7 @@ import { type EsbuildClient } from '@komore/esbuild';
 import { type MediaType } from '@komore/http';
 import { type HttpServerLocalFile } from '@komore/http/server';
 import { pathToExtension } from '@komore/node/file-system';
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { typeScriptFileToBrowserServerEsModule } from '../typescript/typescript-file-to-browser-server-es-module';

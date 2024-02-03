@@ -1,6 +1,6 @@
 import { type FileHandle } from 'node:fs/promises';
 
-import { deferPromise, map, type Observable } from '@komore/reactive';
+import { deferPromise, map } from '@komore/reactive';
 import { isString } from '@komore/string';
 
 import { type WriteFileOptions } from './write-file-options';

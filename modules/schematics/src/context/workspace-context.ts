@@ -1,4 +1,4 @@
-import { type Observable, type ObservableMap } from '@komore/reactive';
+import { type ObservableMap } from '@komore/reactive';
 
 import { type ProjectName } from '../project/name/project-name';
 import { type ProjectConfiguration } from '../project/project-configuration';

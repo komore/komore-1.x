@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 import { type IpcMain, type IpcRenderer } from 'electron';
 
 /**

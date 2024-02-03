@@ -1,4 +1,4 @@
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type MsGraphApiClient } from '../msgraph-api-client';
 import { type MsGraphApiMetadata } from './msgraph-api-metadata';

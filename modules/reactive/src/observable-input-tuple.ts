@@ -2,6 +2,7 @@ import { type ObservableInput } from './observable-input';
 
 /**
  * Observable input tuple
+ *
  * @tempate T Object type
  */
 export type ObservableInputTuple<T> = {

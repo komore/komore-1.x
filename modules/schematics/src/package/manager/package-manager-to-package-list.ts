@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type InstalledPackage } from '../installed-package';
 import { type PackageManager } from './package-manager';
 

@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { fromEvent, merge } from '@komore/reactive';
 
 /**
@@ -7,6 +6,6 @@ import { fromEvent, merge } from '@komore/reactive';
 export function observeGamepads(): Observable<GamepadEvent> {
   return merge([
     fromEvent<GamepadEvent>(window, 'gamepadconnected'),
-    fromEvent<GamepadEvent>(window, 'gamepaddisconnected')
+    fromEvent<GamepadEvent>(window, 'gamepaddisconnected'),
   ]);
 }

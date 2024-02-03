@@ -1,4 +1,4 @@
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 
 import { type DiscordReceivePayload } from './discord-receive-payload';
 import { messageEventStringDataToDiscordReceivePayload } from './message-event-string-data-to-discord-receive-payload';

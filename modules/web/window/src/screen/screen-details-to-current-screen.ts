@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 /**
  * Returns the current screen as an observable, given screen details
  *

@@ -4,8 +4,8 @@ import { type Observer } from './observer';
 /**
  * No-operation observer
  */
-export const NOOP_OBSERVER: Observer<unknown> = {
+export const noopObserver: Observer<unknown> = {
   next: noop,
   error: noop,
-  complete: noop
+  complete: noop,
 };

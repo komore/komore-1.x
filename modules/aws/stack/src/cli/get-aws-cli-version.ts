@@ -1,5 +1,6 @@
-import { map, throwOnError, type Observable } from '@komore/reactive';
-import { executeChildProcess } from '@komore/runtime/node';
+import { executeChildProcess } from '@komore/node/process';
+import { map, throwOnError } from '@komore/reactive';
+
 import { AwsCliNotFoundError } from './aws-cli-not-found-error';
 
 /**

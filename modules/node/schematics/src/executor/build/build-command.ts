@@ -1,4 +1,4 @@
-import { tapNext, type Observable } from '@komore/reactive';
+import { tapNext } from '@komore/reactive';
 
 import { type BuildArguments } from './build-arguments';
 import { type BuildFlags } from './build-flags';

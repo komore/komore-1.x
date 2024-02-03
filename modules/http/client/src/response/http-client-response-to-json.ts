@@ -1,4 +1,4 @@
-import { asObservable, deferPromise, mergeMap, type Observable } from '@komore/reactive';
+import { asObservable, deferPromise, mergeMap } from '@komore/reactive';
 
 import { fetchResponseSymbol } from './fetch-response-symbol';
 import { type HttpClientResponse } from './http-client-response';

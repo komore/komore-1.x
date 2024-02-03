@@ -3,7 +3,6 @@ import { type v2 } from '@google-cloud/speech';
 import { CommandEventPair } from '@komore/client';
 import { CommandFromType } from '@komore/command';
 import { EventFromType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 import { cloudSpeechToTextCommand } from '../cloud-speech-to-text.command';
 import { cloudSpeechToTextEvent } from '../cloud-speech-to-text.event';

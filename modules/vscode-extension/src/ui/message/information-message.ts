@@ -1,5 +1,6 @@
-import { deferPromise, type Observable } from '@komore/reactive';
 import { window, type MessageItem, type MessageOptions } from 'vscode';
+
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Shows an information message

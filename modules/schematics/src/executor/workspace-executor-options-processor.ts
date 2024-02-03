@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type WorkspaceContext } from '../context/workspace-context';
 import { type ProjectConfiguration } from '../project/project-configuration';
 import { type TaskConfiguration } from '../task/task-configuration';

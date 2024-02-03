@@ -1,7 +1,7 @@
 import { type cliEvent } from '@komore/cli';
 import { type GenericCommand } from '@komore/command';
 import { type EventFromType } from '@komore/event';
-import { type Observable, type Subject } from '@komore/reactive';
+import { type Subject } from '@komore/reactive';
 
 /**
  * Command-line interface application options

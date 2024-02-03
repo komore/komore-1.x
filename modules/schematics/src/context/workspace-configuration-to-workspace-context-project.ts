@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 
 import { objectToKeys } from '@komore/functional';
-import { cache, defaultIfEmpty, defer, first, forkJoin, map, ObservableMap, type Observable } from '@komore/reactive';
+import { cache, defaultIfEmpty, defer, first, forkJoin, map, ObservableMap } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { loadProjectConfiguration } from '../project/load-project-configuration';

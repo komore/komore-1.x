@@ -1,4 +1,4 @@
-import { fromEvent, map, mergeMap, type Observable } from '@komore/reactive';
+import { fromEvent, map, mergeMap } from '@komore/reactive';
 
 import { queryPermissionStatus } from './query-permission-status';
 

@@ -1,4 +1,8 @@
-import { Intl as IntlPolyfill, Temporal as TemporalPolyfill, toTemporalInstant } from '@js-temporal/polyfill';
+import {
+  type Intl as IntlPolyfill,
+  type Temporal as TemporalPolyfill,
+  type toTemporalInstant,
+} from '@js-temporal/polyfill';
 
 declare global {
   interface Date {

@@ -1,7 +1,7 @@
 import { type PathLike } from 'node:fs';
 import { open, type FileHandle } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Opens a file

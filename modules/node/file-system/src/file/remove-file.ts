@@ -1,7 +1,7 @@
 import { type PathLike, type RmOptions } from 'node:fs';
 import { rm } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Removes a file

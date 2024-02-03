@@ -1,4 +1,3 @@
-import { type Observable } from '../observable';
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { map } from './map';
 import { type RetryOptions } from './retry-options';

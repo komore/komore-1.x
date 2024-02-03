@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { createImmediateFunction } from './create-immediate-function';
 import { createProjectedFunction } from './create-projected-function';
 

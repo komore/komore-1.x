@@ -1,6 +1,6 @@
 import { cliEvent } from '@komore/cli';
 import { type EventFromType } from '@komore/event';
-import { endWith, fromArray, map, mergeMap, type Observable } from '@komore/reactive';
+import { endWith, fromArray, map, mergeMap } from '@komore/reactive';
 import {
   packageReferenceNameToPackageReference,
   packageReferenceToExportedEntry,

@@ -1,7 +1,7 @@
 import { isArrayOfLength } from '@komore/collection';
 import { type TypeScriptApiFunctionDeclarationDescription } from '@komore/documentation';
 import { createTypeScriptApiDescription, type TypeScriptApiDescriptionOptions } from '@komore/documentation/generator';
-import { endWith, startWith, type Observable, map, tapNext } from '@komore/reactive';
+import { endWith, map, startWith, tapNext } from '@komore/reactive';
 import {
   createWorkspaceExecutorEvent,
   toWorkspaceExecutorTaskMessageEvent,

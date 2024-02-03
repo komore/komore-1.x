@@ -1,6 +1,6 @@
 import { sample as rxjsSample } from 'rxjs';
+
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { type Observable } from '../observable';
 
 /**
  * Emits the most recently emitted value from the source observable whenever the `notifier` emits

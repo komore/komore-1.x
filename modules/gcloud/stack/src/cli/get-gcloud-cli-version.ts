@@ -1,6 +1,7 @@
-import { jsonToObject } from '@komore/functional';
-import { map, type Observable } from '@komore/reactive';
-import { executeChildProcess } from '@komore/runtime/node';
+import { jsonToObject } from '@komore/json';
+import { executeChildProcess } from '@komore/node/process';
+import { map } from '@komore/reactive';
+
 import { type GcloudCliVersionDetails } from './gcloud-cli-version-details';
 
 export function getGcloudCliVersion(basePath: string): Observable<string> {

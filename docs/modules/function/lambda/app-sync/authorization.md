@@ -71,7 +71,6 @@ resource "aws_appsync_graphql_api" "example_with_api_key" {
 To ensure the function is being executed using an API key authorization, [`hasApiKeyAuthorization()`] can be used:
 
 ```ts
-import { type Observable } from '@komore/reactive';
 import { type AppSyncEvent } from '@komore/function-lambda/app-sync';
 import { hasApiKeyAuthorization } from '@komore/function-lambda/app-sync';
 
@@ -105,7 +104,6 @@ To ensure the function is being executed using a Cognito user pool authorization
 used:
 
 ```ts
-import { type Observable } from '@komore/reactive';
 import { type AppSyncEvent } from '@komore/function-lambda/app-sync';
 import { hasCognitoAuthorization } from '@komore/function-lambda/app-sync';
 

@@ -2,7 +2,7 @@ import { type FunctionDeclaration } from 'ts-morph';
 
 import { type TypeScriptApiFunctionDescription } from '@komore/documentation';
 import { isDefined } from '@komore/functional';
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 
 import { documentationGeneratorError } from '../../documentation-generator.error';
 import { functionDeclarationToTypeScriptApiFunctionDeclarationDescription } from './function-declaration-to-typescript-api-function-declaration-description';

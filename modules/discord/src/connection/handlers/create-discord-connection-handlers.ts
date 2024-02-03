@@ -1,4 +1,4 @@
-import { filter, ignoreValues, map, merge, share, switchMap, type Observable, mapTo, tapNext } from '@komore/reactive';
+import { filter, ignoreValues, map, mapTo, merge, share, switchMap, tapNext } from '@komore/reactive';
 
 import { discordHelloOpcode } from '../data/discord-hello-event-data';
 import { discordIdentifyOpcode } from '../data/discord-identify-event-data';

@@ -1,5 +1,7 @@
 import { type protos } from '@google-cloud/language';
-import { deferPromise, map, type Observable } from '@komore/reactive';
+
+import { deferPromise, map } from '@komore/reactive';
+
 import { type CloudNaturalLanguageClient } from '../cloud-natural-language-client';
 
 /**

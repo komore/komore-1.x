@@ -1,14 +1,5 @@
 import { each } from '@komore/collection';
-import {
-  cache,
-  defaultIfEmpty,
-  forkJoin,
-  map,
-  mergeMap,
-  ObservableMap,
-  switchMap,
-  type Observable,
-} from '@komore/reactive';
+import { cache, defaultIfEmpty, forkJoin, map, mergeMap, ObservableMap, switchMap } from '@komore/reactive';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';

@@ -1,6 +1,6 @@
 import { type PathLike } from 'node:fs';
 
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { getPathStatistics } from './get-path-statistics';
 

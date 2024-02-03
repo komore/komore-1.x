@@ -1,5 +1,5 @@
 import { type PackageJson } from '@komore/node/package';
-import { type Observable, type ObservableMap } from '@komore/reactive';
+import { type ObservableMap } from '@komore/reactive';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';

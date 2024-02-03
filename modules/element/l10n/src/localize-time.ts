@@ -1,4 +1,5 @@
-import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { pipe } from '@komore/functional';
+import { map, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 import { type Locales, type TimeLocalizationOptions } from '@komore/web/l10n';
 import { asObservableLocales } from './as-observable-locales';
 
@@ -13,7 +14,7 @@ export function localizeTime(
   locales?: Observable<Locales> | Locales
 ): OperatorFunction<Date, string> {
   const dateTimeFormatOptions: Intl.DateTimeFormatOptions = {
-    ...options?.format
+    ...options?.format,
   };
   const timeFormat$ = asObservableLocales(locales).pipe(
     map(locales => new Intl.DateTimeFormat([...locales], dateTimeFormatOptions))

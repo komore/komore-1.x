@@ -1,7 +1,6 @@
 import { share as rxjsShare } from 'rxjs';
 
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { type Observable } from '../observable';
 import { type Subject } from '../subject/subject';
 
 /**

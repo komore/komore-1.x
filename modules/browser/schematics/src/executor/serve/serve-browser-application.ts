@@ -1,5 +1,5 @@
 import { createBrowserServer } from '@komore/browser/server';
-import { EMPTY, endWith, mergeMap, startWith, type Observable } from '@komore/reactive';
+import { empty, endWith, mergeMap, startWith } from '@komore/reactive';
 import { createServerHttpHeader } from '@komore/http';
 import { createWorkspaceExecutorEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
 
@@ -35,7 +35,7 @@ export function serveBrowserApplication(
     port,
   }).pipe(
     mergeMap(_httpServer =>
-      EMPTY.pipe(
+      empty.pipe(
         startWith(createWorkspaceExecutorEvent('task.begin', { taskId })),
         endWith(createWorkspaceExecutorEvent('task.end', { taskId }))
       )

@@ -1,5 +1,5 @@
 import { ErrorFromType } from '@komore/error';
-import { fromEvent, map, tapNext, type Observable } from '@komore/reactive';
+import { fromEvent, map, tapNext } from '@komore/reactive';
 import { runtimeHostError } from '@komore/runtime/host';
 
 export function createNodeHostErrorObservable(): Observable<ErrorFromType<typeof runtimeHostError>> {

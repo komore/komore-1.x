@@ -1,7 +1,8 @@
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Returns a function that builds a CSS style sheet from a set of CSS rules as text
+ *
  * @param options Options
  * @returns Function that builds a CSS style sheet from a set of CSS rules as text
  */

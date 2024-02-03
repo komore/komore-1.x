@@ -1,7 +1,8 @@
-import { defer, fromEvent, map, type Observable, startWith } from '@komore/reactive';
+import { defer, fromEvent, map, startWith } from '@komore/reactive';
 
 /**
  * Returns an observable that emits a slot's nodes
+ *
  * @param htmlSlotElement HTML slot element
  * @param options Options
  * @returns Observable that emits the slot's nodes then emits them again whenever they change

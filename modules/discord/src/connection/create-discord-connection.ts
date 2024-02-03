@@ -1,6 +1,6 @@
 import { pipe } from '@komore/functional';
 import { createWebSocketConnection } from '@komore/http/client/websocket';
-import { defer, mergeMap, share, Subject, ignoreValues, startWith, type Observable, filter } from '@komore/reactive';
+import { defer, filter, mergeMap, share, Subject, ignoreValues, startWith } from '@komore/reactive';
 
 import { discordGatewayOpcode } from './data/discord-gateway-event-data';
 import { type DiscordConnection } from './discord-connection';

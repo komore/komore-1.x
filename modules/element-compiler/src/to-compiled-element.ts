@@ -1,4 +1,5 @@
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
+
 import { createElementClassDeclaration } from './class/create-element-class-declaration';
 import { createElementEventMapInterfaceDeclaration } from './event/create-element-event-map-interface-declaration';
 import { createElementInterfaceDeclaration } from './interface/create-element-interface-declaration';
@@ -9,6 +10,7 @@ import { type ElementCompilerResult } from './element-compiler-result';
 
 /**
  * Creates a function that compiles a processed source
+ *
  * @param compilerOptions Element compiler options
  * @returns Function that compiles a processed source
  */
@@ -37,7 +39,7 @@ export function toCompiledElement(
     );
     const _elementInterfaceDeclaration = createElementInterfaceDeclaration(factory, elementDefinition, elementEventMap);
     const result: ElementCompilerResult = {
-      errors: []
+      errors: [],
     };
     return of(result);
   };

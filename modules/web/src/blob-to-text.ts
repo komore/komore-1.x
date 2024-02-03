@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { readBlobAsText } from './read-blob-as-text';
 
 /**

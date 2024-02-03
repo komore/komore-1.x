@@ -1,5 +1,5 @@
 import { isNotNull } from '@komore/functional';
-import { deferPromise, throwUnless, type Observable } from '@komore/reactive';
+import { deferPromise, throwUnless } from '@komore/reactive';
 
 import { webGpuError } from '../web-gpu.error';
 import { type GPUAdapterRequestOptions } from './gpu-adapter-request-options';

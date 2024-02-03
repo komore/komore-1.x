@@ -1,4 +1,4 @@
-import { fromEvent, map, type Observable } from '@komore/reactive';
+import { fromEvent, map } from '@komore/reactive';
 
 // TODO: remove this
 declare const self: ServiceWorkerGlobalScope;

@@ -1,5 +1,5 @@
 import { executeChildProcess } from '@komore/node/process';
-import { redactValue, type Observable } from '@komore/reactive';
+import { redactValue } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type PackageDependencyType } from '../package-dependency-type';

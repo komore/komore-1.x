@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type WorkspaceExecutor } from '../workspace-executor';
 import { type WorkspaceExecutorFactoryOptions } from './workspace-executor-factory-options';
 

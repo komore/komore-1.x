@@ -1,4 +1,4 @@
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Compiles a WebAssembly module from a buffer

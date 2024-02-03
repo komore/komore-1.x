@@ -1,6 +1,5 @@
 import { race as rxjsRace } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type ObservableTuple } from '../observable-tuple';
 
 /**

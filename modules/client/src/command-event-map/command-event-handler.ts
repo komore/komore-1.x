@@ -1,6 +1,5 @@
 import { type GenericCommandType } from '@komore/command';
 import { type EventFromType, type GenericEventType } from '@komore/event';
-import { type Observable } from '@komore/reactive';
 
 /**
  * Command-to-event handler

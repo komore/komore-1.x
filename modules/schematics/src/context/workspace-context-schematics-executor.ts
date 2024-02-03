@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type WorkspaceExecutorFactory } from '../executor/factory/workspace-executor-factory';
 import { type WorkspaceExecutorDefaultTaskGeneratorFactory } from '../executor/workspace-executor-default-task-generator-factory';
 import { type WorkspaceExecutorDescriptor } from '../executor/workspace-executor-descriptor';

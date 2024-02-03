@@ -1,4 +1,4 @@
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { fetchResponseSymbol } from './fetch-response-symbol';
 import { type HttpClientResponse } from './http-client-response';

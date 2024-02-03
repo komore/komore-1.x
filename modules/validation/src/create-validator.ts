@@ -1,4 +1,5 @@
-import { map, of, type Observable } from '@komore/reactive';
+import { map, of } from '@komore/reactive';
+
 import { createValidationContext } from './context/create-validation-context';
 import { type ValidationContext } from './context/validation-context';
 import { type Validator } from './validator';

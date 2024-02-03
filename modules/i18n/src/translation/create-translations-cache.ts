@@ -1,5 +1,5 @@
 import { mapToValue } from '@komore/collection';
-import { cache, type Observable } from '@komore/reactive';
+import { cache } from '@komore/reactive';
 
 import { buildTranslationsKey } from './build-translations-key';
 import { type TranslationsResolver } from './translations-resolver';

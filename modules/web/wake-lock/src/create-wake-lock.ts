@@ -1,5 +1,3 @@
-import { Observable } from '@komore/reactive';
-
 /**
  * Creates a wake lock
  *

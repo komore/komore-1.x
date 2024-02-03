@@ -1,4 +1,4 @@
-import { first, map, mergeMap, type Observable } from '@komore/reactive';
+import { first, map, mergeMap } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
 import { workspaceContextSchematicsExecutorToDefaultTaskGenerator } from '../../context/workspace-context-schematics-executor-to-default-task-generator';

@@ -1,7 +1,7 @@
 import { type PathLike } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { type WriteFileContentOptions } from './write-file-content-options';
 

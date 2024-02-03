@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 
-import { cache, map, type Observable } from '@komore/reactive';
+import { cache, map } from '@komore/reactive';
 import { loadTypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { loadWorkspaceConfiguration } from '../workspace/load-workspace-configuration';

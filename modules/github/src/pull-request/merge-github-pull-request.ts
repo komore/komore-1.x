@@ -1,4 +1,4 @@
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type GitHubApiClient } from '../github-api-client';
 

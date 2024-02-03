@@ -1,8 +1,9 @@
 import {
   type ElementEventDefinition,
   type ElementMethodDefinition,
-  type ElementPropertyDefinition
-} from '@komore/element/compiler/processor';
+  type ElementPropertyDefinition,
+} from '@komore/element-compiler/processor';
+
 import { type ObservableTransformerFactory } from './transformer/observable-transformer-factory';
 
 /**

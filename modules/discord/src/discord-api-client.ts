@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Discord API client
  */

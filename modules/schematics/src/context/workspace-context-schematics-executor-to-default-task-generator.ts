@@ -1,4 +1,4 @@
-import { first, map, type Observable } from '@komore/reactive';
+import { first, map } from '@komore/reactive';
 
 import { type WorkspaceExecutorDefaultTaskGenerator } from '../executor/workspace-executor-default-task-generator';
 import { type WorkspaceContext } from './workspace-context';

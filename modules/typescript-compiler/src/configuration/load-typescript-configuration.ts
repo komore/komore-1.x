@@ -1,6 +1,6 @@
 import { dirname, resolve } from 'node:path';
 
-import { EMPTY, expand, map, reduce, type Observable } from '@komore/reactive';
+import { EMPTY, expand, map, reduce } from '@komore/reactive';
 
 import { extendedTypeScriptConfigurationsToTypeScriptConfiguration } from './extended-typescript-configurations-to-typescript-configuration';
 import { loadExtendedTypeScriptConfiguration } from './load-extended-typescript-configuration';

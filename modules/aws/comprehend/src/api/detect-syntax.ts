@@ -4,8 +4,9 @@ import {
   type DetectSyntaxCommandInput,
   type SyntaxToken,
 } from '@aws-sdk/client-comprehend';
-import { sendAwsCommand, type FixedAwsType } from '@komore/integration-aws';
-import { map, type Observable } from '@komore/reactive';
+
+import { sendAwsCommand, type FixedAwsType } from '@komore/aws';
+import { map } from '@komore/reactive';
 
 type DetectSyntaxCommandInputFixed = FixedAwsType<DetectSyntaxCommandInput, 'LanguageCode' | 'Text'>;
 

@@ -1,5 +1,4 @@
 import { of } from '../creation/of';
-import { type Observable } from '../observable';
 import { type ObservableInput } from '../observable-input';
 import { type OperatorFunction } from '../operator-function';
 import { catchErrorIf } from './catch-error-if';

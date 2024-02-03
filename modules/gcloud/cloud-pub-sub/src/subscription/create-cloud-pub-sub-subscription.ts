@@ -1,6 +1,6 @@
 import { CreateSubscriptionOptions, type CreateSubscriptionResponse, type PubSub } from '@google-cloud/pubsub';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { type CloudPubSubSubscriptionName } from './name/cloud-pub-sub-subscription-name';
 import { type CloudPubSubTopicName } from '../topic/name/cloud-pub-sub-topic-name';

@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 
 import { isPathAccessible } from '@komore/node/file-system';
-import { concatMap, filter, first, fromArray, mapTo, throwIfEmpty, type Observable } from '@komore/reactive';
+import { concatMap, filter, first, fromArray, mapTo, throwIfEmpty } from '@komore/reactive';
 
 import { schematicsError } from '../../schematics.error';
 import { type PackageManagerType } from './package-manager-type';

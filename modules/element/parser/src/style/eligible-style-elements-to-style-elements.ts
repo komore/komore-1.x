@@ -1,4 +1,5 @@
-import { defaultIfEmpty, forkJoin, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, forkJoin } from '@komore/reactive';
+
 import { type EligibleStyleElement } from './eligible-style-element';
 import { eligibleStyleElementToStyleElement } from './eligible-style-element-to-style-element';
 import { type StyleResourceLoader } from './style-resource-loader';

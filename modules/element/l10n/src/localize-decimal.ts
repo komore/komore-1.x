@@ -1,5 +1,7 @@
+import { pipe } from '@komore/functional';
+import { map, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 import { type DecimalLocalizationOptions, type Locales } from '@komore/web/l10n';
-import { map, type Observable, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+
 import { asObservableLocales } from './as-observable-locales';
 
 /**
@@ -14,7 +16,7 @@ export function localizeDecimal(
 ): OperatorFunction<number, string> {
   const numberFormatOptions: Intl.NumberFormatOptions = {
     ...options,
-    style: 'decimal'
+    style: 'decimal',
   };
   const numberFormat$ = asObservableLocales(locales).pipe(
     map(locales => new Intl.NumberFormat([...locales], numberFormatOptions))

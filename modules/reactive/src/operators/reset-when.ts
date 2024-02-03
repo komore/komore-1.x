@@ -1,5 +1,4 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { type Observable } from '../observable';
 import { startWith } from './start-with';
 import { switchMapTo } from './switch-map-to';
 

@@ -1,6 +1,6 @@
 import { isDefined } from '@komore/functional';
 import { isErrnoException } from '@komore/node';
-import { deferValue, map, throwIfError, throwUnless, type Observable } from '@komore/reactive';
+import { deferValue, map, throwIfError, throwUnless } from '@komore/reactive';
 import { isString } from '@komore/string';
 import { type ReadonlyRecord } from '@komore/typescript';
 

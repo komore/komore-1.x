@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type NotionApiClient } from '../notion-api-client';
 import { type NotionObjectTypes } from '../object/notion-object-types';
 import { type PaginatedNotionResult } from '../pagination/paginated-notion-result';

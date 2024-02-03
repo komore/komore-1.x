@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 /**
  * Teams API client
  */

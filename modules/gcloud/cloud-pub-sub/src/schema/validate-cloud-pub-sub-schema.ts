@@ -1,6 +1,6 @@
 import { type ISchema, type PubSub } from '@google-cloud/pubsub';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Creates a function that validates a Cloud Pub/Sub schema

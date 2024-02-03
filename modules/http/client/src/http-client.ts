@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type HttpClientRequest } from './request/http-client-request';
 import { type HttpClientResponse } from './response/http-client-response';
 

@@ -1,7 +1,7 @@
 import { IntlMessageFormat } from 'intl-messageformat';
 
 import { mapToValue } from '@komore/collection';
-import { cache, distinctUntilChanged, map, type Observable } from '@komore/reactive';
+import { cache, distinctUntilChanged, map } from '@komore/reactive';
 
 import { type TranslationsResolver } from '../translation/translations-resolver';
 import { buildFormatterKey } from './build-formatter-key';

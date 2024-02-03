@@ -1,7 +1,5 @@
 import { concat } from '../creation/concat';
-import { Observable } from '../observable';
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { Subscription } from '../subscription';
 import { publish } from './publish';
 
 /**
@@ -37,7 +35,7 @@ function createDelayedObservable<T>(published: Observable<T>, notifier: Observab
         complete(): void {
           completed = true;
           buffer.length = 0;
-        }
+        },
       })
     );
 
@@ -54,7 +52,7 @@ function createDelayedObservable<T>(published: Observable<T>, notifier: Observab
         },
         error(error: unknown) {
           observer.error(error);
-        }
+        },
       })
     );
 

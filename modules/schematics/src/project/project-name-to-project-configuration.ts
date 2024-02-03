@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { WorkspaceContext } from '../context/workspace-context';
 import { ProjectName } from './name/project-name';
 import { ProjectConfiguration } from './project-configuration';

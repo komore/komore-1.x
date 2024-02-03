@@ -1,4 +1,3 @@
-import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 import { mergeMap } from './merge-map';
 

@@ -11,7 +11,6 @@ import {
 } from '@komore/temporal';
 import { temporalToJavaScriptDate } from '@komore/temporal/compatibility';
 
-import { type Observable } from '../observable';
 import { type SchedulerLike } from '../scheduler/scheduler-like';
 
 /**

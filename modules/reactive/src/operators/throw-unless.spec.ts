@@ -1,10 +1,11 @@
-import { type Observable } from '@komore/reactive';
 import { expectTypeOf } from 'expect-type';
+import { feature } from '@komore/testing';
+
 import { of } from '../creation/of';
 import { firstValueFrom } from '../promise/first-value-from';
 import { throwUnless } from './throw-unless';
 
-describe('Throw unless operator', () => {
+feature('Throw unless operator', () => {
   it('does not throw when the condition passes', async () => {
     given: 'an emitted value filtered with an assertion';
     const value$ = of(42).pipe(

@@ -1,8 +1,8 @@
-import { type Observable } from '@komore/reactive';
 import { type DirectiveObservables } from './directive-observables';
 
 /**
  * Directive
+ *
  * @template ElementType Element type
  */
 export interface Directive<ElementType extends Element> {

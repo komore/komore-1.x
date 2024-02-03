@@ -5,7 +5,7 @@ import { createEsLintClient, esLintCommand } from '@komore/eslint';
 import { eventToProperties } from '@komore/event';
 import { jsonToObject } from '@komore/json';
 import { observeFileContent, readFileContent } from '@komore/node/file-system';
-import { endWith, filter, fromArray, map, mergeMap, startWith, switchMap, type Observable } from '@komore/reactive';
+import { endWith, filter, fromArray, map, mergeMap, startWith, switchMap } from '@komore/reactive';
 import { createWorkspaceExecutorEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
 
 import { linterConfigToPreparedLinterConfig } from './linter-config-to-prepared-linter-config';

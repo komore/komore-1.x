@@ -1,5 +1,4 @@
 import { objectToEntries } from '@komore/functional';
-import { type Observable } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type CliArgumentDefinition } from './argument/cli-argument-definition';
@@ -24,7 +23,7 @@ import { type CliParameterTypeName } from './parameter/cli-parameter-type-name';
 export function createCliCommand<
   CommandName extends string,
   ArgumentDefinitions extends ReadonlyArray<CliArgumentDefinition<string, CliParameterTypeName, boolean>>,
-  FlagDefinitions extends ReadonlyRecord<string, CliFlagDefinition<CliParameterTypeName, boolean>>
+  FlagDefinitions extends ReadonlyRecord<string, CliFlagDefinition<CliParameterTypeName, boolean>>,
 >(
   commandName: CommandName,
   commandHandler: (

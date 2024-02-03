@@ -4,7 +4,7 @@ import { isErrorOfType } from '@komore/error';
 import { isDefined, objectToEntries } from '@komore/functional';
 import { nodeFileSystemError } from '@komore/node/file-system';
 import { readPackageJson } from '@komore/node/package';
-import { defaultIfEmpty, forkJoin, map, of, throwIfError, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, forkJoin, map, of, throwIfError } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
 

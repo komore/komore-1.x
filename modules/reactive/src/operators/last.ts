@@ -1,5 +1,4 @@
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
-import { type Observable } from '../observable';
 import { takeLast } from './take-last';
 
 /**

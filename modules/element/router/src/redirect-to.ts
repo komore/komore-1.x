@@ -1,5 +1,5 @@
-import { EMPTY, MonoTypeOperatorFunction, type Observable } from '@komore/reactive';
+import { empty, type MonoTypeOperatorFunction } from '@komore/reactive';
 
 export function redirectTo(path: string): MonoTypeOperatorFunction<Location> {
-  return EMPTY;
+  return empty;
 }

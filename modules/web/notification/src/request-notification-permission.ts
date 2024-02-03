@@ -1,4 +1,4 @@
-import { deferPromise, throwError, type Observable } from '@komore/reactive';
+import { deferPromise, throwError } from '@komore/reactive';
 
 import { webNotificationError } from './web-notification.error';
 

@@ -1,5 +1,5 @@
 import { type ParsedSource } from '@komore/element/parser';
-import { type Observable } from '@komore/reactive';
+
 import { type ProcessedSource } from './processed-source';
 
 /**
@@ -7,6 +7,4 @@ import { type ProcessedSource } from './processed-source';
  * @param parsedSource Parsed source
  * @returns Processed source
  */
-export function processSource(parsedSource: ParsedSource): Observable<ProcessedSource> {
-  
-}
+export function processSource(parsedSource: ParsedSource): Observable<ProcessedSource> {}

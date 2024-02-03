@@ -1,6 +1,6 @@
 import { type ChatPostMessageArguments, type ChatPostMessageResponse } from '@slack/web-api';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { type SlackClient } from './client/slack-client';
 

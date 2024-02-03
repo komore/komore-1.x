@@ -1,4 +1,4 @@
-import { filter, map, startWith, type Observable } from '@komore/reactive';
+import { filter, map, startWith } from '@komore/reactive';
 import { type ElementAttributeChangedEvent } from './element-attribute-changed-event';
 import { type FromAttribute } from './from-attribute';
 import { isAttributeName } from './is-attribute-name';

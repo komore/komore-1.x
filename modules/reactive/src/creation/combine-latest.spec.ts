@@ -1,8 +1,10 @@
+import { feature } from '@komore/testing';
+
 import { expectTypeOf } from 'expect-type';
-import { type Observable } from '../observable';
+
 import { combineLatest } from './combine-latest';
 
-describe('Combine latest', () => {
+feature('Combine latest', () => {
   it('todo', () => {
     combineLatest([]);
   });

@@ -4,7 +4,7 @@ import { isErrorOfType } from '@komore/error';
 import { createEsbuildClient } from '@komore/esbuild';
 import { createHttpServer, httpServerRequestToLocalFile, type HttpServerLocalFile } from '@komore/http/server';
 import { isPathDirectory, nodeFileSystemError } from '@komore/node/file-system';
-import { cache, first, map, mapErrorIf, mergeMap, ObservableMap, tapNext, type Observable } from '@komore/reactive';
+import { cache, first, map, mapErrorIf, mergeMap, ObservableMap, tapNext } from '@komore/reactive';
 import { loadTypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { type BrowserServer } from './browser-server';

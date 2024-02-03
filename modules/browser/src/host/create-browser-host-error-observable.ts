@@ -1,5 +1,5 @@
 import { type ErrorFromType } from '@komore/error';
-import { fromEvent, map, type Observable } from '@komore/reactive';
+import { fromEvent, map } from '@komore/reactive';
 import { type runtimeHostError } from '@komore/runtime/host';
 
 import { browserErrorEventToUnhandledHostError } from './browser-error-event-to-unhandled-host-error-properties';

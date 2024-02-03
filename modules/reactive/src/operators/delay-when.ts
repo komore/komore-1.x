@@ -1,4 +1,3 @@
-import { type Observable } from '../observable';
 import { type MonoTypeOperatorFunction } from '../mono-type-operator-function';
 import { mapTo } from './map-to';
 import { mergeMap } from './merge-map';

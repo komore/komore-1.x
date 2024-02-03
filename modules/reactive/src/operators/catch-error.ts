@@ -1,6 +1,5 @@
 import { catchError as rxjsCatchError } from 'rxjs';
 
-import { type Observable } from '../observable';
 import { type OperatorFunction } from '../operator-function';
 
 /**

@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { type InstalledPackage } from '../installed-package';
 import { type PackageName } from '../name/package-name';
 import { type PackageDependencyType } from './package-dependency-type';

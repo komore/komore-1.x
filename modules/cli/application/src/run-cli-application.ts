@@ -3,18 +3,7 @@ import { type cliEvent } from '@komore/cli';
 import { type GenericCommand } from '@komore/command';
 import { type EventFromType } from '@komore/event';
 import { createNodeHost } from '@komore/node';
-import {
-  ignoreValues,
-  mapTo,
-  mergeMap,
-  of,
-  race,
-  redactValue,
-  Subject,
-  tapNext,
-  catchError,
-  type Observable,
-} from '@komore/reactive';
+import { catchError, ignoreValues, mapTo, mergeMap, of, race, redactValue, Subject, tapNext } from '@komore/reactive';
 
 import { argvToCommandLineArguments } from './argument/argv-to-command-line-arguments';
 import { type CliApplicationOptions } from './cli-application-options';

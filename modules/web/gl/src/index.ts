@@ -1,3 +1,3 @@
-export { observeContextAvailability } from './observe-context-availability';
-export { observeContextLoss } from './observe-context-loss';
-export { observeContextRestore } from './observe-context-restore';
+export { observeWebGLContextAvailability } from './observe-webgl-context-availability';
+export { observeWebGLContextLoss } from './observe-webgl-context-loss';
+export { observeWebGLContextRestoration } from './observe-webgl-context-restoration';

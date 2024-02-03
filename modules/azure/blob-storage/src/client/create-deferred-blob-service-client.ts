@@ -1,7 +1,7 @@
 import { BlobServiceClient } from '@azure/storage-blob';
 
 import { httpClientToAzureCoreHttpClient } from '@komore/azure';
-import { deferValue, type Observable } from '@komore/reactive';
+import { deferValue } from '@komore/reactive';
 
 import { type BlobStorageClientOptions } from './blob-storage-client-options';
 

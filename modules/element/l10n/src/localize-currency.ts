@@ -1,10 +1,13 @@
-import { combineLatest, map, type Observable, of, type OperatorFunction, pipe, withLatestFrom } from '@komore/reactive';
+import { pipe } from '@komore/functional';
+import { combineLatest, map, of, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 import { type CurrencyLocalizationOptions, type Locales } from '@komore/web/l10n';
+
 import { asObservableLocales } from './as-observable-locales';
 import { DEFAULT_CURRENCY } from './default-currency';
 
 /**
  * Localizes a currency
+ *
  * @param options Currency localization options
  * @param currency Currency or observable currency
  * @param locales List or observable list of locales
@@ -19,15 +22,15 @@ export function localizeCurrency(
   const latestCurrency = buildLatestCurrency(options?.format, currency);
   const numberFormat$ = combineLatest({
     latestCurrency,
-    latestLocales
+    latestLocales,
   }).pipe(
     map(({ latestCurrency, latestLocales }) => ({
       locales: [...latestLocales],
       options: {
         ...options,
         style: 'currency',
-        currency: latestCurrency
-      }
+        currency: latestCurrency,
+      },
     })),
     map(({ locales, options }) => new Intl.NumberFormat(locales, options))
   );

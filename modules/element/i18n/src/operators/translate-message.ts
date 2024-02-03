@@ -1,7 +1,7 @@
 import MessageFormat, { type MessageFormatOptions } from '@messageformat/core';
 
 import { pipe } from '@komore/functional';
-import { map, withLatestFrom, type Observable, type OperatorFunction } from '@komore/reactive';
+import { map, withLatestFrom, type OperatorFunction } from '@komore/reactive';
 
 import { asObservableLanguages } from '../as-observable-languages';
 import { type I18nMessage } from '../i18n-message';

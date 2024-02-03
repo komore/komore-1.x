@@ -1,4 +1,4 @@
-import { type Observable, type ReplaySubject } from '@komore/reactive';
+import { type ReplaySubject } from '@komore/reactive';
 
 /**
  * Element property subject

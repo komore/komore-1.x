@@ -1,7 +1,10 @@
-import { isDefined, toJson } from '@komore/functional';
-import { map, mergeMap, type Observable } from '@komore/reactive';
+import { isDefined } from '@komore/functional';
+import { valueToJson } from '@komore/json';
+import { toFile } from '@komore/node/file-system';
+import { readPackageJson, type PackageJson } from '@komore/node/package';
+import { map, mergeMap } from '@komore/reactive';
 import { assert } from '@komore/runtime';
-import { readPackageJson, toFile, type PackageJson } from '@komore/runtime/node';
+
 import { type PackageModuleOptions } from './package-module-options';
 
 /**
@@ -14,7 +17,7 @@ export function packageModule(options: PackageModuleOptions): Observable<unknown
   console.log('gotta read package.json', paths.packageJson);
   return readPackageJson(paths.packageJson).pipe(
     map(packageJsonWithWorkspacePackageJson(workspacePackageJson)),
-    map(toJson(undefined, 2)),
+    map(valueToJson(undefined, 2)),
     mergeMap(toFile(paths.output))
   );
 }

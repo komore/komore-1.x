@@ -1,6 +1,7 @@
 import { isDefined } from '@komore/functional';
-import { map, switchMap, throwUnless, type Observable } from '@komore/reactive';
+import { map, switchMap, throwUnless } from '@komore/reactive';
 import { assert } from '@komore/runtime';
+
 import { type LocalPackageWithPackageJson } from '../package/local-package-with-package-json';
 import { type GeneratorReference } from './generator-reference';
 import { packageJsonToWorkspaceGeneratorDescriptors } from './package-json-to-workspace-generator-descriptors';

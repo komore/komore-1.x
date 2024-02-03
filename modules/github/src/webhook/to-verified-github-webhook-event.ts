@@ -1,6 +1,8 @@
-import { jsonToObject } from '@komore/functional';
-import { deferPromise, map, mapTo, type Observable, throwIf } from '@komore/reactive';
 import { verify } from '@octokit/webhooks-methods';
+
+import { jsonToObject } from '@komore/json';
+import { deferPromise, map, mapTo, throwIf } from '@komore/reactive';
+
 import { type GithubWebhookEvent } from './github-webhook-event';
 import { type GithubWebhookEventName } from './github-webhook-event-name';
 import { type GithubWebhookEventRequest } from './github-webhook-event-request';

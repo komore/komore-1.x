@@ -1,6 +1,6 @@
 import { type FileHandle, type FileReadOptions, type FileReadResult } from 'node:fs/promises';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 /**
  * Creates a function that returns bytes from a file

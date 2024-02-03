@@ -1,7 +1,6 @@
 import { type ReadStream } from 'node:fs';
 
 import { type HttpHeader } from '@komore/http';
-import { type Observable } from '@komore/reactive';
 
 /**
  * HTTP server response

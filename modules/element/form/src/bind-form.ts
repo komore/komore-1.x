@@ -1,4 +1,5 @@
-import { fromEvent, type Observable, of, redactValue } from '@komore/reactive';
+import { fromEvent, of, redactValue } from '@komore/reactive';
+
 import { type Form } from './form';
 
 /**
@@ -17,7 +18,7 @@ export function bindForm<ValueType extends Record<string, unknown>>(
     reset$,
     submit$,
     reset,
-    submit
+    submit,
   };
   return of(form);
 }

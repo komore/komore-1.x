@@ -1,5 +1,5 @@
 import { executeChildProcess } from '@komore/node/process';
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 /**
  * Creates a function that returns the pnpm version

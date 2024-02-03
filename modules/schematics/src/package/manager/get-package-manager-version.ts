@@ -1,5 +1,3 @@
-import { type Observable } from '@komore/reactive';
-
 import { getNpmVersion } from './npm/get-npm-version';
 import { type PackageManagerType } from './package-manager-type';
 import { getPnpmVersion } from './pnpm/get-pnpm-version';

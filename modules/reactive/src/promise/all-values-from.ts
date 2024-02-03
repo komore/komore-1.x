@@ -1,4 +1,3 @@
-import { type Observable } from '../observable';
 import { toArray } from '../operators/to-array';
 import { firstValueFrom } from './first-value-from';
 

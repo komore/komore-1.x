@@ -2,7 +2,6 @@ import { timeout as rxjsTimeout, type TimeoutInfo as RxjsTimeoutInfo } from 'rxj
 
 import { durationToMilliseconds } from '@komore/temporal';
 
-import { type Observable } from '../observable';
 import { type ObservableType } from '../observable-type';
 import { type OperatorFunction } from '../operator-function';
 import { type TimeoutOptions } from './timeout-options';

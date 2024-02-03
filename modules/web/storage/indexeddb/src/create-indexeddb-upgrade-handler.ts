@@ -1,4 +1,4 @@
-import { defaultIfEmpty, EMPTY, expand, of, redactValue, type Observable } from '@komore/reactive';
+import { defaultIfEmpty, empty, expand, of, redactValue } from '@komore/reactive';
 
 import { type IndexedDBUpgrade } from './indexeddb-upgrade';
 import { type IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
@@ -21,7 +21,7 @@ export function createIndexedDBUpgradeHandler(
       expand(({ idbDatabase, oldVersion, newVersion }) => {
         const oldVersionIndex = sortedMigrations.findIndex(([version]) => version === oldVersion);
         if (oldVersionIndex === -1 && oldVersionIndex === sortedMigrations.length - 1) {
-          return EMPTY;
+          return empty;
         }
 
         const nextVersionIndex = oldVersionIndex + 1;

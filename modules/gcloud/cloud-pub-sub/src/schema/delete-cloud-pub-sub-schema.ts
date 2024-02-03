@@ -1,6 +1,6 @@
 import { type PubSub } from '@google-cloud/pubsub';
 
-import { deferPromise, type Observable } from '@komore/reactive';
+import { deferPromise } from '@komore/reactive';
 
 import { type CloudPubSubSchemaName } from './name/cloud-pub-sub-schema-name';
 

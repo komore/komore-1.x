@@ -1,4 +1,4 @@
-import { first, map, mergeMap, of, tapNext, type Observable } from '@komore/reactive';
+import { first, map, mergeMap, of, tapNext } from '@komore/reactive';
 import {
   generateWorkspaceExecutorTaskId,
   projectNameToProjectConfiguration,

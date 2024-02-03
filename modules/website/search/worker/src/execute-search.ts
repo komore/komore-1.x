@@ -1,4 +1,4 @@
-import { of, type Observable } from '@komore/reactive';
+import { of } from '@komore/reactive';
 import { type SearchQuery, type SearchResult } from '@komore/website/search';
 
 /**

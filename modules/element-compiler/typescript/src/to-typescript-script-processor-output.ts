@@ -1,5 +1,7 @@
-import { forkJoin, map, toArray, type Observable } from '@komore/reactive';
 import { transform } from 'typescript';
+
+import { forkJoin, map, toArray } from '@komore/reactive';
+
 import { type TypeScriptScriptProcessorContext } from './typescript-script-processor-context';
 import { type TypeScriptScriptProcessorOutput } from './typescript-script-processor-output';
 
@@ -14,7 +16,7 @@ export function toTypeScriptScriptProcessorOutput(): (
     const transformerFactories = [
       transformers.eventDefinitions.factory,
       transformers.methodDefinitions.factory,
-      transformers.propertyDefinitions.factory
+      transformers.propertyDefinitions.factory,
     ];
     const transformationResult = transform(sourceFile, transformerFactories);
     const transformedSourceFiles = transformationResult.transformed;
@@ -23,12 +25,12 @@ export function toTypeScriptScriptProcessorOutput(): (
     return forkJoin({
       eventDefinitions: transformers.eventDefinitions.observable.pipe(toArray()),
       methodDefinitions: transformers.methodDefinitions.observable.pipe(toArray()),
-      propertyDefinitions: transformers.propertyDefinitions.observable.pipe(toArray())
+      propertyDefinitions: transformers.propertyDefinitions.observable.pipe(toArray()),
     }).pipe(
       map(definitions => ({
         ...definitions,
         errors: [],
-        sourceFile: transformedSourceFile
+        sourceFile: transformedSourceFile,
       }))
     );
   };

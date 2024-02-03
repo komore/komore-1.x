@@ -1,4 +1,4 @@
-import { ObservableMap, throwUnless, type Observable } from '@komore/reactive';
+import { ObservableMap, throwUnless } from '@komore/reactive';
 
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';
 import { isPackageWithSchematics } from '../package/is-package-with-schematics';

@@ -1,5 +1,5 @@
 import { expand as rxjsExpand } from 'rxjs';
-import { type Observable } from '../observable';
+
 import { type OperatorFunction } from '../operator-function';
 import { type SchedulerLike } from '../scheduler/scheduler-like';
 

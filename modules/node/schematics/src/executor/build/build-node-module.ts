@@ -1,6 +1,6 @@
 import { build } from 'esbuild';
 
-import { deferPromise, map, tapNext, type Observable } from '@komore/reactive';
+import { deferPromise, map, tapNext } from '@komore/reactive';
 import { toWorkspaceExecutorTaskMessageEvent, type GenericWorkspaceExecutorEvent } from '@komore/schematics';
 
 import { type BuildNodeModuleOptions } from './build-node-module-options';

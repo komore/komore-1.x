@@ -1,5 +1,4 @@
-import { type Generator, type GeneratorCallback, type Tree } from '@nrwl/devkit';
-import { firstValueFrom, of, take, type Observable } from 'rxjs';
+import { firstValueFrom, of, take } from 'rxjs';
 
 /**
  * Creates a generator

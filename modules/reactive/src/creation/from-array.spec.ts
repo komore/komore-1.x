@@ -1,8 +1,9 @@
 import { expectTypeOf } from 'expect-type';
-import { type Observable } from '../observable';
+import { feature } from '@komore/testing';
+
 import { fromArray } from './from-array';
 
-describe('From array', () => {
+feature('From array', () => {
   it('todo', () => {
     fromArray([1, 2, 3]);
   });

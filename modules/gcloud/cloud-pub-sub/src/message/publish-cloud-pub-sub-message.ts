@@ -1,4 +1,4 @@
-import { first, fromPromise, map, mergeMap, type Observable } from '@komore/reactive';
+import { first, fromPromise, map, mergeMap } from '@komore/reactive';
 
 import { type CloudPubSubMessageId } from '../../../api/message/cloud-pub-sub-message-id';
 import { type CloudPubSubTopicMap } from '../../cache/cloud-pub-sub-topic-map';

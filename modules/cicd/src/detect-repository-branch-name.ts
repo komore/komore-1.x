@@ -1,5 +1,5 @@
-import { executeChildProcess, type EnvironmentVariables } from '@komore/runtime/node';
-import { map, of, type Observable } from '@komore/reactive';
+import { executeChildProcess, type EnvironmentVariables } from '@komore/node/process';
+import { map, of } from '@komore/reactive';
 import { stringToTrimmedString } from '@komore/string';
 
 /**

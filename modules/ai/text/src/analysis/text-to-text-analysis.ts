@@ -1,4 +1,3 @@
-import { type Observable } from '@komore/reactive';
 import { type TextAiLayer } from '../text-ai-layer';
 import { type TextAnalysisOptions } from './text-analysis-options';
 

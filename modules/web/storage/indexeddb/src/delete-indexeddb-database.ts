@@ -1,4 +1,4 @@
-import { defer, redactValue, type Observable } from '@komore/reactive';
+import { defer, redactValue } from '@komore/reactive';
 
 import { fromIDBRequest } from './from-idb-request';
 

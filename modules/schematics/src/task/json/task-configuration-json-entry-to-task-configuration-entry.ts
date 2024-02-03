@@ -1,4 +1,4 @@
-import { map, type Observable } from '@komore/reactive';
+import { map } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
 import { schematicsError } from '../../schematics.error';

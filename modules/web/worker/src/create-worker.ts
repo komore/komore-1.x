@@ -1,4 +1,4 @@
-import { type Observable, type Observer } from '@komore/reactive';
+import { type Observer } from '@komore/reactive';
 
 import { type CreateWorkerOptions } from './create-worker-options';
 import { fromWorker } from './from-worker';

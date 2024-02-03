@@ -1,4 +1,4 @@
-import { fromEvent, merge, mergeMap, throwError, type Observable } from '@komore/reactive';
+import { fromEvent, merge, mergeMap, throwError } from '@komore/reactive';
 
 /**
  * Creates an observable that emits a media recorder's events

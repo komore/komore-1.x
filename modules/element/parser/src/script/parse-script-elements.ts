@@ -1,8 +1,9 @@
-import { defaultIfEmpty, forkJoin, type Observable, of } from '@komore/reactive';
+import { defaultIfEmpty, forkJoin, of } from '@komore/reactive';
 import { type ScriptResourceLoader } from './script-resource-loader';
 
 /**
  * Parses script elements, loading them from external sources if necessary
+ *
  * @param htmlElements HTML elements
  * @param scriptResourceLoader Script resource loader
  * @returns List of HTML script elements
@@ -17,6 +18,7 @@ export function parseScriptElements(
 
 /**
  * Loads a script element, if necessary
+ *
  * @param scriptResourceLoader Script resource loader
  */
 function loadScriptElement(scriptResourceLoader: ScriptResourceLoader) {

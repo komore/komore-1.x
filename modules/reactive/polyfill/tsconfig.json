@@ -3,10 +3,10 @@
   "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./elementcompiler-scss.tsconfig.library.json"
+      "path": "./reactive-reactive.tsconfig.library.json"
     },
     {
-      "path": "./elementcompiler-scss.tsconfig.specifications.json"
+      "path": "./reactive-reactive.tsconfig.specifications.json"
     }
   ]
 }

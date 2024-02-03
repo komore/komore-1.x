@@ -1,7 +1,6 @@
-import { Observable } from '../observable';
-
 /**
  * Converts values to an observable sequence
+ *
  * @param values Values
  * @returns Observable sequence of values
  */

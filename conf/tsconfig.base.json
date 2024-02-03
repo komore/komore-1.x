@@ -175,7 +175,6 @@
       "@komore/element-compiler/html": ["modules/element-compiler/html/src/index.ts"],
       "@komore/element-compiler/processor": ["modules/element-compiler/processor/src/index.ts"],
       "@komore/element-compiler/markdown": ["modules/element-compiler/markdown/src/index.ts"],
-      "@komore/element-compiler/scss": ["modules/element-compiler/scss/src/index.ts"],
       "@komore/element/accessibility": ["modules/element/accessibility/src/index.ts"],
       "@komore/element/animation": ["modules/element/animation/src/index.ts"],
       "@komore/element/clipboard": ["modules/element/clipboard/src/index.ts"],
@@ -437,8 +436,8 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "ES2022",
-    "typeRoots": ["../node_modules/@types", "../modules/temporal/polyfill/types"],
-    "types": ["temporal"],
+    "typeRoots": ["../node_modules/@types", "../modules/reactive/polyfill/types", "../modules/temporal/polyfill/types"],
+    "types": ["reactive", "temporal"],
     "useUnknownInCatchVariables": true
   },
   "exclude": ["node_modules", "tmp"],
