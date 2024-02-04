@@ -7,11 +7,11 @@ import { httpHeadersToFetchHeaders } from './header/http-headers-to-fetch-header
 /**
  * Creates an HTTP client
  *
- * @param options HTTP client options
+ * @param clientOptions HTTP client options
  * @returns HTTP client
  */
-export function createHttpClient(options: HttpClientOptions): HttpClient {
-  const { defaultOptions, driver = fetch } = options;
+export function createHttpClient(clientOptions: HttpClientOptions): HttpClient {
+  const { defaultOptions, driver = fetch } = clientOptions;
 
   return ({ headers, method, options, url }) => {
     return new Observable<HttpClientResponse>(subscriber => {

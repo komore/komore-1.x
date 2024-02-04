@@ -16,13 +16,13 @@ import { type NotionApiClientOptions } from './notion-api-client-options';
  */
 export function createNotionApiClient(clientOptions: NotionApiClientOptions): NotionApiClient {
   const {
-    apiToken,
-    apiVersion = '2022-06-28',
     endpointUrl = new URL('https://api.notion.com/v1/'),
     httpClient,
+    token,
+    version = '2022-06-28',
   } = clientOptions;
-  const notionVersionHeader = ['Notion-Version', apiVersion] as const;
-  const authorizationHeader = apiToken !== undefined ? createAuthorizationHttpHeader('Bearer', apiToken) : undefined;
+  const notionVersionHeader = ['Notion-Version', version] as const;
+  const authorizationHeader = token !== undefined ? createAuthorizationHttpHeader('Bearer', token) : undefined;
   const headers = [notionVersionHeader, ...(authorizationHeader !== undefined ? [authorizationHeader] : [])];
   return <ResponseType>(
     method: 'DELETE' | 'GET' | 'PATCH' | 'POST' | 'PUT',

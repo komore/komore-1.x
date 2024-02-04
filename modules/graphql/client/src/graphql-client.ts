@@ -1,16 +1,28 @@
-import { type ReadonlyRecord } from '@komore/typescript';
+import {
+  type GraphQLSchema,
+  type GraphQLSchemaMutationType,
+  type GraphQLSchemaQueryType,
+  type GraphQLSchemaSubscriptionType,
+} from '@komore/graphql/schema';
 
 /**
  * GraphQL client
  *
- * @template SchemaType Schema type
+ * @template Schema Schema type
  */
-export interface GraphQLClient<
-  MutationType extends ReadonlyRecord<string, unknown>,
-  QueryType extends ReadonlyRecord<string, unknown>,
-  SubscriptionType extends ReadonlyRecord<string, unknown>,
-> {
-  <MutationName extends keyof MutationType>(mutationName: MutationName, parameters?: unknown): Observable<unknown>;
+export interface GraphQLClient<Schema extends GraphQLSchema> {
+  /**
+   * Executes a GraphQL mutation
+   *
+   * @param mutationName Mutation name
+   * @param parameters Mutation parameters
+   * @returns Mutation result
+   * @template MutationName Mutation name
+   */
+  <MutationName extends keyof GraphQLSchemaMutationType<Schema> & string>(
+    mutationName: MutationName,
+    parameters?: unknown
+  ): Observable<unknown>;
   /**
    * Executes a GraphQL query
    *
@@ -19,14 +31,17 @@ export interface GraphQLClient<
    * @returns Query result
    * @template QueryName Query name
    */
-  query<QueryName extends keyof QueryType>(queryName: QueryName, parameters?: unknown): Observable<unknown>;
+  query<QueryName extends keyof GraphQLSchemaQueryType<Schema> & string>(
+    queryName: QueryName,
+    parameters?: unknown
+  ): Observable<unknown>;
   /**
    * Observes a GraphQL subscription
    *
    * @param subscriptionName Subscription name
    * @param parameters Subscription parameters
    */
-  observe<SubscriptionName extends SubscriptionType>(
+  observe<SubscriptionName extends keyof GraphQLSchemaSubscriptionType<Schema> & string>(
     subscriptionName: SubscriptionName,
     parameters?: unknown
   ): Observable<unknown>;

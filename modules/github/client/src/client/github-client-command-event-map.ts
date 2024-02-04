@@ -4,9 +4,9 @@ import { type gitHubCommand } from '../github.command';
 import { type gitHubEvent } from '../github.event';
 
 /**
- * GitHub command-to-event map
+ * GitHub client command-to-event map
  */
-export const gitHubCommandEventMap = createClientCommandEventMap<
+export const gitHubClientCommandEventMap = createClientCommandEventMap<
   (typeof gitHubCommand)[keyof typeof gitHubCommand],
   (typeof gitHubEvent)[keyof typeof gitHubEvent]
 >()({

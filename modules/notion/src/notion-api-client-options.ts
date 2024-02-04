@@ -7,16 +7,6 @@ import { type NotionApiVersion } from './notion-api-version';
  */
 export interface NotionApiClientOptions {
   /**
-   * API token
-   */
-  readonly apiToken: string;
-  /**
-   * API version
-   *
-   * @note Defaults to `'2022-06-28'`
-   */
-  readonly apiVersion?: NotionApiVersion;
-  /**
    * Endpoint URL
    *
    * @note Defaults to `'https://api.notion.com/v1/'`
@@ -26,4 +16,14 @@ export interface NotionApiClientOptions {
    * HTTP client
    */
   readonly httpClient: HttpClient;
+  /**
+   * Token
+   */
+  readonly token: string;
+  /**
+   * API version
+   *
+   * @note Defaults to `'2022-06-28'`
+   */
+  readonly version?: NotionApiVersion;
 }

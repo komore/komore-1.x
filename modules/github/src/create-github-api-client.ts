@@ -2,6 +2,7 @@ import { createGraphQLClient } from '@komore/graphql/client';
 
 import { type GitHubApiClient } from './github-api-client';
 import { type GitHubApiClientOptions } from './github-api-client-options';
+import { gitHubGraphQLSchema } from './github-graphql-schema';
 
 /**
  * Creates a GitHub API client
@@ -10,7 +11,7 @@ import { type GitHubApiClientOptions } from './github-api-client-options';
  * @returns GitHub API client
  */
 export function createGitHubApiClient(clientOptions: GitHubApiClientOptions): GitHubApiClient {
-  const { apiToken: _, endpointUrl, httpClient } = clientOptions;
+  const { token: _, endpointUrl = new URL('https://api.github.com/graphql'), httpClient } = clientOptions;
   // TODO: wrap httpClient with the API token
-  return createGraphQLClient({ endpointUrl, httpClient });
+  return createGraphQLClient({ endpointUrl, httpClient, schema: gitHubGraphQLSchema });
 }

@@ -5,15 +5,17 @@ import { type HttpClient } from '@komore/http/client';
  */
 export interface GitHubApiClientOptions {
   /**
-   * API token
-   */
-  readonly apiToken: string;
-  /**
    * Endpoint URL
+   *
+   * @note Defaults to `'https://api.github.com/graphql'`
    */
-  readonly endpointUrl: URL;
+  readonly endpointUrl?: URL;
   /**
    * HTTP client
    */
   readonly httpClient: HttpClient;
+  /**
+   * Token
+   */
+  readonly token: string;
 }

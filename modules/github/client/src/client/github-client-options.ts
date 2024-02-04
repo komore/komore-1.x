@@ -1,21 +1,11 @@
-import { type HttpClient } from '@komore/http/client';
+import { type GitHubApiClient } from '@komore/github';
 
 /**
  * GitHub client options
  */
 export interface GitHubClientOptions {
   /**
-   * API token
+   * GitHub API client
    */
-  readonly apiToken: string;
-  /**
-   * Endpoint URL
-   *
-   * @note Defaults to `https://api.github.com/graphql/`
-   */
-  readonly endpointUrl?: URL;
-  /**
-   * HTTP client
-   */
-  readonly httpClient: HttpClient;
+  readonly apiClient: GitHubApiClient;
 }

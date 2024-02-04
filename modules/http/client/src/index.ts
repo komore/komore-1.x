@@ -1,6 +1,8 @@
 export { createHttpClient } from './create-http-client';
 export { type HttpClient } from './http-client';
 export { type HttpClientOptions } from './http-client-options';
+export { httpClientWithHttpHeaders } from './interceptor/http-client-with-http-headers';
+export { httpClientWithInterceptor } from './interceptor/http-client-with-interceptor';
 export { type HttpClientRequest } from './request/http-client-request';
 export { type HttpClientRequestOptions } from './request/http-client-request-options';
 export { type HttpClientResponse } from './response/http-client-response';
