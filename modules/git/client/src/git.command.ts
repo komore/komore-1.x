@@ -1,7 +1,7 @@
 import { commandProperties, createCommandType } from '@komore/command';
+import { gitDomain } from '@komore/git';
 
 import { type GitFetchCommandParameters } from './command/git-fetch-command-parameters';
-import { gitDomain } from './git.domain';
 
 /**
  * Git command

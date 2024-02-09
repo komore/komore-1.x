@@ -3,5 +3,5 @@
   "domain": "git",
   "type": "library",
   "tags": ["trait:base"],
-  "tasks": ["build", "document", "lint", "publish", "test"]
+  "tasks": ["build", "document", "lint", "package", "publish", "test"]
 }

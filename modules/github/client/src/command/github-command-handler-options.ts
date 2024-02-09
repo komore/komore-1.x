@@ -1,6 +1,4 @@
-import { CommandEventPair } from '@komore/client';
-import { CommandFromType } from '@komore/command';
-import { type EventFromType } from '@komore/event';
+import { type CommandEventPairFromType } from '@komore/client';
 import { type GitHubApiClient } from '@komore/github';
 
 import { type gitHubCommand } from '../github.command';
@@ -17,10 +15,5 @@ export interface GitHubCommandHandlerOptions {
   /**
    * GitHub events recorder
    */
-  readonly toEvents: (
-    pair: CommandEventPair<
-      CommandFromType<(typeof gitHubCommand)[keyof typeof gitHubCommand]>,
-      EventFromType<(typeof gitHubEvent)[keyof typeof gitHubEvent]>
-    >
-  ) => void;
+  readonly toEvents: (pair: CommandEventPairFromType<typeof gitHubCommand, typeof gitHubEvent>) => void;
 }

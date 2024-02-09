@@ -4,6 +4,7 @@ import { catchError } from './catch-error';
 
 /**
  * Throws an error when an error occurs
+ *
  * @param errorFactory Error factory
  * @template T Value type
  */

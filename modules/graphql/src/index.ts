@@ -1,3 +1,4 @@
+export { graphQLDomain } from './graphql.domain';
 export { type GraphQLError } from './graphql-error';
 export { type GraphQLErrorLocation } from './graphql-error-location';
 export { type GraphQLQuery } from './graphql-query';
