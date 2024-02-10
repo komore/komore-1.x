@@ -1,6 +1,5 @@
 import { createErrorType } from '@komore/error';
-
-import { notionDomain } from './notion.domain';
+import { notionDomain } from '@komore/notion';
 
 /**
  * Notion error

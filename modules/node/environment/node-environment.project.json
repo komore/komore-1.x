@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "node",
+  "type": "library",
+  "tags": [],
+  "tasks": ["build", "document", "lint", "package", "test"]
+}

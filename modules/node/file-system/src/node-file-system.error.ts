@@ -1,12 +1,19 @@
 import { type PathLike } from 'node:fs';
 
 import { createErrorType, errorProperties } from '@komore/error';
-
-import { nodeFileSystemDomain } from './node-file-system.domain';
+import { nodeDomain } from '@komore/node';
 
 /**
  * Node file system error
  */
-export const nodeFileSystemError = createErrorType(nodeFileSystemDomain, {
-  fileNotFound: errorProperties<{ filePath: PathLike }>(),
+export const nodeFileSystemError = createErrorType(nodeDomain, {
+  /**
+   * File not found
+   */
+  fileNotFound: errorProperties<{
+    /**
+     * File path
+     */
+    readonly filePath: PathLike;
+  }>(),
 });

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/ci",
+  "description": "Continuous integration features",
+  "keywords": ["ci", "continuous", "integration"],
+  "komore": {
+    "generators": "./schematics/ci-schematics.generators.json"
+  }
+}

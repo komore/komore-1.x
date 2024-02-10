@@ -1,9 +1,11 @@
+import { type GitCliClient } from '@komore/git';
+
 /**
- * git client options
+ * Git client options
  */
 export interface GitClientOptions {
   /**
-   * Working directory
+   * Git CLI client
    */
-  readonly workingDirectory: string;
+  readonly cliClient: GitCliClient;
 }

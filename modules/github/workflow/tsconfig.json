@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./github-workflow.tsconfig.library.json"
+    },
+    {
+      "path": "./github-workflow.tsconfig.specifications.json"
+    }
+  ]
+}

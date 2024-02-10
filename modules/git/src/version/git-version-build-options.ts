@@ -2,6 +2,8 @@ import { type GitCommitHash } from '../commit/hash/git-commit-hash';
 
 /**
  * Git version build options
+ *
+ * @see {@link https://git-scm.com/docs/git-version git version}
  */
 export interface GitVersionBuildOptions {
   /**

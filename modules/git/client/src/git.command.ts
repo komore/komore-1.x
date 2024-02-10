@@ -1,7 +1,5 @@
 import { commandProperties, createCommandType } from '@komore/command';
-import { gitDomain } from '@komore/git';
-
-import { type GitFetchCommandParameters } from './command/git-fetch-command-parameters';
+import { gitDomain, type FetchGitRefsOptions, type InitializeGitRepositoryOptions } from '@komore/git';
 
 /**
  * Git command
@@ -12,11 +10,13 @@ export const gitCommand = createCommandType(gitDomain, {
    *
    * @see {@link https://git-scm.com/docs/git-fetch git fetch}
    */
-  fetch: commandProperties<GitFetchCommandParameters>(),
+  fetch: commandProperties<FetchGitRefsOptions>(),
   /**
    * Creates an empty Git repository
+   *
+   * @see {@link https://git-scm.com/docs/git-init git init}
    */
-  init: commandProperties<unknown>(),
+  initialize: commandProperties<InitializeGitRepositoryOptions>(),
   /**
    * Updates remote refs along with associated objects
    *

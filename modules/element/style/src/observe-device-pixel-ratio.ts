@@ -4,6 +4,7 @@ import { observeMediaQuery } from './observe-media-query';
 
 /**
  * Observes the device pixel ratio
+ *
  * @returns Observable device pixel ratio
  */
 export function observeDevicePixelRatio(): Observable<number> {

@@ -1,8 +1,5 @@
 {
   "$schema": "./modules/schematics/workspace-configuration.schema.json",
-  "cicd": {
-    "manager": "github"
-  },
   "defaults": {
     "outputPath": "build",
     "project": "website",
@@ -132,8 +129,11 @@
     "capacitor": "modules/capacitor",
     "capacitor-testing": "modules/capacitor/testing",
     "cargo": "modules/cargo",
-    "cicd": "modules/cicd",
-    "cicd-schematics": "modules/cicd/schematics",
+    "cd": "modules/cd",
+    "cd-changelog": "modules/cd/change-log",
+    "cd-schematics": "modules/cd/schematics",
+    "ci": "modules/ci",
+    "ci-schematics": "modules/ci/schematics",
     "cli": "modules/cli",
     "cli-application": "modules/cli/application",
     "cli-element": "modules/cli/element",
@@ -354,6 +354,9 @@
     "website": "modules/website",
     "xml": "modules/xml",
     "yaml": "modules/yaml"
+  },
+  "repository": {
+    "manager": "github"
   },
   "schematics": {
     "@komore/schematics": {

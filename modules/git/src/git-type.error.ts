@@ -24,4 +24,13 @@ export const gitTypeError = createErrorType(gitDomain, {
      */
     readonly commitHash: string;
   }>(),
+  /**
+   * Invalid tag name
+   */
+  invalidTagName: errorProperties<{
+    /**
+     * Tag name
+     */
+    readonly tagName: string;
+  }>(),
 });

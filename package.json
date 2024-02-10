@@ -37,6 +37,8 @@
     "test:all": "k test --project=*",
     "tools:documentation": "ts-node -r tsconfig-paths/register --project ./tools/documentation/tsconfig.json ./tools/documentation/src/index.ts",
     "tools:website:generate-tree": "ts-node -r tsconfig-paths/register --project ./tools/website/tsconfig.json ./tools/website/src/generate-website-tree.ts ./docs/modules",
+    "x:api": "ts-node --project ./tools/api/tsconfig.json -r tsconfig-paths/register ./tools/api/src/api.ts",
+    "x:cd": "ts-node --project ./tools/cd/tsconfig.json -r tsconfig-paths/register ./tools/cd/src/cd.ts",
     "x:discord": "ts-node --project ./tools/discord/tsconfig.json -r tsconfig-paths/register ./tools/discord/src/discord.ts",
     "x:etoro": "ts-node --project ./tools/etoro/tsconfig.json -r tsconfig-paths/register ./tools/etoro/src/etoro.ts",
     "x:git": "ts-node --project ./tools/git/tsconfig.json -r tsconfig-paths/register ./tools/git/src/git.ts",

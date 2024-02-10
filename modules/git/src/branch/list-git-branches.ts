@@ -14,8 +14,9 @@ import { gitCliBranchLineToBranch } from './git-cli-branch-line-to-branch';
  * @returns Function that lists Git branches
  */
 export function listGitBranches(cliClient: GitCliClient): () => Observable<ReadonlyArray<GitBranch>> {
+  const parameters = ['branch', '--list', '-vv', '--no-abbrev', '--color=never'];
   return () =>
-    cliClient(['branch', '--list', '--verbose', '--color=never']).pipe(
+    cliClient(parameters).pipe(
       map(stringToLines()),
       map(each(stringToTrimmedString)),
       map(arrayToArrayFiltered(not(isEmptyString))),

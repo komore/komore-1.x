@@ -1,7 +1,7 @@
 import '@komore/reactive/polyfill';
 import '@komore/temporal/polyfill';
 
-import { createGitCliClient, getGitVersion, listGitBranches } from '@komore/git';
+import { createGitCliClient, getCurrentGitBranchName, getGitVersion, listGitBranches } from '@komore/git';
 import { firstValueFrom } from '@komore/reactive';
 
 async function main() {
@@ -12,6 +12,9 @@ async function main() {
   const branches$ = listGitBranches(cliClient)();
   const branches = await firstValueFrom(branches$);
   console.log('Git branches:', branches);
+  const currentBranchName$ = getCurrentGitBranchName(cliClient)();
+  const currentBranchName = await firstValueFrom(currentBranchName$);
+  console.log('Git current branch name:', currentBranchName);
 }
 
 main();

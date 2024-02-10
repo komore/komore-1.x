@@ -4,7 +4,6 @@ export { getPathStatistics } from './path/get-path-statistics';
 export { isPathAccessible } from './path/is-path-accessible';
 export { isPathDirectory } from './path/is-path-directory';
 export { isPathFile } from './path/is-path-file';
-export { nodeFileSystemDomain } from './node-file-system.domain';
 export { nodeFileSystemError } from './node-file-system.error';
 export { observeDirectory } from './directory/observe-directory';
 export { observeFile } from './file/observe-file';

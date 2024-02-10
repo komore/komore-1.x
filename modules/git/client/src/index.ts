@@ -1,3 +1,13 @@
 export { createGitClient } from './client/create-git-client';
+export { createGitCommandHandler } from './command/create-git-command-handler';
+export { createGitQueryHandler } from './query/create-git-query-handler';
 export { type GitClient } from './client/git-client';
 export { type GitClientOptions } from './client/git-client-options';
+export { gitCommand } from './git.command';
+export { type GitCommandHandler } from './command/git-command-handler';
+export { type GitCommandHandlerOptions } from './command/git-command-handler-options';
+export { gitError } from './git.error';
+export { gitEvent } from './git.event';
+export { gitQuery } from './git.query';
+export { type GitQueryHandler } from './query/git-query-handler';
+export { type GitQueryHandlerOptions } from './query/git-query-handler-options';

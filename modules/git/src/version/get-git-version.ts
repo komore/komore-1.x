@@ -1,6 +1,6 @@
 import { each } from '@komore/collection';
 import { map } from '@komore/reactive';
-import { stringToLines, stringToTrimmedString, stringToMatchesWith } from '@komore/string';
+import { stringToLines, stringToTrimmedString } from '@komore/string';
 
 import { type GitCliClient } from '../git-cli-client';
 import { gitCliBuildOptionLinesToBuildOptions } from './git-cli-build-option-lines-to-build-options';
@@ -12,6 +12,7 @@ import { type GitVersion } from './git-version';
  *
  * @param cliClient Git CLI client
  * @returns Function that returns the Git version
+ * @see {@link https://git-scm.com/docs/git-version git version}
  */
 export function getGitVersion(cliClient: GitCliClient): () => Observable<GitVersion> {
   return () =>

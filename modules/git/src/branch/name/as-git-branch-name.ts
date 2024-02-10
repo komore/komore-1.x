@@ -1,12 +1,13 @@
 import { type GitBranchName } from './git-branch-name';
+import { validateGitBranchName } from './validate-git-branch-name';
 
 /**
- * Safely casts a value to a Git branch name
+ * Safely casts a Git branch name string to a Git branch name
  *
- * @param value Value
- * @returns true if the value is a valid Git branch name
+ * @param branchName Git branch name string
+ * @returns Git branch name
  */
-export function asGitBranchName(value: string): value is GitBranchName {
-  // TODO: better test
-  return value.length > 0;
+export function asGitBranchName(branchName: string): GitBranchName {
+  validateGitBranchName(branchName);
+  return branchName;
 }

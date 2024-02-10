@@ -1,5 +1,4 @@
 import { createHttpServer } from '@komore/http/server';
-import {}
 import { lastValueFrom } from '@komore/reactive';
 
 async function main() {

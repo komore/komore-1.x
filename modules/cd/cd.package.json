@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@komore/cd",
+  "description": "Continuous delivery features",
+  "keywords": ["cd", "continuous", "delivery"],
+  "komore": {
+    "generators": "./schematics/cd-schematics.generators.json"
+  }
+}

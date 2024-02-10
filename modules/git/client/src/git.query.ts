@@ -1,6 +1,5 @@
+import { gitDomain } from '@komore/git';
 import { createQueryType, queryProperties } from '@komore/query';
-
-import { gitDomain } from './git.domain';
 
 /**
  * Git query

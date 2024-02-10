@@ -1,4 +1,5 @@
 import { type GitCommitHash } from './git-commit-hash';
+import { maxGitCommitHashLength } from './max-git-commit-hash-length';
 
 /**
  * Tests whether a Git commit hash is abbreviated
@@ -7,5 +8,5 @@ import { type GitCommitHash } from './git-commit-hash';
  * @returns true if the Git commit hash is abbreviated
  */
 export function isAbbreviatedGitCommitHash(hash: GitCommitHash): boolean {
-  return hash.length < 40;
+  return hash.length < maxGitCommitHashLength;
 }
