@@ -1,7 +1,11 @@
+import { arrayToArrayFiltered, each } from '@komore/collection';
 import { map } from '@komore/reactive';
+import { not } from '@komore/functional';
+import { isEmptyString, stringToLines, stringToTrimmedString } from '@komore/string';
 
 import { type GitCliClient } from '../git-cli-client';
 import { type GitBranch } from './git-branch';
+import { gitCliBranchLineToBranch } from './git-cli-branch-line-to-branch';
 
 /**
  * Creates a function that lists Git branches
@@ -11,8 +15,10 @@ import { type GitBranch } from './git-branch';
  */
 export function listGitBranches(cliClient: GitCliClient): () => Observable<ReadonlyArray<GitBranch>> {
   return () =>
-    cliClient(['--list', '--verbose']).pipe(
-      map(str => console.log('str', str)),
-      map(() => [])
+    cliClient(['branch', '--list', '--verbose', '--color=never']).pipe(
+      map(stringToLines()),
+      map(each(stringToTrimmedString)),
+      map(arrayToArrayFiltered(not(isEmptyString))),
+      map(each(gitCliBranchLineToBranch))
     );
 }

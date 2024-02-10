@@ -13,6 +13,10 @@ export interface GitVersionBuildOptions {
    */
   readonly cpu: string;
   /**
+   * List of features
+   */
+  readonly features: ReadonlyArray<string>;
+  /**
    * Shell path
    */
   readonly shellPath: string;

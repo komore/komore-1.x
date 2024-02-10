@@ -4,6 +4,6 @@
  * @param regExp Regular expression
  * @returns Function that matches a string with the regular expression
  */
-export function stringToMatchesWith(regExp: string | RegExp): (string: string) => RegExpMatchArray | null {
-  return string => string.match(regExp);
+export function stringToMatchesWith<T = RegExpMatchArray>(regExp: string | RegExp): (string: string) => T | undefined {
+  return string => (string.match(regExp) as T | null) ?? undefined;
 }

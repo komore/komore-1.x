@@ -4,3 +4,6 @@ export { type GitCliClient } from './git-cli-client';
 export { type GitCliClientOptions } from './git-cli-client-options';
 export { gitDomain } from './git.domain';
 export { gitTypeError } from './git-type.error';
+export { type GitVersion } from './version/git-version';
+export { type GitVersionBuildOptions } from './version/git-version-build-options';
+export { listGitBranches } from './branch/list-git-branches';

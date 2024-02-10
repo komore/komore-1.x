@@ -1,7 +1,7 @@
 import { isErrorOfType } from '@komore/error';
-import { executeChildProcess, nodeProcessError } from '@komore/node/process';
-import { throwIfError } from '@komore/reactive';
-import { string}
+import { childProcessOutputToStdout, executeChildProcess, nodeProcessError } from '@komore/node/process';
+import { map, throwIfError } from '@komore/reactive';
+import { stringToLine } from '@komore/string';
 
 import { type GitCliClient } from './git-cli-client';
 import { type GitCliClientOptions } from './git-cli-client-options';
@@ -20,13 +20,13 @@ export function createGitCliClient(clientOptions: GitCliClientOptions): GitCliCl
   return commandParameters => {
     const command = [commandLine, ...baseArguments, ...commandParameters].join(' ');
     return executeChildProcess(command, { workingDirectory }).pipe(
+      map(childProcessOutputToStdout),
       throwIfError(isErrorOfType(nodeProcessError.executionError), error => {
         const { stderr } = error.context;
-        console.log('dafuq, stderr', stderr);
         if (stderr.startsWith('error: unknown option')) {
-          const firstLine = stringTo
           type Matches = readonly [matches: string, option: string] | null;
-          const matches = stderr.match(/^error: unknown option `([^']+)'$/) as Matches;
+          const firstLine = stringToLine(1)(stderr) ?? '';
+          const matches = firstLine.match(/^error: unknown option `([^']+)'$/) as Matches;
           if (matches !== null) {
             const [, option] = matches;
             return gitCliError.unknownOption({ option });
