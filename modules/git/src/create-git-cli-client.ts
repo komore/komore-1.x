@@ -15,10 +15,11 @@ import { gitCliError } from './git-cli.error';
  */
 export function createGitCliClient(clientOptions: GitCliClientOptions): GitCliClient {
   const { commandLine = 'git', workingDirectory } = clientOptions;
-  const baseArguments: ReadonlyArray<string> = [];
+  const baseArguments: ReadonlyArray<string> = ['--no-pager'];
 
   return commandParameters => {
     const command = [commandLine, ...baseArguments, ...commandParameters].join(' ');
+    console.log('cmd', command);
     return executeChildProcess(command, { workingDirectory }).pipe(
       map(childProcessOutputToStdout),
       throwIfError(isErrorOfType(nodeProcessError.executionError), error => {

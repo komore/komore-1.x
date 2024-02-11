@@ -1,5 +1,6 @@
 /**
  * TODO
+ *
  * @returns
  */
 export function stringToLines(): (string: string) => Array<string> {

@@ -11,7 +11,7 @@ async function main() {
   const gitCliClient = createGitCliClient({ workingDirectory });
   const generator = createChangeLogGenerator({ applicationName: 'komore', gitCliClient });
 
-  const result$ = generator({});
+  const result$ = generator({ version: '1.0.0' });
   const result = await firstValueFrom(result$);
   console.log('result', result);
 }

@@ -1,7 +1,7 @@
 import { type GitCliClient } from '@komore/git';
 
 /**
- * Changelog generator options
+ * Change log generator options
  */
 export interface ChangeLogGeneratorOptions {
   /**

@@ -1,7 +1,7 @@
 import { type GitTagName } from '@komore/git';
 
 /**
- * Changelog generator parameters
+ * Change log generator parameters
  */
 export interface ChangeLogGeneratorParameters {
   /**

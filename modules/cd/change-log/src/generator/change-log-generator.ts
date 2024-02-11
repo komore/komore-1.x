@@ -1,7 +1,7 @@
-import { ChangeLogGeneratorParameters } from './changelog-generator-parameters';
+import { type ChangeLogGeneratorParameters } from './change-log-generator-parameters';
 
 /**
- * Changelog generator
+ * Change log generator
  */
 export interface ChangeLogGenerator {
   (parameters: ChangeLogGeneratorParameters): Observable<void>;
