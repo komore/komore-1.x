@@ -8,7 +8,7 @@ import { type ObservableTuple } from '../observable-tuple';
  * @param sources Empty list of source observables
  * @returns Observable that never emits or completes
  */
-export function race(inputs: []): Observable<never>;
+export function race(inputs: readonly []): Observable<never>;
 
 /**
  * Creates an observable that mirrors the first source observable to emit a value
@@ -17,8 +17,10 @@ export function race(inputs: []): Observable<never>;
  * @returns Observable that mirrors the first source observable to emit a value
  * @template A Array of observables type
  */
-export function race<A extends ReadonlyArray<unknown>>(inputs: [...ObservableTuple<A>]): Observable<A[number]>;
+export function race<A extends ReadonlyArray<unknown>>(inputs: readonly [...ObservableTuple<A>]): Observable<A[number]>;
 
-export function race<A extends ReadonlyArray<unknown>>(sources: [...ObservableTuple<A>]): Observable<A[number]> {
+export function race<A extends ReadonlyArray<unknown>>(
+  sources: readonly [...ObservableTuple<A>]
+): Observable<A[number]> {
   return rxjsRace(sources);
 }

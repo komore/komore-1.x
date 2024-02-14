@@ -1,5 +1,5 @@
 import { matchQuery } from '@komore/query';
-import { EMPTY } from '@komore/reactive';
+import { empty } from '@komore/reactive';
 
 import { type CloudSpeechToTextQueryHandler } from './cloud-speech-to-text-query-handler';
 import { type CloudSpeechToTextQueryHandlerOptions } from './cloud-speech-to-text-query-handler-options';
@@ -15,6 +15,6 @@ export function createCloudSpeechToTextQueryHandler(
 ): CloudSpeechToTextQueryHandler {
   return query =>
     matchQuery(query, {
-      listRecognizers: () => EMPTY,
+      listRecognizers: () => empty,
     });
 }

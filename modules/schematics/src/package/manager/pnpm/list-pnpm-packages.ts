@@ -12,7 +12,7 @@ import { type PackageName } from '../../name/package-name';
 import { type PackageDependencyType } from '../package-dependency-type';
 
 export function listPnpmPackages(basePath: string): () => Observable<ReadonlyArray<InstalledPackage>> {
-  const list = executeChildProcess(`pnpm list --json`, { cwd: basePath });
+  const list = executeChildProcess(`pnpm list --json`, { workingDirectory: basePath });
   return () =>
     list.pipe(
       map(output => output.stdout),

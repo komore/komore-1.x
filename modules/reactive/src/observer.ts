@@ -1,7 +1,10 @@
-import { type Observer as RxjsObserver } from 'rxjs';
-
 /**
  * Observer
+ *
  * @template T Value type
  */
-export type Observer<T> = RxjsObserver<T>;
+export interface Observer<T> {
+  next(value: T): void;
+  error(err: unknown): void;
+  complete(): void;
+}

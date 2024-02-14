@@ -1,4 +1,4 @@
-import { HttpHeader, type HttpMethod } from '@komore/http';
+import { type HttpHeader, type HttpMethod } from '@komore/http';
 
 import { type HttpClientRequestOptions } from './http-client-request-options';
 

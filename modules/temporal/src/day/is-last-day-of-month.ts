@@ -1,5 +1,3 @@
-import { feature } from '@komore/testing';
-
 import { asPlainDate } from '../as-plain-date';
 import { type TemporalWithDate } from '../temporal-with-date';
 

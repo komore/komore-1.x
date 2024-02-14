@@ -5,6 +5,7 @@ import { catchError } from './catch-error';
 
 /**
  * Ignores errors in a stream
+ *
  * @param maxErrors Maximum number of errors to ignore
  * @param errorFactory Error factory
  */
@@ -13,8 +14,9 @@ export function ignoreErrors<T>(
   errorFactory?: (lastError: unknown) => unknown
 ): MonoTypeOperatorFunction<T> {
   return catchError(error => {
-    if (maxErrors === undefined || maxErrors > 0) {
+    if ((maxErrors ?? 0) > 0) {
       if (maxErrors !== undefined) {
+        // eslint-disable-next-line no-param-reassign
         --maxErrors;
       }
 

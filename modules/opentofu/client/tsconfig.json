@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.node.json",
+  "references": [
+    {
+      "path": "./opentofu-client.tsconfig.library.json"
+    },
+    {
+      "path": "./opentofu-client.tsconfig.specifications.json"
+    }
+  ]
+}

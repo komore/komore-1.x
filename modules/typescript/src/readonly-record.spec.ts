@@ -1,5 +1,7 @@
-import { feature } from '@komore/testing';
 import { expectTypeOf } from 'expect-type';
+
+import { feature } from '@komore/testing';
+
 import { type ReadonlyRecord } from './readonly-record';
 
 feature('Readonly record', {
@@ -12,6 +14,6 @@ feature('Readonly record', {
     type TestRecord = ReadonlyRecord<Keys, ValueType>;
 
     expect: 'a record with readonly properties to have been defined';
-    expectTypeOf<TestRecord>().toEqualTypeOf<{ readonly a: number; readonly b: number }>();
+    expectTypeOf<TestRecord>().toEqualTypeOf<{ readonly a: number, readonly b: number }>();
   }
 });

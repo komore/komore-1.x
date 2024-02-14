@@ -3,7 +3,7 @@ import { feature } from '@komore/testing';
 
 import { isNextHour } from './is-next-hour';
 
-describe('Is next hour', () => {
+feature('Is next hour', () => {
   const currentPlainDateTime = Temporal.PlainDateTime.from('2020-01-01T12:34:56.789');
   const currentZonedDateTime = Temporal.ZonedDateTime.from('2020-01-01T12:34:56.789+01:00[Europe/Paris]');
   let mockedCurrentPlainDateTime: ReturnType<typeof mockCurrentPlainDateTime>;

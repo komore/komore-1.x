@@ -3,10 +3,10 @@
   "extends": "../../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./cicd-schematics.tsconfig.library.json"
+      "path": "./ci-schematics.tsconfig.library.json"
     },
     {
-      "path": "./cicd-schematics.tsconfig.specifications.json"
+      "path": "./ci-schematics.tsconfig.specifications.json"
     }
   ]
 }

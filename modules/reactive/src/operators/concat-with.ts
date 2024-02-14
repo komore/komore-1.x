@@ -11,8 +11,8 @@ import { type OperatorFunction } from '../operator-function';
  * @template T Source observable value type
  * @template A Additional source observable value types
  */
-export function concatWith<T, A extends readonly unknown[]>(
-  sources: [...ObservableTuple<A>]
+export function concatWith<T, A extends ReadonlyArray<unknown>>(
+  sources: readonly [...ObservableTuple<A>]
 ): OperatorFunction<T, T | A[number]> {
   return rxjsConcatWith(sources);
 }

@@ -3,10 +3,10 @@
   "extends": "../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./reactive-reactive.tsconfig.library.json"
+      "path": "./reactive-polyfill.tsconfig.library.json"
     },
     {
-      "path": "./reactive-reactive.tsconfig.specifications.json"
+      "path": "./reactive-polyfill.tsconfig.specifications.json"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { EMPTY, takeWhile } from '@komore/reactive';
+import { empty, takeWhile } from '@komore/reactive';
 import { createHost } from '@komore/runtime/host';
 
 import { type BrowserHost } from './browser-host';
@@ -14,7 +14,7 @@ import { createBrowserHostStateObservable } from './create-browser-host-state-ob
  */
 export function createBrowserHost(_hostOptions: BrowserHostOptions): BrowserHost {
   const error = createBrowserHostErrorObservable();
-  const lifecycle = EMPTY; // TODO
+  const lifecycle = empty; // TODO
   const state = createBrowserHostStateObservable();
 
   state.pipe(takeWhile(hostState => hostState !== 'stopped')).subscribe();

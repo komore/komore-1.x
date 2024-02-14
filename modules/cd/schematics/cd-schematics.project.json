@@ -1,7 +1,7 @@
 {
   "$schema": "../../schematics/project-configuration.schema.json",
-  "domain": "cicd",
+  "domain": "cd",
   "type": "library",
   "tags": ["trait:schematics"],
-  "tasks": ["build", "document", "lint", "test"]
+  "tasks": ["build", "document", "lint", "package", "test"]
 }

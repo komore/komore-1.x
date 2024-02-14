@@ -8,7 +8,7 @@ export type SplitString<
   Str extends string,
   Delimiter extends string,
   Current extends string = '',
-  Result extends string[] = [],
+  Result extends ReadonlyArray<string> = [],
 > = Str extends `${infer Head}${infer Tail}`
   ? Head extends Delimiter
     ? SplitString<Tail, Delimiter, '', [...Result, Current]>

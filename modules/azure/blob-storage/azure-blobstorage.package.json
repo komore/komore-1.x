@@ -1,4 +1,4 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/azure/blob"
+  "name": "@komore/azure/blob-storage"
 }

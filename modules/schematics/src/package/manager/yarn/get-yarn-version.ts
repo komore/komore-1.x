@@ -9,6 +9,6 @@ import { map } from '@komore/reactive';
  */
 export function getYarnVersion(basePath: string): Observable<string> {
   return executeChildProcess('yarn --version', {
-    cwd: basePath,
+    workingDirectory: basePath,
   }).pipe(map(({ stdout }) => stdout.trim()));
 }

@@ -8,7 +8,7 @@ import { type PackageName } from '../../name/package-name';
 export function addPnpmPackage(
   basePath: string
 ): (packageName: PackageName, packageVersion: string, type: PackageDependencyType) => Observable<void> {
-  const execOptions = { cwd: basePath };
+  const execOptions = { workingDirectory: basePath };
   const pnpmDependencyTypes: ReadonlyRecord<PackageDependencyType, string> = {
     development: 'dev',
     optional: 'optional',

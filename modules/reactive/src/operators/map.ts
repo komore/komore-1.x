@@ -122,7 +122,7 @@ type TupleOutputPropertyType<
   InputType extends ReadonlyArray<unknown>,
   ProjectType extends TupleProjectType<InputType>,
   K extends keyof InputType,
-> = ProjectType[K] extends (...arg: never[]) => unknown ? ReturnType<ProjectType[K]> : InputType[K];
+> = ProjectType[K] extends (...arg: ReadonlyArray<never>) => unknown ? ReturnType<ProjectType[K]> : InputType[K];
 
 /**
  * Given an input type, create a similar object made of mapping functions for each property
@@ -160,4 +160,4 @@ type RecordOutputPropertyType<
   InputType extends ReadonlyRecord<string, unknown>,
   ProjectType extends Partial<RecordProjectType<InputType>>,
   K extends keyof InputType,
-> = ProjectType[K] extends (...arg: never[]) => unknown ? ReturnType<ProjectType[K]> : InputType[K];
+> = ProjectType[K] extends (...arg: ReadonlyArray<never>) => unknown ? ReturnType<ProjectType[K]> : InputType[K];

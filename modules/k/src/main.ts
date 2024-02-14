@@ -1,3 +1,6 @@
+import '@komore/reactive/polyfill';
+import '@komore/temporal/polyfill';
+
 import { runCliApplication } from '@komore/cli/application';
 import { firstValueFrom } from '@komore/reactive';
 

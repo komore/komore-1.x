@@ -1,3 +1,4 @@
+import { empty } from '../creation/empty';
 import { type OperatorFunction } from '../operator-function';
 import { mergeMapTo } from './merge-map-to';
 
@@ -7,5 +8,5 @@ import { mergeMapTo } from './merge-map-to';
  * @returns Operator function that drops any value and never allows completion
  */
 export function neverComplete(): OperatorFunction<unknown, never> {
-  return mergeMapTo(new Observable<never>());
+  return mergeMapTo(empty);
 }

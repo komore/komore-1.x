@@ -1,4 +1,4 @@
 /**
  * HTTP client request options
  */
-export type HttpClientRequestOptions = Omit<RequestInit, 'headers' | 'method' | 'signal'>;
+export type HttpClientRequestOptions = Readonly<Omit<RequestInit, 'headers' | 'method' | 'signal'>>;

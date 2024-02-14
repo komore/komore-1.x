@@ -14,14 +14,14 @@
         "one-var": [
           "error",
           {
-            "const": "always",
+            "const": "never",
             "let": "never",
             "var": "never"
           }
         ],
         "@stylistic/ts/block-spacing": ["error", "always"],
         "@stylistic/ts/brace-style": ["error", "1tbs"],
-        "@stylistic/ts/comma-spacing": ["error", "after"],
+        "@stylistic/ts/comma-spacing": ["error", { "after": true, "before": false }],
         "@stylistic/ts/function-call-spacing": ["error", "never"],
         "@stylistic/ts/key-spacing": [
           "error",
@@ -33,13 +33,11 @@
         "@stylistic/ts/keyword-spacing": [
           "error",
           {
-            "before": true,
             "after": true,
-            "mode": "strict"
+            "before": true
           }
         ],
-
-        "@styleistic/ts/member-delimiter-style": [
+        "@stylistic/ts/member-delimiter-style": [
           "error",
           {
             "multiline": {
@@ -61,7 +59,14 @@
         ],
         "@typescript-eslint/await-thenable": ["error"],
         "@typescript-eslint/ban-ts-comment": ["error"],
-        "@typescript-eslint/ban-types": ["error"],
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "{}": false
+            }
+          }
+        ],
         "@typescript-eslint/consistent-type-imports": [
           "error",
           {
@@ -76,7 +81,20 @@
             "varsIgnorePattern": "^_"
           }
         ],
-        "@typescript-eslint/prefer-readonly-parameter-types": ["error"]
+        "@typescript-eslint/prefer-readonly-parameter-types": [
+          "error",
+          {
+            "allow": [
+              { "from": "lib", "name": "AddEventListenerOptions" },
+              { "from": "lib", "name": "RegExp" },
+              { "from": "lib", "name": "RequestInit" },
+              { "from": "lib", "name": "URL" },
+              { "from": "package", "name": "Observable", "package": "rxjs" }
+            ],
+            "ignoreInferredTypes": true,
+            "treatMethodsAsReadonly": true
+          }
+        ]
       }
     }
   ]

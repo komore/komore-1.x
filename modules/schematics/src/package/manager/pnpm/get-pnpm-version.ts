@@ -8,6 +8,6 @@ import { map } from '@komore/reactive';
  * @returns Function that returns the pnpm version
  */
 export function getPnpmVersion(basePath: string): () => Observable<string> {
-  const execute = executeChildProcess('pnpm --version', { cwd: basePath });
+  const execute = executeChildProcess('pnpm --version', { workingDirectory: basePath });
   return () => execute.pipe(map(({ stdout }) => stdout.trim()));
 }

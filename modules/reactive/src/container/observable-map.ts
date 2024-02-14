@@ -13,7 +13,7 @@ export class ObservableMap<K, V> extends Map<K, Observable<V>> {
    * @param resolver Resolver
    * @param entries Entries
    */
-  constructor(resolver: (key: K) => Observable<V>, entries?: readonly (readonly [key: K, value: Observable<V>])[]) {
+  constructor(resolver: (key: K) => Observable<V>, entries?: ReadonlyArray<readonly [key: K, value: Observable<V>]>) {
     super(entries);
     this.resolver = resolver;
   }

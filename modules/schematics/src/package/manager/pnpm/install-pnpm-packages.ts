@@ -8,6 +8,6 @@ import { redactValue } from '@komore/reactive';
  * @returns Function that installs pnpm packages
  */
 export function installPnpmPackages(basePath: string): () => Observable<void> {
-  const install = executeChildProcess('pnpm install --frozen', { cwd: basePath });
+  const install = executeChildProcess('pnpm install --frozen', { workingDirectory: basePath });
   return () => install.pipe(redactValue());
 }

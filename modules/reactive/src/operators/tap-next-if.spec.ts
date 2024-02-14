@@ -1,7 +1,9 @@
-import { EMPTY, ReplaySubject, throwError } from '@komore/reactive';
+import { empty, ReplaySubject, throwError } from '@komore/reactive';
+import { feature } from '@komore/testing';
+
 import { tapNextIf } from './tap-next-if';
 
-describe('Tap value if', () => {
+feature('Tap value if', () => {
   const valueObserver = jest.fn();
   const predicate = jest.fn((value: number) => value > 50);
 
@@ -33,7 +35,7 @@ describe('Tap value if', () => {
   describe('does not call the completion observer when the observable', () => {
     test('completes', () => {
       given: 'a source observable that completes';
-      const source$ = EMPTY;
+      const source$ = empty;
       when: 'passing the source observable';
       const operatorFunction = tapNextIf(predicate, valueObserver);
       const observable$ = operatorFunction(source$);

@@ -9,6 +9,6 @@ import { map } from '@komore/reactive';
  */
 export function getNpmVersion(basePath: string): Observable<string> {
   return executeChildProcess('npm --version', {
-    cwd: basePath,
+    workingDirectory: basePath,
   }).pipe(map(({ stdout }) => stdout.trim()));
 }

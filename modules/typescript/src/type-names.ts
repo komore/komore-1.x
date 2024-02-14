@@ -2,12 +2,12 @@
  * Type names
  */
 export interface TypeNames {
-  bigint: bigint;
-  boolean: boolean;
-  function: (...args: unknown[]) => unknown;
-  number: number;
-  object: Record<string, unknown>;
-  undefined: undefined;
-  string: string;
-  symbol: symbol;
+  readonly bigint: bigint;
+  readonly boolean: boolean;
+  readonly function: (...args: ReadonlyArray<unknown>) => unknown;
+  readonly number: number;
+  readonly object: Record<string, unknown>;
+  readonly undefined: undefined;
+  readonly string: string;
+  readonly symbol: symbol;
 }

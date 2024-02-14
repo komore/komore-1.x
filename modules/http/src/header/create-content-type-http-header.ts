@@ -12,7 +12,7 @@ import { type HttpHeader } from './http-header';
 export function createContentTypeHttpHeader(
   mediaType: MediaType,
   // TODO: typed character set
-  options?: { readonly charset?: string; readonly boundary?: string }
+  options?: { readonly charset?: string, readonly boundary?: string }
 ): HttpHeader {
   const charset = options?.charset;
   const boundary = options?.boundary;

@@ -1,3 +1,5 @@
+import { empty } from '@komore/reactive';
+
 import { type Update } from './update';
 
 /**
@@ -7,7 +9,7 @@ import { type Update } from './update';
  * @template DataType Update data type
  */
 export function watchAppliedUpdates<DataType = undefined>(): Observable<Update<DataType>> {
-  return new Observable<never>();
+  return empty;
 }
 
 /*

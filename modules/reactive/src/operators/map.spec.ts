@@ -1,10 +1,11 @@
-import { expectTypeOf } from 'expect-type';
+import { feature } from '@komore/testing';
+
 import { of } from '../creation/of';
 import { firstValueFrom } from '../promise/first-value-from';
 import { map } from './map';
 
-describe('Map operator', () => {
-  it('maps an emitted value', async () => {
+feature('Map operator', {
+  async 'maps an emitted value'() {
     given: 'an observable';
     const value = 42;
     const $ = of(value);
@@ -21,9 +22,8 @@ describe('Map operator', () => {
     and: 'the mapping function to have been called only once, with the value and the index';
     expect(mappingFunction).toHaveBeenCalledTimes(1);
     expect(mappingFunction).toHaveBeenCalledWith(value, 0);
-  });
-
-  it('maps an emitted tuple', async () => {
+  },
+  async 'maps an emitted tuple'() {
     given: 'an observable';
     const value = [42, 'test', true] as const;
     const $ = of(value);
@@ -47,11 +47,10 @@ describe('Map operator', () => {
     expect(mappingFunction0).toHaveBeenCalledWith(value[0], value, 0);
     expect(mappingFunction2).toHaveBeenCalledTimes(1);
     expect(mappingFunction2).toHaveBeenCalledWith(value[2], value, 0);
-  });
-
-  it('maps an emitted object', async () => {
+  },
+  async 'maps an emitted object'() {
     given: 'an observable';
-    const value = { n: 42, s: 'test', b: true };
+    const value = { n: 42, s: 'test', b: true } as const;
     const $ = of(value);
     and: 'mapping functions for some properties in the object';
     const mappingFunctionN = jest.fn((n: number, { s }: typeof value, index: number) => `${s}${n}${index}`);
@@ -71,6 +70,6 @@ describe('Map operator', () => {
     expect(mappingFunctionB).toHaveBeenCalledTimes(1);
     expect(mappingFunctionB).toHaveBeenCalledWith(value.b, value, 0);
     and: 'the type of the resulting observable to have taken the mapping function return types into account';
-    expectTypeOf(result).toEqualTypeOf<{ n: string; s: string; b: boolean }>();
-  });
+    expectTypeOf(result).toEqualTypeOf<{ readonly n: string, readonly s: string, readonly b: boolean }>();
+  },
 });

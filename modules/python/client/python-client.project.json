@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schematics/project-configuration.schema.json",
+  "domain": "python",
+  "type": "library",
+  "tags": ["trait:client"],
+  "tasks": ["build", "document", "lint", "package", "test"]
+}

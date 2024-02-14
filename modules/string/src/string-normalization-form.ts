@@ -1,4 +1,4 @@
-import { stringNormalizationForms } from './string-normalization-forms';
+import { type stringNormalizationForms } from './string-normalization-forms';
 
 /**
  * String normalization form

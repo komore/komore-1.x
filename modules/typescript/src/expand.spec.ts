@@ -1,5 +1,7 @@
-import { feature } from '@komore/testing';
 import { expectTypeOf } from 'expect-type';
+
+import { feature } from '@komore/testing';
+
 import { type Expand } from './expand';
 
 feature('Expand', {
@@ -11,6 +13,6 @@ feature('Expand', {
     type ExpandedType = Expand<TypeWithIntersection>;
 
     expect: 'the type to have been expanded, removing the intersection';
-    expectTypeOf<ExpandedType>().toEqualTypeOf<{ readonly x: string; readonly y: number }>();
+    expectTypeOf<ExpandedType>().toEqualTypeOf<{ readonly x: string, readonly y: number }>();
   },
 });

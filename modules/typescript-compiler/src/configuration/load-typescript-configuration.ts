@@ -1,6 +1,6 @@
 import { dirname, resolve } from 'node:path';
 
-import { EMPTY, expand, map, reduce } from '@komore/reactive';
+import { empty, expand, map, reduce } from '@komore/reactive';
 
 import { extendedTypeScriptConfigurationsToTypeScriptConfiguration } from './extended-typescript-configurations-to-typescript-configuration';
 import { loadExtendedTypeScriptConfiguration } from './load-extended-typescript-configuration';
@@ -23,7 +23,7 @@ export function loadTypeScriptConfiguration(filePath: string): Observable<TypeSc
     map(typeScriptConfigurationWithPath(filePath)),
     expand(([{ extends: extendedConfigurationPath }, configurationFilePath]) => {
       if (extendedConfigurationPath === undefined) {
-        return EMPTY;
+        return empty;
       }
 
       const extendedFilePath = extendedConfigurationPathToFullPath(configurationFilePath)(extendedConfigurationPath);

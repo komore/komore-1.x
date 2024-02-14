@@ -25,7 +25,7 @@ export function share<T>(config: ShareConfig<T>): MonoTypeOperatorFunction<T> {
  * Share operator configuration
  */
 export interface ShareConfig<T> {
-  connector?: () => Subject<T>;
+  readonly connector?: () => Subject<T>;
   readonly resetOn?: {
     readonly complete?: boolean | (() => Observable<unknown>);
     readonly error?: boolean | ((error: unknown) => Observable<unknown>);

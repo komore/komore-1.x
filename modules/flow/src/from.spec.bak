@@ -1,4 +1,4 @@
-import { EMPTY, lastValueFrom, Observable, of, throwError } from 'rxjs';
+import { empty, lastValueFrom, Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { createMessage } from '../create-message';
 import { Message } from '../message';
@@ -14,8 +14,8 @@ describe('from operator function', () => {
     const message2 = createMessage('delayed2', {}, 12, undefined);
     const delayed1 = (): ObservableNumberMessage => of(message1).pipe(delay(50));
     const delayed2 = (): ObservableNumberMessage => of(message2).pipe(delay(25));
-    const empty1 = (): ObservableNumberMessage => EMPTY;
-    const empty2 = (): ObservableNumberMessage => EMPTY;
+    const empty1 = (): ObservableNumberMessage => empty;
+    const empty2 = (): ObservableNumberMessage => empty;
     // and: a pipeline that passes the message through the from operator function
     const $ = of(message).pipe(from(delayed1, empty1, delayed2, empty2));
     // when: getting the emitted value
@@ -40,8 +40,8 @@ describe('from operator function', () => {
 
   it('throws an error if all sources complete without emitting', async () => {
     // given: sources that do not emit
-    const empty1 = (): ObservableNumberMessage => EMPTY;
-    const empty2 = (): ObservableNumberMessage => EMPTY;
+    const empty1 = (): ObservableNumberMessage => empty;
+    const empty2 = (): ObservableNumberMessage => empty;
     // and: a pipeline that passes the message through the from operator function
     const $ = of(message).pipe(from(empty1, empty2));
     // expect: an error to be thrown when no source emits

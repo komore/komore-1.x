@@ -1,9 +1,11 @@
-import { EMPTY } from '../creation/empty';
+import { feature } from '@komore/testing';
+
+import { empty } from '../creation/empty';
 import { throwError } from '../creation/throw-error';
 import { ReplaySubject } from '../subject/replay-subject';
 import { tapNext } from './tap-next';
 
-describe('Tap next', () => {
+feature('Tap next', () => {
   const nextObserver = jest.fn();
 
   beforeEach(() => {
@@ -30,7 +32,7 @@ describe('Tap next', () => {
   describe('does not call the completion observer when the observable', () => {
     test('completes', () => {
       given: 'a source observable that completes';
-      const source$ = EMPTY;
+      const source$ = empty;
       when: 'passing the source observable';
       const operatorFunction = tapNext(nextObserver);
       const observable$ = operatorFunction(source$);

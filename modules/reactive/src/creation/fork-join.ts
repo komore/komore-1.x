@@ -36,7 +36,7 @@ export function forkJoin<T extends ReadonlyRecord<string, Observable<unknown>>>(
 ): Observable<{ [K in keyof T]: ObservableType<T[K]> }>;
 
 export function forkJoin(
-  sources: ReadonlyArray<Observable<unknown>> | Record<string, Observable<unknown>>
+  sources: ReadonlyArray<Observable<unknown>> | ReadonlyRecord<string, Observable<unknown>>
 ): Observable<unknown> {
   return rxjsForkJoin(sources as unknown as ReadonlyArray<Observable<unknown>>);
 }

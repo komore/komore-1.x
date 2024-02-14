@@ -1,4 +1,5 @@
-import { EMPTY } from '@komore/reactive';
+import { empty } from '@komore/reactive';
+
 import { type Workflow } from './workflow';
 
 /**
@@ -9,7 +10,7 @@ import { type Workflow } from './workflow';
  * @template WorkflowName Workflow name
  */
 export function defineWorkflow<WorkflowName extends string>(_workflowName: WorkflowName): Workflow {
-  return () => EMPTY;
+  return () => empty;
 }
 
 /**

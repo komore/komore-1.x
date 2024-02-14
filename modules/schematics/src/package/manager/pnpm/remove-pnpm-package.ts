@@ -10,6 +10,6 @@ import { type PackageName } from '../../name/package-name';
  * @returns Function that removes a pnpm package
  */
 export function removePnpmPackage(basePath: string): (packageName: PackageName) => Observable<void> {
-  const execOptions = { cwd: basePath };
+  const execOptions = { workingDirectory: basePath };
   return packageName => executeChildProcess(`pnpm remove ${packageName}`, execOptions).pipe(redactValue());
 }

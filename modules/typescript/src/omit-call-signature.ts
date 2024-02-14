@@ -1,4 +1,4 @@
-import { GenericFunction } from './generic-function';
+import { type GenericFunction } from './generic-function';
 
 /**
  * Omits a call signature from a type
@@ -6,5 +6,5 @@ import { GenericFunction } from './generic-function';
  * @template T Type
  */
 export type OmitCallSignature<T> = {
-  [K in keyof T]: K extends GenericFunction ? never : T[K];
+  readonly [K in keyof T]: K extends GenericFunction ? never : T[K];
 };
