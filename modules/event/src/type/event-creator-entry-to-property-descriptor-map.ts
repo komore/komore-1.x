@@ -13,10 +13,12 @@ export function eventCreatorEntryToPropertyDescriptorMap(
   eventCreatorEntry: EventCreatorEntry
 ): PropertyDescriptorMap {
   const [eventName, eventCreator] = eventCreatorEntry;
-  propertyDescriptorMap[eventName] = {
-    enumerable: false,
-    value: eventCreator,
-    writable: false,
+  return {
+    ...propertyDescriptorMap,
+    [eventName]: {
+      enumerable: false,
+      value: eventCreator,
+      writable: false,
+    },
   };
-  return propertyDescriptorMap;
 }

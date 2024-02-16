@@ -1,11 +1,26 @@
-import { createEvent } from './create-event';
-import { type EventWithMetadata } from './event-metadata';
+import { feature } from '@komore/testing';
+
+import { type EventWithStoreMetadata } from '../../metadata/event-store-metadata';
 import { snapshotOnEvent } from './snapshot-on-event';
-import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
+import { createEventType, eventProperties } from '@komore/event';
+import { testDomain } from '@komore/domain/testing';
 
 feature('Snapshot on event', () => {
-  function createTestEvent(n: number): EventWithMetadata<any> {
-    const event = createEvent(`test-event-type-${n}`)();
+  const after = 'after';
+  const at = 'at';
+  const before = 'before';
+  const first = 'first';
+  const last = 'last';
+
+  const testEvent = createEventType(testDomain, {
+    test1: eventProperties(),
+    test2: eventProperties(),
+    test3: eventProperties(),
+    test4: eventProperties(),
+  });
+
+  function createTestEvent(n: 1 | 2 | 3 | 4): EventWithStoreMetadata<any> {
+    const event = testEvent[`test${n}`]();
     return {
       event,
       metadata: {
@@ -18,7 +33,7 @@ feature('Snapshot on event', () => {
   }
 
   const testEvents = [createTestEvent(1), createTestEvent(2), createTestEvent(3), createTestEvent(4)] as const;
-  const testEventCreator = createEvent('test-event-type-2');
+  const testEventCreator = testEvent.test2;
 
   type SnapshotStrategyTestState = Readonly<{
     value: number;
@@ -29,34 +44,36 @@ feature('Snapshot on event', () => {
   };
 
   it.each([
-    [['test-event-type-2'], SnapshotStrategySelectionType.AFTER, 3],
-    [['test-event-type-2'], SnapshotStrategySelectionType.AT, 2],
-    [['test-event-type-2'], SnapshotStrategySelectionType.BEFORE, 1],
-    [['test-event-type-2'], SnapshotStrategySelectionType.FIRST, 1],
-    [['test-event-type-2'], SnapshotStrategySelectionType.LAST, 4],
-    [['test-event-type-1'], SnapshotStrategySelectionType.BEFORE, false],
-    [['test-event-type-4'], SnapshotStrategySelectionType.AFTER, false],
-    [['test-event-type-3', 'test-event-type-2'], SnapshotStrategySelectionType.AFTER, 3],
-    [['test-event-type-3', 'test-event-type-2'], SnapshotStrategySelectionType.AT, 2],
-    [['test-event-type-3', 'test-event-type-2'], SnapshotStrategySelectionType.BEFORE, 1],
-    [['test-event-type-3', 'test-event-type-2'], SnapshotStrategySelectionType.FIRST, 1],
-    [['test-event-type-3', 'test-event-type-2'], SnapshotStrategySelectionType.LAST, 4],
-    [[testEventCreator], SnapshotStrategySelectionType.AFTER, 3],
-    [[testEventCreator], SnapshotStrategySelectionType.AT, 2],
-    [[testEventCreator], SnapshotStrategySelectionType.BEFORE, 1],
-    [[testEventCreator], SnapshotStrategySelectionType.FIRST, 1],
-    [[testEventCreator], SnapshotStrategySelectionType.LAST, 4],
-    [['unknown'], SnapshotStrategySelectionType.AFTER, false],
-    [['unknown'], SnapshotStrategySelectionType.AT, false],
-    [['unknown'], SnapshotStrategySelectionType.BEFORE, false],
-    [['unknown'], SnapshotStrategySelectionType.FIRST, false],
-    [['unknown'], SnapshotStrategySelectionType.LAST, false],
+    [['test-event-type-2'], after, 3],
+    [['test-event-type-2'], at, 2],
+    [['test-event-type-2'], before, 1],
+    [['test-event-type-2'], first, 1],
+    [['test-event-type-2'], last, 4],
+    [['test-event-type-1'], before, false],
+    [['test-event-type-4'], after, false],
+    [['test-event-type-3', 'test-event-type-2'], after, 3],
+    [['test-event-type-3', 'test-event-type-2'], at, 2],
+    [['test-event-type-3', 'test-event-type-2'], before, 1],
+    [['test-event-type-3', 'test-event-type-2'], first, 1],
+    [['test-event-type-3', 'test-event-type-2'], last, 4],
+    [[testEventCreator], after, 3],
+    [[testEventCreator], at, 2],
+    [[testEventCreator], before, 1],
+    [[testEventCreator], first, 1],
+    [[testEventCreator], last, 4],
+    [['unknown'], after, false],
+    [['unknown'], at, false],
+    [['unknown'], before, false],
+    [['unknown'], first, false],
+    [['unknown'], last, false],
   ])('properly selects the sequence number (count = %s, selection = %s)', (events, selectionType, expectedResult) => {
-    // given: a snapshot on size strategy
+    given: 'a snapshot on size strategy';
     const snapshotStrategy = snapshotOnEvent(events, selectionType);
-    // when: running the strategy
+
+    when: 'running the strategy';
     const result = snapshotStrategy(testEvents, testNewState, undefined);
-    // then: the correct result is returned
+
+    then: 'the correct result is returned';
     expect(result).toBe(expectedResult);
   });
 

@@ -7,9 +7,9 @@ import { type EventStoreSnapshotStrategy } from './snapshot/strategy/event-store
  * Event store
  *
  * @template AggregateType Aggregate type
- * @template EventTypes Event types
+ * @template EventType Event type
  */
-export interface EventStore<AggregateType, EventTypes extends ReadonlyArray<GenericEvent>> {
+export interface EventStore<AggregateType, EventType extends GenericEvent> {
   /**
    * Initial value or initial value creator for new aggregates
    */
@@ -17,11 +17,11 @@ export interface EventStore<AggregateType, EventTypes extends ReadonlyArray<Gene
   /**
    * Event reducer
    */
-  readonly reducer: EventReducer<AggregateType, EventTypes>;
+  readonly reducer: EventReducer<AggregateType, EventType>;
   /**
    * Snapshot strategy or strategies
    */
   readonly snapshotStrategy:
-    | EventStoreSnapshotStrategy<AggregateType, EventTypes>
-    | ReadonlyArray<EventStoreSnapshotStrategy<AggregateType, EventTypes>>;
+    | EventStoreSnapshotStrategy<AggregateType, EventType>
+    | ReadonlyArray<EventStoreSnapshotStrategy<AggregateType, EventType>>;
 }

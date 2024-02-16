@@ -226,6 +226,8 @@
     "event-schematics": "modules/event/schematics",
     "event-linting": "modules/event/linting",
     "event-store": "modules/event/store",
+    "event-store-memory": "modules/event/store/memory",
+    "event-store-testing": "modules/event/store/testing",
     "event-testing": "modules/event/testing",
     "file": "modules/file",
     "flow": "modules/flow",

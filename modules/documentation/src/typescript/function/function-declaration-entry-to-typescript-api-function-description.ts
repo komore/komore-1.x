@@ -4,7 +4,7 @@ import { type TypeScriptApiFunctionDescription } from '@komore/documentation';
 import { isDefined } from '@komore/functional';
 import { of } from '@komore/reactive';
 
-import { documentationGeneratorError } from '../../documentation-generator.error';
+import { documentationError } from '../../documentation.error';
 import { functionDeclarationToTypeScriptApiFunctionDeclarationDescription } from './function-declaration-to-typescript-api-function-declaration-description';
 
 /**
@@ -24,7 +24,7 @@ export function functionDeclarationEntryToTypeScriptApiFunctionDescription(): (
     };
 
     if (functionDescription.declarations.length === 0) {
-      throw documentationGeneratorError.noFunctionDocumentation({ functionName: name });
+      throw documentationError.functionDocumentationNotFound({ functionName: name });
     }
 
     return of(functionDescription);

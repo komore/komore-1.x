@@ -2,6 +2,7 @@ import { type EventStoreSnapshot } from './snapshot/event-store-snapshot';
 
 /**
  * Event store snapshot repository
+ *
  * @template StateType State type
  */
 export interface EventStoreSnapshotRepository<StateType> {

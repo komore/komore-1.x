@@ -1,4 +1,4 @@
-import { type Event } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 import { assert } from '@komore/runtime';
 
 import { type EventStoreSnapshotStrategy } from './event-store-snapshot-strategy';
@@ -16,10 +16,10 @@ import { isFirstOrLastSelectionType } from './is-first-or-last-selection-type';
  * @template AggregateType Aggregate type
  * @template EventTypes Event types
  */
-export function snapshotOnCount<AggregateType, EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
+export function snapshotOnCount<AggregateType, EventType extends GenericEvent>(
   count: number,
   selectionType: EventStoreSnapshotStrategySelectionType = 'last'
-): EventStoreSnapshotStrategy<AggregateType, EventTypes> {
+): EventStoreSnapshotStrategy<AggregateType, EventType> {
   assert(count > 0, 'a snapshot on count strategy must have a threshold strictly greater than 0 events');
 
   return eventsWithMetadata => {

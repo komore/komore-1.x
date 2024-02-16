@@ -1,16 +1,15 @@
-import { createEvent } from './create-event';
-import { createEventReducer } from './create-event-reducer';
-import { type EventMetadata } from './event-metadata';
-import { onEvent } from './event-reducer-on';
-import { eventProperties } from './event-properties';
+import { testDomain } from '@komore/domain/testing';
+import { createEventType, eventProperties } from '@komore/event';
+import { feature } from '@komore/testing';
 
-/**
- * Create reducer specification
- */
-describe('Create event reducer', () => {
+import { type EventStoreMetadata } from '../metadata/event-store-metadata';
+import { createEventReducer } from './create-event-reducer';
+import { onEvent as on } from './on-event';
+
+feature('Create event reducer', () => {
   type TestState = {
-    stringValue: string;
-    numberValue: number;
+    readonly stringValue: string;
+    readonly numberValue: number;
   };
 
   const testInitialState: TestState = {
@@ -18,39 +17,46 @@ describe('Create event reducer', () => {
     numberValue: 42,
   };
 
-  const testEvent = createEvent('test-type', schema<{ additionalNumber: number }>());
+  const testEvent = createEventType(testDomain, {
+    test: eventProperties<{ readonly additionalNumber: number }>(),
+  });
 
-  const testEventMetadata: EventMetadata = {
+  const testEventMetadata: EventStoreMetadata = {
     aggregateKey: 'test',
     sequenceNumber: 1,
     size: 0,
-    timestamp: Temporal.Now.plainDateTimeISO(),
+    timestamp: Temporal.Now.instant(),
   };
 
   it('can be created with an initial state', () => {
-    // given: a reducer with an initial state
+    given: 'a reducer with an initial state';
     const reducer = createEventReducer(testInitialState);
-    // when: calling the reducer without any argument
-    const newState = reducer(undefined, testEvent, testEventMetadata);
-    // then: the state is set to the initial state
-    expect(newState).toBe(testInitialState);
+
+    when: 'calling the reducer without any argument';
+    const event = testEvent.test({ additionalNumber: 4 });
+    const newState = reducer(undefined, event as never, testEventMetadata);
+
+    then: 'the state is set to the initial state';
+    newState === testInitialState;
   });
 
   it('can be created with an event handler', () => {
-    // given: an event reducer with an event handler
+    given: 'an event reducer with an event handler';
     const eventReducer = createEventReducer(
       testInitialState,
-      on(testEvent, (state: typeof testInitialState, { additionalNumber }) => ({
+      on(testEvent.test, (state, { additionalNumber }) => ({
         ...state,
         numberValue: state.numberValue + additionalNumber,
       }))
     );
-    // when: calling the reducer with an event
-    const event = testEvent({ additionalNumber: 4 });
+
+    when: 'calling the reducer with an event';
+    const event = testEvent.test({ additionalNumber: 4 });
     const newState = eventReducer(undefined, event, testEventMetadata);
-    // then: the state is properly reduced
-    expect(newState).not.toBe(undefined);
-    expect(newState).not.toBe(testInitialState);
-    expect(newState.numberValue).toBe(testInitialState.numberValue + event.additionalNumber);
+
+    then: 'the state is properly reduced';
+    newState !== undefined;
+    newState !== testInitialState;
+    newState.numberValue === testInitialState.numberValue + event.properties.additionalNumber;
   });
 });

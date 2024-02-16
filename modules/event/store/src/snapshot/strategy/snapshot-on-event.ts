@@ -1,33 +1,33 @@
-import * as assert from 'assert';
-import { Event } from './event';
-import { EventCreator } from './event-creator';
-import { SnapshotStrategy } from './snapshot-strategy';
-import {
-  getAfterAtOrBeforeSequenceNumber,
-  getFirstOrLastSequenceNumber,
-  isFirstOrLastSelectionType
-} from './snapshot-strategy-helpers';
-import { SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+import { type EventCreator, type EventFromCreator } from '@komore/event';
+import { assert } from '@komore/runtime';
+import { type TypeCreator } from '@komore/typescript';
+
+import { type EventStoreSnapshotStrategy } from './event-store-snapshot-strategy';
+import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
+import { getAfterAtOrBeforeSequenceNumber } from './get-after-at-or-before-sequence-number';
+import { getFirstOrLastSequenceNumber } from './get-first-or-last-sequence-number';
+import { isFirstOrLastSelectionType } from './is-first-or-last-selection-type';
 
 /**
  * Creates a snapshot strategy that triggers a snapshot creation around the occurence of a particular event
+ *
  * @param eventCreatorsOrTypes List of event creators or types
  * @param selectionType Snapshot strategy selection type
  * @returns Snapshot strategy
- * @template S State type
- * @template E Event type
+ * @template SnapshotType Snapshot type
+ * @template EventType Event type
  */
-export function snapshotOnEvent<S, E extends Event<any, any>[]>(
-  eventCreatorsOrTypes: ReadonlyArray<EventCreator<E[number]> | string>,
-  selectionType: SnapshotStrategySelectionType = SnapshotStrategySelectionType.LAST
-): SnapshotStrategy<S, E> {
+export function snapshotOnEvent<SnapshotType, EventCreatorType extends EventCreator<string, TypeCreator<any, any>>>(
+  eventCreatorsOrTypes: ReadonlyArray<EventCreatorType | string>,
+  selectionType: EventStoreSnapshotStrategySelectionType = 'last'
+): EventStoreSnapshotStrategy<SnapshotType, EventFromCreator<EventCreatorType>> {
   assert(eventCreatorsOrTypes.length > 0, 'a snapshot on event strategy must have at least one event type specified');
 
   return eventsWithMetadata => {
     const index = eventsWithMetadata.findIndex(({ event }) =>
       eventCreatorsOrTypes.some(eventCreatorOrType => {
-        const eventType = typeof eventCreatorOrType === 'function' ? eventCreatorOrType.type : eventCreatorOrType;
-        return eventType === event.type;
+        const eventName = typeof eventCreatorOrType === 'function' ? eventCreatorOrType.name : eventCreatorOrType;
+        return eventName === event.name;
       })
     );
 
@@ -35,10 +35,8 @@ export function snapshotOnEvent<S, E extends Event<any, any>[]>(
       return false;
     }
 
-    if (isFirstOrLastSelectionType(selectionType)) {
-      return getFirstOrLastSequenceNumber(eventsWithMetadata, selectionType);
-    } else {
-      return getAfterAtOrBeforeSequenceNumber(eventsWithMetadata, selectionType, index);
-    }
+    return isFirstOrLastSelectionType(selectionType)
+      ? getFirstOrLastSequenceNumber(eventsWithMetadata, selectionType)
+      : getAfterAtOrBeforeSequenceNumber(eventsWithMetadata, selectionType, index);
   };
 }

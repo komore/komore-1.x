@@ -1,5 +1,5 @@
 import { type FromChild } from '@komore/element';
-import { of, Subject, switchMap, takeUntil } from '@komore/reactive';
+import { never, of, Subject, switchMap, takeUntil } from '@komore/reactive';
 
 import './discord-icon.element';
 import './github-icon.element';
@@ -137,7 +137,7 @@ interface HeaderElementInput {
 
 function headerElement({ fromChild }: HeaderElementInput): Observable<unknown> {
   fromChild('.sections');
-  return NEVER;
+  return never;
 }
 
 /**

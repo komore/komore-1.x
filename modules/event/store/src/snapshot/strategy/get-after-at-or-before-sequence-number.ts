@@ -1,4 +1,6 @@
-import { type Event, type EventWithMetadata } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
+
+import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 
 import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
 
@@ -9,22 +11,20 @@ import { type EventStoreSnapshotStrategySelectionType } from './event-store-snap
  * @param selectionType Selection type
  * @param index Index where the base strategy condition was met
  * @returns Sequence number
- * @template EventTypes Event types
+ * @template EventType Event type
  * @private
  */
-export function getAfterAtOrBeforeSequenceNumber<
-  EventTypes extends Event<string, Record<string, unknown> | undefined>[],
->(
-  eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
+export function getAfterAtOrBeforeSequenceNumber<EventType extends GenericEvent>(
+  eventsWithMetadata: readonly [EventWithStoreMetadata<EventType>, ...ReadonlyArray<EventWithStoreMetadata<EventType>>],
   selectionType: Extract<EventStoreSnapshotStrategySelectionType, 'after' | 'at' | 'before'>,
   index: number
 ): number | false {
   switch (selectionType) {
     case 'after':
-      return index + 1 < eventsWithMetadata.length ? eventsWithMetadata[index + 1].metadata.sequenceNumber : false;
+      return eventsWithMetadata[index + 1]?.metadata.sequenceNumber ?? false;
     case 'at':
-      return eventsWithMetadata[index].metadata.sequenceNumber;
+      return eventsWithMetadata[index]?.metadata.sequenceNumber ?? false;
     case 'before':
-      return index > 0 ? eventsWithMetadata[index - 1].metadata.sequenceNumber : false;
+      return eventsWithMetadata[index - 1]?.metadata.sequenceNumber ?? false;
   }
 }

@@ -1,5 +1,6 @@
-import { type Event, type EventWithMetadata } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 
+import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { type EventStoreSnapshot } from '../event-store-snapshot';
 
 /**
@@ -14,14 +15,14 @@ import { type EventStoreSnapshot } from '../event-store-snapshot';
  * @returns true if a snapshot should be created
  * @returns A sequence number if a snapshot should be created from a specific sequence number
  * @template AggregateType Aggregate type
- * @template E Event types
+ * @template EventType Event type
  */
-export interface EventStoreSnapshotStrategy<
-  AggregateType,
-  E extends Event<string, Record<string, unknown> | undefined>[],
-> {
+export interface EventStoreSnapshotStrategy<AggregateType, EventType extends GenericEvent> {
   (
-    eventsWithMetadata: ReadonlyArray<EventWithMetadata<E>>,
+    eventsWithMetadata: readonly [
+      EventWithStoreMetadata<EventType>,
+      ...ReadonlyArray<EventWithStoreMetadata<EventType>>,
+    ],
     state: AggregateType,
     currentSnapshot?: EventStoreSnapshot<AggregateType>
   ): boolean | number;

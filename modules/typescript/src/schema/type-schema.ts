@@ -7,8 +7,8 @@ import { typeSchemaType, typeSchemaTypeName } from './type-schema-symbol';
  * @template SchemaType Schema type
  */
 export interface TypeSchema<SchemaTypeName extends string, SchemaType> {
-  [typeSchemaTypeName]: SchemaTypeName;
-  [typeSchemaType]: SchemaType;
+  readonly [typeSchemaTypeName]: SchemaTypeName;
+  readonly [typeSchemaType]: SchemaType;
 }
 
 /**

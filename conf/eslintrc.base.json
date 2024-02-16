@@ -86,6 +86,7 @@
           {
             "allow": [
               { "from": "lib", "name": "AddEventListenerOptions" },
+              { "from": "lib", "name": "PropertyDescriptorMap" },
               { "from": "lib", "name": "RegExp" },
               { "from": "lib", "name": "RequestInit" },
               { "from": "lib", "name": "URL" },

@@ -54,6 +54,7 @@ export { mergeMap } from './operators/merge-map';
 export { mergeMapTo } from './operators/merge-map-to';
 export { type MonoTypeOperatorFunction } from './mono-type-operator-function';
 export { type NextObserver } from './next-observer';
+export { never } from './creation/never';
 export { neverComplete } from './operators/never-complete';
 export { noopObserver } from './noop-observer';
 export { type ObservableInput } from './observable-input';

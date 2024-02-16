@@ -1,5 +1,9 @@
 export { createEventType } from './type/create-event-type';
 export { type Event } from './event';
+export { type EventCreator } from './creator/event-creator';
+export { eventDomain } from './event.domain';
+export { eventError } from './event.error';
+export { type EventFromCreator } from './creator/event-from-creator';
 export { type EventFromType } from './type/event-from-type';
 export { type EventMatcher } from './matcher/event-matcher';
 export { type EventName } from './event-name';

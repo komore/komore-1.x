@@ -1,5 +1,5 @@
 import { type FromChild } from '@komore/element';
-import { of, Subject, switchMap, takeUntil } from '@komore/reactive';
+import { never, of, Subject, switchMap, takeUntil } from '@komore/reactive';
 
 const templateElement = document.createElement('template');
 
@@ -95,7 +95,7 @@ interface HeaderElementInput {
 }
 
 function footerElement({ fromChild: _ }: HeaderElementInput): Observable<unknown> {
-  return NEVER;
+  return never;
 }
 
 /**

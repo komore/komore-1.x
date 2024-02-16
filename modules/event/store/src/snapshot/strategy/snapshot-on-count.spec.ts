@@ -1,35 +1,33 @@
-import { createEvent, type EventWithMetadata } from '@komore/event';
+import { createEvent } from '@komore/event';
 import { feature } from '@komore/testing';
 
+import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { snapshotOnCount } from './snapshot-on-count';
 
-/**
- * Snapshot on count strategy specification
- */
 feature('Snapshot on count strategy', () => {
-  const AFTER = 'after';
-  const AT = 'at';
-  const BEFORE = 'before';
-  const FIRST = 'first';
-  const LAST = 'last';
+  const after = 'after';
+  const at = 'at';
+  const before = 'before';
+  const first = 'first';
+  const last = 'last';
   const testEvents = [createTestEvent(1), createTestEvent(2), createTestEvent(3), createTestEvent(4)] as const;
   const testNewState: SnapshotStrategyTestState = {
     value: 0,
   };
 
   it.each([
-    [2, AFTER, 3],
-    [2, AT, 2],
-    [2, BEFORE, 1],
-    [2, FIRST, 1],
-    [2, LAST, 4],
-    [1, BEFORE, false],
-    [4, AFTER, false],
-    [5, AFTER, false],
-    [5, AT, false],
-    [5, BEFORE, false],
-    [5, FIRST, false],
-    [5, LAST, false],
+    [2, after, 3],
+    [2, at, 2],
+    [2, before, 1],
+    [2, first, 1],
+    [2, last, 4],
+    [1, before, false],
+    [4, after, false],
+    [5, after, false],
+    [5, at, false],
+    [5, before, false],
+    [5, first, false],
+    [5, last, false],
   ])('properly selects the sequence number (count = %s, selection = %s)', (count, selectionType, expectedResult) => {
     given: 'a snapshot on count strategy';
     const snapshotStrategy = snapshotOnCount(count, selectionType);
@@ -47,7 +45,7 @@ feature('Snapshot on count strategy', () => {
   });
 });
 
-function createTestEvent(n: number): EventWithMetadata<any> {
+function createTestEvent(n: number): EventWithStoreMetadata<any> {
   const event = createEvent('test-event-type')();
   return {
     event,
@@ -55,7 +53,7 @@ function createTestEvent(n: number): EventWithMetadata<any> {
       aggregateKey: 'test-aggregate-key',
       sequenceNumber: n,
       size: 0,
-      timestamp: Temporal.Now.plainDateTimeISO(),
+      timestamp: Temporal.Now.instant(),
     },
   };
 }

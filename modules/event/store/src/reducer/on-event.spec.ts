@@ -3,7 +3,6 @@ import { feature } from '@komore/testing';
 import { createEvent } from './create-event';
 import { type EventMetadata } from './event-metadata';
 import { schema } from './event-schema';
-import { onEvent } from './on-event';
 
 feature('Event reducer on', () => {
   const eventType = 'test-event-type';
@@ -36,7 +35,7 @@ feature('Event reducer on', () => {
   it('can handle events with a schema', () => {
     // given: an event reducer and an event
     const event = eventWithSchemaCreator({ t: 42 });
-    const fn = jest.fn((state: { n: number }, ev: typeof event, _: EventMetadata) => ({ ...state, n: ev.t }));
+    const fn = jest.fn((state: { readonly n: number }, ev: typeof event, _: EventMetadata) => ({ ...state, n: ev.t }));
     // when: creating an event reducer on
     const o = on(eventWithSchemaCreator, fn);
     // then: a proper object is created

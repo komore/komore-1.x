@@ -1,5 +1,6 @@
-import { type Event, type EventWithMetadata } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 
+import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
 
 /**
@@ -8,13 +9,15 @@ import { type EventStoreSnapshotStrategySelectionType } from './event-store-snap
  * @param eventsWithMetadata List of events with their metadata
  * @param selectionType Selection type
  * @returns Sequence number
- * @template EventTypes Event types
+ * @template EventType Event type
  */
-export function getFirstOrLastSequenceNumber<EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
-  eventsWithMetadata: ReadonlyArray<EventWithMetadata<EventTypes>>,
+export function getFirstOrLastSequenceNumber<EventType extends GenericEvent>(
+  eventsWithMetadata: readonly [EventWithStoreMetadata<EventType>, ...ReadonlyArray<EventWithStoreMetadata<EventType>>],
   selectionType: Extract<EventStoreSnapshotStrategySelectionType, 'first' | 'last'>
 ): number {
-  const eventWithMetadata =
-    selectionType === 'last' ? eventsWithMetadata[eventsWithMetadata.length - 1] : eventsWithMetadata[0];
-  return (eventWithMetadata as NonNullable<typeof eventWithMetadata>).metadata.sequenceNumber;
+  const { metadata } =
+    selectionType === 'last'
+      ? (eventsWithMetadata[eventsWithMetadata.length - 1] as (typeof eventsWithMetadata)[number])
+      : eventsWithMetadata[0];
+  return metadata.sequenceNumber;
 }

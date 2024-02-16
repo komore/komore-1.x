@@ -1,45 +1,35 @@
-import { type ReadonlyRecord } from '@komore/typescript';
-import { type EventType } from './event';
-import { type EventCreator, type EventCreatorEventType } from './event-creator';
-import { type EventDomain } from './event-domain';
-import { type EventMetadata } from './event-metadata';
+import { type TypeCreator } from '@komore/typescript';
+import { type EventCreator, type EventFromCreator } from '@komore/event';
+
+import { type EventStoreMetadata } from '../metadata/event-store-metadata';
 
 /**
  * Specialized event type aware reducer
+ *
  * @param state State
  * @param event Event
  * @param metadata Metadata
  * @returns Reduced state
- * @template S State type
- * @template E Event creator type
+ * @template StateType State type
+ * @template EventCreatorType Event creator type
  */
-export type OnReducer<S, EC extends EventCreator<any>> = (
-  state: S,
-  event: EventCreatorEventType<EC>,
-  metadata: EventMetadata
-) => S;
+export type OnReducer<StateType, EventCreatorType extends EventCreator<string, TypeCreator<any, any>>> = (
+  state: StateType,
+  event: EventFromCreator<EventCreatorType>['properties'],
+  metadata: EventStoreMetadata
+) => StateType;
 
 /**
- * Type returned by the `on` function
- * @template S State type
- * @template E Event creator type
+ * Type returned by the `onEvent` function
+ *
+ * @template StateType State type
+ * @template EventCreatorType Event creator type
+ * @private
  */
-export type On<S, EC extends EventCreator<any>> = Readonly<{
-  eventReducer: OnReducer<S, EC>;
-  type: EventType<EventCreatorEventType<EC>>;
-}>;
-
-/**
- * Event reducer on state type
- * @template O Event reducer on type
- */
-export type OnStateType<O> = O extends On<infer S, any> ? S : never;
-
-/**
- * Event reducer on event type
- * @template O Event reducer on type
- */
-export type OnEventType<O> = O extends On<any, infer E> ? E : never;
+export interface OnEvent<StateType, EventCreatorType extends EventCreator<string, TypeCreator<any, any>>> {
+  readonly eventReducer: OnReducer<StateType, EventCreatorType>;
+  readonly name: EventFromCreator<EventCreatorType>['name'];
+}
 
 /**
  * Associates events with a state change function
@@ -49,16 +39,15 @@ export type OnEventType<O> = O extends On<any, infer E> ? E : never;
  * @param eventCreator Event creator
  * @param eventReducer Event reducer
  * @returns Event reducer bound to the event type created by the event creator
- * @template S State type
- * @template EC Event creator type
+ * @template StateType State type
+ * @template EventCreatorType Event creator type
  */
-export function onEvent<
-  S,
-  EC extends EventCreator<EventDomain<string>, string, ReadonlyRecord<string, unknown> | undefined>
->(eventCreator: EC, eventReducer: OnReducer<S, EC>): On<S, EC> {
-  const x = {
+export function onEvent<StateType, EventCreatorType extends EventCreator<string, TypeCreator<any, any>>>(
+  eventCreator: EventCreatorType,
+  eventReducer: OnReducer<StateType, EventCreatorType>
+): OnEvent<StateType, EventCreatorType> {
+  return {
     eventReducer,
-    type: eventCreator.type,
+    name: eventCreator.name,
   };
-  return x;
 }

@@ -1,14 +1,11 @@
-import { type EventWithMetadata } from '@komore/event';
 import { createEvent } from '@komore/event';
+import { feature } from '@komore/testing';
 
+import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { snapshotOnSize } from './snapshot-on-size';
-import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
 
-/**
- * Snapshot on size strategy specification
- */
-describe('Snapshot on size strategy', () => {
-  function createTestEvent(n: number): EventWithMetadata<any> {
+feature('Snapshot on size strategy', () => {
+  function createTestEvent(n: number): EventWithStoreMetadata<any> {
     const event = createEvent('test-event-type')();
     return {
       event,
@@ -31,30 +28,32 @@ describe('Snapshot on size strategy', () => {
     value: 0,
   };
 
-  const AFTER: SnapshotStrategySelectionType = 'after';
-  const AT: SnapshotStrategySelectionType = 'at';
-  const BEFORE: SnapshotStrategySelectionType = 'before';
-  const FIRST: SnapshotStrategySelectionType = 'first';
-  const LAST: SnapshotStrategySelectionType = 'last';
+  const after = 'after';
+  const at = 'at';
+  const before = 'before';
+  const first = 'first';
+  const last = 'last';
 
   it.each([
-    [2, AFTER, 3],
-    [2, AT, 2],
-    [2, BEFORE, 1],
-    [2, FIRST, 1],
-    [2, LAST, 4],
-    [1, BEFORE, false],
-    [4, AFTER, false],
-    [5, AFTER, false],
-    [5, AT, false],
-    [5, BEFORE, false],
-    [5, FIRST, false],
-    [5, LAST, false],
+    [2, after, 3],
+    [2, at, 2],
+    [2, before, 1],
+    [2, first, 1],
+    [2, last, 4],
+    [1, before, false],
+    [4, after, false],
+    [5, after, false],
+    [5, at, false],
+    [5, before, false],
+    [5, first, false],
+    [5, last, false],
   ])('properly selects the sequence number (bytes = %s, selection = %s)', (bytes, selectionType, expectedResult) => {
     given: 'a snapshot on size strategy';
     const snapshotStrategy = snapshotOnSize(bytes, selectionType);
+
     when: 'running the strategy';
     const result = snapshotStrategy(testEvents, testNewState, undefined);
+
     expect: 'the correct result to be returned';
     expect(result).toBe(expectedResult);
   });

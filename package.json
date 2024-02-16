@@ -40,6 +40,7 @@
     "x:api": "ts-node --project ./tools/api/tsconfig.json -r tsconfig-paths/register ./tools/api/src/api.ts",
     "x:cd": "ts-node --project ./tools/cd/tsconfig.json -r tsconfig-paths/register ./tools/cd/src/cd.ts",
     "x:discord": "ts-node --project ./tools/discord/tsconfig.json -r tsconfig-paths/register ./tools/discord/src/discord.ts",
+    "x:documentation": "ts-node --project ./tools/documentation/tsconfig.json -r tsconfig-paths/register ./tools/documentation/src/documentation.ts",
     "x:etoro": "ts-node --project ./tools/etoro/tsconfig.json -r tsconfig-paths/register ./tools/etoro/src/etoro.ts",
     "x:git": "ts-node --project ./tools/git/tsconfig.json -r tsconfig-paths/register ./tools/git/src/git.ts",
     "x:github": "ts-node --project ./tools/github/tsconfig.json -r tsconfig-paths/register ./tools/github/src/github.ts",

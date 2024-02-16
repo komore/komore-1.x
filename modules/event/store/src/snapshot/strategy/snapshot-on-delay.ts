@@ -1,32 +1,39 @@
-import { type Event } from '@komore/event';
+import { type GenericEvent } from '@komore/event';
 import { assert } from '@komore/runtime';
 
 import { type EventStoreSnapshotStrategy } from './event-store-snapshot-strategy';
-import { getAfterAtOrBeforeSequenceNumber } from './helpers/get-after-at-or-before-sequence-number';
-import { getFirstOrLastSequenceNumber } from './helpers/get-first-or-last-sequence-number';
-import { isFirstOrLastSelectionType } from './helpers/is-first-or-last-selection-type';
-import { type SnapshotStrategySelectionType } from './snapshot-strategy-selection-type';
+import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
+import { getAfterAtOrBeforeSequenceNumber } from './get-after-at-or-before-sequence-number';
+import { getFirstOrLastSequenceNumber } from './get-first-or-last-sequence-number';
+import { isFirstOrLastSelectionType } from './is-first-or-last-selection-type';
 
 /**
  * Creates a snapshot strategy that triggers a snapshot creation around a delay threshold being reached
- * @param milliseconds Minimum number of milliseconds required before a snapshot should be created
+ *
+ * @param duration Minimum duration required before a snapshot should be created
  * @param selectionType Snapshot strategy selection type
  * @returns Snapshot strategy
- * @template S Snapshot type
- * @template E Event types
+ * @template SnapshotType Snapshot type
+ * @template EventType Event types
  */
-export function snapshotOnDelay<S, E extends Event<any, any>[]>(
-  milliseconds: number,
-  selectionType: SnapshotStrategySelectionType = 'last'
-): EventStoreSnapshotStrategy<S, E> {
-  assert(milliseconds > 0, 'a snapshot on delay strategy must have a threshold strictly greater than 0 milliseconds');
+export function snapshotOnDelay<SnapshotType, EventType extends GenericEvent>(
+  duration: Temporal.Duration,
+  selectionType: EventStoreSnapshotStrategySelectionType = 'last'
+): EventStoreSnapshotStrategy<SnapshotType, EventType> {
+  assert(
+    duration.total({ unit: 'milliseconds' }) > 0,
+    'a snapshot on delay strategy must have a threshold strictly greater than 0 milliseconds'
+  );
 
   return (eventsWithMetadata, _, currentSnapshot) => {
-    const earliestTimestamp = currentSnapshot?.timestamp || eventsWithMetadata[0].metadata.timestamp;
-    const latestTimestamp = eventsWithMetadata[eventsWithMetadata.length - 1].metadata.timestamp;
-    const maximumDelay = latestTimestamp.getTime() - earliestTimestamp.getTime();
+    const firstEvent = eventsWithMetadata[0];
+    const lastEvent = eventsWithMetadata[eventsWithMetadata.length - 1] as (typeof eventsWithMetadata)[number];
+    const earliestTimestamp = currentSnapshot?.timestamp ?? firstEvent.metadata.timestamp;
+    const latestTimestamp = lastEvent.metadata.timestamp;
+    const maximumDelay = earliestTimestamp.until(latestTimestamp);
 
-    if (maximumDelay < milliseconds) {
+    if (Temporal.Duration.compare(duration, maximumDelay) < 0) {
+      // TODO: ^ @komore/temporal function
       return false;
     }
 
@@ -36,8 +43,10 @@ export function snapshotOnDelay<S, E extends Event<any, any>[]>(
       let i: number;
 
       for (i = 0; i !== eventsWithMetadata.length; ++i) {
-        const delay = eventsWithMetadata[i].metadata.timestamp.getTime() - earliestTimestamp.getTime();
-        if (milliseconds <= delay) {
+        // TODO: avoid cast
+        const eventWithMetadata = eventsWithMetadata[i] as (typeof eventsWithMetadata)[number];
+        const delay = earliestTimestamp.until(eventWithMetadata.metadata.timestamp);
+        if (Temporal.Duration.compare(duration, delay) >= 0) {
           break;
         }
       }

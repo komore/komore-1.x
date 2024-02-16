@@ -5,7 +5,7 @@ import { type GenericEvent } from '@komore/event';
  *
  * @template EventTypes Event types
  */
-export interface EventStoreEventRepository<EventTypes extends ReadonlyArray<GenericEvent>> {
+export interface EventStoreEventRepository<EventType extends GenericEvent> {
   /**
    * Loads events from the repository
    *
@@ -22,11 +22,11 @@ export interface EventStoreEventRepository<EventTypes extends ReadonlyArray<Gene
     aggregateKey: string,
     sequenceStart: number | undefined,
     sequenceEnd: number | undefined
-  ): Observable<ReadonlyArray<EventTypes[number]>>;
+  ): Observable<ReadonlyArray<EventType>>;
   /**
    * Stores events to the repository
    * @param aggregateKey Aggregate key
    * @param events List of events
    */
-  storeEvents(aggregateKey: string, events: ReadonlyArray<EventTypes[number]>): Observable<void>;
+  storeEvents(aggregateKey: string, events: ReadonlyArray<EventType>): Observable<void>;
 }
