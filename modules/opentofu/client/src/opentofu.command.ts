@@ -1,10 +1,10 @@
 import { commandProperties, createCommandType } from '@komore/command';
+import { openTofuDomain } from '@komore/opentofu';
 
 import { type OpenTofuApplyParameters } from './apply/opentofu-apply-parameters';
 import { type OpenTofuDestroyParameters } from './destroy/opentofu-destroy-parameters';
 import { type OpenTofuInitParameters } from './init/opentofu-init-parameters';
 import { type OpenTofuPlanParameters } from './plan/opentofu-plan-parameters';
-import { openTofuDomain } from './opentofu.domain';
 
 /**
  * OpenTofu command

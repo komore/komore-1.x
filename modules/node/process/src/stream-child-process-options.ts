@@ -7,7 +7,7 @@ export interface StreamChildProcessOptions {
    */
   readonly arguments: ReadonlyArray<string>;
   /**
-   * Current working directory
+   * Working directory
    */
-  readonly cwd: string;
+  readonly workingDirectory: string;
 }

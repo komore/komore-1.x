@@ -11,9 +11,9 @@ import { type StreamChildProcessOptions } from './stream-child-process-options';
  */
 export function streamChildProcess(command: string, options?: Partial<StreamChildProcessOptions>): Observable<string> {
   return new Observable<string>(subscriber => {
-    const { arguments: args = [], ...remainingOptions } = options ?? {};
+    const { arguments: args = [], workingDirectory: cwd } = options ?? {};
     console.log('args', args);
-    const childProcess = spawn(command, args, remainingOptions);
+    const childProcess = spawn(command, args, { cwd });
 
     childProcess.stdout.on('data', chunk => {
       subscriber.next(chunk.toString());

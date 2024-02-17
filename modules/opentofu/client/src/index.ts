@@ -1,1 +1,11 @@
-export {};
+export { createOpenTofuClient } from './client/create-opentofu-client';
+export { createOpenTofuCommandHandler } from './command/create-opentofu-command-handler';
+export { createOpenTofuQueryHandler } from './query/create-opentofu-query-handler';
+export { type OpenTofuClient } from './client/opentofu-client';
+export { type OpenTofuClientOptions } from './client/opentofu-client-options';
+export { openTofuCommand } from './opentofu.command';
+export { type OpenTofuCommandHandler } from './command/opentofu-command-handler';
+export { type OpenTofuCommandHandlerOptions } from './command/opentofu-command-handler-options';
+export { openTofuError } from './opentofu.error';
+export { openTofuEvent } from './opentofu.event';
+export { openTofuQuery } from './opentofu.query';
