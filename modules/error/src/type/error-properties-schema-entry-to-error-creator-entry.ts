@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { type TypeCreator } from '@komore/typescript';
 
 import { type ErrorCreator } from '../creator/error-creator';
@@ -14,7 +14,7 @@ import { type ErrorCreatorEntry } from './error-creator-entry';
  * @template DomainType Domain type
  * @private
  */
-export function errorPropertiesSchemaEntryToErrorCreatorEntry<DomainType extends GenericDomain>(
+export function errorPropertiesSchemaEntryToErrorCreatorEntry<DomainType extends Domain>(
   domain: DomainType
 ): (entry: readonly [code: string, schema: ErrorPropertiesSchema<unknown>]) => ErrorCreatorEntry {
   return ([code]) => {

@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { objectToEntries } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -18,7 +18,7 @@ import { commandCreatorEntryToPropertyDescriptorMap } from './command-creator-en
  * @template CommandDefinitions Command definitions
  */
 export function createCommandType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   CommandDefinitions extends ReadonlyRecord<string, CommandPropertiesSchema<any>>,
 >(
   domain: DomainType,

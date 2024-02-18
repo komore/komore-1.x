@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 /**
  * Event
@@ -7,7 +7,7 @@ import { type GenericDomain } from '@komore/domain';
  * @template EventName Event name
  * @template EventProperties Event properties
  */
-export interface Event<DomainType extends GenericDomain, EventName extends string, EventProperties> {
+export interface Event<DomainType extends Domain, EventName extends string, EventProperties> {
   /**
    * Domain
    */
@@ -21,9 +21,3 @@ export interface Event<DomainType extends GenericDomain, EventName extends strin
    */
   readonly properties: EventProperties;
 }
-
-/**
-   * TODO
-  readonly aggregateKey: string;
-  readonly sequenceNumber: number;
-   */

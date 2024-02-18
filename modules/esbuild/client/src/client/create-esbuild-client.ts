@@ -20,16 +20,15 @@ import { esbuildCommandEventMap } from './esbuild-command-event-map';
  * @returns esbuild client
  */
 export function createEsbuildClient(clientOptions: EsbuildClientOptions): EsbuildClient {
-  const {} = clientOptions;
-  const initialized$ = deferPromise(() => initialize({})).pipe(cache());
+  const { cliClient } = clientOptions;
 
   return createClient({
     command: esbuildCommand,
     commandEventMap: esbuildCommandEventMap,
-    commandHandler: toEvents => createEsbuildCommandHandler({ initialized$, toEvents }),
+    commandHandler: toEvents => createEsbuildCommandHandler({ cliClient, toEvents }),
     error: esbuildError,
     event: esbuildEvent,
     query: esbuildQuery,
-    queryHandler: () => createEsbuildQueryHandler({}),
+    queryHandler: () => createEsbuildQueryHandler({ cliClient }),
   });
 }

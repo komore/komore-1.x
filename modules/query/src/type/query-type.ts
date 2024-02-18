@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type QueryCreator } from '../creator/query-creator';
@@ -11,7 +11,7 @@ import { type Query } from '../query';
  * @template QueryParametersResultByQueryName Query parameters and result by query name
  */
 export type QueryType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   QueryPropertiesResultByByQueryName extends ReadonlyRecord<string, readonly [resultType: any, parametersType: any]>,
 > = {
   /**

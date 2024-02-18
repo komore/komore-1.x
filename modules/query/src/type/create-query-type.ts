@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { objectToEntries } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -18,7 +18,7 @@ import { type QueryType } from './query-type';
  * @template QueryDefinitions Query definitions
  */
 export function createQueryType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   QueryDefinitions extends ReadonlyRecord<
     string,
     QueryPropertiesSchema<readonly [resultType: any, parametersType: any]>

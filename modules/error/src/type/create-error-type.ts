@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { objectToEntries } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -20,7 +20,7 @@ import { type ErrorType } from './error-type';
  * @template ErrorDefinitions Error definitions
  */
 export function createErrorType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   ErrorDefinitions extends ReadonlyRecord<string, ErrorPropertiesSchema<any>>,
 >(
   domain: DomainType,

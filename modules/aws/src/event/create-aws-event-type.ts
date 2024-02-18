@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { createEventType, type EventPropertiesSchema, type EventType } from '@komore/event';
 import { type ReadonlyRecord, type TypeSchemaType } from '@komore/typescript';
 
@@ -14,7 +14,7 @@ import { type FixedAwsType } from '../fixed-aws-type';
  * @template Definitions Event definitions
  */
 export function createAwsEventType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   Definitions extends ReadonlyRecord<string, EventPropertiesSchema<unknown>>,
 >(domain: DomainType, definitions: Definitions): EventType<DomainType, AwsEventDefinitions<Definitions>> {
   return createEventType(domain, definitions) as EventType<DomainType, AwsEventDefinitions<Definitions>>;

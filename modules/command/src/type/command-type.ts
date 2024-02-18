@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type Command } from '../command';
@@ -11,7 +11,7 @@ import { type CommandCreator } from '../creator/command-creator';
  * @template CommandParametersByCommandName Command parameters by command name
  */
 export type CommandType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   CommandParametersByCommandName extends ReadonlyRecord<string, any>,
 > = {
   /**

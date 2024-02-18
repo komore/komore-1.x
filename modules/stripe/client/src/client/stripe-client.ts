@@ -1,9 +1,9 @@
 import { type Client } from '@komore/client';
 
-import { type stripeCommand } from './stripe.command';
-import { type stripeError } from './stripe.error';
-import { type stripeEvent } from './stripe.event';
-import { type stripeQuery } from './stripe.query';
+import { type stripeCommand } from '../stripe.command';
+import { type stripeError } from '../stripe.error';
+import { type stripeEvent } from '../stripe.event';
+import { type stripeQuery } from '../stripe.query';
 import { type stripeClientCommandEventMap } from './stripe-client-command-event-map';
 
 /**

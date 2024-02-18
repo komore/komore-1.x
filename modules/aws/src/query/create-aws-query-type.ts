@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { createQueryType, type QueryPropertiesSchema } from '@komore/query';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -12,7 +12,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
  * @template Definitions Query definitions
  */
 export function createAwsQueryType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   Definitions extends ReadonlyRecord<string, QueryPropertiesSchema<[unknown, unknown?]>>,
 >(domain: DomainType, definitions: Definitions) {
   return createQueryType(domain, definitions);

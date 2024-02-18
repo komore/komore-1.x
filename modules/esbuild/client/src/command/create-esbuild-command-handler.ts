@@ -1,7 +1,6 @@
-import { build } from 'esbuild';
-
 import { toEventCausedByCommand } from '@komore/client';
 import { matchCommand } from '@komore/command';
+import { esbuildBuild } from '@komore/esbuild';
 import { first, fromPromise, map, mergeMap, redactValue, tapNext } from '@komore/reactive';
 
 import { esbuildEvent } from '../esbuild.event';
@@ -15,16 +14,10 @@ import { type EsbuildCommandHandlerOptions } from './esbuild-command-handler-opt
  * @returns esbuild command handler
  */
 export function createEsbuildCommandHandler(handlerOptions: EsbuildCommandHandlerOptions): EsbuildCommandHandler {
-  const { initialized$, toEvents } = handlerOptions;
+  const { cliClient, toEvents } = handlerOptions;
+  const build = esbuildBuild(cliClient);
   return command =>
-    initialized$
-      .pipe(
-        first(),
-        mergeMap(() =>
-          matchCommand(command, {
-            build: buildOptions => fromPromise(build(buildOptions)).pipe(map(esbuildEvent.built)),
-          })
-        )
-      )
-      .pipe(map(toEventCausedByCommand(command)), tapNext(toEvents), redactValue());
+    matchCommand(command, {
+      build: parameters => build(parameters).pipe(map(esbuildEvent.built)),
+    }).pipe(map(toEventCausedByCommand(command)), tapNext(toEvents), redactValue());
 }

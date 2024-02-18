@@ -1,8 +1,8 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type Command } from './command';
 
 /**
  * Generic command
  */
-export type GenericCommand = Command<GenericDomain, string, any>;
+export type GenericCommand = Command<Domain, string, any>;

@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type CommandPropertiesSchema } from '../properties/command-properties-schema';
 import { type CommandCreatorEntry } from './command-creator-entry';
@@ -11,7 +11,7 @@ import { type CommandCreatorEntry } from './command-creator-entry';
  * @template DomainType Domain type
  * @private
  */
-export function commandPropertiesSchemaEntryToCommandCreatorEntry<DomainType extends GenericDomain>(
+export function commandPropertiesSchemaEntryToCommandCreatorEntry<DomainType extends Domain>(
   domain: DomainType
 ): (entry: readonly [name: string, schema: CommandPropertiesSchema<unknown>]) => CommandCreatorEntry {
   return ([name]) => {

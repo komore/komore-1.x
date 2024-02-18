@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type LogEventPropertiesSchema } from '../properties/log-event-properties-schema';
 import { type LogEventCreatorEntry } from './log-event-creator-entry';
@@ -11,7 +11,7 @@ import { type LogEventCreatorEntry } from './log-event-creator-entry';
  * @template DomainType Domain type
  * @private
  */
-export function logEventPropertiesSchemaEntryToLogEventCreatorEntry<DomainType extends GenericDomain>(
+export function logEventPropertiesSchemaEntryToLogEventCreatorEntry<DomainType extends Domain>(
   domain: DomainType
 ): (entry: readonly [name: string, schema: LogEventPropertiesSchema<unknown>]) => LogEventCreatorEntry {
   return ([name, { severity }]) => {

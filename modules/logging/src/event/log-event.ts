@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type LogEventSeverity } from './log-event-severity';
 
@@ -9,7 +9,7 @@ import { type LogEventSeverity } from './log-event-severity';
  * @template EventName Event name
  * @template EventParameters Event parameters
  */
-export interface LogEvent<DomainType extends GenericDomain, EventName extends string, EventParameters> {
+export interface LogEvent<DomainType extends Domain, EventName extends string, EventParameters> {
   /**
    * Domain
    */

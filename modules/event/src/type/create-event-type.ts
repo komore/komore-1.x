@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { objectToEntries } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
@@ -18,7 +18,7 @@ import { eventCreatorEntryToPropertyDescriptorMap } from './event-creator-entry-
  * @template EventDefinitions Event definitions
  */
 export function createEventType<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   EventDefinitions extends ReadonlyRecord<string, EventPropertiesSchema<any>>,
 >(
   domain: DomainType,

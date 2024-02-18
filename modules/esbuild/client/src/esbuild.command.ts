@@ -1,8 +1,7 @@
 import { type BuildOptions } from 'esbuild';
 
 import { commandProperties, createCommandType } from '@komore/command';
-
-import { esbuildDomain } from './esbuild.domain';
+import { esbuildDomain } from '@komore/esbuild';
 
 /**
  * esbuild command

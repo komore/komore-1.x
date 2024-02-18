@@ -2,7 +2,7 @@ import { executeChildProcess } from '@komore/node/process';
 import { firstValueFrom, of, throwError } from '@komore/reactive';
 import { feature, thrown } from '@komore/testing';
 
-import { openTofuError } from '../opentofu.error';
+import { openTofuCliError } from '../opentofu-cli.error';
 import { getOpenTofuVersion } from './get-opentofu-version';
 import { type OpenTofuVersionJson } from './opentofu-version-json';
 
@@ -63,7 +63,7 @@ feature('Get OpenTofu version', () => {
       await firstValueFrom(openTofuVersion$);
 
       then: 'an error is thrown';
-      thrown(openTofuError.notFound);
+      thrown(openTofuCliError.notFound);
       1 * mockExecuteChildProcess('opentofu version -json', { cwd });
     },
   };

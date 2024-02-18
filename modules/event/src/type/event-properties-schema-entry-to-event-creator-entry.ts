@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type EventPropertiesSchema } from '../properties/event-properties-schema';
 import { type EventCreatorEntry } from './event-creator-entry';
@@ -11,7 +11,7 @@ import { type EventCreatorEntry } from './event-creator-entry';
  * @template DomainType Domain type
  * @private
  */
-export function eventPropertiesSchemaEntryToEventCreatorEntry<DomainType extends GenericDomain>(
+export function eventPropertiesSchemaEntryToEventCreatorEntry<DomainType extends Domain>(
   domain: DomainType
 ): (entry: readonly [name: string, schema: EventPropertiesSchema<unknown>]) => EventCreatorEntry {
   return ([name]) => {

@@ -1,8 +1,8 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type Event } from './event';
 
 /**
  * Generic event
  */
-export type GenericEvent = Event<GenericDomain, string, any>;
+export type GenericEvent = Event<Domain, string, any>;

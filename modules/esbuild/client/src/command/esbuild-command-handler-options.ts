@@ -1,5 +1,6 @@
 import { type CommandEventPair } from '@komore/client';
 import { type CommandFromType } from '@komore/command';
+import { type EsbuildCliClient } from '@komore/esbuild';
 import { type EventFromType } from '@komore/event';
 
 import { type esbuildCommand } from '../esbuild.command';
@@ -10,9 +11,9 @@ import { type esbuildEvent } from '../esbuild.event';
  */
 export interface EsbuildCommandHandlerOptions {
   /**
-   * Observable initialized state
+   * esbuild CLI client
    */
-  readonly initialized$: Observable<void>;
+  readonly cliClient: EsbuildCliClient;
   /**
    * esbuild events recorder
    */

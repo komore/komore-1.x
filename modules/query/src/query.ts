@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 /**
  * Query
@@ -8,7 +8,7 @@ import { type GenericDomain } from '@komore/domain';
  * @template QueryPropertiesResult Query properties and result types
  */
 export interface Query<
-  DomainType extends GenericDomain,
+  DomainType extends Domain,
   QueryName extends string,
   QueryPropertiesResult extends readonly [resultType: any, parametersType: any],
 > {

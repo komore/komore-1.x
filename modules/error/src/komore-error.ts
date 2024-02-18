@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type ErrorInstance } from './error-instance';
 
@@ -9,7 +9,7 @@ import { type ErrorInstance } from './error-instance';
  * @template ErrorCode Error code
  * @private
  */
-export class KomoreError<DomainType extends GenericDomain, ErrorCode extends string, ErrorParameters>
+export class KomoreError<DomainType extends Domain, ErrorCode extends string, ErrorParameters>
   extends Error
   implements ErrorInstance<DomainType, ErrorCode, ErrorParameters>
 {

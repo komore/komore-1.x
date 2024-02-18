@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 
 import { type QueryPropertiesSchema } from '../properties/query-properties-schema';
 import { type QueryCreatorEntry } from './query-creator-entry';
@@ -11,7 +11,7 @@ import { type QueryCreatorEntry } from './query-creator-entry';
  * @template DomainType Domain type
  * @private
  */
-export function queryPropertiesSchemaEntryToQueryCreatorEntry<DomainType extends GenericDomain>(
+export function queryPropertiesSchemaEntryToQueryCreatorEntry<DomainType extends Domain>(
   domain: DomainType
 ): (
   entry: readonly [name: string, schema: QueryPropertiesSchema<readonly [resultType: any, parametersType: any]>]

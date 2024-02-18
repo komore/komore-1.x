@@ -1,4 +1,4 @@
-import { type GenericDomain } from '@komore/domain';
+import { type Domain } from '@komore/domain';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type ErrorCreator } from '../creator/error-creator';
@@ -10,10 +10,7 @@ import { type ErrorInstance } from '../error-instance';
  * @template DomainType Domain type
  * @template ErrorParametersByErrorCode Error parameters by error code
  */
-export type ErrorType<
-  DomainType extends GenericDomain,
-  ErrorParametersByErrorCode extends ReadonlyRecord<string, any>,
-> = {
+export type ErrorType<DomainType extends Domain, ErrorParametersByErrorCode extends ReadonlyRecord<string, any>> = {
   /**
    * Creates a new error
    *

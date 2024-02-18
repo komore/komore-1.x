@@ -1,7 +1,5 @@
-import { version } from 'esbuild';
-
+import { getEsbuildVersion } from '@komore/esbuild';
 import { matchQuery } from '@komore/query';
-import { of } from '@komore/reactive';
 
 import { type EsbuildQueryHandler } from './esbuild-query-handler';
 import { type EsbuildQueryHandlerOptions } from './esbuild-query-handler-options';
@@ -12,9 +10,11 @@ import { type EsbuildQueryHandlerOptions } from './esbuild-query-handler-options
  * @param handlerOptions esbuild query handler options
  * @returns esbuild query handler
  */
-export function createEsbuildQueryHandler(_handlerOptions: EsbuildQueryHandlerOptions): EsbuildQueryHandler {
+export function createEsbuildQueryHandler(handlerOptions: EsbuildQueryHandlerOptions): EsbuildQueryHandler {
+  const { cliClient } = handlerOptions;
+  const version = getEsbuildVersion(cliClient);
   return query =>
     matchQuery(query, {
-      version: () => of(version),
+      version,
     });
 }
