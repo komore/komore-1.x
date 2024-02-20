@@ -1,31 +1,36 @@
-import { toJson } from './to-json';
+import { feature } from '@komore/testing';
 
-describe('To JSON', () => {
-  it('returns a function that serializes its parameter to JSON', async () => {
+import { valueToJson } from './value-to-json';
+
+feature('Value to JSON', {
+  'returns a function that serializes its parameter to JSON'() {
     given: 'a value';
     const value = { test: 'string' };
     and: 'a function that serializes its parameter to JSON';
-    const func = toJson();
+    const func = valueToJson();
+
     when: 'calling the function';
     const json = func(value);
-    expect: 'the returned string to be a JSON representation of the value';
-    expect(json).toBe('{"test":"string"}');
-  });
 
-  it('returns a function that serializes its parameter to JSON with a replacer and spaces', async () => {
+    expect: 'the returned string to be a JSON representation of the value';
+    json === '{"test":"string"}';
+  },
+  'returns a function that serializes its parameter to JSON with a replacer and spaces'() {
     given: 'a value';
     const value = { test: 'string' };
     and: 'a function that serializes its parameter to JSON with a replacer and spaces';
-    const func = toJson((key, value) => {
+    const func = valueToJson((key, value) => {
       if (key === '') {
         return value;
       }
       const strValue = value as string;
       return strValue + strValue;
     }, 1);
+
     when: 'calling the function';
     const json = func(value);
+
     expect: 'the returned string to be a JSON representation of the value using the replacer and specified indentation';
-    expect(json).toBe('{\n "test": "stringstring"\n}');
-  });
+    json === '{\n "test": "stringstring"\n}';
+  },
 });

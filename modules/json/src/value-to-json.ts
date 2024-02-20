@@ -1,3 +1,5 @@
+import { type JsonString } from './json-string';
+
 /**
  * Returns a function that turns a value into a JSON string
  *
@@ -8,7 +10,7 @@
 export function valueToJson<T = unknown>(
   replacer?: (this: unknown, key: string, value: unknown) => unknown,
   space?: string | number
-): (value: T) => string;
+): (value: T) => JsonString<T>;
 
 /**
  * Returns a function that turns a value into a JSON string
@@ -20,11 +22,11 @@ export function valueToJson<T = unknown>(
 export function valueToJson<T = unknown>(
   replacer?: ReadonlyArray<number | string>,
   space?: string | number
-): (value: T) => string;
+): (value: T) => JsonString<T>;
 
 export function valueToJson<T = unknown>(
   replacer?: ((this: unknown, key: string, value: unknown) => unknown) | ReadonlyArray<number | string>,
   space?: string | number
-): (value: T) => string {
-  return value => JSON.stringify(value, replacer as undefined, space);
+): (value: T) => JsonString<T> {
+  return value => JSON.stringify(value, replacer as undefined, space) as JsonString<T>;
 }

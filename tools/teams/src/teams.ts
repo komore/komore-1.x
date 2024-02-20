@@ -3,7 +3,7 @@ import { createMsGraphApiClient } from '@komore/msgraph';
 import { createTeamsApiClient } from '@komore/teams';
 
 async function main() {
-  const httpClient = createHttpClient({});
+  const httpClient = createHttpClient();
   const msGraphApiClient = createMsGraphApiClient({ httpClient });
   const teamsClient = createTeamsApiClient({ msGraphApiClient });
   teamsClient;

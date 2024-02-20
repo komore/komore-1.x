@@ -15,7 +15,7 @@ import { createHttpClient } from '@komore/http/client';
 import { filter, firstValueFrom, lastValueFrom, map, merge, mergeMap, of, tapNext } from '@komore/reactive';
 
 async function main() {
-  const httpClient = createHttpClient({});
+  const httpClient = createHttpClient();
   const apiToken = 'MTE0NzA1MjkxMzU1NDg5NDk0Mg.GI13_q.P9fGXiC7MhahvBBlocfUMeCao386-UWwho_N-U';
   const apiTokenType = 'Bot';
   const apiVersion = '10';

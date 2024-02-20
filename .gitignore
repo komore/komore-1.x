@@ -6,6 +6,7 @@
 .DS_Store
 .pnpm-debug.log
 .terraform/
+.terraform.lock.hcl
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

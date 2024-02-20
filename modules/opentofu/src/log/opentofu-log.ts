@@ -6,5 +6,5 @@ import { type OpenTofuLogDetails } from './opentofu-log-details';
  *
  * @template LogType Log type
  */
-export type OpenTofuLog<LogType extends keyof OpenTofuLogDetails> = BaseOpenTofuLog<LogType> &
-  OpenTofuLogDetails[LogType];
+export type OpenTofuLog<LogType extends keyof OpenTofuLogDetails = keyof OpenTofuLogDetails> =
+  BaseOpenTofuLog<LogType> & OpenTofuLogDetails[LogType];

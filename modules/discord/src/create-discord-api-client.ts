@@ -23,7 +23,6 @@ export function createDiscordApiClient(options: DiscordApiClientOptions): Discor
     const hasPayload = payload !== undefined;
     const headers = hasPayload ? writeHeaders : readHeaders;
     const body = hasPayload ? JSON.stringify(payload) : undefined;
-    console.log(`${method} ${url}`); // TODO: remove
     return httpClient({ headers, method, url, options: { ...(body !== undefined ? { body } : {}) } }).pipe(
       mergeMap(httpClientResponseToJson<ResponseType>())
     );

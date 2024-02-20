@@ -3,10 +3,6 @@
  */
 export interface OpenTofuVersion {
   /**
-   * Whether a new version is available
-   */
-  readonly isOutdated: boolean;
-  /**
    * OpenTofu platform
    */
   readonly platform: string;

@@ -10,4 +10,13 @@ export const openTofuCliError = createErrorType(openTofuDomain, {
    * Not found
    */
   notFound: errorProperties(),
+  /**
+   * Unhandled error
+   */
+  unhandledError: errorProperties<{
+    /**
+     * Message
+     */
+    readonly message: string;
+  }>(),
 });

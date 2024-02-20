@@ -3,11 +3,11 @@
  */
 export interface OpenTofuCliClientOptions {
   /**
-   * Command line
+   * Command name to execute
    *
-   * @note Defaults to `opentofu`
+   * @note Defaults to `tofu`
    */
-  readonly commandLine?: string;
+  readonly commandName?: string;
   /**
    * Working directory
    */

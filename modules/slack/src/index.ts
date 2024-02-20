@@ -1,4 +1,6 @@
-export { createSlackClient } from './client/create-slack-client';
-export { type SlackClient } from './client/slack-client';
-export { type SlackClientOptions } from './client/slack-client-options';
-export { slackError } from './slack.error';
+export { createSlackApiClient } from './create-slack-api-client';
+export { type SlackApiClient } from './slack-api-client';
+export { type SlackApiClientOptions } from './slack-api-client-options';
+export { slackApiError } from './slack-api.error';
+export { slackDomain } from './slack.domain';
+export { slackTypeError } from './slack-type.error';

@@ -14,13 +14,13 @@ import { gitCliError } from './git-cli.error';
  * @returns Git CLI client
  */
 export function createGitCliClient(clientOptions: GitCliClientOptions): GitCliClient {
-  const { commandLine = 'git', workingDirectory } = clientOptions;
+  const { commandName = 'git', workingDirectory } = clientOptions;
   const baseArguments: ReadonlyArray<string> = ['--no-pager'];
 
   return commandParameters => {
-    const command = [commandLine, ...baseArguments, ...commandParameters].join(' ');
-    console.log('cmd', command);
-    return executeChildProcess(command, { workingDirectory }).pipe(
+    const args = [...baseArguments, ...commandParameters];
+    console.log('args', args);
+    return executeChildProcess(commandName, { arguments: args, workingDirectory }).pipe(
       map(childProcessOutputToStdout),
       throwIfError(isErrorOfType(nodeProcessError.executionError), error => {
         const { stderr } = error.context;

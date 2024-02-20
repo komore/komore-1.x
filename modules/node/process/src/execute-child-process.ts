@@ -13,15 +13,16 @@ import { nodeProcessError } from './node-process.error';
  */
 export function executeChildProcess(
   command: string,
-  options?: ExecuteChildProcessOptions
+  options?: Partial<ExecuteChildProcessOptions>
 ): Observable<ChildProcessOutput> {
-  const cwd = options?.workingDirectory;
+  const { arguments: args = [], workingDirectory: cwd } = options ?? {};
   const encoding = 'utf-8';
   const execOptions: ExecOptions = {
     ...(cwd !== undefined ? { cwd } : {}),
   };
+  const commandLine = [command, ...args].join(' ');
   return new Observable<ChildProcessOutput>(subscriber => {
-    const childProcess = exec(command, { encoding, ...execOptions }, (exception, stdout, stderr) => {
+    const childProcess = exec(commandLine, { encoding, ...execOptions }, (exception, stdout, stderr) => {
       if (exception !== null) {
         const error = nodeProcessError.executionError({ exception, stderr, stdout });
         subscriber.error(error);

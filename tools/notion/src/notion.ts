@@ -13,7 +13,7 @@ import { firstValueFrom } from '@komore/reactive';
 import { createNotionReleasePage } from './create-notion-release-page';
 
 async function main() {
-  const httpClient = createHttpClient({});
+  const httpClient = createHttpClient();
   const token = 'secret_9ApudzTbFCiEPpOB3lJVJjewMaeAWC6HDNqlARIrDJ1';
   const pageId = asNotionPageId('b72fda2c4a744d6da82603b2f8f37b7d');
   const apiClient = createNotionApiClient({ httpClient, token });

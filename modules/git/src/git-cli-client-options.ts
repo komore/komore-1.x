@@ -3,11 +3,11 @@
  */
 export interface GitCliClientOptions {
   /**
-   * Command line to execute
+   * Command name to execute
    *
    * @note Defaults to `"git"`
    */
-  readonly commandLine?: string;
+  readonly commandName?: string;
   /**
    * Working directory
    *

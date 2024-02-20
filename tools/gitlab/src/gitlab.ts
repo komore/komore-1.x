@@ -7,7 +7,7 @@ import { firstValueFrom } from '@komore/reactive';
 
 async function main() {
   const token = 'glpat-B1Hu5HMSzz1LWWzLfLmo';
-  const httpClient = createHttpClient({});
+  const httpClient = createHttpClient();
   const apiClient = createGitLabApiClient({ httpClient, token });
   const result$ = apiClient.query('currentUser');
   const result = await firstValueFrom(result$);
