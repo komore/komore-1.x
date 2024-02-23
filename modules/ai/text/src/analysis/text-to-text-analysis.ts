@@ -1,5 +1,8 @@
+import { of } from '@komore/reactive';
+
 import { type TextAiLayer } from '../text-ai-layer';
 import { type TextAnalysisOptions } from './text-analysis-options';
+import { type TextAnalysisResult } from './text-analysis-result';
 
 /**
  * Text to text analysis
@@ -9,8 +12,8 @@ import { type TextAnalysisOptions } from './text-analysis-options';
  * @returns Text analysis
  */
 export function textToTextAnalysis(
-  layer: TextAiLayer,
-  options: TextAnalysisOptions
+  _layer: TextAiLayer,
+  _options: TextAnalysisOptions
 ): (text: string) => Observable<TextAnalysisResult> {
-  return text => {};
+  return _text => of(void 0 as unknown as TextAnalysisResult);
 }

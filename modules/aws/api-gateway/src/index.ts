@@ -1,6 +1,6 @@
-export { createApiGatewayClient } from './client/create-api-gateway-client';
-export { apiGatewayCommand } from './api-gateway.command';
+export { type ApiGatewayApiClient } from './api-gateway-api-client';
+export { type ApiGatewayApiClientOptions } from './api-gateway-api-client-options';
+export { apiGatewayApiError } from './api-gateway-api.error';
 export { apiGatewayDomain } from './api-gateway.domain';
-export { apiGatewayError } from './api-gateway.error';
-export { apiGatewayEvent } from './api-gateway.event';
-export { apiGatewayQuery } from './api-gateway.query';
+export { apiGatewayTypeError } from './api-gateway-type.error';
+export { createApiGatewayApiClient } from './create-api-gateway-api-client';

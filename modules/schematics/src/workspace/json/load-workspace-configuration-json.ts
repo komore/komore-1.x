@@ -23,7 +23,7 @@ export function loadWorkspaceConfigurationJson(workspacePath: string): Observabl
   );
 
   const workspaceConfigurationJson$ = readFileContent(workspaceConfigurationPath, { encoding: 'utf-8' }).pipe(
-    map(jsonToObject())
+    map(jsonToObject<unknown>())
   );
   return forkJoin([workspaceConfigurationJson$, validateWith$]).pipe(
     switchMap(([json, validateWith]) => validateWith(json))

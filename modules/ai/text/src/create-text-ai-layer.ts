@@ -1,34 +1,12 @@
-import { deferPromise, map, mapErrorTo } from '@komore/reactive';
-import { type ReadonlyRecord } from '@komore/typescript';
-
-import { TextAiLayer } from './text-ai-layer';
-import { TextAiLayerOptions } from './text-ai-layer-options';
+import { type TextAiLayer } from './text-ai-layer';
+import { type TextAiLayerOptions } from './text-ai-layer-options';
 
 /**
  * Creates a text AI layer
  *
- * @param options Options
+ * @param layerOptions Text AI layer options
  * @returns Text AI layer
  */
-export function createTextAiLayer(options?: Partial<TextAiLayerOptions>): Observable<TextAiLayer> {
-  type LayerLoader = () => Promise<TextAiLayer>;
-  const layerLoaders: ReadonlyRecord<TextAiLayerOptions['platform'], LayerLoader> = {
-    aws: () => import('@komore/integration-aws/comprehend').then(m => m.createAwsTextAiLayer),
-    azure: () => import('@komore/integration-azure/text-analytics').then(m => m.createAzureTextAiLayer),
-    gcloud: () => import('@komore/integration-gcloud/cloud-natural-language').then(m => m.createGoogleCloudTextAiLayer),
-  };
-
-  const platform = options?.platform;
-  const availablePlatforms;
-}
-
-function loadAwsTextAiLayer(): Observable<TextAiLayer | undefined> {
-  return deferPromise(() => import('@komore/integration-aws/comprehend')).pipe(
-    map(({ createAwsTextAiLayer }) => createAwsTextAiLayer()),
-    mapErrorTo(undefined)
-  );
-}
-
-function loadAzureTextAiLayer(): Observable<TextAiLayer | undefined> {
-  return defer;
+export function createTextAiLayer(_layerOptions?: Partial<TextAiLayerOptions>): TextAiLayer {
+  return void 0 as unknown as TextAiLayer;
 }

@@ -1,5 +1,5 @@
-import { ParseUrlQueryParameters } from '../url/parse-url-query-parameters';
-import { EndpointQueryParameterParser } from './endpoint-query-parameter-parser';
+import { type ParseUrlQueryParameters } from '../url/parse-url-query-parameters';
+import { type EndpointQueryParameterParser } from './endpoint-query-parameter-parser';
 
 /**
  * Builds an endpoint query parameter parser
@@ -23,10 +23,10 @@ export function buildEndpointQueryParameterParser<PathSpecification extends stri
         ...httpContext.endpointParameters,
         path: {
           ...httpContext.endpointParameters.path,
-          ...extractedPathParameters.params
-        }
+          ...extractedPathParameters.params,
+        },
       },
-      unprocessedPath: httpContext.unprocessedPath.substr(extractedPathParameters.path.length)
+      unprocessedPath: httpContext.unprocessedPath.substr(extractedPathParameters.path.length),
     };
   };
 }

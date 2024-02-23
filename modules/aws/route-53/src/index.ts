@@ -1,8 +1,6 @@
-export { createRoute53Client } from './client/create-route-53-client';
-export { type Route53Client } from './client/route-53-client';
-export { type Route53ClientOptions } from './client/route-53-client-options';
-export { route53Command } from './route-53.command';
+export { createRoute53ApiClient } from './create-route-53-api-client';
+export { type Route53ApiClient } from './route-53-api-client';
+export { type Route53ApiClientOptions } from './route-53-api-client-options';
+export { route53ApiError } from './route-53-api.error';
 export { route53Domain } from './route-53.domain';
-export { route53Error } from './route-53.error';
-export { route53Event } from './route-53.event';
-export { route53Query } from './route-53.query';
+export { route53TypeError } from './route-53-type.error';

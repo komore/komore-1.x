@@ -24,7 +24,6 @@ export function workspaceContextToTaskExecution(
   projectNames: ReadonlyArray<ProjectName>
 ): (workspaceContext: WorkspaceContext) => Observable<EventFromType<typeof cliEvent>> {
   const taskReferences$ = fromArray(projectNames).pipe(map(projectName => ({ projectName, taskName })));
-  console.log('dafuq now', taskName, projectNames);
   return workspaceContext => {
     const { options, runner } = workspaceContext.configuration.task;
     const packageReference = packageReferenceNameToPackageReference(runner);

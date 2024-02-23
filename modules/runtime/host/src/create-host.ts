@@ -1,4 +1,4 @@
-import { map, pairwise, tapNext } from '@komore/reactive';
+import { map, pairwise } from '@komore/reactive';
 
 import { type Host } from './host';
 
@@ -10,7 +10,6 @@ import { type Host } from './host';
  */
 export function createHost(host: Omit<Host, 'stateTransitions'>): Host {
   const stateTransitions = host.state.pipe(
-    tapNext(state => console.log(`host state is now "${state}"`)),
     pairwise(),
     map(([previous, current]) => ({
       previous,

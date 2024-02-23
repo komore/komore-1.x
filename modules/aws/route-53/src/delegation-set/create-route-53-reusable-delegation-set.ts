@@ -1,0 +1,15 @@
+import { type Route53ApiClient } from '../route-53-api-client';
+import { type CreateRoute53ReusableDelegationSetParameters } from './create-route-53-reusable-delegation-set-parameters';
+
+/**
+ * Creates a function that creates a Route 53 reusable delegation set
+ *
+ * @param apiClient Route 53 API client
+ * @returns Function that creates a Route 53 reusable delegation set
+ * @see {@link https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet}
+ */
+export function createRoute53ReusableDelegationSet(
+  apiClient: Route53ApiClient
+): (parameters: CreateRoute53ReusableDelegationSetParameters) => Observable<CreateRoute53ReusableDelegationSetResult> {
+  return () => {};
+}

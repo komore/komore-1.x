@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
-  '@angular/core':
-    specifier: 17.0.9
-    version: 17.0.9(rxjs@7.8.1)(zone.js@0.14.2)
   '@aws-sdk/client-api-gateway':
     specifier: 3.490.0
     version: 3.490.0
@@ -359,18 +356,6 @@ packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /@angular/core@17.0.9(rxjs@7.8.1)(zone.js@0.14.2):
-    resolution: {integrity: sha512-LtDWzyx19XNmAjXju9xjw//rDZPUFu2bllHqzS6NVO1bE4PwJHIs0zfvygh0j46ubKp1gUICNk3jvYK9FMVinA==}
-    engines: {node: ^18.13.0 || >=20.9.0}
-    peerDependencies:
-      rxjs: ^6.5.3 || ^7.4.0
-      zone.js: ~0.14.0
-    dependencies:
-      rxjs: 7.8.1
-      tslib: 2.6.2
-      zone.js: 0.14.2
     dev: true
 
   /@asamuzakjp/dom-selector@2.0.2:
@@ -8255,10 +8240,4 @@ packages:
 
   /yoga-layout@2.0.1:
     resolution: {integrity: sha512-tT/oChyDXelLo2A+UVnlW9GU7CsvFMaEnd9kVFsaiCQonFAXd3xrHhkLYu+suwwosrAEQ746xBU+HvYtm1Zs2Q==}
-    dev: true
-
-  /zone.js@0.14.2:
-    resolution: {integrity: sha512-X4U7J1isDhoOmHmFWiLhloWc2lzMkdnumtfQ1LXzf/IOZp5NQYuMUTaviVzG/q1ugMBIXzin2AqeVJUoSEkNyQ==}
-    dependencies:
-      tslib: 2.6.2
     dev: true

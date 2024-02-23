@@ -3,8 +3,8 @@ import { type ReadonlyRecord } from '@komore/typescript';
 import { type CliFlagParameterDefinition } from '../definition/parameter/cli-flag-parameter-definition';
 import { type CliPathParameterDefinitionsFromCliRoutePath } from '../definition/parameter/cli-path-parameter-definitions-from-cli-route-path';
 import { type CliParametersTypeFromCliParameterDefinitions } from '../definition/parameter/cli-parameters-type-from-cli-parameter-definitions';
-import { cliFlagParametersToRouteFlagParameters } from './cli-flag-parameters-to-route-flag-parameters';
-import { cliPathParametersToRoutePathParameters } from './cli-path-parameters-to-route-path-parameters';
+import { cliFlagParametersToRouteFlagParameters } from './flag/cli-flag-parameters-to-route-flag-parameters';
+import { cliPathParametersToRoutePathParameters } from './path/cli-path-parameters-to-route-path-parameters';
 
 /**
  * Creates a function that returns a command-line route's parameters, given a command line
@@ -38,7 +38,6 @@ export function commandLineToCliRouteParameters<
     }
 
     const routeFlagParameters = toRouteFlagParameters(flagParameters);
-    console.log('hmkaythen', path, pathParameters, routePathParameters, flagParameters, routeFlagParameters);
     return {
       ...routePathParameters,
       ...routeFlagParameters,

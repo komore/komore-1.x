@@ -1,7 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { isCliFlagParameter } from './is-cli-flag-parameters';
-import { cliParametersToCliFlagParameters } from './cli-parameters-to-cli-flag-parameters';
+import { isCliFlagParameter } from './flag/is-cli-flag-parameters';
+import { cliParametersToCliFlagParameters } from './flag/cli-parameters-to-cli-flag-parameters';
 
 /**
  * Returns structed command-line interface parameters, given a list of command-line tokens

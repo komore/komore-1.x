@@ -2,7 +2,7 @@ import { parse, type Type } from 'avsc';
 
 import { deferValue } from '@komore/reactive';
 
-import { AvroSchema } from './avro-schema';
+import { type AvroSchema } from './avro-schema';
 
 /**
  * Parses an Avro schema

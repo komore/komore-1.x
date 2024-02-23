@@ -34,11 +34,20 @@ export function createAwsClient<
     AwsCommandEventMapType
   >
 ): AwsClient<AwsCommandType, AwsEventType, AwsQueryType, AwsErrorType, AwsCommandEventMapType> {
-  const { client: clientFactory, commandHandler, ...clientOptions } = awsClientOptions;
+  const { client: clientFactory, commandHandler: _, ...clientOptions } = awsClientOptions;
   const client$ = clientFactory();
+  client$;
+  clientOptions;
 
-  return createClient({
+  /*return */ createClient; /*({
     ...clientOptions,
     commandHandler: events =>
-  });
+  });*/
+  return void 0 as unknown as AwsClient<
+    AwsCommandType,
+    AwsEventType,
+    AwsQueryType,
+    AwsErrorType,
+    AwsCommandEventMapType
+  >;
 }

@@ -1,5 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "extends": "../../../../conf/eslintrc.base.json",
-  "ignorePatterns": ["!**/*"]
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": "modules/aws/aurora/event-store/aws-aurora-eventstore.tsconfig.*?.json"
+      }
+    }
+  ]
 }

@@ -19,20 +19,17 @@ export function createCliRouter<RouteMatchers extends ReadonlyArray<GenericCliRo
   options: CliRouterOptions
 ): CliRouter<ReturnType<RouteMatchers[number]['parametersToCommand']>> {
   const {} = options;
-  return commandLine$ => {
-    console.log('yay?');
-    return commandLine$.pipe(
+  return commandLine$ =>
+    commandLine$.pipe(
       map(cliParametersToStructuredCliParameters),
-      concatMap(([pathParameters, flagParameters, commandLine]) => {
-        console.log('yay', pathParameters, flagParameters, commandLine);
-        return fromArray(routeMatchers).pipe(
+      concatMap(([pathParameters, flagParameters, commandLine]) =>
+        fromArray(routeMatchers).pipe(
           map(routeMatcherToRouteMatcherWithParameters(pathParameters, flagParameters)),
           filter(isDefined),
           first(),
           map(([routeMatcher, routeParameters]) => routeMatcher.parametersToCommand(routeParameters, commandLine)),
           map(command => command as ReturnType<RouteMatchers[number]['parametersToCommand']>)
-        );
-      })
+        )
+      )
     );
-  };
 }

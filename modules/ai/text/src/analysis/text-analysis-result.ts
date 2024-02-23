@@ -1,4 +1,4 @@
-import { type DetectedTextLanguage } from './detected-text-language';
+import { type DetectedTextLanguage } from '../language/detected-text-language';
 
 /**
  * Text analysis result

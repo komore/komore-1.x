@@ -1,8 +1,4 @@
-export { type AuroraClient } from './client/aurora-client';
-export { type AuroraClientOptions } from './client/aurora-client-options';
-export { auroraCommand } from './aurora.command';
+export { type AuroraApiClient } from './aurora-api-client';
+export { type AuroraApiClientOptions } from './aurora-api-client-options';
 export { auroraDomain } from './aurora.domain';
-export { auroraError } from './aurora.error';
-export { auroraEvent } from './aurora.event';
-export { auroraQuery } from './aurora.query';
-export { createAuroraClient } from './client/create-aurora-client';
+export { createAuroraApiClient } from './create-aurora-api-client';

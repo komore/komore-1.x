@@ -52,7 +52,6 @@
     "x:teams": "ts-node --project ./tools/teams/tsconfig.json -r tsconfig-paths/register ./tools/teams/src/teams.ts"
   },
   "devDependencies": {
-    "@angular/core": "17.0.9",
     "@aws-sdk/client-api-gateway": "3.490.0",
     "@aws-sdk/client-appsync": "3.490.0",
     "@aws-sdk/client-chime": "3.490.0",

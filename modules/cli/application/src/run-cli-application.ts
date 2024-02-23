@@ -26,7 +26,6 @@ export function runCliApplication<CommandType extends GenericCommand>(
   return runApplication({
     host,
     main: () => {
-      console.log('in main');
       const commandLineArguments = argvToCommandLineArguments(process.argv);
       const events = new Subject<EventFromType<typeof cliEvent>>();
       const events$ = events.asObservable();
@@ -38,15 +37,10 @@ export function runCliApplication<CommandType extends GenericCommand>(
         mergeMap(command => commandHandler(command).pipe(mapTo(0), catchError(thenLogAndReturnCliExitCode(console))))
       );
 
-      console.log('fpppfpfp');
       setupCliApplication();
-      console.log('fpppfpfp2');
 
       return race([consoleLogs$, exitCodeFromEvents$, exitCodeFromCommands$]).pipe(
-        tapNext(exitCode => {
-          console.log('exit code =', exitCode);
-          process.exit(exitCode);
-        }),
+        tapNext(exitCode => process.exit(exitCode)),
         redactValue()
       );
     },

@@ -1,5 +1,5 @@
 import { type EndpointParameters } from '../endpoint-parameters';
-import { type ParseEndpointParameters } from '../parse-endpoint-parameters';
+import { type ParseEndpointParameters } from '../specification/parse-endpoint-parameters';
 import { type EndpointParser } from './endpoint-parser';
 
 /**
@@ -10,9 +10,9 @@ import { type EndpointParser } from './endpoint-parser';
  */
 export function buildEndpointParser<
   EndpointParameterTypes extends EndpointParameters<any, any, any, any>,
-  EndpointSpecification extends string
+  EndpointSpecification extends string,
 >(
-  endpointSpecification: EndpointSpecification
+  _endpointSpecification: EndpointSpecification
 ): EndpointParser<EndpointParameterTypes, ParseEndpointParameters<EndpointSpecification>> {
   return httpContext => httpContext.url.searchParams.get();
 }

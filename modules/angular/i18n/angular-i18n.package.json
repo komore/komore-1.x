@@ -1,5 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/package.json",
-  "name": "@komore/angular/i18n",
-  "keywords": ["angular", "i18n"]
-}

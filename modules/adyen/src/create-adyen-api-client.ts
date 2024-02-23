@@ -7,6 +7,6 @@ import { type AdyenApiClientOptions } from './adyen-api-client-options';
  * @param clientOptions Adyen client options
  * @returns Adyen client
  */
-export function createAdyenApiClient(clientOptions: AdyenApiClientOptions): AdyenApiClient {
+export function createAdyenApiClient(_clientOptions: AdyenApiClientOptions): AdyenApiClient {
   return void 0 as unknown as AdyenApiClient;
 }

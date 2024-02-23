@@ -1,4 +1,4 @@
-import { AdyenApiClientApiVersions } from './adyen-api-client-api-versions';
+import { type AdyenApiClientApiVersions } from './adyen-api-client-api-versions';
 
 /**
  * Adyen API client API options
