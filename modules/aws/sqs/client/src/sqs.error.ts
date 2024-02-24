@@ -1,6 +1,5 @@
+import { sqsDomain } from '@komore/aws/sqs';
 import { createErrorType } from '@komore/error';
-
-import { sqsDomain } from './sqs.domain';
 
 /**
  * SQS error

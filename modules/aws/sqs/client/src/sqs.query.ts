@@ -1,8 +1,7 @@
 import { type ListQueuesCommand } from '@aws-sdk/client-sqs';
 
 import { awsQueryProperties, createAwsQueryType } from '@komore/aws';
-
-import { sqsDomain } from './sqs.domain';
+import { sqsDomain } from '@komore/aws/sqs';
 
 /**
  * SQS query

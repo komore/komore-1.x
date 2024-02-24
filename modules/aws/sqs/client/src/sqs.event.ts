@@ -1,6 +1,5 @@
+import { sqsDomain } from '@komore/aws/sqs';
 import { createAwsEventType } from '@komore/aws';
-
-import { sqsDomain } from './sqs.domain';
 
 /**
  * SQS event

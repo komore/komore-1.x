@@ -1,8 +1,6 @@
-export { createSqsClient } from './client/create-sqs-client';
-export { type SqsClient } from './client/sqs-client';
-export { type SqsClientOptions } from './client/sqs-client-options';
-export { sqsCommand } from './sqs.command';
+export { createSqsApiClient } from './create-sqs-api-client';
+export { type SqsApiClient } from './sqs-api-client';
+export { type SqsApiClientOptions } from './sqs-api-client-options';
 export { sqsDomain } from './sqs.domain';
-export { sqsError } from './sqs.error';
-export { sqsEvent } from './sqs.event';
-export { sqsQuery } from './sqs.query';
+export { sqsApiError } from './sqs-api.error';
+export { sqsTypeError } from './sqs-type.error';
