@@ -1,10 +1,6 @@
-export { createS3Client } from './client/create-s3-client';
-export { createS3CommandHandler } from './command/create-s3-command-handler';
-export { createS3QueryHandler } from './query/create-s3-query-handler';
-export { type S3Client } from './client/s3-client';
-export { type S3ClientOptions } from './client/s3-client-options';
-export { s3Command } from './s3.command';
-export { type S3CommandHandler } from './command/s3-command-handler';
-export { s3Error } from './s3.error';
-export { s3Event } from './s3.event';
-export { s3Query } from './s3.query';
+export { createS3ApiClient } from './create-s3-api-client';
+export { type S3ApiClient } from './s3-api-client';
+export { type S3ApiClientOptions } from './s3-api-client-options';
+export { s3ApiError } from './s3-api.error';
+export { s3Domain } from './s3.domain';
+export { s3TypeError } from './s3-type.error';

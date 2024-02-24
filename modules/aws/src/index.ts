@@ -16,6 +16,7 @@ export { sendAwsCommand } from './command/send-aws-command';
 export { sendBatchAwsCommand } from './command/send-batch-aws-command';
 export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-signature-authorization-http-header';
 
+export { type AwsAccountId } from './account/id/aws-account-id';
 export { type AwsApiClient } from './aws-api-client';
 export { type AwsApiClientOptions } from './aws-api-client-options';
 export { createAwsApiClient } from './create-aws-api-client';
