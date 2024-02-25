@@ -1,8 +1,6 @@
-export { type ExampleFunction } from './dsl/example-function';
-export { type FeatureFunction } from './dsl/feature-function';
-export { type RuleFunction } from './dsl/rule-function';
-export { type ScenarioFunction } from './dsl/scenario-function';
-
+export { createTestRunner } from './create-test-runner';
+export { type TestRunner } from './test-runner';
+export { type TestRunnerOptions } from './test-runner-options';
 // TODO
 
 /*

@@ -1,14 +1,33 @@
 {
+  "$schema": "https://komore.dev/json-schemas/schematics/executors.json",
   "merge": {
+    "defaultTask": "@komore/testing/schematics#createLintModuleDefaultTask",
     "description": "Merges test results",
-    "factory": "./src/executor/merge/merge-test-executor#mergeTestExecutor"
+    "documentation": "https://komore.dev/modules/testing/schematics/executors/merge",
+    "factory": "@komore/testing/schematics#createMergeTestExecutor",
+    "options": {
+      "processor": "@komore/testing/schematics#createMergeTestExecutorOptionsProcessor",
+      "schema": "./src/executor/merge/merge-test-result-executor-options.schema.json"
+    }
   },
   "publish": {
+    "defaultTask": "@komore/testing/schematics#createLintModuleDefaultTask",
     "description": "Publishes test results",
-    "factory": "./src/executor/publish/publish-test-executor#publishTestExecutor"
+    "documentation": "https://komore.dev/modules/testing/schematics/executors/publish",
+    "factory": "@komore/testing/schematics#createPublishTestExecutor",
+    "options": {
+      "processor": "@komore/testing/schematics#creatPublishTestExecutorOptionsProcessor",
+      "schema": "./src/executor/publish/publish-test-result-executor-options.schema.json"
+    }
   },
   "test": {
-    "description": "Tests a project",
-    "factory": "./src/executor/test/test-executor#testExecutor"
+    "defaultTask": "@komore/testing/schematics#createTestModuleDefaultTask",
+    "description": "Tests a module",
+    "documentation": "https://komore.dev/modules/testing/schematics/executors/test",
+    "factory": "@komore/testing/schematics#createTestModuleExecutor",
+    "options": {
+      "processor": "@komore/testing/schematics#createTestModuleExecutorOptionsProcessor",
+      "schema": "./src/executor/test/test-module-executor-options.schema.json"
+    }
   }
 }

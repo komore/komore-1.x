@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/aws",
   "komore": {
-    "commands": "./schematics/aws-commands.executors.json",
+    "commands": "./schematics/aws-schematics.commands.json",
     "executors": "./schematics/aws-schematics.executors.json",
     "generators": "./schematics/aws-schematics.generators.json"
   }

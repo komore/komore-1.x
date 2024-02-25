@@ -5,8 +5,8 @@ import { isDefined, objectToEntries } from '@komore/functional';
 import { nodeFileSystemError } from '@komore/node/file-system';
 import { readPackageJson } from '@komore/node/package';
 import { defaultIfEmpty, forkJoin, map, of, throwIfError } from '@komore/reactive';
+import { type TypeScriptConfiguration } from '@komore/tsc';
 import { type ReadonlyRecord } from '@komore/typescript';
-import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
 
 import { type LocalPackage } from './local-package';
 import { type PackageName } from './name/package-name';

@@ -8,19 +8,8 @@ function trimSource(source: string): string {
 }
 
 /**
- * Generates a source string using the test name as a basis for the virtual source file name
- * @param testName Test name
- * @param ast Abstract syntax tree node
- */
-function generateSource(testName: string, ast: Node): string {
-  const fileName = testName.replace(/\s+/g, '-') + '.ts';
-  const sourceFile = createSourceFile(fileName, '', ScriptTarget.Latest);
-  const printer = createPrinter({ newLine: NewLineKind.LineFeed });
-  return printer.printNode(EmitHint.Unspecified, ast, sourceFile) + '\n';
-}
-
-/**
  * Generates a result from comparing sources
+ *
  * @param matcherName Matcher name
  * @param utils Jest matcher utilities
  * @param received Received source string
@@ -41,7 +30,7 @@ function generateResult(matcherName: string, utils: jest.MatcherUtils['utils'], 
           utils.matcherHint(matcherName, undefined, undefined) +
           '\n\n' +
           utils.printDiffOrStringify(strippedExpected, strippedReceived, 'Expected source', 'Received source', false),
-    pass
+    pass,
   };
 }
 
@@ -57,6 +46,6 @@ export function registerMatchers(): void {
     toBeInlineSource(received: Node, expected: string) {
       const source = generateSource(this.currentTestName, received).replace(/\n/g, '');
       return generateResult('toBeInlineSource', this.utils, source, expected);
-    }
+    },
   });
 }

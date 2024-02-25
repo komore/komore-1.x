@@ -1,3 +1,9 @@
 {
-  "$schema": "https://komore.dev/json-schemas/schematics/generators.json"
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "error": {
+    "defaultTask": "@komore/node/schematics#createBuildNodeModuleDefaultTask",
+    "description": "Generates an error type",
+    "documentation": "https://komore.dev/modules/error/schematics/generators/error",
+    "factory": "@komore/error/schematics#createErrorTypeGenerator"
+  }
 }

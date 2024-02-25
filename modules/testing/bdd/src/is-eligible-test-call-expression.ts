@@ -3,11 +3,12 @@ import {
   isCallExpression,
   isIdentifier,
   isPropertyAccessExpression,
-  type SourceFile
+  type SourceFile,
 } from 'typescript';
 
 /**
  * Tests whether a call expression is considered a test call
+ *
  * ```ts
  * describe('', fn);
  * describe.each('', fn);
@@ -26,7 +27,9 @@ import {
  * test.skip.each()('', fn);
  * test.todo('');
  * ```
+ *
  * Note: `it` is also eligible, as an alias for `test`
+ *
  * @param sourceFile Source file
  * @param callExpression Call expression
  * @returns true if the call expression is considered a test call
@@ -44,7 +47,7 @@ export function isEligibleTestCallExpression(sourceFile: SourceFile, callExpress
     'test.concurrent',
     'test.only',
     'test.skip',
-    'test.todo'
+    'test.todo',
   ];
   const eligibleEachNames = [
     'describe',
@@ -61,7 +64,7 @@ export function isEligibleTestCallExpression(sourceFile: SourceFile, callExpress
     'test.concurrent.skip',
     'test',
     'test.only',
-    'test.skip'
+    'test.skip',
   ];
 
   if (isCallExpression(expression)) {

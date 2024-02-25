@@ -13,10 +13,12 @@ export function errorCreatorEntryToPropertyDescriptorMap(
   errorCreatorEntry: ErrorCreatorEntry
 ): PropertyDescriptorMap {
   const [errorCode, errorCreator] = errorCreatorEntry;
-  propertyDescriptorMap[errorCode] = {
-    enumerable: false,
-    value: errorCreator,
-    writable: false,
+  return {
+    ...propertyDescriptorMap,
+    [errorCode]: {
+      enumerable: false,
+      value: errorCreator,
+      writable: false,
+    },
   };
-  return propertyDescriptorMap;
 }

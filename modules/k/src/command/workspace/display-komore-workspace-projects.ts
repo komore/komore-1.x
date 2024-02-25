@@ -1,10 +1,7 @@
-// TODO: remove
-import chalk = require('chalk');
-
 import { cliEvent } from '@komore/cli';
+import { type EventFromType } from '@komore/event';
 import { first, map, tapNext } from '@komore/reactive';
 import { type WorkspaceContext } from '@komore/schematics';
-import { EventFromType } from '@komore/event';
 
 /**
  * Displays the list of komore generators available to the workspace
@@ -20,7 +17,7 @@ export function displayKomoreWorkspaceProjects(
     tapNext(projects => {
       const longestProjectName = projects.reduce((acc, [projectName]) => Math.max(acc, projectName.length), 0);
       projects.forEach(([projectName, projectConfiguration]) => {
-        const displayedProjectName = chalk.whiteBright(projectName.padEnd(longestProjectName, ' '));
+        const displayedProjectName = projectName.padEnd(longestProjectName, ' ');
         console.log(`  ${displayedProjectName} : ${projectConfiguration.path}`);
       });
     }),

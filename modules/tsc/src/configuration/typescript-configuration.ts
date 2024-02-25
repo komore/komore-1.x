@@ -1,4 +1,4 @@
-import { type TypeScriptCompilerOptions } from './options/typescript-compiler-options';
+import { type TypeScriptConfigurationCompilerOptions } from './options/typescript-configuration-compiler-options';
 import { type TypeScriptProjectReferenceConfiguration } from './typescript-project-reference-configuration';
 
 /**
@@ -12,7 +12,7 @@ export interface TypeScriptConfiguration {
   /**
    * Compiler options
    */
-  readonly compilerOptions: TypeScriptCompilerOptions;
+  readonly compilerOptions: TypeScriptConfigurationCompilerOptions;
   /**
    * File patterns to exclude
    */

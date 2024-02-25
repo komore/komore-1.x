@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 
 import { createEsbuildPlugin, type EsbuildPlugin } from '@komore/esbuild/plugin';
-import { typeScriptConfigurationToPaths, type TypeScriptConfiguration } from '@komore/typescript-compiler';
+import { typeScriptConfigurationToPaths, type TypeScriptConfiguration } from '@komore/tsc';
 
 /**
  * Creates a browser server esbuild resolver plugin

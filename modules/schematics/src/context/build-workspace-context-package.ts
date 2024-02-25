@@ -4,7 +4,7 @@ import { arrayToFlattenedArray } from '@komore/collection';
 import { isDefined } from '@komore/functional';
 import { readPackageJson } from '@komore/node/package';
 import { cache, combineLatest, map, mergeMap, ObservableMap, switchMap, throwUnless } from '@komore/reactive';
-import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
+import { type TypeScriptConfiguration } from '@komore/tsc';
 
 import { type InstalledPackage } from '../package/installed-package';
 import { type InstalledPackageWithPackageJson } from '../package/installed-package-with-package-json';

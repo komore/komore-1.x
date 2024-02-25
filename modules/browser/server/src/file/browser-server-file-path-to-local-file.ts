@@ -1,9 +1,9 @@
-import { type EsbuildClient } from '@komore/esbuild';
+import { type EsbuildClient } from '@komore/esbuild/client';
 import { type MediaType } from '@komore/http';
 import { type HttpServerLocalFile } from '@komore/http/server';
 import { pathToExtension } from '@komore/node/file-system';
 import { of } from '@komore/reactive';
-import { type TypeScriptConfiguration } from '@komore/typescript-compiler';
+import { type TypeScriptConfiguration } from '@komore/tsc';
 
 import { typeScriptFileToBrowserServerEsModule } from '../typescript/typescript-file-to-browser-server-es-module';
 

@@ -1,7 +1,4 @@
-import { initialize } from 'esbuild';
-
 import { createClient } from '@komore/client';
-import { cache, deferPromise } from '@komore/reactive';
 
 import { createEsbuildCommandHandler } from '../command/create-esbuild-command-handler';
 import { esbuildCommand } from '../esbuild.command';

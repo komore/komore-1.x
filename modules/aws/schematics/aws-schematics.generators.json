@@ -1,3 +1,13 @@
 {
-  "$schema": "https://komore.dev/json-schemas/schematics/generators.json"
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "api": {
+    "description": "Generates an AWS API client module",
+    "factory": "./src/generators/api/build-aws-api-client-generator#buildAwsApiClientGenerator",
+    "schema": "./src/generators/api/aws-api-client-generator-schema.json"
+  },
+  "function": {
+    "description": "Generates an AWS Lambda function module",
+    "factory": "./src/generators/function/build-aws-lambda-function-generator#buildAwsApiClientGenerator",
+    "schema": "./src/generators/function/aws-lambda-function-generator-schema.json"
+  }
 }

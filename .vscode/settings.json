@@ -1,4 +1,8 @@
 {
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
   "files.eol": "\n",
   "files.exclude": {
     "coverage": true,
@@ -10,6 +14,7 @@
     "dist": true,
     "node_modules": true
   },
+  "typescript.preferences.quoteStyle": "single",
   "typescript.referencesCodeLens.enabled": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

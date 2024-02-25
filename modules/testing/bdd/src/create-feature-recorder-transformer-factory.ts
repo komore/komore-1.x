@@ -10,6 +10,7 @@ import { type FeatureRecorder } from './feature-recorder';
 
 /**
  * Creates a feature recorder transformer factory
+ *
  * @param featureRecorder Feature recorder
  * @returns Feature recorder transformer factory
  */

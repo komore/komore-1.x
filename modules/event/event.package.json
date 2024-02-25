@@ -2,6 +2,8 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/event",
   "komore": {
+    "commands": "./schematics/event-schematics.commands.json",
+    "executors": "./schematics/event-schematics.executors.json",
     "generators": "./schematics/event-schematics.generators.json"
   }
 }

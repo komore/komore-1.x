@@ -1,8 +1,10 @@
-import { createExtendsKeyof, createParameter } from '@komore/typescript-compiler';
 import { type MethodSignature, type NodeFactory, SyntaxKind, type TypeReferenceNode } from 'typescript';
+
+import { createExtendsKeyof, createParameter } from '@komore/tsc';
 
 /**
  * Creates a setProperty method signature
+ *
  * ```ts
  * setProperty<K extends keyof CustomPropertyMap>(customProperty: K, value: CustomPropertyMap[K] | null): void;
  * ```

@@ -6,7 +6,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": "modules/api/http/api-http.tsconfig.*?.json"
+        "project": "modules/http/api/http-api.tsconfig.*?.json"
       }
     }
   ]

@@ -3,5 +3,5 @@
   "domain": "http",
   "type": "library",
   "tags": [],
-  "tasks": ["build", "document", "lint", "test"]
+  "tasks": ["build", "document", "lint", "package", "test"]
 }

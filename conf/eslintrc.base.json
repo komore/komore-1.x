@@ -71,6 +71,7 @@
           "error",
           {
             "disallowTypeAnnotations": true,
+            "fixStyle": "inline-type-imports",
             "prefer": "type-imports"
           }
         ],
@@ -90,7 +91,8 @@
               { "from": "lib", "name": "RegExp" },
               { "from": "lib", "name": "RequestInit" },
               { "from": "lib", "name": "URL" },
-              { "from": "package", "name": "Observable", "package": "rxjs" }
+              { "from": "package", "name": "Observable", "package": "rxjs" },
+              { "from": "package", "name": "Subject", "package": "rxjs" }
             ],
             "ignoreInferredTypes": true,
             "treatMethodsAsReadonly": true

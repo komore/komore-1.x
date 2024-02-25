@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../../conf/tsconfig.node.json",
+  "extends": "../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./typescriptcompiler.tsconfig.library.json"
+      "path": "./tsc.tsconfig.library.json"
     },
     {
-      "path": "./typescriptcompiler.tsconfig.specifications.json"
+      "path": "./tsc.tsconfig.specifications.json"
     }
   ]
 }

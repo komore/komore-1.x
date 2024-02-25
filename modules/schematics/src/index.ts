@@ -6,6 +6,7 @@ export { createWorkspaceExecutorDefaultTaskGeneratorFactory } from './executor/c
 export { createWorkspaceExecutorEvent } from './executor/event/create-workspace-executor-event';
 export { createWorkspaceExecutorFactory } from './executor/factory/create-workspace-executor-factory';
 export { createWorkspaceGenerator } from './generator/create-workspace-generator';
+export { createWorkspaceGeneratorFactory } from './generator/factory/create-workspace-generator-factory';
 export { detectPackageManagerType } from './package/manager/detect-package-manager-type';
 export { type ExecutorReference } from './executor/reference/executor-reference';
 export { type ExecutorReferenceString } from './executor/reference/executor-reference-string';
@@ -57,3 +58,5 @@ export { type WorkspaceExecutorTaskMessageEventData } from './executor/event/dat
 export { type WorkspaceExecutorTaskId } from './executor/task/workspace-executor-task-id';
 export { type WorkspaceGenerator } from './generator/workspace-generator';
 export { type WorkspaceGeneratorDescriptor } from './generator/workspace-generator-descriptor';
+export { type WorkspaceGeneratorFactory } from './generator/factory/workspace-generator-factory';
+export { type WorkspaceGeneratorFactoryOptions } from './generator/factory/workspace-generator-factory-options';

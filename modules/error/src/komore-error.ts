@@ -11,8 +11,7 @@ import { type ErrorInstance } from './error-instance';
  */
 export class KomoreError<DomainType extends Domain, ErrorCode extends string, ErrorParameters>
   extends Error
-  implements ErrorInstance<DomainType, ErrorCode, ErrorParameters>
-{
+  implements ErrorInstance<DomainType, ErrorCode, ErrorParameters> {
   override readonly name = 'KomoreError';
   readonly code: ErrorCode;
   readonly context: ErrorParameters;

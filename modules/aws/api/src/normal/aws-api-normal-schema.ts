@@ -8,8 +8,24 @@ import { type AwsApiShape } from './aws-api-shape';
  * AWS API normal schema
  */
 export interface AwsApiNormalSchema {
+  /**
+   * HTML documentation
+   */
+  readonly documentation: string;
+  /**
+   * API metadata
+   */
   readonly metadata: AwsApiMetadata;
+  /**
+   * Operations
+   */
   readonly operations: ReadonlyRecord<string, AwsApiOperation>;
+  /**
+   * Shapes
+   */
   readonly shapes: ReadonlyRecord<string, AwsApiShape>;
+  /**
+   * Schema version
+   */
   readonly version: '2.0';
 }

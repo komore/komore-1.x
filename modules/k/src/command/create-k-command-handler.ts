@@ -12,6 +12,7 @@ import { displayKomoreVersion } from './version/display-komore-version';
 //import { displayKomoreWorkspaceElements } from './workspace/display-komore-workspace-elements';
 import { displayKomoreWorkspaceExecutors } from './workspace/display-komore-workspace-executors';
 import { displayKomoreWorkspaceGenerators } from './workspace/display-komore-workspace-generators';
+import { displayKomoreWorkspacePackages } from './workspace/display-komore-workspace-packages';
 import { displayKomoreWorkspaceProjects } from './workspace/display-komore-workspace-projects';
 
 /**
@@ -34,7 +35,7 @@ export function createKCommandHandler(
       list: () => workspaceContext$.pipe(mergeMap(/*displayKomoreWorkspaceElements*/ displayKomoreWorkspaceProjects)),
       listExecutors: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceExecutors)),
       listGenerators: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceGenerators)),
-      listPackages: unimplementedCommand('listPackages'),
+      listPackages: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspacePackages)),
       listProjects: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceProjects)),
       runExecutor: ({ taskName, ...command }) => {
         console.log('task', taskName, command);

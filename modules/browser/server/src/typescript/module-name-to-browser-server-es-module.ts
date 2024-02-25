@@ -1,8 +1,8 @@
-import { esbuildCommand, type EsbuildClient } from '@komore/esbuild';
+import { esbuildCommand, type EsbuildClient } from '@komore/esbuild/client';
 import { objectToKeys } from '@komore/functional';
 import { type HttpServerLocalFile } from '@komore/http/server';
 import { map, throwError } from '@komore/reactive';
-import { typeScriptConfigurationToPaths, type TypeScriptConfiguration } from '@komore/typescript-compiler';
+import { typeScriptConfigurationToPaths, type TypeScriptConfiguration } from '@komore/tsc';
 
 import { esbuildBuiltEventToHttpServerLocalFile } from './esbuild-built-event-to-http-server-local-file';
 import { createBrowserServerEsbuildResolverPlugin } from '../resolver/create-browser-server-esbuild-resolver-plugin';

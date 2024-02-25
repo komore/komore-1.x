@@ -1,0 +1,8 @@
+{
+  "$schema": "https://komore.dev/json-schemas/schematics/generators.json",
+  "generate-http-api-client": {
+    "description": "Generates an HTTP API client from a schema",
+    "factory": "./src/generators/client/http-api-client-generator",
+    "schema": "./src/generators/client/http-api-client-generator-schema.json"
+  }
+}

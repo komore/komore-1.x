@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../conf/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./http-openapi.tsconfig.library.json"
+    },
+    {
+      "path": "./http-openapi.tsconfig.specifications.json"
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 import { type SourceFile, transform } from 'typescript';
+
 import { createFeatureRecorderTransformerFactory } from './create-feature-recorder-transformer-factory';
 import { type Feature } from './feature';
 import { type Specification } from './specification';
 
 /**
  * Builds a specification from a source file
+ *
  * @param sourceFile Source file
  * @returns Specification
  */
@@ -15,6 +17,6 @@ export function buildSpecificationFromSourceFile(sourceFile: SourceFile): Specif
   console.log('diag', transformationResult.diagnostics);
   console.log('feat', features);
   return {
-    features
+    features,
   };
 }

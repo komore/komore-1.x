@@ -2,7 +2,7 @@ import { feature } from '@komore/testing';
 import { characterCodesToString } from './character-codes-to-string';
 
 feature('Character codes to string', {
-  'Building a string from character codes'() {
+  'builds a string from character codes'() {
     given: 'character codes';
     const characterCodes = [65, 66, 67];
 

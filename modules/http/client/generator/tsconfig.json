@@ -3,10 +3,10 @@
   "extends": "../../../../conf/tsconfig.base.json",
   "references": [
     {
-      "path": "./api-http-generator.tsconfig.library.json"
+      "path": "./http-client-generator.tsconfig.library.json"
     },
     {
-      "path": "./api-http-generator.tsconfig.specification.json"
+      "path": "./http-client-generator.tsconfig.specifications.json"
     }
   ]
 }

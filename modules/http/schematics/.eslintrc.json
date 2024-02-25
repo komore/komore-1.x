@@ -6,7 +6,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": "modules/api/schematics/api-schematics.tsconfig.*?.json"
+        "project": "modules/http/schematics/http-schematics.tsconfig.*?.json"
       }
     }
   ]

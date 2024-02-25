@@ -1,11 +1,12 @@
 import { resolve } from 'node:path';
 
 import { isErrorOfType } from '@komore/error';
-import { createEsbuildClient } from '@komore/esbuild';
+import { createEsbuildCliClient } from '@komore/esbuild';
+import { createEsbuildClient } from '@komore/esbuild/client';
 import { createHttpServer, httpServerRequestToLocalFile, type HttpServerLocalFile } from '@komore/http/server';
 import { isPathDirectory, nodeFileSystemError } from '@komore/node/file-system';
 import { cache, first, map, mapErrorIf, mergeMap, ObservableMap, tapNext } from '@komore/reactive';
-import { loadTypeScriptConfiguration } from '@komore/typescript-compiler';
+import { loadTypeScriptConfiguration } from '@komore/tsc';
 
 import { type BrowserServer } from './browser-server';
 import { type BrowserServerOptions } from './browser-server-options';
@@ -27,7 +28,8 @@ export function createBrowserServer(serverOptions: BrowserServerOptions): Observ
   console.log('root path', rootPath);
   console.log('tsconfig path', tsConfigPath);
   const typeScriptConfiguration$ = loadTypeScriptConfiguration(tsConfigPath).pipe(cache());
-  const esbuildClient = createEsbuildClient({});
+  const esBuildCliClient = createEsbuildCliClient({ workingDirectory: rootPath });
+  const esbuildClient = createEsbuildClient({ cliClient: esBuildCliClient });
   const handlers$ = typeScriptConfiguration$.pipe(
     map(typeScriptConfiguration => ({
       toLocalFile: browserServerFilePathToLocalFile(esbuildClient, typeScriptConfiguration),

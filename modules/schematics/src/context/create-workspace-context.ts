@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 
 import { cache, map } from '@komore/reactive';
-import { loadTypeScriptConfiguration } from '@komore/typescript-compiler';
+import { loadTypeScriptConfiguration } from '@komore/tsc';
 
 import { loadWorkspaceConfiguration } from '../workspace/load-workspace-configuration';
 import { buildWorkspaceContextPackage } from './build-workspace-context-package';
