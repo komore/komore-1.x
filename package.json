@@ -170,7 +170,10 @@
   },
   "pnpm": {
     "overrides": {
-      "nth-check": "~2.0.1"
+      "axios": "0.28.0",
+      "follow-redirects": "1.15.4",
+      "http-cache-semantics": "4.1.1",
+      "nth-check": "2.0.1"
     }
   }
 }
