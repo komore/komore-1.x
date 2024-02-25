@@ -38,6 +38,7 @@
     "tools:documentation": "ts-node -r tsconfig-paths/register --project ./tools/documentation/tsconfig.json ./tools/documentation/src/index.ts",
     "tools:website:generate-tree": "ts-node -r tsconfig-paths/register --project ./tools/website/tsconfig.json ./tools/website/src/generate-website-tree.ts ./docs/modules",
     "x:api": "ts-node --project ./tools/api/tsconfig.json -r tsconfig-paths/register ./tools/api/src/api.ts",
+    "x:aws": "ts-node --project ./tools/aws/tsconfig.json -r tsconfig-paths/register ./tools/aws/src/aws.ts",
     "x:cd": "ts-node --project ./tools/cd/tsconfig.json -r tsconfig-paths/register ./tools/cd/src/cd.ts",
     "x:discord": "ts-node --project ./tools/discord/tsconfig.json -r tsconfig-paths/register ./tools/discord/src/discord.ts",
     "x:documentation": "ts-node --project ./tools/documentation/tsconfig.json -r tsconfig-paths/register ./tools/documentation/src/documentation.ts",
@@ -49,7 +50,8 @@
     "x:opentofu": "ts-node --project ./tools/opentofu/tsconfig.json -r tsconfig-paths/register ./tools/opentofu/src/opentofu.ts",
     "x:poetry": "ts-node --project ./tools/poetry/tsconfig.json -r tsconfig-paths/register ./tools/poetry/src/poetry.ts",
     "x:slack": "ts-node --project ./tools/slack/tsconfig.json -r tsconfig-paths/register ./tools/slack/src/slack.ts",
-    "x:teams": "ts-node --project ./tools/teams/tsconfig.json -r tsconfig-paths/register ./tools/teams/src/teams.ts"
+    "x:teams": "ts-node --project ./tools/teams/tsconfig.json -r tsconfig-paths/register ./tools/teams/src/teams.ts",
+    "x:test": "ts-node --project ./tools/test/tsconfig.json -r tsconfig-paths/register ./tools/test/src/test.ts"
   },
   "devDependencies": {
     "@aws-sdk/client-api-gateway": "3.490.0",
@@ -143,7 +145,6 @@
     "@webgpu/types": "0.1.40",
     "avsc": "5.7.7",
     "chalk": "4.1.2",
-    "css": "3.0.0",
     "electron": "28.1.3",
     "esbuild": "0.19.11",
     "eslint": "8.56.0",

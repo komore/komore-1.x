@@ -2,6 +2,6 @@
   "$schema": "../../../schematics/project-configuration.schema.json",
   "domain": "api",
   "type": "library",
-  "tags": [],
+  "tags": ["trait:generator"],
   "tasks": ["build", "document", "lint", "package"]
 }
