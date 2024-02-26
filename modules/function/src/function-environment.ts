@@ -1,7 +1,10 @@
 /**
  * Function environment
+ *
+ * @template EnvironmentType Environment type
+ * @template RegionType Region type
  */
-export interface FunctionEnvironment {
+export interface FunctionEnvironment<EnvironmentType extends string = string, RegionType extends string = string> {
   /**
    * Function name
    */

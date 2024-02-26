@@ -1,9 +1,9 @@
+export { type CognitoCreateAuthChallengeRequest } from './event/create-auth-challenge/cognito-create-auth-challenge-request';
+export { type CognitoCreateAuthChallengeResponse } from './event/create-auth-challenge/cognito-create-auth-challenge-response';
 export { type CognitoEvent } from './event/cognito-event';
 export { type CognitoEventCallerContext } from './event/cognito-event-caller-context';
 export { type CognitoEventChallengeMetadataTypes } from './event/cognito-event-challenge-metadata-types';
 export { type CognitoEventChallengeResult } from './event/cognito-event-challenge-result';
-export { type CognitoEventCreateAuthChallengeRequest } from './event/cognito-event-create-auth-challenge-request';
-export { type CognitoEventCreateAuthChallengeResponse } from './event/cognito-event-create-auth-challenge-response';
 export { type CognitoEventCustomMessageRequest } from './event/cognito-event-custom-message-request';
 export { type CognitoEventCustomMessageResponse } from './event/cognito-event-custom-message-response';
 export { type CognitoEventDefineAuthChallengeRequest } from './event/cognito-event-define-auth-challenge-request';
@@ -32,4 +32,3 @@ export { withAutoConfirm } from './with-auto-confirm';
 export { withAutoVerify } from './with-auto-verify';
 export { withClaims } from './with-claims';
 export { withoutClaims } from './without-claims';
-// export { correctAnswer } from './correct-answer';

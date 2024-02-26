@@ -64,6 +64,7 @@
     "aws-dynamodb-eventstore": "modules/aws/dynamodb/event-store",
     "aws-dynamodb-testing": "modules/aws/dynamodb/testing",
     "aws-eventbridge": "modules/aws/eventbridge",
+    "aws-iam": "modules/aws/iam",
     "aws-kinesis": "modules/aws/kinesis",
     "aws-kinesis-client": "modules/aws/kinesis/client",
     "aws-kinesis-testing": "modules/aws/kinesis/testing",

@@ -6,7 +6,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": "modules/aws/cognito/aws-cognito.tsconfig.*?.json"
+        "project": "modules/aws/lambda/cognito/aws-lambda-cognito.tsconfig.*?.json"
       }
     }
   ]

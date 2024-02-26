@@ -55,6 +55,7 @@
       "@komore/aws/dynamodb/event-store": ["modules/aws/dynamodb/event-store/src/index.ts"],
       "@komore/aws/dynamodb/testing": ["modules/aws/dynamodb/testing/src/index.ts"],
       "@komore/aws/eventbridge": ["modules/aws/eventbridge/src/index.ts"],
+      "@komore/aws/iam": ["modules/aws/iam/src/index.ts"],
       "@komore/aws/kinesis": ["modules/aws/kinesis/src/index.ts"],
       "@komore/aws/kinesis/client": ["modules/aws/kinesis/client/src/index.ts"],
       "@komore/aws/lambda": ["modules/aws/lambda/src/index.ts"],

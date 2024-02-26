@@ -2,6 +2,7 @@ import { type FunctionCallInformation } from './function-call-information';
 
 /**
  * Function value
+ *
  * @template FunctionParameterTypes Function parameter types
  * @template FunctionReturnType Function return type
  */

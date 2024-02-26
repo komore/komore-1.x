@@ -9,3 +9,5 @@ export { lambdaEvent } from './lambda.event';
 export { type LambdaEventContext } from './function/context/lambda-event-context';
 export { type LambdaEventIdentity } from './function/event/lambda-event-identity';
 export { lambdaQuery } from './lambda.query';
+export { createLambdaTrigger } from './function/trigger/create-lambda-trigger';
+export { type LambdaTrigger } from './function/trigger/lambda-trigger';

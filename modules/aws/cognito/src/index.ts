@@ -1,8 +1,6 @@
-export { type CognitoClient } from './client/cognito-client';
-export { type CognitoClientOptions } from './client/cognito-client-options';
-export { cognitoCommand } from './cognito.command';
+export { cognitoApiError } from './cognito-api.error';
+export { type CognitoChallengeName } from './challenge/name/cognito-challenge-name';
+export { cognitoChallengeNames } from './challenge/name/cognito-challenge-names';
 export { cognitoDomain } from './cognito.domain';
-export { cognitoError } from './cognito.error';
-export { cognitoEvent } from './cognito.event';
-export { cognitoQuery } from './cognito.query';
-export { createCognitoClient } from './client/create-cognito-client';
+export { cognitoTypeError } from './cognito-type.error';
+export { type CognitoUserPoolId } from './user-pool/id/cognito-user-pool-id';

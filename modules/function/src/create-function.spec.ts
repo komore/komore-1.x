@@ -1,5 +1,5 @@
 import { mapTo, redactValue } from '@komore/reactive';
-import {} from '@komore/testing';
+import { feature } from '@komore/testing';
 
 import { expectTypeOf } from 'expect-type';
 import { createFunction } from './create-function';

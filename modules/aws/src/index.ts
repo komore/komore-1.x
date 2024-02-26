@@ -16,7 +16,16 @@ export { sendAwsCommand } from './command/send-aws-command';
 export { sendBatchAwsCommand } from './command/send-batch-aws-command';
 export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-signature-authorization-http-header';
 
+export { type Arn } from './arn/arn';
+export { asArn } from './arn/as-arn';
+export { asAwsRegion } from './region/as-aws-region';
 export { type AwsAccountId } from './account/id/aws-account-id';
 export { type AwsApiClient } from './aws-api-client';
 export { type AwsApiClientOptions } from './aws-api-client-options';
+export { type AwsRegion } from './region/aws-region';
+export { awsRegions } from './region/aws-regions';
 export { createAwsApiClient } from './create-aws-api-client';
+export { isArn } from './arn/is-arn';
+export { isAwsRegion } from './region/is-aws-region';
+export { validateArn } from './arn/validate-arn';
+export { validateAwsRegion } from './region/validate-aws-region';

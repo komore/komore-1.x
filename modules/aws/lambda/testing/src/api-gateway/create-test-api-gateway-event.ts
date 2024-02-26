@@ -1,7 +1,8 @@
-import { type ApiGatewayEvent } from '@komore/function-lambda/api-gateway';
+import { type ApiGatewayEvent } from '@komore/aws/lambda/api-gateway';
 
 /**
  * Creates a test API gateway event
+ *
  * @param event Partial API gateway event, optionally with an object body
  * @returns API gateway event
  */
@@ -37,7 +38,7 @@ export function createTestApiGatewayEvent(
         sourceIp: '127.0.0.1',
         user: null,
         userAgent: null,
-        userArn: null
+        userArn: null,
       },
       path: 'TODO: check-actual-value',
       protocol: 'TODO: check-actual-value',
@@ -45,24 +46,24 @@ export function createTestApiGatewayEvent(
       requestId: 'test-uuid',
       requestTimeEpoch: 0,
       resourceId: 'TODO: check-actual-value',
-      resourcePath: 'TODO: check-actual-value'
+      resourcePath: 'TODO: check-actual-value',
     },
-    stageVariables: {}
+    stageVariables: {},
   };
   const body =
     event.body === undefined || event.body === null
       ? null
       : typeof event.body === 'string'
-      ? event.body
-      : JSON.stringify(event.body);
+        ? event.body
+        : JSON.stringify(event.body);
 
   return {
     ...defaults,
     ...event,
     requestContext: {
       ...defaults.requestContext,
-      ...event.requestContext
+      ...event.requestContext,
     },
-    body
+    body,
   };
 }

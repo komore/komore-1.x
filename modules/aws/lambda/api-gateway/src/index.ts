@@ -1,8 +1,10 @@
-export { apiGatewayEventTrigger } from './event/api-gateway-event-trigger';
+export { apiGatewayEvent } from './api-gateway-event';
 export { type ApiGatewayEvent } from './event/api-gateway-event';
 export { type ApiGatewayEventIdentity } from './event/api-gateway-event-identity';
 export { type ApiGatewayEventRequestContext } from './event/api-gateway-event-request-context';
-export { type ApiGatewayResult } from './result/api-gateway-result';
-export { type ApiGatewayEventTriggerOptions } from './event/api-gateway-event-trigger-options';
-export { toApiGatewayEventBody } from './to-api-gateway-event-body';
-export { toApiGatewayResult } from './to-api-gateway-result';
+export { type ApiGatewayEventResponse } from './event/response/api-gateway-event-response';
+export { apiGatewayEventToRequestBody } from './api-gateway-event-to-request-body';
+export { type ApiGatewayEventTriggerOptions } from './api-gateway-event-trigger-options';
+export { toApiGatewayEventResponse } from './to-api-gateway-event-response';
+export { type ToApiGatewayEventResponseOptions } from './to-api-gateway-event-response-options';
+export { type ToApiGatewayEventResponseOptionsCors } from './to-api-gateway-event-response-options-cors';

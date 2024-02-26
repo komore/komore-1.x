@@ -31,13 +31,14 @@ export function createFunction<
   FunctionReturnType = void,
 >(
   functionName: FunctionName,
-  project: (observable: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
+  project: (parameters$: Observable<FunctionParameterTypes>) => Observable<FunctionReturnType>
 ): (
   ...functionParameters: FunctionParameterTypes
 ) => ReturnType<typeof project> extends Observable<never> ? void : Promise<FunctionReturnType>;
 
 /**
  * Creates either an immediate or a projected function
+ *
  * @param functionName Function name
  * @param project Optional projection
  * @returns Function
@@ -52,7 +53,7 @@ export function createFunction<
 >(
   functionName: FunctionName,
   project?: (
-    observable: Observable<FunctionParameterTypes>
+    parameters$: Observable<FunctionParameterTypes>
   ) => Observable<FunctionReturnType | FunctionParameterTypes | void>
 ): (...functionParameters: FunctionParameterTypes) => Promise<FunctionReturnType | FunctionParameterTypes | void> {
   if (project === undefined) {

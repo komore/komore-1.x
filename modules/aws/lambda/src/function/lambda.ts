@@ -25,13 +25,12 @@ declare global {
 /**
  * Lambda constants
  */
-export const apiGatewayEventType = 'aws:api-gateway';
-export const apiGatewayHttpApiEventType = 'aws:api-gateway:http';
-export const cognitoEventType = 'aws:cognito';
-export const dynamoDBEventType = 'aws:dynamodb';
-export const kinesisEventType = 'aws:kinesis';
-export const kinesisFirehoseEventType = 'aws:kinesis';
-export const lambdaEnvironmentType = 'aws:lambda';
-export const s3EventType = 'aws:s3';
-export const sesEventType = 'aws:ses';
-export const snsEventType = 'aws:sns';
+const apiGatewayEventType = 'aws:api-gateway';
+const apiGatewayHttpApiEventType = 'aws:api-gateway:http';
+const cognitoEventType = 'aws:cognito';
+const dynamoDBEventType = 'aws:dynamodb';
+const kinesisEventType = 'aws:kinesis';
+const kinesisFirehoseEventType = 'aws:kinesis';
+const s3EventType = 'aws:s3';
+const sesEventType = 'aws:ses';
+const snsEventType = 'aws:sns';

@@ -1,11 +1,21 @@
 import { type FunctionTrigger } from './function-trigger';
+import { type FunctionTriggerOptions } from './function-trigger-options';
 
-export function createFunctionTrigger<InputType, OutputType>(
-  handle: (input$: Observable<InputType>) => Observable<OutputType>,
-  test: (input: InputType) => Observable<boolean>
-): FunctionTrigger<InputType, OutputType> {
+/**
+ * Creates a function trigger
+ *
+ * @param triggerOptions Function trigger options
+ * @returns Function trigger
+ * @template InputType Input type
+ * @template TriggerType Trigger type
+ * @template OutputType Output type
+ */
+export function createFunctionTrigger<InputType, TriggerType, OutputType>(
+  triggerOptions: FunctionTriggerOptions<InputType, TriggerType, OutputType>
+): FunctionTrigger<InputType, TriggerType, OutputType> {
+  const { processor, test } = triggerOptions;
   return {
-    handle,
+    processor,
     test,
   };
 }

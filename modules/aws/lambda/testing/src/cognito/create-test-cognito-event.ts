@@ -2,11 +2,12 @@ import {
   type CognitoEvent,
   type CognitoEventMap,
   type CognitoEventRequestType,
-  type CognitoEventResponseType
-} from '@komore/function-lambda/cognito';
+  type CognitoEventResponseType,
+} from '@komore/aws/lambda/cognito';
 
 /**
  * Creates a test Cognito event
+ *
  * @param triggerSource Trigger source
  * @param request Request
  * @param response Response
@@ -28,7 +29,7 @@ export function createTestCognitoEvent<TriggerSourceName extends keyof CognitoEv
   return {
     callerContext: {
       awsSdkVersion,
-      clientId
+      clientId,
     },
     region,
     request,
@@ -36,6 +37,6 @@ export function createTestCognitoEvent<TriggerSourceName extends keyof CognitoEv
     triggerSource,
     userName,
     userPoolId,
-    version
+    version,
   };
 }
