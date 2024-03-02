@@ -55,7 +55,6 @@
     "x:test": "ts-node --project ./tools/test/tsconfig.json -r tsconfig-paths/register ./tools/test/src/test.ts"
   },
   "devDependencies": {
-    "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/client-api-gateway": "3.521.0",
     "@aws-sdk/client-appsync": "3.521.0",
     "@aws-sdk/client-chime": "3.521.0",
