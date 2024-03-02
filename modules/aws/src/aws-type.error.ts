@@ -7,6 +7,15 @@ import { awsDomain } from './aws.domain';
  */
 export const awsTypeError = createErrorType(awsDomain, {
   /**
+   * Invalid account identifier
+   */
+  invalidAccountId: errorProperties<{
+    /**
+     * Account identifier
+     */
+    readonly accountId: string;
+  }>(),
+  /**
    * Invalid ARN
    */
   invalidArn: errorProperties<{

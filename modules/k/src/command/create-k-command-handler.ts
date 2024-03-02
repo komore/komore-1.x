@@ -37,8 +37,8 @@ export function createKCommandHandler(
       listGenerators: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceGenerators)),
       listPackages: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspacePackages)),
       listProjects: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceProjects)),
-      runExecutor: ({ taskName, ...command }) => {
-        console.log('task', taskName, command);
+      runExecutor: ({ taskName, parallel = 1, ...command }) => {
+        console.log('task', taskName, parallel, command);
         return 'all' in command
           ? workspaceContext$.pipe(
               mergeMap(workspaceContext =>
@@ -46,7 +46,7 @@ export function createKCommandHandler(
                   first(),
                   map(projects => projects.map(([projectName]) => projectName)),
                   map(projectNames => workspaceContextToTaskExecution(taskName, projectNames)),
-                  mergeMap(toTaskExecution => toTaskExecution(workspaceContext))
+                  mergeMap(toTaskExecution => toTaskExecution(workspaceContext), parallel)
                 )
               )
             )

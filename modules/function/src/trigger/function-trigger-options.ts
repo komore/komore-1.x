@@ -8,7 +8,7 @@ export interface FunctionTriggerOptions<InputType, TriggerType, OutputType> {
    * @param trigger Trigger value
    * @returns Result
    */
-  readonly processor: (trigger: TriggerType) => OutputType | Observable<OutputType>;
+  readonly processor: (trigger: Observable<TriggerType>) => OutputType | Observable<OutputType>;
   /**
    * Tests whether an input matches the expected trigger type
    *

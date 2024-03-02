@@ -20,6 +20,6 @@ export function createAwsSignatureAuthorizationHttpHeader(
     ['SignedHeaders', signedHeaders.join(';')],
     ['Signature', signature],
   ];
-  const authorizationParameters = properties.map(([name, value]) => `${name}=${value}`).join(',');
+  const authorizationParameters = properties.map(([name, value]) => `${name}=${value}`).join(', ');
   return createAuthorizationHttpHeader(authorizationScheme, authorizationParameters);
 }

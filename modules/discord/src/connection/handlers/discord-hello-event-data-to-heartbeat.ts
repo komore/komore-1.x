@@ -4,7 +4,7 @@ import { ignoreValues, map, tapNext, timer } from '@komore/reactive';
 import { discordHeartbeatOpcode } from '../data/discord-heartbeat-event-data';
 import { type DiscordHelloEventData } from '../data/discord-hello-event-data';
 import { discordPayloadDataToSendPayload } from '../payload/discord-payload-data-to-send-payload';
-import { DiscordSendPayload } from '../payload/discord-send-payload';
+import { type DiscordSendPayload } from '../payload/discord-send-payload';
 import { mapToPreviousDiscordTimestamp } from './map-to-previous-discord-timestamp';
 
 /**
@@ -23,7 +23,10 @@ export function discordHelloEventDataToHeartbeat(
   toDiscord: (payload: DiscordSendPayload<typeof discordHeartbeatOpcode>) => void
 ): (eventData: DiscordHelloEventData) => Observable<never> {
   return ({ heartbeat_interval: interval }) => {
-    const initialDelay = Math.round(randomNumberBetween({ minimum: 0, maximum: interval }));
+    const minimum = 0;
+    const maximum = interval + 1;
+    const randomNumber = randomNumberBetween({ minimum, maximum, integer: true });
+    const initialDelay = randomNumber();
     return timer(initialDelay, interval).pipe(
       mapToPreviousDiscordTimestamp(),
       map(discordPayloadDataToSendPayload(discordHeartbeatOpcode)),

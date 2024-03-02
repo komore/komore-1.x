@@ -1,3 +1,5 @@
+import { asObservable } from '@komore/reactive';
+
 import { type FunctionTrigger } from './function-trigger';
 import { type FunctionTriggerOptions } from './function-trigger-options';
 
@@ -15,7 +17,7 @@ export function createFunctionTrigger<InputType, TriggerType, OutputType>(
 ): FunctionTrigger<InputType, TriggerType, OutputType> {
   const { processor, test } = triggerOptions;
   return {
-    processor,
-    test,
+    processor: trigger$ => asObservable(processor(trigger$)),
+    test: input => asObservable(test(input)),
   };
 }

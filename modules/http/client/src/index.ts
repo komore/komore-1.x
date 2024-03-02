@@ -6,8 +6,7 @@ export { httpClientWithInterceptor } from './interceptor/http-client-with-interc
 export { type HttpClientRequest } from './request/http-client-request';
 export { type HttpClientRequestOptions } from './request/http-client-request-options';
 export { type HttpClientResponse } from './response/http-client-response';
-export { httpClientResponseStatusBetween } from './response/http-client-response-status-between';
-export { httpClientResponseStatusIn } from './response/http-client-response-status-in';
+export { httpClientResponseStatusIs } from './response/http-client-response-status-is';
 export { httpClientResponseToArrayBuffer } from './response/http-client-response-to-array-buffer';
 export { httpClientResponseToBlob } from './response/http-client-response-to-blob';
 export { httpClientResponseToJson } from './response/http-client-response-to-json';

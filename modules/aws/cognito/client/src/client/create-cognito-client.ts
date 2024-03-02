@@ -1,14 +1,12 @@
-import { CognitoIdentityProviderClient } from '@aws-sdk/client-cognito-identity-provider';
-
-import { createAwsClient } from '@komore/aws';
-import { type CognitoClientOptions } from './cognito-client-options';
-import { cache, deferValue } from '@komore/reactive';
+import { createAwsClient } from '@komore/aws/client';
 
 import { cognitoCommand } from '../cognito.command';
 import { cognitoError } from '../cognito.error';
 import { cognitoEvent } from '../cognito.event';
 import { cognitoQuery } from '../cognito.query';
 import { type CognitoClient } from './cognito-client';
+import { createCognitoQueryHandler } from '../query/create-cognito-query-handler';
+import { type CognitoClientOptions } from './cognito-client-options';
 
 /**
  * Creates a Cognito client
@@ -17,15 +15,14 @@ import { type CognitoClient } from './cognito-client';
  * @returns Cognito client
  */
 export function createCognitoClient(clientOptions: CognitoClientOptions): CognitoClient {
-  const client$ = deferValue(() => new CognitoIdentityProviderClient(clientOptions)).pipe(cache());
+  const { apiClient } = clientOptions;
   return createAwsClient({
-    client: () => client$,
     command: cognitoCommand,
-    commandEventMap,
-    commandHandler: events => createCognitoCommandHandler({ client$, events }),
+    commandEventMap: cognitoClientCommandEventMap,
+    commandHandler: toEvents => createCognitoCommandHandler({ apiClient, toEvents }),
     event: cognitoEvent,
     error: cognitoError,
     query: cognitoQuery,
-    queryHandler: () => createCognitoQueryHandler({ client$ }),
+    queryHandler: () => createCognitoQueryHandler({ apiClient }),
   });
 }

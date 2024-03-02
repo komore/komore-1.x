@@ -1,6 +1,6 @@
 import { createCommandType } from '@komore/command';
 
-import { cognitoDomain } from './cognito.domain';
+import { cognitoDomain } from '@komore/aws/cognito';
 
 /**
  * Cognito command

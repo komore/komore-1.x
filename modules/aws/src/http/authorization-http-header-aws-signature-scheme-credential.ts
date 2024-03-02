@@ -1,3 +1,5 @@
+import { type AwsRegion } from '../region/aws-region';
+
 /**
  * Authorization HTTP header AWS signature scheme credential
  */
@@ -7,15 +9,15 @@ export interface AuthorizationHttpHeaderAwsSignatureSchemeCredential {
    */
   readonly accessKeyId: string;
   /**
-   * AWS region
-   */
-  readonly awsRegion: string;
-  /**
-   * AWS service
-   */
-  readonly awsService: string;
-  /**
    * Date
    */
   readonly date: Temporal.PlainDate;
+  /**
+   * AWS region
+   */
+  readonly region: AwsRegion;
+  /**
+   * Service
+   */
+  readonly service: string;
 }

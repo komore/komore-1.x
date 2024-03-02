@@ -1,5 +1,6 @@
 export { closeFile } from './file/close-file';
 export { createFileReadStream } from './stream/create-file-read-stream';
+export { getHomePath } from './path/get-home-path';
 export { getPathStatistics } from './path/get-path-statistics';
 export { isPathAccessible } from './path/is-path-accessible';
 export { isPathDirectory } from './path/is-path-directory';

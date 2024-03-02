@@ -20,9 +20,9 @@ export interface FunctionEnvironment<EnvironmentType extends string = string, Re
   /**
    * Region
    */
-  readonly region: string;
+  readonly region: RegionType;
   /**
    * Environment type
    */
-  readonly type: string;
+  readonly type: EnvironmentType;
 }

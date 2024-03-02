@@ -1,12 +1,12 @@
-import { first, map, mergeMap, of, tapNext } from '@komore/reactive';
+import { first, map, mergeMap, of } from '@komore/reactive';
 import {
   generateWorkspaceExecutorTaskId,
+  isExecutorReferenceString,
   projectNameToProjectConfiguration,
-  type WorkspaceContext,
 } from '@komore/schematics';
-import { isExecutorReferenceString } from '@komore/schematics';
 
 import { type TaskRunner } from './task-runner';
+import { type TaskRunnerOptions } from './task-runner-options';
 
 /**
  * Creates a task runner
@@ -15,31 +15,28 @@ import { type TaskRunner } from './task-runner';
  * @param workspaceContext Workspace context
  * @returns Task runner
  */
-export function createTaskRunner(_options: unknown, workspaceContext: WorkspaceContext): Observable<TaskRunner> {
+export function createTaskRunner(runnerOptions: TaskRunnerOptions): Observable<TaskRunner> {
   // TODO: dispatch among workers
+  const { parallel, workspaceContext } = runnerOptions;
   const toProjectConfiguration = projectNameToProjectConfiguration(workspaceContext);
   const { byReferenceString } = workspaceContext.schematics.executor;
-  const parallelism = 1;
 
   const taskRunner: TaskRunner = $ =>
     $.pipe(
-      tapNext(({ projectName, taskName }) => `attempting to run task "${taskName}" on project "${projectName}"...`),
-      mergeMap(
-        ({ projectName, taskName }) =>
-          toProjectConfiguration(projectName).pipe(
-            first(),
-            mergeMap(projectConfiguration =>
-              projectConfiguration.tasks.get(taskName).pipe(
-                map(taskConfiguration => ({
-                  projectName,
-                  projectConfiguration,
-                  taskName,
-                  taskConfiguration,
-                }))
-              )
+      mergeMap(({ projectName, taskName }) =>
+        toProjectConfiguration(projectName).pipe(
+          first(),
+          mergeMap(projectConfiguration =>
+            projectConfiguration.tasks.get(taskName).pipe(
+              map(taskConfiguration => ({
+                projectName,
+                projectConfiguration,
+                taskName,
+                taskConfiguration,
+              }))
             )
-          ),
-        parallelism
+          )
+        )
       ),
       mergeMap(({ projectName, projectConfiguration: _, taskName, taskConfiguration }) => {
         const { executor: executorReferenceString } = taskConfiguration;
@@ -68,7 +65,7 @@ export function createTaskRunner(_options: unknown, workspaceContext: WorkspaceC
             return executor(of(opts));
           })
         );
-      })
+      }, parallel)
     );
 
   return of(taskRunner);

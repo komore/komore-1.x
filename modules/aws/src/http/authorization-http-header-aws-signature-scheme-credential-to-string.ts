@@ -1,5 +1,5 @@
+import { dateToAwsSignatureCredentialDate } from '../date-time/date-to-aws-signature-credential-date';
 import { type AuthorizationHttpHeaderAwsSignatureSchemeCredential } from './authorization-http-header-aws-signature-scheme-credential';
-import { dateToAwsSignatureCredentialDate } from './date-to-aws-signature-credential-date';
 
 /**
  * Returns a string formatted for use in an Authorization header, given an AWS signature scheme credential
@@ -11,6 +11,6 @@ export function authorizationHttpHeaderAwsSignatureSchemeCredentialToString(
   credential: AuthorizationHttpHeaderAwsSignatureSchemeCredential
 ): string {
   const date = dateToAwsSignatureCredentialDate(credential.date);
-  const { accessKeyId, awsRegion } = credential;
-  return `${accessKeyId}/${date}/${awsRegion}`;
+  const { accessKeyId, region, service } = credential;
+  return `${accessKeyId}/${date}/${region}/${service}/aws4_request`;
 }

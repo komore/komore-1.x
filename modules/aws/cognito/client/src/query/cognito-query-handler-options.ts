@@ -1,11 +1,11 @@
-import { type CognitoIdentityProviderClient } from '@aws-sdk/client-cognito-identity-provider';
+import { type CognitoApiClient } from '@komore/aws/cognito';
 
 /**
  * Cognito query handler options
  */
 export interface CognitoQueryHandlerOptions {
   /**
-   * Cognito identity provider client
+   * Cognito API client
    */
-  readonly client$: Observable<CognitoIdentityProviderClient>;
+  readonly apiClient: CognitoApiClient;
 }

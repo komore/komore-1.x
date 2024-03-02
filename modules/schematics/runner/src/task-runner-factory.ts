@@ -1,19 +1,17 @@
-import { type WorkspaceContext } from '@komore/schematics';
-
 import { type TaskRunner } from './task-runner';
+import { type TaskRunnerOptions } from './task-runner-options';
 
 /**
  * Task runner factory
  *
  * @template Options Options
  */
-export interface TaskRunnerFactory<Options> {
+export interface TaskRunnerFactory {
   /**
    * Creates a task runner
    *
-   * @param options Options
-   * @param workspaceContext Workspace context
+   * @param options Task runner options
    * @returns Task runner
    */
-  (options: Options, workspaceContext: WorkspaceContext): Observable<TaskRunner>;
+  (options: TaskRunnerOptions): Observable<TaskRunner>;
 }

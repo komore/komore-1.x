@@ -6,6 +6,6 @@
  * @template OutputType Output type
  */
 export interface FunctionTrigger<InputType, TriggerType, OutputType> {
-  processor(input$: Observable<InputType>): Observable<OutputType>;
-  test(input: InputType): TriggerType | false | Observable<TriggerType | boolean>;
+  processor(trigger$: Observable<TriggerType>): Observable<OutputType>;
+  test(input: InputType): Observable<TriggerType | false>;
 }

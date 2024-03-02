@@ -3,6 +3,7 @@ import { map } from './map';
 
 /**
  * Emits the given value whenever the source observable emits a value
+ *
  * @param value Value to emit
  * @template T Value type
  */

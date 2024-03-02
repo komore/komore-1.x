@@ -1,7 +1,7 @@
 import { firstValueFrom } from '@komore/reactive';
 import { feature, mock } from '@komore/testing';
 
-import { responseToArrayBuffer } from './response-to-array-buffer';
+import { httpClientResponseToArrayBuffer } from './http-client-response-to-array-buffer';
 
 feature('HTTP client response to array buffer', {
   async 'returns an observable that emits array buffer when the response body is available'() {
@@ -11,7 +11,7 @@ feature('HTTP client response to array buffer', {
     response.arrayBuffer.mockImplementationOnce(() => Promise.resolve(responseArrayBuffer));
 
     when: 'creating a function that returns the response as an array buffer';
-    const func = responseToArrayBuffer();
+    const func = httpClientResponseToArrayBuffer();
     when: 'calling it';
     const result$ = func(response);
 

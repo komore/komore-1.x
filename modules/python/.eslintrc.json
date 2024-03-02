@@ -1,5 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "extends": "../../conf/eslintrc.node.json",
-  "ignorePatterns": ["!**/*"]
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": "modules/python/python.tsconfig.*?.json"
+      }
+    }
+  ]
 }

@@ -13,6 +13,7 @@ import { type KinesisEventTriggerOptions } from './kinesis-event-trigger-options
  *
  * @param triggerOptions Kinesis event trigger options
  * @returns Kinesis event trigger
+ * @see {@link https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html Using AWS Lambda with Amazon Kinesis}
  */
 export function kinesisEvent<Batched extends boolean = false>(
   triggerOptions?: KinesisEventTriggerOptions<Batched>

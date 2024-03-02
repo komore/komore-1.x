@@ -27,8 +27,8 @@ export function workspaceContextToTaskExecution(
   return workspaceContext => {
     const { options, runner } = workspaceContext.configuration.task;
     const packageReference = packageReferenceNameToPackageReference(runner);
-    return packageReferenceToExportedEntry<TaskRunnerFactory<unknown>>()(packageReference).pipe(
-      mergeMap(createTaskRunner => createTaskRunner(options, workspaceContext)),
+    return packageReferenceToExportedEntry<TaskRunnerFactory>()(packageReference).pipe(
+      mergeMap(createTaskRunner => createTaskRunner({ ...options, workspaceContext })),
       mergeMap(taskRunner => taskRunner(taskReferences$).pipe(map(workspaceExecutorEventToCliEvent))),
       endWith(cliEvent.messageDisplayed({ message: 'runExecutor' }))
     );

@@ -1,9 +1,9 @@
 import { type AwsRegion } from '@komore/aws';
-import { type IamArn } from '@komore/aws/iam';
-import { type KinesisArn } from '@komore/aws/kinesis';
+import { type IamRoleArn } from '@komore/aws/iam';
+import { type KinesisStreamArn } from '@komore/aws/kinesis';
 
 import { type kinesisEventSource } from '../kinesis-event-source';
-import { type KinesisEventRecordMessage } from './kinesis-event-record-message';
+import { type KinesisEventStreamRecord } from './kinesis-event-stream-record';
 
 /**
  * Kinesis event record
@@ -28,17 +28,19 @@ export interface KinesisEventRecord {
   /**
    * Event source ARN
    */
-  readonly eventSourceARN: KinesisArn;
+  readonly eventSourceARN: KinesisStreamArn;
   /**
    * Version
    */
   readonly eventVersion: '1.0';
   /**
    * Invoke identity ARN
+   *
+   * @note The invoked Lambda role
    */
-  readonly invokeIdentityArn: IamArn;
+  readonly invokeIdentityArn: IamRoleArn;
   /**
-   * Kinesis message
+   * Kinesis event stream record
    */
-  readonly kinesis: KinesisEventRecordMessage;
+  readonly kinesis: KinesisEventStreamRecord;
 }

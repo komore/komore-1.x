@@ -13,7 +13,7 @@ export interface HttpClientResponse {
   /**
    * Status code
    */
-  readonly status: HttpStatus | number;
+  readonly status: HttpStatus;
   /**
    * fetch response
    *

@@ -1,16 +1,13 @@
 {
   "version": "0.2.0",
-  "configurations":[
+  "configurations": [
     {
       "name": "VS Code Extension",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/dist/vscode-extension"
-      ],
-      "outFiles": [
-        "${workspaceFolder}/dist/vscode-extension/**/*.js"
-      ],
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}/dist/vscode-extension"],
+      "outFiles": ["${workspaceFolder}/dist/vscode-extension/**/*.js"],
       "request": "launch",
       "runtimeExecutable": "${execPath}",
+      "sourceMaps": true,
       "type": "extensionHost"
     }
   ]

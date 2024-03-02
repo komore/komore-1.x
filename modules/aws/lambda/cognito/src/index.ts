@@ -32,3 +32,5 @@ export { withAutoConfirm } from './with-auto-confirm';
 export { withAutoVerify } from './with-auto-verify';
 export { withClaims } from './with-claims';
 export { withoutClaims } from './without-claims';
+
+export { cognitoEvent } from './cognito-event';

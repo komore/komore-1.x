@@ -4,8 +4,8 @@
     {
       "label": "build-vscode-extension-watch",
       "type": "shell",
-      "command": "nx",
-      "args": ["build", "vscode-extension", "--no-cache", "--watch"],
+      "command": "pnpm",
+      "args": ["k:ts", "build", "vscode-extension", "--no-cache", "--watch"],
       "isBackground": true,
       "problemMatcher": {
         "owner": "typescript",

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../../../conf/tsconfig.node.json",
+  "references": [
+    {
+      "path": "./gcloud-cloudfunctions-client.tsconfig.library.json"
+    },
+    {
+      "path": "./gcloud-cloudfunctions-client.tsconfig.specifications.json"
+    }
+  ]
+}

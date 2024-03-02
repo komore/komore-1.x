@@ -7,9 +7,9 @@ import { functionDomain } from './function.domain';
  */
 export const functionError = createErrorType(functionDomain, {
   /**
-   * The function has already completed
+   * The observable has completed, effectively preventing further invocations
    */
-  completed: errorProperties<{
+  observableCompleted: errorProperties<{
     /**
      * Function name
      */
@@ -18,5 +18,18 @@ export const functionError = createErrorType(functionDomain, {
      * Function parameters
      */
     readonly functionParameters: ReadonlyArray<unknown>;
+  }>(),
+  /**
+   * The observable has errored, effectively preventing further invocations
+   */
+  observableError: errorProperties<{
+    /**
+     * Error
+     */
+    readonly error: unknown;
+    /**
+     * Function name
+     */
+    readonly functionName: string;
   }>(),
 });

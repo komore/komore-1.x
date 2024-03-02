@@ -1,6 +1,6 @@
-import { type CognitoIdentityProviderClientConfig } from '@aws-sdk/client-cognito-identity-provider';
+import { type AwsClientOptions } from '@komore/aws/client';
 
 /**
  * Cognito client options
  */
-export interface CognitoClientOptions extends CognitoIdentityProviderClientConfig {}
+export interface CognitoClientOptions extends AwsClientOptions {}

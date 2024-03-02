@@ -1,12 +1,18 @@
+import { type RandomNumberBetweenOptions } from './random-number-between-options';
+
 /**
- * Returns a random number between a minimum and maximum (excluded) value
+ * Creates a function that returns a random number between a minimum and maximum (excluded) value
  *
  * @param range Range
- * @returns Random number within the range
+ * @returns Function that returns a random number between a minimum and maximum (excluded) value
  */
-export function randomNumberBetween(range: { readonly minimum: number, readonly maximum: number }): number {
-  const { minimum, maximum } = range;
+export function randomNumberBetween(options: RandomNumberBetweenOptions): () => number {
+  const { minimum, maximum, integer = false, rng = Math.random } = options;
   const difference = maximum - minimum;
-  const randomValue = Math.random();
-  return minimum + randomValue * difference;
+
+  return () => {
+    const randomValue = rng();
+    const value = minimum + randomValue * difference;
+    return integer ? Math.floor(value) : value;
+  };
 }

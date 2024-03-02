@@ -24,4 +24,5 @@ export { type MockFunction } from './mock/mock-function';
 export { type ScenarioBlock } from './dsl/scenario-block';
 export { type ScenarioBlockByName } from './dsl/scenario-block-by-name';
 export { thrown } from './expect/thrown';
-export { todo } from './dsl/todo';
+export { type } from './type/type';
+export { typeOf } from './type/type-of';

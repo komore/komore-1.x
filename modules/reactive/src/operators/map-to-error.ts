@@ -2,11 +2,14 @@ import { type OperatorFunction } from '../operator-function';
 import { map } from './map';
 
 /**
- * Map to an error
+ * Maps a value to an error
+ *
  * @param errorFactory Error factory
- * @template T Value type
+ * @template ValueType Value type
  */
-export function mapToError<T>(errorFactory?: (value: T) => unknown): OperatorFunction<T, never> {
+export function mapToError<ValueType>(
+  errorFactory?: (value: ValueType) => unknown
+): OperatorFunction<ValueType, never> {
   return map(value => {
     const error = errorFactory !== undefined ? errorFactory(value) : value;
     throw error;

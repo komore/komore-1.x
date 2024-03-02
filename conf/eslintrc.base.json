@@ -87,9 +87,13 @@
           {
             "allow": [
               { "from": "lib", "name": "AddEventListenerOptions" },
+              { "from": "lib", "name": "CryptoKey" },
+              { "from": "lib", "name": "FileReader" },
+              { "from": "lib", "name": "MessageEvent" },
               { "from": "lib", "name": "PropertyDescriptorMap" },
               { "from": "lib", "name": "RegExp" },
               { "from": "lib", "name": "RequestInit" },
+              { "from": "lib", "name": "Uint8Array" },
               { "from": "lib", "name": "URL" },
               { "from": "package", "name": "Observable", "package": "rxjs" },
               { "from": "package", "name": "Subject", "package": "rxjs" }

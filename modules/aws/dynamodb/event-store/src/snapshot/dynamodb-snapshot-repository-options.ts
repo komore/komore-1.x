@@ -1,10 +1,11 @@
-import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBClient } from '@komore/aws/dynamodb';
 import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
 
 /**
  * DynamoDB snapshot repository options
  */
 export interface DynamoDBSnapshotRepositoryOptions {
+  readonly apiClient: DynamoDBApiClient;
   /**
    * List of attribute names used to map a snapshot to a DynamoDB item
    */

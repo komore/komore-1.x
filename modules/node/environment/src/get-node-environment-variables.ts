@@ -23,7 +23,7 @@ export function getNodeEnvironmentVariables<
   const variableResolvers = nodeEnvironmentVariableDefinitionsToResolvers(definitions);
   const object = variableResolvers.reduce(
     nodeEnvironmentVariableEntriesToObject<VariableDefinitions>(environmentVariables, definition => definition.name),
-    {} as Record<keyof VariableDefinitions, any>
+    {} as ReadonlyRecord<keyof VariableDefinitions, any>
   );
   return object as NodeEnvironmentVariableObject<VariableDefinitions>;
 }

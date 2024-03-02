@@ -17,7 +17,6 @@ import { type AwsClientOptions } from './aws-client-options';
  * @returns AWS client
  */
 export function createAwsClient<
-  AwsClientClass extends Client<object, MetadataBearer, unknown>,
   AwsCommandType extends GenericCommandType,
   AwsEventType extends GenericEventType,
   AwsQueryType extends GenericQueryType,

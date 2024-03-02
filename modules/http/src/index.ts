@@ -1,8 +1,11 @@
 export { type AuthorizationHttpHeaderDigestSchemeProperties } from './header/authorization/authorization-http-header-digest-scheme-properties';
+export { byHttpHeaderName } from './header/by-http-header-name';
 export { createAcceptHttpHeader } from './header/accept/create-accept-http-header';
 export { createAuthorizationHttpHeader } from './header/authorization/create-authorization-http-header';
-export { createContentDispositionHttpHeader } from './header/create-content-disposition-http-header';
-export { createContentTypeHttpHeader } from './header/create-content-type-http-header';
+export { createContentDispositionHttpHeader } from './header/content/create-content-disposition-http-header';
+export { createContentLengthHttpHeader } from './header/content/create-content-length-http-header';
+export { createContentTypeHttpHeader } from './header/content/create-content-type-http-header';
+export { createHostHttpHeader } from './header/create-host-http-header';
 export { createServerHttpHeader } from './header/create-server-http-header';
 export { createSetCookieHttpHeader } from './header/create-set-cookie-http-header';
 export { createUserAgentHttpHeader } from './header/create-user-agent-http-header';

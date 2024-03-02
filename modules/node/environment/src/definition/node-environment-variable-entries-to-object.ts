@@ -23,14 +23,16 @@ export function nodeEnvironmentVariableEntriesToObject<
     propertyKey: keyof VariableDefinitions
   ) => string
 ): (
-  obj: Record<keyof VariableDefinitions, unknown>,
+  obj: ReadonlyRecord<keyof VariableDefinitions, unknown>,
   environmentVariableEntry: NodeEnvironmentVariableEntry<VariableDefinitions>
-) => Record<keyof VariableDefinitions, unknown> {
+) => ReadonlyRecord<keyof VariableDefinitions, unknown> {
   return (obj, [propertyKey, definition, resolver]) => {
     const variableName = variableNameResolver(definition, propertyKey);
     const variableString = environmentVariables[variableName];
     const propertyValue = resolver(variableString, variableName);
-    obj[propertyKey] = propertyValue;
-    return obj;
+    return {
+      ...obj,
+      [propertyKey]: propertyValue,
+    };
   };
 }

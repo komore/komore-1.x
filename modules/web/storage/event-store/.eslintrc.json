@@ -1,5 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "extends": "../../../../conf/eslintrc.browser.json",
-  "ignorePatterns": ["!**/*"]
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": "modules/web/storage/event-store/web-storage-eventstore.tsconfig.*?.json"
+      }
+    }
+  ]
 }

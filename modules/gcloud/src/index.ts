@@ -1,8 +1,13 @@
-export { asGoogleCloudProjectId } from './project/as-google-cloud-project-id';
+export { asGcloudProjectId } from './project/id/as-gcloud-project-id';
+export { asGcloudRegion } from './region/as-gcloud-region';
 export { gcloudDomain } from './gcloud.domain';
 export { gcloudError } from './gcloud.error';
+export { type GcloudProjectId } from './project/id/gcloud-project-id';
+export { type GcloudRegion } from './region/gcloud-region';
+export { gcloudRegions } from './region/gcloud-regions';
 export { type GoogleCloudClientResult } from './client/google-cloud-client-result';
 export { googleCloudClientResultToResponse } from './client/google-cloud-client-result-to-response';
-export { type GoogleCloudProjectId } from './project/google-cloud-project-id';
-export { isGoogleCloudProjectId } from './project/is-google-cloud-project-id';
-export { validateGoogleCloudProjectId } from './project/validate-google-cloud-project-id';
+export { isGcloudProjectId } from './project/id/is-gcloud-project-id';
+export { isGcloudRegion } from './region/is-gcloud-region';
+export { validateGcloudProjectId } from './project/id/validate-gcloud-project-id';
+export { validateGcloudRegion } from './region/validate-gcloud-region';

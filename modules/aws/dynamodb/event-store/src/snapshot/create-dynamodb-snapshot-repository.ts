@@ -1,6 +1,6 @@
 import { type BatchGetItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { type SnapshotRepository } from '@komore/event/store';
-import { batchGetItem, createDynamoDBClient } from '@komore/integration-amazon/dynamodb';
+import { batchGetItem, createDynamoDBClient } from '@komore/aws/dynamodb';
+import { type EventStoreSnapshotRepository } from '@komore/event/store';
 import { map } from '@komore/reactive';
 import { buildDynamoDBSnapshotAttributeNames } from './build-dynamodb-snapshot-attribute-names';
 import { createDynamoDBSnapshotSaver } from './create-dynamodb-snapshot-saver';
@@ -23,7 +23,7 @@ import { type DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapsho
  */
 export function createDynamoDBSnapshotRepository<StateType>(
   configuration: DynamoDBSnapshotRepositoryConfiguration
-): SnapshotRepository<StateType> {
+): EventStoreSnapshotRepository<StateType> {
   const dynamoDBClient = configuration.dynamoDBClient ?? createDynamoDBClient();
   const tableName = configuration.tableName;
   const attributeNames = buildDynamoDBSnapshotAttributeNames(configuration.attributeNames);
@@ -42,7 +42,7 @@ export function createDynamoDBSnapshotRepository<StateType>(
         )
       );
     },
-    storeSnapshots
+    storeSnapshots,
   };
 }
 
@@ -63,9 +63,9 @@ function buildGetItemCommandInput(
       [tableName]: {
         AttributesToGet: Object.values(attributeNames),
         ProjectionExpression: '',
-        Keys: aggregateKeys.map(aggregateKey => buildGetItem(aggregateKey))
-      }
+        Keys: aggregateKeys.map(aggregateKey => buildGetItem(aggregateKey)),
+      },
     },
-    ReturnConsumedCapacity: 'NONE'
+    ReturnConsumedCapacity: 'NONE',
   };
 }

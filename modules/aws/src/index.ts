@@ -1,6 +1,4 @@
-export { type AuthorizationHttpHeaderAwsSignatureSchemeCredential } from './http/authorization-http-header-aws-signature-scheme-credential';
-export { type AuthorizationHttpHeaderAwsSignatureSchemeProperties } from './http/authorization-http-header-aws-signature-scheme-properties';
-export { type AwsClient } from './client/aws-client';
+/*export { type AwsClient } from './client/aws-client';
 export { type AwsClientOptions } from './client/aws-client-options';
 export { type AwsCommandHandlerOptions } from './command/aws-command-handler-options';
 export { type AwsQueryHandler } from './query/aws-query-handler';
@@ -10,22 +8,26 @@ export { createAwsCommandType } from './command/create-aws-command-type';
 export { createAwsEventType } from './event/create-aws-event-type';
 export { createAwsQueryType } from './query/create-aws-query-type';
 export { createAwsRequest } from './create-aws-request';
-export { type FixedAwsType } from './fixed-aws-type';
 export { matchAwsCommand } from './command/match-aws-command';
 export { sendAwsCommand } from './command/send-aws-command';
-export { sendBatchAwsCommand } from './command/send-batch-aws-command';
-export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-signature-authorization-http-header';
+export { sendBatchAwsCommand } from './command/send-batch-aws-command';*/
 
 export { type Arn } from './arn/arn';
 export { asArn } from './arn/as-arn';
+export { asAwsAccountId } from './account/id/as-aws-account-id';
 export { asAwsRegion } from './region/as-aws-region';
+export { type AuthorizationHttpHeaderAwsSignatureSchemeCredential } from './http/authorization-http-header-aws-signature-scheme-credential';
+export { type AuthorizationHttpHeaderAwsSignatureSchemeProperties } from './http/authorization-http-header-aws-signature-scheme-properties';
 export { type AwsAccountId } from './account/id/aws-account-id';
 export { type AwsApiClient } from './aws-api-client';
 export { type AwsApiClientOptions } from './aws-api-client-options';
 export { type AwsRegion } from './region/aws-region';
 export { awsRegions } from './region/aws-regions';
 export { createAwsApiClient } from './create-aws-api-client';
+export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-signature-authorization-http-header';
 export { isArn } from './arn/is-arn';
+export { isAwsAccountId } from './account/id/is-aws-account-id';
 export { isAwsRegion } from './region/is-aws-region';
 export { validateArn } from './arn/validate-arn';
+export { validateAwsAccountId } from './account/id/validate-aws-account-id';
 export { validateAwsRegion } from './region/validate-aws-region';

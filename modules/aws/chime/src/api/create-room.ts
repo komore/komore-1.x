@@ -1,6 +1,6 @@
 import { CreateRoomCommand, type ChimeClient, type CreateRoomCommandInput, type Room } from '@aws-sdk/client-chime';
 
-import { sendAwsCommand, type FixedAwsType } from '@komore/aws';
+import { sendAwsCommand } from '@komore/aws';
 
 import { map } from '@komore/reactive';
 

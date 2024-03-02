@@ -1,6 +1,7 @@
 import { QueryCommand, type QueryCommandInput, type QueryCommandOutput } from '@aws-sdk/client-dynamodb';
 import { type Event } from '@komore/event';
-import { type EventRepository } from '@komore/event/store';
+import { type EventStoreEventRepository } from '@komore/event/store';
+
 import { createDynamoDBEventLoader } from './create-dynamodb-event-loader';
 import { type DynamoDBEventRepositoryOptions } from './dynamodb-event-repository-options';
 
@@ -15,11 +16,11 @@ type ExclusiveStartKeyType = QueryCommandInput['ExclusiveStartKey'];
  * @param options DynamoDB event repository options
  * @returns DynamoDB event repository
  */
-export function createDynamoDBEventRepository<EventTypes extends Event<string, Record<string, unknown> | undefined>[]>(
-  options: DynamoDBEventRepositoryOptions
-): EventRepository<EventTypes> {
+export function createDynamoDBEventRepository<
+  EventTypes extends Array<Event<string, Record<string, unknown> | undefined>>,
+>(options: DynamoDBEventRepositoryOptions): EventStoreEventRepository<EventTypes> {
   // TODO
-  const loadEvents = createDynamoDBEventLoader(options.tableName)
+  const loadEvents = createDynamoDBEventLoader(options.tableName);
   return undefined as unknown as EventRepository<EventTypes>;
 }
 

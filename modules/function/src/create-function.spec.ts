@@ -1,45 +1,45 @@
 import { mapTo, redactValue } from '@komore/reactive';
-import { feature } from '@komore/testing';
+import { feature, type, typeOf } from '@komore/testing';
 
-import { expectTypeOf } from 'expect-type';
 import { createFunction } from './create-function';
 
-feature('Create function', () => {
-  it('returns a function with the correct function name', () => {
-    when: 'creating a function';
+feature('Create function', {
+  'returns a function with the correct function name'() {
+    given: 'a function name';
     const functionName = 'test-function';
-    const func = createFunction(functionName);
-    expect: 'the function name to match the given name';
-    expect(func.name).toBe(functionName);
-  });
 
-  it('returns correctly typed functions when there is a projection', () => {
-    given: 'functions with or without parameters';
-    const withParameters = createFunction('test-function', ($: Observable<[value: string]>) => $.pipe(mapTo(42)));
-    const withParametersNoResult = createFunction('test-function', ($: Observable<[value: string]>) =>
-      $.pipe(redactValue())
-    );
-    const withoutParameters = createFunction('test-function', $ => $.pipe(mapTo(42)));
-    const withoutParametersNoResult = createFunction('test-function', $ => $.pipe(redactValue()));
-    expect: 'the correct types to have been returned';
-    expectTypeOf(withParameters).parameter(0).toBeString();
-    expectTypeOf(withParameters).returns.resolves.toBeNumber();
-    expectTypeOf(withParametersNoResult).parameter(0).toBeString();
-    expectTypeOf(withParametersNoResult).returns.resolves.toBeVoid();
-    expectTypeOf(withoutParameters).parameter(0).toBeUndefined();
-    expectTypeOf(withoutParameters).returns.resolves.toBeNumber();
-    expectTypeOf(withoutParametersNoResult).parameter(0).toBeUndefined();
-    expectTypeOf(withoutParametersNoResult).returns.resolves.toBeVoid();
-  });
+    when: 'creating a function';
+    const func = createFunction(functionName, parameters$ => parameters$.pipe(redactValue()));
 
-  it('returns correctly typed functions when there is no projection', () => {
-    given: 'functions with or without parameters';
-    const withParameters = createFunction<'test-function', [value: number]>('test-function');
-    const withoutParameters = createFunction('test-function');
-    expect: 'the correct types to have been returned';
-    expectTypeOf(withParameters).parameter(0).toBeNumber();
-    expectTypeOf(withParameters).returns.resolves.toEqualTypeOf<[value: number]>();
-    expectTypeOf(withoutParameters).parameter(0).toBeUndefined();
-    expectTypeOf(withoutParameters).returns.resolves.toBeVoid();
-  });
+    then: 'the function name matches the given name';
+    func.name === functionName;
+  },
+  'correctly types the function when there is no result or parameters'() {
+    when: 'creating a function with no result or parameters';
+    const func = createFunction('test-function', $ => $.pipe(redactValue()));
+
+    then: 'the function type has no return type or parameters';
+    typeOf(func) === type<() => Promise<void>>();
+  },
+  'correctly types the function when there is a result but no parameters'() {
+    given: 'creating a function with a result but no parameters';
+    const func = createFunction('test-function', $ => $.pipe(mapTo(42)));
+
+    then: 'the function type has a return type and no parameters';
+    typeOf(func) === type<() => Promise<number>>();
+  },
+  'correctly types the function when there is a result and parameters'() {
+    when: 'creating a function with a result and parameters';
+    const func = createFunction('test-function', ($: Observable<readonly [value: string]>) => $.pipe(mapTo(42)));
+
+    then: 'the function type has parameters and a return type';
+    typeOf(func) === type<(value: string) => Promise<number>>();
+  },
+  'correctly types the function when there are parameters but no result'() {
+    when: 'creating a function with parameters but no result';
+    const func = createFunction('test-function', ($: Observable<readonly [value: string]>) => $.pipe(redactValue()));
+
+    then: 'the function type has parameters but a void return type';
+    typeOf(func) === type<(value: string) => Promise<void>>();
+  },
 });
