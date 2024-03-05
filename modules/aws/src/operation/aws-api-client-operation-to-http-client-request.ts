@@ -1,5 +1,5 @@
 import { createHash } from '@komore/cryptography';
-import { createContentTypeHttpHeader, createHostHttpHeader } from '@komore/http';
+import { createAcceptHttpHeader, createContentTypeHttpHeader, createHostHttpHeader } from '@komore/http';
 import { type HttpClientRequest } from '@komore/http/client';
 import { map } from '@komore/reactive';
 
@@ -19,16 +19,18 @@ import { type AwsApiClientOperationToHttpClientRequestParameters } from './aws-a
 export function awsApiClientOperationToHttpClientRequest(
   options: AwsApiClientOperationToHttpClientRequestOptions
 ): (parameters: AwsApiClientOperationToHttpClientRequestParameters) => Observable<HttpClientRequest> {
-  const { hashAlgorithm, url } = options;
-  const contentTypeHeader = createContentTypeHttpHeader('application/x-amz-json-1.0');
-  const hostHeader = createHostHttpHeader(url.host);
-  const baseHeaders = [contentTypeHeader, hostHeader];
+  const { hashAlgorithm, host } = options;
+  const baseHeaders = [
+    createAcceptHttpHeader('application/json'),
+    createContentTypeHttpHeader('application/x-amz-json-1.0'),
+    createHostHttpHeader(host),
+  ];
   const hash = createHash({ hashAlgorithm });
 
-  return ({ dateTime, method, operation, parameters }) => {
-    const body = JSON.stringify(parameters);
+  return ({ dateTime, method, operation, parameters, url }) => {
+    const body = parameters !== undefined ? JSON.stringify(parameters) : undefined;
 
-    return hash(body).pipe(
+    return hash(body ?? '').pipe(
       map(payloadHash => {
         const headers = [
           ...baseHeaders,
@@ -40,7 +42,7 @@ export function awsApiClientOperationToHttpClientRequest(
           headers,
           method,
           options: {
-            body,
+            ...(body !== undefined ? { body } : {}),
           },
           url,
         };

@@ -1,5 +1,8 @@
 import { type Route53ApiClient } from '../route-53-api-client';
 
+import { type CreateRoute53HostedZoneParameters } from './create-route-53-hosted-zone-parameters';
+import { type CreateRoute53HostedZoneResult } from './create-route-53-hosted-zone-result';
+
 /**
  * Creates a function that creates a Route 53 hosted zone
  *

@@ -1,4 +1,4 @@
-import { type KinesisBaseArn } from '../kinesis-base-arn';
+import { type KinesisBaseArn } from '../../arn/kinesis-base-arn';
 
 /**
  * Kinesis stream ARN

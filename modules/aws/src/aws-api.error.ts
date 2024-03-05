@@ -1,5 +1,5 @@
 import { createErrorType, errorProperties } from '@komore/error';
-import { type HttpStatus } from '@komore/http';
+import { type HttpMethod, type HttpStatus } from '@komore/http';
 import { type UrlString } from '@komore/url';
 
 import { awsDomain } from './aws.domain';
@@ -8,6 +8,23 @@ import { awsDomain } from './aws.domain';
  * AWS API error
  */
 export const awsApiError = createErrorType(awsDomain, {
+  /**
+   * Forbidden operation
+   */
+  forbiddenOperation: errorProperties<{
+    /**
+     * Operation
+     */
+    readonly operation: string;
+    /**
+     * Permission
+     */
+    readonly permission: string;
+    /**
+     * User
+     */
+    readonly user: string;
+  }>(),
   /**
    * Invalid signature
    */
@@ -25,6 +42,23 @@ export const awsApiError = createErrorType(awsDomain, {
      * Operation
      */
     readonly operation: string;
+  }>(),
+  /**
+   * Not allowed
+   */
+  notAllowed: errorProperties<{
+    /**
+     * HTTP method
+     */
+    readonly method: HttpMethod;
+    /**
+     * Operation
+     */
+    readonly operation: string;
+    /**
+     * URL
+     */
+    readonly url: UrlString;
   }>(),
   /**
    * Not found
@@ -126,6 +160,22 @@ export const awsApiError = createErrorType(awsDomain, {
    * Unknown operation
    */
   unknownOperation: errorProperties<{
+    /**
+     * Operation
+     */
+    readonly operation: string;
+  }>(),
+  /**
+   * Unsupported response type
+   */
+  unsupportedResponseType: errorProperties<{
+    /**
+     * Content type
+     */
+    readonly contentType: string;
+    /**
+     * Operation
+     */
     readonly operation: string;
   }>(),
 });

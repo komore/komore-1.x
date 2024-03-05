@@ -1,4 +1,4 @@
-import { type HttpClient } from '@komore/http/client';
+import { type HttpClientResponse, type HttpClient } from '@komore/http/client';
 import { type NodeEnvironmentVariables } from '@komore/node/environment';
 
 import { type AwsAccessKeyCredentials } from './credentials/aws-access-key-credentials';
@@ -32,6 +32,10 @@ export interface AwsApiClientOptions {
    * Service
    */
   readonly service: string;
+  /**
+   * Optional handler used when a response's content type is application/xml
+   */
+  readonly toXml?: <T>(httpClientResponse: HttpClientResponse) => Observable<T>;
   /**
    * URL
    */

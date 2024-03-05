@@ -1,9 +1,7 @@
+import { type AwsApiErrorMessageResult } from './aws-api-error-message-result';
+import { type AwsApiErrorTypeResult } from './aws-api-error-type-result';
+
 /**
  * AWS API error result
  */
-export interface AwsApiErrorResult {
-  /**
-   * Type
-   */
-  readonly __type: string;
-}
+export type AwsApiErrorResult = AwsApiErrorMessageResult | AwsApiErrorTypeResult;

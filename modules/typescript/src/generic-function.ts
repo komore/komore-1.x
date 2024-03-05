@@ -1,2 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+/**
+ * Generic function
+ */
 export type GenericFunction = (...args: ReadonlyArray<any>) => any;

@@ -1,3 +1,4 @@
+export { asDynamoDBTableName } from './table/name/as-dynamodb-table-name';
 export { createDynamoDBApiClient } from './create-dynamodb-api-client';
 export { createDynamoDBTable } from './table/create-dynamodb-table';
 export { type CreateDynamoDBTableParameters } from './table/create-dynamodb-table-parameters';
@@ -10,10 +11,20 @@ export { type DescribeDynamoDBTableParameters } from './table/describe-dynamodb-
 export { type DescribeDynamoDBTableResult } from './table/describe-dynamodb-table-result';
 export { type DynamoDBApiClient } from './dynamodb-api-client';
 export { type DynamoDBApiClientOptions } from './dynamodb-api-client-options';
+export { type DynamoDBAttributeValue } from './item/dynamodb-attribute-value';
 export { dynamoDBDomain } from './dynamodb.domain';
+export { getDynamoDBItem } from './item/get-dynamodb-item';
+export { type DynamoDBTableName } from './table/name/dynamodb-table-name';
+export { type GetDynamoDBItemParameters } from './item/get-dynamodb-item-parameters';
+export { type GetDynamoDBItemResult } from './item/get-dynamodb-item-result';
+export { isDynamoDBTableName } from './table/name/is-dynamodb-table-name';
 export { listDynamoDBTables } from './table/list-dynamodb-tables';
 export { type ListDynamoDBTablesParameters } from './table/list-dynamodb-tables-parameters';
 export { type ListDynamoDBTablesResult } from './table/list-dynamodb-tables-result';
+export { queryDynamoDB } from './item/query-dynamodb';
+export { type QueryDynamoDBParameters } from './item/query-dynamodb-parameters';
+export { type QueryDynamoDBResult } from './item/query-dynamodb-result';
 export { updateDynamoDBTable } from './table/update-dynamodb-table';
 export { type UpdateDynamoDBTableParameters } from './table/update-dynamodb-table-parameters';
 export { type UpdateDynamoDBTableResult } from './table/update-dynamodb-table-result';
+export { validateDynamoDBTableName } from './table/name/validate-dynamodb-table-name';

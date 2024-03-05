@@ -1,48 +1,31 @@
 import '@komore/reactive/polyfill';
 import '@komore/temporal/polyfill';
 
-//import { createAwsApiNormalSchemaExtractor, awsApiSchemasToHttpApi } from '@komore/aws/api';
-import { createDynamoDBApiClient, listDynamoDBTables } from '@komore/aws/dynamodb';
+import { AwsAccessKeyCredentials } from '@komore/aws';
 import { createHttpClient } from '@komore/http/client';
-//import { createTypeScriptHttpApiClientGenerator } from '@komore/http/client/generator';
 import { firstValueFrom } from '@komore/reactive';
-//import { getAwsCliConfig } from '@komore/aws/cli';
+
+import { getHostedZones } from './test/get-hosted-zones';
+import { ReadonlyRecord } from '@komore/typescript';
 
 async function main() {
-  const httpClient = createHttpClient({});
-  const dynamoDBApiClient = createDynamoDBApiClient({
-    credentials: {
+  const availableCredentials = {
+    bootstrap: {
       accessKeyId: 'AKIA3ITLDHO4QF46TXJ3',
       secretAccessKey: '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',
     },
-    environmentVariables: process.env,
-    httpClient,
-  });
-  const listTables = listDynamoDBTables(dynamoDBApiClient);
+    infrastructure: {
+      accessKeyId: 'AKIA3ITLDHO4YF34FLMX',
+      secretAccessKey: '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',
+    },
+  } as const satisfies ReadonlyRecord<string, AwsAccessKeyCredentials>;
+  const environmentVariables = process.env;
+  const credentials = availableCredentials.infrastructure;
 
-  const tables$ = listTables({});
-  const tables = await firstValueFrom(tables$);
-
-  console.log('tables', typeof tables, tables);
-  /*
-  const outputPath = 'tools/aws/src/test';
-  const generator = createTypeScriptHttpApiClientGenerator({ outputPath });
-  const extractor = createAwsApiNormalSchemaExtractor({ httpClient });
-
-  const normal$ = extractor('sqs', '2012-11-05');
-  const normal = await firstValueFrom(normal$);
-  const { operations: _1, shapes: _2, ...remainingNormal } = normal;
-  console.log('AWS normal', remainingNormal);
-
-  const httpApi = awsApiSchemasToHttpApi({ normal });
-  const result$ = generator(httpApi);
-  const result = await firstValueFrom(result$);
-  console.log('result', result);
-
-  const cliConfig$ = getAwsCliConfig();
-  const cliConfig = await firstValueFrom(cliConfig$);
-  console.log('CLI config', cliConfig);
-  */
+  const httpClient = createHttpClient({});
+  const hostedZones$ = getHostedZones(httpClient, environmentVariables, credentials);
+  const hostedZones = await firstValueFrom(hostedZones$);
+  console.log('hosted zones', hostedZones);
 }
 
 main();

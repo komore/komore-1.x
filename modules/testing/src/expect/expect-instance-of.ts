@@ -1,4 +1,4 @@
-import { UnmetExpectationError } from '../error/unmet-expectation-error';
+import { testingError } from '../testing.error';
 
 /**
  * Asserts that a value is an instance of a type
@@ -9,11 +9,10 @@ import { UnmetExpectationError } from '../error/unmet-expectation-error';
  */
 export function expectInstanceOf<T>(
   value: unknown,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  instanceClass: new (...args: any[]) => T,
+  instanceClass: new (...args: ReadonlyArray<any>) => T,
   negate: boolean
 ): asserts value is T {
   if (value instanceof instanceClass || negate) {
-    throw new UnmetExpectationError({ type: 'instanceOf', expectationValue: false });
+    throw testingError.unmetExpectation({ type: 'instanceOf', expectationValue: false });
   }
 }

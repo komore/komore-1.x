@@ -1,4 +1,6 @@
 export { createS3ApiClient } from './create-s3-api-client';
+export { listS3Buckets } from './bucket/list-s3-buckets';
+export { type ListS3BucketsResult } from './bucket/list-s3-buckets-result';
 export { type S3ApiClient } from './s3-api-client';
 export { type S3ApiClientOptions } from './s3-api-client-options';
 export { s3ApiError } from './s3-api.error';

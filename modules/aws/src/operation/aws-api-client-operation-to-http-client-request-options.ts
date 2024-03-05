@@ -15,7 +15,7 @@ export interface AwsApiClientOperationToHttpClientRequestOptions {
    */
   readonly hashAlgorithm: HashAlgorithm;
   /**
-   * URL
+   * Host
    */
-  readonly url: URL;
+  readonly host: string;
 }

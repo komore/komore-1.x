@@ -20,4 +20,8 @@ export interface AwsApiClientOperationToHttpClientRequestParameters {
    * Parameters
    */
   readonly parameters: unknown;
+  /**
+   * URL
+   */
+  readonly url: URL;
 }

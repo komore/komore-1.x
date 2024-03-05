@@ -15,25 +15,32 @@ import { httpClientRequestWithAwsAuthorizationHeader } from './signature/http-cl
  * @returns AWS API client
  */
 export function createAwsApiClient(clientOptions: AwsApiClientOptions): AwsApiClient {
-  const { environmentVariables, httpClient, service } = clientOptions;
+  const { environmentVariables, httpClient, service, toXml } = clientOptions;
   const {
     credentials = getDefaultAwsCredentials(environmentVariables),
     region = getDefaultAwsRegion(environmentVariables),
   } = clientOptions;
-  const method = 'POST';
-  const url = clientOptions.url?.(region) ?? new URL(`https://${service}.${region}.amazonaws.com/`);
+  const endpointUrl = clientOptions.url?.(region) ?? new URL(`https://${service}.${region}.amazonaws.com/`);
+  const { host } = endpointUrl;
   const hashAlgorithm = 'SHA-256';
-  const toHttpClientRequest = awsApiClientOperationToHttpClientRequest({ credentials, hashAlgorithm, url });
+  const toHttpClientRequest = awsApiClientOperationToHttpClientRequest({ credentials, hashAlgorithm, host });
   const withAuthorizationHeader = httpClientRequestWithAwsAuthorizationHeader({ credentials, region, service });
 
-  return (operation, parameters) => {
+  return ({ method = 'POST', operation, parameters, resourcePath, searchParams }) => {
     const dateTime = Temporal.Now.zonedDateTimeISO('UTC').toPlainDateTime();
+    const url = buildUrl(endpointUrl, resourcePath, searchParams);
 
-    return toHttpClientRequest({ dateTime, method, operation, parameters }).pipe(
+    return toHttpClientRequest({ dateTime, method, operation, parameters, url }).pipe(
       mergeMap(withAuthorizationHeader({ dateTime })),
       mergeMap(httpClient),
       tapNext(response => console.log('response', response.status, response.headers)),
-      mergeMap(awsHttpClientResponseToResult(operation, url))
+      mergeMap(awsHttpClientResponseToResult({ method, operation, ...(toXml !== undefined ? { toXml } : {}), url }))
     );
   };
+}
+
+function buildUrl(endpointUrl: URL, resourcePath: string | undefined, searchParams: URLSearchParams | undefined): URL {
+  return resourcePath !== undefined || searchParams !== undefined
+    ? new URL(resourcePath ?? ('' + searchParams !== undefined ? `?${searchParams?.toString()}` : ''), endpointUrl)
+    : endpointUrl;
 }

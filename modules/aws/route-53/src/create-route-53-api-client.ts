@@ -11,5 +11,10 @@ import { type Route53ApiClientOptions } from './route-53-api-client-options';
  */
 export function createRoute53ApiClient(clientOptions: Route53ApiClientOptions): Route53ApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient(awsClientOptions);
+  return createAwsApiClient({
+    ...awsClientOptions,
+    region: 'us-east-1',
+    service: 'route53',
+    url: () => new URL(`https://route53.amazonaws.com`),
+  });
 }

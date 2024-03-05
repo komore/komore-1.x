@@ -10,7 +10,9 @@ import { type IndexedDBUpgradeHandler } from './indexeddb-upgrade-handler';
  * @returns IndexedDB upgrade handler
  */
 export function createIndexedDBUpgradeHandler(
-  migrations: ReadonlyArray<[version: number, migration: (idbDatabase: Observable<IDBDatabase>) => Observable<void>]>
+  migrations: ReadonlyArray<
+    readonly [version: number, migration: (idbDatabase: Observable<IDBDatabase>) => Observable<void>]
+  >
 ): IndexedDBUpgradeHandler {
   const sortedMigrations = [...migrations];
 
