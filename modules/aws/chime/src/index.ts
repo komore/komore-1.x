@@ -1,5 +1,5 @@
-export { createChannel } from './api/create-channel';
-export { createChimeClient } from './create-chime-client';
-export { createRoom } from './api/create-room';
-export { deleteRoom } from './api/delete-room';
-export { withChimeClient } from './operators/with-chime-client';
+export { createChimeRoom } from './room/create-chime-room';
+export { type CreateChimeRoomParameters } from './room/create-chime-room-parameters';
+export { type CreateChimeRoomResult } from './room/create-chime-room-result';
+export { deleteChimeRoom } from './room/delete-chime-room';
+export { type DeleteChimeRoomParameters } from './room/delete-chime-room-parameters';

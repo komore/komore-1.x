@@ -7,5 +7,5 @@ import { type AwsAccountId } from './aws-account-id';
  * @returns true if the string is a valid AWS account identifier
  */
 export function isAwsAccountId(accountId: string): accountId is AwsAccountId {
-  return accountId.length > 0;
+  return accountId.length === 12;
 }

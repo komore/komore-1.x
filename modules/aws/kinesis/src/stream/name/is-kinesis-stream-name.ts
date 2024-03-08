@@ -7,5 +7,5 @@ import { type KinesisStreamName } from './kinesis-stream-name';
  * @returns true if the string is a Kinesis stream name
  */
 export function isKinesisStreamName(streamName: string): streamName is KinesisStreamName {
-  return /^[a-zA-Z0-9_\.-]{1,128}/.test(streamName);
+  return /^[a-zA-Z0-9_\.-]{1,128}$/.test(streamName);
 }

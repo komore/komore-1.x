@@ -1,8 +1,7 @@
-export { createSesClient } from './client/create-ses-client';
-export { type SesClient } from './client/ses-client';
-export { type SesClientOptions } from './client/ses-client-options';
-export { sesCommand } from './ses.command';
+export { createSesApiClient } from './create-ses-api-client';
+export { type SesApiClient } from './ses-api-client';
+export { type SesApiClientOptions } from './ses-api-client-options';
 export { sesDomain } from './ses.domain';
-export { sesError } from './ses.error';
-export { sesEvent } from './ses.event';
-export { sesQuery } from './ses.query';
+export { sendSesEmail } from './message/send-ses-email';
+export { type SendSesEmailParameters } from './message/send-ses-email-parameters';
+export { type SendSesEmailResult } from './message/send-ses-email-result';

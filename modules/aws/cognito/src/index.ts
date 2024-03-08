@@ -4,3 +4,7 @@ export { cognitoChallengeNames } from './challenge/name/cognito-challenge-names'
 export { cognitoDomain } from './cognito.domain';
 export { cognitoTypeError } from './cognito-type.error';
 export { type CognitoUserPoolId } from './user-pool/id/cognito-user-pool-id';
+export { deleteCognitoGroup } from './group/delete-cognito-group';
+export { type DeleteCognitoGroupParameters } from './group/delete-cognito-group-parameters';
+export { deleteCognitoUser } from './user/delete-cognito-user';
+export { type DeleteCognitoUserParameters } from './user/delete-cognito-user-parameters';

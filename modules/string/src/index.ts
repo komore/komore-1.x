@@ -1,3 +1,4 @@
+export { type Base64String } from './base64/base64-string';
 export { characterCodesToString } from './character-codes-to-string';
 export { characterToZwjSequence } from './character-to-zwj-sequence';
 export { codePointToString } from './code-point-to-string';

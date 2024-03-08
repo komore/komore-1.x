@@ -3,6 +3,6 @@ import { createErrorType } from '@komore/error';
 import { sesDomain } from './ses.domain';
 
 /**
- * SES error
+ * SES API error
  */
-export const sesError = createErrorType(sesDomain, {});
+export const sesApiError = createErrorType(sesDomain, {});
