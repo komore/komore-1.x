@@ -9,7 +9,7 @@ import { type Neo4jClientOptions } from './neo4j-client-options';
  * @param options Neo4j client options
  * @returns Neo4j client
  */
-export function createNeo4JClient(options: Neo4jClientOptions): Neo4jClient {
+export function createNeo4jClient(options: Neo4jClientOptions): Neo4jClient {
   const { credentials, databaseName, endpointUrl } = options;
   const { userName, password } = credentials;
   const url = endpointUrl.toString();

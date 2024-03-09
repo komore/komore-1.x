@@ -1,8 +1,6 @@
-export { createXRayClient } from './client/create-x-ray-client';
-export { type XRayClient } from './client/x-ray-client';
-export { type XRayClientOptions } from './client/x-ray-client-options';
-export { xRayCommand } from './x-ray.command';
+export { putXRayTraceSegments } from './trace/segment/put-x-ray-trace-segments';
+export { type PutXRayTraceSegmentsParameters } from './trace/segment/put-x-ray-trace-segments-parameters';
+export { type PutXRayTraceSegmentsResult } from './trace/segment/put-x-ray-trace-segments-result';
+export { xRayApiError } from './x-ray-api.error';
 export { xRayDomain } from './x-ray.domain';
-export { xRayError } from './x-ray.error';
-export { xRayEvent } from './x-ray.event';
-export { xRayQuery } from './x-ray.query';
+export { xRayTypeError } from './x-ray-type.error';

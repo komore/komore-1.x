@@ -1,14 +1,12 @@
-import { XRayClient as AwsXRayClient } from '@aws-sdk/client-xray';
-
-import { createAwsClient } from '@komore/aws';
+import { createAwsClient } from '@komore/aws/client';
 
 import { xRayCommand } from '../x-ray.command';
 import { xRayError } from '../x-ray.error';
 import { xRayEvent } from '../x-ray.event';
 import { xRayQuery } from '../x-ray.query';
 import { type XRayClient } from './x-ray-client';
+import { xRayClientCommandEventMap } from './x-ray-client-command-event-map';
 import { type XRayClientOptions } from './x-ray-client-options';
-import { xRayCommandEventMapping } from './x-ray-command-event-mapping';
 
 /**
  * Creates an X-Ray client
@@ -18,11 +16,10 @@ import { xRayCommandEventMapping } from './x-ray-command-event-mapping';
  */
 export function createXRayClient(options: XRayClientOptions): XRayClient {
   return createAwsClient({
-    commandEventMapping: xRayCommandEventMapping,
-    commandType: xRayCommand,
-    constructor: AwsXRayClient,
+    command: xRayCommand,
+    commandEventMapping: xRayClientCommandEventMap,
     error: xRayError,
-    eventType: xRayEvent,
+    event: xRayEvent,
     options,
     queryType: xRayQuery,
   });

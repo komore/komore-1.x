@@ -13,5 +13,10 @@ export const esLintEvent = createEventType(esLintDomain, {
    *
    * @see {@link https://eslint.org/docs/latest/integrate/nodejs-api#-eslintlintfilespatterns ESLint.lintFiles}
    */
-  filesLinted: eventProperties<{ results: ReadonlyArray<ESLint.LintResult> }>(),
+  filesLinted: eventProperties<{
+    /**
+     * Results
+     */
+    readonly results: ReadonlyArray<ESLint.LintResult>;
+  }>(),
 });

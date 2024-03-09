@@ -1,5 +1,3 @@
-import { type EsbuildCliClientOptions } from './esbuild-cli-client-options';
-
 /**
  * esbuild CLI client symbol
  *
