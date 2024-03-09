@@ -1,5 +1,4 @@
-import * as chalk from 'chalk';
-
+import { stringToStyledText } from '@komore/cli';
 import { logEventSeverities as severities, type LogEncoder } from '@komore/logging';
 
 /**
@@ -8,43 +7,43 @@ import { logEventSeverities as severities, type LogEncoder } from '@komore/loggi
  * @returns CLI application log encoder
  */
 export function createCliApplicationLogEncoder(): LogEncoder {
+  const color = 'black';
+  const style = stringToStyledText;
+  const blackOn = {
+    brightRed: style({ color, background: ['red', 'bright'] }),
+    gray: style({ color, background: 'gray' }),
+    red: style({ color, background: 'red' }),
+    yellow: style({ color, background: 'yellow' }),
+  };
+  const to = {
+    brightRed: style({ color: ['red', 'bright'] }),
+    brightYellow: style({ color: ['yellow', 'bright'] }),
+    gray: style({ color: 'gray' }),
+    red: style({ color: 'red' }),
+    white: style({ color: 'white' }),
+  };
+
   return ({ event, message }) => {
     const { severity } = event;
     switch (severity) {
       case severities.trace:
-        return blackOnGray(' TRACE ') + ' ' + chalk.gray(message);
+        return blackOn.gray(' TRACE ') + ' ' + to.gray(message);
       case severities.debug:
-        return blackOnGray(' DEBUG ') + ' ' + chalk.white(message);
+        return blackOn.gray(' DEBUG ') + ' ' + to.white(message);
       case severities.notice:
-        return blackOnYellow(' NOTICE ') + ' ' + chalk.yellowBright(message);
+        return blackOn.yellow(' NOTICE ') + ' ' + to.brightYellow(message);
       case severities.warning:
-        return blackOnYellow(' WARNING ') + ' ' + chalk.yellowBright(message);
+        return blackOn.yellow(' WARNING ') + ' ' + to.brightYellow(message);
       case severities.error:
-        return blackOnRed(' !ERROR! ') + ' ' + chalk.redBright(message);
+        return blackOn.brightRed(' !ERROR! ') + ' ' + to.brightRed(message);
       case severities.alert:
-        return blackOnRed(' ALERT ') + ' ' + chalk.redBright(message);
+        return blackOn.brightRed(' ALERT ') + ' ' + to.brightRed(message);
       case severities.critical:
-        return blackOnDarkRed(' CRITICAL ') + ' ' + chalk.red(message);
+        return blackOn.red(' CRITICAL ') + ' ' + to.red(message);
       case severities.emergency:
-        return blackOnDarkRed(' EMERGENCY ') + ' ' + chalk.red(message);
+        return blackOn.red(' EMERGENCY ') + ' ' + to.red(message);
       default:
-        return blackOnRed(` !!${severity}!! `) + ' ' + chalk.redBright(message);
+        return blackOn.brightRed(` !!${severity}!! `) + ' ' + to.brightRed(message);
     }
   };
-}
-
-function blackOnGray(message: string): string {
-  return chalk.bgGray(chalk.black(message));
-}
-
-function blackOnYellow(message: string): string {
-  return chalk.bgYellowBright(chalk.black(message));
-}
-
-function blackOnDarkRed(message: string): string {
-  return chalk.bgRed(chalk.black(message));
-}
-
-function blackOnRed(message: string): string {
-  return chalk.bgRedBright(chalk.black(message));
 }

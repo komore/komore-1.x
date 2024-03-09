@@ -16,3 +16,5 @@ export { type DisplayedCliMessage } from './display/displayed-cli-message';
 export { type DisplayedCliMessageOptions } from './display/displayed-cli-message-options';
 export { type DisplayedCliMessageType } from './display/displayed-cli-message-type';
 export { displayedCliMessageTypes } from './display/displayed-cli-message-types';
+export { stringToStyledText } from './style/string-to-styled-cli-text';
+export { type StringToStyledCliTextOptions } from './style/string-to-styled-cli-text-options';
