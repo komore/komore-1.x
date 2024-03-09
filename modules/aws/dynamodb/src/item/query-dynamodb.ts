@@ -1,5 +1,5 @@
 import { type DynamoDBApiClient } from '../dynamodb-api-client';
-
+import { dynamoDBTargetPrefix } from '../dynamodb-target-prefix';
 import { type QueryDynamoDBParameters } from './query-dynamodb-parameters';
 import { type QueryDynamoDBResult } from './query-dynamodb-result';
 
@@ -13,5 +13,9 @@ import { type QueryDynamoDBResult } from './query-dynamodb-result';
 export function queryDynamoDB(
   apiClient: DynamoDBApiClient
 ): (parameters: QueryDynamoDBParameters) => Observable<QueryDynamoDBResult> {
-  return parameters => apiClient({ operation: 'DynamoDB_20120810.Query', parameters });
+  return parameters =>
+    apiClient({
+      operation: `${dynamoDBTargetPrefix}.Query`,
+      parameters,
+    });
 }

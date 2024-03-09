@@ -1,5 +1,3 @@
-export { createComprehendClient } from './create-comprehend-client';
-export { detectDominantLanguage } from './detect-dominant-language';
-export { detectSentiment } from './detect-sentiment';
-export { detectSyntax } from './detect-syntax';
-export { withComprehendClient } from './operators/with-comprehend-client';
+export { type ComprehendApiClient } from './comprehend-api-client';
+export { type ComprehendApiClientOptions } from './comprehend-api-client-options';
+export { createComprehendApiClient } from './create-comprehend-api-client';

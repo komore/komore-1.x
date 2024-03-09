@@ -1,4 +1,5 @@
 import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 
 import { type EnableKmsKeyParameters } from './enable-kms-key-parameters';
 
@@ -12,7 +13,7 @@ import { type EnableKmsKeyParameters } from './enable-kms-key-parameters';
 export function enableKmsKey(apiClient: KmsApiClient): (parameters: EnableKmsKeyParameters) => Observable<void> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.EnableKey',
+      operation: `${kmsTargetPrefix}.EnableKey`,
       parameters,
     });
 }

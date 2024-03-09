@@ -1,4 +1,5 @@
 import { type DynamoDBApiClient } from '../dynamodb-api-client';
+import { dynamoDBTargetPrefix } from '../dynamodb-target-prefix';
 import { type GetDynamoDBItemParameters } from './get-dynamodb-item-parameters';
 import { type GetDynamoDBItemResult } from './get-dynamodb-item-result';
 
@@ -12,5 +13,9 @@ import { type GetDynamoDBItemResult } from './get-dynamodb-item-result';
 export function getDynamoDBItem(
   apiClient: DynamoDBApiClient
 ): (parameters: GetDynamoDBItemParameters) => Observable<GetDynamoDBItemResult> {
-  return parameters => apiClient({ operation: 'DynamoDB_20120810.GetItem', parameters });
+  return parameters =>
+    apiClient({
+      operation: `${dynamoDBTargetPrefix}.GetItem`,
+      parameters,
+    });
 }

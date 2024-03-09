@@ -1,4 +1,5 @@
 import { type CognitoApiClient } from '../cognito-api-client';
+import { cognitoTargetPrefix } from '../cognito-target-prefix';
 import { type DeleteCognitoUserParameters } from './delete-cognito-user-parameters';
 
 /**
@@ -13,7 +14,7 @@ export function deleteCognitoUser(
 ): (parameters: DeleteCognitoUserParameters) => Observable<void> {
   return parameters =>
     apiClient({
-      operation: 'cognito.DeleteUser',
+      operation: `${cognitoTargetPrefix}.DeleteUser`,
       parameters,
     });
 }

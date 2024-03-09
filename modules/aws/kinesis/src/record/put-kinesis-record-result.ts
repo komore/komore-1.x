@@ -1,5 +1,5 @@
+import { type KinesisRecordEncryptionType } from '../encryption/kinesis-record-encryption-type';
 import { type KinesisShardId } from '../shard/id/kinesis-shard-id';
-import { type KinesisRecordEncryptionType } from './encryption/kinesis-record-encryption-type';
 
 /**
  * Put Kinesis record result

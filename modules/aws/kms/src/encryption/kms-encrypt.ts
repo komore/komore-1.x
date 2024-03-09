@@ -1,4 +1,5 @@
-import { type KmsApiClient } from '..';
+import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type KmsEncryptParameters } from './kms-encrypt-parameters';
 import { type KmsEncryptResult } from './kms-encrypt-result';
 
@@ -14,7 +15,7 @@ export function kmsEncrypt(
 ): (parameters: KmsEncryptParameters) => Observable<KmsEncryptResult> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.Encrypt',
+      operation: `${kmsTargetPrefix}.Encrypt`,
       parameters,
     });
 }

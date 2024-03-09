@@ -1,4 +1,5 @@
 import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type DisableKmsKeyParameters } from './disable-kms-key-parameters';
 
 /**
@@ -10,7 +11,7 @@ import { type DisableKmsKeyParameters } from './disable-kms-key-parameters';
 export function disableKmsKey(apiClient: KmsApiClient): (parameters: DisableKmsKeyParameters) => Observable<void> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.DisableKey',
+      operation: `${kmsTargetPrefix}.DisableKey`,
       parameters,
     });
 }

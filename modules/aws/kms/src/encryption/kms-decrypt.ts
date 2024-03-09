@@ -1,4 +1,5 @@
-import { type KmsApiClient } from '..';
+import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type KmsDecryptParameters } from './kms-decrypt-parameters';
 import { type KmsDecryptResult } from './kms-decrypt-result';
 
@@ -14,7 +15,7 @@ export function kmsDecrypt(
 ): (parameters: KmsDecryptParameters) => Observable<KmsDecryptResult> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.Decrypt',
+      operation: `${kmsTargetPrefix}.Decrypt`,
       parameters,
     });
 }

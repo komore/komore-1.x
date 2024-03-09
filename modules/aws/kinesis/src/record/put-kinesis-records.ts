@@ -14,7 +14,7 @@ export function putKinesisRecord(
 ): (parameters: PutKinesisRecordsParameters) => Observable<PutKinesisRecordsResult> {
   return parameters =>
     apiClient({
-      operation: 'Kinesis_20131202.PutRecord',
+      operation: 'Kinesis_20131202.PutRecords',
       parameters,
     });
 }

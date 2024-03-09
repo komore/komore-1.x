@@ -1,4 +1,5 @@
 import { type CognitoApiClient } from '../cognito-api-client';
+import { cognitoTargetPrefix } from '../cognito-target-prefix';
 import { type DeleteCognitoGroupParameters } from './delete-cognito-group-parameters';
 
 /**
@@ -13,7 +14,7 @@ export function deleteCognitoGroup(
 ): (parameters: DeleteCognitoGroupParameters) => Observable<void> {
   return parameters =>
     apiClient({
-      operation: 'cognito.DeleteGroup',
+      operation: `${cognitoTargetPrefix}.DeleteGroup`,
       parameters,
     });
 }

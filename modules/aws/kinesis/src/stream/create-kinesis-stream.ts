@@ -11,5 +11,9 @@ import { type CreateKinesisStreamParameters } from './create-kinesis-stream-para
 export function createKinesisStream(
   apiClient: KinesisApiClient
 ): (parameters: CreateKinesisStreamParameters) => Observable<void> {
-  return parameters => apiClient({ operation: 'Kinesis_20131202.CreateStream', parameters });
+  return parameters =>
+    apiClient({
+      operation: 'Kinesis_20131202.CreateStream',
+      parameters,
+    });
 }

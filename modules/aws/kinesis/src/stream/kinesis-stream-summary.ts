@@ -12,7 +12,7 @@ export interface KinesisStreamSummary {
   /**
    * Stream ARN
    */
-  readonly StreamARNL: KinesisStreamArn;
+  readonly StreamARN: KinesisStreamArn;
   /**
    * Stream creation timestamp
    */

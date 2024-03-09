@@ -15,3 +15,7 @@ export { type KmsDecryptResult } from './encryption/kms-decrypt-result';
 export { kmsEncrypt } from './encryption/kms-encrypt';
 export { type KmsEncryptParameters } from './encryption/kms-encrypt-parameters';
 export { type KmsEncryptResult } from './encryption/kms-encrypt-result';
+export { type KmsKeyArn } from './key/arn/kms-key-arn';
+export { type KmsKeyId } from './key/id/kms-key-id';
+export { type KmsAliasArn } from './alias/arn/kms-alias-arn';
+export { type KmsAliasName } from './alias/name/kms-alias-name';

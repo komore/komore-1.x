@@ -1,4 +1,5 @@
 import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type DisableKmsKeyRotationParameters } from './disable-kms-key-rotation-parameters';
 
 /**
@@ -12,7 +13,7 @@ export function disableKmsKeyRotation(
 ): (parameters: DisableKmsKeyRotationParameters) => Observable<void> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.DisableKeyRotation',
+      operation: `${kmsTargetPrefix}.DisableKeyRotation`,
       parameters,
     });
 }

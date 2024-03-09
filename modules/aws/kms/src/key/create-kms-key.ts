@@ -1,4 +1,5 @@
 import { type KmsApiClient } from '../kms-api-client';
+import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type CreateKmsKeyParameters } from './create-kms-key-parameters';
 import { type CreateKmsKeyResult } from './create-kms-key-result';
 
@@ -14,7 +15,7 @@ export function createKmsKey(
 ): (parameters: CreateKmsKeyParameters) => Observable<CreateKmsKeyResult> {
   return parameters =>
     apiClient({
-      operation: 'TrentService.CreateKey',
+      operation: `${kmsTargetPrefix}.CreateKey`,
       parameters,
     });
 }
