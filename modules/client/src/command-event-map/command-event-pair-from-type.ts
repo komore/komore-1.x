@@ -1,5 +1,5 @@
-import { type CommandFromType, type GenericCommandType } from '@komore/command';
-import { type EventFromType, type GenericEventType } from '@komore/event';
+import { type CommandFromType, type CommandType as GenericCommandType } from '@komore/command';
+import { type EventFromType, type EventType as GenericEventType } from '@komore/event';
 
 import { type CommandEventPair } from './command-event-pair';
 

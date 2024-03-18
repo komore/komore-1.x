@@ -8,9 +8,12 @@ import { type Domain } from '@komore/domain';
  * @template QueryPropertiesResult Query properties and result types
  */
 export interface Query<
-  DomainType extends Domain,
-  QueryName extends string,
-  QueryPropertiesResult extends readonly [resultType: any, parametersType: any],
+  DomainType extends Domain = Domain,
+  QueryName extends string = string,
+  QueryPropertiesResult extends readonly [resultType: any, parametersType: any] = readonly [
+    resultType: any,
+    parametersType: any,
+  ],
 > {
   /**
    * Domain

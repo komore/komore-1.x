@@ -14,7 +14,7 @@ export function awsApiErrorMessageResultToApiError(
     switch (statusCode) {
       case httpStatuses.Forbidden:
         console.log('hmpf');
-        type Matches = readonly [matches: string, user: string, permission: string];
+        type Matches = readonly [matched: string, user: string, permission: string];
         const toMatches = stringToMatchesWith<Matches>(/^User: ([^\s]+).*the ([^\s]+) action$/);
         const matches = toMatches(message);
         if (matches !== undefined) {

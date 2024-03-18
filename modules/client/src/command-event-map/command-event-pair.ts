@@ -1,10 +1,10 @@
 import { type GenericCommand } from '@komore/command';
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 /**
  * Command-event pair
  */
-export type CommandEventPair<CommandType extends GenericCommand, EventType extends GenericEvent> = readonly [
+export type CommandEventPair<CommandType extends GenericCommand, EventType extends Event> = readonly [
   command: CommandType,
   event: EventType,
 ];

@@ -1,4 +1,4 @@
-import { createAwsClient } from '@komore/aws';
+import { createAwsClient } from '@komore/aws/client';
 
 import { type AuroraClient } from './aurora-client';
 import { type AuroraClientOptions } from './aurora-client-options';

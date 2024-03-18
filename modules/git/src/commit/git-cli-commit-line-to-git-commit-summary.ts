@@ -10,8 +10,8 @@ import { type GitCommitSummary } from './git-commit-summary';
  * @private
  */
 export function gitCliCommitLineToGitCommitSummary(): (line: string) => GitCommitSummary {
-  type CommitLineMatchArray = readonly [matches: string, hash: string, extraInfo: string | undefined, message: string];
-  const toMatches = stringToMatchesWith<CommitLineMatchArray>(/^([^\s]+)\s+(\([^\)]+\))?\s?(.+)*$/);
+  type Matches = readonly [matched: string, hash: string, extraInfo: string | undefined, message: string];
+  const toMatches = stringToMatchesWith<Matches>(/^([^\s]+)\s+(\([^\)]+\))?\s?(.+)*$/);
 
   return line => {
     const matches = toMatches(line);

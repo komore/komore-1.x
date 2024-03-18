@@ -1,4 +1,4 @@
-import { fromEvent, map, mapToError, merge, Observable, share, takeUntil } from '@komore/reactive';
+import { fromEvent, map, mapToError, merge, share, takeUntil } from '@komore/reactive';
 
 import { getSpeechRecognitionClass } from './get-speech-recognition-class';
 import { type SpeechRecognitionOptions } from './speech-recognition-options';
@@ -37,7 +37,7 @@ export function observeSpeech(
       result$,
       ...additionalEvents.map(factory => factory(speechRecognition)),
     ])
-      .pipe(share(), takeUntil(end$))
+      .pipe(share({}), takeUntil(end$))
       .subscribe(subscriber);
     subscriber.add(() => (abort ? speechRecognition.abort() : speechRecognition.stop()));
 

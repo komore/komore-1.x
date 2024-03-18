@@ -12,14 +12,14 @@ import { validateGitBranchName } from './name/validate-git-branch-name';
  * @private
  */
 export function gitCliBranchLineToGitBranch(): (line: string) => GitBranch {
-  type BranchLineMatchArray = readonly [
+  type Matches = readonly [
     matches: string,
     name: string,
     hash: string,
     upstreamBranchName: string | undefined,
     lastCommitMessage: string,
   ];
-  const toMatches = stringToMatchesWith<BranchLineMatchArray>(/^\*?\s?([^\s]+)\s+([^\s]+)\s?(\[[^\]]+\])?\s(.+)*$/);
+  const toMatches = stringToMatchesWith<Matches>(/^\*?\s?([^\s]+)\s+([^\s]+)\s?(\[[^\]]+\])?\s(.+)*$/);
   return line => {
     const matches = toMatches(line);
     if (matches === undefined) {

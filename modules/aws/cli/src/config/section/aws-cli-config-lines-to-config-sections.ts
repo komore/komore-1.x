@@ -12,8 +12,8 @@ export function awsCliConfigLinesToConfigSections(): (
   sections: ReadonlyArray<AwsCliConfigSection>,
   line: string
 ) => ReadonlyArray<AwsCliConfigSection> {
-  type SectionLineMatches = readonly [matches: string, type: string, name: string];
-  type PropertyLineMatches = readonly [matches: string, propertyName: string, propertyValue: string];
+  type SectionLineMatches = readonly [matched: string, type: string, name: string];
+  type PropertyLineMatches = readonly [matched: string, propertyName: string, propertyValue: string];
   const toSectionMatches = stringToMatchesWith<SectionLineMatches>(/^\[([^\s]+)\s+([^\]]+)\]$/);
   const toPropertyMatches = stringToMatchesWith<PropertyLineMatches>(/^([^\s=]+)\s*=\s*([^\s]+)\s*$/);
 

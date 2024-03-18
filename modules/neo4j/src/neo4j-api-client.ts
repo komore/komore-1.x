@@ -11,7 +11,7 @@ export interface Neo4jApiClient {
   /**
    * Neo4j driver
    */
-  [neo4jApiClientSymbol]: Driver;
+  readonly [neo4jApiClientSymbol]: Driver;
 }
 
 /**

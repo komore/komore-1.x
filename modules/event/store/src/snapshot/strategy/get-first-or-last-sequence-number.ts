@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { type EventStoreSnapshotStrategySelectionType } from './event-store-snapshot-strategy-selection-type';
@@ -11,7 +11,7 @@ import { type EventStoreSnapshotStrategySelectionType } from './event-store-snap
  * @returns Sequence number
  * @template EventType Event type
  */
-export function getFirstOrLastSequenceNumber<EventType extends GenericEvent>(
+export function getFirstOrLastSequenceNumber<EventType extends Event>(
   eventsWithMetadata: readonly [EventWithStoreMetadata<EventType>, ...ReadonlyArray<EventWithStoreMetadata<EventType>>],
   selectionType: Extract<EventStoreSnapshotStrategySelectionType, 'first' | 'last'>
 ): number {

@@ -1,8 +1,11 @@
-import { type SQSClientConfig } from '@aws-sdk/client-sqs';
-
-import { type AwsClientOptions } from '@komore/aws';
+import { type SqsApiClient } from '@komore/aws/sqs';
 
 /**
  * SQS client options
  */
-export interface SqsClientOptions extends AwsClientOptions<SQSClientConfig> {}
+export interface SqsClientOptions {
+  /**
+   * SQS API client
+   */
+  readonly apiClient: SqsApiClient;
+}

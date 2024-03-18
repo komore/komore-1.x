@@ -1,10 +1,10 @@
-import { type GenericCommand } from '../generic-command';
+import { type Command } from '../command';
 
 /**
  * Command handler
  *
  * @template CommandType Command type
  */
-export interface CommandHandler<CommandType extends GenericCommand> {
+export interface CommandHandler<CommandType extends Command> {
   (command: CommandType): Observable<void>;
 }

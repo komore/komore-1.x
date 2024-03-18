@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 import { type EventStoreEventRepository } from '@komore/event/store';
 import { MemoryEventStoreEventRepositoryOptions } from './memory-event-store-event-repository-options';
 
@@ -9,7 +9,7 @@ import { MemoryEventStoreEventRepositoryOptions } from './memory-event-store-eve
  * @returns Memory event store event repository
  * @template EventType Event type
  */
-export function createMemoryEventStoreEventRepository<EventType extends GenericEvent>(
+export function createMemoryEventStoreEventRepository<EventType extends Event>(
   repositoryOptions: MemoryEventStoreEventRepositoryOptions
 ): EventStoreEventRepository<EventType> {
   return {

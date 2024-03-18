@@ -1,6 +1,4 @@
 export { createQueryType } from './type/create-query-type';
-export { type GenericQuery } from './generic-query';
-export { type GenericQueryType } from './type/generic-query-type';
 export { matchQuery } from './matcher/match-query';
 export { type QueryFromCreator } from './creator/query-from-creator';
 export { type QueryFromType } from './type/query-from-type';
@@ -11,3 +9,4 @@ export { type QueryName } from './query-name';
 export { queryProperties } from './properties/query-properties';
 export { type QueryParametersFromQuery } from './query-parameters-from-query';
 export { type QueryResultFromQuery } from './query-result-from-query';
+export { type QueryType } from './type/query-type';

@@ -1,16 +1,16 @@
 import { defer, redactValue } from '@komore/reactive';
 
-import { fromIDBRequest } from './from-idb-request';
+import { fromIDBRequest } from './request/from-idb-request';
 
 /**
  * Deletes an IndexedDB database
  *
- * @param name Database name
+ * @param databaseName Database name
  * @returns Observable that emits when the database has been deleted
  */
-export function deleteIndexedDBDatabase(name: string): Observable<void> {
+export function deleteIndexedDBDatabase(databaseName: string): Observable<void> {
   return defer(() => {
-    const idbRequest = indexedDB.deleteDatabase(name);
+    const idbRequest = indexedDB.deleteDatabase(databaseName);
     return fromIDBRequest(idbRequest).pipe(redactValue());
   });
 }

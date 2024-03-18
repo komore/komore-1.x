@@ -1,3 +1,16 @@
+export {} from './user/admin/admin-create-cognito-user';
+export { adminDeleteCognitoUser } from './user/admin/admin-delete-cognito-user';
+export { type AdminDeleteCognitoUserParameters } from './user/admin/admin-delete-cognito-user-parameters';
+export { adminDisableCognitoUser } from './user/admin/admin-disable-cognito-user';
+export { type AdminDisableCognitoUserParameters } from './user/admin/admin-disable-cognito-user-parameters';
+export { adminEnableCognitoUser } from './user/admin/admin-enable-cognito-user';
+export { type AdminEnableCognitoUserParameters } from './user/admin/admin-enable-cognito-user-parameters';
+export { adminGetCognitoUser } from './user/admin/admin-get-cognito-user';
+export { type AdminGetCognitoUserParameters } from './user/admin/admin-get-cognito-user-parameters';
+export { type AdminGetCognitoUserResult } from './user/admin/admin-get-cognito-user-result';
+export { adminInitiateCognitoAuth } from './auth/admin/admin-initiate-cognito-auth';
+export { type AdminInitiateCognitoAuthParameters } from './auth/admin/admin-initiate-cognito-auth-parameters';
+export { type AdminInitiateCognitoAuthResult } from './auth/admin/admin-initiate-cognito-auth-result';
 export { cognitoApiError } from './cognito-api.error';
 export { type CognitoChallengeName } from './challenge/name/cognito-challenge-name';
 export { cognitoChallengeNames } from './challenge/name/cognito-challenge-names';

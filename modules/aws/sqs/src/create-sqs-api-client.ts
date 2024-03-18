@@ -11,5 +11,5 @@ import { type SqsApiClientOptions } from './sqs-api-client-options';
  */
 export function createSqsApiClient(clientOptions: SqsApiClientOptions): SqsApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient(awsClientOptions);
+  return createAwsApiClient({ ...awsClientOptions, service: 'sqs' });
 }

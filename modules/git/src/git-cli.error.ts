@@ -24,4 +24,10 @@ export const gitCliError = createErrorType(gitDomain, {
      */
     readonly message: string;
   }>(),
+  unsupportedVersionResult: errorProperties<{
+    /**
+     * Version line
+     */
+    readonly versionLine: string;
+  }>(),
 });

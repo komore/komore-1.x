@@ -7,7 +7,7 @@ import { type AwsApiErrorTypeResult } from './aws-api-error-type-result';
 export function awsApiErrorTypeResultToApiError(
   operation: string
 ): (apiErrorResult: AwsApiErrorTypeResult) => ErrorFromType<typeof awsApiError> {
-  type Matches = readonly [matches: string, service: string, exceptionName: string];
+  type Matches = readonly [matched: string, service: string, exceptionName: string];
   const toMatches = stringToMatchesWith<Matches>(/^([^#]+)#(.+)$/);
   return ({ __type: type }) => {
     const matches = toMatches(type);

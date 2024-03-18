@@ -7,7 +7,11 @@ import { type Domain } from '@komore/domain';
  * @template CommandName Command name
  * @template CommandParameters Command parameters
  */
-export interface Command<DomainType extends Domain, CommandName extends string, CommandParameters> {
+export interface Command<
+  DomainType extends Domain = Domain,
+  CommandName extends string = string,
+  CommandParameters = any,
+> {
   /**
    * Domain type
    */

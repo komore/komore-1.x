@@ -82,10 +82,8 @@ export function createKRouter(): CliRouter<CommandFromType<typeof kCommand>> {
             },
           },
         },
-        ({ taskName, projectName, all, parallel }) => {
-          console.log('pft');
-          return kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel });
-        }
+        ({ taskName, projectName, all, parallel }) =>
+          kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel })
       ),
       cliRoute('validate', 'Validate the workspace', kCommand.validateWorkspace),
       cliRoute('version', 'Display workspace version information', kCommand.displayVersion),

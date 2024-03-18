@@ -1,7 +1,13 @@
 export { createSqsClient } from './client/create-sqs-client';
+export { createSqsCommandHandler } from './command/create-sqs-command-handler';
+export { createSqsQueryHandler } from './query/create-sqs-query-handler';
 export { type SqsClient } from './client/sqs-client';
 export { type SqsClientOptions } from './client/sqs-client-options';
 export { sqsCommand } from './sqs.command';
+export { type SqsCommandHandler } from './command/sqs-command-handler';
+export { type SqsCommandHandlerOptions } from './command/sqs-command-handler-options';
 export { sqsError } from './sqs.error';
 export { sqsEvent } from './sqs.event';
 export { sqsQuery } from './sqs.query';
+export { type SqsQueryHandler } from './query/sqs-query-handler';
+export { type SqsQueryHandlerOptions } from './query/sqs-query-handler-options';

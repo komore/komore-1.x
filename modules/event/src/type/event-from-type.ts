@@ -1,5 +1,5 @@
 import { type EventFromCreator } from '../creator/event-from-creator';
-import { type GenericEventType } from './generic-event-type';
+import { type EventType as GenericEventType } from './event-type';
 
 /**
  * Event from event type

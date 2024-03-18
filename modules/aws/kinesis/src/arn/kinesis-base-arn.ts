@@ -1,6 +1,6 @@
-import { type Arn, type AwsAccountId, type AwsRegion } from '@komore/aws';
+import { type RegionalArn } from '@komore/aws';
 
 /**
  * Kinesis base ARN
  */
-export type KinesisBaseArn<Value extends string> = Arn<'kinesis', `${AwsRegion}:${AwsAccountId}:${Value}`>;
+export type KinesisBaseArn<Value extends string> = RegionalArn<'kinesis', Value>;

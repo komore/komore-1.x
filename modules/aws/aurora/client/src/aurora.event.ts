@@ -1,8 +1,7 @@
-import { createAwsEventType } from '@komore/aws';
-
-import { auroraDomain } from './aurora.domain';
+import { auroraDomain } from '@komore/aws/aurora';
+import { createEventType } from '@komore/event';
 
 /**
  * Aurora event
  */
-export const auroraEvent = createAwsEventType(auroraDomain, {});
+export const auroraEvent = createEventType(auroraDomain, {});

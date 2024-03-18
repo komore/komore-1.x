@@ -1,8 +1,6 @@
-export { createTranslateClient } from './client/create-translate-client';
-export { type TranslateClient } from './client/translate-client';
-export { type TranslateClientOptions } from './client/translate-client-options';
-export { translateCommand } from './translate.command';
+export { createTranslateApiClient } from './create-translate-api-client';
+export { type TranslateApiClient } from './translate-api-client';
+export { type TranslateApiClientOptions } from './translate-api-client-options';
+export { translateApiError } from './translate-api.error';
 export { translateDomain } from './translate.domain';
-export { translateError } from './translate.error';
-export { translateEvent } from './translate.event';
-export { translateQuery } from './translate.query';
+export { translateTypeError } from './translate-type.error';

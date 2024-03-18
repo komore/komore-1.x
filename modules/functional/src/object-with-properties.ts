@@ -18,10 +18,10 @@ export function objectWithProperties<Properties extends ReadonlyRecord<string, u
       ? (propertyKey, value) => ({ ...propertyDescriptor(propertyKey, value), value })
       : (_, value) => ({ ...propertyDescriptor, value });
   const propertyEntries = Object.entries(properties);
-  const propertyDescriptors = propertyEntries.reduce((acc, [propertyKey, value]) => {
-    acc[propertyKey] = toPropertyDescriptor(propertyKey, value as Properties[string]);
-    return acc;
-  }, {} as PropertyDescriptorMap);
+  const propertyDescriptors = propertyEntries.reduce((acc, [propertyKey, value]) => ({
+    ...acc,
+    [propertyKey]: toPropertyDescriptor(propertyKey, value as Properties[string]),
+  }));
 
   return <T>(object: T) => Object.defineProperties(object, propertyDescriptors) as T & Properties;
 }

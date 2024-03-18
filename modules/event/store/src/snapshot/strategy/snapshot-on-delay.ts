@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 import { assert } from '@komore/runtime';
 
 import { type EventStoreSnapshotStrategy } from './event-store-snapshot-strategy';
@@ -16,7 +16,7 @@ import { isFirstOrLastSelectionType } from './is-first-or-last-selection-type';
  * @template SnapshotType Snapshot type
  * @template EventType Event types
  */
-export function snapshotOnDelay<SnapshotType, EventType extends GenericEvent>(
+export function snapshotOnDelay<SnapshotType, EventType extends Event>(
   duration: Temporal.Duration,
   selectionType: EventStoreSnapshotStrategySelectionType = 'last'
 ): EventStoreSnapshotStrategy<SnapshotType, EventType> {

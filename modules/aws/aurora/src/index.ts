@@ -1,4 +1,13 @@
 export { type AuroraApiClient } from './aurora-api-client';
 export { type AuroraApiClientOptions } from './aurora-api-client-options';
 export { auroraDomain } from './aurora.domain';
+export { beginAuroraTransaction } from './transaction/begin-aurora-transaction';
+export { type BeginAuroraTransactionParameters } from './transaction/begin-aurora-transaction-parameters';
+export { type BeginAuroraTransactionResult } from './transaction/begin-aurora-transaction-result';
+export { commitAuroraTransaction } from './transaction/commit-aurora-transaction';
+export { type CommitAuroraTransactionParameters } from './transaction/commit-aurora-transaction-parameters';
+export { type CommitAuroraTransactionResult } from './transaction/commit-aurora-transaction-result';
 export { createAuroraApiClient } from './create-aurora-api-client';
+export { rollbackAuroraTransaction } from './transaction/rollback-aurora-transaction';
+export { type RollbackAuroraTransactionParameters } from './transaction/rollback-aurora-transaction-parameters';
+export { type RollbackAuroraTransactionResult } from './transaction/rollback-aurora-transaction-result';

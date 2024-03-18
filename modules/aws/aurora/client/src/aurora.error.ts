@@ -1,6 +1,5 @@
+import { auroraDomain } from '@komore/aws/aurora';
 import { createErrorType } from '@komore/error';
-
-import { auroraDomain } from './aurora.domain';
 
 /**
  * Aurora error

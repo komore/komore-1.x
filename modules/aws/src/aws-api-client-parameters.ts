@@ -9,6 +9,10 @@ export interface AwsApiClientParameters {
    */
   readonly headers?: ReadonlyArray<HttpHeader>;
   /**
+   * Host override
+   */
+  readonly host?: URL;
+  /**
    * HTTP method
    *
    * @note Defaults to `POST`

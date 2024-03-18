@@ -1,8 +1,7 @@
-import { createAwsQueryType } from '@komore/aws';
-
-import { auroraDomain } from './aurora.domain';
+import { auroraDomain } from '@komore/aws/aurora';
+import { createQueryType } from '@komore/query';
 
 /**
  * Aurora query
  */
-export const auroraQuery = createAwsQueryType(auroraDomain, {});
+export const auroraQuery = createQueryType(auroraDomain, {});

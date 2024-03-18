@@ -1,5 +1,5 @@
 import { type CommandFromCreator } from '../creator/command-from-creator';
-import { type GenericCommandType } from './generic-command-type';
+import { type CommandType as GenericCommandType } from './command-type';
 
 /**
  * Command from command type

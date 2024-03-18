@@ -1,7 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 import { entriesToObject, objectToEntries } from '@komore/functional';
 
-import { type GenericCommandType } from './generic-command-type';
+import { type CommandType as GenericCommandType } from './command-type';
 
 /**
  * Merges a composite command type into a command type

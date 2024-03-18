@@ -45,7 +45,7 @@
               "requireLast": true
             },
             "singleline": {
-              "delimiter": "comma",
+              "delimiter": "semi",
               "requireLast": false
             }
           }
@@ -88,14 +88,28 @@
             "allow": [
               { "from": "lib", "name": "AddEventListenerOptions" },
               { "from": "lib", "name": "CryptoKey" },
+              { "from": "lib", "name": "Event" },
               { "from": "lib", "name": "FileReader" },
+              { "from": "lib", "name": "IDBDatabase" },
+              { "from": "lib", "name": "IDBKeyRange" },
+              { "from": "lib", "name": "IDBObjectStore" },
+              { "from": "lib", "name": "IDBOpenDBRequest" },
+              { "from": "lib", "name": "IDBRequest" },
+              { "from": "lib", "name": "IDBTransaction" },
+              { "from": "lib", "name": "IDBValidKey" },
               { "from": "lib", "name": "MessageEvent" },
               { "from": "lib", "name": "PropertyDescriptorMap" },
               { "from": "lib", "name": "RegExp" },
               { "from": "lib", "name": "RequestInit" },
+              { "from": "lib", "name": "RTCOfferOptions" },
+              { "from": "lib", "name": "RTCPeerConnection" },
+              { "from": "lib", "name": "RTCSessionDescriptionInit" },
+              { "from": "lib", "name": "SpeechSynthesisUtterance" },
+              { "from": "lib", "name": "Storage" },
               { "from": "lib", "name": "Uint8Array" },
               { "from": "lib", "name": "URL" },
               { "from": "package", "name": "Observable", "package": "rxjs" },
+              { "from": "package", "name": "SpeechRecognition", "package": "@types/dom-speech-recognition" },
               { "from": "package", "name": "Subject", "package": "rxjs" }
             ],
             "ignoreInferredTypes": true,

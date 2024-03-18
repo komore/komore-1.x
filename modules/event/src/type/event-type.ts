@@ -10,7 +10,10 @@ import { type EventCreator } from '../creator/event-creator';
  * @template DomainType Domain type
  * @template EventPropertiesByEventName Event properties by event name
  */
-export type EventType<DomainType extends Domain, EventPropertiesByEventName extends ReadonlyRecord<string, any>> = {
+export type EventType<
+  DomainType extends Domain = Domain,
+  EventPropertiesByEventName extends ReadonlyRecord<string, any> = ReadonlyRecord<string, any>,
+> = {
   /**
    * Creates a new event
    *

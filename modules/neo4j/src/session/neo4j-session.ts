@@ -7,7 +7,7 @@ export interface Neo4jSession {
   /**
    * Neo4j driver session
    */
-  [neo4jSessionSymbol]: RxSession;
+  readonly [neo4jSessionSymbol]: RxSession;
 }
 
 /**

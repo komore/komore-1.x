@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
 import { type EventStoreSnapshot } from '../event-store-snapshot';
@@ -17,7 +17,7 @@ import { type EventStoreSnapshot } from '../event-store-snapshot';
  * @template AggregateType Aggregate type
  * @template EventType Event type
  */
-export interface EventStoreSnapshotStrategy<AggregateType, EventType extends GenericEvent> {
+export interface EventStoreSnapshotStrategy<AggregateType, EventType extends Event> {
   (
     eventsWithMetadata: readonly [
       EventWithStoreMetadata<EventType>,

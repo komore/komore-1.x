@@ -11,8 +11,8 @@ import { type CommandCreator } from '../creator/command-creator';
  * @template CommandParametersByCommandName Command parameters by command name
  */
 export type CommandType<
-  DomainType extends Domain,
-  CommandParametersByCommandName extends ReadonlyRecord<string, any>,
+  DomainType extends Domain = Domain,
+  CommandParametersByCommandName extends ReadonlyRecord<string, any> = ReadonlyRecord<string, any>,
 > = {
   /**
    * Creates a new command

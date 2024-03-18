@@ -1,5 +1,12 @@
-import { type GenericEvent } from '../generic-event';
+import { type Event } from '../event';
 
-export function eventToProperties<EventType extends GenericEvent>(event: EventType): EventType['properties'] {
+/**
+ * Returns an event's properties, given an event
+ *
+ * @param event Event
+ * @returns Event properties
+ * @template EventType Event type
+ */
+export function eventToProperties<EventType extends Event>(event: EventType): EventType['properties'] {
   return event.properties;
 }

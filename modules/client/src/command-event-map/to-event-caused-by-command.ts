@@ -1,10 +1,10 @@
-import { type GenericCommand } from '@komore/command';
-import { type GenericEvent } from '@komore/event';
+import { type Command } from '@komore/command';
+import { type Event } from '@komore/event';
 
 import { type CommandEventPair } from './command-event-pair';
 
-export function toEventCausedByCommand<CommandType extends GenericCommand>(
+export function toEventCausedByCommand<CommandType extends Command>(
   command: CommandType
-): <EventType extends GenericEvent>(event: EventType) => CommandEventPair<CommandType, EventType> {
+): <EventType extends Event>(event: EventType) => CommandEventPair<CommandType, EventType> {
   return event => [command, event];
 }

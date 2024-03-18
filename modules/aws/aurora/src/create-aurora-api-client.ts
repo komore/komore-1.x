@@ -11,5 +11,5 @@ import { type AuroraApiClientOptions } from './aurora-api-client-options';
  */
 export function createAuroraApiClient(clientOptions: AuroraApiClientOptions): AuroraApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient(awsClientOptions);
+  return createAwsApiClient({ ...awsClientOptions, service: 'aurora' });
 }

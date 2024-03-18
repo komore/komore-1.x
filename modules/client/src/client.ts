@@ -1,7 +1,7 @@
-import { type CommandFromType, type GenericCommandType } from '@komore/command';
+import { type CommandFromType, type CommandType as GenericCommandType } from '@komore/command';
 import { type ErrorFromType, type GenericErrorType } from '@komore/error';
-import { type EventFromType, type GenericEventType } from '@komore/event';
-import { type GenericQueryType, type QueryResultFromQuery } from '@komore/query';
+import { type EventType as GenericEventType, type EventFromType } from '@komore/event';
+import { type QueryType as GenericQueryType, type QueryResultFromQuery } from '@komore/query';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 /**

@@ -1,18 +1,5 @@
-/*export { type AwsClient } from './client/aws-client';
-export { type AwsClientOptions } from './client/aws-client-options';
-export { type AwsCommandHandlerOptions } from './command/aws-command-handler-options';
-export { type AwsQueryHandler } from './query/aws-query-handler';
-export { awsQueryProperties } from './query/aws-query-properties';
-export { createAwsClient } from './client/create-aws-client';
-export { createAwsCommandType } from './command/create-aws-command-type';
-export { createAwsEventType } from './event/create-aws-event-type';
-export { createAwsQueryType } from './query/create-aws-query-type';
-export { createAwsRequest } from './create-aws-request';
-export { matchAwsCommand } from './command/match-aws-command';
-export { sendAwsCommand } from './command/send-aws-command';
-export { sendBatchAwsCommand } from './command/send-batch-aws-command';*/
-
 export { type Arn } from './arn/arn';
+export { arnToServiceName } from './arn/arn-to-service-name';
 export { asArn } from './arn/as-arn';
 export { asAwsAccountId } from './account/id/as-aws-account-id';
 export { asAwsRegion } from './region/as-aws-region';
@@ -21,7 +8,14 @@ export { type AuthorizationHttpHeaderAwsSignatureSchemeProperties } from './http
 export { type AwsAccessKeyCredentials } from './credentials/aws-access-key-credentials';
 export { type AwsAccountId } from './account/id/aws-account-id';
 export { type AwsApiClient } from './aws-api-client';
+export { awsApiClientJsonResultStrategy } from './strategy/result/aws-api-client-json-result-strategy';
 export { type AwsApiClientOptions } from './aws-api-client-options';
+export { type AwsApiClientParameters } from './aws-api-client-parameters';
+export { type AwsApiClientParametersStrategy } from './strategy/parameters/aws-api-client-parameters-strategy';
+export { type AwsApiClientResultStrategy } from './strategy/result/aws-api-client-result-strategy';
+export { awsApiClientXmlResultStrategy } from './strategy/result/aws-api-client-xml-result-strategy';
+export { type AwsApiClientStrategy } from './strategy/aws-api-client-strategy';
+export { awsApiClientTargetPrefixParametersStrategy } from './strategy/parameters/aws-api-client-target-prefix-parameters-strategy';
 export { type AwsApiServiceClientOptions } from './aws-api-service-client-options';
 export { type AwsRegion } from './region/aws-region';
 export { awsRegions } from './region/aws-regions';
@@ -30,6 +24,7 @@ export { createAwsSignatureAuthorizationHttpHeader } from './http/create-aws-sig
 export { isArn } from './arn/is-arn';
 export { isAwsAccountId } from './account/id/is-aws-account-id';
 export { isAwsRegion } from './region/is-aws-region';
+export { type RegionalArn } from './arn/regional/regional-arn';
 export { validateArn } from './arn/validate-arn';
 export { validateAwsAccountId } from './account/id/validate-aws-account-id';
 export { validateAwsRegion } from './region/validate-aws-region';

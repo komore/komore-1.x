@@ -1,5 +1,6 @@
 import { type HttpMethod } from '@komore/http';
-import { type HttpClientResponse } from '@komore/http/client';
+
+import { type AwsApiClientResultStrategy } from '../strategy/result/aws-api-client-result-strategy';
 
 /**
  * AWS HTTP client response to result options
@@ -14,9 +15,9 @@ export interface AwsHttpClientResponseToResultOptions {
    */
   readonly operation: string;
   /**
-   * Optional XML response handler
+   * Strategies
    */
-  readonly toXml?: <T>(httpClientResponse: HttpClientResponse) => Observable<T>;
+  readonly strategies: ReadonlyArray<AwsApiClientResultStrategy>;
   /**
    * URL
    */

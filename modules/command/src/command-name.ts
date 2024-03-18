@@ -1,5 +1,5 @@
-import { type GenericCommand } from './generic-command';
-import { type GenericCommandType } from './type/generic-command-type';
+import { type Command as GenericCommand } from './command';
+import { type CommandType as GenericCommandType } from './type/command-type';
 
 /**
  * Command name

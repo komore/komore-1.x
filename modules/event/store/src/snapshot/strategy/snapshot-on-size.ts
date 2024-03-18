@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 import { assert } from '@komore/runtime';
 
 import { type EventWithStoreMetadata } from '../../metadata/event-with-store-metadata';
@@ -17,7 +17,7 @@ import { isFirstOrLastSelectionType } from './is-first-or-last-selection-type';
  * @template AggregateType Snapshot type
  * @template EventType Event types
  */
-export function snapshotOnSize<AggregateType, EventType extends GenericEvent>(
+export function snapshotOnSize<AggregateType, EventType extends Event>(
   bytes: number,
   selectionType: EventStoreSnapshotStrategySelectionType = 'last'
 ): EventStoreSnapshotStrategy<AggregateType, EventType> {
@@ -43,7 +43,7 @@ function eventsWithMetadataToSizeAndIndex(
   bytes: number
 ): (
   sizeAndIndex: readonly [number, number],
-  eventWithMetadata: EventWithStoreMetadata<GenericEvent>,
+  eventWithMetadata: EventWithStoreMetadata<Event>,
   index: number
 ) => readonly [number, number] {
   return ([sizeSum, index], { metadata }, i) =>

@@ -11,8 +11,11 @@ import { type Query } from '../query';
  * @template QueryParametersResultByQueryName Query parameters and result by query name
  */
 export type QueryType<
-  DomainType extends Domain,
-  QueryPropertiesResultByByQueryName extends ReadonlyRecord<string, readonly [resultType: any, parametersType: any]>,
+  DomainType extends Domain = Domain,
+  QueryPropertiesResultByByQueryName extends ReadonlyRecord<
+    string,
+    readonly [resultType: any, parametersType: any]
+  > = ReadonlyRecord<string, readonly [resultType: any, parametersType: any]>,
 > = {
   /**
    * Creates a new query

@@ -1,6 +1,6 @@
-import { type AwsApiClientOptions } from '@komore/aws';
+import { type AwsApiServiceClientOptions } from '@komore/aws';
 
 /**
  * SQS API client options
  */
-export interface SqsApiClientOptions extends AwsApiClientOptions {}
+export interface SqsApiClientOptions extends AwsApiServiceClientOptions {}

@@ -1,4 +1,10 @@
 export { asDynamoDBTableName } from './table/name/as-dynamodb-table-name';
+export { batchGetDynamoDBItem } from './batch/batch-get-dynamodb-item';
+export { type BatchGetDynamoDBItemParameters } from './batch/batch-get-dynamodb-item-parameters';
+export { type BatchGetDynamoDBItemResult } from './batch/batch-get-dynamodb-item-result';
+export { batchWriteDynamoDBItem } from './batch/batch-write-dynamodb-item';
+export { type BatchWriteDynamoDBItemParameters } from './batch/batch-write-dynamodb-item-parameters';
+export { type BatchWriteDynamoDBItemResult } from './batch/batch-write-dynamodb-item-result';
 export { createDynamoDBApiClient } from './create-dynamodb-api-client';
 export { createDynamoDBTable } from './table/create-dynamodb-table';
 export { type CreateDynamoDBTableParameters } from './table/create-dynamodb-table-parameters';
@@ -12,9 +18,12 @@ export { type DescribeDynamoDBTableResult } from './table/describe-dynamodb-tabl
 export { type DynamoDBApiClient } from './dynamodb-api-client';
 export { type DynamoDBApiClientOptions } from './dynamodb-api-client-options';
 export { type DynamoDBAttributeValue } from './item/dynamodb-attribute-value';
+export { type DynamoDBDeleteRequest } from './request/dynamodb-delete-request';
 export { dynamoDBDomain } from './dynamodb.domain';
-export { getDynamoDBItem } from './item/get-dynamodb-item';
+export { type DynamoDBPutRequest } from './request/dynamodb-put-request';
 export { type DynamoDBTableName } from './table/name/dynamodb-table-name';
+export { type DynamoDBWriteRequest } from './request/dynamodb-write-request';
+export { getDynamoDBItem } from './item/get-dynamodb-item';
 export { type GetDynamoDBItemParameters } from './item/get-dynamodb-item-parameters';
 export { type GetDynamoDBItemResult } from './item/get-dynamodb-item-result';
 export { isDynamoDBTableName } from './table/name/is-dynamodb-table-name';
@@ -24,6 +33,7 @@ export { type ListDynamoDBTablesResult } from './table/list-dynamodb-tables-resu
 export { queryDynamoDB } from './item/query-dynamodb';
 export { type QueryDynamoDBParameters } from './item/query-dynamodb-parameters';
 export { type QueryDynamoDBResult } from './item/query-dynamodb-result';
+export { queryDynamoDBResults } from './item/query-dynamodb-results';
 export { updateDynamoDBTable } from './table/update-dynamodb-table';
 export { type UpdateDynamoDBTableParameters } from './table/update-dynamodb-table-parameters';
 export { type UpdateDynamoDBTableResult } from './table/update-dynamodb-table-result';

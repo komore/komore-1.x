@@ -1,6 +1,6 @@
 import { runApplication } from '@komore/application';
 import { type cliEvent } from '@komore/cli';
-import { type GenericCommand } from '@komore/command';
+import { type Command } from '@komore/command';
 import { type EventFromType } from '@komore/event';
 import { createNodeHost } from '@komore/node';
 import { catchError, ignoreValues, mapTo, mergeMap, of, race, redactValue, Subject, tapNext } from '@komore/reactive';
@@ -18,7 +18,7 @@ import { setupCliApplication } from './setup-cli-application';
  * @param applicationOptions CLI application options
  * @returns CLI application
  */
-export function runCliApplication<CommandType extends GenericCommand>(
+export function runCliApplication<CommandType extends Command>(
   applicationOptions: CliApplicationOptions<CommandType>
 ): Observable<void> {
   const host = createNodeHost();

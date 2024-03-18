@@ -1,8 +1,9 @@
-import { type CommandFromType, type GenericCommandType } from '@komore/command';
+import { type CommandFromType, type CommandType as GenericCommandType } from '@komore/command';
 import { type ErrorFromType, type GenericErrorType } from '@komore/error';
-import { type EventFromType, type EventName, type GenericEventType, isEventOfType } from '@komore/event';
-import { type QueryFromType, type GenericQueryType } from '@komore/query';
-import { filter, first, ignoreValues, map, merge, Subject, tapNext } from '@komore/reactive';
+import { isEventOfType, type EventFromType, type EventName, type EventType as GenericEventType } from '@komore/event';
+import { objectWithProperties } from '@komore/functional';
+import { type QueryFromType, type QueryType as GenericQueryType } from '@komore/query';
+import { filter, first, ignoreValues, map, merge, Subject } from '@komore/reactive';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type Client } from './client';
@@ -31,8 +32,8 @@ export function createClient<
   const errorsSubject = new Subject<ErrorFromType<ErrorType>>();
   const errors = errorsSubject.asObservable();
 
-  const commandHandler = clientOptions.commandHandler(event => eventsSubject.next(event));
-  const queryHandler = clientOptions.queryHandler();
+  const commandHandler = clientOptions.commandHandler({ toEvents: event => eventsSubject.next(event) });
+  const queryHandler = clientOptions.queryHandler({});
 
   const client = (command: CommandFromType<CommandType>, eventName: EventName<EventFromType<EventType>>) =>
     merge([
@@ -40,21 +41,23 @@ export function createClient<
         filter(([sourceCommand]) => sourceCommand === command),
         map(([, event]) => event),
         filter(isEventOfType(event, eventName)),
-        first(),
-        tapNext(x => console.log('event received', x.properties))
+        first()
       ),
-      commandHandler(command).pipe(
-        tapNext(() => console.log('command done')),
-        ignoreValues()
-      ),
+      commandHandler(command).pipe(ignoreValues()),
     ]);
   const execute = (command: CommandFromType<CommandType>) => commandHandler(command);
   const query = (query: QueryFromType<QueryType>) => queryHandler(query);
 
-  client.errors = errors;
-  client.events = events;
-  client.execute = execute;
-  client.query = query;
-
-  return client as Client<CommandType, EventType, QueryType, ErrorType, CommandEventMappingType>;
+  return objectWithProperties(
+    {
+      errors,
+      events,
+      execute,
+      query,
+    },
+    {
+      configurable: false,
+      enumerable: false,
+    }
+  )(client) as Client<CommandType, EventType, QueryType, ErrorType, CommandEventMappingType>;
 }

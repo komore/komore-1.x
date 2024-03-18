@@ -1,5 +1,5 @@
+import { type Command } from '../command';
 import { type CommandName } from '../command-name';
-import { type GenericCommand } from '../generic-command';
 import { type CommandMatcher } from './command-matcher';
 import { type CommandMatcherCase } from './command-matcher-case';
 
@@ -13,7 +13,7 @@ import { type CommandMatcherCase } from './command-matcher-case';
  * @template ResultType Result type
  */
 export function matchCommand<
-  CommandType extends GenericCommand,
+  CommandType extends Command,
   CommandMatcherType extends CommandMatcher<CommandType, unknown>,
 >(command: CommandType, matcher: CommandMatcherType): ReturnType<CommandMatcherType[keyof CommandMatcherType]> {
   const { name, parameters } = command;

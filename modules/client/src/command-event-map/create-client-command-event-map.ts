@@ -1,5 +1,5 @@
-import { type CommandName, type GenericCommandType } from '@komore/command';
-import { type EventName, type GenericEventType } from '@komore/event';
+import { type CommandName, type CommandType as GenericCommandType } from '@komore/command';
+import { type EventName, type EventType as GenericEventType } from '@komore/event';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 export function createClientCommandEventMap<

@@ -1,10 +1,9 @@
-
 /**
  * Documentation state
  */
-export type DocumentationState = Readonly<{
-  content?: string;
-  contentError?: Error;
-  contentLoading: boolean;
-  contentPath?: string;
-}>;
+export interface DocumentationState {
+  readonly content?: string;
+  readonly contentError?: Error;
+  readonly contentLoading: boolean;
+  readonly contentPath?: string;
+}

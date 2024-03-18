@@ -15,13 +15,15 @@ import { type GitVersion } from './git-version';
  * @see {@link https://git-scm.com/docs/git-version git version}
  */
 export function getGitVersion(cliClient: GitCliClient): () => Observable<GitVersion> {
+  const toVersionName = gitCliVersionLineToVersionName();
+
   return () =>
     cliClient(['--version', '--build-options']).pipe(
       map(stringToLines()),
       map(each(stringToTrimmedString)),
       map(lines => {
         const versionLine = lines[0] ?? '';
-        const name = gitCliVersionLineToVersionName(versionLine);
+        const name = toVersionName(versionLine);
         const buildOptionLines = lines.slice(1);
         const buildOptions = gitCliBuildOptionLinesToBuildOptions(buildOptionLines);
         return {

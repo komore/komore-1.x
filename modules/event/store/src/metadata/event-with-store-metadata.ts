@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 import { type EventStoreMetadata } from './event-store-metadata';
 
@@ -7,7 +7,7 @@ import { type EventStoreMetadata } from './event-store-metadata';
  *
  * @template EventType Event type
  */
-export interface EventWithStoreMetadata<EventType extends GenericEvent> {
+export interface EventWithStoreMetadata<EventType extends Event> {
   /**
    * Event
    */

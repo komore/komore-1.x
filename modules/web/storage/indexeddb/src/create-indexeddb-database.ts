@@ -1,18 +1,16 @@
 import { concat, concatMap, defer, empty, fromEvent, ignoreValues, map, of, race, shareReplay } from '@komore/reactive';
 
 import { type IndexedDBDatabaseOptions } from './indexeddb-database-options';
-import { fromIDBOpenDBRequest } from './from-idb-open-db-request';
+import { fromIDBOpenDBRequest } from './request/from-idb-open-db-request';
 
 /**
  * Creates an IndexedDB database
  *
- * @param name Database name
- * @param version Database version
- * @param upgradeHandler Upgrade handler
+ * @param databaseOptions IndexedDB database options
  * @returns IndexedDB database
  */
-export function createIndexedDbDatabase(options: IndexedDBDatabaseOptions): Observable<IDBDatabase> {
-  const { name, version, upgradeHandler } = options;
+export function createIndexedDBDatabase(databaseOptions: IndexedDBDatabaseOptions): Observable<IDBDatabase> {
+  const { name, version, upgradeHandler } = databaseOptions;
 
   return defer(() => {
     const idbOpenDBRequest = indexedDB.open(name, version);
@@ -31,5 +29,5 @@ export function createIndexedDbDatabase(options: IndexedDBDatabaseOptions): Obse
           )
         : empty;
     return race([idbOpenDBRequest$, concat([databaseUpgraded$, idbOpenDBRequest$])]);
-  }).pipe(shareReplay({ bufferSize: 1, refCount: true }));
+  }).pipe(shareReplay({ bufferSize: 1, refCount: true })); /* TODO: refCountDelay so it's not released right away */
 }

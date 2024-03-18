@@ -1,7 +1,7 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 import { entriesToObject, objectToEntries } from '@komore/functional';
 
-import { type GenericEventType } from './generic-event-type';
+import { type EventType as GenericEventType } from './event-type';
 
 /**
  * Merges a composite event type into a event type

@@ -2,6 +2,7 @@ import { mergeMap, tapNext } from '@komore/reactive';
 
 import { type AwsApiClient } from './aws-api-client';
 import { type AwsApiClientOptions } from './aws-api-client-options';
+import { type AwsApiClientParameters } from './aws-api-client-parameters';
 import { getDefaultAwsCredentials } from './credentials/get-default-aws-credentials';
 import { awsApiClientOperationToHttpClientRequest } from './operation/aws-api-client-operation-to-http-client-request';
 import { getDefaultAwsRegion } from './region/get-default-aws-region';
@@ -15,7 +16,7 @@ import { httpClientRequestWithAwsAuthorizationHeader } from './signature/http-cl
  * @returns AWS API client
  */
 export function createAwsApiClient(clientOptions: AwsApiClientOptions): AwsApiClient {
-  const { environmentVariables, httpClient, service, toXml } = clientOptions;
+  const { environmentVariables, httpClient, service, strategies } = clientOptions;
   const {
     credentials = getDefaultAwsCredentials(environmentVariables),
     region = getDefaultAwsRegion(environmentVariables),
@@ -26,16 +27,21 @@ export function createAwsApiClient(clientOptions: AwsApiClientOptions): AwsApiCl
   const toHttpClientRequest = awsApiClientOperationToHttpClientRequest({ credentials, hashAlgorithm, host });
   const withAuthorizationHeader = httpClientRequestWithAwsAuthorizationHeader({ credentials, region, service });
 
-  return ({ method = 'POST', operation, parameters, resourcePath, searchParams }) => {
+  return <T>(clientParameters: AwsApiClientParameters & { readonly response?: true }): Observable<T> => {
+    const { method = 'POST', operation, parameters, response = false, resourcePath, searchParams } = clientParameters;
     const dateTime = Temporal.Now.zonedDateTimeISO('UTC').toPlainDateTime();
     const url = buildUrl(endpointUrl, resourcePath, searchParams);
-
-    return toHttpClientRequest({ dateTime, method, operation, parameters, url }).pipe(
+    const response$ = toHttpClientRequest({ dateTime, method, operation, parameters, url }).pipe(
       mergeMap(withAuthorizationHeader({ dateTime })),
       mergeMap(httpClient),
-      tapNext(response => console.log('response', response.status, response.headers)),
-      mergeMap(awsHttpClientResponseToResult({ method, operation, ...(toXml !== undefined ? { toXml } : {}), url }))
+      tapNext(({ headers, status }) => console.log('AWS API client response', status, headers))
     );
+
+    return response
+      ? (response$ as Observable<T>)
+      : response$.pipe(
+          mergeMap(awsHttpClientResponseToResult({ method, operation, ...(toXml !== undefined ? { toXml } : {}), url }))
+        );
   };
 }
 

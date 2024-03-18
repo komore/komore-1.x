@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 import { type EventReducer } from './reducer/event-reducer';
 import { type EventStoreSnapshotStrategy } from './snapshot/strategy/event-store-snapshot-strategy';
@@ -9,7 +9,7 @@ import { type EventStoreSnapshotStrategy } from './snapshot/strategy/event-store
  * @template AggregateType Aggregate type
  * @template EventType Event type
  */
-export interface EventStore<AggregateType, EventType extends GenericEvent> {
+export interface EventStore<AggregateType, EventType extends Event> {
   /**
    * Initial value or initial value creator for new aggregates
    */

@@ -1,9 +1,9 @@
 /**
  * Event store snapshot
  *
- * @template StateType State type
+ * @template AggregateType Aggregate type
  */
-export interface EventStoreSnapshot<StateType> {
+export interface EventStoreSnapshot<AggregateType> {
   /**
    * Aggregate key
    */
@@ -15,7 +15,7 @@ export interface EventStoreSnapshot<StateType> {
   /**
    * State type
    */
-  readonly state: StateType;
+  readonly state: AggregateType;
   /**
    * Timestamp
    */

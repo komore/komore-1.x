@@ -1,11 +1,11 @@
-import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { type DynamoDBApiClient } from '@komore/aws/dynamodb';
 
 /**
  * DynamoDB command handler options
  */
 export interface DynamoDBCommandHandlerOptions {
   /**
-   * DynamoDB client
+   * DynamoDB API client
    */
-  readonly client: DynamoDBClient;
+  readonly apiClient: DynamoDBApiClient;
 }

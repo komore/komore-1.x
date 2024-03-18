@@ -10,5 +10,5 @@ import { poetryCliVersionOutputToVersion } from './poetry-cli-version-output-to-
  * @returns Function that returns the Poetry version
  */
 export function getPoetryVersion(cliClient: PoetryCliClient): () => Observable<string> {
-  return () => cliClient(['--version']).pipe(map(poetryCliVersionOutputToVersion));
+  return () => cliClient(['--version']).pipe(map(poetryCliVersionOutputToVersion()));
 }

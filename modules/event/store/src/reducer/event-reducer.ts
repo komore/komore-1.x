@@ -1,4 +1,4 @@
-import { type GenericEvent } from '@komore/event';
+import { type Event } from '@komore/event';
 
 import { type EventStoreMetadata } from '../metadata/event-store-metadata';
 
@@ -12,6 +12,6 @@ import { type EventStoreMetadata } from '../metadata/event-store-metadata';
  * @template AggregateType State type
  * @template EventType Event type
  */
-export interface EventReducer<AggregateType, EventType extends GenericEvent> {
-  (state: AggregateType | undefined, event: EventType, metadata: EventStoreMetadata): AggregateType;
+export interface EventReducer<AggregateType, EventType extends Event> {
+  (state: AggregateType, event: EventType, metadata: EventStoreMetadata): AggregateType;
 }

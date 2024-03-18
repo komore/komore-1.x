@@ -1,4 +1,6 @@
+import { type AwsApiClient } from '@komore/aws';
+
 /**
  * Test AWS API client
  */
-export interface TestAwsApiClient {}
+export interface TestAwsApiClient extends AwsApiClient {}

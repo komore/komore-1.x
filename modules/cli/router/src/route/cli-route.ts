@@ -1,4 +1,4 @@
-import { type GenericCommand } from '@komore/command';
+import { type Command } from '@komore/command';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type CliRouteCommandFactory } from '../definition/cli-route-command-factory';
@@ -20,7 +20,7 @@ import { commandLineToCliRouteParameters } from './command-line-to-cli-route-par
  */
 export function cliRoute<
   Path extends `${string}:${string}`,
-  CommandType extends GenericCommand,
+  CommandType extends Command,
   PathDefinitions extends CliPathParameterDefinitionsFromCliRoutePath<Path>,
   FlagDefinitions extends ReadonlyRecord<string, CliFlagParameterDefinition<unknown, boolean>> = ReadonlyRecord<
     string,
@@ -45,7 +45,7 @@ export function cliRoute<
  */
 export function cliRoute<
   Path extends string,
-  CommandType extends GenericCommand,
+  CommandType extends Command,
   FlagDefinitions extends ReadonlyRecord<string, CliFlagParameterDefinition<unknown, boolean>> = ReadonlyRecord<
     string,
     never
@@ -69,7 +69,7 @@ export function cliRoute<
  * @param commandFactory Command factory
  * @returns Command-line route matcher
  */
-export function cliRoute<Path extends string, CommandType extends GenericCommand>(
+export function cliRoute<Path extends string, CommandType extends Command>(
   path: Path,
   description: string,
   commandFactory: CliRouteCommandFactory<{}, CommandType>
@@ -77,7 +77,7 @@ export function cliRoute<Path extends string, CommandType extends GenericCommand
 
 export function cliRoute<
   Path extends string,
-  CommandType extends GenericCommand,
+  CommandType extends Command,
   PathDefinitions extends CliPathParameterDefinitionsFromCliRoutePath<Path>,
   FlagDefinitions extends ReadonlyRecord<string, CliFlagParameterDefinition<unknown, boolean>>,
   ChildDefinitions extends ReadonlyArray<GenericCliRouteDefinition> = ReadonlyArray<GenericCliRouteDefinition>,

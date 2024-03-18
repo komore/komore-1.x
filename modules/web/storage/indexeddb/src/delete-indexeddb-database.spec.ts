@@ -7,9 +7,8 @@ import { deleteIndexedDBDatabase } from './delete-indexeddb-database';
 feature('Delete database', () => {
   const indexedDBDeleteDatabase = jest.spyOn(indexedDB, 'deleteDatabase');
 
-  beforeEach(() => {
-    indexedDBDeleteDatabase.mockClear();
-  });
+  setup: 'todo';
+  indexedDBDeleteDatabase.mockClear();
 
   return {
     'creates a cold observable'() {

@@ -1,4 +1,6 @@
 import { type S3ApiClient } from '../s3-api-client';
+import { type ListS3ObjectsParameters } from './list-s3-objects-parameters';
+import { type ListS3ObjectsResult } from './list-s3-objects-result';
 
 /**
  * Creates a function that lists S3 objects
@@ -9,6 +11,6 @@ import { type S3ApiClient } from '../s3-api-client';
  */
 export function listS3Objects(
   apiClient: S3ApiClient
-): (parameters: ListS3ObjectParameters) => Observable<ListS3ObjectsResult> {
+): (parameters: ListS3ObjectsParameters) => Observable<ListS3ObjectsResult> {
   return parameters => apiClient('');
 }

@@ -1,6 +1,6 @@
-import { type AwsApiClientOptions } from '@komore/aws';
+import { type AwsApiServiceClientOptions } from '@komore/aws';
 
 /**
  * Aurora API client options
  */
-export interface AuroraApiClientOptions extends AwsApiClientOptions {}
+export interface AuroraApiClientOptions extends AwsApiServiceClientOptions {}

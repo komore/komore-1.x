@@ -1,10 +1,11 @@
-import { type CommandFromType, type CommandHandler, type GenericCommandType } from '@komore/command';
+import { type CommandType as GenericCommandType } from '@komore/command';
 import { type GenericErrorType } from '@komore/error';
-import { type GenericEventType } from '@komore/event';
-import { type GenericQueryType, type QueryFromType, type QueryHandler } from '@komore/query';
+import { type EventType as GenericEventType } from '@komore/event';
+import { type QueryType as GenericQueryType } from '@komore/query';
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type CommandEventPairFromType } from './command-event-map/command-event-pair-from-type';
+import { type ClientCommandHandlerFactory } from './client-command-handler-factory';
+import { type ClientQueryHandlerFactory } from './client-query-handler-factory';
 
 /**
  * Client options
@@ -34,7 +35,7 @@ export interface ClientOptions<
   /**
    * Command handler factory
    */
-  readonly commandHandler: CommandHandlerFactory<CommandType, EventType>;
+  readonly commandHandler: ClientCommandHandlerFactory<CommandType, EventType>;
   /**
    * Error type
    */
@@ -50,21 +51,5 @@ export interface ClientOptions<
   /**
    * Query handler factory
    */
-  readonly queryHandler: QueryHandlerFactory<QueryType>;
-}
-
-/**
- * Command handler factory
- */
-interface CommandHandlerFactory<CommandType extends GenericCommandType, EventType extends GenericEventType> {
-  (
-    events: (pair: CommandEventPairFromType<CommandType, EventType>) => void
-  ): CommandHandler<CommandFromType<CommandType>>;
-}
-
-/**
- * Query handler factory
- */
-interface QueryHandlerFactory<QueryType extends GenericQueryType> {
-  (): QueryHandler<QueryFromType<QueryType>>;
+  readonly queryHandler: ClientQueryHandlerFactory<QueryType>;
 }

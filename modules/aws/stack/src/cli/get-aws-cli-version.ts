@@ -10,7 +10,7 @@ import { AwsCliNotFoundError } from './aws-cli-not-found-error';
  * @returns aws CLI version
  */
 export function getAwsCliVersion(basePath: string): Observable<string> {
-  return executeChildProcess('aws --version', { cwd: basePath }).pipe(
+  return executeChildProcess('aws --version', { workingDirectory: basePath }).pipe(
     throwOnError(() => new AwsCliNotFoundError('aws CLI not found')),
     map(output => output.stdout),
     map(stdout => {

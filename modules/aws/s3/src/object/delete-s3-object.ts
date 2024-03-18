@@ -1,9 +1,12 @@
 import { isDefined } from '@komore/functional';
+import { map } from '@komore/reactive';
 
 import { createS3BypassGovernanceRetentionHttpHeader } from '../header/create-s3-bypass-governance-retention-http-header';
 import { createS3ExpectedBucketOwnerHttpHeader } from '../header/create-s3-expected-bucket-owner-http-header';
 import { createS3MfaHttpHeader } from '../header/create-s3-mfa-http-header';
+import { httpHeadersToS3ResponseElements } from '../header/http-headers-to-s3-response-elements';
 import { type S3ApiClient } from '../s3-api-client';
+import { s3TargetPrefix } from '../s3-target-prefix';
 import { createS3RequestPayerHttpHeader } from '../header/create-s3-request-payer-http-header';
 import { type DeleteS3ObjectParameters } from './delete-s3-object-parameters';
 import { type DeleteS3ObjectResult } from './delete-s3-object-result';
@@ -21,24 +24,37 @@ import { type DeleteS3ObjectResult } from './delete-s3-object-result';
 export function deleteS3Object(
   apiClient: S3ApiClient
 ): (parameters: DeleteS3ObjectParameters) => Observable<DeleteS3ObjectResult> {
+  const toResponseElements = httpHeadersToS3ResponseElements(
+    'x-amz-delete-marker',
+    'x-amz-request-charged',
+    'x-amz-version-id'
+  );
   return parameters => {
     const {
-      bucketName,
-      bypassGovernanceRetention = false,
-      expectedBucketOwner,
-      key,
-      mfa,
-      requestPayer = false,
-      versionId,
+      Bucket,
+      BypassGovernanceRetention = false,
+      ExpectedBucketOwner,
+      Key,
+      Mfa,
+      RequestPayer = false,
+      VersionId,
     } = parameters;
-    const urlSearchParams = new URLSearchParams(versionId !== undefined ? { versionId: versionId ?? 'null' } : {});
-    const resourcePath = `/${key}?${urlSearchParams}`;
-    const httpHeaders = [
-      mfa ? createS3MfaHttpHeader(mfa.deviceSerialNumber, mfa.value) : undefined,
-      requestPayer ? createS3RequestPayerHttpHeader() : undefined,
-      bypassGovernanceRetention ? createS3BypassGovernanceRetentionHttpHeader() : undefined,
-      expectedBucketOwner !== undefined ? createS3ExpectedBucketOwnerHttpHeader(expectedBucketOwner) : undefined,
+    const searchParams = new URLSearchParams(VersionId !== undefined ? { versionId: VersionId ?? 'null' } : {});
+    const resourcePath = Key;
+    const headers = [
+      Mfa ? createS3MfaHttpHeader(Mfa.DeviceSerialNumber, Mfa.Value) : undefined,
+      RequestPayer ? createS3RequestPayerHttpHeader() : undefined,
+      BypassGovernanceRetention ? createS3BypassGovernanceRetentionHttpHeader() : undefined,
+      ExpectedBucketOwner !== undefined ? createS3ExpectedBucketOwnerHttpHeader(ExpectedBucketOwner) : undefined,
     ].filter(isDefined);
-    return apiClient(bucketName, 'DELETE', resourcePath, httpHeaders);
+    return apiClient({
+      Bucket,
+      headers,
+      method: 'DELETE',
+      operation: `${s3TargetPrefix}.DeleteObject`,
+      resourcePath,
+      response: true,
+      searchParams,
+    }).pipe(map(({ headers }) => headers.reduce(toResponseElements, {})));
   };
 }

@@ -7,7 +7,7 @@ import { type Domain } from '@komore/domain';
  * @template EventName Event name
  * @template EventProperties Event properties
  */
-export interface Event<DomainType extends Domain, EventName extends string, EventProperties> {
+export interface Event<DomainType extends Domain = Domain, EventName extends string = string, EventProperties = any> {
   /**
    * Domain
    */

@@ -1,8 +1,9 @@
-import { type HttpClientResponse, type HttpClient } from '@komore/http/client';
+import { type HttpClient } from '@komore/http/client';
 import { type NodeEnvironmentVariables } from '@komore/node/environment';
 
 import { type AwsAccessKeyCredentials } from './credentials/aws-access-key-credentials';
 import { type AwsRegion } from './region/aws-region';
+import { type AwsApiClientStrategy } from './strategy/aws-api-client-strategy';
 
 /**
  * AWS API client options
@@ -33,9 +34,9 @@ export interface AwsApiClientOptions {
    */
   readonly service: string;
   /**
-   * Optional handler used when a response's content type is application/xml
+   * Strategies
    */
-  readonly toXml?: <T>(httpClientResponse: HttpClientResponse) => Observable<T>;
+  readonly strategies: ReadonlyArray<AwsApiClientStrategy>;
   /**
    * URL
    */

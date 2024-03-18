@@ -1,4 +1,5 @@
 import { type DynamoDBApiClient } from '../dynamodb-api-client';
+import { dynamoDBTargetPrefix } from '../dynamodb-target-prefix';
 import { type BatchGetDynamoDBItemParameters } from './batch-get-dynamodb-item-parameters';
 import { type BatchGetDynamoDBItemResult } from './batch-get-dynamodb-item-result';
 
@@ -11,5 +12,9 @@ import { type BatchGetDynamoDBItemResult } from './batch-get-dynamodb-item-resul
 export function batchGetDynamoDBItem(
   apiClient: DynamoDBApiClient
 ): (parameters: BatchGetDynamoDBItemParameters) => Observable<BatchGetDynamoDBItemResult> {
-  return parameters => apiClient('BatchGetItem', parameters);
+  return parameters =>
+    apiClient({
+      operation: `${dynamoDBTargetPrefix}.BatchGetItem`,
+      parameters,
+    });
 }

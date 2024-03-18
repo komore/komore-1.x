@@ -1,5 +1,6 @@
 import { type ReadonlyRecord } from '@komore/typescript';
 
+import { type DynamoDBConsumedCapacity } from '../capacity/dynamodb-consumed-capacity';
 import { type DynamoDBTableName } from '../table/name/dynamodb-table-name';
 import { type DynamoDBAttributeValue } from './dynamodb-attribute-value';
 
@@ -34,7 +35,7 @@ export interface GetDynamoDBItemParameters {
   /**
    * Level of detail for the returned consumption
    */
-  readonly ReturnConsumedCapacity?: 'INDEXES' | 'NONE' | 'TOTAL';
+  readonly ReturnConsumedCapacity?: DynamoDBConsumedCapacity;
   /**
    * Table name
    */

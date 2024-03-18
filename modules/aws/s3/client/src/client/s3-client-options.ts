@@ -1,6 +1,11 @@
-import { type S3ClientConfig } from '@aws-sdk/client-s3';
+import { type S3ApiClient } from '@komore/aws/s3';
 
 /**
  * S3 client options
  */
-export interface S3ClientOptions extends S3ClientConfig {}
+export interface S3ClientOptions {
+  /**
+   * S3 APi client
+   */
+  readonly apiClient: S3ApiClient;
+}

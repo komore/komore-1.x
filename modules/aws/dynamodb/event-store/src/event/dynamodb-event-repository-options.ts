@@ -1,24 +1,30 @@
-import { type DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { type DynamoDBEventAttributeNames } from './dynamodb-event-attribute-names';
+import { type DynamoDBApiClient, type DynamoDBTableName } from '@komore/aws/dynamodb';
+import { type EventType as GenericEventType } from '@komore/event';
+
+import { type DynamoDBEventRepositoryAttributeNames } from './attribute/dynamodb-event-repository-attribute-names';
 
 /**
  * DynamoDB event repository options
  */
-export interface DynamoDBEventRepositoryOptions {
+export interface DynamoDBEventRepositoryOptions<EventType extends GenericEventType = GenericEventType> {
+  /**
+   * DynamoDB API client
+   */
+  readonly apiClient: DynamoDBApiClient;
   /**
    * List of attribute names used to map an event to a DynamoDB item
    */
-  readonly attributeNames?: Partial<DynamoDBEventAttributeNames>;
+  readonly attributeNames?: Partial<DynamoDBEventRepositoryAttributeNames>;
   /**
    * Whether to compress items
    */
   readonly compress?: boolean;
   /**
-   * DynamoDB client
+   * Event type
    */
-  readonly dynamoDBClient?: DynamoDBClient;
+  readonly eventType: EventType;
   /**
    * DynamoDB table name
    */
-  readonly tableName: string;
+  readonly tableName: DynamoDBTableName;
 }

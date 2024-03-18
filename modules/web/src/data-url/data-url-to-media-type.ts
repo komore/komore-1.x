@@ -9,7 +9,7 @@ import { webError } from '../web.error';
  * @returns Function that returns a media type, given a data URL
  */
 export function dataUrlToMediaType(): (dataUrl: URL | string) => MediaType {
-  type Matches = readonly [matches: string, mediaType: string];
+  type Matches = readonly [matched: string, mediaType: string];
   const toMatches = stringToMatchesWith<Matches>(/^data:([^,]*),.+$/);
   return dataUrl => {
     const url = typeof dataUrl === 'string' ? dataUrl : dataUrl.toString();

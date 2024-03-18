@@ -1,5 +1,5 @@
+import { type Event } from '../event';
 import { type EventName } from '../event-name';
-import { type GenericEvent } from '../generic-event';
 import { type EventMatcher } from './event-matcher';
 import { type EventMatcherCase } from './event-matcher-case';
 
@@ -12,7 +12,7 @@ import { type EventMatcherCase } from './event-matcher-case';
  * @template EventType Event type
  * @template ResultType Result type
  */
-export function matchEvent<EventType extends GenericEvent, ResultType>(
+export function matchEvent<EventType extends Event, ResultType>(
   event: EventType,
   matcher: EventMatcher<EventType, ResultType>
 ): ResultType {

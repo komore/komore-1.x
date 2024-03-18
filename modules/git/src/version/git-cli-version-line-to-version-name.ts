@@ -1,17 +1,23 @@
+import { stringToMatchesWith } from '@komore/string';
+import { gitCliError } from '../git-cli.error';
+
 /**
- * Returns the Git version name, given a Git CLI version line
+ * Creates a function that returns the Git version name, given a Git CLI version line
  *
- * @param versionLine Git CLI version line
- * @returns Git version name
+ * @returns Function that returns the Git version name, given a Git CLI version line
  * @private
  */
-export function gitCliVersionLineToVersionName(versionLine: string): string {
-  const matches = versionLine.match(/^git version (.+)$/) as readonly [matches: string, version: string] | null;
-  if (matches === null) {
-    throw new Error(`unsupported Git CLI version line "${versionLine}"`);
-  }
+export function gitCliVersionLineToVersionName(): (versionLine: string) => string {
+  type Matches = readonly [matched: string, version: string];
+  const toMatches = stringToMatchesWith<Matches>(/^git version (.+)$/);
+  return versionLine => {
+    const matches = toMatches(versionLine);
+    if (matches === undefined) {
+      throw gitCliError.unsupportedVersionResult({ versionLine });
+    }
 
-  const [, version] = matches;
+    const [, version] = matches;
 
-  return version;
+    return version;
+  };
 }

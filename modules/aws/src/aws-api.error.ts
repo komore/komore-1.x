@@ -1,5 +1,5 @@
 import { createErrorType, errorProperties } from '@komore/error';
-import { type HttpMethod, type HttpStatus } from '@komore/http';
+import { type HttpMethod, type HttpStatus, type MediaType } from '@komore/http';
 import { type UrlString } from '@komore/url';
 
 import { awsDomain } from './aws.domain';
@@ -172,7 +172,7 @@ export const awsApiError = createErrorType(awsDomain, {
     /**
      * Content type
      */
-    readonly contentType: string;
+    readonly contentType: MediaType;
     /**
      * Operation
      */

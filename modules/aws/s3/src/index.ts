@@ -1,6 +1,12 @@
+export { copyS3Object } from './object//copy-s3-object';
+export { type CopyS3ObjectParameters } from './object//copy-s3-object-parameters';
+export { type CopyS3ObjectResult } from './object//copy-s3-object-result';
 export { createS3ApiClient } from './create-s3-api-client';
 export { listS3Buckets } from './bucket/list-s3-buckets';
 export { type ListS3BucketsResult } from './bucket/list-s3-buckets-result';
+export { listS3Objects } from './object/list-s3-objects';
+export { type ListS3ObjectsParameters } from './object/list-s3-objects-parameters';
+export { type ListS3ObjectsResult } from './object/list-s3-objects-result';
 export { type S3ApiClient } from './s3-api-client';
 export { type S3ApiClientOptions } from './s3-api-client-options';
 export { s3ApiError } from './s3-api.error';

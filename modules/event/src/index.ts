@@ -11,8 +11,6 @@ export { eventProperties } from './properties/event-properties';
 export { type EventPropertiesSchema } from './properties/event-properties-schema';
 export { eventToProperties } from './properties/event-to-properties';
 export { type EventType } from './type/event-type';
-export { type GenericEvent } from './generic-event';
-export { type GenericEventType } from './type/generic-event-type';
 export { isEventOfType } from './is-event-of-type';
 export { matchEvent } from './matcher/match-event';
 export { mergeCompositeEventType } from './type/merge-composite-event-type';

@@ -12,8 +12,8 @@ import { type GitVersionBuildOptions } from './git-version-build-options';
  * @private
  */
 export function gitCliBuildOptionLinesToBuildOptions(lines: ReadonlyArray<string>): GitVersionBuildOptions {
-  type OptionMatchArray = readonly [matches: string, name: GitCliBuildOptionKey, value: string];
-  const toMatches = stringToMatchesWith<OptionMatchArray>(/^([^:]+): (.+)$/);
+  type Matches = readonly [matched: string, name: GitCliBuildOptionKey, value: string];
+  const toMatches = stringToMatchesWith<Matches>(/^([^:]+): (.+)$/);
   const entries = lines
     .map(toMatches)
     .filter(isDefined)

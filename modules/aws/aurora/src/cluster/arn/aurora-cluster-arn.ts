@@ -1,6 +1,8 @@
-import { type AwsArn } from '@komore/aws';
+import { type RegionalArn } from '@komore/aws';
+
+import { type AuroraClusterName } from '../name/aurora-cluster-name';
 
 /**
  * Aurora cluster ARN
  */
-export type AuroraClusterArn = AwsArn<'rds'>;
+export type AuroraClusterArn = RegionalArn<'rds', `cluster:${AuroraClusterName}`>;

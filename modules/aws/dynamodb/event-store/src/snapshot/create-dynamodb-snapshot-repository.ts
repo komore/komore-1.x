@@ -1,11 +1,10 @@
-import { type BatchGetItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { batchGetItem, createDynamoDBClient } from '@komore/aws/dynamodb';
+import { batchGetDynamoDBItem, batchWriteDynamoDBItem } from '@komore/aws/dynamodb';
 import { type EventStoreSnapshotRepository } from '@komore/event/store';
-import { map } from '@komore/reactive';
-import { buildDynamoDBSnapshotAttributeNames } from './build-dynamodb-snapshot-attribute-names';
-import { createDynamoDBSnapshotSaver } from './create-dynamodb-snapshot-saver';
-import { type DynamoDBSnapshotAttributeNames } from './dynamodb-snapshot-attribute-names';
-import { type DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapshot-repository-configuration';
+import { map, redactValue } from '@komore/reactive';
+
+import { normalizeDynamoDBSnapshotRepositoryAttributeNames } from './attribute/normalize-dynamodb-snapshot-repository-attribute-names';
+import { type DynamoDBSnapshotRepositoryOptions } from './dynamodb-snapshot-repository-options';
+import { snapshotToDynamoDBWriteRequest } from './snapshot-to-dynamodb-write-request';
 
 /**
  * Creates a DynamoDB snapshot repository
@@ -17,55 +16,49 @@ import { type DynamoDBSnapshotRepositoryConfiguration } from './dynamodb-snapsho
  * - `SequenceNumber` for the sequence number
  * - `State` for the state
  * - `Timestamp` for the timestamp
- * @param configuration Configuration
+ *
+ * @param repositoryOptions DynamoDB snapshot repository options
  * @returns DynamoDB snapshot repository
- * @template StateType State type
+ * @template AggregateType Aggregate type
  */
-export function createDynamoDBSnapshotRepository<StateType>(
-  configuration: DynamoDBSnapshotRepositoryConfiguration
-): EventStoreSnapshotRepository<StateType> {
-  const dynamoDBClient = configuration.dynamoDBClient ?? createDynamoDBClient();
-  const tableName = configuration.tableName;
-  const attributeNames = buildDynamoDBSnapshotAttributeNames(configuration.attributeNames);
-  const loadSnapshots = createDynamoDBSnapshotLoader<StateType>(dynamoDBClient, tableName, attributeNames);
-  const storeSnapshots = createDynamoDBSnapshotSaver<StateType>(dynamoDBClient, tableName, attributeNames);
+export function createDynamoDBSnapshotRepository<AggregateType>(
+  repositoryOptions: DynamoDBSnapshotRepositoryOptions
+): EventStoreSnapshotRepository<AggregateType> {
+  const { apiClient, tableName } = repositoryOptions;
+  const attributeNames = normalizeDynamoDBSnapshotRepositoryAttributeNames(repositoryOptions.attributeNames);
+  const toWriteRequest = snapshotToDynamoDBWriteRequest(attributeNames);
+  const batchGetItem = batchGetDynamoDBItem(apiClient);
+  const batchWriteItem = batchWriteDynamoDBItem(apiClient);
+  const ProjectionExpression = ''; // TODO
+  const ReturnConsumedCapacity = 'NONE';
 
   return {
-    loadSnapshots: aggregateKeys => {
-      const commandInput = buildGetItemCommandInput(tableName, attributeNames, aggregateKeys);
-      batchGetItem(dynamoDBClient, commandInput).pipe(
-        map(output => output.Responses?.[tableName] ?? []),
+    loadSnapshots: ({ aggregateKeys }) => {
+      batchGetItem({
+        RequestItems: {
+          [tableName]: {
+            ExpressionAttributeNames,
+            ProjectionExpression,
+            Keys: aggregateKeys.map(aggregateKey => buildGetItem(aggregateKey)),
+          },
+        },
+        ReturnConsumedCapacity,
+      }).pipe(
+        map(result => result.Responses[tableName] ?? []),
         map(items =>
           aggregateKeys.map(aggregateKey => {
-            const _x = items[0][aggregateKey];
+            const x = items[0]?.[aggregateKey];
+            return x;
           })
         )
       );
     },
-    storeSnapshots,
-  };
-}
-
-/**
- * Builds a `BatchGetItem` command input
- * @param tableName Table name
- * @param attributeNames Attribute names
- * @param aggregateKeys Aggregate keys
- * @returns `BatchGetItem` command input
- */
-function buildGetItemCommandInput(
-  tableName: string,
-  attributeNames: DynamoDBSnapshotAttributeNames,
-  aggregateKeys: ReadonlyArray<string>
-): BatchGetItemCommandInput {
-  return {
-    RequestItems: {
-      [tableName]: {
-        AttributesToGet: Object.values(attributeNames),
-        ProjectionExpression: '',
-        Keys: aggregateKeys.map(aggregateKey => buildGetItem(aggregateKey)),
-      },
-    },
-    ReturnConsumedCapacity: 'NONE',
+    storeSnapshots: ({ snapshots }) =>
+      batchWriteItem({
+        RequestItems: {
+          [tableName]: snapshots.map(toWriteRequest),
+        },
+        ReturnConsumedCapacity,
+      }).pipe(redactValue()),
   };
 }
