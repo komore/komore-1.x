@@ -12,5 +12,6 @@ import { type UpdateDynamoDBTableResult } from './update-dynamodb-table-result';
 export function updateDynamoDBTable(
   apiClient: DynamoDBApiClient
 ): (parameters: UpdateDynamoDBTableParameters) => Observable<UpdateDynamoDBTableResult> {
-  return parameters => apiClient('UpdateTable', parameters);
+  const operation = 'UpdateTable';
+  return parameters => apiClient({ operation, parameters });
 }

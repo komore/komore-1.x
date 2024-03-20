@@ -1,5 +1,4 @@
 import { type DynamoDBApiClient } from '../dynamodb-api-client';
-import { dynamoDBTargetPrefix } from '../dynamodb-target-prefix';
 import { type ListDynamoDBTablesParameters } from './list-dynamodb-tables-parameters';
 import { type ListDynamoDBTablesResult } from './list-dynamodb-tables-result';
 
@@ -13,9 +12,6 @@ import { type ListDynamoDBTablesResult } from './list-dynamodb-tables-result';
 export function listDynamoDBTables(
   apiClient: DynamoDBApiClient
 ): (parameters: ListDynamoDBTablesParameters) => Observable<ListDynamoDBTablesResult> {
-  return parameters =>
-    apiClient({
-      operation: `${dynamoDBTargetPrefix}.ListTables`,
-      parameters,
-    });
+  const operation = 'ListTables';
+  return parameters => apiClient({ operation, parameters });
 }

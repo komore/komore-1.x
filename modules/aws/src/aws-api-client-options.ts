@@ -3,7 +3,9 @@ import { type NodeEnvironmentVariables } from '@komore/node/environment';
 
 import { type AwsAccessKeyCredentials } from './credentials/aws-access-key-credentials';
 import { type AwsRegion } from './region/aws-region';
-import { type AwsApiClientStrategy } from './strategy/aws-api-client-strategy';
+import { type AwsApiClientParametersStrategy } from './strategy/parameters/aws-api-client-parameters-strategy';
+import { type AwsApiClientResultStrategy } from './strategy/result/aws-api-client-result-strategy';
+import { type AwsApiClientSignatureStrategy } from './strategy/signature/aws-api-client-signature-strategy';
 
 /**
  * AWS API client options
@@ -36,7 +38,20 @@ export interface AwsApiClientOptions {
   /**
    * Strategies
    */
-  readonly strategies: ReadonlyArray<AwsApiClientStrategy>;
+  readonly strategies: {
+    /**
+     * Parameters strategies
+     */
+    readonly parameters: ReadonlyArray<AwsApiClientParametersStrategy>;
+    /**
+     * Result strategies
+     */
+    readonly result: ReadonlyArray<AwsApiClientResultStrategy>;
+    /**
+     * Signature strategy
+     */
+    readonly signature: AwsApiClientSignatureStrategy;
+  };
   /**
    * URL
    */

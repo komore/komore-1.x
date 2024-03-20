@@ -12,5 +12,6 @@ import { type DeleteDynamoDBTableResult } from './delete-dynamodb-table-result';
 export function deleteDynamoDBTable(
   apiClient: DynamoDBApiClient
 ): (parameters: DeleteDynamoDBTableParameters) => Observable<DeleteDynamoDBTableResult> {
-  return parameters => apiClient('DeleteTable', parameters);
+  const operation = 'DeleteTable';
+  return parameters => apiClient({ operation, parameters });
 }

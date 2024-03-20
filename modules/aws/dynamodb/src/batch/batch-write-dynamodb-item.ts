@@ -1,5 +1,4 @@
 import { type DynamoDBApiClient } from '../dynamodb-api-client';
-import { dynamoDBTargetPrefix } from '../dynamodb-target-prefix';
 import { type BatchWriteDynamoDBItemParameters } from './batch-write-dynamodb-item-parameters';
 import { type BatchWriteDynamoDBItemResult } from './batch-write-dynamodb-item-result';
 
@@ -12,9 +11,6 @@ import { type BatchWriteDynamoDBItemResult } from './batch-write-dynamodb-item-r
 export function batchWriteDynamoDBItem(
   apiClient: DynamoDBApiClient
 ): (parameters: BatchWriteDynamoDBItemParameters) => Observable<BatchWriteDynamoDBItemResult> {
-  return parameters =>
-    apiClient({
-      operation: `${dynamoDBTargetPrefix}.BatchWriteItem`,
-      parameters,
-    });
+  const operation = 'BatchWriteItem';
+  return parameters => apiClient({ operation, parameters });
 }

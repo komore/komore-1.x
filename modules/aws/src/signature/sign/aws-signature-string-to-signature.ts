@@ -8,15 +8,15 @@ import { type AwsSignatureStringToSignatureParameters } from './aws-signature-st
 /**
  * Creates a function that returns a signature, given an AWS signature string
  *
- * @param options Options
+ * @param signatureOptions Signature options
  * @returns Function that returns a signature, given an AWS signature string
  * @see {@link https://docs.aws.amazon.com/IAM/latest/UserGuide/create-signed-request.html#calculate-signature Step 4: Calculate the signature}
  * @private
  */
 export function awsSignatureStringToSignature(
-  options: AwsSignatureStringToSignatureOptions
+  signatureOptions: AwsSignatureStringToSignatureOptions
 ): (parameters: AwsSignatureStringToSignatureParameters) => Observable<string> {
-  const { hashAlgorithm, region, secretAccessKey, service } = options;
+  const { hashAlgorithm, region, secretAccessKey, service } = signatureOptions;
   const hmac = (key: string | Uint8Array, value: string) => createHmac({ hashAlgorithm, key })(value);
   return ({ signatureString, date }) => {
     const dateString = dateToAwsSignatureCredentialDate(date);
@@ -29,3 +29,4 @@ export function awsSignatureStringToSignature(
     );
   };
 }
+// TODO: only for the header strategy?

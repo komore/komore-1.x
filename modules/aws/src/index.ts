@@ -9,9 +9,12 @@ export { type AwsAccessKeyCredentials } from './credentials/aws-access-key-crede
 export { type AwsAccountId } from './account/id/aws-account-id';
 export { type AwsApiClient } from './aws-api-client';
 export { awsApiClientJsonResultStrategy } from './strategy/result/aws-api-client-json-result-strategy';
+export { awsApiClientHeaderSignatureStrategy } from './strategy/signature/aws-api-client-header-signature-strategy';
 export { type AwsApiClientOptions } from './aws-api-client-options';
 export { type AwsApiClientParameters } from './aws-api-client-parameters';
 export { type AwsApiClientParametersStrategy } from './strategy/parameters/aws-api-client-parameters-strategy';
+export { awsApiClientQueryParametersStrategy } from './strategy/parameters/aws-api-client-query-parameters-strategy';
+export { awsApiClientQueryParametersSignatureStrategy } from './strategy/signature/aws-api-client-query-parameters-signature-strategy';
 export { type AwsApiClientResultStrategy } from './strategy/result/aws-api-client-result-strategy';
 export { awsApiClientXmlResultStrategy } from './strategy/result/aws-api-client-xml-result-strategy';
 export { type AwsApiClientStrategy } from './strategy/aws-api-client-strategy';

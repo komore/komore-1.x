@@ -12,5 +12,6 @@ import { type DescribeDynamoDBTableResult } from './describe-dynamodb-table-resu
 export function describeDynamoDBTable(
   apiClient: DynamoDBApiClient
 ): (parameters: DescribeDynamoDBTableParameters) => Observable<DescribeDynamoDBTableResult> {
-  return parameters => apiClient('DescribeTable', parameters);
+  const operation = 'DescribeTable';
+  return parameters => apiClient({ operation, parameters });
 }

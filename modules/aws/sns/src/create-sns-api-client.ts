@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientQueryParametersSignatureStrategy,
+  awsApiClientQueryParametersStrategy,
+  awsApiClientTargetPrefixParametersStrategy,
+  awsApiClientXmlResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type SnsApiClient } from './sns-api-client';
 import { type SnsApiClientOptions } from './sns-api-client-options';
@@ -11,5 +17,16 @@ import { type SnsApiClientOptions } from './sns-api-client-options';
  */
 export function createSnsApiClient(clientOptions: SnsApiClientOptions): SnsApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'sns' });
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service: 'sns',
+    strategies: {
+      parameters: [
+        awsApiClientTargetPrefixParametersStrategy('sns'),
+        awsApiClientQueryParametersStrategy({ Version: '2010-03-31' }),
+      ],
+      result: [awsApiClientXmlResultStrategy()],
+      signature: awsApiClientQueryParametersSignatureStrategy(),
+    },
+  });
 }

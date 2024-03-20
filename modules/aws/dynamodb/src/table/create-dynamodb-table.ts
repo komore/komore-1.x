@@ -13,5 +13,6 @@ import { type CreateDynamoDBTableResult } from './create-dynamodb-table-result';
 export function createDynamoDBTable(
   apiClient: DynamoDBApiClient
 ): (parameters: CreateDynamoDBTableParameters) => Observable<CreateDynamoDBTableResult> {
-  return parameters => apiClient('CreateTable', parameters);
+  const operation = 'CreateTable';
+  return parameters => apiClient({ operation, parameters });
 }

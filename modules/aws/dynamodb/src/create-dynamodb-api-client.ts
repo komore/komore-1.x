@@ -1,4 +1,8 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientJsonResultStrategy,
+  awsApiClientTargetPrefixParametersStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type DynamoDBApiClient } from './dynamodb-api-client';
 import { type DynamoDBApiClientOptions } from './dynamodb-api-client-options';
@@ -14,5 +18,6 @@ export function createDynamoDBApiClient(clientOptions: DynamoDBApiClientOptions)
   return createAwsApiClient({
     ...awsClientOptions,
     service: 'dynamodb',
+    strategies: [awsApiClientTargetPrefixParametersStrategy('DynamoDB_20120810'), awsApiClientJsonResultStrategy()],
   });
 }
