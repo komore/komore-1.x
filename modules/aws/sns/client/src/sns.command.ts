@@ -1,4 +1,4 @@
-import { snsDomain } from '@komore/aws/sns';
+import { snsDomain, type PublishSnsMessageParameters } from '@komore/aws/sns';
 import { commandProperties, createCommandType } from '@komore/command';
 
 /**
@@ -10,7 +10,7 @@ export const snsCommand = createCommandType(snsDomain, {
    *
    * @see {@link https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish}
    */
-  publish: commandProperties<PublishCommandInput>(),
+  publish: commandProperties<PublishSnsMessageParameters>(),
   /**
    * Sends up to 10 messages to a topic
    *
