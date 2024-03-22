@@ -1,1 +1,14 @@
-export {};
+export { createStepFunctionsApiClient } from './create-step-functions-api-client';
+export { listStepFunctionsExecutions } from './execution/list-step-functions-executions';
+export { type ListStepFunctionsExecutionsBaseParameters } from './execution/list-step-functions-executions-base-parameters';
+export { type ListStepFunctionsExecutionsNextToken } from './execution/list-step-functions-executions-next-token';
+export { type ListStepFunctionsExecutionsParameters } from './execution/list-step-functions-executions-parameters';
+export { type ListStepFunctionsExecutionsResult } from './execution/list-step-functions-executions-result';
+export { type ListStepFunctionsMapRunExecutionsParameters } from './execution/list-step-functions-map-run-executions-parameters';
+export { type ListStepFunctionsStateMachineRunExecutionsParameters } from './execution/list-step-functions-state-machine-executions-parameters';
+export { stepFunctionsDomain } from './step-functions.domain';
+export { type StepFunctionsApiClient } from './step-functions-api-client';
+export { type StepFunctionsApiClientOptions } from './step-functions-api-client-options';
+export { stopStepFunctionsExecution } from './execution/stop-step-functions-execution';
+export { type StopStepFunctionsExecutionParameters } from './execution/stop-step-functions-execution-parameters';
+export { type StopStepFunctionsExecutionResult } from './execution/stop-step-functions-execution-result';
