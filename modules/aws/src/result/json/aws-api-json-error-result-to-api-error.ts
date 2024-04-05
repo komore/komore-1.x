@@ -16,8 +16,8 @@ import { type AwsApiJsonErrorResultToApiErrorParameters } from './aws-api-json-e
 export function awsApiJsonErrorResultToApiError(
   options: AwsApiJsonErrorResultToApiErrorOptions
 ): (parameters: AwsApiJsonErrorResultToApiErrorParameters) => ErrorFromType<typeof awsApiError> {
-  const { operation } = options;
-  const resultToError = awsApiErrorResultToApiError({ operation });
+  const { method, operation, url } = options;
+  const resultToError = awsApiErrorResultToApiError({ method, operation, url });
   const typeResultToError = awsApiJsonErrorTypeResultToApiError(operation);
   return ({ apiJsonErrorResult, httpClientResponse }) =>
     '__type' in apiJsonErrorResult

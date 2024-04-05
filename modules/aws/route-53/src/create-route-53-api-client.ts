@@ -1,6 +1,6 @@
 import {
-  awsApiClientStaticUrlStrategy,
   awsApiClientHeaderSignatureStrategy,
+  awsApiClientStaticUrlStrategy,
   awsApiClientXmlParametersStrategy,
   awsApiClientXmlResultStrategy,
   createAwsApiClient,
@@ -17,14 +17,16 @@ import { type Route53ApiClientOptions } from './route-53-api-client-options';
  */
 export function createRoute53ApiClient(clientOptions: Route53ApiClientOptions): Route53ApiClient {
   const { xmlParser, ...awsClientOptions } = clientOptions;
+  const expectedXmlNamespace = new URL('https://route53.amazonaws.com/doc/2013-04-01/');
+  const url = new URL('https://route53.amazonaws.com/2013-04-01/');
   return createAwsApiClient({
     ...awsClientOptions,
     service: 'route53',
     strategies: {
       parameters: awsApiClientXmlParametersStrategy({ xmlParser }),
-      result: [awsApiClientXmlResultStrategy({ xmlParser })],
+      result: [awsApiClientXmlResultStrategy({ expectedXmlNamespace, xmlParser })],
       signature: awsApiClientHeaderSignatureStrategy({}),
-      url: awsApiClientStaticUrlStrategy({ url: new URL('https://route53.amazonaws.com/2013-04-01/') }),
+      url: awsApiClientStaticUrlStrategy({ url }),
     },
   });
 }

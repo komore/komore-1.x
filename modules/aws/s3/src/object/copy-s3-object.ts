@@ -12,9 +12,20 @@ import { type CopyS3ObjectResult } from './copy-s3-object-result';
 export function copyS3Object(
   apiClient: S3ApiClient
 ): (parameters: CopyS3ObjectParameters) => Observable<CopyS3ObjectResult> {
+  const method = 'PUT';
+  const operation = 'CopyObject';
   return parameters => {
     const { Key } = parameters;
     const resourcePath = `/${Key}`;
-    return apiClient('PUT', `/`, parameters);
+    return apiClient({
+      mapResponseHeaders: {
+        // TODO
+      },
+      method,
+      resourcePath,
+      operation,
+      parameters,
+      rootTag: 'CopyObjectResult',
+    });
   };
 }

@@ -4,7 +4,7 @@ import { type ErrorCreator } from './creator/error-creator';
 import { type ErrorFromCreator } from './creator/error-from-creator';
 import { isKomoreError } from './is-komore-error';
 import { type ErrorFromType } from './type/error-from-type';
-import { type GenericErrorType } from './type/generic-error-type';
+import { type ErrorType as GenericErrorType } from './type/error-type';
 
 /**
  * Creates a function that tests whether an error is of a specific type

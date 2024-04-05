@@ -1,5 +1,7 @@
 import { type HttpHeader, type HttpStatus } from '@komore/http';
 import { createLogEventType, logEventProperties, logEventSeverities } from '@komore/logging';
+import { type ReadonlyRecord } from '@komore/typescript';
+import { type UrlString } from '@komore/url';
 
 import { awsDomain } from './aws.domain';
 
@@ -11,8 +13,10 @@ export const awsLog = createLogEventType(awsDomain, {
    * API request sent
    */
   apiRequestSent: logEventProperties<{
+    readonly endpointUrl: UrlString;
     readonly headers: ReadonlyArray<HttpHeader>;
     readonly operation: string;
+    readonly queryParameters: ReadonlyRecord<string, string>;
     readonly service: string;
   }>(logEventSeverities.trace),
   /**

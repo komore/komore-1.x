@@ -1,4 +1,4 @@
-import { type Md5String } from '@komore/string';
+import { type Md5String } from '@komore/cryptography';
 
 import { type SqsMessageId } from './id/sqs-message-id';
 

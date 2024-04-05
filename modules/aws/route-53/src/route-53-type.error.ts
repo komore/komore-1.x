@@ -1,8 +1,18 @@
-import { createErrorType } from '@komore/error';
+import { createErrorType, errorProperties } from '@komore/error';
 
 import { route53Domain } from './route-53.domain';
 
 /**
  * Route 53 type error
  */
-export const route53TypeError = createErrorType(route53Domain, {});
+export const route53TypeError = createErrorType(route53Domain, {
+  /**
+   * Invalid hosted zone identifier
+   */
+  invalidHostedZoneId: errorProperties<{
+    /**
+     * Hosted zone identifier
+     */
+    readonly hostedZoneId: string;
+  }>(),
+});

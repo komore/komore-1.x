@@ -9,8 +9,14 @@ import { type ReadonlyRecord } from '@komore/typescript';
 export function urlWithSearchParams(
   additionalSearchParams: URLSearchParams | ReadonlyRecord<string, string>
 ): (url: URL) => URL {
+  const additionalParams =
+    additionalSearchParams instanceof URLSearchParams
+      ? Object.fromEntries(additionalSearchParams.entries())
+      : additionalSearchParams;
   return url => {
-    const searchParams = new URLSearchParams({ ...url.searchParams, ...additionalSearchParams });
-    return new URL(url.origin + url.pathname + '?' + searchParams.toString);
+    const existingParams = Object.fromEntries(url.searchParams.entries());
+    const searchParams = new URLSearchParams({ ...existingParams, ...additionalParams });
+    const newUrl = new URL(url.origin + url.pathname + '?' + searchParams.toString());
+    return newUrl;
   };
 }

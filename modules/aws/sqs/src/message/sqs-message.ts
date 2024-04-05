@@ -1,4 +1,4 @@
-import { type Md5String } from '@komore/string';
+import { type Md5String } from '@komore/cryptography';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { type SqsMessageAttributeValue } from './attribute/sqs-message-attribute-value';

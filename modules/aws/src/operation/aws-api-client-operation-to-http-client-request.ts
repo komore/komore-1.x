@@ -5,7 +5,6 @@ import { map } from '@komore/reactive';
 
 import { createAwsContentSha256HttpHeader } from '../http/create-aws-content-sha256-http-header';
 import { createAwsDateHttpHeader } from '../http/create-aws-date-http-header';
-import { createAwsTargetHttpHeader } from '../http/create-aws-target-http-header';
 import { type AwsApiClientOperationToHttpClientRequestOptions } from './aws-api-client-operation-to-http-client-request-options';
 import { type AwsApiClientOperationToHttpClientRequestParameters } from './aws-api-client-operation-to-http-client-request-parameters';
 
@@ -27,12 +26,11 @@ export function awsApiClientOperationToHttpClientRequest(
     return hash(body ?? '').pipe(
       map(payloadHash => {
         const headers = [
-          ...additionalHeaders,
           createHostHttpHeader(url.host),
-          // TODO: let the strategy handle these
+          // TODO: let the strategy handle these?
           createAwsDateHttpHeader(dateTime),
-          createAwsTargetHttpHeader(operation),
           createAwsContentSha256HttpHeader(payloadHash),
+          ...additionalHeaders,
         ];
 
         return {

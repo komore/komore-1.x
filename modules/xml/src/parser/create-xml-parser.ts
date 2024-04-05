@@ -12,10 +12,12 @@ import { xmlParserSymbol } from './xml-parser-symbol';
  * @param parserOptions XML parser options
  * @returns XML parser
  */
-export function createXmlParser(_parserOptions: XmlParserOptions): XmlParser {
+export function createXmlParser(parserOptions: XmlParserOptions): XmlParser {
+  const { isArray } = parserOptions;
   const xmlParser = new XMLParser({
     ignoreDeclaration: true,
     ignoreAttributes: false,
+    ...(isArray !== undefined ? { isArray } : {}),
     parseAttributeValue: true,
   });
 

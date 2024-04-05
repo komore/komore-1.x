@@ -10,7 +10,10 @@ import { type ErrorInstance } from '../error-instance';
  * @template DomainType Domain type
  * @template ErrorParametersByErrorCode Error parameters by error code
  */
-export type ErrorType<DomainType extends Domain, ErrorParametersByErrorCode extends ReadonlyRecord<string, any>> = {
+export type ErrorType<
+  DomainType extends Domain = Domain,
+  ErrorParametersByErrorCode extends ReadonlyRecord<string, any> = ReadonlyRecord<string, any>,
+> = {
   /**
    * Creates a new error
    *

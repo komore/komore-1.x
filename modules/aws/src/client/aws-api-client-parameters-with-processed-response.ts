@@ -10,8 +10,10 @@ export interface AwsApiClientParametersWithProcessedResponse<T = unknown> extend
   /**
    * Response headers mapping
    */
-  readonly mapResponseHeaders?: ReadonlyRecord<
-    HttpHeaderName,
-    keyof T | ((value: string | undefined) => readonly [propertyKey: keyof T, propertyValue: T[keyof T]])
+  readonly mapResponseHeaders?: Partial<
+    ReadonlyRecord<
+      HttpHeaderName,
+      keyof T | ((value: string | undefined) => readonly [propertyKey: keyof T, propertyValue: T[keyof T]])
+    >
   >;
 }

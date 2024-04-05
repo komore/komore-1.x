@@ -7,7 +7,11 @@ import { type Domain } from '@komore/domain';
  * @template ErrorCode Error code
  * @template ErrorParameters Error parameters
  */
-export interface ErrorInstance<DomainType extends Domain, ErrorCode extends string, ErrorParameters> extends Error {
+export interface ErrorInstance<
+  DomainType extends Domain = Domain,
+  ErrorCode extends string = string,
+  ErrorParameters = any,
+> extends Error {
   /**
    * Error code
    */

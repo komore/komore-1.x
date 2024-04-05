@@ -22,8 +22,8 @@ export function awsHttpClientResponseToTextResult(
   return response =>
     toText(response).pipe(
       mapToError(text => {
-        const statusCode = response.status;
         const url = asUrlString(operationUrl.toString());
+        const statusCode = response.status;
         switch (statusCode) {
           case httpStatuses.NotFound:
             return awsApiError.notFound({ operation, url });

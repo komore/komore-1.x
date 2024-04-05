@@ -1,4 +1,4 @@
-import { type GenericErrorInstance } from './generic-error-instance';
+import { type ErrorInstance } from './error-instance';
 import { KomoreError } from './komore-error';
 
 /**
@@ -8,6 +8,6 @@ import { KomoreError } from './komore-error';
  * @returns true if the value is an error
  * @private
  */
-export function isKomoreError(value: unknown): value is GenericErrorInstance {
+export function isKomoreError(value: unknown): value is ErrorInstance {
   return value instanceof KomoreError;
 }

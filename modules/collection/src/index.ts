@@ -1,6 +1,7 @@
 export { arrayFilledWith } from './array/array-filled-with';
 export { arrayFromRange } from './array/array-from-range';
 export { arrayFromRepeatedValue } from './array/array-from-repeated-value';
+export { type ArrayOrValue } from './array/array-or-value';
 export { type ArrayRange } from './array/array-range';
 export { arrayToArrayFiltered } from './array/array-to-array-filtered';
 export { arrayToArrayReversed } from './array/array-to-array-reversed';
@@ -12,6 +13,7 @@ export { arrayToSlice } from './array/array-to-slice';
 export { arrayToSlices } from './array/array-to-slices';
 export { arrayToString } from './array/array-to-string';
 export { type ArrayValueType } from './array/array-value-type';
+export { asArray } from './array/as-array';
 export { each } from './each';
 export { isArray } from './array/is-array';
 export { isArrayEmpty } from './array/is-array-empty';
@@ -19,5 +21,5 @@ export { isArrayLengthBetween } from './array/is-array-length-between';
 export { isArrayOfLength } from './array/is-array-of-length';
 export { mapToMap } from './map/map-to-map';
 export { mapToValue } from './map/map-to-value';
-// TODO: find a better name/place
+// TODO: find a better name/place?
 export { mapPairValue } from './map/map-pair-value';

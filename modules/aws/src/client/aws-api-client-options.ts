@@ -2,8 +2,8 @@ import { type HashAlgorithm } from '@komore/cryptography';
 import { type HttpClient } from '@komore/http/client';
 
 import { type AwsAccessKeyCredentials } from '../credentials/aws-access-key-credentials';
-import { type AwsRegion } from '../region/aws-region';
 import { type AwsApiClientParametersStrategy } from '../parameters/aws-api-client-parameters-strategy';
+import { type AwsRegion } from '../region/aws-region';
 import { type AwsApiClientResultStrategy } from '../result/aws-api-client-result-strategy';
 import { type AwsApiClientSignatureStrategy } from '../signature/aws-api-client-signature-strategy';
 import { type AwsApiClientUrlStrategy } from '../url/aws-api-client-url-strategy';

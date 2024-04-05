@@ -1,5 +1,6 @@
 export { createQueryType } from './type/create-query-type';
 export { matchQuery } from './matcher/match-query';
+export { type Query } from './query';
 export { type QueryFromCreator } from './creator/query-from-creator';
 export { type QueryFromType } from './type/query-from-type';
 export { type QueryHandler } from './query-handler';

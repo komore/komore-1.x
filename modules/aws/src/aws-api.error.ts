@@ -8,6 +8,12 @@ import { awsDomain } from './aws.domain';
  * AWS API error
  */
 export const awsApiError = createErrorType(awsDomain, {
+  accessDenied: errorProperties<{
+    /**
+     * Operation
+     */
+    readonly operation: string;
+  }>(),
   /**
    * Forbidden operation
    */
@@ -29,6 +35,16 @@ export const awsApiError = createErrorType(awsDomain, {
    * Invalid signature
    */
   invalidSignature: errorProperties<{
+    /**
+     * Operation
+     */
+    readonly operation: string;
+    /**
+     * Reason
+     */
+    readonly reason?: 'incomplete' | 'mismatch';
+  }>(),
+  malformedAuthorizationHeader: errorProperties<{
     /**
      * Operation
      */

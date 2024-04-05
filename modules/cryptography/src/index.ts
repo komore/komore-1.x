@@ -6,7 +6,9 @@ export { type HashAlgorithm } from './hash/hash-algorithm';
 export { hashAlgorithms } from './hash/hash-algorithms';
 export { type HashOptions } from './hash/hash-options';
 export { type HmacOptions } from './hash/hmac-options';
+export { type Md5String } from './string/md5-string';
+export { type Sha1String } from './string/sha1-string';
+export { type Sha256String } from './string/sha256-string';
 export { uint8ArrayToString } from './array/uint8-array-to-string';
 export { type Uint8ArrayToStringOptions } from './array/uint8-array-to-string-options';
-
 // TODO: levenshteinDistance (or @komore/algorithm?)

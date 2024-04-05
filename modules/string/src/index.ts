@@ -5,7 +5,6 @@ export { codePointToString } from './character/code-point-to-string';
 export { isBlankString } from './is-blank-string';
 export { isEmptyString } from './is-empty-string';
 export { isString } from './is-string';
-export { type Md5String } from './encoding/md5-string';
 export { snakeCaseToCamelCase } from './case/snake-case-to-camel-case';
 export { stringEndsWith } from './string-ends-with';
 export { type StringNormalizationForm } from './string-normalization-form';

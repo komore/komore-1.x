@@ -1,5 +1,6 @@
 import { valueToLog } from '@komore/logging';
 import { mergeMap, tapNext } from '@komore/reactive';
+import { asUrlString, urlWithoutSearchParams } from '@komore/url';
 
 import { awsLog } from '../aws.log';
 import { awsApiClientOperationToHttpClientRequest } from '../operation/aws-api-client-operation-to-http-client-request';
@@ -49,7 +50,13 @@ export function createAwsApiClient(clientOptions: AwsApiClientOptions): AwsApiCl
     const url = toUrl(clientParameters);
     const httpClientResponse$ = toHttpClientRequest({ dateTime, method, operation, parameters, url }).pipe(
       mergeMap(httpClientRequest => withSignature({ dateTime, httpClientRequest, region })),
-      tapNext(valueToLog(({ headers = [] }) => awsLog.apiRequestSent({ headers, operation, service }))),
+      tapNext(
+        valueToLog(({ headers = [], url }) => {
+          const endpointUrl = asUrlString(urlWithoutSearchParams(url));
+          const queryParameters = Object.fromEntries(url.searchParams.entries());
+          return awsLog.apiRequestSent({ endpointUrl, headers, operation, queryParameters, service });
+        })
+      ),
       mergeMap(httpClient),
       tapNext(valueToLog(({ headers, status }) => awsLog.apiResponseReceived({ headers, operation, service, status })))
     );

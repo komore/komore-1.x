@@ -15,9 +15,15 @@ import { type AwsApiClientJsonParametersStrategyOptions } from './aws-api-client
 export function awsApiClientJsonParametersStrategy(
   strategyOptions: AwsApiClientJsonParametersStrategyOptions
 ): AwsApiClientParametersStrategy {
-  return parameters => {
+  const { targetPrefix } = strategyOptions;
+  return ({ operation, parameters }) => {
     return {
-      headers: [createAcceptHttpHeader('application/json'), createContentTypeHttpHeader('application/x-amz-json-1.0')],
+      ...(parameters !== undefined ? { body: JSON.stringify(parameters) } : {}),
+      headers: [
+        createAcceptHttpHeader('application/json'),
+        createContentTypeHttpHeader('application/x-amz-json-1.0'),
+        ['x-amz-target', targetPrefix !== undefined ? `${targetPrefix}.${operation}` : operation],
+      ],
     };
   };
 }

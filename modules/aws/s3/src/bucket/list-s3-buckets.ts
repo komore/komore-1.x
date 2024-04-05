@@ -1,5 +1,6 @@
 import { type S3ApiClient } from '../s3-api-client';
 import { type ListS3BucketsResult } from './list-s3-buckets-result';
+import { listS3BucketsResultXml } from './list-s3-buckets-result';
 
 /**
  * Creates a function that lists S3 buckets
@@ -10,5 +11,9 @@ import { type ListS3BucketsResult } from './list-s3-buckets-result';
  * @permission s3:ListAllMyBuckets
  */
 export function listS3Buckets(apiClient: S3ApiClient): () => Observable<ListS3BucketsResult> {
-  return () => apiClient('ListAllMyBucketsResult', 'S3.ListBuckets');
+  const method = 'GET';
+  const operation = 'ListBuckets';
+  const rootTag = 'ListAllMyBucketsResult';
+  const projectXml = listS3BucketsResultXml;
+  return () => apiClient({ method, operation, projectXml, rootTag });
 }

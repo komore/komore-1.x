@@ -1,3 +1,5 @@
+import { type S3BucketName } from '../bucket/name/s3-bucket-name';
+
 /**
  * List S3 objects parameters
  *
@@ -7,5 +9,5 @@ export interface ListS3ObjectsParameters {
   /**
    * Bucket
    */
-  readonly Bucket: string;
+  readonly Bucket: S3BucketName;
 }

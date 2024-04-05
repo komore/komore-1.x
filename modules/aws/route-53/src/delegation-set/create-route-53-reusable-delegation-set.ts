@@ -14,6 +14,6 @@ export function createRoute53ReusableDelegationSet(
 ): (parameters: CreateRoute53ReusableDelegationSetParameters) => Observable<CreateRoute53ReusableDelegationSetResult> {
   const operation = 'CreateReusableDelegationSet';
   const resourcePath = 'delegationset';
-  const mapResponseHeaders = { location: 'Location' };
+  const mapResponseHeaders = { location: 'Location' } as const;
   return parameters => apiClient({ mapResponseHeaders, operation, parameters, resourcePath });
 }

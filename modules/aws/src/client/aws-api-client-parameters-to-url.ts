@@ -12,6 +12,12 @@ export function awsApiClientParametersToUrl(
   options: AwsApiClientParametersToUrlOptions
 ): (parameters: AwsApiClientBaseParameters) => URL {
   const { defaultRegion, service, urlStrategy } = options;
-  return ({ region = defaultRegion, resourcePath = '', searchParams }) =>
-    urlStrategy({ region, resourcePath, service, ...(searchParams ? { searchParams } : {}) });
+  return ({ parameters, region = defaultRegion, resourcePath = '', searchParams }) =>
+    urlStrategy({
+      ...(parameters !== undefined ? { parameters } : {}),
+      region,
+      resourcePath,
+      service,
+      ...(searchParams ? { searchParams } : {}),
+    });
 }

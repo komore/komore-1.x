@@ -1,3 +1,4 @@
+import { dateTimeToAwsDateTimeStamp } from '../../date-time/date-time-to-aws-date-timestamp';
 import { type AwsApiClientSignatureStrategy } from '../aws-api-client-signature-strategy';
 import { buildAwsSignatureCredentialString } from '../credential/build-aws-signature-credential-string';
 import { type AwsApiClientQueryParametersSignatureStrategyOptions } from './aws-api-client-query-parameters-signature-strategy-options';
@@ -24,6 +25,7 @@ export function awsApiClientQueryParametersSignatureStrategy(
       queryParameters: {
         'X-Amz-Algorithm': algorithm,
         'X-Amz-Credential': buildAwsSignatureCredentialString({ accessKeyId, date, region, service }),
+        'X-Amz-Date': dateTimeToAwsDateTimeStamp(dateTime),
         'X-Amz-SignedHeaders': signedHeaders.join(';'),
         'X-Amz-Signature': signature,
       },

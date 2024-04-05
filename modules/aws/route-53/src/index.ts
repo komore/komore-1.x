@@ -1,3 +1,4 @@
+export { asRoute53HostedZoneId } from './hosted-zone/id/as-route-53-hosted-zone-id';
 export { createRoute53ApiClient } from './create-route-53-api-client';
 export { createRoute53HostedZone } from './hosted-zone/create-route-53-hosted-zone';
 export { type CreateRoute53HostedZoneParameters } from './hosted-zone/create-route-53-hosted-zone-parameters';
@@ -5,6 +6,12 @@ export { type CreateRoute53HostedZoneResult } from './hosted-zone/create-route-5
 export { deleteRoute53HostedZone } from './hosted-zone/delete-route-53-hosted-zone';
 export { type DeleteRoute53HostedZoneParameters } from './hosted-zone/delete-route-53-hosted-zone-parameters';
 export { type DeleteRoute53HostedZoneResult } from './hosted-zone/delete-route-53-hosted-zone-result';
+export { getRoute53HostedZone } from './hosted-zone/get-route-53-hosted-zone';
+export { getRoute53HostedZoneCount } from './hosted-zone/get-route-53-hosted-zone-count';
+export { type GetRoute53HostedZoneCountResult } from './hosted-zone/get-route-53-hosted-zone-count-result';
+export { type GetRoute53HostedZoneParameters } from './hosted-zone/get-route-53-hosted-zone-parameters';
+export { type GetRoute53HostedZoneResult } from './hosted-zone/get-route-53-hosted-zone-result';
+export { isRoute53HostedZoneId } from './hosted-zone/id/is-route-53-hosted-zone-id';
 export { listRoute53HostedZones } from './hosted-zone/list-route-53-hosted-zones';
 export { type ListRoute53HostedZonesParameters } from './hosted-zone/list-route-53-hosted-zones-parameters';
 export { type ListRoute53HostedZonesResult } from './hosted-zone/list-route-53-hosted-zones-result';
@@ -14,3 +21,4 @@ export { route53ApiError } from './route-53-api.error';
 export { route53Domain } from './route-53.domain';
 export { type Route53HostedZoneId } from './hosted-zone/id/route-53-hosted-zone-id';
 export { route53TypeError } from './route-53-type.error';
+export { validateRoute53HostedZoneId } from './hosted-zone/id/validate-route-53-hosted-zone-id';

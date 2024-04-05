@@ -3,9 +3,9 @@
  */
 export interface Route53DelegationSet {
   /**
-   *
+   * Caller reference
    */
-  readonly CallerReference: string;
+  readonly CallerReference?: string;
   /**
    * Name servers
    */

@@ -25,12 +25,15 @@ export function awsApiClientJsonResultStrategy(
     'application/json',
     'application/x-amz-json-1.0',
     'application/x-amz-json-1.1',
-  ])(({ httpClientResponse, operation }) =>
+  ])(({ httpClientResponse, method, operation, url }) =>
     toJson(httpClientResponse).pipe(
       map(result => {
         if (isFailureResponse(httpClientResponse)) {
           throw isAwsApiJsonErrorResult(result)
-            ? awsApiJsonErrorResultToApiError({ operation })({ apiJsonErrorResult: result, httpClientResponse })
+            ? awsApiJsonErrorResultToApiError({ method, operation, url })({
+                apiJsonErrorResult: result,
+                httpClientResponse,
+              })
             : awsApiError.unhandledJsonError({ json: result, operation });
         }
 

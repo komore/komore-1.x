@@ -5,6 +5,10 @@ import { type XmlParser } from '@komore/xml';
  */
 export interface AwsApiClientXmlResultStrategyOptions {
   /**
+   * Expected XML namespace
+   */
+  readonly expectedXmlNamespace?: URL;
+  /**
    * XML parser
    */
   readonly xmlParser: XmlParser;

@@ -1,4 +1,9 @@
 /**
  * AWS API client JSON parameters strategy options
  */
-export interface AwsApiClientJsonParametersStrategyOptions {}
+export interface AwsApiClientJsonParametersStrategyOptions {
+  /**
+   * Target prefix
+   */
+  readonly targetPrefix?: string;
+}

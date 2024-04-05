@@ -12,5 +12,11 @@ import { type ListS3ObjectsResult } from './list-s3-objects-result';
 export function listS3Objects(
   apiClient: S3ApiClient
 ): (parameters: ListS3ObjectsParameters) => Observable<ListS3ObjectsResult> {
-  return parameters => apiClient('');
+  const operation = 'ListObjectsV2';
+  return ({ Bucket }) =>
+    apiClient({
+      Bucket,
+      operation,
+      rootTag: 'ListBucketResult',
+    });
 }

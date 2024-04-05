@@ -1,5 +1,5 @@
 import { type CommandFromType, type CommandType as GenericCommandType } from '@komore/command';
-import { type ErrorFromType, type GenericErrorType } from '@komore/error';
+import { type ErrorFromType, type ErrorType as GenericErrorType } from '@komore/error';
 import { isEventOfType, type EventFromType, type EventName, type EventType as GenericEventType } from '@komore/event';
 import { objectWithProperties } from '@komore/functional';
 import { type QueryFromType, type QueryType as GenericQueryType } from '@komore/query';

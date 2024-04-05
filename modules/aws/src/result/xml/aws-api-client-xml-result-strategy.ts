@@ -22,28 +22,29 @@ export function awsApiClientXmlResultStrategy(
   const { xmlParser } = strategyOptions;
   const isFailureResponse = httpClientResponseStatusIs({ minimum: httpStatuses.BadRequest });
   const toArrayBuffer = httpClientResponseToArrayBuffer();
-  const toXml = xmlToValue(xmlParser);
+  const toXml = xmlToValue({ xmlParser });
 
-  return createAwsApiClientResultStrategy(['application/xml', 'text/xml'])(({ httpClientResponse, operation }) =>
-    toArrayBuffer(httpClientResponse).pipe(
-      mergeMap(arrayBuffer =>
-        toXml(arrayBuffer).pipe(
-          map(result => {
-            if (isFailureResponse(httpClientResponse)) {
-              if (isAwsApiXmlErrorResult(result)) {
-                const { Error: apiErrorResult } = result.ErrorResponse;
-                throw awsApiErrorResultToApiError({ operation })({ apiErrorResult, httpClientResponse });
-              } else {
-                throw awsApiError.unhandledXmlError({ xml: result, operation });
+  return createAwsApiClientResultStrategy(['application/xml', 'text/xml'])(
+    ({ httpClientResponse, method, operation, url }) =>
+      toArrayBuffer(httpClientResponse).pipe(
+        mergeMap(arrayBuffer =>
+          toXml(arrayBuffer).pipe(
+            map(result => {
+              if (isFailureResponse(httpClientResponse)) {
+                if (isAwsApiXmlErrorResult(result)) {
+                  const { Error: apiErrorResult } = result.ErrorResponse;
+                  throw awsApiErrorResultToApiError({ method, operation, url })({ apiErrorResult, httpClientResponse });
+                } else {
+                  throw awsApiError.unhandledXmlError({ xml: result, operation });
+                }
               }
-            }
 
-            return {
-              result,
-            };
-          })
+              return {
+                result,
+              };
+            })
+          )
         )
       )
-    )
   );
 }

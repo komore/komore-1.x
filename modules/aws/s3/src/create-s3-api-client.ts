@@ -1,13 +1,21 @@
-import { createAwsApiClient, type AwsApiClientOptions } from '@komore/aws';
-import { httpClientResponseToArrayBuffer, type HttpClientResponse } from '@komore/http/client';
-import { map, mergeMap, tapNext } from '@komore/reactive';
-import { createXmlParser, xmlToValue } from '@komore/xml';
+import {
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientXmlParametersStrategy,
+  awsApiClientXmlResultStrategy,
+  createAwsApiClient,
+  type AwsApiClientParametersWithProcessedResponse,
+  type AwsApiClientParametersWithHttpClientResponse,
+} from '@komore/aws';
+import { type HttpClientResponse } from '@komore/http/client';
+import { map } from '@komore/reactive';
+import { createXmlParser } from '@komore/xml';
 
+import { type S3ApiClientParameters } from './parameters/s3-api-client-parameters';
 import { type S3XmlResponse } from './response/s3-xml-response';
 import { s3XmlResponseToResult } from './response/s3-xml-response-to-result';
 import { type S3ApiClient } from './s3-api-client';
 import { type S3ApiClientOptions } from './s3-api-client-options';
-import { type S3ApiClientParameters } from './s3-api-client-parameters';
+import { s3ApiClientUrlStrategy } from './s3-api-client-url-strategy';
 
 /**
  * Creates an S3 API client
@@ -17,41 +25,42 @@ import { type S3ApiClientParameters } from './s3-api-client-parameters';
  */
 export function createS3ApiClient(clientOptions: S3ApiClientOptions): S3ApiClient {
   const { ...awsClientOptions } = clientOptions;
-  const toArrayBuffer = httpClientResponseToArrayBuffer();
   const xmlParser = createXmlParser({});
   const awsApiClient = createAwsApiClient({
     ...awsClientOptions,
     service: 's3',
-    toXml: (httpClientReponse =>
-      toArrayBuffer(httpClientReponse).pipe(
-        tapNext(x => console.log('before', x)),
-        mergeMap(xmlToValue(xmlParser)),
-        tapNext(x => console.log('after', x)),
-        map(x => x)
-      )) as NonNullable<AwsApiClientOptions['toXml']>,
-    url: () => new URL(`https://s3.us-east-1.amazonaws.com`),
+    strategies: {
+      parameters: awsApiClientXmlParametersStrategy({ xmlParser }),
+      result: [awsApiClientXmlResultStrategy({ xmlParser })],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: s3ApiClientUrlStrategy(),
+    },
   });
-  return <T, RootTag extends string>(
-    clientParameters: S3ApiClientParameters & { readonly response?: true, readonly rootTag?: RootTag }
+  return <RootTag extends string, T, X>(
+    clientParameters: S3ApiClientParameters<T> & {
+      readonly projectXml?: (xmlResult: X) => T;
+      readonly response?: true;
+      readonly rootTag?: RootTag;
+    }
   ): Observable<HttpClientResponse | T> => {
-    const { operation, parameters, response = false, rootTag } = clientParameters;
+    const { Bucket, projectXml, response = false, rootTag, ...remainingClientParameters } = clientParameters;
+    const baseClientParameters = {
+      ...remainingClientParameters,
+      ...(Bucket === undefined ? { region: 'us-east-1' } : {}),
+    };
+
     if (response) {
-      return awsApiClient({
-        operation,
-        parameters,
-        response,
-      });
+      return awsApiClient({ ...baseClientParameters, response } as AwsApiClientParametersWithHttpClientResponse);
     }
 
-    const result$ = awsApiClient<S3XmlResponse<string, T>>({
-      operation,
-      parameters,
-    });
+    const result$ = awsApiClient<S3XmlResponse<string, T>>(
+      baseClientParameters as AwsApiClientParametersWithProcessedResponse<S3XmlResponse<string, T>>
+    );
 
     return rootTag !== undefined
       ? result$.pipe(
           map(s3XmlResponseToResult(rootTag)),
-          map(result => result as T)
+          map(result => (projectXml !== undefined ? projectXml(result as X) : (result as T)))
         )
       : (result$ as Observable<T>);
   };

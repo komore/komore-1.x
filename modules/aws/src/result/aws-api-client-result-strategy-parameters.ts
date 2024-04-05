@@ -1,3 +1,4 @@
+import { type HttpMethod } from '@komore/http';
 import { type HttpClientResponse } from '@komore/http/client';
 
 /**
@@ -9,7 +10,15 @@ export interface AwsApiClientResultStrategyParameters {
    */
   readonly httpClientResponse: HttpClientResponse;
   /**
+   * HTTP method
+   */
+  readonly method: HttpMethod;
+  /**
    * Operation
    */
   readonly operation: string;
+  /**
+   * URL
+   */
+  readonly url: URL;
 }

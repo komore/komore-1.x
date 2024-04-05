@@ -1,5 +1,10 @@
-import { type ErrorCreator, type ErrorFromCreator, type ErrorFromType, type GenericErrorType } from '@komore/error';
-import { TypeCreator } from '@komore/typescript';
+import {
+  type ErrorCreator,
+  type ErrorFromCreator,
+  type ErrorFromType,
+  type ErrorType as GenericErrorType,
+} from '@komore/error';
+import { type TypeCreator } from '@komore/typescript';
 
 import { testingError } from '../testing.error';
 
@@ -31,7 +36,7 @@ export function thrown(errorMessage: string): unknown;
  * @param errorClass Error class
  * @returns Error instance
  */
-export function thrown<T, C extends new (...args: any[]) => T>(errorClass: C): T;
+export function thrown<T, C extends new (...args: ReadonlyArray<any>) => T>(errorClass: C): T;
 
 /**
  * Asserts that an error with a specific type has been thrown, and returns it
@@ -51,6 +56,6 @@ export function thrown<ErrorCreatorType extends ErrorCreator<string, TypeCreator
   errorType: ErrorCreatorType
 ): ErrorFromCreator<ErrorCreatorType>;
 
-export function thrown<T, C extends new (...args: any[]) => T>(_?: C | string): T {
+export function thrown<T, C extends new (...args: ReadonlyArray<any>) => T>(_?: C | string): T {
   throw testingError.specificationNotPreprocessed({ expression: 'thrown()' });
 }

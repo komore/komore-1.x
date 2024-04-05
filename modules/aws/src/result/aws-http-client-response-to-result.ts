@@ -18,7 +18,7 @@ import { awsHttpClientResponseToTextResult } from './aws-http-client-response-to
 export function awsHttpClientResponseToResult<T>(
   options: AwsHttpClientResponseToResultOptions
 ): (response: HttpClientResponse) => Observable<T> {
-  const { operation, strategies } = options;
+  const { method, operation, strategies, url } = options;
   const toText = awsHttpClientResponseToTextResult(options);
 
   return httpClientResponse => {
@@ -33,6 +33,6 @@ export function awsHttpClientResponseToResult<T>(
       return throwError(() => awsApiError.unsupportedResponseType({ contentType, operation }));
     }
 
-    return strategy<T>({ httpClientResponse, operation }).pipe(map(({ result }) => result));
+    return strategy<T>({ httpClientResponse, method, operation, url }).pipe(map(({ result }) => result));
   };
 }

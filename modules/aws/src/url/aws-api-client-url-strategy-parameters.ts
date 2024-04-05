@@ -5,6 +5,10 @@ import { type AwsRegion } from '../region/aws-region';
  */
 export interface AwsApiClientUrlStrategyParameters {
   /**
+   * Parameters
+   */
+  readonly parameters?: unknown;
+  /**
    * AWS region
    */
   readonly region: AwsRegion;

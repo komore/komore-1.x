@@ -7,7 +7,11 @@ import { validateUrlString } from './validate-url-string';
  * @param urlString URL string
  * @returns URL string
  */
-export function asUrlString(urlString: string): UrlString {
+export function asUrlString(urlString: string | URL): UrlString {
+  if (urlString instanceof URL) {
+    return urlString.toString() as UrlString;
+  }
+
   validateUrlString(urlString);
   return urlString;
 }

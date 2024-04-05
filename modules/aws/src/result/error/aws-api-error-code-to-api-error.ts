@@ -1,4 +1,5 @@
 import { type ErrorFromType } from '@komore/error';
+import { asUrlString } from '@komore/url';
 
 import { awsApiError } from '../../aws-api.error';
 import { type AwsApiErrorResultToApiErrorOptions } from './aws-api-error-result-to-api-error-options';
@@ -14,18 +15,27 @@ import { type AwsApiErrorResultToApiErrorParameters } from './aws-api-error-resu
 export function awsApiErrorCodeToApiError(
   options: AwsApiErrorResultToApiErrorOptions
 ): (parameters: AwsApiErrorResultToApiErrorParameters) => ErrorFromType<typeof awsApiError> {
-  const { operation } = options;
-  return ({ apiErrorResult: { Code: code = '' }, httpClientResponse: { status: statusCode } }) => {
+  const { method, operation, url: operationUrl } = options;
+  const url = asUrlString(operationUrl.toString());
+
+  return ({ apiErrorResult: { Code: code }, httpClientResponse: { status: statusCode } }) => {
     switch (code) {
+      case 'AccessDenied':
+        return awsApiError.accessDenied({ operation });
+      case 'AuthorizationHeaderMalformed':
+        return awsApiError.malformedAuthorizationHeader({ operation });
+      case 'IncompleteSignature':
+        return awsApiError.invalidSignature({ operation, reason: 'incomplete' });
+      case 'MethodNotAllowed':
+        return awsApiError.notAllowed({ method, operation, url });
       case 'MissingAuthenticationToken':
         return awsApiError.missingAuthenticationToken({ operation });
       case 'SignatureDoesNotMatch':
-        // TODO: more specific error
-        return awsApiError.invalidSignature({ operation });
+        return awsApiError.invalidSignature({ operation, reason: 'mismatch' });
       default:
         break;
     }
 
-    return awsApiError.unhandledErrorCode({ code, operation, statusCode });
+    return awsApiError.unhandledErrorCode({ code: code ?? '<no code>', operation, statusCode });
   };
 }

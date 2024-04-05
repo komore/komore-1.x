@@ -1,18 +1,12 @@
-import { type AwsAccessKeyCredentials } from '@komore/aws';
+import { type AwsApiServiceClientOptions } from '@komore/aws';
 import { asDynamoDBTableName, createDynamoDBApiClient } from '@komore/aws/dynamodb';
 import { createDynamoDBEventRepository, createDynamoDBSnapshotRepository } from '@komore/aws/dynamodb/event-store';
 import { testDomain } from '@komore/domain/testing';
 import { createEventType, eventProperties, matchEvent } from '@komore/event';
 import { createEventStore, snapshotOnCount } from '@komore/event/store';
-import { type HttpClient } from '@komore/http/client';
-import { type NodeEnvironmentVariables } from '@komore/node/environment';
 
-export function runTableEventStore(
-  httpClient: HttpClient,
-  environmentVariables: NodeEnvironmentVariables,
-  credentials: AwsAccessKeyCredentials
-) {
-  const apiClient = createDynamoDBApiClient({ credentials, environmentVariables, httpClient });
+export function runTableEventStore(clientOptions: AwsApiServiceClientOptions) {
+  const apiClient = createDynamoDBApiClient(clientOptions);
   const tableName = asDynamoDBTableName('test-eventstore-table');
   const eventStore = createEventStore({
     event: {
