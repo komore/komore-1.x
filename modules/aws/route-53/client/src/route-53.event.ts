@@ -1,18 +1,10 @@
-import {
-  type ChangeResourceRecordSetsCommandOutput,
-  type CreateHostedZoneCommandOutput,
-  type DeleteHostedZoneCommandOutput,
-} from '@aws-sdk/client-route-53';
-
-import { createAwsEventType } from '@komore/aws';
-import { eventProperties } from '@komore/event';
-
-import { route53Domain } from './route-53.domain';
+import { route53Domain } from '@komore/aws/route-53';
+import { createEventType, eventProperties } from '@komore/event';
 
 /**
  * Route 53 event
  */
-export const route53Event = createAwsEventType(route53Domain, {
+export const route53Event = createEventType(route53Domain, {
   /**
    * A new public or private hosted zone has been created
    *

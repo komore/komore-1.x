@@ -131,6 +131,23 @@ export const awsApiError = createErrorType(awsDomain, {
     readonly text: string;
   }>(),
   /**
+   * Unhandled error code
+   */
+  unhandledErrorCode: errorProperties<{
+    /**
+     * Error code
+     */
+    readonly code: string;
+    /**
+     * Operation
+     */
+    readonly operation: string;
+    /**
+     * Status code
+     */
+    readonly statusCode: HttpStatus;
+  }>(),
+  /**
    * Unhandled JSON error
    */
   unhandledJsonError: errorProperties<{
@@ -160,6 +177,19 @@ export const awsApiError = createErrorType(awsDomain, {
    * Unknown operation
    */
   unknownOperation: errorProperties<{
+    /**
+     * Operation
+     */
+    readonly operation: string;
+  }>(),
+  /**
+   * Unhandled JSON error
+   */
+  unhandledXmlError: errorProperties<{
+    /**
+     * XML error
+     */
+    readonly xml: unknown;
     /**
      * Operation
      */

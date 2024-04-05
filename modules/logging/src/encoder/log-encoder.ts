@@ -1,4 +1,5 @@
-import { type LogEventRecord } from '../event-record/log-event-record';
+import { type LogEventRecord } from '../record/log-event-record';
+import { type EncodedLogEventRecord } from './encoded-log-event-record';
 
 /**
  * Log encoder
@@ -7,8 +8,9 @@ export interface LogEncoder {
   /**
    * Encodes a log event record
    *
-   * @param record Log event record
+   * @param logEventRecord Log event record
    * @returns Encoded log event record
    */
-  (record: LogEventRecord): string;
+  (logEventRecord: LogEventRecord): EncodedLogEventRecord;
 }
+// TODO: start and end

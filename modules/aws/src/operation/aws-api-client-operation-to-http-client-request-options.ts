@@ -1,21 +1,17 @@
 import { type HashAlgorithm } from '@komore/cryptography';
 
-import { type AwsAccessKeyCredentials } from '../credentials/aws-access-key-credentials';
+import { type AwsApiClientParametersStrategy } from '../parameters/aws-api-client-parameters-strategy';
 
 /**
  * AWS API client operation to HTTP client request options
  */
 export interface AwsApiClientOperationToHttpClientRequestOptions {
   /**
-   * Credentials
-   */
-  readonly credentials: AwsAccessKeyCredentials;
-  /**
    * Hash algorithm
    */
   readonly hashAlgorithm: HashAlgorithm;
   /**
-   * Host
+   * Parameters strategy
    */
-  readonly host: string;
+  readonly strategy: AwsApiClientParametersStrategy;
 }

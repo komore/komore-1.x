@@ -105,6 +105,7 @@
       "@komore/aws/stack": ["modules/aws/stack/src/index.ts"],
       "@komore/aws/step-functions": ["modules/aws/step-functions/src/index.ts"],
       "@komore/aws/step-functions/client": ["modules/aws/step-functions/client/src/index.ts"],
+      "@komore/aws/sts": ["modules/aws/sts/src/index.ts"],
       "@komore/aws/testing": ["modules/aws/testing/src/index.ts"],
       "@komore/aws/transcribe": ["modules/aws/transcribe/src/index.ts"],
       "@komore/aws/transcribe/client": ["modules/aws/transcribe/client/src/index.ts"],

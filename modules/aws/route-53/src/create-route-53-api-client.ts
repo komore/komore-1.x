@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientStaticUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientXmlParametersStrategy,
+  awsApiClientXmlResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type Route53ApiClient } from './route-53-api-client';
 import { type Route53ApiClientOptions } from './route-53-api-client-options';
@@ -10,11 +16,15 @@ import { type Route53ApiClientOptions } from './route-53-api-client-options';
  * @returns Route 53 API client
  */
 export function createRoute53ApiClient(clientOptions: Route53ApiClientOptions): Route53ApiClient {
-  const { ...awsClientOptions } = clientOptions;
+  const { xmlParser, ...awsClientOptions } = clientOptions;
   return createAwsApiClient({
     ...awsClientOptions,
-    region: 'us-east-1',
     service: 'route53',
-    url: () => new URL(`https://route53.amazonaws.com`),
+    strategies: {
+      parameters: awsApiClientXmlParametersStrategy({ xmlParser }),
+      result: [awsApiClientXmlResultStrategy({ xmlParser })],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientStaticUrlStrategy({ url: new URL('https://route53.amazonaws.com/2013-04-01/') }),
+    },
   });
 }

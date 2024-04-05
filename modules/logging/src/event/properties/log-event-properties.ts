@@ -1,6 +1,6 @@
 import { typeSchema, type ReadonlyRecord } from '@komore/typescript';
 
-import { type LogEventSeverity } from '../log-event-severity';
+import { type LogEventSeverity } from '../../severity/log-event-severity';
 import { type LogEventPropertiesSchema } from './log-event-properties-schema';
 import { logEventPropertiesSchemaTypeName } from './log-event-properties-schema-type-name';
 

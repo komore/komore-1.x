@@ -4,6 +4,7 @@ import { type TypeCreator } from '@komore/typescript';
 import { type ErrorCreator } from '../creator/error-creator';
 import { KomoreError } from '../komore-error';
 import { type ErrorPropertiesSchema } from '../properties/error-properties-schema';
+import { errorStackToKomoreErrorStack } from '../stack/error-stack-to-komore-error-stack';
 import { type ErrorCreatorEntry } from './error-creator-entry';
 
 /**
@@ -18,10 +19,11 @@ export function errorPropertiesSchemaEntryToErrorCreatorEntry<DomainType extends
   domain: DomainType
 ): (entry: readonly [code: string, schema: ErrorPropertiesSchema<unknown>]) => ErrorCreatorEntry {
   return ([code]) => {
-    const creator = ((context: unknown) => new KomoreError(domain, code, context)) as ErrorCreator<
-      typeof code,
-      TypeCreator<any, any>
-    >;
+    const creator = ((context: unknown) => {
+      const komoreError = new KomoreError(domain, code, context);
+      komoreError.stack = errorStackToKomoreErrorStack(komoreError.stack ?? '');
+      return komoreError;
+    }) as ErrorCreator<typeof code, TypeCreator<any, any>>;
     Object.defineProperty(creator, 'code', { enumerable: true, value: code, writable: false });
     return [code, creator];
   };

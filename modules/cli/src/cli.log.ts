@@ -6,5 +6,13 @@ import { cliDomain } from './cli.domain';
  * Command-line interface log
  */
 export const cliLog = createLogEventType(cliDomain, {
-  unknownCliCommand: logEventProperties<{ readonly commandName: string }>(severities.error),
+  /**
+   * Unknown CLI command
+   */
+  unknownCliCommand: logEventProperties<{
+    /**
+     * Command name
+     */
+    readonly commandName: string;
+  }>(severities.error),
 });

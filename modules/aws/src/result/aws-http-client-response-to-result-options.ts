@@ -1,6 +1,6 @@
 import { type HttpMethod } from '@komore/http';
 
-import { type AwsApiClientResultStrategy } from '../strategy/result/aws-api-client-result-strategy';
+import { type AwsApiClientResultStrategy } from '../result/aws-api-client-result-strategy';
 
 /**
  * AWS HTTP client response to result options

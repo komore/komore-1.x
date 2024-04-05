@@ -1,4 +1,5 @@
 import { type Route53DelegationSetId } from '../delegation-set/id/route-53-delegation-set-id';
+import { type Route53Vpc } from '../vpc/route-53-vpc';
 import { type Route53HostedZoneConfiguration } from './route-53-hosted-zone-configuration';
 
 /**
@@ -30,5 +31,5 @@ export interface CreateRoute53HostedZoneParameters {
    *
    * @note Only available for private hosted zones
    */
-  readonly VPC?: unknown; // TODO: type
+  readonly VPC?: Route53Vpc; // TODO: type
 }

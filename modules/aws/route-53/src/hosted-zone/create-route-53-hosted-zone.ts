@@ -12,4 +12,8 @@ import { type CreateRoute53HostedZoneResult } from './create-route-53-hosted-zon
  */
 export function createRoute53HostedZone(
   apiClient: Route53ApiClient
-): (parameters: CreateRoute53HostedZoneParameters) => Observable<CreateRoute53HostedZoneResult> {}
+): (parameters: CreateRoute53HostedZoneParameters) => Observable<CreateRoute53HostedZoneResult> {
+  const operation = 'CreateHostedZone';
+  const resourcePath = 'hostedzone';
+  return parameters => apiClient({ operation, parameters, resourcePath });
+}

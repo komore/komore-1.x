@@ -1,5 +1,5 @@
 import { type LogEventFromCreator } from '../creator/log-event-from-creator';
-import { type GenericLogEventType } from './generic-log-event-type';
+import { type LogEventType as GenericLogEventType } from './log-event-type';
 
 /**
  * Event from event type

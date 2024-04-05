@@ -1,11 +1,11 @@
-import { type GenericLogEvent } from './event/generic-log-event';
+import { type LogEvent } from './event/log-event';
+import { defaultLogger } from './logger/default-logger';
 
 /**
  * Records a log event
  *
  * @param logEvent Log event
  */
-export function recordLogEvent(logEvent: GenericLogEvent): void {
-  const { domain, name, parameters, severity } = logEvent;
-  console.log(`[${domain.name}] ${severity} ${name}`, parameters);
+export function recordLogEvent(logEvent: LogEvent): void {
+  defaultLogger.instance?.(logEvent);
 }

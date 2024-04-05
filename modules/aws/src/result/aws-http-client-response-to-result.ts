@@ -1,6 +1,6 @@
 import { byHttpHeaderName } from '@komore/http';
 import { type HttpClientResponse } from '@komore/http/client';
-import { throwError } from '@komore/reactive';
+import { map, throwError } from '@komore/reactive';
 
 import { awsApiError } from '../aws-api.error';
 import { type AwsHttpClientResponseToResultOptions } from './aws-http-client-response-to-result-options';
@@ -27,11 +27,12 @@ export function awsHttpClientResponseToResult<T>(
       return toText(httpClientResponse);
     }
 
+    // TODO: filter and error if !== 1 strategy found?
     const strategy = strategies.find(({ mediaTypes }) => mediaTypes.has(contentType));
     if (strategy === undefined) {
       return throwError(() => awsApiError.unsupportedResponseType({ contentType, operation }));
     }
 
-    return strategy.httpClientResponseToResult(httpClientResponse);
+    return strategy<T>({ httpClientResponse, operation }).pipe(map(({ result }) => result));
   };
 }

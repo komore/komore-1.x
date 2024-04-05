@@ -1,6 +1,6 @@
 import { getNodeEnvironmentVariables, type NodeEnvironmentVariables } from '@komore/node/environment';
 
-import { type AwsAccessKeyCredentials } from './aws-access-key-credentials';
+import { type AwsCredentials } from './aws-credentials';
 
 /**
  * Returns the default AWS credentials
@@ -8,7 +8,7 @@ import { type AwsAccessKeyCredentials } from './aws-access-key-credentials';
  * @param environmentVariables Environment variables
  * @returns Default AWS region
  */
-export function getDefaultAwsCredentials(environmentVariables: NodeEnvironmentVariables): AwsAccessKeyCredentials {
+export function getDefaultAwsCredentials(environmentVariables: NodeEnvironmentVariables): AwsCredentials {
   return getNodeEnvironmentVariables(environmentVariables, {
     accessKeyId: {
       description: 'AWS access key identifier',

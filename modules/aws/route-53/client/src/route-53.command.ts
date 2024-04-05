@@ -1,14 +1,10 @@
-import {
-  type ChangeResourceRecordSetsCommandInput,
-  type CreateHostedZoneCommandInput,
-  type DeleteHostedZoneCommandInput,
-} from '@aws-sdk/client-route-53';
+import { route53Domain, type CreateRoute53HostedZoneParameters, type Route53HostedZoneId } from '@komore/aws/route-53';
+import { commandProperties, createCommandType } from '@komore/command';
 
-import { createAwsCommandType } from '@komore/aws';
-import { route53Domain } from '@komore/aws/route-53';
-import { commandProperties } from '@komore/command';
-
-export const route53Command = createAwsCommandType(route53Domain, {
+/**
+ * Route 53 command
+ */
+export const route53Command = createCommandType(route53Domain, {
   /**
    * Creates, changes or deletes a resource record set
    *
@@ -20,11 +16,11 @@ export const route53Command = createAwsCommandType(route53Domain, {
    *
    * @note {@link https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone}
    */
-  createHostedZone: commandProperties<CreateHostedZoneCommandInput>(),
+  createHostedZone: commandProperties<CreateRoute53HostedZoneParameters>(),
   /**
    * Deletes a hosted zone
    *
    * @note {@link https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html DeleteHostedZone}
    */
-  deleteHostedZone: commandProperties<DeleteHostedZoneCommandInput>(),
+  deleteHostedZone: commandProperties<Route53HostedZoneId>(),
 });

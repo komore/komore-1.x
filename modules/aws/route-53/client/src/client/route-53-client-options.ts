@@ -1,6 +1,11 @@
-import { type Route53ClientConfig } from '@aws-sdk/client-route-53';
+import { type Route53ApiClient } from '@komore/aws/route-53';
 
 /**
  * Route 53 client options
  */
-export interface Route53ClientOptions extends Route53ClientConfig {}
+export interface Route53ClientOptions {
+  /**
+   * Route 53 API client
+   */
+  readonly apiClient: Route53ApiClient;
+}

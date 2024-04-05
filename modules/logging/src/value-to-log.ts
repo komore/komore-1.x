@@ -1,6 +1,6 @@
-import { type GenericLogEvent } from './event/generic-log-event';
-import { type Logger } from './logger';
+import { type LogEvent } from './event/log-event';
 import { recordLogEvent } from './record-log-event';
+import { type ValueToLogOptions } from './value-to-log-options';
 
 /**
  * Returns a function that projects each emitted value to a log event then records it
@@ -11,12 +11,13 @@ import { recordLogEvent } from './record-log-event';
  * @template T Value type
  * @template LogEventType Log event type
  */
-export function valueToLog<T, LogEventType extends GenericLogEvent>(
+export function valueToLog<T, LogEventType extends LogEvent>(
   project: (value: T) => LogEventType,
-  logger?: Logger
+  options?: ValueToLogOptions
 ): (value: T) => void {
+  const { logger = recordLogEvent } = options ?? {};
   return value => {
     const logEvent = project(value);
-    (logger ?? recordLogEvent)(logEvent);
+    logger(logEvent);
   };
 }

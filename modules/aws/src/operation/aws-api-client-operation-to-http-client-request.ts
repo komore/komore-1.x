@@ -1,5 +1,5 @@
 import { createHash } from '@komore/cryptography';
-import { createAcceptHttpHeader, createContentTypeHttpHeader, createHostHttpHeader } from '@komore/http';
+import { createHostHttpHeader } from '@komore/http';
 import { type HttpClientRequest } from '@komore/http/client';
 import { map } from '@komore/reactive';
 
@@ -19,25 +19,22 @@ import { type AwsApiClientOperationToHttpClientRequestParameters } from './aws-a
 export function awsApiClientOperationToHttpClientRequest(
   options: AwsApiClientOperationToHttpClientRequestOptions
 ): (parameters: AwsApiClientOperationToHttpClientRequestParameters) => Observable<HttpClientRequest> {
-  const { hashAlgorithm, host } = options;
-  const baseHeaders = [
-    createAcceptHttpHeader('application/json'),
-    createContentTypeHttpHeader('application/x-amz-json-1.0'),
-    createHostHttpHeader(host),
-  ];
+  const { hashAlgorithm, strategy } = options;
   const hash = createHash({ hashAlgorithm });
 
   return ({ dateTime, method, operation, parameters, url }) => {
-    const body = parameters !== undefined ? JSON.stringify(parameters) : undefined;
-
+    const { body, headers: additionalHeaders = [] } = strategy({ method, operation, parameters });
     return hash(body ?? '').pipe(
       map(payloadHash => {
         const headers = [
-          ...baseHeaders,
+          ...additionalHeaders,
+          createHostHttpHeader(url.host),
+          // TODO: let the strategy handle these
           createAwsDateHttpHeader(dateTime),
           createAwsTargetHttpHeader(operation),
           createAwsContentSha256HttpHeader(payloadHash),
         ];
+
         return {
           headers,
           method,

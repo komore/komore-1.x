@@ -1,4 +1,4 @@
-import { type LogEventRecord } from '../event-record/log-event-record';
+import { type LogEventRecord } from '../record/log-event-record';
 import { type LogFilterResult } from './log-filter-result';
 
 /**

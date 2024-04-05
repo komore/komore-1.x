@@ -1,4 +1,4 @@
-import { type LogEventSeverity } from '../event/log-event-severity';
+import { type LogEventSeverity } from '../severity/log-event-severity';
 
 /**
  * Log event mapping

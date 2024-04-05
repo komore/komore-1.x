@@ -4,8 +4,11 @@ import { type Arn } from '../arn';
 
 /**
  * Regional ARN
+ *
+ * @template ServiceName Service name
+ * @template Value Value
  */
-export type RegionalArn<ServiceName extends string, Value extends string> = Arn<
+export type RegionalArn<ServiceName extends string = string, Value extends string = string> = Arn<
   ServiceName,
   `${AwsRegion}:${AwsAccountId}:${Value}`
 >;

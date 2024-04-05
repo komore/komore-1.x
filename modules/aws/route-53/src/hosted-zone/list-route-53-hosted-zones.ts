@@ -13,10 +13,8 @@ import { type ListRoute53HostedZonesResult } from './list-route-53-hosted-zones-
 export function listRoute53HostedZones(
   apiClient: Route53ApiClient
 ): (parameters: ListRoute53HostedZonesParameters) => Observable<ListRoute53HostedZonesResult> {
-  return ({}) =>
-    apiClient({
-      method: 'GET',
-      operation: 'route53.ListHostedZones',
-      resourcePath: '2013-04-01/hostedzone',
-    });
+  const method = 'GET';
+  const operation = 'ListHostedZones';
+  const resourcePath = 'hostedzone';
+  return ({}) => apiClient({ method, operation, resourcePath });
 }

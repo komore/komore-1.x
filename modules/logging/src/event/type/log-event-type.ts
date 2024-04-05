@@ -11,8 +11,8 @@ import { type LogEvent } from '../log-event';
  * @template LogEventParametersByEventName Log event parameters by event name
  */
 export type LogEventType<
-  DomainType extends Domain,
-  LogEventParametersByEventName extends ReadonlyRecord<string, any>,
+  DomainType extends Domain = Domain,
+  LogEventParametersByEventName extends ReadonlyRecord<string, any> = ReadonlyRecord<string, any>,
 > = {
   /**
    * Creates a new event
