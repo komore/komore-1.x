@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type SendSqsMessageBatchParameters } from './send-sqs-message-batch-parameters';
 import { type SendSqsMessageBatchResult } from './send-sqs-message-batch-result';
 
@@ -13,9 +12,6 @@ import { type SendSqsMessageBatchResult } from './send-sqs-message-batch-result'
 export function sendSqsMessageBatch(
   apiClient: SqsApiClient
 ): (parameters: SendSqsMessageBatchParameters) => Observable<SendSqsMessageBatchResult> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.SendMessageBatch`,
-      parameters,
-    });
+  const operation = 'SendMessageBatch';
+  return parameters => apiClient({ operation, parameters });
 }

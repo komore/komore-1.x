@@ -1,5 +1,4 @@
 import { type KmsApiClient } from '../kms-api-client';
-import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type KmsDecryptParameters } from './kms-decrypt-parameters';
 import { type KmsDecryptResult } from './kms-decrypt-result';
 
@@ -13,9 +12,6 @@ import { type KmsDecryptResult } from './kms-decrypt-result';
 export function kmsDecrypt(
   apiClient: KmsApiClient
 ): (parameters: KmsDecryptParameters) => Observable<KmsDecryptResult> {
-  return parameters =>
-    apiClient({
-      operation: `${kmsTargetPrefix}.Decrypt`,
-      parameters,
-    });
+  const operation = 'Decrypt';
+  return parameters => apiClient({ operation, parameters });
 }

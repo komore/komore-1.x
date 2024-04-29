@@ -1,4 +1,5 @@
 import { commandProperties, createCommandType } from '@komore/command';
+import { type RegExpString } from '@komore/regexp';
 import { type ProjectName, type TaskName } from '@komore/schematics';
 
 import { kDomain } from './k.domain';
@@ -17,7 +18,11 @@ export const kCommand = createCommandType(kDomain, {
   listPackages: commandProperties(),
   listProjects: commandProperties(),
   runExecutor: commandProperties<
-    { taskName: TaskName; parallel: number | undefined } & ({ projectName: ProjectName } | { all: true })
+    { taskName: TaskName; parallel: number | undefined } & (
+      | { projectName: ProjectName }
+      | { projects: RegExpString }
+      | { all: true }
+    )
   >(),
   runGenerator: commandProperties<{ schematicName: string }>(),
   // TODO: move to linting/schematics

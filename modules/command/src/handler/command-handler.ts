@@ -5,6 +5,6 @@ import { type Command } from '../command';
  *
  * @template CommandType Command type
  */
-export interface CommandHandler<CommandType extends Command> {
+export interface CommandHandler<CommandType extends Command = Command> {
   (command: CommandType): Observable<void>;
 }

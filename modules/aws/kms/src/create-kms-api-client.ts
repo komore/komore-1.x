@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientDefaultUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientJsonParametersStrategy,
+  awsApiClientJsonResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type KmsApiClient } from './kms-api-client';
 import { type KmsApiClientOptions } from './kms-api-client-options';
@@ -11,5 +17,16 @@ import { type KmsApiClientOptions } from './kms-api-client-options';
  */
 export function createKmsApiClient(clientOptions: KmsApiClientOptions): KmsApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'kms' });
+  const service = 'kms';
+  const targetPrefix = 'TrentService';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
+      result: [awsApiClientJsonResultStrategy({})],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
+    },
+  });
 }

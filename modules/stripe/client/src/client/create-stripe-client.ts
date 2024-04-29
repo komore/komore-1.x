@@ -1,12 +1,14 @@
 import { createClient } from '@komore/client';
 
 import { createStripeCommandHandler } from '../command/create-stripe-command-handler';
+import { createStripeQueryHandler } from '../query/create-stripe-query-handler';
 import { stripeCommand } from '../stripe.command';
 import { stripeError } from '../stripe.error';
 import { stripeEvent } from '../stripe.event';
 import { stripeQuery } from '../stripe.query';
 import { type StripeClient } from './stripe-client';
 import { type StripeClientOptions } from './stripe-client-options';
+import { stripeClientCommandEventMap } from './stripe-client-command-event-map';
 
 /**
  * Creates a Stripe client
@@ -18,7 +20,7 @@ export function createStripeClient(clientOptions: StripeClientOptions): StripeCl
   const { apiClient } = clientOptions;
   return createClient({
     command: stripeCommand,
-    commandHandler: toEvents => createStripeCommandHandler({ apiClient, toEvents }),
+    commandHandler: ({ toEvents }) => createStripeCommandHandler({ apiClient, toEvents }),
     commandEventMap: stripeClientCommandEventMap,
     error: stripeError,
     event: stripeEvent,

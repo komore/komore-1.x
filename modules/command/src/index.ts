@@ -9,6 +9,5 @@ export { type CommandPropertiesFromCommandDefinitions } from './properties/comma
 export { type CommandPropertiesSchema } from './properties/command-properties-schema';
 export { type CommandType } from './type/command-type';
 export { createCommandType } from './type/create-command-type';
-export { type GenericCommandHandler } from './handler/generic-command-handler';
 export { matchCommand } from './matcher/match-command';
 export { mergeCompositeCommandType } from './type/merge-composite-command-type';

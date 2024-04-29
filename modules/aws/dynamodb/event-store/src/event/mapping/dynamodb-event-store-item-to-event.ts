@@ -4,7 +4,7 @@ import { identity } from '@komore/functional';
 import { type ReadonlyRecord } from '@komore/typescript';
 
 import { dynamoDBEventStoreError } from '../../dynamodb-event-store.error';
-import { type DynamoDBEventStoreItemToEventOptions } from './dynamodb-event-store-item-to-event-options';
+import { type DynamoDBEventStoreItemToEventWithStoreMetadataOptions } from './dynamodb-event-store-item-to-event-with-store-metadata-options';
 
 /**
  * Creates a function that returns an event, given a DynamoDB event store item
@@ -13,9 +13,9 @@ import { type DynamoDBEventStoreItemToEventOptions } from './dynamodb-event-stor
  * @returns Function that returns an event, given a DynamoDB event store item
  */
 export function dynamoDBEventStoreItemToEvent<EventType extends GenericEventType>(
-  options: DynamoDBEventStoreItemToEventOptions<EventType>
+  options: DynamoDBEventStoreItemToEventWithStoreMetadataOptions<EventType>
 ): (item: ReadonlyRecord<string, DynamoDBAttributeValue>) => EventFromType<EventType> {
-  const { attributeNames: names, eventType, eventNameResolver = identity } = options;
+  const { attributeNames: names, eventNameResolver = identity, eventType } = options;
   return item => {
     const eventNameString = item[names.eventName]?.S;
     if (eventNameString === undefined) {

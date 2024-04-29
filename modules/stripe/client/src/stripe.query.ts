@@ -1,6 +1,5 @@
 import { createQueryType } from '@komore/query';
-
-import { stripeDomain } from './stripe.domain';
+import { stripeDomain } from '@komore/stripe';
 
 /**
  * Stripe query

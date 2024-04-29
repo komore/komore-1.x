@@ -11,7 +11,7 @@ import { type EsLintQueryHandlerOptions } from './eslint-query-handler-options';
  * @returns ESLint query handler
  */
 export function createEsLintQueryHandler(options: EsLintQueryHandlerOptions): EsLintQueryHandler {
-  const { esLint$: _ } = options;
+  const { esLint: _ } = options;
   return query =>
     matchQuery(query, {
       version: () => of('TODO:unknown'),

@@ -1,5 +1,4 @@
 import { type CognitoApiClient } from '../cognito-api-client';
-import { cognitoTargetPrefix } from '../cognito-target-prefix';
 import { type ListCognitoUsersParameters } from './list-cognito-users-parameters';
 import { type ListCognitoUsersResult } from './list-cognito-users-result';
 
@@ -13,9 +12,6 @@ import { type ListCognitoUsersResult } from './list-cognito-users-result';
 export function listCognitoUsers(
   apiClient: CognitoApiClient
 ): (parameters: ListCognitoUsersParameters) => Observable<ListCognitoUsersResult> {
-  return parameters =>
-    apiClient({
-      operation: `${cognitoTargetPrefix}.ListUsers`,
-      parameters,
-    });
+  const operation = 'ListUsers';
+  return parameters => apiClient({ operation, parameters });
 }

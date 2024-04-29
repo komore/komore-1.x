@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientDefaultUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientJsonParametersStrategy,
+  awsApiClientJsonResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type SqsApiClient } from './sqs-api-client';
 import { type SqsApiClientOptions } from './sqs-api-client-options';
@@ -11,5 +17,16 @@ import { type SqsApiClientOptions } from './sqs-api-client-options';
  */
 export function createSqsApiClient(clientOptions: SqsApiClientOptions): SqsApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'sqs' });
+  const service = 'sqs';
+  const targetPrefix = 'AmazonSQS';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
+      result: [awsApiClientJsonResultStrategy({})],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
+    },
+  });
 }

@@ -2,6 +2,7 @@ import { names } from '@nrwl/devkit';
 
 /**
  * Builds a project directory name
+ *
  * @param directory Directory
  * @param fileName File name
  * @returns Project directory name

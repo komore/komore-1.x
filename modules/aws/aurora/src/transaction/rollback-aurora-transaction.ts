@@ -1,5 +1,4 @@
 import { type AuroraApiClient } from '../aurora-api-client';
-import { auroraTargetPrefix } from '../aurora-target-prefix';
 import { type RollbackAuroraTransactionParameters } from './rollback-aurora-transaction-parameters';
 import { type RollbackAuroraTransactionResult } from './rollback-aurora-transaction-result';
 
@@ -13,10 +12,7 @@ import { type RollbackAuroraTransactionResult } from './rollback-aurora-transact
 export function rollbackAuroraTransaction(
   apiClient: AuroraApiClient
 ): (parameters: RollbackAuroraTransactionParameters) => Observable<RollbackAuroraTransactionResult> {
-  return parameters =>
-    apiClient({
-      operation: `${auroraTargetPrefix}.RollbackTransaction`,
-      parameters,
-      resourcePath: 'RollbackTransaction',
-    });
+  const operation = 'RollbackTransaction';
+  const resourcePath = 'RollbackTransaction';
+  return parameters => apiClient({ operation, parameters, resourcePath });
 }

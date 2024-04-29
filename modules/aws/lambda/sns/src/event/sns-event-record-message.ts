@@ -1,3 +1,5 @@
+import { type ReadonlyRecord } from '@komore/typescript';
+
 import { type SnsEventRecordMessageAttribute } from './sns-event-record-message-attribute';
 
 /**
@@ -5,7 +7,7 @@ import { type SnsEventRecordMessageAttribute } from './sns-event-record-message-
  */
 export interface SnsEventRecordMessage {
   readonly Message: string;
-  readonly MessageAttributes: Record<string, SnsEventRecordMessageAttribute>;
+  readonly MessageAttributes: ReadonlyRecord<string, SnsEventRecordMessageAttribute>;
   readonly MessageId: string;
   readonly Signature: string;
   readonly SignatureVersion: '1';

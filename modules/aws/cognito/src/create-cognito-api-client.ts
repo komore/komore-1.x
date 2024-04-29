@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientDefaultUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientJsonParametersStrategy,
+  awsApiClientJsonResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type CognitoApiClient } from './cognito-api-client';
 import { type CognitoApiClientOptions } from './cognito-api-client-options';
@@ -9,7 +15,18 @@ import { type CognitoApiClientOptions } from './cognito-api-client-options';
  * @param clientOptions Cognito API client options
  * @returns Cognito API client
  */
-export function createCognitoClient(clientOptions: CognitoApiClientOptions): CognitoApiClient {
+export function createCognitoApiClient(clientOptions: CognitoApiClientOptions): CognitoApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'cognito' });
+  const service = 'cognito';
+  const targetPrefix = 'AWSCognitoIdentityProviderService';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
+      result: [awsApiClientJsonResultStrategy({})],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
+    },
+  });
 }

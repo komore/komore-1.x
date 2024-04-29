@@ -11,5 +11,15 @@ import { type ChimeApiClientOptions } from './chime-api-client-options';
  */
 export function createChimeApiClient(clientOptions: ChimeApiClientOptions): ChimeApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'chime' });
+  const service = 'chime';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters,
+      result,
+      signature,
+      url,
+    },
+  });
 }

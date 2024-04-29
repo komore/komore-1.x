@@ -1,4 +1,4 @@
-import { matchAwsCommand } from '@komore/aws';
+import { matchCommand } from '@komore/command';
 
 import { type DynamoDBCommandHandler } from './dynamodb-command-handler';
 import { type DynamoDBCommandHandlerOptions } from './dynamodb-command-handler-options';
@@ -6,10 +6,10 @@ import { type DynamoDBCommandHandlerOptions } from './dynamodb-command-handler-o
 /**
  * Creates a DynamoDB command handler
  *
- * @param options DynamoDB command handler options
+ * @param handlerOptions DynamoDB command handler options
  * @returns DynamoDB command handler
  */
-export function createDynamoDBCommandHandler(options: DynamoDBCommandHandlerOptions): DynamoDBCommandHandler {
-  const { client } = options;
-  return command => matchAwsCommand();
+export function createDynamoDBCommandHandler(handlerOptions: DynamoDBCommandHandlerOptions): DynamoDBCommandHandler {
+  const { apiClient: _ } = handlerOptions;
+  return command => matchCommand(command, {});
 }

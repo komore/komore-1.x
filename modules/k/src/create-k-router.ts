@@ -1,5 +1,6 @@
 import { cliRoute, createCliRouter, type CliRouter } from '@komore/cli/router';
 import { type CommandFromType } from '@komore/command';
+import { asRegExpString } from '@komore/regexp';
 import { asProjectName, asTaskName } from '@komore/schematics';
 
 import { kCommand } from './k.command';
@@ -80,10 +81,21 @@ export function createKRouter(): CliRouter<CommandFromType<typeof kCommand>> {
               optional: true,
               parse: Number,
             },
+            projects: {
+              description: 'Projects regular expression',
+              optional: true,
+              parse: asRegExpString,
+            },
           },
         },
-        ({ taskName, projectName, all, parallel }) =>
-          kCommand.runExecutor(all ? { taskName, all: true, parallel } : { taskName, projectName, parallel })
+        ({ taskName, projectName, projects, all, parallel }) =>
+          kCommand.runExecutor(
+            all
+              ? { taskName, all: true, parallel }
+              : projects
+                ? { taskName, projects, parallel }
+                : { taskName, projectName, parallel }
+          )
       ),
       cliRoute('validate', 'Validate the workspace', kCommand.validateWorkspace),
       cliRoute('version', 'Display workspace version information', kCommand.displayVersion),

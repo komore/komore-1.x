@@ -1,6 +1,7 @@
 export { createLogEventMapping } from './mapping/create-log-event-mapping';
 export { createLogEventType } from './event/type/create-log-event-type';
 export { createLogger } from './logger/create-logger';
+export { createLogLayout } from './layout/create-log-layout';
 export { defaultHtmlLogLayoutCssStyles } from './layout/html/default-html-log-layout-css-styles';
 export { defaultLogSeverityNames } from './severity/default-log-severity-names';
 export { type EncodedLogEventRecord } from './encoder/encoded-log-event-record';

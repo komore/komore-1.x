@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientDefaultUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientJsonParametersStrategy,
+  awsApiClientJsonResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type TranscribeApiClient } from './transcribe-api-client';
 import { type TranscribeApiClientOptions } from './transcribe-api-client-options';
@@ -11,5 +17,16 @@ import { type TranscribeApiClientOptions } from './transcribe-api-client-options
  */
 export function createTranscribeApiClient(clientOptions: TranscribeApiClientOptions): TranscribeApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'transcribe' });
+  const service = 'transcribe';
+  const targetPrefix = 'Transcribe';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
+      result: [awsApiClientJsonResultStrategy({})],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
+    },
+  });
 }

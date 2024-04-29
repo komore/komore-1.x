@@ -1,5 +1,4 @@
 import { type TranslateApiClient } from '../../translate-api-client';
-import { translateTargetPrefix } from '../../translate-target-prefix';
 import { type TranslateTranslateDocumentParameters } from './translate-translate-document-parameters';
 import { type TranslateTranslateDocumentResult } from './translate-translate-document-result';
 
@@ -13,9 +12,6 @@ import { type TranslateTranslateDocumentResult } from './translate-translate-doc
 export function translateTranslateDocument(
   apiClient: TranslateApiClient
 ): (parameters: TranslateTranslateDocumentParameters) => Observable<TranslateTranslateDocumentResult> {
-  return parameters =>
-    apiClient({
-      operation: `${translateTargetPrefix}.TranslateDocument`,
-      parameters,
-    });
+  const operation = 'TranslateDocument';
+  return parameters => apiClient({ operation, parameters });
 }

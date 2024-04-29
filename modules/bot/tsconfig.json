@@ -3,7 +3,7 @@
   "extends": "../../conf/tsconfig.node.json",
   "references": [
     {
-      "path": "./bot.tsconfig.application.json"
+      "path": "./bot.tsconfig.library.json"
     },
     {
       "path": "./bot.tsconfig.specifications.json"

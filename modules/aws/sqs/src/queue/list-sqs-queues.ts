@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type ListSqsQueuesParameters } from './list-sqs-queues-parameters';
 import { type ListSqsQueuesResult } from './list-sqs-queues-result';
 
@@ -12,9 +11,6 @@ import { type ListSqsQueuesResult } from './list-sqs-queues-result';
 export function listSqsQueues(
   apiClient: SqsApiClient
 ): (parameters: ListSqsQueuesParameters) => Observable<ListSqsQueuesResult> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.ListQueues`,
-      parameters,
-    });
+  const operation = 'ListQueues';
+  return parameters => apiClient({ operation, parameters });
 }

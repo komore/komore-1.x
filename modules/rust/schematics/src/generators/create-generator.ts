@@ -1,4 +1,4 @@
-import { firstValueFrom, of, take } from 'rxjs';
+import { first, firstValueFrom, of } from '@komore/reactive';
 
 /**
  * Creates a generator
@@ -11,7 +11,7 @@ export function createGenerator<SchemaType>(
   return async (tree: Tree, schema: SchemaType) => {
     const schema$ = of(schema);
     const generator = generatorFactory(tree);
-    const generator$ = generator(schema$).pipe(take(1));
+    const generator$ = generator(schema$).pipe(first());
     await firstValueFrom(generator$);
   };
 }

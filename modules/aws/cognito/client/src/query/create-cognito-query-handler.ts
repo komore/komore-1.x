@@ -1,7 +1,8 @@
-import { ListUsersCommand } from '@aws-sdk/client-cognito-identity-provider';
+import { matchQuery } from '@komore/query';
+import { listCognitoUsers } from '@komore/aws/cognito';
+
 import { type CognitoQueryHandler } from './cognito-query-handler';
 import { type CognitoQueryHandlerOptions } from './cognito-query-handler-options';
-import { matchQuery } from '@komore/query';
 
 /**
  * Creates a Cognito query handler
@@ -10,10 +11,11 @@ import { matchQuery } from '@komore/query';
  * @returns Cognito query handler
  */
 export function createCognitoQueryHandler(handlerOptions: CognitoQueryHandlerOptions): CognitoQueryHandler {
-  const { client$ } = handlerOptions;
+  const { apiClient } = handlerOptions;
+  const listUsers = listCognitoUsers(apiClient);
 
   return query =>
     matchQuery(query, {
-      listUsers: () => new ListUsersCommand(),
+      listUsers: () => listUsers(),
     });
 }

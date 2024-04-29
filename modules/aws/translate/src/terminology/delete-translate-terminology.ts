@@ -1,5 +1,4 @@
 import { type TranslateApiClient } from '../translate-api-client';
-import { translateTargetPrefix } from '../translate-target-prefix';
 import { type DeleteTranslateTerminologyParameters } from './delete-translate-terminology-parameters';
 
 /**
@@ -12,9 +11,6 @@ import { type DeleteTranslateTerminologyParameters } from './delete-translate-te
 export function deleteTranslateTerminology(
   apiClient: TranslateApiClient
 ): (parameters: DeleteTranslateTerminologyParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${translateTargetPrefix}.DeleteTerminology`,
-      parameters,
-    });
+  const operation = 'DeleteTerminology';
+  return parameters => apiClient({ operation, parameters });
 }

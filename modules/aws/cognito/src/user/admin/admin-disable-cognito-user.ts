@@ -1,5 +1,4 @@
 import { type CognitoApiClient } from '../../cognito-api-client';
-import { cognitoTargetPrefix } from '../../cognito-target-prefix';
 import { type AdminDisableCognitoUserParameters } from './admin-disable-cognito-user-parameters';
 
 /**
@@ -11,9 +10,6 @@ import { type AdminDisableCognitoUserParameters } from './admin-disable-cognito-
 export function adminDisableCognitoUser(
   apiClient: CognitoApiClient
 ): (parameters: AdminDisableCognitoUserParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${cognitoTargetPrefix}.AdminDisableUser`,
-      parameters,
-    });
+  const operation = 'AdminDisableUser';
+  return parameters => apiClient({ operation, parameters });
 }

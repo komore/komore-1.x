@@ -1,5 +1,4 @@
 import { type KmsApiClient } from '../kms-api-client';
-import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type DisableKmsKeyParameters } from './disable-kms-key-parameters';
 
 /**
@@ -9,9 +8,6 @@ import { type DisableKmsKeyParameters } from './disable-kms-key-parameters';
  * @returns Function that disables a KMS key
  */
 export function disableKmsKey(apiClient: KmsApiClient): (parameters: DisableKmsKeyParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${kmsTargetPrefix}.DisableKey`,
-      parameters,
-    });
+  const operation = 'DisableKey';
+  return parameters => apiClient({ operation, parameters });
 }

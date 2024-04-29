@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type DeleteSqsMessageParameters } from './delete-sqs-message-parameters';
 
 /**
@@ -12,9 +11,6 @@ import { type DeleteSqsMessageParameters } from './delete-sqs-message-parameters
 export function deleteSqsMessage(
   apiClient: SqsApiClient
 ): (parameters: DeleteSqsMessageParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.DeleteMessage`,
-      parameters,
-    });
+  const operation = 'DeleteMessage';
+  return parameters => apiClient({ operation, parameters });
 }

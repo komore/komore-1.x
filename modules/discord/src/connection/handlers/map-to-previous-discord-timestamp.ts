@@ -1,6 +1,6 @@
 import { pipe } from '@komore/functional';
 import { map, pairwise, startWith, type OperatorFunction } from '@komore/reactive';
-import { currentMillisecondsSinceEpoch } from '@komore/temporal/compatibility';
+import { currentMillisecondsSinceEpoch } from '@komore/temporal';
 
 /**
  * Creates an operator function that emits the timestamp of the previous emission

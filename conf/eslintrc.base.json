@@ -58,7 +58,7 @@
           }
         ],
         "@typescript-eslint/await-thenable": ["error"],
-        "@typescript-eslint/ban-ts-comment": ["error"],
+        "@typescript-eslint/ban-ts-comment": "error",
         "@typescript-eslint/ban-types": [
           "error",
           {
@@ -87,9 +87,13 @@
           {
             "allow": [
               { "from": "lib", "name": "AddEventListenerOptions" },
+              { "from": "lib", "name": "ArrayBuffer" },
+              { "from": "lib", "name": "ArrayBufferView" },
               { "from": "lib", "name": "CryptoKey" },
               { "from": "lib", "name": "Event" },
               { "from": "lib", "name": "FileReader" },
+              { "from": "lib", "name": "FormData" },
+              { "from": "lib", "name": "HeadersInit" },
               { "from": "lib", "name": "IDBDatabase" },
               { "from": "lib", "name": "IDBKeyRange" },
               { "from": "lib", "name": "IDBObjectStore" },
@@ -109,9 +113,11 @@
               { "from": "lib", "name": "Storage" },
               { "from": "lib", "name": "Uint8Array" },
               { "from": "lib", "name": "URL" },
-              { "from": "package", "name": "Observable", "package": "rxjs" },
-              { "from": "package", "name": "SpeechRecognition", "package": "@types/dom-speech-recognition" },
-              { "from": "package", "name": "Subject", "package": "rxjs" }
+              { "from": "lib", "name": "URLSearchParams" },
+              { "from": "lib", "name": "WriteStream" },
+              { "from": "package", "package": "rxjs", "name": "Observable" },
+              { "from": "package", "package": "rxjs", "name": "Subject" },
+              { "from": "package", "package": "@types/dom-speech-recognition", "name": "SpeechRecognition" }
             ],
             "ignoreInferredTypes": true,
             "treatMethodsAsReadonly": true

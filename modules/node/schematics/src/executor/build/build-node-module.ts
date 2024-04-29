@@ -12,7 +12,7 @@ import { type BuildNodeModuleOptions } from './build-node-module-options';
  * @returns
  */
 export function buildNodeModule(options: BuildNodeModuleOptions): Observable<GenericWorkspaceExecutorEvent> {
-  const { paths, taskId } = options;
+  const { paths, sourceMap, taskId } = options;
   const { entryPoint, outputPath: outdir, tsConfig: tsconfig } = paths;
   const format = 'esm';
   const target = ['es2021', 'node20']; // TODO: read from tsconfig?
@@ -21,6 +21,7 @@ export function buildNodeModule(options: BuildNodeModuleOptions): Observable<Gen
     return build({
       entryPoints: [entryPoint],
       format,
+      sourcemap: sourceMap ? 'linked' : false,
       outdir,
       target,
       tsconfig,

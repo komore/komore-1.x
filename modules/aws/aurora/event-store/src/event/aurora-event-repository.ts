@@ -1,13 +1,18 @@
-import { createAuroraClient } from '@komore/aws/aurora';
-import { type Event } from '@komore/event';
-import { type EventRepository } from '@komore/event/store';
+import { type EventFromType, type EventType as GenericEventType } from '@komore/event';
+import { type EventStoreEventRepository } from '@komore/event/store';
 
-import { type AuroraEventRepositoryConfiguration } from './aurora-event-repository-configuration';
+import { type AuroraEventRepositoryOptions } from './aurora-event-repository-options';
 
-export function auroraEventRepository<EventTypes extends Event<string, Record<string, unknown>>[]>(
-  options: AuroraEventRepositoryConfiguration
-): EventRepository<EventTypes> {
-  const auroraClient = options.client ?? createAuroraClient();
-  const tableName = options.tableName;
+/**
+ * Creates an Aurora event repository
+ *
+ * @param repositoryOptions Aurora event repository options
+ * @returns Aurora event repository
+ * @template EventType Event type
+ */
+export function auroraEventRepository<EventType extends GenericEventType>(
+  repositoryOptions: AuroraEventRepositoryOptions<EventType>
+): EventStoreEventRepository<EventFromType<EventType>> {
+  const { apiClient: _a, databaseName: _d, eventType: _e, tableName: _t } = repositoryOptions;
   return {};
 }

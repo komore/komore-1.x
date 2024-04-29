@@ -1,3 +1,4 @@
+import { isDefined } from '@komore/functional';
 import { defaultIfEmpty, first, forkJoin, map } from '@komore/reactive';
 
 import { type ExecutorReferenceString } from '../executor/reference/executor-reference-string';
@@ -18,6 +19,6 @@ export function projectToTasksUsingExecutor(
   return ({ tasks }) =>
     forkJoin([...tasks.values()].map(configuration => configuration.pipe(first()))).pipe(
       defaultIfEmpty([]),
-      map(taskConfigurations => taskConfigurations.filter(usingExecutor))
+      map(taskConfigurations => taskConfigurations.filter(isDefined).filter(usingExecutor))
     );
 }

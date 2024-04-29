@@ -1,4 +1,5 @@
-import { first, map, mergeMap, of } from '@komore/reactive';
+import { isDefined } from '@komore/functional';
+import { filter, first, map, mergeMap, of } from '@komore/reactive';
 import {
   generateWorkspaceExecutorTaskId,
   isExecutorReferenceString,
@@ -28,6 +29,7 @@ export function createTaskRunner(runnerOptions: TaskRunnerOptions): Observable<T
           first(),
           mergeMap(projectConfiguration =>
             projectConfiguration.tasks.get(taskName).pipe(
+              filter(isDefined),
               map(taskConfiguration => ({
                 projectName,
                 projectConfiguration,
@@ -55,7 +57,7 @@ export function createTaskRunner(runnerOptions: TaskRunnerOptions): Observable<T
           mergeMap(workspaceContextExecutor =>
             workspaceContextExecutor.factory.pipe(
               first(),
-              mergeMap(createExecutor => createExecutor({}))
+              mergeMap(createExecutor => createExecutor({ workspaceContext }))
             )
           ),
           mergeMap(executor => {

@@ -1,7 +1,7 @@
 import { buildSpecificationFromSourceFile } from './build-specification-from-source-file';
 
-describe('Build specification from source file', () => {
-  it.skip('works', () => {
+feature('Build specification from source file', {
+  works() {
     const sourceFile = createTestSource(`
         describe('test specification text', () => {
           given: 'given statement';
@@ -20,5 +20,5 @@ describe('Build specification from source file', () => {
     `.length
     );
     buildSpecificationFromSourceFile(sourceFile);
-  });
+  },
 });

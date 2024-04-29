@@ -1,8 +1,3 @@
-import * as path from 'node:path';
-
-import { type Tree } from '@nrwl/devkit';
-import { addProjectConfiguration, formatFiles, generateFiles, names, offsetFromRoot } from '@nrwl/devkit';
-
 import { createLintTarget } from '../create-lint-target';
 import { createPublishTarget } from '../create-publish-target';
 import { createTestTarget } from '../create-test-target';

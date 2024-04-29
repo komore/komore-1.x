@@ -1,5 +1,4 @@
 import { type CognitoApiClient } from '../../cognito-api-client';
-import { cognitoTargetPrefix } from '../../cognito-target-prefix';
 import { type AdminInitiateCognitoAuthParameters } from './admin-initiate-cognito-auth-parameters';
 import { type AdminInitiateCognitoAuthResult } from './admin-initiate-cognito-auth-result';
 
@@ -13,9 +12,6 @@ import { type AdminInitiateCognitoAuthResult } from './admin-initiate-cognito-au
 export function adminInitiateCognitoAuth(
   apiClient: CognitoApiClient
 ): (parameters: AdminInitiateCognitoAuthParameters) => Observable<AdminInitiateCognitoAuthResult> {
-  return parameters =>
-    apiClient({
-      operation: `${cognitoTargetPrefix}.AdminInitiateAuth`,
-      parameters,
-    });
+  const operation = 'AdminInitiateAuth';
+  return parameters => apiClient({ operation, parameters });
 }

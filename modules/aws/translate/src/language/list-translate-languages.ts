@@ -1,5 +1,4 @@
 import { type TranslateApiClient } from '../translate-api-client';
-import { translateTargetPrefix } from '../translate-target-prefix';
 import { type ListTranslateLanguagesParameters } from './list-translate-languages-parameters';
 import { type ListTranslateLanguagesResult } from './list-translate-languages-result';
 
@@ -13,9 +12,6 @@ import { type ListTranslateLanguagesResult } from './list-translate-languages-re
 export function listTranslateLanguages(
   apiClient: TranslateApiClient
 ): (parameters: ListTranslateLanguagesParameters) => Observable<ListTranslateLanguagesResult> {
-  return parameters =>
-    apiClient({
-      operation: `${translateTargetPrefix}.ListLanguages`,
-      parameters,
-    });
+  const operation = 'ListLanguages';
+  return parameters => apiClient({ operation, parameters });
 }

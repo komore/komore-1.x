@@ -33,5 +33,6 @@ feature('Event repository load parametes to DynamoDB key condition expression', 
         `${ph.key.name} = ${ph.key.value} and ${ph.sequence.name} between ${ph.sequence.start} and ${ph.sequence.end}`,
       ],
     ];
+    data;
   },
 });

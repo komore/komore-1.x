@@ -1,21 +1,10 @@
-import {
-  type CopyObjectCommandInput,
-  type CreateBucketCommandInput,
-  type DeleteBucketCommandInput,
-  type DeleteObjectCommandInput,
-  type DeleteObjectsCommandInput,
-  type PutObjectCommandInput,
-  type RestoreObjectCommandInput,
-} from '@aws-sdk/client-s3';
-
-import { createAwsCommandType } from '@komore/aws';
 import { s3Domain } from '@komore/aws/s3';
-import { commandProperties } from '@komore/command';
+import { commandProperties, createCommandType } from '@komore/command';
 
 /**
  * S3 command
  */
-export const s3Command = createAwsCommandType(s3Domain, {
+export const s3Command = createCommandType(s3Domain, {
   /**
    * Copies an S3 object
    *

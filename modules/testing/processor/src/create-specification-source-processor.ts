@@ -1,5 +1,5 @@
-import { map } from '@komore/reactive';
 import { readFileContent } from '@komore/node/file-system';
+import { map } from '@komore/reactive';
 import {
   sourceTextToTypeScriptSourceFile,
   typeScriptNodeToSourceString,
@@ -14,6 +14,7 @@ import { createFeatureProcessorTransformerFactory } from './transformer/create-f
 /**
  * Creates a specification source processor
  *
+ * @param processorOptions Specification source processor options
  * @returns Specification source processor
  */
 export function createSpecificationSourceProcessor(

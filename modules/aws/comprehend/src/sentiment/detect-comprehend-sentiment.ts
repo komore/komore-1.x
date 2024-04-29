@@ -1,5 +1,4 @@
 import { type ComprehendApiClient } from '../comprehend-api-client';
-import { comprehendTargetPrefix } from '../comprehend-target-prefix';
 import { type DetectComprehendSentimentParameters } from './detect-comprehend-sentiment-parameters';
 import { type DetectComprehendSentimentResult } from './detect-comprehend-sentiment-result';
 
@@ -13,9 +12,6 @@ import { type DetectComprehendSentimentResult } from './detect-comprehend-sentim
 export function detectComprehendSentiment(
   apiClient: ComprehendApiClient
 ): (parameters: DetectComprehendSentimentParameters) => Observable<DetectComprehendSentimentResult> {
-  return parameters =>
-    apiClient({
-      operation: `${comprehendTargetPrefix}.DetectSentiment`,
-      parameters,
-    });
+  const operation = 'DetectSentiment';
+  return parameters => apiClient({ operation, parameters });
 }

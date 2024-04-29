@@ -3,6 +3,7 @@ import { matchCommand, type CommandFromType, type CommandHandler } from '@komore
 import { type EventFromType } from '@komore/event';
 import { getCurrentWorkingDirectory } from '@komore/node/process';
 import { first, map, mapTo, mergeMap, of, tapNext, toArray, type Subject } from '@komore/reactive';
+import { stringWithPattern } from '@komore/regexp';
 import { createWorkspaceContext } from '@komore/schematics';
 
 import { type kCommand } from '../k.command';
@@ -37,14 +38,18 @@ export function createKCommandHandler(
       listGenerators: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceGenerators)),
       listPackages: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspacePackages)),
       listProjects: () => workspaceContext$.pipe(mergeMap(displayKomoreWorkspaceProjects)),
-      runExecutor: ({ taskName, parallel = 1, ...command }) => {
-        console.log('task', taskName, parallel, command);
-        return 'all' in command
+      runExecutor: ({ taskName, parallel = 1, ...command }) =>
+        'all' in command || 'projects' in command
           ? workspaceContext$.pipe(
               mergeMap(workspaceContext =>
                 workspaceContext.project.list.pipe(
                   first(),
-                  map(projects => projects.map(([projectName]) => projectName)),
+                  map(projects => {
+                    const projectNames = projects.map(([projectName]) => projectName);
+                    return 'projects' in command
+                      ? projectNames.filter(stringWithPattern(new RegExp(command.projects)))
+                      : projectNames;
+                  }),
                   map(projectNames => workspaceContextToTaskExecution(taskName, projectNames)),
                   mergeMap(toTaskExecution => toTaskExecution(workspaceContext), parallel)
                 )
@@ -55,8 +60,7 @@ export function createKCommandHandler(
           first(),
           map(projects => projects.filter(([, { tasks }]) => tasks.list....))
         ))
-      )*/ workspaceContext$.pipe(mergeMap(workspaceContextToTaskExecution(taskName, [command.projectName])));
-      },
+      )*/ workspaceContext$.pipe(mergeMap(workspaceContextToTaskExecution(taskName, [command.projectName]))),
       runGenerator: unimplementedCommand('runGenerator'),
       validateWorkspace: unimplementedCommand('validateWorkspace'),
     }).pipe(

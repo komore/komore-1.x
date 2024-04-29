@@ -11,5 +11,15 @@ import { type SesApiClientOptions } from './ses-api-client-options';
  */
 export function createSesApiClient(clientOptions: SesApiClientOptions): SesApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'ses' });
+  const service = 'ses';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters,
+      result,
+      signature,
+      url,
+    },
+  });
 }

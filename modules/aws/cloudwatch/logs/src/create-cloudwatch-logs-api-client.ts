@@ -17,10 +17,11 @@ import { type CloudWatchLogsApiClientOptions } from './cloudwatch-logs-api-clien
  */
 export function createCloudWatchLogsApiClient(clientOptions: CloudWatchLogsApiClientOptions): CloudWatchLogsApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'logs';
   const targetPrefix = 'Logs_20140328';
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'logs',
+    service,
     strategies: {
       parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
       result: [awsApiClientJsonResultStrategy({})],

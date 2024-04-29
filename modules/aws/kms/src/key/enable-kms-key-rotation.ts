@@ -1,6 +1,4 @@
 import { type KmsApiClient } from '../kms-api-client';
-import { kmsTargetPrefix } from '../kms-target-prefix';
-
 import { type EnableKmsKeyRotationParameters } from './enable-kms-key-rotation-parameters';
 
 /**
@@ -13,9 +11,6 @@ import { type EnableKmsKeyRotationParameters } from './enable-kms-key-rotation-p
 export function enableKmsKeyRotation(
   apiClient: KmsApiClient
 ): (parameters: EnableKmsKeyRotationParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${kmsTargetPrefix}.EnableKeyRotation`,
-      parameters,
-    });
+  const operation = 'EnableKeyRotation';
+  return parameters => apiClient({ operation, parameters });
 }

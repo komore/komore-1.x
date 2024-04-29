@@ -1,5 +1,4 @@
 import { type CognitoApiClient } from '../../cognito-api-client';
-import { cognitoTargetPrefix } from '../../cognito-target-prefix';
 import { type AdminGetCognitoUserParameters } from './admin-get-cognito-user-parameters';
 import { type AdminGetCognitoUserResult } from './admin-get-cognito-user-result';
 
@@ -12,9 +11,6 @@ import { type AdminGetCognitoUserResult } from './admin-get-cognito-user-result'
 export function adminGetCognitoUser(
   apiClient: CognitoApiClient
 ): (parameters: AdminGetCognitoUserParameters) => Observable<AdminGetCognitoUserResult> {
-  return parameters =>
-    apiClient({
-      operation: `${cognitoTargetPrefix}.AdminGetUser`,
-      parameters,
-    });
+  const operation = 'AdminGetUser';
+  return parameters => apiClient({ operation, parameters });
 }

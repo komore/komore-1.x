@@ -2,7 +2,6 @@ import { httpClientResponseToBlob } from '@komore/http/client';
 import { map, mergeMap } from '@komore/reactive';
 
 import { type S3ApiClient } from '../s3-api-client';
-import { s3TargetPrefix } from '../s3-target-prefix';
 import { type GetS3ObjectParameters } from './get-s3-object-parameters';
 import { type GetS3ObjectResult } from './get-s3-object-result';
 
@@ -16,11 +15,12 @@ import { type GetS3ObjectResult } from './get-s3-object-result';
 export function getS3Object(
   apiClient: S3ApiClient
 ): (parameters: GetS3ObjectParameters) => Observable<GetS3ObjectResult> {
+  const operation = 'GetObject';
   const toBlob = httpClientResponseToBlob();
   return ({ Bucket, Key }) =>
     apiClient({
       Bucket,
-      operation: `${s3TargetPrefix}.GetObject`,
+      operation,
       resourcePath: Key,
       response: true,
     }).pipe(

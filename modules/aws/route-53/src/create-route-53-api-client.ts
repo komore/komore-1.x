@@ -18,10 +18,11 @@ import { type Route53ApiClientOptions } from './route-53-api-client-options';
 export function createRoute53ApiClient(clientOptions: Route53ApiClientOptions): Route53ApiClient {
   const { xmlParser, ...awsClientOptions } = clientOptions;
   const expectedXmlNamespace = new URL('https://route53.amazonaws.com/doc/2013-04-01/');
+  const service = 'route53';
   const url = new URL('https://route53.amazonaws.com/2013-04-01/');
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'route53',
+    service,
     strategies: {
       parameters: awsApiClientXmlParametersStrategy({ xmlParser }),
       result: [awsApiClientXmlResultStrategy({ expectedXmlNamespace, xmlParser })],

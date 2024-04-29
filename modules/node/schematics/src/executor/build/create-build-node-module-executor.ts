@@ -10,13 +10,14 @@ import { type BuildNodeModuleExecutorOptions } from './build-node-module-executo
 export const createBuildNodeModuleExecutor = createWorkspaceExecutorFactory<BuildNodeModuleExecutorOptions>(() =>
   createWorkspaceExecutor(options$ =>
     options$.pipe(
-      mergeMap(({ entryPoint, outputPath, taskId, tsConfig }) =>
+      mergeMap(({ entryPoint, outputPath, sourceMap, taskId, tsConfig }) =>
         buildNodeModule({
           paths: {
             entryPoint,
             outputPath,
             tsConfig,
           },
+          sourceMap,
           taskId,
         })
       )

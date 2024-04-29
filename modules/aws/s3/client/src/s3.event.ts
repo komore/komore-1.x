@@ -1,22 +1,10 @@
-import {
-  type CopyObjectCommandOutput,
-  type CreateBucketCommandOutput,
-  type DeleteBucketCommandOutput,
-  type DeleteObjectCommandOutput,
-  type DeleteObjectsCommandOutput,
-  type PutObjectCommandOutput,
-  type RestoreObjectCommandOutput,
-} from '@aws-sdk/client-s3';
-
-import { createAwsEventType } from '@komore/aws';
-import { eventProperties } from '@komore/event';
-
-import { s3Domain } from './s3.domain';
+import { s3Domain } from '@komore/aws/s3';
+import { createEventType, eventProperties } from '@komore/event';
 
 /**
  * S3 event
  */
-export const s3Event = createAwsEventType(s3Domain, {
+export const s3Event = createEventType(s3Domain, {
   /**
    * An S3 bucket has been created
    *

@@ -10,7 +10,6 @@ import { type CliApplicationOptions } from './cli-application-options';
 import { thenLogAndReturnCliExitCode } from './command/then-log-and-return-cli-exit-code';
 import { cliEventToConsole } from './event/cli-event-to-console';
 import { cliEventsToCliExitCode } from './event/cli-events-to-cli-exit-code';
-import { setupCliApplication } from './setup-cli-application';
 
 /**
  * Runs a command-line interface application
@@ -36,8 +35,6 @@ export function runCliApplication<CommandType extends Command>(
       const exitCodeFromCommands$ = parametersToCommands(of(commandLineArguments)).pipe(
         mergeMap(command => commandHandler(command).pipe(mapTo(0), catchError(thenLogAndReturnCliExitCode(console))))
       );
-
-      setupCliApplication();
 
       return race([consoleLogs$, exitCodeFromEvents$, exitCodeFromCommands$]).pipe(
         tapNext(exitCode => process.exit(exitCode)),

@@ -23,10 +23,10 @@
     "url": "https://github.com/komore/komore"
   },
   "scripts": {
-    "build": "k build --affected",
+    "build": "pnpm k build --affected",
     "build:all": "k build --project=*",
-    "k": "ts-node --swc --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/main.ts",
-    "k:ts": "ts-node --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/main.ts",
+    "k": "ts-node --swc --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/index.ts",
+    "k:ts": "ts-node --project ./modules/k/k.tsconfig.application.json -r tsconfig-paths/register ./modules/k/src/index.ts",
     "lint": "pnpm k run lint --all",
     "lint:affected": "pnpm k run lint --affected",
     "lint:workspace": "pnpm k run lint --workspace",
@@ -48,10 +48,10 @@
     "x:github": "ts-node --project ./tools/github/tsconfig.json -r tsconfig-paths/register ./tools/github/src/github.ts",
     "x:gitlab": "ts-node --project ./tools/gitlab/tsconfig.json -r tsconfig-paths/register ./tools/gitlab/src/gitlab.ts",
     "x:notion": "ts-node --project ./tools/notion/tsconfig.json -r tsconfig-paths/register ./tools/notion/src/notion.ts",
-    "x:opentofu": "ts-node --project ./tools/opentofu/tsconfig.json -r tsconfig-paths/register ./tools/opentofu/src/opentofu.ts",
     "x:poetry": "ts-node --project ./tools/poetry/tsconfig.json -r tsconfig-paths/register ./tools/poetry/src/poetry.ts",
     "x:slack": "ts-node --project ./tools/slack/tsconfig.json -r tsconfig-paths/register ./tools/slack/src/slack.ts",
     "x:teams": "ts-node --project ./tools/teams/tsconfig.json -r tsconfig-paths/register ./tools/teams/src/teams.ts",
+    "x:terraform": "ts-node --project ./tools/terraform/tsconfig.json -r tsconfig-paths/register ./tools/terraform/src/terraform.ts",
     "x:test": "ts-node --project ./tools/test/tsconfig.json -r tsconfig-paths/register ./tools/test/src/test.ts"
   },
   "devDependencies": {

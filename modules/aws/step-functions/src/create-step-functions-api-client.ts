@@ -11,13 +11,15 @@ import { type StepFunctionsApiClientOptions } from './step-functions-api-client-
  */
 export function createStepFunctionsApiClient(clientOptions: StepFunctionsApiClientOptions): StepFunctionsApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'step-functions';
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'step-functions',
+    service,
     strategies: {
       parameters,
       result,
       signature,
+      url,
     },
   });
 }

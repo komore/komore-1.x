@@ -1,7 +1,7 @@
 import { type CognitoChallengeName } from '../../challenge/name/cognito-challenge-name';
 
 /**
- * Admin initate Cognito auth result
+ * Admin initiate Cognito auth result
  *
  * @see {@link https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html#API_AdminInitiateAuth_ResponseElements AdminInitiateAuth Response Elements}
  */

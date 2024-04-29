@@ -1,4 +1,4 @@
-import { type AuroraApiClient } from '@komore/aws/aurora';
+import { type AuroraApiClient, type AuroraDatabaseName } from '@komore/aws/aurora';
 
 /**
  * Aurora snapshot repository options
@@ -8,6 +8,10 @@ export interface AuroraSnapshotRepositoryOptions {
    * Aurora API client
    */
   readonly apiClient: AuroraApiClient;
+  /**
+   * Aurora database name
+   */
+  readonly databaseName: AuroraDatabaseName;
   /**
    * Table name
    */

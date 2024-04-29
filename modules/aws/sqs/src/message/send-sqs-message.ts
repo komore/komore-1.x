@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type SendSqsMessageParameters } from './send-sqs-message-parameters';
 import { type SendSqsMessageResult } from './send-sqs-message-result';
 
@@ -13,9 +12,6 @@ import { type SendSqsMessageResult } from './send-sqs-message-result';
 export function sendSqsMessage(
   apiClient: SqsApiClient
 ): (parameters: SendSqsMessageParameters) => Observable<SendSqsMessageResult> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.SendMessage`,
-      parameters,
-    });
+  const operation = 'SendMessage';
+  return parameters => apiClient({ operation, parameters });
 }

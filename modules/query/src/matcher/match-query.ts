@@ -1,5 +1,5 @@
 import { type QueryName } from '../query-name';
-import { type GenericQuery } from '../generic-query';
+import { type Query } from '../query';
 import { type QueryMatcher } from './query-matcher';
 import { type QueryMatcherCase } from './query-matcher-case';
 
@@ -12,7 +12,7 @@ import { type QueryMatcherCase } from './query-matcher-case';
  * @template QueryType Query type
  * @template ResultType Result type
  */
-export function matchQuery<QueryType extends GenericQuery, ResultType>(
+export function matchQuery<QueryType extends Query, ResultType>(
   query: QueryType,
   matcher: QueryMatcher<QueryType, ResultType>
 ): ResultType {

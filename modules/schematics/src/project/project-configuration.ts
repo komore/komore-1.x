@@ -25,7 +25,7 @@ export interface ProjectConfiguration {
   /**
    * Tasks
    */
-  readonly tasks: ObservableMap<TaskName, TaskConfiguration>;
+  readonly tasks: ObservableMap<TaskName, TaskConfiguration | undefined>;
   /**
    * List of tags
    */

@@ -1,7 +1,8 @@
-import { mergeMap, take } from '@komore/reactive';
+import { first, mergeMap } from '@komore/reactive';
 
-import { type PackageDependencyType } from '../../package/manager/package-dependency-type';
 import { type WorkspaceContext } from '../../context/workspace-context';
+import { type PackageName } from '../../package/name/package-name';
+import { type PackageDependencyType } from '../../package/manager/package-dependency-type';
 
 /**
  * Creates a function that adds a package to a workspace
@@ -11,10 +12,10 @@ import { type WorkspaceContext } from '../../context/workspace-context';
  */
 export function addPackageToWorkspace(
   workspaceContext: WorkspaceContext
-): (packageName: string, packageVersion: string, type: PackageDependencyType) => Observable<void> {
+): (packageName: PackageName, packageVersion: string, type: PackageDependencyType) => Observable<void> {
   return (packageName, packageVersion, type) =>
     workspaceContext.package.manager.pipe(
-      take(1),
+      first(),
       mergeMap(packageManager => packageManager.addPackage(packageName, packageVersion, type))
     );
 }

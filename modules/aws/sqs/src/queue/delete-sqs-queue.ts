@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type DeleteSqsQueueParameters } from './delete-sqs-queue-parameters';
 
 /**
@@ -10,9 +9,6 @@ import { type DeleteSqsQueueParameters } from './delete-sqs-queue-parameters';
  * @see {@link https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html DeleteQueue}
  */
 export function deleteSqsQueue(apiClient: SqsApiClient): (parameters: DeleteSqsQueueParameters) => Observable<void> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.DeleteQueue`,
-      parameters,
-    });
+  const operation = 'DeleteQueue';
+  return parameters => apiClient({ operation, parameters });
 }

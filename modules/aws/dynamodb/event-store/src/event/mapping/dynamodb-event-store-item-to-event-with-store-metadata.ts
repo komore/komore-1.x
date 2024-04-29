@@ -3,7 +3,7 @@ import { type EventFromType, type EventType as GenericEventType } from '@komore/
 import { type EventWithStoreMetadata } from '@komore/event/store';
 import { type ReadonlyRecord } from '@komore/typescript';
 
-import { type DynamoDBEventStoreItemToEventOptions } from './dynamodb-event-store-item-to-event-options';
+import { type DynamoDBEventStoreItemToEventWithStoreMetadataOptions } from './dynamodb-event-store-item-to-event-with-store-metadata-options';
 import { dynamoDBEventStoreItemToEvent } from './dynamodb-event-store-item-to-event';
 import { dynamoDBEventStoreItemToEventStoreMetadata } from './dynamodb-event-store-item-to-event-store-metadata';
 
@@ -14,7 +14,7 @@ import { dynamoDBEventStoreItemToEventStoreMetadata } from './dynamodb-event-sto
  * @returns Function that returns an event, given a DynamoDB event store item
  */
 export function dynamoDBEventStoreItemToEventWithStoreMetadata<EventType extends GenericEventType>(
-  options: DynamoDBEventStoreItemToEventOptions<EventType>
+  options: DynamoDBEventStoreItemToEventWithStoreMetadataOptions<EventType>
 ): (item: ReadonlyRecord<string, DynamoDBAttributeValue>) => EventWithStoreMetadata<EventFromType<EventType>> {
   const toEvent = dynamoDBEventStoreItemToEvent(options);
   const toMetadata = dynamoDBEventStoreItemToEventStoreMetadata(options);

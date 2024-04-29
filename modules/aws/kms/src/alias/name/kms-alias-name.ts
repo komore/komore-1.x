@@ -1,6 +1,6 @@
 /**
  * KMS alias name
  */
-export type KmsAliasName = `alias/${string}` & {
+export type KmsAliasName = string & {
   readonly __tag_awsKmsAliasName: unique symbol;
 };

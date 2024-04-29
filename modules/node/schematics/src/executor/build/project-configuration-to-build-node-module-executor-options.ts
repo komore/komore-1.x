@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 
-import { type ProjectConfiguration, type WorkspaceContext } from '@komore/schematics';
+import { type ProjectName, type ProjectConfiguration, type WorkspaceContext } from '@komore/schematics';
 
 import { type BuildNodeModuleExecutorOptions } from './build-node-module-executor-options';
 
@@ -16,12 +16,12 @@ export function projectConfigurationToBuildNodeModuleExecutorOptions(
 ): (projectConfiguration: ProjectConfiguration) => BuildNodeModuleExecutorOptions {
   const { basePath, configuration } = workspaceContext;
   const baseOutputPath = resolve(basePath, configuration.defaults.outputPath);
-  return ({ name, path }) => {
+  const toOutputPath = projectNameToOutputPath(baseOutputPath);
+  return ({ name, path, type }) => {
     const entryPoint = resolve(path, 'src', 'index.ts');
-    const outputPath = resolve(baseOutputPath, name);
+    const outputPath = toOutputPath(name);
     const sourceMap = true;
-    // TODO: .application.json, .stack.json, .library.json
-    const tsConfig = resolve(path, `${name}.tsconfig.library.json`);
+    const tsConfig = resolve(path, `${name}.tsconfig.${type}.json`);
     const watch = false;
     return {
       entryPoint,
@@ -30,5 +30,14 @@ export function projectConfigurationToBuildNodeModuleExecutorOptions(
       tsConfig,
       watch,
     };
+  };
+}
+
+// TODO: factor
+function projectNameToOutputPath(baseOutputPath: string): (projectName: ProjectName) => string {
+  return projectName => {
+    const slices = projectName.split('-');
+    console.log('weee', resolve(baseOutputPath, ...slices));
+    return resolve(baseOutputPath, projectName);
   };
 }

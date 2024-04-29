@@ -16,7 +16,7 @@ komore TODO.
 
 ## Development
 
-komore comes with first-class support for [OpenTofu].
+komore comes with first-class support for [Terraform].
 
 The framework also offers a fully integrated development experience:
 
@@ -43,6 +43,6 @@ komore can integrate with numerous services, and can easily be extended to suppo
 [reactive]: ./docs/reactive.md
 [saga]: ./docs/saga.md
 [serverless]: https://en.wikipedia.org/wiki/Serverless_computing
-[opentofu]: https://opentofu.org/
+[terraform]: https://www.terraform.io/
 [typescript]: https://www.typescriptlang.org/
 [vscode extension]: TODO

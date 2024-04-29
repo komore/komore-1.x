@@ -1,4 +1,4 @@
-import { first, map, mergeMap } from '@komore/reactive';
+import { first, map, mergeMap, of } from '@komore/reactive';
 
 import { type WorkspaceContext } from '../../context/workspace-context';
 import { workspaceContextSchematicsExecutorToDefaultTaskGenerator } from '../../context/workspace-context-schematics-executor-to-default-task-generator';
@@ -21,20 +21,22 @@ export function taskNameToResolvedTaskConfiguration(
   taskName: TaskName,
   projectConfiguration: Omit<ProjectConfiguration, 'tasks'>,
   projectTasks: ProjectTaskConfigurationsJson
-) => Observable<TaskConfiguration> {
+) => Observable<TaskConfiguration | undefined> {
   const defaultTasks = workspaceContext.configuration.defaults.tasks;
   const { byPackage } = workspaceContext.schematics.executor;
   const toExecutor = executorReferenceStringToExecutor(byPackage);
   const toProjectTaskConfiguration = taskNameToProjectTaskConfiguration(defaultTasks);
   return (taskName, projectConfiguration, projectTasks) => {
-    const executorReferenceStringOrTaskConfiguration = toProjectTaskConfiguration(
-      projectConfiguration,
-      projectTasks
-    )(taskName);
+    const executorReferenceStringOrTaskConfiguration = toProjectTaskConfiguration(projectTasks)(taskName);
     const [executor, taskConfiguration] =
       typeof executorReferenceStringOrTaskConfiguration === 'object'
         ? [executorReferenceStringOrTaskConfiguration.executor, executorReferenceStringOrTaskConfiguration]
         : [executorReferenceStringOrTaskConfiguration, undefined];
+
+    if (executor === undefined) {
+      return of(undefined);
+    }
+
     return toExecutor(executor).pipe(
       first(),
       mergeMap(workspaceContextSchematicsExecutorToDefaultTaskGenerator(workspaceContext)),

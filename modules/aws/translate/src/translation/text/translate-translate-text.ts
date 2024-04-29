@@ -1,5 +1,4 @@
 import { type TranslateApiClient } from '../../translate-api-client';
-import { translateTargetPrefix } from '../../translate-target-prefix';
 import { type TranslateTranslateTextParameters } from './translate-translate-text-parameters';
 import { type TranslateTranslateTextResult } from './translate-translate-text-result';
 
@@ -13,9 +12,6 @@ import { type TranslateTranslateTextResult } from './translate-translate-text-re
 export function translateTranslateText(
   apiClient: TranslateApiClient
 ): (parameters: TranslateTranslateTextParameters) => Observable<TranslateTranslateTextResult> {
-  return parameters =>
-    apiClient({
-      operation: `${translateTargetPrefix}.TranslateText`,
-      parameters,
-    });
+  const operation = 'TranslateText';
+  return parameters => apiClient({ operation, parameters });
 }

@@ -21,7 +21,6 @@ export function createGitCliClient(clientOptions: GitCliClientOptions): GitCliCl
 
   return commandParameters => {
     const args = [...baseArguments, ...commandParameters];
-    console.log('args', args);
     return executeChildProcess(commandName, { arguments: args, workingDirectory }).pipe(
       map(childProcessOutputToStdout),
       throwIfError(isErrorOfType(nodeProcessError.executionError), error => {

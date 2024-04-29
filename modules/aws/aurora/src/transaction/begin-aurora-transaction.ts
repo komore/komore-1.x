@@ -1,5 +1,4 @@
 import { type AuroraApiClient } from '../aurora-api-client';
-import { auroraTargetPrefix } from '../aurora-target-prefix';
 import { type BeginAuroraTransactionParameters } from './begin-aurora-transaction-parameters';
 import { type BeginAuroraTransactionResult } from './begin-aurora-transaction-result';
 
@@ -13,10 +12,7 @@ import { type BeginAuroraTransactionResult } from './begin-aurora-transaction-re
 export function beginAuroraTransaction(
   apiClient: AuroraApiClient
 ): (parameters: BeginAuroraTransactionParameters) => Observable<BeginAuroraTransactionResult> {
-  return parameters =>
-    apiClient({
-      operation: `${auroraTargetPrefix}.BeginTransaction`,
-      parameters,
-      resourcePath: 'BeginTransaction',
-    });
+  const operation = 'BeginTransaction';
+  const resourcePath = 'BeginTransaction';
+  return parameters => apiClient({ operation, parameters, resourcePath });
 }

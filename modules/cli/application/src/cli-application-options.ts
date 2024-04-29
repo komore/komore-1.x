@@ -1,12 +1,14 @@
 import { type cliEvent } from '@komore/cli';
-import { type GenericCommand } from '@komore/command';
+import { type Command } from '@komore/command';
 import { type EventFromType } from '@komore/event';
 import { type Subject } from '@komore/reactive';
 
 /**
  * Command-line interface application options
+ *
+ * @template CommandType Command type
  */
-export interface CliApplicationOptions<CommandType extends GenericCommand> {
+export interface CliApplicationOptions<CommandType extends Command> {
   /**
    * Creates a command handler
    *

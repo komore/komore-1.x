@@ -7,10 +7,10 @@ import { awsApiError } from '../aws-api.error';
 import { type AwsHttpClientResponseToResultOptions } from './aws-http-client-response-to-result-options';
 
 /**
- *
+ * Creates a function that maps an AWS HTTP client response to an error based on its text content
  *
  * @param options Options
- * @returns
+ * @returns Function that maps an AWS HTTP client response to an error based on its text content
  * @private
  */
 export function awsHttpClientResponseToTextResult(
@@ -32,7 +32,6 @@ export function awsHttpClientResponseToTextResult(
           case httpStatuses.Ok:
             return awsApiError.unexpectedResponse({ operation, text, url });
           default:
-            console.log('content', text);
             return awsApiError.unhandledError({ operation, statusCode, text });
         }
       })

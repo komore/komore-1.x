@@ -3,8 +3,6 @@ import { isString } from '@komore/string';
 import { type ExecutorReferenceString } from '../../executor/reference/executor-reference-string';
 import { isExecutorReferenceString } from '../../executor/reference/is-executor-reference-string';
 import { type ProjectTaskConfigurationsJson } from '../../project/json/project-task-configurations-json';
-import { type ProjectConfiguration } from '../../project/project-configuration';
-import { schematicsError } from '../../schematics.error';
 import { type WorkspaceDefaultsConfiguration } from '../../workspace/workspace-defaults-configuration';
 import { taskConfigurationJsonToTaskConfiguration } from '../json/task-configuration-json-to-task-configuration';
 import { type TaskName } from '../name/task-name';
@@ -21,16 +19,15 @@ import { taskNameToDefaultExecutorReferenceString } from './task-name-to-default
 export function taskNameToProjectTaskConfiguration(
   defaultTasks: WorkspaceDefaultsConfiguration['tasks']
 ): (
-  projectConfiguration: Omit<ProjectConfiguration, 'tasks'>,
   projectTasks: ProjectTaskConfigurationsJson
-) => (taskName: TaskName) => ExecutorReferenceString | TaskConfiguration {
+) => (taskName: TaskName) => ExecutorReferenceString | TaskConfiguration | undefined {
   const toDefaultExecutorReferenceString = taskNameToDefaultExecutorReferenceString(defaultTasks);
-  return ({ name: projectName }, projectTasks) => {
+  return projectTasks => {
     const tasks = projectTaskConfigurationsJsonToRecord(projectTasks);
     return taskName => {
       const taskNameOrExecutorReferenceOrConfiguration = tasks[taskName];
       if (taskNameOrExecutorReferenceOrConfiguration === undefined) {
-        throw schematicsError.projectTaskNotFound({ projectName, taskName });
+        return undefined;
       }
 
       if (isString(taskNameOrExecutorReferenceOrConfiguration)) {

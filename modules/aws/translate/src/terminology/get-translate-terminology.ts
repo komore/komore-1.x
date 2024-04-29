@@ -1,5 +1,4 @@
 import { type TranslateApiClient } from '../translate-api-client';
-import { translateTargetPrefix } from '../translate-target-prefix';
 import { type GetTranslateTerminologyParameters } from './get-translate-terminology-parameters';
 
 /**
@@ -12,9 +11,6 @@ import { type GetTranslateTerminologyParameters } from './get-translate-terminol
 export function getTranslateTerminology(
   apiClient: TranslateApiClient
 ): (parameters: GetTranslateTerminologyParameters) => Observable<unknown> {
-  return parameters =>
-    apiClient({
-      operation: `${translateTargetPrefix}.GetTerminology`,
-      parameters,
-    });
+  const operation = 'GetTerminology';
+  return parameters => apiClient({ operation, parameters });
 }

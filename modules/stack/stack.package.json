@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@komore/stack",
-  "description": "Infrastructure provisioning and deployment using OpenTofu",
-  "keywords": ["stack", "opentofu"],
+  "description": "Infrastructure provisioning and deployment using Terraform",
+  "keywords": ["stack", "terraform"],
   "komore": {
     "commands": "./schematics/stack-schematics.commands.json",
     "executors": "./schematics/stack-schematics.executors.json",

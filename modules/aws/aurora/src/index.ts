@@ -1,5 +1,6 @@
 export { type AuroraApiClient } from './aurora-api-client';
 export { type AuroraApiClientOptions } from './aurora-api-client-options';
+export { type AuroraDatabaseName } from './database/name/aurora-database-name';
 export { auroraDomain } from './aurora.domain';
 export { beginAuroraTransaction } from './transaction/begin-aurora-transaction';
 export { type BeginAuroraTransactionParameters } from './transaction/begin-aurora-transaction-parameters';

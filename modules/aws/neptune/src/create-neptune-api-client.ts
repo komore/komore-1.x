@@ -11,5 +11,15 @@ import { type NeptuneApiClientOptions } from './neptune-api-client-options';
  */
 export function createNeptuneApiClient(clientOptions: NeptuneApiClientOptions): NeptuneApiClient {
   const { ...awsClientOptions } = clientOptions;
-  return createAwsApiClient({ ...awsClientOptions, service: 'neptune', strategies: { parameters, result, signature } });
+  const service = 'neptune';
+  return createAwsApiClient({
+    ...awsClientOptions,
+    service,
+    strategies: {
+      parameters,
+      result,
+      signature,
+      url,
+    },
+  });
 }

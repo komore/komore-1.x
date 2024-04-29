@@ -1,8 +1,6 @@
 import { awsProvider, s3Bucket } from '@komore/aws/stack';
 import { defineStack, variable } from '@komore/stack';
 
-console.log('Web stack');
-
 /**
  * Web stack
  */

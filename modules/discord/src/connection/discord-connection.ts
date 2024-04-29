@@ -1,4 +1,4 @@
-import { discordGatewayOpcode } from './data/discord-gateway-event-data';
+import { type discordGatewayOpcode } from './data/discord-gateway-event-data';
 import { type DiscordConnectionStatus } from './discord-connection-status';
 import { type DiscordReceivePayload } from './payload/discord-receive-payload';
 import { type DiscordSendPayload } from './payload/discord-send-payload';

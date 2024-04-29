@@ -1,13 +1,13 @@
 import { isUndefined } from '@komore/functional';
 import {
   filter,
+  first,
   firstValueFrom,
   ignoreValues,
   map,
   merge,
   redactValue,
   switchMap,
-  take,
   takeUntil,
   tapNext,
 } from '@komore/reactive';
@@ -34,7 +34,7 @@ export async function activateVscodeExtension(extensionContext: ExtensionContext
   vscodeExtensionContextSubject.next(extensionContext);
 
   const activation$ = vscodeExtensionContext.pipe(
-    take(1),
+    first(),
     tapNext(addCommandSubscriptionsToExtensionContext),
     tapNext(addWorkspaceSubscriptionsToExtensionContext),
     tapNext(addLanguageCodeLensProviders),
@@ -51,10 +51,9 @@ export async function activateVscodeExtension(extensionContext: ExtensionContext
     switchMap(offerConfigurationReloadOnConfigurationChange)
   );
 
-  merge([offerConfigurationReloadOnConfigurationChange$]).pipe(
-    ignoreValues(),
-    takeUntil(vscodeExtensionContext.pipe(filter(isUndefined)))
-  ).subscribe();
+  merge([offerConfigurationReloadOnConfigurationChange$])
+    .pipe(ignoreValues(), takeUntil(vscodeExtensionContext.pipe(filter(isUndefined))))
+    .subscribe();
 
   return firstValueFrom(activation$);
 }

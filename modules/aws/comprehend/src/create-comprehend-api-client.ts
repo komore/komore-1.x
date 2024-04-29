@@ -1,4 +1,10 @@
-import { createAwsApiClient } from '@komore/aws';
+import {
+  awsApiClientDefaultUrlStrategy,
+  awsApiClientHeaderSignatureStrategy,
+  awsApiClientJsonParametersStrategy,
+  awsApiClientJsonResultStrategy,
+  createAwsApiClient,
+} from '@komore/aws';
 
 import { type ComprehendApiClient } from './comprehend-api-client';
 import { type ComprehendApiClientOptions } from './comprehend-api-client-options';
@@ -11,8 +17,16 @@ import { type ComprehendApiClientOptions } from './comprehend-api-client-options
  */
 export function createComprehendApiClient(clientOptions: ComprehendApiClientOptions): ComprehendApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'comprehend';
+  const targetPrefix = 'Comprehend_20171127';
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'comprehend',
+    service,
+    strategies: {
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
+      result: [awsApiClientJsonResultStrategy({})],
+      signature: awsApiClientHeaderSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
+    },
   });
 }

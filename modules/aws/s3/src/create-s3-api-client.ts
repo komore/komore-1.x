@@ -25,10 +25,11 @@ import { s3ApiClientUrlStrategy } from './s3-api-client-url-strategy';
  */
 export function createS3ApiClient(clientOptions: S3ApiClientOptions): S3ApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 's3';
   const xmlParser = createXmlParser({});
   const awsApiClient = createAwsApiClient({
     ...awsClientOptions,
-    service: 's3',
+    service,
     strategies: {
       parameters: awsApiClientXmlParametersStrategy({ xmlParser }),
       result: [awsApiClientXmlResultStrategy({ xmlParser })],

@@ -1,5 +1,4 @@
 import { type XRayApiClient } from '../../x-ray-api-client';
-import { xRayTargetPrefix } from '../../x-ray-target-prefix';
 import { type PutXRayTraceSegmentsParameters } from './put-x-ray-trace-segments-parameters';
 import { type PutXRayTraceSegmentsResult } from './put-x-ray-trace-segments-result';
 
@@ -13,10 +12,7 @@ import { type PutXRayTraceSegmentsResult } from './put-x-ray-trace-segments-resu
 export function putXRayTraceSegments(
   apiClient: XRayApiClient
 ): (parameters: PutXRayTraceSegmentsParameters) => Observable<PutXRayTraceSegmentsResult> {
-  return parameters =>
-    apiClient({
-      operation: `${xRayTargetPrefix}.PutTraceSegments`,
-      parameters,
-      resourcePath: 'TraceSegments',
-    });
+  const operation = 'PutTraceSegments';
+  const resourcePath = 'TraceSegments';
+  return parameters => apiClient({ operation, parameters, resourcePath });
 }

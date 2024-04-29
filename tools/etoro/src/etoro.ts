@@ -1,3 +1,6 @@
+import '@komore/reactive/polyfill';
+import '@komore/temporal/polyfill';
+
 import { createHttpClient } from '@komore/http/client';
 import { firstValueFrom, mergeMap, tapNext } from '@komore/reactive';
 

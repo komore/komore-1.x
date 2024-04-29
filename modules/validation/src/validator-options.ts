@@ -5,13 +5,13 @@ export interface ValidatorOptions {
   /**
    * Allow string values to be treated as dates
    *
-   * @defaultValue `true`
+   * @default true
    */
   readonly stringAsDate: boolean;
   /**
    * Allow string values to be treated as numbers
    *
-   * @defaultValue `true`
+   * @default true
    */
   readonly stringAsNumber: boolean;
 }

@@ -22,6 +22,10 @@ export interface BuildNodeModuleOptions {
     readonly tsConfig: string;
   };
   /**
+   * Whether a linked source map should be built
+   */
+  readonly sourceMap: boolean;
+  /**
    * Task identifier
    */
   readonly taskId: WorkspaceExecutorTaskId;

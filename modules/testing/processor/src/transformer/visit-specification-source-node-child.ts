@@ -12,6 +12,8 @@ export function visitSpecificationSourceNodeChild(node: TypeScriptNode): TypeScr
   if (isTypeScriptExpressionStatement(node)) {
     if (isSpecificationFeatureExpression(node)) {
       console.log('feature expression!');
+
+      return;
     }
   }
 

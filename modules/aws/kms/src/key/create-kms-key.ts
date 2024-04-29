@@ -1,5 +1,4 @@
 import { type KmsApiClient } from '../kms-api-client';
-import { kmsTargetPrefix } from '../kms-target-prefix';
 import { type CreateKmsKeyParameters } from './create-kms-key-parameters';
 import { type CreateKmsKeyResult } from './create-kms-key-result';
 
@@ -13,9 +12,6 @@ import { type CreateKmsKeyResult } from './create-kms-key-result';
 export function createKmsKey(
   apiClient: KmsApiClient
 ): (parameters: CreateKmsKeyParameters) => Observable<CreateKmsKeyResult> {
-  return parameters =>
-    apiClient({
-      operation: `${kmsTargetPrefix}.CreateKey`,
-      parameters,
-    });
+  const operation = 'CreateKey';
+  return parameters => apiClient({ operation, parameters });
 }

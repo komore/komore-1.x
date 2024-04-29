@@ -1,5 +1,4 @@
 import { type SqsApiClient } from '../sqs-api-client';
-import { sqsTargetPrefix } from '../sqs-target-prefix';
 import { type GetSqsQueueUrlParameters } from './get-sqs-queue-url-parameters';
 import { type GetSqsQueueUrlResult } from './get-sqs-queue-url-result';
 
@@ -13,9 +12,6 @@ import { type GetSqsQueueUrlResult } from './get-sqs-queue-url-result';
 export function getSqsQueueUrl(
   apiClient: SqsApiClient
 ): (parameters: GetSqsQueueUrlParameters) => Observable<GetSqsQueueUrlResult> {
-  return parameters =>
-    apiClient({
-      operation: `${sqsTargetPrefix}.GetQueueUrl`,
-      parameters,
-    });
+  const operation = 'GetQueueUrl';
+  return parameters => apiClient({ operation, parameters });
 }

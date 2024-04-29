@@ -1,6 +1,6 @@
-import { type CommandHandler, type GenericCommand } from '@komore/command';
+import { type CommandHandler, type Command } from '@komore/command';
 
-export function createExitCodeFromCliCommandsObservable<CommandType extends GenericCommand>(
+export function createExitCodeFromCliCommandsObservable<CommandType extends Command>(
   commandHandler: CommandHandler<CommandType>
 ): Observable<number> {
   return parametersToCommands(of(commandLineArguments)).pipe(

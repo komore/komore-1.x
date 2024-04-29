@@ -17,13 +17,14 @@ import { type StsApiClientOptions } from './sts-api-client-options';
  */
 export function createStsApiClient(clientOptions: StsApiClientOptions): StsApiClient {
   const { xmlParser, ...awsClientOptions } = clientOptions;
-  const Version = '2011-06-15';
+  const service = 'sts';
   const url = new URL('https://sts.amazonaws.com/');
+  const Version = '2011-06-15';
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'sts',
+    service,
     strategies: {
-      parameters: [awsApiClientFormParametersStrategy({ additionalParameters: { Version } })],
+      parameters: awsApiClientFormParametersStrategy({ additionalParameters: { Version } }),
       result: [awsApiClientXmlResultStrategy({ xmlParser })],
       signature: awsApiClientHeaderSignatureStrategy({}),
       url: awsApiClientStaticUrlStrategy({ url }),

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Package Node module executor options",
+  "type": "object",
+  "properties": {
+    "outputPath": {
+      "description": "Path where the package is written",
+      "type": "string"
+    },
+    "packageJson": {
+      "description": "Path to the package.json file",
+      "type": "string"
+    }
+  },
+  "required": ["outputPath", "packageJson"]
+}

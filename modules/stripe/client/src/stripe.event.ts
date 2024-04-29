@@ -1,8 +1,7 @@
 import type Stripe from 'stripe';
 
 import { createEventType, eventProperties } from '@komore/event';
-
-import { stripeDomain } from './stripe.domain';
+import { stripeDomain } from '@komore/stripe';
 
 /**
  * Stripe event

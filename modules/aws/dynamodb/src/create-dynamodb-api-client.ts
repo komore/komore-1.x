@@ -17,11 +17,13 @@ import { type DynamoDBApiClientOptions } from './dynamodb-api-client-options';
  */
 export function createDynamoDBApiClient(clientOptions: DynamoDBApiClientOptions): DynamoDBApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'dynamodb';
+  const targetPrefix = 'DynamoDB_20120810';
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'dynamodb',
+    service,
     strategies: {
-      parameters: awsApiClientJsonParametersStrategy({ targetPrefix: 'DynamoDB_20120810' }),
+      parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
       result: [awsApiClientJsonResultStrategy({})],
       signature: awsApiClientHeaderSignatureStrategy({}),
       url: awsApiClientDefaultUrlStrategy(),

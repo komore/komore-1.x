@@ -1,6 +1,6 @@
 # @komore/stack
 
-Infrastructure provisioning and deployment using [OpenTofu].
+Infrastructure provisioning and deployment using [Terraform].
 
 - [Tutorials]
 - [Guides]
@@ -19,5 +19,5 @@ yarn add @komore/stack
 [guides]: https://komore.dev/modules/stack/guides/
 [komore documentation]: https://komore.dev/modules/stack/
 [reference]: https://komore.dev/modules/stack/reference/
-[opentofu]: https://opentofu.org/
+[terraform]: https://terraform.io/
 [tutorials]: https://komore.dev/modules/stack/tutorials/

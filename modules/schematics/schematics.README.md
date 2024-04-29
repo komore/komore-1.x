@@ -34,7 +34,7 @@ TODO: worker model, but option to spawn a separate schematics process if it help
 TODO: document task options mechanism:
 
 1. single task name (e.g. `"tasks": ["build"]`): task resolution process giving a simple executor name (equivalent to #2)
-2. simple executor name (e.g. `"tasks": { "build": "@komore/schematics:build" }`): default executor task schema (equivalent to #3)
+2. simple executor name (e.g. `"tasks": { "build": "@komore/node:build" }`): default executor task schema (equivalent to #3)
 3. executor options schema (e.g. `"tasks": { "build": { "executor": "xx", "options": { } } }`): processed by the executor implementation
 4. executor options: full set options that can be passed to an executor with no additional dependencies
 

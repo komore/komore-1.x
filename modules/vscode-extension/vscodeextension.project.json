@@ -4,13 +4,18 @@
   "tags": ["trait:base"],
   "tasks": {
     "build": {
-      "executor": "@komore/schematics:build",
+      "executor": "@komore/node:build",
       "options": {
-        "assets": ["./assets", "./package.nls.json"]
+        "assets": ["./assets", "./package.nls.json"],
+        "entryPoint": "modules/vscode-extension/src/index.ts",
+        "outputPath": "build/vscode-extension",
+        "sourceMap": true,
+        "tsConfig": "modules/vscode-extension/vscodeextension.tsconfig.library.json",
+        "watch": false
       }
     },
     "lint": "@komore/linting:lint",
-    "publish": "@komore/schematics:publish",
+    "publish": "@komore/node:publish",
     "test": "@komore/testing:test"
   }
 }

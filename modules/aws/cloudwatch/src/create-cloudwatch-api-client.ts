@@ -16,10 +16,11 @@ import { type CloudWatchApiClientOptions } from './cloudwatch-api-client-options
  */
 export function createCloudWatchApiClient(clientOptions: CloudWatchApiClientOptions) {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'cloudwatch';
   const targetPrefix = 'Monitoring'; // TODO: check in generated API files
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'cloudwatch',
+    service,
     strategies: {
       parameters: awsApiClientJsonParametersStrategy({ targetPrefix }),
       result: [awsApiClientJsonResultStrategy({})],

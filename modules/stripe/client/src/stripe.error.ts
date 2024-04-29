@@ -1,6 +1,5 @@
 import { createErrorType } from '@komore/error';
-
-import { stripeDomain } from './stripe.domain';
+import { stripeDomain } from '@komore/stripe';
 
 /**
  * Stripe error

@@ -8,6 +8,8 @@ export { arrayToArrayReversed } from './array/array-to-array-reversed';
 export { arrayToArraySorted } from './array/array-to-array-sorted';
 export { arrayToElementAt } from './array/array-to-element-at';
 export { arrayToFlattenedArray } from './array/array-to-flattened-array';
+export { arrayToJoinedString } from './array/array-to-joined-string';
+export { type ArrayToJoinedStringOptions } from './array/array-to-joined-string-options';
 export { arrayToMap } from './array/array-to-map';
 export { arrayToSlice } from './array/array-to-slice';
 export { arrayToSlices } from './array/array-to-slices';

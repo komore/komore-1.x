@@ -1,6 +1,5 @@
+import { s3Domain } from '@komore/aws/s3';
 import { createErrorType, errorProperties } from '@komore/error';
-
-import { s3Domain } from './s3.domain';
 
 /**
  * S3 error

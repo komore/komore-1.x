@@ -7,5 +7,5 @@ export interface EsLintQueryHandlerOptions {
   /**
    * ESLint instance
    */
-  readonly esLint$: Observable<ESLint>;
+  readonly esLint: ESLint;
 }

@@ -1,5 +1,5 @@
-import { type IamArn } from '@komore/aws/iam';
-import { randomString } from '@komore/random'
+import { asIamArn, type IamArn } from '@komore/aws/iam';
+import { randomString } from '@komore/random';
 
 /**
  * Generates a test IAM ARN
@@ -7,5 +7,7 @@ import { randomString } from '@komore/random'
  * @returns Test IAM ARN
  */
 export function generateTestIamArn(): IamArn {
-  randomString({ length: })
+  // TODO: proper generation
+  const value = randomString({ length: 42 })();
+  return asIamArn(value);
 }

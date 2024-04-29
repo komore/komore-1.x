@@ -1,10 +1,11 @@
 import {
+  awsApiClientDefaultUrlStrategy,
   awsApiClientQueryParametersSignatureStrategy,
   awsApiClientQueryParametersStrategy,
-  awsApiClientTargetPrefixParametersStrategy,
   awsApiClientXmlResultStrategy,
   createAwsApiClient,
 } from '@komore/aws';
+import { createXmlParser } from '@komore/xml';
 
 import { type SnsApiClient } from './sns-api-client';
 import { type SnsApiClientOptions } from './sns-api-client-options';
@@ -17,16 +18,17 @@ import { type SnsApiClientOptions } from './sns-api-client-options';
  */
 export function createSnsApiClient(clientOptions: SnsApiClientOptions): SnsApiClient {
   const { ...awsClientOptions } = clientOptions;
+  const service = 'sns';
+  const Version = '2010-03-31';
+  const xmlParser = createXmlParser({});
   return createAwsApiClient({
     ...awsClientOptions,
-    service: 'sns',
+    service,
     strategies: {
-      parameters: [
-        awsApiClientTargetPrefixParametersStrategy('sns'),
-        awsApiClientQueryParametersStrategy({ Version: '2010-03-31' }),
-      ],
-      result: [awsApiClientXmlResultStrategy()],
-      signature: awsApiClientQueryParametersSignatureStrategy(),
+      parameters: awsApiClientQueryParametersStrategy({ additionalParameters: { Version } }),
+      result: [awsApiClientXmlResultStrategy({ xmlParser })],
+      signature: awsApiClientQueryParametersSignatureStrategy({}),
+      url: awsApiClientDefaultUrlStrategy(),
     },
   });
 }

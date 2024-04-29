@@ -10,6 +10,6 @@ import { type Route53CommandHandlerOptions } from './route-53-command-handler-op
  * @returns Route 53 command handler
  */
 export function createRoute53CommandHandler(handlerOptions: Route53CommandHandlerOptions): Route53CommandHandler {
-  const { apiClient, toEvents } = handlerOptions;
+  const { apiClient: _a, toEvents: _t } = handlerOptions;
   return command => matchCommand(command, {});
 }

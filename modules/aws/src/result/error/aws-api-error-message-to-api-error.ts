@@ -20,7 +20,6 @@ export function awsApiErrorMessageToApiError(
   return ({ apiErrorResult: { Message: message }, httpClientResponse: { status: statusCode } }) => {
     switch (statusCode) {
       case httpStatuses.Forbidden:
-        console.log('hmpf');
         type Matches = readonly [matched: string, user: string, permission: string];
         const toMatches = stringToMatchesWith<Matches>(/^User: ([^\s]+).*the ([^\s]+) action$/);
         const matches = toMatches(message);
@@ -28,7 +27,6 @@ export function awsApiErrorMessageToApiError(
           const [, user, permission] = matches;
           return awsApiError.forbiddenOperation({ operation, permission, user });
         }
-        console.log('well no matches');
         break;
       default:
         break;

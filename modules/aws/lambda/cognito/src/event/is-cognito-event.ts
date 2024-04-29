@@ -1,4 +1,3 @@
-
 import { type CognitoEvent } from './cognito-event';
 import { type CognitoEventMap } from './cognito-event-map';
 
@@ -8,6 +7,6 @@ import { type CognitoEventMap } from './cognito-event-map';
  * @param event Event
  * @returns true if the event is a Cognito event
  */
-export function isCognitoEvent = createLambdaEventTypeTest<CognitoEvent<keyof CognitoEventMap>>(
+export const isCognitoEvent = createLambdaEventTypeTest<CognitoEvent<keyof CognitoEventMap>>(
   event => event.type === undefined && event.userPoolId !== undefined
 );

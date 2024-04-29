@@ -3,7 +3,7 @@ import { type ReadonlyRecord } from '@komore/typescript';
 import { type CognitoUserPoolId } from '../../user-pool/id/cognito-user-pool-id';
 
 /**
- * Admin initate Cognito auth parameters
+ * Admin initiate Cognito auth parameters
  *
  * @see {@link https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html#API_AdminInitiateAuth_RequestParameters AdminInitiateAuth Request Parameters}
  */
