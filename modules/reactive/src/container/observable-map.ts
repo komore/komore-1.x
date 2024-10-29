@@ -18,7 +18,7 @@ export class ObservableMap<K, V> extends Map<K, Observable<V>> {
     this.resolver = resolver;
   }
 
-  get(key: K): Observable<V> {
+  override get(key: K): Observable<V> {
     const value = super.get(key);
     if (value !== undefined) {
       return value;

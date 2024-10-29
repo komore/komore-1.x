@@ -1,4 +1,4 @@
-import { type GenericQuery } from '../generic-query';
+import { type Query } from '../query';
 import { type QueryMatcherCase } from './query-matcher-case';
 
 /**
@@ -7,6 +7,6 @@ import { type QueryMatcherCase } from './query-matcher-case';
  * @template QueryType Possible query types
  * @template ResultType Result type
  */
-export type QueryMatcher<QueryType extends GenericQuery, ResultType = void> = {
+export type QueryMatcher<QueryType extends Query, ResultType = void> = {
   [QueryName in QueryType['name']]: QueryMatcherCase<Extract<QueryType, { name: QueryName }>, ResultType>;
 };

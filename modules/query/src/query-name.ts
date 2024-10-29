@@ -1,8 +1,8 @@
-import { type GenericQuery } from './generic-query';
+import { type Query } from './query';
 
 /**
  * Query name
  *
  * @template QueryType Query type
  */
-export type QueryName<QueryType extends GenericQuery> = QueryType extends GenericQuery ? QueryType['name'] : never;
+export type QueryName<QueryType extends Query> = QueryType extends Query ? QueryType['name'] : never;

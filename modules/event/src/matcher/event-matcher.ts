@@ -1,4 +1,4 @@
-import { type GenericEvent } from '../generic-event';
+import { type Event } from '../event';
 import { type EventMatcherCase } from './event-matcher-case';
 
 /**
@@ -7,6 +7,6 @@ import { type EventMatcherCase } from './event-matcher-case';
  * @template EventType Possible event types
  * @template ResultType Result type
  */
-export type EventMatcher<EventType extends GenericEvent, ResultType = void> = {
+export type EventMatcher<EventType extends Event, ResultType = void> = {
   [EventName in EventType['name']]: EventMatcherCase<Extract<EventType, { name: EventName }>, ResultType>;
 };

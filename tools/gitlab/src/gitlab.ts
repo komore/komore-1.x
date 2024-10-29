@@ -6,7 +6,7 @@ import { createGitLabApiClient } from '@komore/gitlab';
 import { firstValueFrom } from '@komore/reactive';
 
 async function main() {
-  const token = 'glpat-B1Hu5HMSzz1LWWzLfLmo';
+  const token = '';
   const httpClient = createHttpClient();
   const apiClient = createGitLabApiClient({ httpClient, token });
   const result$ = apiClient.query('currentUser');

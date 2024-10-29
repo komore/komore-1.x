@@ -1,6 +1,6 @@
 import { recordLogEvent } from '@komore/observability/logging';
 import { type Observer } from '@komore/reactive';
-import { functionInvocationIgnored, functionObservableCompleted, functionObservableError } from './function-logs';
+import { functionLog } from '../function.log';
 import { type FunctionValue } from './function-value';
 
 /**
@@ -12,7 +12,7 @@ import { type FunctionValue } from './function-value';
 export class FunctionObserver<
   FunctionName extends string,
   FunctionParameterTypes extends ReadonlyArray<unknown>,
-  FunctionReturnType
+  FunctionReturnType,
 > implements Observer<FunctionValue<FunctionParameterTypes, FunctionReturnType>>
 {
   /**
@@ -27,7 +27,7 @@ export class FunctionObserver<
         functionInvocationIgnored({
           functionName: this.functionName,
           index: index + 1,
-          result
+          result,
         })
       );
       return;
@@ -44,7 +44,7 @@ export class FunctionObserver<
     recordLogEvent(
       functionObservableError({
         functionName: this.functionName,
-        error
+        error,
       })
     );
   }
@@ -52,7 +52,7 @@ export class FunctionObserver<
   complete(): void {
     recordLogEvent(
       functionObservableCompleted({
-        functionName: this.functionName
+        functionName: this.functionName,
       })
     );
   }

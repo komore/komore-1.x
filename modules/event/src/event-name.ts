@@ -1,11 +1,11 @@
-import { type GenericEvent } from './generic-event';
-import { type GenericEventType } from './type/generic-event-type';
+import { type Event } from './event';
+import { type EventType as GenericEventType } from './type/event-type';
 
 /**
  * Event name
  *
  * @template EventType Event type
  */
-export type EventName<EventType extends GenericEventType | GenericEvent> = EventType extends GenericEventType
+export type EventName<EventType extends GenericEventType | Event> = EventType extends GenericEventType
   ? keyof EventType
   : EventType['name'];

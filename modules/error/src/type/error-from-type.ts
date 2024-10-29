@@ -1,5 +1,5 @@
 import { type ErrorFromCreator } from '../creator/error-from-creator';
-import { type GenericErrorType } from './generic-error-type';
+import { type ErrorType as GenericErrorType } from './error-type';
 
 /**
  * Error from error type

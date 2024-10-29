@@ -1,5 +1,5 @@
 import { type QueryFromCreator } from '../creator/query-from-creator';
-import { type GenericQueryType } from './generic-query-type';
+import { type QueryType as GenericQueryType } from './query-type';
 
 /**
  * Query from a query type

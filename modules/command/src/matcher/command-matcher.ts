@@ -1,4 +1,4 @@
-import { type GenericCommand } from '../generic-command';
+import { type Command } from '../command';
 import { type CommandMatcherCase } from './command-matcher-case';
 
 /**
@@ -7,6 +7,6 @@ import { type CommandMatcherCase } from './command-matcher-case';
  * @template CommandType Possible command types
  * @template ResultType Result type
  */
-export type CommandMatcher<CommandType extends GenericCommand, ResultType> = {
+export type CommandMatcher<CommandType extends Command, ResultType> = {
   [CommandName in CommandType['name']]: CommandMatcherCase<Extract<CommandType, { name: CommandName }>, ResultType>;
 };
